@@ -64,7 +64,8 @@ async def on_startup(app):
 def main():
     init_db()
 
-    app = ApplicationBuilder().token(TOKEN).post_init(on_startup).build()
+    app = ApplicationBuilder().token(TOKEN).build()
+    asyncio.run(on_startup(app))
     
     register_price_handlers(app)
     register_alert_handlers(app)
