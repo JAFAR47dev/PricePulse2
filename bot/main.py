@@ -45,11 +45,6 @@ from handlers.admin import pro_user_list
 
 
 
-#from edit.handlers import edit_conv
-#from edit.handlers import (
- #   edit_start, select_alert_type, show_alerts_for_edit, show_alert_for_edit, confirm_edit_callback, cancel_edit_callback
-#)
-
 
 proof_filter = (
     (filters.TEXT & filters.Regex(r"^\s*[1-3]\s*[:：]")) |  # Text: "1: proof"
@@ -99,7 +94,7 @@ def main():
     
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
 
-    app.run_polling()  # ✅ no await, no asyncio.run()
+    app.run_polling()
 
 if __name__ == '__main__':
     main()
