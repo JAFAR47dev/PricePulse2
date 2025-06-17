@@ -2,7 +2,6 @@ import os
 import sys
 from telegram import Update
 from telegram.ext import ContextTypes
-# Fix import path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from dotenv import load_dotenv
@@ -54,7 +53,7 @@ proof_filter = (
 
 
 
-# Load .env
+
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
