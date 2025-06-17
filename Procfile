@@ -1,1 +1,1 @@
-worker: python CryptoBot.py
+worker: python bot/main.py
