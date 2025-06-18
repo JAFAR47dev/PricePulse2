@@ -1,6 +1,6 @@
 import os
 import sys
-
+from telegram import Update
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from dotenv import load_dotenv
@@ -91,7 +91,7 @@ def main():
     app.run_webhook(
         listen="0.0.0.0",
         port=int(os.environ.get("PORT", 10000)),
-        webhook_url=f"{WEBHOOK_URL}/webhook"
+        webhook_url=WEBHOOK_URL
     )
 
 if __name__ == '__main__':
