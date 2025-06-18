@@ -1,5 +1,8 @@
 import os
 import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from dotenv import load_dotenv
 
 from telegram.ext import (
@@ -32,8 +35,7 @@ from tasks.check_expiry import check_expired_pro_users
 from tasks.admin_approval import handle_task_review_callback
 from stats.handlers import show_stats
 
-# Setup
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
