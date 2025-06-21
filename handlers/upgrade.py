@@ -26,6 +26,7 @@ CRYPTO_DETAILS = {
 
 # --- Step 1: Show Upgrade Plans ---
 async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("Upgrade menu received")
     text = (
     "*🚀 Upgrade to Pro*\n\n"
     "Unlock the full power of your crypto toolkit and gain an edge in the market with advanced tools and automation:\n\n"
