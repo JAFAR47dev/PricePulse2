@@ -21,6 +21,7 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 OPENROUTER_API_KEY=os.getenv("OPENROUTER_API_KEY") 
+from utils.auth import is_pro_plan  
 
 
 
@@ -37,34 +38,46 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 help_pages = {
-    1: "*📖 Bot Guide: Alerts*\n\n"
-       "• `/alert price BTC > 65000`\n"
-       "• `/alert percent ETH +5`\n"
-       "• `/alert volume XRP 5x 1h`\n"
-       "• `/alert risk SOL SL:90 TP:130`\n"
-       "• `/alert custom DOGE < 0.1 RSI < 30`\n"
-       "• `/alert portfolio BTC 1 up 68000`\n"
-       "• `/alerts` / `/remove TYPE ID`\n"
-       "• `/removeall`\n",
+    1: "*📖 Alerts & Market Tools (Free)*\n\n"
+       "• `/set price BTC > 65000` – Alert when price crosses value (max 3)\n"
+       "• `/alerts` – View your active alerts\n"
+       "• `/remove TYPE ID` – Remove a specific alert\n"
+       "• `/removeall` – Delete all alerts\n"
+       "• `/chart BTC` – 1h TradingView chart\n"
+       "• `/BTC` – Coin info: price, % change, ATH, market cap\n"
+       "• `/trend BTC` – Technicals (1h only)\n"
+       "• `/best` / `/worst` – Top 3 gainers/losers\n"
+       "• `/news` – Latest 5 crypto headlines\n",
 
-    2: "*📊 Trend & Smart Tools*\n\n"
-       "• `/trend BTC 4h` – RSI, EMA, MACD\n"
-       "• `/predict ETH` – AI trend prediction\n"
-       "• `/watch BTC 65000 10` – Watchlist alert\n"
-       "• `/watchlist`, `/portfolio`\n",
+    2: "*💎 Advanced Features (Pro)*\n\n"
+       "• `/set percent BTC 5` – Alert on % changes\n"
+       "• `/set volume BTC 2x` – Volume spike alert\n"
+       "• `/set risk BTC 50000 60000` – Stop-loss / take-profit\n"
+       "• `/set custom BTC > 50000 EMA > 200` – Combine price + indicators\n"
+       "• `/chart BTC 4h`, `/trend ETH 1d` – All timeframes\n"
+       "• `/prediction BTC 1h` – AI-based price prediction\n"
+       "• `/watch BTC 5 1h` – Watchlist alert\n"
+       "• `/watchlist` / `/removewatch BTC`\n"
+       "• `/portfolio`, `/addasset`, `/removeasset`, `/clearportfolio`\n"
+       "• `/portfoliolimit`, `/portfoliotarget`\n",
 
-    3: "*🎯 Tasks & Referrals*\n\n"
-       "• `/tasks` – Complete 3 steps for Pro\n"
-       "• Invite friends using your referral code\n\n"
-       "*💎 Plans:*\n"
-       "• Free: 3 alerts, no repeats\n"
-       "• Pro: Unlimited, portfolio, custom, signals\n"
-       "• `/upgrade` to see benefits\n",
+    3: "*🎯 Get 1 Month Pro Free*\n\n"
+       "• `/tasks` – Complete 3 simple tasks:\n"
+       "   ┗ Helps promote the bot and grow users\n"
+       "• After approval, enjoy 30 days of Pro access!\n\n"
+       "*📢 Referral System:*\n"
+       "• `/referral` – Get your referral link\n"
+       "• Invite friends and earn rewards\n\n"
+       "*🔼 Plans:*\n"
+       "• Free: 3 alerts, 1h chart only\n"
+       "• Pro: Unlimited alerts, AI tools, portfolio, watchlist\n"
+       "• Use `/upgrade` to view Pro benefits\n",
 
     4: "*🌐 Community & Support*\n\n"
-       "• [Join Group](https://t.me/YOURGROUPLINK)\n"
-       "• Ask questions or share feedback\n\n"
-       "Need help? DM the admin or use `/tasks`."
+       "• `/start` – Welcome menu with quick access buttons\n"
+       "• [Join Group](https://t.me/+tSWwj5w7S8hkZmM0) – Ask questions or share ideas\n"
+       "• Need help? Use `/tasks` or DM admin\n\n"
+       "We’re building the most powerful crypto assistant for Telegram 🚀"
 }
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -267,40 +280,65 @@ async def handle_view_commands(update: Update, context: ContextTypes.DEFAULT_TYP
     await query.answer()
 
     upgrade_text = (
-        "📘 *Available Bot Commands:*\n\n"
-        "📊 *Alerts:*\n"
-        "/alert — Set price alert\n"
-        "/percent — % change alert\n"
-        "/volume — Volume spike alert\n"
-        "/risk — SL/TP alerts\n"
-        "/custom — Price + RSI combo alert\n"
-        "/portfolioalert — Portfolio-based alert\n"
-        "/alerts — View active alerts\n"
-        "/remove — Remove specific alert\n"
-        "/removeall — Delete all alerts\n\n"
+    "📘 *Available Bot Commands*\n\n"
 
-        "🧾 *Portfolio Tools:*\n"
-        "/portfolio — View your holdings\n"
-        "/add — Add a coin\n"
-        "/remove — Remove a coin\n"
-        "/portfoliolimit — Set max loss alert\n"
-        "/portfoliotarget — Set profit target alert\n\n"
+    "━━━━━━━━━━━━━━━━━━━\n"
+    "⚙️ *Free Plan Commands*\n"
+    "━━━━━━━━━━━━━━━━━━━\n"
+    "🛎️ *Basic Alerts:*\n"
+    "• `/set price BTC > 50000` — Set price-based alerts (max 3 alerts)\n"
+    "• `/alerts` — View your active alerts\n"
+    "• `/remove price 1` — Remove a specific alert\n"
+    "• `/removeall` — Delete all alerts\n\n"
 
-        "🛠 *Utilities:*\n"
-        "/trend — Market trend analysis\n"
-        "/prediction — AI-powered forecast *(Pro)*\n"
-        "/watchlist — Manage watchlist\n"
-        "/addwatch — Add to watchlist\n"
-        "/removewatch — Remove from watchlist\n\n"
+    "📊 *Charts & Data:*\n"
+    "• `/chart BTC` — View 1h TradingView chart\n"
+    "• `/BTC` — Coin info: price, % change, volume, ATH, etc.\n"
+    "• `/trend BTC` — View indicators (1h only)\n"
+    "• `/best` / `/worst` — Top 3 gainers/losers (24h)\n"
+    "• `/news` — Get latest 5 crypto headlines\n\n"
 
-        "🎁 *Referral & Rewards:*\n"
-        "/tasks — Earn 1 month Pro\n"
-        "/invite — Refer & earn\n\n"
+    "🎁 *Growth & Referral:*\n"
+    "• `/tasks` — Complete tasks to earn 1 month Pro\n"
+    "• `/referral` — Get your referral link\n\n"
 
-        "⚙️ *Account:*\n"
-        "/upgrade — Upgrade to Pro\n"
-        "/plan — Check current plan\n"
-        "/start — Restart bot intro"
+    "🧭 *Navigation & Info:*\n"
+    "• `/start` — Launch welcome menu\n"
+    "• `/help` — View detailed guide\n"
+    "• `/upgrade` — See Pro benefits & upgrade steps\n"
+    "• `/plan` — Check your current plan\n\n"
+
+    "━━━━━━━━━━━━━━━━━━━\n"
+    "💎 *Pro Plan Features*\n"
+    "━━━━━━━━━━━━━━━━━━━\n"
+    "📈 *Advanced Alerts:*\n"
+    "• `/set percent BTC 5` — Alert on % price changes\n"
+    "• `/set volume BTC 2x` — Volume spike alert\n"
+    "• `/set risk BTC 50000 60000` — Stop-loss / Take-profit alerts\n"
+    "• `/set custom BTC > 50000 EMA > 200` — Price + indicator alerts\n"
+
+    "🧾 *Portfolio Management:*\n"
+    "• `/portfolio` — View total value of assets\n"
+    "• `/addasset BTC 1.2` — Add coins to portfolio\n"
+    "• `/removeasset BTC` — Remove a coin\n"
+    "• `/clearportfolio` — Clear all assets\n"
+    "• `/portfoliolimit 15000` — Set a loss alert\n"
+    "• `/portfoliotarget 25000` — Set a profit alert\n\n"
+
+    "🔔 *Watchlist Tools:*\n"
+    "• `/watch BTC 5 1h` — Alert for ±% moves\n"
+    "• `/watchlist` — View all watch alerts\n"
+    "• `/removewatch BTC` — Remove coin from watchlist\n\n"
+
+    "🤖 *Smart Tools:*\n"
+    "• `/chart BTC 4h` — Unlock full chart timeframes\n"
+    "• `/trend ETH 1d` — Advanced trend analysis\n"
+    "• `/prediction BTC 1h` — AI-based price forecasting\n"
+    
+    "━━━━━━━━━━━━━━━━━━━\n"
+    "💬 *Feature Request?*\n"
+    "Got an idea or need a custom feature?\n"
+    "👉 [Join our community](https://t.me/+tSWwj5w7S8hkZmM0) and share your thoughts!"
     )
     keyboard = [
         [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
@@ -662,8 +700,9 @@ def safe(val):
 async def predict_price(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
+        
 
-    if plan != "pro":
+    if not is_pro_plan(plan):
         await update.message.reply_text(
             "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"

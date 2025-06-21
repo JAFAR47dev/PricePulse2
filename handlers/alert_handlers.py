@@ -6,6 +6,7 @@ from models.user import get_user_plan
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, ConversationHandler, CallbackQueryHandler, CommandHandler
 from services.alert_service import delete_all_alerts
+from utils.auth import is_pro_plan
 
 # Conversation states for removing alerts
 REMOVE_CONFIRM = range(1)
@@ -99,8 +100,12 @@ async def handle_percent_alert(update, context, args, plan):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    if plan != "pro":
-        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
+
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            parse_mode="Markdown"
+        )
         return
 
     if len(args) < 2:
@@ -138,9 +143,18 @@ async def handle_volume_alert(update, context, args, plan):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    if plan != "pro":
-        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
+    #if plan != "pro":
+#        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
+#        return
+        
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            parse_mode="Markdown"
+        )
         return
+        
+   
 
     if len(args) < 2:
         await update.message.reply_text("❌ Usage: /set volume BTCUSDT 2.5 [repeat]")
@@ -172,8 +186,15 @@ async def handle_risk_alert(update, context, args, plan):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    if plan != "pro":
-        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
+   # if plan != "pro":
+#        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
+#        return
+        
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            parse_mode="Markdown"
+        )
         return
 
     if len(args) < 3:
@@ -210,8 +231,15 @@ async def handle_custom_alert(update, context, args, plan):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    if plan != "pro":
-        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
+   # if plan != "pro":
+#        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
+#        return
+        
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            parse_mode="Markdown"
+        )
         return
 
     if len(args) < 4:
@@ -471,11 +499,11 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if plan == "free":
         total_alerts = sum([
             len(price_rows), len(percent_rows), len(volume_rows),
-            len(risk_rows), len(custom_rows), len(portfolio_rows)
+            len(risk_rows), len(custom_rows)
         ])
         has_repeat = any(
             any(row[-1] for row in group)
-            for group in [price_rows, percent_rows, volume_rows, risk_rows, custom_rows, portfolio_rows]
+            for group in [price_rows, percent_rows, volume_rows, risk_rows, custom_rows]
         )
         upgrade_msg = "\n\n⚠️ *Free Plan Limits:*\n"
         upgrade_msg += f"• You are using *{total_alerts}/3* alerts.\n"
@@ -555,7 +583,7 @@ async def watchlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    if plan != "pro":
+    if plan == "free":
         await update.message.reply_text(
             "🔒 *Pro-only feature.* Upgrade to access your watchlist.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
