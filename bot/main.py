@@ -64,6 +64,10 @@ def main():
 
     #app.add_handler(CommandHandler("upgrade", upgrade_menu))
     #app.add_handler(CommandHandler("prolist", pro_user_list))
+    app.add_handler(CommandHandler("upgrade", upgrade_menu, filters=filters.ChatType.PRIVATE))
+    app.add_handler(CommandHandler("tasks", tasks_menu, filters=filters.ChatType.PRIVATE))
+    app.add_handler(CommandHandler("stats", show_stats, filters=filters.ChatType.PRIVATE))
+    app.add_handler(CommandHandler("prolist", pro_user_list, filters=filters.ChatType.PRIVATE))
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
     app.add_handler(CallbackQueryHandler(back_to_plans, pattern="^back_to_plans$"))
