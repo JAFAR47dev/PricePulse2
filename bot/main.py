@@ -12,6 +12,7 @@ from telegram.ext import (
     CallbackQueryHandler,
     ConversationHandler,
     MessageHandler,
+    ContextTypes
 )
 from models.db import init_db
 from services.alert_service import start_alert_checker
