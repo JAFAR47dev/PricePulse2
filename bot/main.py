@@ -92,13 +92,11 @@ def main():
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
 
     # 🧠 The important part — use webhook!
-    import asyncio
-    async def reset_webhook():
-        await app.bot.delete_webhook()
-        await app.bot.set_webhook(url=WEBHOOK_URL, drop_pending_updates=True)
-        print("✅ Webhook reset with drop_pending_updates=True")
-
-    asyncio.run(reset_webhook())
+    app.run_webhook(
+        listen="0.0.0.0",
+        port=int(os.environ.get("PORT", 10000)),
+        webhook_url=WEBHOOK_URL
+    )
     
 
 if __name__ == '__main__':
