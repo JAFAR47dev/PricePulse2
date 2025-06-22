@@ -89,6 +89,27 @@ def main():
     app.add_handler(MessageHandler(proof_filter, receive_proof))
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
 
+    from telegram.ext import MessageHandler, filters
+
+    async def fallback_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        text = update.message.text.strip().lower()
+
+        if text.startswith("/upgrade"):
+            await upgrade_menu(update, context)
+        elif text.startswith("/tasks"):
+            await tasks_menu(update, context)
+        elif text.startswith("/prolist"):
+            await pro_user_list(update, context)
+        elif text.startswith("/stats"):
+            await show_stats(update, context)
+
+    # Optionally: fallback for unrecognized command
+        else:
+            await update.message.reply_text("❓ Command not recognized. Try again.")
+
+# Add this last in your main.py after all other handlers
+    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/"), fallback_command_handler))
+
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
 
     # 🧠 The important part — use webhook!
