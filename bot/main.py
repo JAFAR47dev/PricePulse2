@@ -12,7 +12,6 @@ from telegram.ext import (
     CallbackQueryHandler,
     ConversationHandler,
     MessageHandler,
-    filters,
 )
 from models.db import init_db
 from services.alert_service import start_alert_checker
@@ -89,8 +88,6 @@ def main():
     app.add_handler(CommandHandler("reviewtasks", review_tasks))
     app.add_handler(MessageHandler(proof_filter, receive_proof))
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
-
-    from telegram.ext import MessageHandler, filters
 
     async def fallback_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = update.message.text.strip().lower()
