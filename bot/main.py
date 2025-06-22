@@ -62,15 +62,15 @@ def main():
     register_alert_handlers(app)
     register_general_handlers(app)
 
-    app.add_handler(CommandHandler("upgrade", upgrade_menu))
-    app.add_handler(CommandHandler("prolist", pro_user_list))
+    #app.add_handler(CommandHandler("upgrade", upgrade_menu))
+    #app.add_handler(CommandHandler("prolist", pro_user_list))
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
     app.add_handler(CallbackQueryHandler(back_to_plans, pattern="^back_to_plans$"))
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^back_to_crypto_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(confirm_payment, pattern=r"^confirm_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
 
-    app.add_handler(CommandHandler("stats", show_stats))
+    #app.add_handler(CommandHandler("stats", show_stats))
     app.add_handler(CommandHandler("chart", show_chart))
     app.add_handler(CommandHandler("portfolio", view_portfolio))
     app.add_handler(CommandHandler("removeasset", remove_asset))
@@ -79,7 +79,7 @@ def main():
     app.add_handler(CommandHandler("clearportfolio", clear_portfolio))
 
     app.add_handler(CommandHandler("setplan", set_plan))
-    app.add_handler(CommandHandler("tasks", tasks_menu))
+    #app.add_handler(CommandHandler("tasks", tasks_menu))
     app.add_handler(CallbackQueryHandler(handle_task_buttons, pattern="^(submit_proof|check_status)$"))
     app.add_handler(CommandHandler("reviewtasks", review_tasks))
     app.add_handler(MessageHandler(proof_filter, receive_proof))
