@@ -1,6 +1,7 @@
 import os
 import sys
 from telegram import Update
+from telegram.ext import filters
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from dotenv import load_dotenv
