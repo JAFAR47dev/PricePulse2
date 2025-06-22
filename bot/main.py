@@ -116,6 +116,7 @@ def main():
         listen="0.0.0.0",
         port=int(os.environ.get("PORT", 10000)),
         webhook_url=WEBHOOK_URL
+        drop-pending_updates=True
     )
     
 
