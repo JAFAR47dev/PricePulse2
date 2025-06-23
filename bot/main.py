@@ -1,6 +1,6 @@
 import os
 import sys
-from telegram import Update
+from telegram import Update, BotCommand
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, CallbackQueryHandler,
     ConversationHandler, MessageHandler, ContextTypes, filters
@@ -31,19 +31,37 @@ from tasks.check_expiry import check_expired_pro_users
 from tasks.admin_approval import handle_task_review_callback
 from stats.handlers import show_stats
 
-# Load environment variables
+# Load .env
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
-# Proof filter for tasks
+# Filter for proof messages
 proof_filter = (
     (filters.TEXT & filters.Regex(r"^\s*[1-3]\s*[:：]")) |
     (filters.PHOTO & filters.CaptionRegex(r"^\s*[1-3]\s*$")) |
     (filters.Document.ALL & filters.CaptionRegex(r"^\s*[1-3]\s*$"))
 )
 
-# Startup tasks
+# 🔧 Force-set bot commands on startup
+async def set_bot_commands(app):
+    await app.bot.set_my_commands([
+        BotCommand("upgrade", "View Pro benefits and plans"),
+        BotCommand("tasks", "Complete tasks for free Pro access"),
+        BotCommand("stats", "View global usage stats"),
+        BotCommand("prolist", "Admin: View Pro users"),
+        BotCommand("chart", "View coin chart"),
+        BotCommand("portfolio", "View your portfolio"),
+        BotCommand("removeasset", "Remove a portfolio asset"),
+        BotCommand("portfoliolimit", "Set loss threshold"),
+        BotCommand("portfoliotarget", "Set profit target"),
+        BotCommand("clearportfolio", "Clear your portfolio"),
+        BotCommand("setplan", "Admin: Manually set user plan"),
+        BotCommand("reviewtasks", "Admin: Approve/reject tasks")
+    ])
+    print("✅ Bot commands have been registered.")
+
+# 🚀 Startup routine
 async def on_startup(app):
     print("🚀 Bot starting...")
     start_alert_checker(app.job_queue)
@@ -53,27 +71,27 @@ def main():
     create_referrals_table()
     create_task_progress_table()
 
-    app = ApplicationBuilder().token(TOKEN).post_init(on_startup).build()
+    app = ApplicationBuilder().token(TOKEN).post_init(on_startup).post_init(set_bot_commands).build()
 
-    # Register modular handlers
+    # Register main handlers
     register_price_handlers(app)
     register_alert_handlers(app)
     register_general_handlers(app)
 
-    # Core Command Handlers (PRIVATE CHAT only)
+    # Core command handlers (private chat)
     app.add_handler(CommandHandler("upgrade", upgrade_menu, filters=filters.ChatType.PRIVATE))
     app.add_handler(CommandHandler("tasks", tasks_menu, filters=filters.ChatType.PRIVATE))
     app.add_handler(CommandHandler("stats", show_stats, filters=filters.ChatType.PRIVATE))
     app.add_handler(CommandHandler("prolist", pro_user_list, filters=filters.ChatType.PRIVATE))
 
-    # Callback query handlers
+    # Callback flow
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
     app.add_handler(CallbackQueryHandler(back_to_plans, pattern="^back_to_plans$"))
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^back_to_crypto_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(confirm_payment, pattern=r"^confirm_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
 
-    # Portfolio & tools
+    # Portfolio & trading tools
     app.add_handler(CommandHandler("chart", show_chart))
     app.add_handler(CommandHandler("portfolio", view_portfolio))
     app.add_handler(CommandHandler("removeasset", remove_asset))
@@ -81,21 +99,18 @@ def main():
     app.add_handler(CommandHandler("portfoliotarget", set_portfolio_profit_target))
     app.add_handler(CommandHandler("clearportfolio", clear_portfolio))
 
-    # Admin & task commands
+    # Admin/task commands
     app.add_handler(CommandHandler("setplan", set_plan))
     app.add_handler(CallbackQueryHandler(handle_task_buttons, pattern="^(submit_proof|check_status)$"))
     app.add_handler(CommandHandler("reviewtasks", review_tasks))
     app.add_handler(MessageHandler(proof_filter, receive_proof))
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
 
-    # ✅ Fallback for broken commands (fixes webhook + no-username issue)
+    # Fallback command handler (backup)
     async def fallback_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not update.message or not update.message.text:
             return
-
         text = update.message.text.strip().lower()
-        user_id = update.effective_user.id
-
         if text.startswith("/upgrade"):
             await upgrade_menu(update, context)
         elif text.startswith("/tasks"):
@@ -107,10 +122,10 @@ def main():
 
     app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/"), fallback_command_handler))
 
-    # Auto job to check expired Pro users
+    # Periodic background job
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
 
-    # ✅ Webhook Mode for Render deployment
+    # 🚀 Webhook setup for Render
     app.run_webhook(
         listen="0.0.0.0",
         port=int(os.environ.get("PORT", 10000)),
