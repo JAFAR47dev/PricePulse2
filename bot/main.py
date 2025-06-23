@@ -43,6 +43,8 @@ proof_filter = (
 )
 
 # Set bot commands for BotFather
+from telegram import BotCommandScopeDefault
+
 async def set_bot_commands(app):
     await app.bot.set_my_commands([
         BotCommand("upgrade", "View Pro benefits and plans"),
@@ -57,8 +59,8 @@ async def set_bot_commands(app):
         BotCommand("clearportfolio", "Clear your portfolio"),
         BotCommand("setplan", "Admin: Manually set user plan"),
         BotCommand("reviewtasks", "Admin: Approve/reject tasks")
-    ])
-    print("✅ Bot commands have been registered.")
+    ], scope=BotCommandScopeDefault())
+    print("✅ Bot commands set (Default scope)")
 
 # Startup jobs
 async def on_startup(app):
