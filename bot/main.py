@@ -108,19 +108,35 @@ def main():
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
 
     # Backup: fallback for command input (for bots with missing BotFather config)
+    # Fallback: Catch broken or unrecognized commands
     async def fallback_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not update.message or not update.message.text:
             return
-        text = update.message.text.strip().lower()
-        if text.startswith("/upgrade"):
-            await upgrade_menu(update, context)
-        elif text.startswith("/tasks"):
-            await tasks_menu(update, context)
-        elif text.startswith("/prolist"):
-            await pro_user_list(update, context)
-        elif text.startswith("/stats"):
-            await show_stats(update, context)
 
+        text = update.message.text.strip().lower()
+        user_id = update.effective_user.id
+        username = (await context.bot.get_me()).username
+
+        # Commands that commonly break without @BotName
+        known = {
+            "/upgrade": upgrade_menu,
+            "/tasks": tasks_menu,
+            "/stats": show_stats,
+            "/prolist": pro_user_list,
+        }
+
+        for cmd_prefix, handler in known.items():
+            if text.startswith(cmd_prefix):
+                await update.message.reply_text(
+                    f"⚠️ If `{cmd_prefix}` didn’t work, try typing `{cmd_prefix}@{username}`.",
+                    parse_mode="Markdown"
+                )
+                await handler(update, context)
+                return
+
+        # If unknown command
+        await update.message.reply_text("❓ Unrecognized command. Try /help or /start.")
+        
     app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/"), fallback_command_handler))
 
     # Run recurring jobs
