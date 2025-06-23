@@ -126,12 +126,7 @@ def main():
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
 
     # 🚀 Webhook setup for Render
-    app.run_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get("PORT", 10000)),
-        webhook_url=WEBHOOK_URL,
-        drop_pending_updates=True
-    )
+    app.run_polling(drop_pending_updates=True)
 
 if __name__ == '__main__':
     main()
