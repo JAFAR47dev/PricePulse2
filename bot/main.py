@@ -107,36 +107,50 @@ def main():
     app.add_handler(MessageHandler(proof_filter, receive_proof))
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
 
-    # Backup: fallback for command input (for bots with missing BotFather config)
-    # Fallback: Catch broken or unrecognized commands
+    from telegram.constants import ParseMode
+
     async def fallback_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not update.message or not update.message.text:
             return
 
         text = update.message.text.strip().lower()
-        user_id = update.effective_user.id
-        username = (await context.bot.get_me()).username
+        message = update.message
+        chat_id = message.chat_id
+        bot_username = (await context.bot.get_me()).username  # e.g. 'YourBot'
 
-        # Commands that commonly break without @BotName
-        known = {
+        # List of commands to handle fallback for
+        fallback_commands = {
             "/upgrade": upgrade_menu,
             "/tasks": tasks_menu,
-            "/stats": show_stats,
             "/prolist": pro_user_list,
+            "/stats": show_stats,
         }
 
-        for cmd_prefix, handler in known.items():
-            if text.startswith(cmd_prefix):
-                await update.message.reply_text(
-                    f"⚠️ If `{cmd_prefix}` didn’t work, try typing `{cmd_prefix}@{username}`.",
-                    parse_mode="Markdown"
-                )
-                await handler(update, context)
-                return
+        for cmd, handler in fallback_commands.items():
+            if text.startswith(cmd):
+                try:
+                  # 1. Delete the broken command message
+                await context.bot.delete_message(chat_id=chat_id, message_id=message.message_id)
+                except Exception as e:
+                    print(f"⚠️ Could not delete message: {e}")
 
-        # If unknown command
-        await update.message.reply_text("❓ Unrecognized command. Try /help or /start.")
-        
+                # 2. Send fallback message with a clickable command
+                command_with_username = f"{cmd}@{bot_username}"
+                await context.bot.send_message(
+                    chat_id=chat_id,
+                    text=(
+                        f"⚠️ It looks like the command didn’t trigger.\n\n"
+                        f"👉 Please try [this command]({command_with_username}) again."
+                    ),
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True
+                )
+
+                return  # Stop after handling one
+
+        # Optional: handle truly unrecognized commands
+        await message.reply_text("❓ Unrecognized command. Try /help or /start.")
+
     app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/"), fallback_command_handler))
 
     # Run recurring jobs
