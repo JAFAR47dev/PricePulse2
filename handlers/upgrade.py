@@ -25,42 +25,46 @@ CRYPTO_DETAILS = {
 }
 
 # --- Step 1: Show Upgrade Plans ---
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.constants import ParseMode
+
 async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    print("Upgrade menu received")
+    
     text = (
-    "*🚀 Upgrade to Pro*\n\n"
-    "Unlock the full power of your crypto toolkit and gain an edge in the market with advanced tools and automation:\n\n"
-    
-    "🔔 *Unlimited Smart Alerts*\n"
-    "• Set unlimited alerts (price, percent change, volume, risk, custom)\n"
-    "• Alerts refresh every 30 seconds\n"
-    "• Edit or remove alerts anytime\n\n"
+        "*🚀 Upgrade to Pro*\n\n"
+        "Unlock the full power of your crypto toolkit and gain an edge in the market with advanced tools and automation:\n\n"
+        
+        "🔔 *Unlimited Smart Alerts*\n"
+        "• Set unlimited alerts (price, percent change, volume, risk, custom)\n"
+        "• Alerts refresh every 30 seconds\n"
+        "• Edit or remove alerts anytime\n\n"
 
-    "📊 *Advanced Portfolio Tracking*\n"
-    "• Add crypto, stablecoins, and fiat assets\n"
-    "• Auto-track value with live market prices\n"
-    "• Set profit targets and loss limits\n"
-    "• Get alerts when portfolio hits your thresholds\n\n"
+        "📊 *Advanced Portfolio Tracking*\n"
+        "• Add crypto, stablecoins, and fiat assets\n"
+        "• Auto-track value with live market prices\n"
+        "• Set profit targets and loss limits\n"
+        "• Get alerts when portfolio hits your thresholds\n\n"
 
-    "📈 *Watchlist & Market Insights*\n"
-    "• Track your favorite coins easily\n"
-    "• View top gainers, losers, trends\n"
-    "• Stay updated on what’s moving\n\n"
+        "📈 *Watchlist & Market Insights*\n"
+        "• Track your favorite coins easily\n"
+        "• View top gainers, losers, trends\n"
+        "• Stay updated on what’s moving\n\n"
 
-    "🧠 *AI Market Predictions*\n"
-    "• Get short-term forecasts based on RSI, MACD, EMA, and more\n"
-    "• Sentiment-aware and always improving\n\n"
+        "🧠 *AI Market Predictions*\n"
+        "• Get short-term forecasts based on RSI, MACD, EMA, and more\n"
+        "• Sentiment-aware and always improving\n\n"
 
-    "🎯 *Referral & Task Rewards*\n"
-    "• Complete simple tasks to earn Pro trial\n"
-    "• Invite friends and earn bonus days\n\n"
+        "🎯 *Referral & Task Rewards*\n"
+        "• Complete simple tasks to earn Pro trial\n"
+        "• Invite friends and earn bonus days\n\n"
 
-    "⚡ *Priority Access & Fast Performance*\n"
-    "• Pro users get faster data refresh\n"
-    "• Early access to new features and updates\n\n"
-    
-    "*Choose a plan to upgrade and unlock everything:*"
-)
+        "⚡ *Priority Access & Fast Performance*\n"
+        "• Pro users get faster data refresh\n"
+        "• Early access to new features and updates\n\n"
+        
+        "*Choose a plan to upgrade and unlock everything:*"
+    )
+
     keyboard = [
         [InlineKeyboardButton("📆 Monthly - $10", callback_data="plan_monthly")],
         [InlineKeyboardButton("📅 Yearly - $99", callback_data="plan_yearly")],
@@ -73,7 +77,7 @@ async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif update.callback_query:
         await update.callback_query.edit_message_text(text=text, reply_markup=markup, parse_mode="Markdown")
 
-
+    
 # --- Step 2: Handle Plan Selection ---
 async def handle_plan_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query

@@ -31,7 +31,7 @@ from tasks.check_expiry import check_expired_pro_users
 from tasks.admin_approval import handle_task_review_callback
 from stats.handlers import show_stats
 from handlers.fallback_handler import fallback_command_handler
-
+# Load .env
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
@@ -42,10 +42,12 @@ proof_filter = (
     (filters.Document.ALL & filters.CaptionRegex(r"^\s*[1-3]\s*$"))
 )
 
+
 # Startup jobs
 async def on_startup(app):
     print("🚀 Bot starting...")
     start_alert_checker(app.job_queue)
+
 
 # ✅ Main function
 def main():
@@ -55,31 +57,22 @@ def main():
 
     app = ApplicationBuilder().token(TOKEN).post_init(on_startup).build()
 
-    # Register grouped handler modules
+    # All your existing handler registrations...
     register_price_handlers(app)
     register_alert_handlers(app)
     register_general_handlers(app)
 
-    # Standard command handlers
     app.add_handler(CommandHandler("upgrade", upgrade_menu))
     app.add_handler(CommandHandler("tasks", tasks_menu))
     app.add_handler(CommandHandler("stats", show_stats))
     app.add_handler(CommandHandler("prolist", pro_user_list))
 
-    # Re-register as fallback for broken non-command usage
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/upgrade$"), upgrade_menu))
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/tasks$"), tasks_menu))
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/stats$"), show_stats))
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/prolist$"), pro_user_list))
-
-    # Payment flow
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
     app.add_handler(CallbackQueryHandler(back_to_plans, pattern="^back_to_plans$"))
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^back_to_crypto_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(confirm_payment, pattern=r"^confirm_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
 
-    # Portfolio tools
     app.add_handler(CommandHandler("chart", show_chart))
     app.add_handler(CommandHandler("portfolio", view_portfolio))
     app.add_handler(CommandHandler("removeasset", remove_asset))
@@ -87,17 +80,16 @@ def main():
     app.add_handler(CommandHandler("portfoliotarget", set_portfolio_profit_target))
     app.add_handler(CommandHandler("clearportfolio", clear_portfolio))
 
-    # Admin + task moderation
     app.add_handler(CommandHandler("setplan", set_plan))
     app.add_handler(CallbackQueryHandler(handle_task_buttons, pattern="^(submit_proof|check_status)$"))
     app.add_handler(CommandHandler("reviewtasks", review_tasks))
     app.add_handler(MessageHandler(proof_filter, receive_proof))
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
 
-    # ✅ Final fallback: Any slash-command-like text
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/"), fallback_command_handler))
 
-    # ⏱️ Auto-downgrade expired Pro users
+    # Register fallback last
+    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/"), fallback_command_handler))
+    
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
 
     print("📡 Polling started...")

@@ -72,22 +72,7 @@ async def handle_price_alert(update, context, args, plan):
             await update.message.reply_text("🔒 Persistent alerts are Pro-only.")
             return
 
-        if not can_create_price_alert(user_id):
-            await update.message.reply_text("🚫 Free plan allows max *3 price alerts per 24 hours*.\nUse /upgrade to unlock more.", parse_mode="Markdown")
-            return
-        # Check alert count
-        from models.alert import count_user_price_alerts
-
-        if plan == "free":
-            if repeat:
-                await update.message.reply_text("🔒 Persistent alerts are Pro-only. Use /upgrade to unlock.", parse_mode="Markdown")
-                return
-
-            count = count_user_price_alerts(user_id)
-            if count >= 3:
-                await update.message.reply_text("🚫 Free plan allows only 3 alerts. Use /upgrade for more.")
-                return
-
+            
     from models.alert import create_price_alert
     create_price_alert(user_id, symbol, condition, target_price, repeat)
 

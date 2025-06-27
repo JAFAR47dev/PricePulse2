@@ -12,14 +12,10 @@ from utils.indicators import get_crypto_indicators
 from handlers.portfolio import add_asset
 from models.user import get_user_plan
 from services.price_service import get_crypto_price
-import openai
 import os
 from models.db import get_connection
-import openai
-import os
 from dotenv import load_dotenv
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
 OPENROUTER_API_KEY=os.getenv("OPENROUTER_API_KEY") 
 from utils.auth import is_pro_plan  
 
@@ -245,7 +241,7 @@ async def handle_upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE
         "• Get auto-refreshing alerts 🔁\n"
         "• Monitor your portfolio 📦\n"
         "• Use premium tools like predictions 📊\n\n"
-        "To upgrade, type /upgrade or complete /tasks to earn 1-month free access!"
+        "To upgrade, type /upgrade@EliteTradeSignalBot or type /tasks@EliteTradeSignalBot to complete tasks and earn 1-month free access!"
     )
     
     keyboard = [

@@ -19,22 +19,24 @@ async def tasks_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     referral_link = f"https://t.me/EliteTradeSignalBot?start={user_id}"  # 🔁 Replace with actual username
 
     text = (
-        "*🎯 Complete These 3 Tasks to Unlock 1 Month Pro Access:*\n\n"
-        f"1. {status(progress['task1_done'])} *Invite 3 New Users*\n"
-        f"   ↳ Use your referral link below:\n"
-        f"`{referral_link}`\n"
-        "   (They must join using your link and use the bot)\n\n"
-        
-        f"2. {status(progress['task2_done'])} *Post About This Bot on Social Media*\n"
-        "   ↳ Twitter/X, YouTube, or Telegram Group\n"
-        "   (Share a public post + submit a screenshot or link)\n\n"
+    "*🎯 Complete These 3 Tasks to Unlock 1 Month of Pro Access ($10 Value):*\n\n"
 
-        f"3. {status(progress['task3_done'])} *Give Feedback/Testimonial + Rating*\n"
-        "   ↳ Send a screenshot or message of your testimonial or rating.\n\n"
+    f"1. {status(progress['task1_done'])} *Invite 3 New Users*\n"
+    f"   ↳ Share your referral link:\n"
+    f"`{referral_link}`\n"
+    "   ✅ Submit *text*, *screenshot*, or *usernames* showing that 3 people joined and used the bot.\n\n"
 
-        "✅ *All 3 tasks must be completed and approved by admin.*\n"
-        "🎁 Reward: 30 Days Pro Access!"
-    )
+    f"2. {status(progress['task2_done'])} *Promote the Bot on Social Media*\n"
+    "   ↳ Post about the bot on Twitter/X, YouTube (community tab), or a Telegram group/channel.\n"
+    "   ✅ Send a *screenshot*, *post link*, or a short *description* of what you posted.\n\n"
+
+    f"3. {status(progress['task3_done'])} *Give Feedback or Testimonial*\n"
+    "   ↳ Tell us how the bot has helped you or share a suggestion.\n"
+    "   ✅ Send your feedback as *text*, *screenshot*, or *review message*.\n\n"
+
+    "✅ *All 3 tasks must be completed and approved by an admin.*\n"
+    "🎁 *Reward:* 30 Days of Full Pro Access!"
+)
     
     keyboard = [
     [InlineKeyboardButton("📤 Submit Proof", callback_data="submit_proof")],
