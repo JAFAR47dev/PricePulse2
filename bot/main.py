@@ -34,7 +34,7 @@ from handlers.fallback_handler import fallback_command_handler
 
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 # Filters for task proofs
 proof_filter = (
     (filters.TEXT & filters.Regex(r"^\s*[1-3]\s*[:：]")) |
@@ -100,8 +100,12 @@ def main():
     # ⏱️ Auto-downgrade expired Pro users
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
 
-    print("📡 Polling started...")
-    app.run_polling(drop_pending_updates=True)
+    app.run_webhook(
+    listen="0.0.0.0",
+    port=int(os.environ.get("PORT", 10000)),
+    webhook_url=WEBHOOK_URL,
+    drop_pending_updates=True
+)
 
 if __name__ == '__main__':
     main()
