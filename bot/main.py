@@ -61,7 +61,7 @@ def main():
     register_general_handlers(app)
 
     # Standard command handlers
-    app.add_handler(CommandHandler("subscribe", upgrade_menu))
+    app.add_handler(CommandHandler("upgrade", upgrade_menu))
     app.add_handler(CommandHandler("tasks", tasks_menu))
     app.add_handler(CommandHandler("stats", show_stats))
     app.add_handler(CommandHandler("prolist", pro_user_list))

@@ -241,7 +241,7 @@ async def handle_upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE
         "• Get auto-refreshing alerts 🔁\n"
         "• Monitor your portfolio 📦\n"
         "• Use premium tools like predictions 📊\n\n"
-        "To upgrade, type /upgrade@EliteTradeSignalBot or type /tasks@EliteTradeSignalBot to complete tasks and earn 1-month free access!"
+        "To upgrade, type /upgrade@EliteTradeSignalBot or\n type /tasks@EliteTradeSignalBot to complete tasks and earn 1-month free access!"
     )
     
     keyboard = [
