@@ -35,7 +35,7 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 
 help_pages = {
     1: "*📖 Alerts & Market Tools (Free)*\n\n"
-       "• `/set price BTC > 65000` – Alert when price crosses value (max 3)\n"
+       "• `/set price BTC > 65000` – Alert when price crosses value \n"
        "• `/alerts` – View your active alerts\n"
        "• `/remove TYPE ID` – Remove a specific alert\n"
        "• `/removeall` – Delete all alerts\n"
@@ -65,7 +65,7 @@ help_pages = {
        "• `/referral` – Get your referral link\n"
        "• Invite friends and earn rewards\n\n"
        "*🔼 Plans:*\n"
-       "• Free: 3 alerts, 1h chart only\n"
+       "• Free: Unlimited price alerts, 1h chart only\n"
        "• Pro: Unlimited alerts, AI tools, portfolio, watchlist\n"
        "• Use `/upgrade` to view Pro benefits\n",
 
@@ -295,13 +295,13 @@ async def handle_view_commands(update: Update, context: ContextTypes.DEFAULT_TYP
     "• `/news` — Get latest 5 crypto headlines\n\n"
 
     "🎁 *Growth & Referral:*\n"
-    "• `/tasks` — Complete tasks to earn 1 month Pro\n"
+    "• `/tasks@EliteTradeSignalBot` — Complete tasks to earn 1 month Pro\n"
     "• `/referral` — Get your referral link\n\n"
 
     "🧭 *Navigation & Info:*\n"
     "• `/start` — Launch welcome menu\n"
     "• `/help` — View detailed guide\n"
-    "• `/upgrade` — See Pro benefits & upgrade steps\n"
+    "• `/upgrade@EliteTradeSignalBot` — See Pro benefits & upgrade steps\n"
     "• `/plan` — Check your current plan\n\n"
 
     "━━━━━━━━━━━━━━━━━━━\n"
@@ -640,7 +640,7 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Check user plan
     plan = get_user_plan(user_id)
     if plan == "free" and timeframe != "1h":
-        await update.message.reply_text("🔒 Only the *1h* timeframe is available on Free Plan.\nUse /upgrade to unlock more.", parse_mode="Markdown")
+        await update.message.reply_text("🔒 Only the *1h* timeframe is available on Free Plan.\nUse /upgrade@EliteTradeSignalBot to unlock more.", parse_mode="Markdown")
         return
 
     await update.message.reply_text("📡 Analyzing trend data... please wait.")
@@ -700,7 +700,7 @@ async def predict_price(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return

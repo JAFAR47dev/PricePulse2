@@ -66,12 +66,7 @@ def main():
     app.add_handler(CommandHandler("stats", show_stats))
     app.add_handler(CommandHandler("prolist", pro_user_list))
 
-    # Re-register as fallback for broken non-command usage
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/upgrade$"), upgrade_menu))
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/tasks$"), tasks_menu))
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/stats$"), show_stats))
-    app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/prolist$"), pro_user_list))
-
+    
     # Payment flow
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))

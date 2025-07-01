@@ -40,7 +40,7 @@ async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if plan != "pro":
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
@@ -217,7 +217,7 @@ async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT
     # Pro-only restriction
     if plan != "pro":
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users* only.\nUse /upgrade to unlock.",
+            "🔒 This feature is for *Pro users* only.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -257,7 +257,7 @@ async def set_portfolio_profit_target(update: Update, context: ContextTypes.DEFA
     # Pro-only restriction
     if plan != "pro":
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users* only.\nUse /upgrade to unlock.",
+            "🔒 This feature is for *Pro users* only.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return

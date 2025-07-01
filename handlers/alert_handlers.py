@@ -41,7 +41,7 @@ async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Enforce Free Plan limits
     if plan == "free" and alert_type != "price":
-        await update.message.reply_text("🚫 Advanced alerts are for *Pro users* only.\nUse /upgrade to unlock.", parse_mode="Markdown")
+        await update.message.reply_text("🚫 Advanced alerts are for *Pro users* only.\nUse /upgrade@EliteTradeSignalBot to unlock.", parse_mode="Markdown")
         return
 
     await handlers[alert_type](update, context, args[1:], plan)
@@ -88,7 +88,7 @@ async def handle_percent_alert(update, context, args, plan):
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -134,7 +134,7 @@ async def handle_volume_alert(update, context, args, plan):
         
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -177,7 +177,7 @@ async def handle_risk_alert(update, context, args, plan):
         
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -222,7 +222,7 @@ async def handle_custom_alert(update, context, args, plan):
         
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -494,7 +494,7 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
         upgrade_msg += f"• You are using *{total_alerts}/3* alerts.\n"
         if has_repeat:
             upgrade_msg += "• 🔁 *Persistent alerts* are Pro-only.\n"
-        upgrade_msg += "🔓 Unlock unlimited alerts: /upgrade 💎"
+        upgrade_msg += "🔓 Unlock unlimited alerts: /upgrade@EliteTradeSignalBot 💎"
         alert_sections.append(upgrade_msg)
 
     conn.close()
@@ -519,7 +519,7 @@ async def watch_coin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     plan = get_user_plan(user_id)
     if plan == "free":
         await update.message.reply_text(
-            "🔒 /watch is a *Pro-only* feature.\nUpgrade using /upgrade to track coins over time.",
+            "🔒 /watch is a *Pro-only* feature.\nUpgrade using /upgrade@EliteTradeSignalBot to track coins over time.",
             parse_mode="Markdown"
         )
         return
@@ -570,7 +570,7 @@ async def watchlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if plan == "free":
         await update.message.reply_text(
-            "🔒 *Pro-only feature.* Upgrade to access your watchlist.\nUse /upgrade to unlock.",
+            "🔒 *Pro-only feature.* Upgrade to access your watchlist.\nUse /upgrade@EliteTradeSignalBot to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -715,7 +715,7 @@ async def select_alert_type(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not row or row[0] == "free":
         await query.edit_message_text(
-            "⚠️ *Editing alerts is a Pro-only feature.*\nUse /upgrade to unlock it.",
+            "⚠️ *Editing alerts is a Pro-only feature.*\nUse /upgrade@EliteTradeSignalBot to unlock it.",
             parse_mode="Markdown"
         )
         return ConversationHandler.END
