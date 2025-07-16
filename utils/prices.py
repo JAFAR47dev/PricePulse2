@@ -3,21 +3,6 @@ import asyncio
 import json
 import os
 
-BINANCE_BASE_URL = "https://api.binance.com/api/v3/ticker/price"
-COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3/simple/price"
-
-# Load symbol-to-id mapping once
-with open("coingecko_ids.json", "r") as f:
-    COINGECKO_IDS = json.load(f)
-
-async def fetch_price_binance(session, symbol):
-    url = f"{BINANCE_BASE_URL}?symbol={symbol}"
-    try:
-        async with session.get(url, timeout=10) as response:
-            data = await response.json()
-            return float(data['price'])
-    except:
-        return None
 
 async def fetch_price_coingecko(session, symbol):
     # Convert something like 'BTCUSDT' → coin_symbol: 'BTC', currency: 'USD'

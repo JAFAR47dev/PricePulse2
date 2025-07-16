@@ -5,24 +5,39 @@ from dotenv import load_dotenv
 load_dotenv()
 CRYPTOCOMPARE_API_KEY = os.getenv("CRYPTOCOMPARE_API_KEY")
 
-def get_crypto_price(symbol="BTC"):
-    url = f"https://min-api.cryptocompare.com/data/price?fsym={symbol.upper()}&tsyms=USD"
-    headers = {
-        "authorization": f"Apikey {CRYPTOCOMPARE_API_KEY}"
-    }
+#def get_crypto_price(symbol="BTC"):
+#    url = f"https://min-api.cryptocompare.com/data/price?fsym={symbol.upper()}&tsyms=USD"
+#    headers = {
+#        "authorization": f"Apikey {CRYPTOCOMPARE_API_KEY}"
+#    }
 
+#    try:
+#        response = requests.get(url, headers=headers, timeout=30)
+#        response.raise_for_status()
+#        data = response.json()
+#        return data.get("USD", None)
+#    except Exception as e:
+#        print(f"❌ CryptoCompare Error: {e} | Symbol tried: {symbol}")
+#        return None
+
+#    if data is valid:
+#        count_api_call()
+#        return price
+        
+def get_crypto_price(coin_id: str):
     try:
-        response = requests.get(url, headers=headers, timeout=30)
+        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies=usd"
+        response = requests.get(url, timeout=15)
         response.raise_for_status()
         data = response.json()
-        return data.get("USD", None)
-    except Exception as e:
-        print(f"❌ CryptoCompare Error: {e} | Symbol tried: {symbol}")
-        return None
 
-    if data is valid:
-        count_api_call()
+        price = data.get(coin_id, {}).get("usd")
+        if price is None:
+            print(f"❌ No USD price found for {coin_id}. Full response: {data}")
         return price
+    except Exception as e:
+        print(f"❌ Error fetching price for {coin_id}: {e}")
+        return None
         
 def get_candles(symbol, limit=100):
     url = f"https://min-api.cryptocompare.com/data/histohour?fsym={symbol.upper()}&tsym=USD&limit={limit}"

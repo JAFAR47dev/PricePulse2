@@ -1,5 +1,9 @@
 import os
 import sys
+import asyncio
+import nest_asyncio
+nest_asyncio.apply()
+
 from telegram import Update, BotCommand
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, CallbackQueryHandler,
@@ -31,34 +35,50 @@ from tasks.check_expiry import check_expired_pro_users
 from tasks.admin_approval import handle_task_review_callback
 from stats.handlers import show_stats
 from handlers.fallback_handler import fallback_command_handler
+from handlers.daily_coin import coin_of_the_day
+from handlers.calendar import calendar_command
+from handlers.heatmap import heatmap_command
+from handlers.convert import convert_command
+from handlers.learn import learn_command, learn_term_callback, learn_page_callback
+from handlers.markets import markets_command
+from handlers.compare import compare_command
+from handlers.links import links_command
+from handlers.gasfees import gasfees_command
+from handlers.funfact import funfact_command
 
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")
-# Filters for task proofs
+
 proof_filter = (
     (filters.TEXT & filters.Regex(r"^\s*[1-3]\s*[:：]")) |
     (filters.PHOTO & filters.CaptionRegex(r"^\s*[1-3]\s*$")) |
     (filters.Document.ALL & filters.CaptionRegex(r"^\s*[1-3]\s*$"))
 )
 
-# Startup jobs
-async def on_startup(app):
-    print("🚀 Bot starting...")
-    start_alert_checker(app.job_queue)
-
-# ✅ Main function
-def main():
+# ✅ Main async function
+async def main():
     init_db()
     create_referrals_table()
     create_task_progress_table()
 
-    app = ApplicationBuilder().token(TOKEN).post_init(on_startup).build()
+    app = ApplicationBuilder().token(TOKEN).build()
 
     # Register grouped handler modules
     register_price_handlers(app)
     register_alert_handlers(app)
     register_general_handlers(app)
+    app.add_handler(CommandHandler("cod", coin_of_the_day))
+    app.add_handler(CommandHandler("calendar", calendar_command))
+    app.add_handler(CommandHandler("heatmap", heatmap_command))
+    app.add_handler(CommandHandler("convert", convert_command))
+    app.add_handler(CommandHandler("learn", learn_command))
+    app.add_handler(CallbackQueryHandler(learn_term_callback, pattern=r"^learn_\d+$"))
+    app.add_handler(CallbackQueryHandler(learn_page_callback, pattern=r"^learn_page_\d+$"))
+    app.add_handler(CommandHandler("markets", markets_command))
+    app.add_handler(CommandHandler("compare", compare_command))
+    app.add_handler(CommandHandler("links", links_command))
+    app.add_handler(CommandHandler("gasfees", gasfees_command))
+    app.add_handler(CommandHandler("funfact", funfact_command))app.add_handler(CommandHandler("funfact", funfact_command))
 
     # Standard command handlers
     app.add_handler(CommandHandler("upgrade", upgrade_menu))
@@ -66,7 +86,6 @@ def main():
     app.add_handler(CommandHandler("stats", show_stats))
     app.add_handler(CommandHandler("prolist", pro_user_list))
 
-    
     # Payment flow
     app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
     app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
@@ -89,18 +108,14 @@ def main():
     app.add_handler(MessageHandler(proof_filter, receive_proof))
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
 
-    # ✅ Final fallback: Any slash-command-like text
+    # Final fallback
     app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"^/"), fallback_command_handler))
 
-    # ⏱️ Auto-downgrade expired Pro users
+    # Start bot
+    print("🚀 Bot starting...")
+    start_alert_checker(app.job_queue)
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
-
-    app.run_webhook(
-    listen="0.0.0.0",
-    port=int(os.environ.get("PORT", 10000)),
-    webhook_url=WEBHOOK_URL,
-    drop_pending_updates=True
-)
-
+    await app.run_polling()
+# ✅ Entry point
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())

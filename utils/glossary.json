@@ -1,0 +1,19 @@
+[
+  {
+    "term": "Bitcoin",
+    "description": "Bitcoin is the first cryptocurrency, created in 2009 by Satoshi Nakamoto. It’s a decentralized currency not controlled by any government."
+  },
+  {
+    "term": "Ethereum",
+    "description": "Ethereum is a blockchain that supports smart contracts. It's the foundation for many DeFi apps and NFTs."
+  },
+  {
+    "term": "Wallet",
+    "description": "A wallet stores your crypto. Can be software (like MetaMask) or hardware (like Ledger). Never share your seed phrase!"
+  },
+  {
+    "term": "Altcoin",
+    "description": "Any cryptocurrency that isn't Bitcoin is an altcoin — includes ETH, SOL, ADA, etc."
+  }
+  // Add more terms similarly
+]
