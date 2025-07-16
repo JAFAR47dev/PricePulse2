@@ -5,24 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 CRYPTOCOMPARE_API_KEY = os.getenv("CRYPTOCOMPARE_API_KEY")
 
-#def get_crypto_price(symbol="BTC"):
-#    url = f"https://min-api.cryptocompare.com/data/price?fsym={symbol.upper()}&tsyms=USD"
-#    headers = {
-#        "authorization": f"Apikey {CRYPTOCOMPARE_API_KEY}"
-#    }
-
-#    try:
-#        response = requests.get(url, headers=headers, timeout=30)
-#        response.raise_for_status()
-#        data = response.json()
-#        return data.get("USD", None)
-#    except Exception as e:
-#        print(f"❌ CryptoCompare Error: {e} | Symbol tried: {symbol}")
-#        return None
-
-#    if data is valid:
-#        count_api_call()
-#        return price
         
 def get_crypto_price(coin_id: str):
     try:

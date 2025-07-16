@@ -8,6 +8,10 @@ from collections import defaultdict
 import time
 import asyncio
 from datetime import datetime
+from telegram.ext import ContextTypes
+from telegram import Bot
+from services.ai_strategy_checker import check_ai_strategies
+
 #from utils.prices import get_crypto_prices
 import traceback
 from services.alert_checkers import (
@@ -128,3 +132,7 @@ def delete_all_alerts(user_id):
 def start_alert_checker(job_queue):
     from telegram.ext import ContextTypes
     job_queue.run_repeating(check_alerts, interval=30, first=10)
+    
+
+async def run_ai_strategy_checker(context: ContextTypes.DEFAULT_TYPE):
+    await check_ai_strategies(context.bot)

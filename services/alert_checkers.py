@@ -1,6 +1,5 @@
 from models.db import get_connection
 from utils.prices import get_crypto_prices
-from utils.notification_service import send_auto_delete
 import traceback
 from collections import defaultdict
 from utils.indicators import get_cached_rsi, get_cached_macd, get_cached_ema

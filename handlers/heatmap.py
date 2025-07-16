@@ -61,7 +61,7 @@ async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         image_stream.seek(0)
 
         await update.message.reply_photo(photo=InputFile(image_stream, filename="heatmap.png"),
-                                         caption="💹 *Market Heatmap* — 24h % change",
+                                         caption="💹 *Market Heatmap of Top 50 Coins* — 24h % change",
                                          parse_mode="Markdown")
 
     except Exception as e:

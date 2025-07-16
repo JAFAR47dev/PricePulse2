@@ -2,7 +2,6 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from models.db import get_connection
 from models.user import get_user_plan
-from models.db import get_connection
 from services.price_service import get_crypto_price  # Assuming you have this
 import os
 import requests

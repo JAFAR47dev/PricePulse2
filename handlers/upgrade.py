@@ -4,11 +4,11 @@ import os
 from dotenv import load_dotenv
 import requests
 from datetime import datetime
-
+from config import ADMIN_ID
 
 load_dotenv()
 
-ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_ID", "").split(",") if x.strip().isdigit()]
+
 
 # --- USD Plan Prices ---
 USD_PRICES = {
@@ -187,7 +187,7 @@ async def confirm_payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
         usd_value = USD_PRICES.get(plan, "N/A")
 
         # Notify admins
-        for admin_id in ADMIN_IDS:
+        for admin_id in ADMIN_ID:
             try:
                 await context.bot.send_message(
                     chat_id=admin_id,
