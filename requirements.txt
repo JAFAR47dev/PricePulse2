@@ -8,4 +8,4 @@ APScheduler==3.10.4
 pytz==2025.2
 aiohttp==3.12.6
 --only-binary :all:
-Pillow==10.3.0
+Pillow==10.4.0
