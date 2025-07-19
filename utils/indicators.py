@@ -2,8 +2,6 @@ import httpx
 import asyncio
 from config import TWELVE_DATA_API_KEY
 
-
-# Map user-friendly to API-valid
 timeframe_map = {
     "1m": "1min",
     "5m": "5min",
@@ -15,7 +13,7 @@ timeframe_map = {
     "8h": "8h",
     "1d": "1day",
     "1w": "1week"
-    }
+}
 
 async def get_crypto_indicators(symbol: str, timeframe: str = "1h"):
     if not TWELVE_DATA_API_KEY:
@@ -41,9 +39,13 @@ async def get_crypto_indicators(symbol: str, timeframe: str = "1h"):
             macd_req = client.get(f"{base_url}/macd", params=params)
             price_req = client.get(f"{base_url}/price", params=params)
             candles_req = client.get(f"{base_url}/time_series", params={**params, "outputsize": 24})
+            candles_7d_req = client.get(f"{base_url}/time_series", params={
+                "symbol": symbol, "interval": "1day", "outputsize": 7, "apikey": TWELVE_DATA_API_KEY
+            })
 
-            rsi_resp, ema_resp, macd_resp, price_resp, candles_resp = await asyncio.gather(
-                rsi_req, ema_req, macd_req, price_req, candles_req
+            # Await all responses in parallel
+            rsi_resp, ema_resp, macd_resp, price_resp, candles_resp, candles_7d_resp = await asyncio.gather(
+                rsi_req, ema_req, macd_req, price_req, candles_req, candles_7d_req
             )
 
             # Parse JSON
@@ -52,19 +54,16 @@ async def get_crypto_indicators(symbol: str, timeframe: str = "1h"):
             macd_data = macd_resp.json()
             price_data = price_resp.json()
             candles_data = candles_resp.json()
+            candles_7d_data = candles_7d_resp.json()
 
-            print("📉 RSI:", rsi_data)
-            print("📉 EMA:", ema_data)
-            print("📉 MACD:", macd_data)
-            print("📉 Price:", price_data)
-            print("📊 Candles:", candles_data)
-
+            # Validate required fields
             if (
                 "values" not in rsi_data or
                 "values" not in ema_data or
                 "values" not in macd_data or
                 "price" not in price_data or
-                "values" not in candles_data
+                "values" not in candles_data or
+                "values" not in candles_7d_data
             ):
                 print("❌ One or more required fields are missing.")
                 return None
@@ -77,16 +76,18 @@ async def get_crypto_indicators(symbol: str, timeframe: str = "1h"):
             macd_hist = float(macd_data["values"][0]["macd_hist"])
             price_value = float(price_data["price"])
 
-            # Extract 24h stats from candles
+            # 24h stats
             highs = [float(c["high"]) for c in candles_data["values"]]
             lows = [float(c["low"]) for c in candles_data["values"]]
-
-            # Use 0 if volume is missing
             volumes = [float(c["volume"]) for c in candles_data["values"] if "volume" in c]
 
             high_24h = max(highs)
             low_24h = min(lows)
             total_volume = sum(volumes) if volumes else None
+
+            # 🆕 Compute 7-day average (SMA-7d)
+            closes_7d = [float(c["close"]) for c in candles_7d_data["values"]]
+            sma_7d = sum(closes_7d) / len(closes_7d) if closes_7d else None
 
             return {
                 "rsi": rsi_value,
@@ -97,7 +98,8 @@ async def get_crypto_indicators(symbol: str, timeframe: str = "1h"):
                 "price": price_value,
                 "high_24h": high_24h,
                 "low_24h": low_24h,
-                "volume": total_volume
+                "volume": total_volume,
+                "sma_7d": sma_7d  
             }
 
         except Exception as e:

@@ -14,6 +14,105 @@
   {
     "term": "Altcoin",
     "description": "Any cryptocurrency that isn't Bitcoin is an altcoin — includes ETH, SOL, ADA, etc."
+  },
+  {
+    "term": "Blockchain",
+    "description": "A blockchain is a public, decentralized ledger that records transactions across many computers so that records can't be altered retroactively."
+  },
+  {
+    "term": "Smart Contract",
+    "description": "Self-executing code on a blockchain that automatically enforces agreements when conditions are met."
+  },
+  {
+    "term": "NFT",
+    "description": "Non-Fungible Token — a unique digital asset that represents ownership of digital or physical items like art, music, or real estate."
+  },
+  {
+    "term": "Gas Fees",
+    "description": "Fees paid to miners or validators to process and confirm transactions on a blockchain like Ethereum."
+  },
+  {
+    "term": "DeFi",
+    "description": "Decentralized Finance — financial services like lending, borrowing, and trading built on blockchains without intermediaries."
+  },
+  {
+    "term": "Stablecoin",
+    "description": "A cryptocurrency pegged to a stable asset like USD (e.g., USDT, USDC) to reduce volatility."
+  },
+  {
+    "term": "Mining",
+    "description": "The process of validating blockchain transactions and earning rewards, often using powerful computers."
+  },
+  {
+    "term": "Staking",
+    "description": "Locking up crypto to support a network and earn rewards in a Proof of Stake blockchain."
+  },
+  {
+    "term": "Exchange",
+    "description": "A platform (like Binance or Coinbase) where users can buy, sell, or trade cryptocurrencies."
+  },
+  {
+    "term": "Token",
+    "description": "A digital asset built on an existing blockchain, like ERC-20 tokens on Ethereum."
+  },
+  {
+    "term": "Ledger",
+    "description": "A digital record of all blockchain transactions. Each participant has access to an identical copy."
+  },
+  {
+    "term": "DAO",
+    "description": "Decentralized Autonomous Organization — an entity governed by smart contracts and community voting, without centralized leadership."
+  },
+  {
+    "term": "Private Key",
+    "description": "A secret code that proves ownership of your crypto. Never share it with anyone."
+  },
+  {
+    "term": "Public Key",
+    "description": "A cryptographic code used to receive cryptocurrency — like your crypto email address."
+  },
+  {
+    "term": "Seed Phrase",
+    "description": "A list of 12–24 words used to recover your wallet. Anyone with it can access your funds."
+  },
+  {
+    "term": "Liquidity",
+    "description": "How easily an asset can be bought or sold without affecting its price."
+  },
+  {
+    "term": "Yield Farming",
+    "description": "A way to earn rewards by lending or staking crypto assets in DeFi protocols."
+  },
+  {
+    "term": "Airdrop",
+    "description": "Free distribution of tokens to promote a project or reward loyal users."
+  },
+  {
+    "term": "Fiat",
+    "description": "Traditional government-issued currency like USD, EUR, or NGN."
+  },
+  {
+    "term": "HODL",
+    "description": "Originally a typo for 'hold', now slang for holding crypto long-term regardless of market swings."
+  },
+  {
+    "term": "Whale",
+    "description": "A person or entity that holds a large amount of cryptocurrency and can influence the market."
+  },
+  {
+    "term": "Bull Market",
+    "description": "A market condition where prices are rising or expected to rise."
+  },
+  {
+    "term": "Bear Market",
+    "description": "A market condition where prices are falling or expected to fall."
+  },
+  {
+    "term": "DApp",
+    "description": "Decentralized Application — software that runs on a blockchain instead of centralized servers."
+  },
+  {
+    "term": "ICO",
+    "description": "Initial Coin Offering — a fundraising method where new tokens are sold to investors."
   }
-  // Add more terms similarly
 ]
