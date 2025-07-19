@@ -28,7 +28,7 @@ from services.wallet_monitor import monitor_wallets
 
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # e.g., https://your-app.onrender.com
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
 # Filters for task proofs
 proof_filter = (
@@ -38,12 +38,13 @@ proof_filter = (
 )
 
 # ✅ Startup logs
-print("🚀 Bot starting with webhook...")
+print("🚀 Bot running...")
 
-# ✅ Background task for wallet monitoring
+# ✅ Hook for background task (wallet monitoring)
 async def post_init(application):
     application.create_task(monitor_wallets(application.bot))
 
+# ✅ Main function
 def main():
     init_db()
     create_referrals_table()
@@ -52,12 +53,13 @@ def main():
     app = (
         ApplicationBuilder()
         .token(TOKEN)
-        .post_init(post_init)
+        .post_init(post_init)  # Register wallet monitor task here
         .build()
     )
 
     register_all_handlers(app)
 
+    # Standard command handlers
     app.add_handler(CommandHandler("tasks", tasks_menu))
     app.add_handler(CommandHandler("stats", show_stats))
     app.add_handler(CallbackQueryHandler(handle_task_buttons, pattern="^(submit_proof|check_status)$"))
@@ -65,17 +67,14 @@ def main():
     app.add_handler(MessageHandler(proof_filter, receive_proof))
     app.add_handler(CallbackQueryHandler(handle_task_review_callback, pattern=r"^(approve_task|reject_task)\|\d+\|\d+$"))
 
-    # Jobs
+    # ⏱️ Auto-downgrade expired Pro users
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
+
+    # ✅ AI Strategy Checker (every 5 minutes)
     app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=15)
 
-    # ✅ Start webhook
-    app.run_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get("PORT", 10000)),  # Render will detect this
-        webhook_url=WEBHOOK_URL,
-        drop_pending_updates=True,
-    )
+    app.run_polling(drop_pending_updates=True)
 
 if __name__ == '__main__':
     main()
+    
