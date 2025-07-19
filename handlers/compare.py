@@ -5,6 +5,7 @@ from utils.prices import get_crypto_prices
 import requests
 import json
 import os
+from utils.formatting import format_large_number
 
 # Load CoinGecko ID mappings
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,7 +21,7 @@ async def compare_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Require 2 or 3 coin symbols, no 'vs' needed
         args = context.args
         if len(args) < 2 or len(args) > 3:
-            return await update.message.reply_text("❌ Usage: /compare [coin1] [coin2] [optional coin3]")
+            return await update.message.reply_text("❌ Usage: /comp [coin1] [coin2] [optional coin3]")
 
         # Prepare symbols and CoinGecko IDs
         coin_symbols = [arg.upper() for arg in args]
@@ -69,7 +70,8 @@ async def compare_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     else:
                         values.append("N/A")
             return f"*{title}:*  " + " | ".join(values)
-
+        
+        
         text = (
             f"🔍 *Comparing:* {' | '.join(coin_symbols)}\n\n"
             f"{row('💵 Price', 'price')}\n"
