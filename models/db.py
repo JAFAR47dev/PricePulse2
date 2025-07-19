@@ -165,26 +165,5 @@ def init_db():
     )
 """)
 
-   
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS ai_alerts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            symbol TEXT,
-            conditions TEXT,  -- JSON string containing condition list
-            summary TEXT,
-            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            active INTEGER DEFAULT 1  -- 1 = active, 0 = paused
-        )
-    """)
-
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS tracked_wallets (
-            user_id INTEGER PRIMARY KEY,
-            wallet_address TEXT NOT NULL
-        )
-    """)
-
     conn.commit()
     conn.close()
-    

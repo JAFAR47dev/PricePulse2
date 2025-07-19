@@ -35,6 +35,7 @@ async def gasfees_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"• Low: `{low}` Gwei (safe, slow)\n"
             f"• Standard: `{avg}` Gwei (avg)\n"
             f"• High: `{high}` Gwei (fast)\n\n"
+            f"📦 Est. Tx cost: ~$0.5 – $1.2 (depends on contract type)\n"
             f"🔍 _Powered by Etherscan_"
         )
 

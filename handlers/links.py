@@ -1,32 +1,22 @@
 # handlers/links.py
 import requests
-import os
-import json
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
 
-# Load CoinGecko symbol-to-ID mapping
-with open("utils/coingecko_ids.json", "r") as f:
-    COINGECKO_IDS = json.load(f)
-
 async def links_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if len(context.args) != 1:
-        return await update.message.reply_text("❌ Usage: /links [coin] (e.g. /links btc)")
+        return await update.message.reply_text("Usage: /links [coin]")
 
-    symbol = context.args[0].upper()
-    coin_id = COINGECKO_IDS.get(symbol)
-
-    if not coin_id:
-        return await update.message.reply_text("❌ Unsupported or unknown coin symbol.")
+    coin = context.args[0].lower()
 
     try:
-        url = f"https://api.coingecko.com/api/v3/coins/{coin_id}"
+        url = f"https://api.coingecko.com/api/v3/coins/{coin}"
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
 
-        name = data.get("name", symbol)
+        name = data.get("name", coin.upper())
         links = data.get("links", {})
 
         homepage = links.get("homepage", [""])[0]
@@ -39,7 +29,7 @@ async def links_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if homepage:
             text += f"🌐 Website: [Visit]({homepage})\n"
         if twitter:
-            text += f"🐦 X: [@{twitter}](https://twitter.com/{twitter})\n"
+            text += f"🐦 Twitter: [@{twitter}](https://twitter.com/{twitter})\n"
         if reddit:
             text += f"👽 Reddit: [Subreddit]({reddit})\n"
         if github:

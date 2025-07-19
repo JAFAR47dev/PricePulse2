@@ -4,11 +4,11 @@ import os
 from dotenv import load_dotenv
 import requests
 from datetime import datetime
-from config import ADMIN_ID
+
 
 load_dotenv()
 
-
+ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_ID", "").split(",") if x.strip().isdigit()]
 
 # --- USD Plan Prices ---
 USD_PRICES = {
@@ -31,41 +31,39 @@ from telegram.constants import ParseMode
 async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     text = (
-    "*🚀 Upgrade to Pro*\n\n"
-    "Unlock your full crypto potential with advanced alerts, AI tools, portfolio management, and more:\n\n"
+        "*🚀 Upgrade to Pro*\n\n"
+        "Unlock the full power of your crypto toolkit and gain an edge in the market with advanced tools and automation:\n\n"
+        
+        "🔔 *Unlimited Smart Alerts*\n"
+        "• Set unlimited alerts (price, percent change, volume, risk, custom)\n"
+        "• Alerts refresh every 30 seconds\n"
+        "• Edit or remove alerts anytime\n\n"
 
-    "🔔 *Unlimited Smart Alerts*\n"
-    "• Create unlimited alerts: price, percent, volume, risk, custom\n"
-    "• Get auto-refresh alerts every 30 seconds\n"
-    "• Edit and remove alerts anytime\n\n"
+        "📊 *Advanced Portfolio Tracking*\n"
+        "• Add crypto, stablecoins, and fiat assets\n"
+        "• Auto-track value with live market prices\n"
+        "• Set profit targets and loss limits\n"
+        "• Get alerts when portfolio hits your thresholds\n\n"
 
-    "📊 *Advanced Portfolio & Watchlist*\n"
-    "• Track crypto, stablecoins, and fiat\n"
-    "• Auto-update valuation with live prices\n"
-    "• Set loss limits and profit targets with alerts\n"
-    "• Monitor key coins using a personal watchlist\n\n"
+        "📈 *Watchlist & Market Insights*\n"
+        "• Track your favorite coins easily\n"
+        "• View top gainers, losers, trends\n"
+        "• Stay updated on what’s moving\n\n"
 
-    "🧠 *AI Tools & Strategies*\n"
-    "• `/prediction` – AI price forecasting\n"
-    "• `/aistrat` – Write strategies in plain English\n"
-    "• `/aiscan` – Spot divergences, engulfing, crosses, and more\n"
-    "• `/bt` – AI-powered backtests with win rate and summary\n"
-    "• `/screen` – Scan 200+ coins for technical setups\n\n"
+        "🧠 *AI Market Predictions*\n"
+        "• Get short-term forecasts based on RSI, MACD, EMA, and more\n"
+        "• Sentiment-aware and always improving\n\n"
 
-    "🐋 *Whale Wallet Tracker*\n"
-    "• Monitor large on-chain transactions\n"
-    "• Track known or custom wallets for whale moves\n\n"
+        "🎯 *Referral & Task Rewards*\n"
+        "• Complete simple tasks to earn Pro trial\n"
+        "• Invite friends and earn bonus days\n\n"
 
-    "🎁 *Earn Free Pro*\n"
-    "• Complete simple tasks to unlock 30-day Pro\n"
-    "• Refer friends to earn extra Pro time\n\n"
-
-    "⚡ *Priority Access & Speed*\n"
-    "• Faster data refresh for Pro users\n"
-    "• Early access to new features\n\n"
-
-    "*Choose a plan below to upgrade and unlock everything:*"
-)
+        "⚡ *Priority Access & Fast Performance*\n"
+        "• Pro users get faster data refresh\n"
+        "• Early access to new features and updates\n\n"
+        
+        "*Choose a plan to upgrade and unlock everything:*"
+    )
 
     keyboard = [
         [InlineKeyboardButton("📆 Monthly - $10", callback_data="plan_monthly")],
@@ -114,7 +112,7 @@ async def back_to_plans(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def get_live_price_usd(coin_id: str):
     try:
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies=usd"
-        response = requests.get(url, timeout=20)
+        response = requests.get(url, timeout=10)
         return response.json()[coin_id]["usd"]
     except Exception as e:
         print("❌ Error fetching live price:", e)
@@ -189,7 +187,7 @@ async def confirm_payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
         usd_value = USD_PRICES.get(plan, "N/A")
 
         # Notify admins
-        for admin_id in ADMIN_ID:
+        for admin_id in ADMIN_IDS:
             try:
                 await context.bot.send_message(
                     chat_id=admin_id,
