@@ -140,4 +140,4 @@ async def cancel_strategy_callback(update: Update, context: ContextTypes.DEFAULT
     await query.answer()  
     context.user_data.pop("parsed_strategy", None)  
   
-    await query.edit_message_text("❌ Strategy cancelled. You can try again using /strategy.") 
+    await query.edit_message_text("❌ Strategy cancelled. You can try again using /aistrat") 

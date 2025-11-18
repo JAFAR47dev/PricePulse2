@@ -1,0 +1,809 @@
+{
+  "token": "SUSDE",
+  "contract": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+  "updated_at": "2025-11-12T21:48:37.623760",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0xabf8165dd7a90ab75878161db15bf85f6f781d9b",
+      "symbol": "SUSDE",
+      "rank": 1,
+      "balance": 1.2233953940902769e+27,
+      "share": 32.33,
+      "last_tx": null
+    },
+    {
+      "address": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
+      "symbol": "SUSDE",
+      "rank": 2,
+      "balance": 1.021693727715039e+27,
+      "share": 27,
+      "last_tx": null
+    },
+    {
+      "address": "0x4579a27af00a62c0eb156349f31b345c08386419",
+      "symbol": "SUSDE",
+      "rank": 3,
+      "balance": 6.731803917654113e+26,
+      "share": 17.79,
+      "last_tx": null
+    },
+    {
+      "address": "0xfaae52c6a6d477f859a740a76b29c33559ace18c",
+      "symbol": "SUSDE",
+      "rank": 4,
+      "balance": 1.6449482018796432e+26,
+      "share": 4.35,
+      "last_tx": null
+    },
+    {
+      "address": "0xdbf4fb6c310c1c85d0b41b5dbca06096f2e7099f",
+      "symbol": "SUSDE",
+      "rank": 5,
+      "balance": 1.4413588771053907e+26,
+      "share": 3.81,
+      "last_tx": null
+    },
+    {
+      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
+      "symbol": "SUSDE",
+      "rank": 6,
+      "balance": 9.234654869111938e+25,
+      "share": 2.44,
+      "last_tx": null
+    },
+    {
+      "address": "0x3881238c22e161fa8e00590c76d549640ba7a0ba",
+      "symbol": "SUSDE",
+      "rank": 7,
+      "balance": 3.1520246365830825e+25,
+      "share": 0.83,
+      "last_tx": null
+    },
+    {
+      "address": "0xcbf87044fa4cd42178d0393a1e7c7d9faeef545d",
+      "symbol": "SUSDE",
+      "rank": 8,
+      "balance": 3.0976579012279186e+25,
+      "share": 0.82,
+      "last_tx": null
+    },
+    {
+      "address": "0xc01cde799245a25e6eabc550b36a47f6f83cc0f1",
+      "symbol": "SUSDE",
+      "rank": 9,
+      "balance": 2.9299208664581106e+25,
+      "share": 0.77,
+      "last_tx": null
+    },
+    {
+      "address": "0x744793b5110f6ca9cc7cdfe1ce16677c3eb192ef",
+      "symbol": "SUSDE",
+      "rank": 10,
+      "balance": 2.176170691498987e+25,
+      "share": 0.58,
+      "last_tx": null
+    },
+    {
+      "address": "0x7c0e4d6c035d1bd60489ab7e16116ff7ca6c956a",
+      "symbol": "SUSDE",
+      "rank": 11,
+      "balance": 1.7099799184536095e+25,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0xa0f75491720835b36edc92d06ddc468d201e9b73",
+      "symbol": "SUSDE",
+      "rank": 12,
+      "balance": 1.0341885188311097e+25,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "symbol": "SUSDE",
+      "rank": 13,
+      "balance": 9.859442318651822e+24,
+      "share": 0.26,
+      "last_tx": null
+    },
+    {
+      "address": "0x245cc372c84b3645bf0ffe6538620b04a217988b",
+      "symbol": "SUSDE",
+      "rank": 14,
+      "balance": 9.152861847396752e+24,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x3f843189280a4379eb12b928afd5d96df8076679",
+      "symbol": "SUSDE",
+      "rank": 15,
+      "balance": 8.896428765940426e+24,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ea38e09f41a9de53972a68268ba0dcc6d2fadf8",
+      "symbol": "SUSDE",
+      "rank": 16,
+      "balance": 8.332778298464021e+24,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x167478921b907422f8e88b43c4af2b8bea278d3a",
+      "symbol": "SUSDE",
+      "rank": 17,
+      "balance": 6.958984859354427e+24,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xb041569b6ffac3b2cb6d289e85458e90b62d6ecb",
+      "symbol": "SUSDE",
+      "rank": 18,
+      "balance": 6.261711696430721e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x2c2f76429eab8e2730be4085dcdd9370b8d1a96c",
+      "symbol": "SUSDE",
+      "rank": 19,
+      "balance": 5.97078040278616e+24,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x68e7e72938db36a5cbbca7b52c71dbbaadfb8264",
+      "symbol": "SUSDE",
+      "rank": 20,
+      "balance": 5.313246757058e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x50cbf8837791ab3d8dcfb3ce3d1b0d128e1105d4",
+      "symbol": "SUSDE",
+      "rank": 21,
+      "balance": 5.125246740558725e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x885c897063afd0b039e67b8b82059e45e69562f3",
+      "symbol": "SUSDE",
+      "rank": 22,
+      "balance": 4.996384029043167e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x3cef1afc0e8324b57293a6e7ce663781bbefbb79",
+      "symbol": "SUSDE",
+      "rank": 23,
+      "balance": 4.328586608501748e+24,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xe2cf8c5ad55e1506744bfe531985fad3197ad4fe",
+      "symbol": "SUSDE",
+      "rank": 24,
+      "balance": 4.1707398650280625e+24,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x6505aec799ac3b16a79cb1ae2a61884889b54c1b",
+      "symbol": "SUSDE",
+      "rank": 25,
+      "balance": 4.121105515199274e+24,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x14de89b5d336659efa85a417aa50c4a4446e191a",
+      "symbol": "SUSDE",
+      "rank": 26,
+      "balance": 3.8822870323956845e+24,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x19d0d8e6294b7a04a2733fe433444704b791939a",
+      "symbol": "SUSDE",
+      "rank": 27,
+      "balance": 3.881366489023075e+24,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x0228498ee93e8750a823d219a8f531157ccc031f",
+      "symbol": "SUSDE",
+      "rank": 28,
+      "balance": 3.769426240300477e+24,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x95403fbf4d385079aad2db7765f66e891c2bb3b5",
+      "symbol": "SUSDE",
+      "rank": 29,
+      "balance": 3.5894731301715053e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xe3e96892d30e0ee1a8131baf87c891201f7137bf",
+      "symbol": "SUSDE",
+      "rank": 30,
+      "balance": 3.4357800991035783e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x08d64d365bf7bf47869e0e5e95ef07bfeba6152a",
+      "symbol": "SUSDE",
+      "rank": 31,
+      "balance": 3.0537648891768367e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c454f5526e41fbe917b63475cd8ca7e4631b147",
+      "symbol": "SUSDE",
+      "rank": 32,
+      "balance": 2.655980503399541e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xcf6f5ec73942314c3ec864202b40dcbb1f9477a0",
+      "symbol": "SUSDE",
+      "rank": 33,
+      "balance": 2.6508772362627345e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x29403b1ac2b745c806e4d4988e4c1b6f4c119b95",
+      "symbol": "SUSDE",
+      "rank": 34,
+      "balance": 2.6300100156475186e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ec92c9d09403a76bda445ffdfaf6de59717219f",
+      "symbol": "SUSDE",
+      "rank": 35,
+      "balance": 2.6148584193924653e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x774388454c92fe33e781ab535a5e9d186a4562e7",
+      "symbol": "SUSDE",
+      "rank": 36,
+      "balance": 2.5839458066064813e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xb76bc830f183293c368b439b56b40dc58b4e2c7f",
+      "symbol": "SUSDE",
+      "rank": 37,
+      "balance": 2.520945776014527e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x10040cfda13400962a019b9bbe71f1a87267a941",
+      "symbol": "SUSDE",
+      "rank": 38,
+      "balance": 2.367989687599939e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x5dd596c901987a2b28c38a9c1dfbf86fffc15d77",
+      "symbol": "SUSDE",
+      "rank": 39,
+      "balance": 2.3212557033292213e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xeb37e481050c18a9c86e669cd23cf672e4594339",
+      "symbol": "SUSDE",
+      "rank": 40,
+      "balance": 2.2609333859372202e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xe96a08cc684ff7b3e48ef520f79c9196d5c98ed8",
+      "symbol": "SUSDE",
+      "rank": 41,
+      "balance": 2.1201611288267798e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xd29f8980852c2c76fc3f6e96a7aa06e0bedcc1b1",
+      "symbol": "SUSDE",
+      "rank": 42,
+      "balance": 2.0792291517649768e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x0f0c716b007c289c0011e470cc7f14de4fe9fc80",
+      "symbol": "SUSDE",
+      "rank": 43,
+      "balance": 1.863497001931044e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xa52090c48e88afeac9af137f6fb50c62f1a5a575",
+      "symbol": "SUSDE",
+      "rank": 44,
+      "balance": 1.839003310603785e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xd4374008c88321eb2e59abd311156c44b25831e9",
+      "symbol": "SUSDE",
+      "rank": 45,
+      "balance": 1.8081524114853878e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xf09051737024a18db823d111dd1fbb565593ba52",
+      "symbol": "SUSDE",
+      "rank": 46,
+      "balance": 1.7907982128736583e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x1d3b91833a151578af58dc1e1577f6afe6ec3627",
+      "symbol": "SUSDE",
+      "rank": 47,
+      "balance": 1.7872005e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x6ada17fd28c8c274fa919dd107e83992202e62b5",
+      "symbol": "SUSDE",
+      "rank": 48,
+      "balance": 1.7279823880043865e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x666666abd35f7a77afc4965510787f181abf6cf5",
+      "symbol": "SUSDE",
+      "rank": 49,
+      "balance": 1.7242520081376683e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xbd968e7729f1896325600c176afeb5007c0187a6",
+      "symbol": "SUSDE",
+      "rank": 50,
+      "balance": 1.6983874073124306e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x1109297e392d92c1613fdbdf30579a0215c20da9",
+      "symbol": "SUSDE",
+      "rank": 51,
+      "balance": 1.6930982560048455e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xdfd120619aadd1ed713387bc2006113634b04809",
+      "symbol": "SUSDE",
+      "rank": 52,
+      "balance": 1.682058784384136e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x295f67fdb21255a3db82964445628a706fbe689e",
+      "symbol": "SUSDE",
+      "rank": 53,
+      "balance": 1.6737756726225813e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xdd68c0a448981758a5eae5b4bdcc6688b09341ed",
+      "symbol": "SUSDE",
+      "rank": 54,
+      "balance": 1.672182340454016e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x8531a52494368cd9d8265bdafd3712ac256ec68e",
+      "symbol": "SUSDE",
+      "rank": 55,
+      "balance": 1.6660841669736688e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xa7f9b74c37204dec40af6ff3b5b45c10b9ab322c",
+      "symbol": "SUSDE",
+      "rank": 56,
+      "balance": 1.6559393546836933e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xea2ffc597b5a6f63077e952e7a5e2833a1d0a37a",
+      "symbol": "SUSDE",
+      "rank": 57,
+      "balance": 1.6342278227990666e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x1af36fcd67a60b4a281279dc366da88d91882b50",
+      "symbol": "SUSDE",
+      "rank": 58,
+      "balance": 1.5159085706412506e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x0695396ac1bc01a6a940b4b13459ce9210ad9ed7",
+      "symbol": "SUSDE",
+      "rank": 59,
+      "balance": 1.5152664365731983e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xec29d28ea16e52bf8c282413def90f0ed7575f0d",
+      "symbol": "SUSDE",
+      "rank": 60,
+      "balance": 1.467574753333321e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x58ab3c743d737ce35dadbea05173a5a9e105e15c",
+      "symbol": "SUSDE",
+      "rank": 61,
+      "balance": 1.4551655771553862e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x69ecce13832733e9af9a2cb90dfd52e4cf9f545e",
+      "symbol": "SUSDE",
+      "rank": 62,
+      "balance": 1.399427051381001e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xf9bd82c83cf3b4759a68379e094c4af680175d99",
+      "symbol": "SUSDE",
+      "rank": 63,
+      "balance": 1.3757186753472103e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x19d4488345ffdc38ea9d901b964f7d813e96edaf",
+      "symbol": "SUSDE",
+      "rank": 64,
+      "balance": 1.3676754230267623e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x90be4e1da4bb2f464576749abac99774148bc9a2",
+      "symbol": "SUSDE",
+      "rank": 65,
+      "balance": 1.3200701138427607e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xe0e416d6799d641814adf2ec12dfc37a28bedadd",
+      "symbol": "SUSDE",
+      "rank": 66,
+      "balance": 1.2472057099600392e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x7b3ca37dc0628790b8776873ae73c195d030ff21",
+      "symbol": "SUSDE",
+      "rank": 67,
+      "balance": 1.227056542987435e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x0f41351921ede8e61071f48fed253d96760720dd",
+      "symbol": "SUSDE",
+      "rank": 68,
+      "balance": 1.214924739743196e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x644cff1a33a206d680f168b222267d0533c147ab",
+      "symbol": "SUSDE",
+      "rank": 69,
+      "balance": 1.199052689943205e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x7e664992641eefceb9b1846bea10c8e39c970cf6",
+      "symbol": "SUSDE",
+      "rank": 70,
+      "balance": 1.1914796647020014e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xd803472c47a87d7b63e888de53f03b4191b846a8",
+      "symbol": "SUSDE",
+      "rank": 71,
+      "balance": 1.1811968609252962e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x64d2e77b2db80dd81edbc527ad27e44a2a809b82",
+      "symbol": "SUSDE",
+      "rank": 72,
+      "balance": 1.1795804044816693e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x40e6e73d84d5526abf78dc357b8d37725989ca7e",
+      "symbol": "SUSDE",
+      "rank": 73,
+      "balance": 1.1397100055812005e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x0698fa3b48313c5160619bdb970deb98e558ea75",
+      "symbol": "SUSDE",
+      "rank": 74,
+      "balance": 1.1347712599957487e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xc56774f6630ef46490a6109023f4d5e47afb7808",
+      "symbol": "SUSDE",
+      "rank": 75,
+      "balance": 1.1174998212542218e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x76bdfe7fd87427b19626d244c496cfea221707d8",
+      "symbol": "SUSDE",
+      "rank": 76,
+      "balance": 1.1000456883845677e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c2ab69eb2bf12a2f4572d178687bd4660512972",
+      "symbol": "SUSDE",
+      "rank": 77,
+      "balance": 1.0880698424272514e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xfa9fa21e2f38353b31ec7d67820f6df0b20f2a02",
+      "symbol": "SUSDE",
+      "rank": 78,
+      "balance": 1.0804342371693652e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x3b088dbaeebe2453ec67f44c53fbed31092c4a27",
+      "symbol": "SUSDE",
+      "rank": 79,
+      "balance": 1.073560015879187e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x1e550b93a628dc2bd7f6a592f23867241e562aee",
+      "symbol": "SUSDE",
+      "rank": 80,
+      "balance": 1.0734282070001015e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x32341e9acbaae559ec48a484b62c8c943cf1fc3e",
+      "symbol": "SUSDE",
+      "rank": 81,
+      "balance": 1.0599579695484989e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xb25628056075fbfc611cf69ff0b5794ecb630ff2",
+      "symbol": "SUSDE",
+      "rank": 82,
+      "balance": 1.0541509333354388e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x8ad459048c798b7435887184d81d7dd8cf2ab818",
+      "symbol": "SUSDE",
+      "rank": 83,
+      "balance": 1.0346970498479328e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xdd0f6dd7aca5d02c8f4768ab6304cf2ac29e9706",
+      "symbol": "SUSDE",
+      "rank": 84,
+      "balance": 1.0222418836440184e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x1834084feb0505f9a0822cd725ce58f114c958d2",
+      "symbol": "SUSDE",
+      "rank": 85,
+      "balance": 1.0173281144761429e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xb0c0d592b2fb632018706d5ce01ea3fd94930322",
+      "symbol": "SUSDE",
+      "rank": 86,
+      "balance": 1.0042191639824829e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xa78ef43ac39681d62c61b575e3c65660e9043626",
+      "symbol": "SUSDE",
+      "rank": 87,
+      "balance": 9.98534523579654e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xc7a3f63b5e8c99e94f0141e57434b6624922ac07",
+      "symbol": "SUSDE",
+      "rank": 88,
+      "balance": 9.934014596380543e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xd6dad17d025cddded27305aebab8b277996a6faf",
+      "symbol": "SUSDE",
+      "rank": 89,
+      "balance": 9.848741465883753e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xb20179e162ec6403d0884c904d54b6a5af0d43fc",
+      "symbol": "SUSDE",
+      "rank": 90,
+      "balance": 9.789777321087375e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x53768fa60d46222300a6f990ea06029888b85827",
+      "symbol": "SUSDE",
+      "rank": 91,
+      "balance": 9.700625269485122e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xe45e4fc1dbd8ab1c554c8a2bd7fa752d1e53bb35",
+      "symbol": "SUSDE",
+      "rank": 92,
+      "balance": 9.684533048098126e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x2453d84c91472feb2ff19d727cea3163e647fd33",
+      "symbol": "SUSDE",
+      "rank": 93,
+      "balance": 9.44074111517696e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x30c0ed6047752b0cd93754e84dbd919662c2d79e",
+      "symbol": "SUSDE",
+      "rank": 94,
+      "balance": 9.313534901962319e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x515dc0ed66ec807066ecc99b53a25b4477fff51f",
+      "symbol": "SUSDE",
+      "rank": 95,
+      "balance": 9.209010027080539e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xa291aba1b4603cd8c7c37e9ba1105e0a3fbfb0a0",
+      "symbol": "SUSDE",
+      "rank": 96,
+      "balance": 9.203038218532346e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x1f9e607e8aebba049698bf98d709daa9a19db35b",
+      "symbol": "SUSDE",
+      "rank": 97,
+      "balance": 9.140788815202557e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x200565b7150a579c8ab1f69852d0755c42c9d115",
+      "symbol": "SUSDE",
+      "rank": 98,
+      "balance": 8.969982057522233e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x4f9251f13c6e2c24fcf8de4f0f2aadece27d6692",
+      "symbol": "SUSDE",
+      "rank": 99,
+      "balance": 8.804606484416725e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xcc6790220c7d3e3db9778f19e632203a66ea5ed5",
+      "symbol": "SUSDE",
+      "rank": 100,
+      "balance": 8.732604862196561e+23,
+      "share": 0.02,
+      "last_tx": null
+    }
+  ]
+}

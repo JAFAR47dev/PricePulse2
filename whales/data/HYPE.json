@@ -1,0 +1,6 @@
+{
+  "symbol": "HYPE",
+  "unsupported": true,
+  "reason": "Non-ERC20 token or missing Ethereum contract",
+  "timestamp": "2025-11-11 06:53:35 UTC"
+}

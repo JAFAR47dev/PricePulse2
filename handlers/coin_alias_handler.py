@@ -9,20 +9,25 @@ from telegram.ext import (
 )
 from services.coin_data import get_coin_data
 from utils.formatting import format_large_number
+from tasks.handlers import handle_streak
 
 async def handle_chart_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-    parts = query.data.split("_")
-    if len(parts) == 3 and parts[0] == "chart":
-        symbol = parts[1]
-        timeframe = parts[2]
+    try:
+        parts = query.data.split("_")
+        if len(parts) == 3 and parts[0] == "chart":
+            symbol = parts[1]
+            timeframe = parts[2]
 
-        # Reuse chart handler logic
-        from .chart import show_chart
-        context.args = [symbol, timeframe]
-        await show_chart(update, context)
+            from .chart import show_chart
+            context.args = [symbol, timeframe]
+            await show_chart(update, context)
+        else:
+            await query.message.reply_text("⚠️ Invalid chart data.")
+    except Exception as e:
+        await query.message.reply_text(f"❌ Error: {e}")
 
 async def handle_add_alert_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -32,13 +37,14 @@ async def handle_add_alert_button(update: Update, context: ContextTypes.DEFAULT_
     if len(parts) == 2 and parts[0] == "addalert":
         symbol = parts[1]
         await query.message.reply_text(
-            f"🛎 To add an alert for *{symbol}*, use this format:\n"
-            f"`/set price {symbol} > 67000`\n\n"
+            f"🛎 To add an alert for *{symbol}*, use:\n"
+            f"`/set`\n\n"
             "Or use `/help` to see full options.",
             parse_mode="Markdown"
         )
 
 async def coin_alias_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handle_streak(update, context)
     cmd = update.message.text.strip().lstrip("/")
     coin_data = get_coin_data(cmd)
 
@@ -58,23 +64,30 @@ async def coin_alias_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
     high = m["high_24h"]["usd"]
     low = m["low_24h"]["usd"]
 
+    # ✅ Calculate % difference from ATH to current price
+    if ath > 0:
+        ath_change_pct = ((price - ath) / ath) * 100
+    else:
+        ath_change_pct = 0
+
     ath_display = format_large_number(ath)
     vol_display = format_large_number(vol)
     cap_display = format_large_number(cap)
 
+    # ✅ Build message with ATH % difference
     msg = f"""📊 *{coin_data['name']}* (`{coin_data['symbol'].upper()}`)
-    
-    💰 Price: `${price:,.2f}`
-    📈 24h High: `${high:,.2f}`
-    📉 24h Low: `${low:,.2f}`
-    🕐 1h: {pc_1h:.2f}%
-    📅 24h: {pc_24h:.2f}%
-    📆 7d: {pc_7d:.2f}%
-    🗓 30d: {pc_30d:.2f}%
-    📛 ATH: `${ath_display}`
-    🔁 24h Volume: `${vol_display}`
-    🌍 Market Cap: `${cap_display}`
-    """
+
+💰 Price: `${price:,.2f}`
+📈 24h High: `${high:,.2f}`
+📉 24h Low: `${low:,.2f}`
+🕐 1h: {pc_1h:.2f}%
+📅 24h: {pc_24h:.2f}%
+📆 7d: {pc_7d:.2f}%
+🗓 30d: {pc_30d:.2f}%
+📛 ATH: `${ath_display}` ({ath_change_pct:+.2f}%)
+🔁 24h Volume: `${vol_display}`
+🌍 Market Cap: `${cap_display}`
+"""
 
     symbol_upper = coin_data["symbol"].upper()
     keyboard = InlineKeyboardMarkup([
@@ -85,12 +98,12 @@ async def coin_alias_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
     ])
 
     await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=keyboard)
-
+    
 EXCLUDED_COMMANDS = {
     "start", "help", "tasks", "referral", "referrals", "alerts", "watch", "watchlist",
     "upgrade", "remove", "removeall", "best", "worst", "news", "trend", "addasset",
     "portfolio", "portfoliotarget", "portfoliolimit", "prediction", "edit", "stats",
-    "setplan", "prolist", "calc", "aistrat", "screen"
+    "setplan", "prolist", "calc", "aistrat", "screen", "aiscan", "hmap", "track", "cal", "fxcal", "fxsessions"
 }
 
 async def coin_command_router(update: Update, context: ContextTypes.DEFAULT_TYPE):

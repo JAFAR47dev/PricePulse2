@@ -1,20 +1,12 @@
-import sqlite3
-from models.db import get_connection  # Adjust path if needed
+import asyncio
+from utils.indicators import get_crypto_indicators  # replace with your actual filename
 
-def check_plans():
-    conn = get_connection()
-    cursor = conn.cursor()
-    
-    cursor.execute("SELECT DISTINCT plan FROM users")
-    rows = cursor.fetchall()
-    
-    print("📦 Distinct plan values:")
-    for row in rows:
-        print("-", row[0])
 
-    conn.close()
+# 🧪 Example Test
+async def test():
+    data = await get_crypto_indicators("BTC/USD", "1h")
+    print(json.dumps(data, indent=2))
 
 if __name__ == "__main__":
-    check_plans()
-    
+    asyncio.run(test())
     

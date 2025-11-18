@@ -182,56 +182,41 @@ def get_custom_alerts(user_id):
     conn.close()
     return rows
     
-#def get_portfolio_alerts(user_id):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-#    cursor.execute("""
-#        SELECT id, symbol, amount, direction, target_value, repeat
-#        FROM portfolio_alerts
-#        WHERE user_id = ?
-#    """, (user_id,))
-#    rows = cursor.fetchall()
-#    conn.close()
-#    return rows
 
-#from models.db import get_connection
-
-#def get_portfolio_limits_targets(user_id):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-
-#    # This assumes you store limits and targets in a separate table named 'portfolio_alerts'
-#    cursor.execute("""
-#        SELECT id, type, target_value, repeat
-#        FROM portfolio_alerts
-#        WHERE user_id = ? AND type IN ('limit', 'target')
-#    """, (user_id,))
-
-#    rows = cursor.fetchall()
-#    conn.close()
-#    return rows
-#    
-#from models.db import get_connection
+from models.db import get_connection
 
 def get_portfolio_value_limits(user_id):
     conn = get_connection()
     cursor = conn.cursor()
 
-    cursor.execute("""
-        SELECT loss_limit, profit_target
-        FROM portfolio_limits
-        WHERE user_id = ?
-    """, (user_id,))
-    
-    row = cursor.fetchone()
-    conn.close()
+    try:
+        cursor.execute("""
+            SELECT loss_limit, profit_target
+            FROM portfolio_limits
+            WHERE user_id = ?
+        """, (user_id,))
+        
+        row = cursor.fetchone()
+        if not row:
+            return None
 
-    if row and (row[0] > 0 or row[1] > 0):
-        return {
-            "loss_limit": row[0],
-            "profit_target": row[1]
-        }
-    return None
+        loss_limit, profit_target = row
+
+        # Return only if valid values exist
+        if (loss_limit and loss_limit > 0) or (profit_target and profit_target > 0):
+            return {
+                "loss_limit": loss_limit,
+                "profit_target": profit_target
+            }
+        else:
+            return None
+
+    except Exception:
+        return None
+
+    finally:
+        conn.close()
+        
     
 def get_price_alert_by_id(user_id, alert_id):
     conn = get_connection()

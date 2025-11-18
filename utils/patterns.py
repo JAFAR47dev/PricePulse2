@@ -1,42 +1,46 @@
 # utils/patterns.py
+from typing import List, Dict, Any
+import math
 
 def detect_divergences(candles):
     """
-    Detect bullish/bearish divergences using price lows/highs vs RSI lows/highs.
-    Looks at recent 30–50 candles.
+    Detect true bullish/bearish divergences between price and RSI.
+    Identifies local swing highs/lows in the last 50 candles.
     Returns list of detected patterns.
     """
-    if len(candles) < 20:
+    if len(candles) < 30:
         return []
 
     patterns = []
-
     recent = candles[-50:]
 
-    # Extract closing prices and RSI values
-    prices = [float(c["close"]) for c in recent if "rsi" in c]
+    closes = [float(c["close"]) for c in recent if "rsi" in c]
     rsis = [float(c["rsi"]) for c in recent if "rsi" in c]
 
-    if len(prices) < 10 or len(rsis) < 10:
-        return []
+    # Find swing points
+    for i in range(2, len(closes) - 2):
+        # Local low (potential bullish divergence)
+        if closes[i] < closes[i-1] and closes[i] < closes[i+1]:
+            prev_low = closes[i-2]
+            if closes[i] < prev_low and rsis[i] > rsis[i-2]:
+                patterns.append(f"📈 *Bullish Divergence* near candle {i}")
 
-    # Search for bullish divergence (price lower low, RSI higher low)
-    for i in range(2, len(prices) - 2):
-        p1, p2 = prices[i], prices[i+2]
-        r1, r2 = rsis[i], rsis[i+2]
-
-        if p2 < p1 and r2 > r1:
-            patterns.append(f"📈 *Bullish Divergence* spotted at candle {i+2}")
-
-        elif p2 > p1 and r2 < r1:
-            patterns.append(f"📉 *Bearish Divergence* spotted at candle {i+2}")
+        # Local high (potential bearish divergence)
+        elif closes[i] > closes[i-1] and closes[i] > closes[i+1]:
+            prev_high = closes[i-2]
+            if closes[i] > prev_high and rsis[i] < rsis[i-2]:
+                patterns.append(f"📉 *Bearish Divergence* near candle {i}")
 
     return patterns
     
 def detect_engulfing_patterns(candles):
+    """
+    Detect bullish and bearish engulfing patterns.
+    Adds basic trend context for higher accuracy.
+    """
     results = []
 
-    for i in range(1, len(candles)):
+    for i in range(2, len(candles)):
         prev = candles[i - 1]
         curr = candles[i]
 
@@ -45,63 +49,68 @@ def detect_engulfing_patterns(candles):
         curr_open = float(curr["open"])
         curr_close = float(curr["close"])
 
-        # Bullish Engulfing: prev red, curr green & curr engulfs prev
-        if prev_close < prev_open and curr_close > curr_open:
-            if curr_close > prev_open and curr_open < prev_close:
-                results.append(f"🟢 Bullish Engulfing at {curr['datetime']}")
+        # Rough short-term trend direction before pattern
+        trend_dir = float(candles[i-2]["close"]) - float(candles[i-3]["close"]) if i >= 3 else 0
 
-        # Bearish Engulfing: prev green, curr red & curr engulfs prev
+        # Bullish Engulfing
+        if prev_close < prev_open and curr_close > curr_open:
+            if curr_close > prev_open and curr_open < prev_close and trend_dir < 0:
+                price = curr_close
+                results.append(f"🟢 *Bullish Engulfing* near ${price:.2f} ({curr['datetime']})")
+
+        # Bearish Engulfing
         elif prev_close > prev_open and curr_close < curr_open:
-            if curr_open > prev_close and curr_close < prev_open:
-                results.append(f"🔴 Bearish Engulfing at {curr['datetime']}")
+            if curr_open > prev_close and curr_close < prev_open and trend_dir > 0:
+                price = curr_close
+                results.append(f"🔴 *Bearish Engulfing* near ${price:.2f} ({curr['datetime']})")
 
     return results
-    
+     
 def detect_trendline_breaks(candles):
+    """
+    Detect bullish/bearish trendline breaks using recent swing highs/lows.
+    Filters noise by confirming direction and requiring a clean breakout.
+    """
     results = []
 
-    # Convert OHLC to floats and datetime for processing
     closes = [float(c["close"]) for c in candles]
     highs = [float(c["high"]) for c in candles]
     lows = [float(c["low"]) for c in candles]
     dates = [c["datetime"] for c in candles]
 
-    # Simple swing detection: swing high if high[i] > high[i-1] and high[i] > high[i+1]
-    swing_highs = []
-    for i in range(1, len(highs) -1):
-        if highs[i] > highs[i-1] and highs[i] > highs[i+1]:
-            swing_highs.append((i, highs[i]))
+    # Identify swing highs/lows
+    swing_highs = [(i, highs[i]) for i in range(1, len(highs) - 1)
+                   if highs[i] > highs[i - 1] and highs[i] > highs[i + 1]]
+    swing_lows = [(i, lows[i]) for i in range(1, len(lows) - 1)
+                  if lows[i] < lows[i - 1] and lows[i] < lows[i + 1]]
 
-    # Swing low: low[i] < low[i-1] and low[i] < low[i+1]
-    swing_lows = []
-    for i in range(1, len(lows) -1):
-        if lows[i] < lows[i-1] and lows[i] < lows[i+1]:
-            swing_lows.append((i, lows[i]))
-
-    # Detect downtrend line from last 3 swing highs if available
+    # ---- Downtrend line (bear to bull breakout) ----
     if len(swing_highs) >= 3:
         idxs, vals = zip(*swing_highs[-3:])
-        # Calculate line slope (m) and intercept (b) for y = mx + b
-        x_vals = list(idxs)
-        y_vals = list(vals)
-        m = (y_vals[2] - y_vals[0]) / (x_vals[2] - x_vals[0] + 1e-9)
-        b = y_vals[0] - m * x_vals[0]
+        if vals[0] > vals[-1]:  # Ensure it's actually a descending line
+            m = (vals[-1] - vals[0]) / (idxs[-1] - idxs[0] + 1e-9)
+            b = vals[0] - m * idxs[0]
 
-        # Check if last close breaks above the downtrend line
-        last_idx = len(closes) - 1
-        trendline_value = m * last_idx + b
-        if closes[-1] > trendline_value:
-            results.append(f"🔔 Bullish Trendline Break at {dates[-1]}")
+            last_idx = len(closes) - 1
+            trendline_val = m * last_idx + b
+            breakout_buffer = trendline_val * 1.003  # +0.3%
 
-    # Detect uptrend line from last 3 swing lows if available
+            if closes[-1] > breakout_buffer and closes[-2] <= trendline_val:
+                results.append(f"📈 Bullish Trendline Break at {dates[-1]}")
+
+    # ---- Uptrend line (bull to bear breakdown) ----
     if len(swing_lows) >= 3:
         idxs, vals = zip(*swing_lows[-3:])
-        m = (vals[2] - vals[0]) / (idxs[2] - idxs[0] + 1e-9)
-        b = vals[0] - m * idxs[0]
+        if vals[0] < vals[-1]:  # Ensure it's actually ascending
+            m = (vals[-1] - vals[0]) / (idxs[-1] - idxs[0] + 1e-9)
+            b = vals[0] - m * idxs[0]
 
-        trendline_value = m * (len(closes) - 1) + b
-        if closes[-1] < trendline_value:
-            results.append(f"🔔 Bearish Trendline Break at {dates[-1]}")
+            last_idx = len(closes) - 1
+            trendline_val = m * last_idx + b
+            breakout_buffer = trendline_val * 0.997  # -0.3%
+
+            if closes[-1] < breakout_buffer and closes[-2] >= trendline_val:
+                results.append(f"📉 Bearish Trendline Break at {dates[-1]}")
 
     return results
     

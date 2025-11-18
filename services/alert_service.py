@@ -2,7 +2,7 @@ import sqlite3
 import time
 from telegram import Update
 from telegram.ext import ContextTypes
-from services.price_service import get_crypto_price
+from utils.prices import get_crypto_prices
 from models.db import get_connection
 from collections import defaultdict
 import time
@@ -11,8 +11,6 @@ from datetime import datetime
 from telegram.ext import ContextTypes
 from telegram import Bot
 from services.ai_strategy_checker import check_ai_strategies
-
-#from utils.prices import get_crypto_prices
 import traceback
 from services.alert_checkers import (
     check_price_alerts,
@@ -26,37 +24,74 @@ from services.alert_checkers import (
 
 async def check_alerts(context):
     try:
+        print(f"\n🕒 [check_alerts] Started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
         conn = get_connection()
         cursor = conn.cursor()
-
         indicator_cache = defaultdict(dict)
 
-        # 1. Gather all unique symbols from alert tables
+        # 1️⃣ Gather all unique symbols from all alert tables
         all_symbols = set()
-        for table in [
+        alert_tables = [
             "alerts", "percent_alerts", "volume_alerts",
-            "risk_alerts", "custom_alerts", "portfolio_alerts", "watchlist"
-        ]:
-            cursor.execute(f"SELECT DISTINCT symbol FROM {table}")
-            all_symbols.update(row[0] for row in cursor.fetchall())
+            "risk_alerts", "custom_alerts", "portfolio", "watchlist"
+        ]
 
-        # 2. Fetch all prices once
-        symbol_prices = {}
-        for symbol in all_symbols:
+        for table in alert_tables:
             try:
-                symbol_prices[symbol] = get_crypto_price(symbol)
+                cursor.execute(f"SELECT DISTINCT symbol FROM {table}")
+                rows = cursor.fetchall()
+                all_symbols.update(row[0] for row in rows)
             except Exception as e:
-                print(f"❌ Failed to get price for {symbol}: {e}")
-                traceback.print_exc()
+                print(f"⚠️ Skipped table {table}: {e}")
 
-        # 3. Modular alert checking
-        await check_price_alerts(context, symbol_prices)
-        await check_percent_alerts(context, symbol_prices)
-        await check_volume_alerts(context, symbol_prices)
-        await check_risk_alerts(context, symbol_prices)
-        await check_custom_alerts(context, symbol_prices)
-        await check_portfolio_alerts(context, symbol_prices)
-        await check_watchlist_alerts(context, symbol_prices)
+        print(f"📊 Found {len(all_symbols)} unique symbols to check.")
+
+        # ✅ Fetch prices for ALL symbols at once to avoid rate limits
+        symbol_prices = {}
+
+        try:
+            prices = await get_crypto_prices(list(all_symbols))
+
+            if not prices or not isinstance(prices, dict):
+                print("❌ Price API returned None or invalid format. Aborting price checks.")
+                return
+
+            for symbol in all_symbols:
+                price = prices.get(symbol.upper()) or prices.get(symbol.lower())
+                if price is not None:
+                    symbol_prices[symbol] = price
+
+        except Exception as e:
+            print(f"❌ Price fetch failed: {e}")
+            traceback.print_exc()
+            return
+    
+        # 3️⃣ Run all modular alert checks safely
+        all_checks_successful = True
+        check_functions = [
+            check_price_alerts,
+            check_percent_alerts,
+            check_volume_alerts,
+            check_risk_alerts,
+            check_custom_alerts,
+            check_portfolio_alerts,
+            check_watchlist_alerts,
+        ]
+
+        for func in check_functions:
+            try:
+                await func(context, symbol_prices)
+            except Exception as e:
+                print(f"❌ Error in {func.__name__}: {e}")
+                traceback.print_exc()
+                all_checks_successful = False
+
+        # ✅ Print one success message only if *all* checks succeeded
+        if all_checks_successful:
+            print(f"✅ [check_alerts] All alert checks completed successfully at {datetime.now().strftime('%H:%M:%S')}.\n")
+        else:
+            print(f"⚠️ [check_alerts] Completed with some errors at {datetime.now().strftime('%H:%M:%S')}.\n")
 
     except Exception as e:
         print("❌ Error in check_alerts master function:", e)
@@ -79,29 +114,10 @@ def get_cached_price(symbol, ttl=60):
             return cached["price"]
 
     # Otherwise, fetch fresh from API
-    price = get_crypto_price(symbol)
+    price = get_crypto_prices(symbol)
     if price is not None:
         price_cache[symbol] = {"price": price, "timestamp": now}
     return price
-    
-async def send_auto_delete(context, message_func, *args, **kwargs):
-    """Wraps any send_message, send_photo, etc., and schedules deletion based on user settings."""
-    user_id = kwargs.get("chat_id")
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT autodelete FROM users WHERE user_id = ?", (user_id,))
-    result = cursor.fetchone()
-    conn.close()
-
-    msg = await message_func(*args, **kwargs)
-
-    if result and result[0]:
-        delay = result[0] * 60
-        context.job_queue.run_once(
-            lambda c: asyncio.create_task(delete_message_safe(c, chat_id=user_id, message_id=msg.message_id)),
-            when=delay
-        )
-    return msg
     
 
 
@@ -115,7 +131,7 @@ def delete_all_alerts(user_id):
         "volume_alerts",
         "risk_alerts",
         "custom_alerts",
-        "portfolio_alerts",
+        "portfolio_limits",
         "watchlist"
     ]
 
@@ -131,7 +147,7 @@ def delete_all_alerts(user_id):
     
 def start_alert_checker(job_queue):
     from telegram.ext import ContextTypes
-    job_queue.run_repeating(check_alerts, interval=30, first=10)
+    job_queue.run_repeating(check_alerts, interval=20, first=10)
     
 
 async def run_ai_strategy_checker(context: ContextTypes.DEFAULT_TYPE):

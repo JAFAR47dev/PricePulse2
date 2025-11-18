@@ -16,7 +16,6 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     name = user.first_name or "Trader"
     args = context.args
 
-    # --- Handle referral code ---
     referred_by = None
     if args:
         try:
@@ -27,37 +26,57 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Check if user already referred
+    # Check if this user was already referred before
     cursor.execute("SELECT 1 FROM referrals WHERE referred_id = ?", (user_id,))
     already_referred = cursor.fetchone()
 
     if referred_by and not already_referred and referred_by != user_id:
+
+        # Insert referral
         cursor.execute("""
-            INSERT INTO referrals (referrer_id, referred_id, timestamp)
-            VALUES (?, ?, datetime('now'))
+            INSERT INTO referrals (referrer_id, referred_id)
+            VALUES (?, ?)
         """, (referred_by, user_id))
+
+        # Make sure task_progress rows exist
+        init_task_progress(user_id)
+        init_task_progress(referred_by)
+
+        # Increase referral count
+        cursor.execute("""
+            UPDATE task_progress
+            SET referral_count = referral_count + 1
+            WHERE user_id = ?
+        """, (referred_by,))
+
         conn.commit()
 
     # Register user if not exists
-    cursor.execute("INSERT OR IGNORE INTO users (user_id, username, plan) VALUES (?, ?, 'free')", (user.id, user.username))
-    # Check if user is new (INSERT happened)
-    if cursor.rowcount > 0:
-        print(f"🆕 New user joined: {user.id} (@{user.username})")
+    cursor.execute("""
+        INSERT OR IGNORE INTO users (user_id, username, plan)
+        VALUES (?, ?, 'free')
+    """, (user_id, username))
 
-        # Send notification to admin
-        try:
-            await context.bot.send_message(
-                chat_id=ADMIN_ID,
-                text=f"👤 *New User Joined!*\n"
-                     f"ID: `{user.id}`\n"
-                     f"Username: @{user.username or 'N/A'}",
-                parse_mode="Markdown"
-            )
-        except Exception as e:
-            print(f"❌ Failed to notify admin: {e}")
+    if cursor.rowcount > 0:
+        print(f"🆕 New user joined: {user_id} (@{username})")
+
     conn.commit()
     conn.close()
 
+    # 🔔 Notify admin about new user
+    try:
+        await context.bot.send_message(
+            chat_id=ADMIN_ID,
+            text=(
+                "👤 *New User Joined!*\n"
+                f"ID: `{user_id}`\n"
+                f"Username: @{username or 'N/A'}"
+            ),
+            parse_mode="Markdown"
+        )
+    except Exception as e:
+        print(f"❌ Failed to notify admin: {e}")
+        
     # --- Welcome Message ---
     text = (
         f"👋 Welcome *{name}*!\n\n"
@@ -101,7 +120,7 @@ async def handle_upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE
         "• Get auto-refreshing alerts 🔁\n"
         "• Monitor your portfolio 📦\n"
         "• Use premium tools like predictions 📊\n\n"
-        "To upgrade, type /upgrade@EliteTradeSignalBot or\n type /tasks@EliteTradeSignalBot to complete tasks and earn 1-month free access!"
+        "To upgrade, type /upgrade or\n type /tasks@EliteTradeSignalBot to complete tasks and earn 1-month free access!"
     )
     
     keyboard = [
@@ -148,11 +167,17 @@ async def handle_view_commands(update: Update, context: ContextTypes.DEFAULT_TYP
     "• `/removeall` — Delete all alerts\n\n"
 
     "📊 *Charts & Data:*\n"
-    "• `/chart BTC` — View 1h TradingView chart\n"
+    "• `/c BTC` — View 1h TradingView chart\n"
     "• `/BTC` — Coin info: price, % change, volume, ATH, etc.\n"
     "• `/trend BTC` — View indicators (1h only)\n"
     "• `/best` / `/worst` — Top 3 gainers/losers (24h)\n"
     "• `/news` — Get latest 5 crypto headlines\n\n"
+    
+     "*🌍 Forex Tools & Community*\n\n"
+       "• `/fx eurusd` – Live forex rates\n"
+       "• `/fxchart` – Forex Charts\n"
+       "• `/fxconv 100 gbp to usd` – Fiat conversions\n"
+       "• `/fxsessions` – Open forex markets\n\n"
 
     "🎁 *Growth & Referral:*\n"
     "• `/tasks@EliteTradeSignalBot` — Complete tasks to earn 1 month Pro\n"
@@ -161,7 +186,7 @@ async def handle_view_commands(update: Update, context: ContextTypes.DEFAULT_TYP
     "🧭 *Navigation & Info:*\n"
     "• `/start` — Launch welcome menu\n"
     "• `/help` — View detailed guide\n"
-    "• `/upgrade@EliteTradeSignalBot` — See Pro benefits & upgrade steps\n"
+    "• `/upgrade` — See Pro benefits & upgrade steps\n"
     "• `/plan` — Check your current plan\n\n"
 
     "━━━━━━━━━━━━━━━━━━━\n"
@@ -187,9 +212,15 @@ async def handle_view_commands(update: Update, context: ContextTypes.DEFAULT_TYP
     "• `/removewatch BTC` — Remove coin from watchlist\n\n"
 
     "🤖 *Smart Tools:*\n"
-    "• `/chart BTC 4h` — Unlock full chart timeframes\n"
+    "• `/c BTC 4h` — Unlock full chart timeframes\n"
     "• `/trend ETH 1d` — Advanced trend analysis\n"
     "• `/prediction BTC 1h` — AI-based price forecasting\n"
+    "• `/aistrat` – Natural language alert builder\n"
+    "• `/aiscan` – Detect patterns: divergence, crosses, etc.\n"
+    "• `/bt BTC 1h` – Backtest strategies with AI summary\n"
+    "• `/screen` – Scan top 200 coins for setups\n"
+    "• `/track` – Whale wallet tracker (on-chain alerts)\n"
+    
     
     "━━━━━━━━━━━━━━━━━━━\n"
     "💬 *Feature Request?*\n"

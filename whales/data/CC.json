@@ -1,0 +1,6 @@
+{
+  "symbol": "CC",
+  "unsupported": true,
+  "reason": "Non-ERC20 token or missing Ethereum contract",
+  "timestamp": "2025-11-13 07:58:54 UTC"
+}

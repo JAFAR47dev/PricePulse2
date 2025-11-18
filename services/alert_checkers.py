@@ -3,8 +3,55 @@ from utils.prices import get_crypto_prices
 import traceback
 from collections import defaultdict
 from utils.indicators import get_cached_rsi, get_cached_macd, get_cached_ema
+import os
+import time
+import requests
+from collections import defaultdict
+import traceback, time, aiohttp, os
+from dotenv import load_dotenv
+from models.db import get_connection
+from models.alert import get_portfolio_value_limits  # <-- import your helper
+
+load_dotenv()
+TWELVE_KEY = os.getenv("TWELVE_DATA_API_KEY")
+
+# Cache fiat prices for 5 minutes
+fiat_cache = {}
+CACHE_DURATION = 300  # 5 minutes
 
 
+async def get_fiat_price(symbol):
+    """
+    Fetch fiat price (USD base) from Twelve Data API, with 5-minute caching.
+    """
+    symbol = symbol.upper()
+
+    # Direct 1:1 mappings
+    if symbol in ["USD", "USDT"]:
+        return 1.0
+
+    # Return cached value if not expired
+    if symbol in fiat_cache and time.time() - fiat_cache[symbol]["time"] < CACHE_DURATION:
+        return fiat_cache[symbol]["value"]
+
+    # Supported fiats you want to fetch live (vs USD)
+    supported_fiats = ["EUR", "GBP", "JPY", "NGN", "CAD", "AUD", "CHF"]
+    if symbol not in supported_fiats:
+        return None
+
+    try:
+        url = f"https://api.twelvedata.com/price?symbol={symbol}/USD&apikey={TWELVE_KEY}"
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, timeout=10) as response:
+                data = await response.json()
+                if "price" in data:
+                    price = float(data["price"])
+                    fiat_cache[symbol] = {"value": price, "time": time.time()}
+                    return price
+    except Exception as e:
+        print(f"⚠️ Error fetching fiat price for {symbol}: {e}")
+    return None
+    
 async def check_price_alerts(context, symbol_prices):
     conn = get_connection()
     cursor = conn.cursor()
@@ -13,24 +60,29 @@ async def check_price_alerts(context, symbol_prices):
         cursor.execute("SELECT id, user_id, symbol, condition, target_price, repeat FROM alerts")
         for alert_id, user_id, symbol, cond, target, repeat in cursor.fetchall():
             price = symbol_prices.get(symbol)
+            
             if price is None:
                 continue
-            
+
+            # Check alert condition
             if (cond == ">" and price > target) or (cond == "<" and price < target):
                 try:
-                    msg = await context.bot.send_message(
+                    await context.bot.send_message(
                         chat_id=user_id,
-                        text=f"🔔 *Price Alert: {symbol}*\nCurrent price: ${price:.2f} {cond} {target}",
+                        text=(
+                            f"🔔 *Price Alert: {symbol}*\n"
+                            f"Current price: ${price:.2f} {cond} {target}"
+                        ),
                         parse_mode="Markdown"
                     )
-                    await send_auto_delete(context, msg)
                 except Exception as e:
                     print(f"Price alert error: {e}")
                     traceback.print_exc()
-                
+
+                # Delete non-repeating alerts
                 if not repeat:
                     cursor.execute("DELETE FROM alerts WHERE id = ?", (alert_id,))
-        
+
         conn.commit()
     finally:
         conn.close()
@@ -50,6 +102,7 @@ async def check_percent_alerts(context, symbol_prices):
 
         for alert_id, user_id, symbol, base_price, threshold_percent, repeat in rows:
             price = symbol_prices.get(symbol)
+            
             if price is None:
                 continue
 
@@ -57,12 +110,15 @@ async def check_percent_alerts(context, symbol_prices):
 
             if change >= threshold_percent:
                 try:
-                    msg = await context.bot.send_message(
+                    await context.bot.send_message(
                         chat_id=user_id,
-                        text=f"📉 *% Alert for {symbol}*\nChange: {change:.2f}% from ${base_price:.2f}\nNow: ${price:.2f}",
+                        text=(
+                            f"📉 *% Alert for {symbol}*\n"
+                            f"Change: {change:.2f}% from ${base_price:.2f}\n"
+                            f"Now: ${price:.2f}"
+                        ),
                         parse_mode="Markdown"
                     )
-                    await send_auto_delete(context, msg)
                 except Exception as e:
                     print(f"Percent alert error: {e}")
                     traceback.print_exc()
@@ -83,12 +139,12 @@ async def check_percent_alerts(context, symbol_prices):
         conn.close()
 
 
-from utils.indicators import get_volume_comparison  # if located elsewhere, adjust import
+import traceback
+from utils.indicators import get_volume_comparison
 
 async def check_volume_alerts(context, symbol_prices):
     conn = get_connection()
     cursor = conn.cursor()
-
     to_delete = []
 
     try:
@@ -97,27 +153,42 @@ async def check_volume_alerts(context, symbol_prices):
 
         for alert_id, user_id, symbol, tf, mult, repeat in rows:
             try:
+                # ✅ Use the cached CryptoCompare function instead of get_ohlcv
                 current_vol, avg_vol = await get_volume_comparison(symbol, tf)
+
+                # ✅ Skip bad data
+                if not current_vol or not avg_vol:
+                    continue
+
+                # ✅ Check alert condition
                 if current_vol >= avg_vol * mult:
-                    msg = await context.bot.send_message(
+                    await context.bot.send_message(
                         chat_id=user_id,
-                        text=f"📊 *Volume Alert: {symbol}*\n{tf} Volume = {current_vol:.2f}, exceeds {mult}× average ({avg_vol:.2f})",
+                        text=(
+                            f"📊 *Volume Alert: {symbol}*\n"
+                            f"Timeframe: {tf}\n"
+                            f"Current Volume = `{current_vol:,.2f}` USD\n"
+                            f"Average Volume = `{avg_vol:,.2f}` USD\n"
+                            f"➡️ Exceeds `{mult}×` average!"
+                        ),
                         parse_mode="Markdown"
                     )
-                    await send_auto_delete(context, msg)
+
+                    # ✅ Delete if not repeat
                     if not repeat:
                         to_delete.append(alert_id)
+
             except Exception as e:
-                print(f"Volume alert error: {e}")
+                print(f"Volume alert error for {symbol}: {e}")
                 traceback.print_exc()
 
+        # ✅ Remove completed one-time alerts
         if to_delete:
             cursor.executemany("DELETE FROM volume_alerts WHERE id = ?", [(aid,) for aid in to_delete])
             conn.commit()
 
     finally:
         conn.close()
-
 
 async def check_risk_alerts(context, symbol_prices):
     conn = get_connection()
@@ -131,20 +202,21 @@ async def check_risk_alerts(context, symbol_prices):
 
         for alert_id, user_id, symbol, stop_price, take_price, repeat in rows:
             price = symbol_prices.get(symbol)
+            
             if price is None:
                 continue
 
             if price <= stop_price or price >= take_price:
                 try:
-                    msg = await context.bot.send_message(
+                    await context.bot.send_message(
                         chat_id=user_id,
                         text=(
                             f"🛡 *Risk Alert for {symbol}*\n"
-                            f"Price hit ${price:.2f}.\nSL: {stop_price}, TP: {take_price}"
+                            f"Price hit ${price:.2f}.\n"
+                            f"SL: ${stop_price:.2f}, TP: ${take_price:.2f}"
                         ),
                         parse_mode="Markdown"
                     )
-                    await send_auto_delete(context, msg)
 
                     if not repeat:
                         to_delete.append(alert_id)
@@ -159,7 +231,6 @@ async def check_risk_alerts(context, symbol_prices):
 
     finally:
         conn.close()
-
 
 async def check_custom_alerts(context, symbol_prices):
     conn = get_connection()
@@ -177,6 +248,7 @@ async def check_custom_alerts(context, symbol_prices):
 
         for alert_id, user_id, symbol, p_cond, p_val, r_cond, r_val, repeat in rows:
             price = symbol_prices.get(symbol)
+            
             if price is None:
                 continue
 
@@ -184,6 +256,7 @@ async def check_custom_alerts(context, symbol_prices):
             indicator_match = False
 
             try:
+                # RSI condition
                 if r_cond in [">", "<"] and r_val is not None:
                     if symbol not in indicator_cache:
                         indicator_cache[symbol] = {}
@@ -192,6 +265,7 @@ async def check_custom_alerts(context, symbol_prices):
                     rsi = indicator_cache[symbol]["rsi"]
                     indicator_match = (r_cond == ">" and rsi > r_val) or (r_cond == "<" and rsi < r_val)
 
+                # MACD condition
                 elif r_cond == "macd":
                     if symbol not in indicator_cache:
                         indicator_cache[symbol] = {}
@@ -200,6 +274,7 @@ async def check_custom_alerts(context, symbol_prices):
                     macd, signal, hist = indicator_cache[symbol]["macd"]
                     indicator_match = hist > 0
 
+                # EMA condition (e.g. ema>20)
                 elif r_cond.startswith("ema>"):
                     period = int(r_cond.split(">")[1])
                     if symbol not in indicator_cache:
@@ -211,13 +286,14 @@ async def check_custom_alerts(context, symbol_prices):
                     indicator_match = ema is not None and price > ema
 
             except Exception as e:
-                print(f"Custom alert indicator error: {e}")
+                print(f"Custom alert indicator error for {symbol}: {e}")
                 traceback.print_exc()
                 continue
 
+            # If both price and indicator match, trigger alert
             if price_match and indicator_match:
                 try:
-                    msg = await context.bot.send_message(
+                    await context.bot.send_message(
                         chat_id=user_id,
                         text=(
                             f"🧠 *Custom Alert for {symbol}*\n"
@@ -226,11 +302,12 @@ async def check_custom_alerts(context, symbol_prices):
                         ),
                         parse_mode="Markdown"
                     )
-                    await send_auto_delete(context, msg)
+
                     if not repeat:
                         to_delete.append(alert_id)
+
                 except Exception as e:
-                    print(f"Custom alert send error: {e}")
+                    print(f"Custom alert send error for {symbol}: {e}")
                     traceback.print_exc()
             else:
                 print(f"Skipped alert for {symbol}: price_match={price_match}, indicator_match={indicator_match}")
@@ -242,86 +319,101 @@ async def check_custom_alerts(context, symbol_prices):
     finally:
         conn.close()
 
+
+
 async def check_portfolio_alerts(context, symbol_prices):
+    from collections import defaultdict
+    import traceback
+
     conn = get_connection()
     cursor = conn.cursor()
 
     try:
-        cursor.execute("""
-            SELECT p.user_id, p.symbol, p.amount, l.loss_limit, l.profit_target
-            FROM portfolio_alerts p
-            LEFT JOIN portfolio_limits l ON p.user_id = l.user_id
-        """)
+        # Fetch all portfolio holdings
+        cursor.execute("SELECT user_id, symbol, amount FROM portfolio")
+        rows = cursor.fetchall()
+        if not rows:
+            return
 
         portfolios = defaultdict(list)
-        limits = {}
-
-        for user_id, symbol, quantity, loss_limit, profit_target in cursor.fetchall():
-            portfolios[user_id].append((symbol, quantity))
-            limits[user_id] = {
-                "loss_limit": loss_limit,
-                "profit_target": profit_target
-            }
+        for user_id, symbol, amount in rows:
+            portfolios[user_id].append((symbol, amount))
 
         for user_id, assets in portfolios.items():
-            limit_data = limits.get(user_id, {})
+            # Fetch portfolio limit/target for the user
+            limit_data = get_portfolio_value_limits(user_id)
+            if not limit_data:
+                continue
+
             loss_limit = limit_data.get("loss_limit")
             profit_target = limit_data.get("profit_target")
 
-            if loss_limit is None and profit_target is None:
-                continue
-
             total_value = 0
-            missing_data = False
             for symbol, amount in assets:
-                price = symbol_prices.get(symbol)
+                symbol = symbol.upper().strip()
+
+                fiat_price = await get_fiat_price(symbol)
+                if fiat_price:
+                    price = fiat_price
+                else:
+                    price = (
+                        symbol_prices.get(symbol)
+                        or symbol_prices.get(f"{symbol}USDT")
+                    )
+
                 if price is None:
-                    missing_data = True
-                    break
+                    continue
+
                 total_value += price * amount
 
-            if missing_data:
-                continue
-
-            if loss_limit is not None and total_value <= loss_limit:
+            # 🔻 Loss limit alert
+            if loss_limit and total_value <= loss_limit:
                 try:
-                    msg = await context.bot.send_message(
-                        chat_id=user_id,
-                        text=(
-                            f"⚠️ *Portfolio Loss Alert*\n"
-                            f"Your total value dropped to ${total_value:,.2f}.\n"
-                            f"Loss limit was: ${loss_limit:,.2f}"
-                        ),
-                        parse_mode="Markdown"
+                    if context:
+                        await context.bot.send_message(
+                            chat_id=user_id,
+                            text=(
+                                f"⚠️ *Portfolio Loss Alert*\n"
+                                f"Your total value dropped to ${total_value:,.2f}.\n"
+                                f"Loss limit was: ${loss_limit:,.2f}"
+                            ),
+                            parse_mode="Markdown"
+                        )
+                    cursor.execute(
+                        "UPDATE portfolio_limits SET loss_limit = NULL WHERE user_id = ?",
+                        (user_id,)
                     )
-                    await send_auto_delete(context, msg)
-                    cursor.execute("UPDATE portfolio_limits SET loss_limit = NULL WHERE user_id = ?", (user_id,))
-                except Exception as e:
-                    print(f"Portfolio loss alert error: {e}")
+                except Exception:
                     traceback.print_exc()
 
-            elif profit_target is not None and total_value >= profit_target:
+            # 🎯 Profit target alert
+            elif profit_target and total_value >= profit_target:
                 try:
-                    msg = await context.bot.send_message(
-                        chat_id=user_id,
-                        text=(
-                            f"🎯 *Portfolio Target Reached*\n"
-                            f"Your total value is now ${total_value:,.2f}.\n"
-                            f"Target goal was: ${profit_target:,.2f}"
-                        ),
-                        parse_mode="Markdown"
+                    if context:
+                        await context.bot.send_message(
+                            chat_id=user_id,
+                            text=(
+                                f"🎯 *Portfolio Target Reached*\n"
+                                f"Your total value is now ${total_value:,.2f}.\n"
+                                f"Target goal was: ${profit_target:,.2f}"
+                            ),
+                            parse_mode="Markdown"
+                        )
+                    cursor.execute(
+                        "UPDATE portfolio_limits SET profit_target = NULL WHERE user_id = ?",
+                        (user_id,)
                     )
-                    await send_auto_delete(context, msg)
-                    cursor.execute("UPDATE portfolio_limits SET profit_target = NULL WHERE user_id = ?", (user_id,))
-                except Exception as e:
-                    print(f"Portfolio profit alert error: {e}")
+                except Exception:
                     traceback.print_exc()
 
         conn.commit()
 
+    except Exception:
+        traceback.print_exc()
+
     finally:
         conn.close()
-
+        
 
 async def check_watchlist_alerts(context, symbol_prices):
     conn = get_connection()
@@ -336,13 +428,14 @@ async def check_watchlist_alerts(context, symbol_prices):
 
         for user_id, symbol, base_price, threshold, timeframe in cursor.fetchall():
             price = symbol_prices.get(symbol)
+            
             if price is None:
                 continue
 
             change = abs((price - base_price) / base_price * 100)
             if change >= threshold:
                 try:
-                    msg = await context.bot.send_message(
+                    await context.bot.send_message(
                         chat_id=user_id,
                         text=(
                             f"📡 *Watchlist Alert for {symbol}*\n"
@@ -352,7 +445,6 @@ async def check_watchlist_alerts(context, symbol_prices):
                         ),
                         parse_mode="Markdown"
                     )
-                    await send_auto_delete(context, msg)
                 except Exception as e:
                     print(f"Watchlist alert error: {e}")
                     traceback.print_exc()

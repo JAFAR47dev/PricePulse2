@@ -1,0 +1,807 @@
+{
+  "token": "OSETH",
+  "contract": "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38",
+  "updated_at": "2025-10-30T08:59:59.747960",
+  "whales": [
+    {
+      "address": "0x927709711794f3de5ddbf1d176bee2d55ba13c21",
+      "symbol": "OSETH",
+      "rank": 1,
+      "balance": 1.5097622705495231e+23,
+      "share": 76.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x57ba429517c3473b6d34ca9acd56c0e735b94c02",
+      "symbol": "OSETH",
+      "rank": 2,
+      "balance": 1.6054701741421869e+22,
+      "share": 8.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+      "symbol": "OSETH",
+      "rank": 3,
+      "balance": 6.645159542365072e+21,
+      "share": 3.35,
+      "last_tx": null
+    },
+    {
+      "address": "0xba1333333333a1ba1108e8412f11850a5c319ba9",
+      "symbol": "OSETH",
+      "rank": 4,
+      "balance": 5.84624542105979e+21,
+      "share": 2.95,
+      "last_tx": null
+    },
+    {
+      "address": "0xe080027bd47353b5d1639772b4a75e9ed3658a0d",
+      "symbol": "OSETH",
+      "rank": 5,
+      "balance": 2.993195779345928e+21,
+      "share": 1.51,
+      "last_tx": null
+    },
+    {
+      "address": "0x18382a9d5f25f8193dd22812990e15792162e03f",
+      "symbol": "OSETH",
+      "rank": 6,
+      "balance": 2.8562089671132164e+21,
+      "share": 1.44,
+      "last_tx": null
+    },
+    {
+      "address": "0xa48a523f3e0f1a9232bfe22bb6ae07bb44bf36f1",
+      "symbol": "OSETH",
+      "rank": 7,
+      "balance": 2.551e+21,
+      "share": 1.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x52cb8a621610cc3ccf498a1981a8ae7ad6b8ab2a",
+      "symbol": "OSETH",
+      "rank": 8,
+      "balance": 2.5410710030726694e+21,
+      "share": 1.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ec7175541948494db7831c95868dd97d2e0f742",
+      "symbol": "OSETH",
+      "rank": 9,
+      "balance": 1.0119462755003834e+21,
+      "share": 0.51,
+      "last_tx": null
+    },
+    {
+      "address": "0x4f1ac68990b9e3557edc77bac1c7316ca53e322d",
+      "symbol": "OSETH",
+      "rank": 10,
+      "balance": 6.883865169500315e+20,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x869768bb4874a491a3661e69ee0a056adcc09112",
+      "symbol": "OSETH",
+      "rank": 11,
+      "balance": 5.4721723663576596e+20,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x144a98cb1cdbb23610501fe6108858d9b7d24934",
+      "symbol": "OSETH",
+      "rank": 12,
+      "balance": 4.019284425938919e+20,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0xf330b5fe72e91d1a3782e65eed876cf3624c7802",
+      "symbol": "OSETH",
+      "rank": 13,
+      "balance": 3.024588951588336e+20,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xff20d09322dbc43b2eb95b939d050283baa3ce1f",
+      "symbol": "OSETH",
+      "rank": 14,
+      "balance": 2.9060353167915418e+20,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c259bf9ec8a84bbedb43fb58c9448d884413769",
+      "symbol": "OSETH",
+      "rank": 15,
+      "balance": 2.904272139379607e+20,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xf37d7936dcad8486380f73740e94f86b7cf14b41",
+      "symbol": "OSETH",
+      "rank": 16,
+      "balance": 2.3053708408699247e+20,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xc477024facfc3c0ae190d3d8ef90d36a53276eee",
+      "symbol": "OSETH",
+      "rank": 17,
+      "balance": 2.0014598832107802e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x7f4fce865512f6127837fe22f96c27bbd495b3c2",
+      "symbol": "OSETH",
+      "rank": 18,
+      "balance": 1.974965259023362e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xa1e20b98e6edc702d1057aa564cc42b35c545840",
+      "symbol": "OSETH",
+      "rank": 19,
+      "balance": 1.75178438211196e+20,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xb5e4295546d3eec23fbb4a1b15fb40fb72b1413c",
+      "symbol": "OSETH",
+      "rank": 20,
+      "balance": 1.6464497245063053e+20,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xa0f885a90259807f93b5080ed6401ba13108987e",
+      "symbol": "OSETH",
+      "rank": 21,
+      "balance": 1.6449354044880303e+20,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xfa3bd519d745982bde7ca228116d4d0e2ddc796e",
+      "symbol": "OSETH",
+      "rank": 22,
+      "balance": 1.4410236779034033e+20,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xfe5da9f038d27b8854c5448309f434ab343f8189",
+      "symbol": "OSETH",
+      "rank": 23,
+      "balance": 1.280112030761424e+20,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x8f435e0f249e99ca72d42ac5315c49042ad24e82",
+      "symbol": "OSETH",
+      "rank": 24,
+      "balance": 1.2553221269935753e+20,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xb465e8bdca943115f31854731f490d3616bdb6af",
+      "symbol": "OSETH",
+      "rank": 25,
+      "balance": 1.1394807526615605e+20,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x896b78fd7e465fb22e80c34ff8f1c5f62fa2c009",
+      "symbol": "OSETH",
+      "rank": 26,
+      "balance": 1.0830543307e+20,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x6d44832615fa8994f822829681aa45d4e01c7bba",
+      "symbol": "OSETH",
+      "rank": 27,
+      "balance": 1.0318936026217216e+20,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ca9d07f595ad277458acf6be4e8ab4ae000c231",
+      "symbol": "OSETH",
+      "rank": 28,
+      "balance": 9.301027681030812e+19,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xa7c40fdca17877e729947b66c7f6be717a01d255",
+      "symbol": "OSETH",
+      "rank": 29,
+      "balance": 8.27e+19,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a0460b3a3d232a74d89fb7b418d50b8d279b6d1",
+      "symbol": "OSETH",
+      "rank": 30,
+      "balance": 8.023201774235897e+19,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x8e57bc446f76b2054089cc5c8fa6f0f5b72fc59a",
+      "symbol": "OSETH",
+      "rank": 31,
+      "balance": 7.365835837167322e+19,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ae8fa226e5d5a66cc145729dd8b4d4ec30d4116",
+      "symbol": "OSETH",
+      "rank": 32,
+      "balance": 6.733e+19,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xaecf31a3dc990eb76125f9abc0c4b66cbf1baa04",
+      "symbol": "OSETH",
+      "rank": 33,
+      "balance": 6e+19,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x369e0cc8bbac211a397f6508f11dc03fd95d976f",
+      "symbol": "OSETH",
+      "rank": 34,
+      "balance": 5.88696947676962e+19,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x9d065316652aa7a2285423ab66ecc4f2ed7b264c",
+      "symbol": "OSETH",
+      "rank": 35,
+      "balance": 5.196852858227977e+19,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x744d7b2f09d4b47ad958d972eac53d47e3b7f3f3",
+      "symbol": "OSETH",
+      "rank": 36,
+      "balance": 4.829479484762338e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x51ad9c70b49fdc1695de09749918ace34892c75b",
+      "symbol": "OSETH",
+      "rank": 37,
+      "balance": 4.731605309862238e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x4156ffb9c7a39ab3a726252b50fbbab18910f59c",
+      "symbol": "OSETH",
+      "rank": 38,
+      "balance": 4.5e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x41291b3983310cc83f81a199486b8c8fc74c73ec",
+      "symbol": "OSETH",
+      "rank": 39,
+      "balance": 4.29364625998604e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xeb2da6175cde1d31c5520f4d81a22fe176705c34",
+      "symbol": "OSETH",
+      "rank": 40,
+      "balance": 4.0469837714811994e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xe6123006981055dbc8f6906861a2a506d751ba9e",
+      "symbol": "OSETH",
+      "rank": 41,
+      "balance": 4.0449330076100665e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xa953deade87de58c5d539bf4104d233166c17827",
+      "symbol": "OSETH",
+      "rank": 42,
+      "balance": 3.548437123513166e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c3d8ec65f50c9ab01873750b9621399fecdff05",
+      "symbol": "OSETH",
+      "rank": 43,
+      "balance": 3.525597737808338e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x3827e2ddf5e448fad782d8b7a8ccd738b05fca1c",
+      "symbol": "OSETH",
+      "rank": 44,
+      "balance": 3.501445908528757e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x4605f1240be770ec25eeed7acc2f75ee6b5435a6",
+      "symbol": "OSETH",
+      "rank": 45,
+      "balance": 3.457648062580679e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x7fbc8f1d24b238469e36237340e81c26f4644e90",
+      "symbol": "OSETH",
+      "rank": 46,
+      "balance": 3.324096664380098e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x42ad6bd4b6377aa8ff7531332943d7a5dc35c2ca",
+      "symbol": "OSETH",
+      "rank": 47,
+      "balance": 3.2255179098375123e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x8f27eb8b65c2fd17495eea79d26eb41eb54ef2b8",
+      "symbol": "OSETH",
+      "rank": 48,
+      "balance": 3.172567351507635e+19,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x2e30e6b08675f709c3ff20b9a77456a24f046ccf",
+      "symbol": "OSETH",
+      "rank": 49,
+      "balance": 2.454163161136264e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x97e18544e156724e4076945f10c288ecbbc94e54",
+      "symbol": "OSETH",
+      "rank": 50,
+      "balance": 2.433038229771723e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x709495c43bd2704a298a207cbd0cf54041862820",
+      "symbol": "OSETH",
+      "rank": 51,
+      "balance": 2.4010664868763513e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xe59439969ef17d10851e7c461a339b6f9f4b3a5c",
+      "symbol": "OSETH",
+      "rank": 52,
+      "balance": 2.3865406108086256e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xb7c68c183f214c348c072ac17a7412a91f5e6faa",
+      "symbol": "OSETH",
+      "rank": 53,
+      "balance": 2.363753760196733e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x22e9479edfb550a1f031f8b54bb195d8730c6f9d",
+      "symbol": "OSETH",
+      "rank": 54,
+      "balance": 2.329833375965304e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x6006ae9fb4bf6f268fb081dabb388ae74fcb9a1e",
+      "symbol": "OSETH",
+      "rank": 55,
+      "balance": 1.944343217236832e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x17788507c7095277c71196f889cc494d91cc6e29",
+      "symbol": "OSETH",
+      "rank": 56,
+      "balance": 1.8009452481059187e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xf41965eec0fa16b81e2f826d10f2a40d94b19901",
+      "symbol": "OSETH",
+      "rank": 57,
+      "balance": 1.6684016454418076e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x8bb7a0c1a279bf204d5b62fceefdce70af01497d",
+      "symbol": "OSETH",
+      "rank": 58,
+      "balance": 1.632725247482567e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xde70a4a298394738f731b0d24112138a84ba33e4",
+      "symbol": "OSETH",
+      "rank": 59,
+      "balance": 1.5929462528429883e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x38ba81cf61d26c780afdc5afb98f047993450e97",
+      "symbol": "OSETH",
+      "rank": 60,
+      "balance": 1.582735383110563e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x82d3c857055f50463720a4afc9186aa1120eca6c",
+      "symbol": "OSETH",
+      "rank": 61,
+      "balance": 1.5534294205528635e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x995ea8c2bbab53bb4d86ef2ebb6d3ce120bfaa96",
+      "symbol": "OSETH",
+      "rank": 62,
+      "balance": 1.535852826374556e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc35c633c71b5373c736c1502b03d5c0e6d5cd85a",
+      "symbol": "OSETH",
+      "rank": 63,
+      "balance": 1.5061623287495178e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x25a98fa0ddf9f2a186eeaba1a92954cf72ffbd54",
+      "symbol": "OSETH",
+      "rank": 64,
+      "balance": 1.4925136570953247e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0feb0f31d67adbbc950ac0c5266490a9a9735a49",
+      "symbol": "OSETH",
+      "rank": 65,
+      "balance": 1.4692070007643513e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0b3d36fd252c276e8463764667af20dd6da603c3",
+      "symbol": "OSETH",
+      "rank": 66,
+      "balance": 1.4497876278651607e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x19aa1424f24e67c3ab61fda05491c6060af014bb",
+      "symbol": "OSETH",
+      "rank": 67,
+      "balance": 1.4418274497635099e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x3750a58f96cc192ce18117c15db7acaef36a0d7b",
+      "symbol": "OSETH",
+      "rank": 68,
+      "balance": 1.4372287626917855e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x663a98537eb9c9ab485110a7aed714d6d2e1cad2",
+      "symbol": "OSETH",
+      "rank": 69,
+      "balance": 1.3940944380874238e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xff3a7ac62f9e858187d0a42607f991084389c639",
+      "symbol": "OSETH",
+      "rank": 70,
+      "balance": 1.3906525298473652e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xbad863607d329a84cb336480e1881e1394373b0e",
+      "symbol": "OSETH",
+      "rank": 71,
+      "balance": 1.3903317727110474e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa23ccb9bc04364be0a3efbc0bfcc25cbcce8d1f4",
+      "symbol": "OSETH",
+      "rank": 72,
+      "balance": 1.3749673698200365e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x3b6fb68c221955498c710f99c73bee90afd9c1e2",
+      "symbol": "OSETH",
+      "rank": 73,
+      "balance": 1.334489593945848e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x75840a2a0c180fb6103ffb23f0fb3fcb88869041",
+      "symbol": "OSETH",
+      "rank": 74,
+      "balance": 1.3291800320044614e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x4df87d14d1664d4962a087ba354827cd9f34d203",
+      "symbol": "OSETH",
+      "rank": 75,
+      "balance": 1.3225506313142082e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xea10db322c5c59ee500b1062797a518dded1b1ad",
+      "symbol": "OSETH",
+      "rank": 76,
+      "balance": 1.1984734237365363e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x63037a4e3305d25d48baed2022b8462b2807351c",
+      "symbol": "OSETH",
+      "rank": 77,
+      "balance": 1.1167014459318233e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xe978f8fe67553a0b66f2b9d7a782ce866cead5cf",
+      "symbol": "OSETH",
+      "rank": 78,
+      "balance": 1.101649106702181e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc9fd9e1ed09643f31b9a21113e716aad7d4b92c5",
+      "symbol": "OSETH",
+      "rank": 79,
+      "balance": 1.101142060028869e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xd89accd5824d6d9088e18bf503faeb20d7a724ae",
+      "symbol": "OSETH",
+      "rank": 80,
+      "balance": 1.0937151511626136e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x5cf32d6b035bfb590304f0733a5fd8fe2c750651",
+      "symbol": "OSETH",
+      "rank": 81,
+      "balance": 1.0824506353037674e+19,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x6d5f36912712b8727ac47494348e1fc517ca993d",
+      "symbol": "OSETH",
+      "rank": 82,
+      "balance": 9.933221189528349e+18,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x8a528951a54657e94a93889b5cb94efec688d82d",
+      "symbol": "OSETH",
+      "rank": 83,
+      "balance": 9.831244924919853e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x554404025fa21b07527acc935bf6cead24aec363",
+      "symbol": "OSETH",
+      "rank": 84,
+      "balance": 9.766184919425063e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x7cb85384b0b1946e0c45a120e1a4d64955eb8913",
+      "symbol": "OSETH",
+      "rank": 85,
+      "balance": 9.712602840512887e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x232cd5ed6c69bfdc4ed9b4c3d8923961ea4b439c",
+      "symbol": "OSETH",
+      "rank": 86,
+      "balance": 9.691671418273788e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xec9bd0460dbe8ad9bc44d4c922deaf893f2e685f",
+      "symbol": "OSETH",
+      "rank": 87,
+      "balance": 9.625946442023068e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x195a77c80b8cff31f96088af52a8ef59b96dc0e8",
+      "symbol": "OSETH",
+      "rank": 88,
+      "balance": 9.507914987932975e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x45c56e192f3a1a0eca4e973bee14d7fa1e49753a",
+      "symbol": "OSETH",
+      "rank": 89,
+      "balance": 9.507913475838857e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x7261532e94bd7e8320f3c29c1976747c8f6eb951",
+      "symbol": "OSETH",
+      "rank": 90,
+      "balance": 9.507913192318642e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x43c7fadcf7e047e70a0b6affa70a933a9ae1e0ec",
+      "symbol": "OSETH",
+      "rank": 91,
+      "balance": 9.507911491197448e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4cb7fe75c6fd29d47020c83d4403b178d7cfec38",
+      "symbol": "OSETH",
+      "rank": 92,
+      "balance": 9.50791045162354e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x1fbc85f80247ec4d3fd88d900452b55491eb6b91",
+      "symbol": "OSETH",
+      "rank": 93,
+      "balance": 9.507905820796332e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xa224d7b4e92412d749147496d250c42f2e258fa2",
+      "symbol": "OSETH",
+      "rank": 94,
+      "balance": 9.50790544276973e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x17d1d3d52d5bcfbd6b3acd67816d5e1ec4b3214f",
+      "symbol": "OSETH",
+      "rank": 95,
+      "balance": 9.286779943159812e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x6fbbeb872628edafabafec158964ba2cea8d9049",
+      "symbol": "OSETH",
+      "rank": 96,
+      "balance": 9.270170330833816e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x76c618d12112076d9e4fa9136dd0ca8bd816ea7e",
+      "symbol": "OSETH",
+      "rank": 97,
+      "balance": 8.947307589041134e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xa9dc250df4ee9273d09cfa455da41fb1cac78d34",
+      "symbol": "OSETH",
+      "rank": 98,
+      "balance": 8.935334794819508e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x5e095e96b2a69b6f5af618ae83da38d7bf591de4",
+      "symbol": "OSETH",
+      "rank": 99,
+      "balance": 8.77408405906219e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xed49b368d91f1a0360d5203f8f47cbe0c0a09a67",
+      "symbol": "OSETH",
+      "rank": 100,
+      "balance": 8.678462425434046e+18,
+      "share": 0,
+      "last_tx": null
+    }
+  ]
+}

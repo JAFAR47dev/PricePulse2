@@ -1,6 +1,210 @@
 import sqlite3
 from models.db import get_connection
+from datetime import datetime, timedelta
+import json
 
+
+def create_task_progress_table():
+    """
+    Creates the main task_progress table with all required columns
+    for Daily Streak, Referral Rewards, and Social Boost Tasks.
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS task_progress (
+            user_id INTEGER PRIMARY KEY,
+
+            -- DAILY STREAK SYSTEM
+            daily_streak INTEGER DEFAULT 0,
+            last_active_date TEXT,
+            streak_reward_claimed INTEGER DEFAULT 0,
+            pro_expiry_date TEXT,
+
+            -- REFERRAL REWARD SYSTEM
+            referral_count INTEGER DEFAULT 0,
+            claimed_referral_rewards TEXT DEFAULT '[]',  -- JSON: ["1","3"]
+
+            -- SOCIAL BOOST TASKS
+            social_tg INTEGER DEFAULT 0,
+            social_tw INTEGER DEFAULT 0,
+            social_story INTEGER DEFAULT 0
+        )
+    """)
+
+    conn.commit()
+    conn.close()
+    
+def init_task_progress(user_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT OR IGNORE INTO task_progress (
+            user_id,
+            daily_streak,
+            last_active_date,
+            streak_reward_claimed,
+            pro_expiry_date,
+            referral_count,
+            claimed_referral_rewards,
+            social_tg,
+            social_tw,
+            social_story
+        ) VALUES (?, 0, NULL, 0, NULL, 0, '[]', 0, 0, 0)
+    """, (user_id,))
+
+    conn.commit()
+    conn.close()
+    
+
+def get_task_progress(user_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT daily_streak, last_active_date, streak_reward_claimed, pro_expiry_date
+        FROM task_progress 
+        WHERE user_id = ?
+    """, (user_id,))
+    row = cursor.fetchone()
+    conn.close()
+
+    if not row:
+        return {
+            "daily_streak": 0,
+            "last_active_date": None,
+            "streak_reward_claimed": 0,
+            "pro_expiry_date": None
+        }
+
+    return {
+        "daily_streak": row[0],
+        "last_active_date": row[1],
+        "streak_reward_claimed": row[2],
+        "pro_expiry_date": row[3]
+    }
+    
+from datetime import datetime, timedelta
+from utils.streaks import should_count_for_streak
+
+def update_daily_streak(user_id, message_text=None):
+    """
+    Update user's daily streak. Only counts meaningful activity.
+    Returns: (new_streak, milestone_hit, reward_ready)
+    """
+    if message_text and not should_count_for_streak(message_text):
+        return None, None, None  # ignore this activity
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT daily_streak, last_active_date, streak_reward_claimed
+        FROM task_progress WHERE user_id = ?
+    """, (user_id,))
+    row = cursor.fetchone()
+
+    today = datetime.utcnow().date()
+
+    daily_streak = 0
+    last_active = None
+    reward_claimed = 0
+
+    if row:
+        daily_streak = row[0] or 0
+        last_active = row[1]
+        reward_claimed = row[2]
+
+    # First ever usage
+    if not last_active:
+        daily_streak = 1
+    else:
+        last_date = datetime.strptime(last_active, "%Y-%m-%d").date()
+        if last_date == today:
+            return daily_streak, None, None  # already counted today
+        elif (today - last_date).days == 1:
+            daily_streak += 1
+        else:
+            daily_streak = 1  # streak broken
+
+    milestone_hit = daily_streak if daily_streak in [3, 7, 9, 12] else None
+    reward_ready = daily_streak >= 14 and reward_claimed == 0
+
+    cursor.execute("""
+        UPDATE task_progress
+        SET daily_streak = ?, last_active_date = ?
+        WHERE user_id = ?
+    """, (daily_streak, today.strftime("%Y-%m-%d"), user_id))
+
+    conn.commit()
+    conn.close()
+
+    return daily_streak, milestone_hit, reward_ready
+    
+
+        
+import json
+
+REFERRAL_TIERS = {
+    1: 1,   # invites : reward days
+    3: 7,
+    5: 14
+}
+
+def get_referral_rewards(user_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT referral_count, claimed_referral_rewards FROM task_progress WHERE user_id = ?", (user_id,))
+    row = cursor.fetchone()
+    conn.close()
+
+    if not row:
+        return 0, []
+
+    referral_count = row[0]
+    claimed = json.loads(row[1] or "[]")
+
+    return referral_count, claimed
+ 
+
+# --- REFERRAL TIER CLAIM ---
+def claim_referral_tier(user_id, tier):
+    reward_days = REFERRAL_TIERS[tier]
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    # Fetch claimed tiers
+    cursor.execute("SELECT claimed_referral_rewards FROM task_progress WHERE user_id = ?", (user_id,))
+    row = cursor.fetchone()
+    claimed = json.loads(row[0] if row and row[0] else "[]")
+
+    if tier in claimed:
+        return None  # Already claimed
+
+    # Append new tier
+    claimed.append(tier)
+
+    # Set expiry date for Pro access
+    expiry_date = (datetime.utcnow() + timedelta(days=reward_days)).strftime("%Y-%m-%d %H:%M:%S")
+
+    # Update task_progress table
+    cursor.execute("""
+        UPDATE task_progress
+        SET claimed_referral_rewards = ?, pro_expiry_date = ?
+        WHERE user_id = ?
+    """, (json.dumps(claimed), expiry_date, user_id))
+
+    conn.commit()
+    conn.close()
+
+    # Upgrade user in main users table
+    set_user_plan(user_id, "pro", expiry_date)
+
+    return reward_days, expiry_date
+
+       
 def create_referrals_table():
     conn = get_connection()
     cursor = conn.cursor()
@@ -17,88 +221,4 @@ def create_referrals_table():
     conn.commit()
     conn.close()
     
-def create_task_progress_table():
-    conn = get_connection()
-    cursor = conn.cursor()
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS task_progress (
-            user_id INTEGER PRIMARY KEY,
-            task1_done INTEGER DEFAULT 0,
-            task2_done INTEGER DEFAULT 0,
-            task3_done INTEGER DEFAULT 0,
-            proof1 TEXT,
-            proof2 TEXT,
-            proof3 TEXT,
-            approved_by_admin INTEGER DEFAULT 0,
-            reward_given INTEGER DEFAULT 0,
-            expiry_date TEXT
-        )
-    """)
-
-    conn.commit()
-    conn.close()
-    
-def init_task_progress(user_id):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("INSERT OR IGNORE INTO task_progress (user_id) VALUES (?)", (user_id,))
-    conn.commit()
-    conn.close()
-
-def get_task_progress(user_id):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("""
-        SELECT task1_done, task2_done, task3_done FROM task_progress WHERE user_id = ?
-    """, (user_id,))
-    row = cursor.fetchone()
-    conn.close()
-    if row:
-        return {
-            "task1_done": row[0],
-            "task2_done": row[1],
-            "task3_done": row[2]
-        }
-    return {"task1_done": 0, "task2_done": 0, "task3_done": 0}
-    
-    
-from models.db import get_connection
-
-def save_proof(user_id: int, task_num: int, proof: str):
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    # Ensure row exists
-    cursor.execute("INSERT OR IGNORE INTO task_progress (user_id) VALUES (?)", (user_id,))
-    cursor.execute(f"""
-        UPDATE task_progress
-        SET proof{task_num} = ?
-        WHERE user_id = ?
-    """, (proof, user_id))
-
-    conn.commit()
-    conn.close()
-    
-def store_referral(referrer_id: int, referred_id: int):
-    if referrer_id == referred_id:
-        print("❌ Self-referral attempt blocked.")
-        return False  # Block self-referral
-
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    # Prevent duplicate
-    cursor.execute("SELECT 1 FROM referrals WHERE referred_id = ?", (referred_id,))
-    if cursor.fetchone():
-        conn.close()
-        return False
-
-    cursor.execute(
-        "INSERT INTO referrals (referrer_id, referred_id, timestamp) VALUES (?, ?, datetime('now'))",
-        (referrer_id, referred_id)
-    )
-
-    conn.commit()
-    conn.close()
-    return True

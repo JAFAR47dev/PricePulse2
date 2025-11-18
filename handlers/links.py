@@ -5,12 +5,14 @@ import json
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
+from tasks.handlers import handle_streak
 
 # Load CoinGecko symbol-to-ID mapping
 with open("utils/coingecko_ids.json", "r") as f:
     COINGECKO_IDS = json.load(f)
 
 async def links_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handle_streak(update, context)
     if len(context.args) != 1:
         return await update.message.reply_text("❌ Usage: /links [coin] (e.g. /links btc)")
 

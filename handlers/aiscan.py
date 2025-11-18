@@ -1,3 +1,6 @@
+# handlers/aiscan.py
+import os
+import requests
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
@@ -9,12 +12,24 @@ from utils.patterns import (
     detect_golden_death_crosses,
     detect_double_top_bottom
 )
-import os
-import requests
+import datetime
+from models.user import get_user_plan
+from utils.auth import is_pro_plan
 
-VALID_TIMEFRAMES = ["1h", "2h", "4h", "8h", "1d"]
+VALID_TIMEFRAMES = ["1m", "5m", "15m", "30m", "1h", "2h", "4h", "8h", "1d"]
+
 
 async def aiscan_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    plan = get_user_plan(user_id)
+
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This is a *Pro-only* feature.\nUpgrade to unlock AI backtesting.\n\n👉 /upgrade",
+            parse_mode=ParseMode.MARKDOWN
+        )
+        return
+        
     args = context.args
     if len(args) < 1:
         return await update.message.reply_text(
@@ -26,7 +41,7 @@ async def aiscan_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if tf not in VALID_TIMEFRAMES:
         return await update.message.reply_text(
-            "❌ Invalid timeframe. Choose from: 1h, 2h, 4h, 8h, 1d"
+            "❌ Invalid timeframe. Choose from: 1m, 5m, 15m, 30m, 1h, 2h, 4h, 8h, 1d"
         )
 
     await update.message.reply_text(f"🔍 Scanning {symbol} ({tf}) for patterns...")
@@ -44,9 +59,28 @@ async def aiscan_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         + detect_double_top_bottom(candles)
     )
 
-    if not patterns:
-        return await update.message.reply_text("✅ No major chart patterns detected.")
+    # Log only recent and major patterns (most recent 5)
+    if patterns:
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print("\n🧠 [AI Pattern Spotter Log]")
+        print(f"Time: {timestamp}")
+        print(f"Symbol: {symbol} | Timeframe: {tf}")
+        print(f"Detected {len(patterns)} patterns (showing latest 5):")
 
+        for i, p in enumerate(patterns[-5:], 1):
+            print(f"  {i}. {p}")
+
+        print("-" * 50)
+
+        formatted_patterns = "\n".join([f"• {p}" for p in patterns[:5]])
+        await update.message.reply_text(
+            f"📊 *Major Patterns Found for {symbol} ({tf})*\n\n{formatted_patterns}",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+    else:
+        print(f"🧠 [{symbol}] No major patterns detected.")
+        await update.message.reply_text("✅ No major chart patterns detected.")
+        
     # AI market summary
     summary = await get_ai_pattern_summary(symbol, tf, patterns[-20:])
 

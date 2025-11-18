@@ -3,6 +3,7 @@ import json
 import random
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CallbackQueryHandler, CommandHandler
+from tasks.handlers import handle_streak
 
 # Load glossary once
 with open("utils/glossary.json") as f:
@@ -12,6 +13,7 @@ ITEMS_PER_PAGE = 6  # Number of terms per page
 
 # /learn command entry
 async def learn_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handle_streak(update, context)
     await send_learn_page(update, page=0)
 
 # Callback: pagination like learn_page_1

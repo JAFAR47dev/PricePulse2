@@ -1,0 +1,809 @@
+{
+  "token": "ENA",
+  "contract": "0x57e114b691db790c35207b2e685d4a43181e6061",
+  "updated_at": "2025-11-13T21:46:38.134798",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0xc4e512313dd1ce0795f88ec5229778edf1fdf79b",
+      "symbol": "ENA",
+      "rank": 1,
+      "balance": 1.7201389133579549e+27,
+      "share": 11.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x2146aa5807d96e6b2922a149cee870f17347f1d0",
+      "symbol": "ENA",
+      "rank": 2,
+      "balance": 1.2900087693055556e+27,
+      "share": 8.6,
+      "last_tx": null
+    },
+    {
+      "address": "0x1dc55d87c4143cc1829989d7ff8d580549ac0901",
+      "symbol": "ENA",
+      "rank": 3,
+      "balance": 1.23188703776e+27,
+      "share": 8.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xb2af973905f05bc82bf97486b6ab883598d98298",
+      "symbol": "ENA",
+      "rank": 4,
+      "balance": 9.9669370689e+26,
+      "share": 6.64,
+      "last_tx": null
+    },
+    {
+      "address": "0x8be3460a480c80728a8c4d7a5d5303c85ba7b3b9",
+      "symbol": "ENA",
+      "rank": 5,
+      "balance": 9.718717495061638e+26,
+      "share": 6.48,
+      "last_tx": null
+    },
+    {
+      "address": "0xa5274a5a4b4bb3b3646475886b41bf6c50edd666",
+      "symbol": "ENA",
+      "rank": 6,
+      "balance": 9.1434182583e+26,
+      "share": 6.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x54b8c65f0635fd91c8729dd3269c630d9aed54e5",
+      "symbol": "ENA",
+      "rank": 7,
+      "balance": 4.5680949332484454e+26,
+      "share": 3.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+      "symbol": "ENA",
+      "rank": 8,
+      "balance": 4.3e+26,
+      "share": 2.87,
+      "last_tx": null
+    },
+    {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "symbol": "ENA",
+      "rank": 9,
+      "balance": 4.12018685e+26,
+      "share": 2.75,
+      "last_tx": null
+    },
+    {
+      "address": "0x41c7d5db1bb11a30196f4e9873b2ce417b9cba39",
+      "symbol": "ENA",
+      "rank": 10,
+      "balance": 3.5e+26,
+      "share": 2.33,
+      "last_tx": null
+    },
+    {
+      "address": "0xdedc15fa923d4e147875c63c0a97f85f178dfe96",
+      "symbol": "ENA",
+      "rank": 11,
+      "balance": 3.32106902241265e+26,
+      "share": 2.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x877b3d5c681c8890d19dbf450306caa3c3d4bba6",
+      "symbol": "ENA",
+      "rank": 12,
+      "balance": 3.1599999000015e+26,
+      "share": 2.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x0c36fda877d41671b14fb4e7655798965237c7d0",
+      "symbol": "ENA",
+      "rank": 13,
+      "balance": 2.641014401789887e+26,
+      "share": 1.76,
+      "last_tx": null
+    },
+    {
+      "address": "0x70167b76543c4a12b49b2f2b70cbf04d99345786",
+      "symbol": "ENA",
+      "rank": 14,
+      "balance": 2.354990745032289e+26,
+      "share": 1.57,
+      "last_tx": null
+    },
+    {
+      "address": "0xf8f061cfc030928a4acb8c4980911b4f5afc4002",
+      "symbol": "ENA",
+      "rank": 15,
+      "balance": 2.30000009e+26,
+      "share": 1.53,
+      "last_tx": null
+    },
+    {
+      "address": "0x4655b6a10c83d6beff1dc7116436cfd8b4f8d48a",
+      "symbol": "ENA",
+      "rank": 16,
+      "balance": 2.265910593865921e+26,
+      "share": 1.51,
+      "last_tx": null
+    },
+    {
+      "address": "0xa55457e0d0652ba47fe1f97873a62b4f9dcae4d1",
+      "symbol": "ENA",
+      "rank": 17,
+      "balance": 1.87546886e+26,
+      "share": 1.25,
+      "last_tx": null
+    },
+    {
+      "address": "0x70f58622158d7e609ae5839c4ad0d477f468863f",
+      "symbol": "ENA",
+      "rank": 18,
+      "balance": 1.60000002e+26,
+      "share": 1.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xf0465df588906d820f831970262bdcca0f2b3e2d",
+      "symbol": "ENA",
+      "rank": 19,
+      "balance": 1.472599772580094e+26,
+      "share": 0.98,
+      "last_tx": null
+    },
+    {
+      "address": "0x631ee55b8ecd7afb53ec30211a082691a4cbe3ae",
+      "symbol": "ENA",
+      "rank": 20,
+      "balance": 1.45000028e+26,
+      "share": 0.97,
+      "last_tx": null
+    },
+    {
+      "address": "0xa9cf4aa55c675badb68519e3cfa8f4be942e6d11",
+      "symbol": "ENA",
+      "rank": 21,
+      "balance": 1.35999992e+26,
+      "share": 0.91,
+      "last_tx": null
+    },
+    {
+      "address": "0xbef89f2cc3c1fa89d1929d10c2421caea3d793cc",
+      "symbol": "ENA",
+      "rank": 22,
+      "balance": 1.2709385464503086e+26,
+      "share": 0.85,
+      "last_tx": null
+    },
+    {
+      "address": "0xb829e684df8e31b402a4d4aedf3bbc18a52e7589",
+      "symbol": "ENA",
+      "rank": 23,
+      "balance": 1.20000002e+26,
+      "share": 0.8,
+      "last_tx": null
+    },
+    {
+      "address": "0x3c716d252b53891753de883894ff29a9ebee0f54",
+      "symbol": "ENA",
+      "rank": 24,
+      "balance": 9.654985874598125e+25,
+      "share": 0.64,
+      "last_tx": null
+    },
+    {
+      "address": "0x3cd9c4942467c859224325b41aeb3a4d2b84c541",
+      "symbol": "ENA",
+      "rank": 25,
+      "balance": 8.31576260994e+25,
+      "share": 0.55,
+      "last_tx": null
+    },
+    {
+      "address": "0x473e09c674db36420017e7ce1121e210d5828d0e",
+      "symbol": "ENA",
+      "rank": 26,
+      "balance": 8.16613e+25,
+      "share": 0.54,
+      "last_tx": null
+    },
+    {
+      "address": "0xaca0928e21cefa2703c5c778b4f0f4a16d99d453",
+      "symbol": "ENA",
+      "rank": 27,
+      "balance": 7.732755954e+25,
+      "share": 0.52,
+      "last_tx": null
+    },
+    {
+      "address": "0x363d012128912c76a2167c08989658e676937f4d",
+      "symbol": "ENA",
+      "rank": 28,
+      "balance": 6.1428e+25,
+      "share": 0.41,
+      "last_tx": null
+    },
+    {
+      "address": "0xca1ad9c3f5fad67bd60c290b3c8a71987101de87",
+      "symbol": "ENA",
+      "rank": 29,
+      "balance": 6.139445974640467e+25,
+      "share": 0.41,
+      "last_tx": null
+    },
+    {
+      "address": "0x8af2833f3aa3933a58c07e6244f9c35580f4611d",
+      "symbol": "ENA",
+      "rank": 30,
+      "balance": 6.063188178e+25,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0xa7eea194794d1bee1067c8fa7d8dbc8ca94a907a",
+      "symbol": "ENA",
+      "rank": 31,
+      "balance": 5.7318888e+25,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a5e25fbaf575876f2905eaa11143cbfa29bd443",
+      "symbol": "ENA",
+      "rank": 32,
+      "balance": 5.612436043625e+25,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0xd4d56a30a4a745f8ba732e8b453b7066260fbc10",
+      "symbol": "ENA",
+      "rank": 33,
+      "balance": 5.61167228e+25,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0xc31cb05ead558ed3426ec1143320540a542c9fcc",
+      "symbol": "ENA",
+      "rank": 34,
+      "balance": 4.5345404953354e+25,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xab2eedf5cf6e534b3ab8e2a71f7457228138c1b3",
+      "symbol": "ENA",
+      "rank": 35,
+      "balance": 4.168475516e+25,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0xf7bfc6023a1cae94e81fb2fef17a1e5052e7b5fb",
+      "symbol": "ENA",
+      "rank": 36,
+      "balance": 4e+25,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x8e771f7bab34a3b4491e03f22f005483e5c375f5",
+      "symbol": "ENA",
+      "rank": 37,
+      "balance": 3.9752084640839e+25,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "ENA",
+      "rank": 38,
+      "balance": 3.512903965552631e+25,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x9b0c45d46d386cedd98873168c36efd0dcba8d46",
+      "symbol": "ENA",
+      "rank": 39,
+      "balance": 3.4224962489e+25,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
+      "symbol": "ENA",
+      "rank": 40,
+      "balance": 3.2140711848296986e+25,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xf430f9e83acd75e9d9825570470ff0fc83b6c09e",
+      "symbol": "ENA",
+      "rank": 41,
+      "balance": 3e+25,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "ENA",
+      "rank": 42,
+      "balance": 2.9733860015464906e+25,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x43684d03d81d3a4c70da68febdd61029d426f042",
+      "symbol": "ENA",
+      "rank": 43,
+      "balance": 2.73434462245874e+25,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x72b272ccca76e0394352ff7819fb846855a164ad",
+      "symbol": "ENA",
+      "rank": 44,
+      "balance": 2.648170549e+25,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x76ec5a0d3632b2133d9f1980903305b62678fbd3",
+      "symbol": "ENA",
+      "rank": 45,
+      "balance": 2.5457817084152706e+25,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xf31a5763b52f67846c38c2eea22b075f66f4ea10",
+      "symbol": "ENA",
+      "rank": 46,
+      "balance": 2.53125e+25,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xfab03b7d0ea9190368bfbf8f0ede5db721188f76",
+      "symbol": "ENA",
+      "rank": 47,
+      "balance": 2.53125e+25,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x454da665c949390bb755cb147c471d3c3098276f",
+      "symbol": "ENA",
+      "rank": 48,
+      "balance": 2.53125e+25,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xa055f4c2092dee7432e0699f582ef44d97b7c5eb",
+      "symbol": "ENA",
+      "rank": 49,
+      "balance": 2.53125e+25,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x86c74258b818b4e25516f4cdbefd41c031dbd9ab",
+      "symbol": "ENA",
+      "rank": 50,
+      "balance": 2.53125e+25,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x1ea1097699deb7d634155bc5a046d1abbfdde487",
+      "symbol": "ENA",
+      "rank": 51,
+      "balance": 2.53125e+25,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x90c74dfe1ff09789cbdaa4514d80b8d8043ccf51",
+      "symbol": "ENA",
+      "rank": 52,
+      "balance": 2.381959776e+25,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0xf608291ed68a5ab477a4eacf5781060936970a6e",
+      "symbol": "ENA",
+      "rank": 53,
+      "balance": 2.375e+25,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x9f72e2d80ae93ab9352c98a7d9e6cf28915d2e88",
+      "symbol": "ENA",
+      "rank": 54,
+      "balance": 2.221925965e+25,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xd322e4c49b3cb0d0c15e8a956f44ea56ccdfb97a",
+      "symbol": "ENA",
+      "rank": 55,
+      "balance": 2.1875e+25,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xd54ce6a55312cbd708166d225bbdba95458177ab",
+      "symbol": "ENA",
+      "rank": 56,
+      "balance": 2.17933442e+25,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x1157a2076b9bb22a85cc2c162f20fab3898f4101",
+      "symbol": "ENA",
+      "rank": 57,
+      "balance": 2.139900301948254e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "symbol": "ENA",
+      "rank": 58,
+      "balance": 2.115203729459644e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xa200327b9845dbb94c40acfeb459db595ac110ca",
+      "symbol": "ENA",
+      "rank": 59,
+      "balance": 2.0601527293372436e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
+      "symbol": "ENA",
+      "rank": 60,
+      "balance": 2.055604990046138e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+      "symbol": "ENA",
+      "rank": 61,
+      "balance": 2.032561572337e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x99908ed0b80a19ba8389bb87f8bc802a88709a10",
+      "symbol": "ENA",
+      "rank": 62,
+      "balance": 2e+25,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xa8c28a7e5ae1a662170944f1940436299c3b38a4",
+      "symbol": "ENA",
+      "rank": 63,
+      "balance": 1.87425e+25,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xea3b7dfb150ce3dbca57e6d53cbe6b0cb7b7307c",
+      "symbol": "ENA",
+      "rank": 64,
+      "balance": 1.7824362808541666e+25,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
+      "symbol": "ENA",
+      "rank": 65,
+      "balance": 1.7559067805150443e+25,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x629e44441c6001e63483803202c579dba0722b2f",
+      "symbol": "ENA",
+      "rank": 66,
+      "balance": 1.75000009e+25,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x0d81b1f99d65ac1d34ffc3bfe0d206a9c7b25778",
+      "symbol": "ENA",
+      "rank": 67,
+      "balance": 1.75e+25,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x14331b1ea2fb9a9d605d6418511b3aebd922f770",
+      "symbol": "ENA",
+      "rank": 68,
+      "balance": 1.7e+25,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x72f8a6947ebe59862c79a715cab9669a0ac97e6e",
+      "symbol": "ENA",
+      "rank": 69,
+      "balance": 1.68564547827e+25,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xdd638dc134e75f1642d5adc861e63aee97a66239",
+      "symbol": "ENA",
+      "rank": 70,
+      "balance": 1.65e+25,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
+      "symbol": "ENA",
+      "rank": 71,
+      "balance": 1.6247492386501334e+25,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xf46195f0bc6fe54c4e12d22c004546f453c12ae4",
+      "symbol": "ENA",
+      "rank": 72,
+      "balance": 1.6e+25,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xe39b5f5638a209c1a6b6cdffe5d37f7ac99fcc84",
+      "symbol": "ENA",
+      "rank": 73,
+      "balance": 1.5684359053350052e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xb70591c0f5294a70362f170f0fb11c254bf913d6",
+      "symbol": "ENA",
+      "rank": 74,
+      "balance": 1.55e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x0f8a4edac11b0cd14def15763aa9ea2f3a2b0e8b",
+      "symbol": "ENA",
+      "rank": 75,
+      "balance": 1.5122141373764247e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c1b614c280681fc9f52985fe51a039e9e2af1c0",
+      "symbol": "ENA",
+      "rank": 76,
+      "balance": 1.5e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x4693dcf3851100c60351282dc05f9efa3b776fc8",
+      "symbol": "ENA",
+      "rank": 77,
+      "balance": 1.5e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x49294a2189d38d2a37eda6abc51dbffaf2a920cb",
+      "symbol": "ENA",
+      "rank": 78,
+      "balance": 1.458333333333324e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x655d12f0ac7d4bc8554477470725c6a9ad296f2a",
+      "symbol": "ENA",
+      "rank": 79,
+      "balance": 1.45e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x582ccc709b48329c1444b4548fe8610c5fec0fc2",
+      "symbol": "ENA",
+      "rank": 80,
+      "balance": 1.442177691e+25,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x00bbec7a9929c71d34f255174cb25688f2086f80",
+      "symbol": "ENA",
+      "rank": 81,
+      "balance": 1.4062499981339286e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x89105d5d86854bfb953408afd6efde1bb65e4041",
+      "symbol": "ENA",
+      "rank": 82,
+      "balance": 1.4e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x74c205eb0b8750297286fe2bf72914bce59474cc",
+      "symbol": "ENA",
+      "rank": 83,
+      "balance": 1.4e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x5ef5cf9cccca1df9222708edd136bf738d5f41b0",
+      "symbol": "ENA",
+      "rank": 84,
+      "balance": 1.35e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x5954a0add33b70c6def737a33770bc9ce8c9d956",
+      "symbol": "ENA",
+      "rank": 85,
+      "balance": 1.3444486931209e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "symbol": "ENA",
+      "rank": 86,
+      "balance": 1.3230538634390372e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xed3d1bd77037469a504c8c3d8af45b37a5eaa68d",
+      "symbol": "ENA",
+      "rank": 87,
+      "balance": 1.302522405921915e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xe4c3f7cf01d0e287eb677c9203e3cae6e8c9b2a3",
+      "symbol": "ENA",
+      "rank": 88,
+      "balance": 1.3e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x2993e525abe9116d62be3c06e71d9edfd3507383",
+      "symbol": "ENA",
+      "rank": 89,
+      "balance": 1.3e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xcc944f94c335bbe6b8564b4b400725e6b237d19e",
+      "symbol": "ENA",
+      "rank": 90,
+      "balance": 1.3e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xd282232463d50d54ccbccf0edc5c7562ae47c1e7",
+      "symbol": "ENA",
+      "rank": 91,
+      "balance": 1.2870377945588e+25,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x18693f9837a1a87728d41b1d673bfdd22e92e205",
+      "symbol": "ENA",
+      "rank": 92,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x0aefb8fb5d2b61517b2d29d533a46d9f736ec1a4",
+      "symbol": "ENA",
+      "rank": 93,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x5385ed15913b87d35623d89e7bb188877975a7fc",
+      "symbol": "ENA",
+      "rank": 94,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x323a80d34ed4774ef23a98c41938b3ab9ac96ecf",
+      "symbol": "ENA",
+      "rank": 95,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xe60d9a276e4f26817f09497665ad71f60ff65a0d",
+      "symbol": "ENA",
+      "rank": 96,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c98ba1af7417c583649439929ac4f0c6b75aad1",
+      "symbol": "ENA",
+      "rank": 97,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xe7a5aff9c065b84cc3c4ff3b029e0fa25d0be6ed",
+      "symbol": "ENA",
+      "rank": 98,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x5db0afd7e9bbec279288636ed9072af62cc30167",
+      "symbol": "ENA",
+      "rank": 99,
+      "balance": 1.2727949416224502e+25,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      "symbol": "ENA",
+      "rank": 100,
+      "balance": 1.269376029029334e+25,
+      "share": 0.08,
+      "last_tx": null
+    }
+  ]
+}

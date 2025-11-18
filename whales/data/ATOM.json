@@ -1,0 +1,6 @@
+{
+  "symbol": "ATOM",
+  "unsupported": true,
+  "reason": "Non-ERC20 token or missing Ethereum contract",
+  "timestamp": "2025-11-14 05:53:04 UTC"
+}

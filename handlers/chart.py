@@ -1,12 +1,14 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from models.user import get_user_plan
-from utils.tradingview import generate_chart_image  # async version
+from utils.tradingview import generate_chart_image 
+from tasks.handlers import handle_streak
 
 VALID_TIMEFRAMES = ["1m", "5m", "15m", "30m", "1h", "4h", "1d"]
 
 async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await handle_streak(update, context)
     args = context.args
 
     # Handle both /chart command and inline button (fallback to callback data)
@@ -14,7 +16,7 @@ async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not args:
         await message.reply_text(
-            "❌ Usage: `/chart BTCUSDT [timeframe]`\nExample: `/chart BTCUSDT 1h`",
+            "❌ Usage: `/c BTC [timeframe]`\nExample: `/c BTC 1h`",
             parse_mode="Markdown"
         )
         return
@@ -33,7 +35,7 @@ async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
     plan = get_user_plan(user_id)
     if plan == "free" and timeframe != "1h":
         await message.reply_text(
-            "🔒 Only the `1h` chart is available for Free users.\nUse /upgrade@EliteTradeSignalBot to unlock other timeframes: 1m, 5m, 4h, 1d.",
+            "🔒 Only the `1h` chart is available for Free users.\nUse /upgrade to unlock other timeframes: 1m, 5m, 4h, 1d.",
             parse_mode="Markdown"
         )
         return

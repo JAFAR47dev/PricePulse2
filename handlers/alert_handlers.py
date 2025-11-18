@@ -1,12 +1,21 @@
 from telegram import Update
 from datetime import datetime
 from telegram.ext import ContextTypes
-from services.price_service import get_crypto_price
-from models.user import get_user_plan
+from utils.prices import get_crypto_prices
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.constants import ParseMode
 from telegram.ext import ContextTypes, ConversationHandler, CallbackQueryHandler, CommandHandler
 from services.alert_service import delete_all_alerts
 from utils.auth import is_pro_plan
+from models.user import get_user_plan
+from models.alert import (
+    create_price_alert,
+    create_percent_alert,
+    create_volume_alert,
+    create_risk_alert,
+    create_custom_alert
+    )
+
 
 # Conversation states for removing alerts
 REMOVE_CONFIRM = range(1)
@@ -15,14 +24,20 @@ from models.user import can_create_price_alert
 
 async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    from models.user import get_user_plan
     plan = get_user_plan(user_id)
+
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This is a *Pro-only* feature.\nUpgrade to unlock AI backtesting.\n\n👉 /upgrade",
+            parse_mode=ParseMode.MARKDOWN
+        )
+        return
 
     args = context.args
     
 
     if len(args) < 2:
-        await update.message.reply_text("❌ Usage:\n/set price BTCUSDT > 70000\n/set percent ETH 5\n/set risk BTC 30000 35000 [repeat]")
+        await update.message.reply_text("❌ Usage:\n/set price BTC > 70000\n/set percent ETH 5\n/set volume SOL 1.2 1h\n/set risk BTC 30000 35000 [repeat]")
         return
 
  
@@ -41,14 +56,14 @@ async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Enforce Free Plan limits
     if plan == "free" and alert_type != "price":
-        await update.message.reply_text("🚫 Advanced alerts are for *Pro users* only.\nUse /upgrade@EliteTradeSignalBot to unlock.", parse_mode="Markdown")
+        await update.message.reply_text("🚫 Advanced alerts are for *Pro users* only.\nUse /upgrade to unlock.", parse_mode="Markdown")
         return
 
     await handlers[alert_type](update, context, args[1:], plan)
     
 async def handle_price_alert(update, context, args, plan):
     if len(args) < 3:
-        await update.message.reply_text("❌ Usage: /set price BTCUSDT > 70000 [repeat]")
+        await update.message.reply_text("❌ Usage: /set price BTC > 70000 [repeat]")
         return
 
     user_id = update.effective_user.id
@@ -60,41 +75,42 @@ async def handle_price_alert(update, context, args, plan):
         await update.message.reply_text("❌ Invalid price format.")
         return
 
+    # Persistent alert
     repeat = 1 if len(args) > 3 and args[3].lower() == "repeat" else 0
-    from models.user import get_user_plan
 
-    user_id = update.effective_user.id
+    from models.user import get_user_plan
+    from models.alert import create_price_alert
+
+    # Fetch current plan (optional, still available if you need it elsewhere)
     plan = get_user_plan(user_id)
 
-    # Enforce daily limit for free plan
-    if plan == "free":
-        if repeat:
-            await update.message.reply_text("🔒 Persistent alerts are Pro-only.")
-            return
-
-            
-    from models.alert import create_price_alert
+    # ✅ No limits for free or Pro users
     create_price_alert(user_id, symbol, condition, target_price, repeat)
 
-    await update.message.reply_text(f"✅ Price alert set: {symbol} {condition} {target_price}")
-    
+    msg = f"✅ Price alert set: {symbol} {condition} {target_price}"
+    if repeat:
+        msg += " 🔁 (persistent alert)"
+    if update.callback_query:
+        await update.callback_query.message.reply_text(msg)
+    else:
+        await update.message.reply_text(msg)
+        
 async def handle_percent_alert(update, context, args, plan):
-   
-    from models.user import get_user_plan
-
+    
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-
+    # 🔒 Plan check
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
         return
 
+    # 🧩 Argument validation
     if len(args) < 2:
-        await update.message.reply_text("❌ Usage: /set percent BTCUSDT 5 [repeat]")
+        await update.message.reply_text("❌ Usage: /set percent BTC 5 [repeat]")
         return
 
     symbol = args[0].upper()
@@ -109,42 +125,52 @@ async def handle_percent_alert(update, context, args, plan):
 
     repeat = 1 if len(args) > 2 and args[2].lower() == "repeat" else 0
 
-    base_price = get_crypto_price(symbol)
-    if base_price is None:
+    # ⚙️ Await the async price fetch properly
+    price_data = await get_crypto_prices([symbol])
+    if not price_data or symbol not in price_data:
         await update.message.reply_text("⚠️ Could not fetch current price. Try again later.")
         return
 
-    from models.alert import create_percent_alert
+    base_price = price_data[symbol]
+
+    # 💾 Store the alert in DB
     create_percent_alert(user_id, symbol, base_price, threshold, repeat)
 
-    await update.message.reply_text(
-        f"✅ Percent alert set: Notify when *{symbol}* moves ±{threshold}% from ${base_price:.2f}",
-        parse_mode="Markdown"
+    msg = (
+        f"✅ Percent alert set: Notify when {symbol}  moves ±{threshold}% from ${base_price:.2f}"
     )
-    
-async def handle_volume_alert(update, context, args, plan):
-    from models.user import get_user_plan
+    if repeat:
+        msg += " 🔁 (persistent alert)"
+    if update.callback_query:
+        await update.callback_query.message.reply_text(msg)
+    else:
+        await update.message.reply_text(msg)
+        
+from utils.indicators import get_volume_comparison 
 
+async def handle_volume_alert(update, context, args, plan):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    #if plan != "pro":
-#        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
-#        return
-        
+    # 🔒 Restrict to Pro users
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
         return
-        
-   
 
+    # ✅ Usage check
     if len(args) < 2:
-        await update.message.reply_text("❌ Usage: /set volume BTCUSDT 2.5 [repeat]")
+        await update.message.reply_text(
+            "❌ Usage: `/set volume <symbol> <multiplier> [timeframe] [repeat]`\n\n"
+            "Example: `/set volume BTCUSDT 2.5 4h repeat`\n\n"
+            "_Default timeframe: 1h_",
+            parse_mode="Markdown"
+        )
         return
 
+    # 🎯 Parse symbol and multiplier
     symbol = args[0].upper()
 
     try:
@@ -155,35 +181,70 @@ async def handle_volume_alert(update, context, args, plan):
         await update.message.reply_text("❌ Multiplier must be a number greater than 1 (e.g., 2.5)")
         return
 
-    repeat = 1 if len(args) > 2 and args[2].lower() == "repeat" else 0
+    # 🕒 Timeframe handling (default = 1h)
+    valid_timeframes = ["15m", "30m", "1h", "4h", "1d" , "7d", "14d", "30d", "90d", "180d", "365"]
+    timeframe = "1h"
 
-    from models.alert import create_volume_alert
-    create_volume_alert(user_id, symbol, multiplier, "1h", repeat)
+    if len(args) > 2:
+        tf_candidate = args[2].lower()
+        if tf_candidate in valid_timeframes:
+            timeframe = tf_candidate
+        elif tf_candidate != "repeat":
+            await update.message.reply_text(
+                f"⚠️ Invalid timeframe: `{tf_candidate}`\n\n"
+                f"Please use one of: `{'`, `'.join(valid_timeframes)}`\n"
+                f"_Example: /set volume BTC 2.5 4h repeat_",
+                parse_mode="Markdown"
+            )
+            return
 
-    await update.message.reply_text(
-        f"✅ Volume alert set: *{symbol}* spikes above {multiplier}× average volume.",
-        parse_mode="Markdown"
+    # 🔁 Check for 'repeat'
+    repeat = 1 if "repeat" in [a.lower() for a in args] else 0
+
+    # 📊 Fetch current + average volume
+    try:
+        current_volume, average_volume = await get_volume_comparison(symbol, timeframe)
+    except Exception as e:
+        await update.message.reply_text(f"⚠️ Could not fetch volume data for {symbol}.\n{e}")
+        return
+
+    # 💡 Calculate trigger volume
+    trigger_volume = round(average_volume * multiplier, 2)
+
+    # 💾 Store alert
+    create_volume_alert(user_id, symbol, multiplier, timeframe, repeat)
+
+    # ✅ Confirmation message with real data
+    msg = (
+        f"✅ Volume Alert Created!\n\n"
+        f"• Symbol: {symbol}\n"
+        f"• Timeframe: {timeframe}\n"
+        f"• Average Volume: {average_volume:,} USD\n"
+        f"• Current Volume: {current_volume:,} USD\n"
+        f"• Trigger When Volume ≥ {trigger_volume:,} USD\n"
+        f"• Multiplier: {multiplier}×\n"
+        f"• Repeat: {'Yes' if repeat else 'No'}"
     )
+    if update.callback_query:
+        await update.callback_query.message.reply_text(msg)
+    else:
+        await update.message.reply_text(msg)
+        
     
 async def handle_risk_alert(update, context, args, plan):
-    from models.user import get_user_plan
-
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-   # if plan != "pro":
-#        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
-#        return
-        
+  
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
         return
 
     if len(args) < 3:
-        await update.message.reply_text("❌ Usage: /set risk BTCUSDT 30000 35000 [repeat]")
+        await update.message.reply_text("❌ Usage: /set risk BTC 30000 35000 [repeat]")
         return
 
     symbol = args[0].upper()
@@ -199,30 +260,28 @@ async def handle_risk_alert(update, context, args, plan):
 
     repeat = 1 if len(args) > 3 and args[3].lower() == "repeat" else 0
 
-    from models.alert import create_risk_alert
+  
     create_risk_alert(user_id, symbol, stop_price, take_price, repeat)
 
-    message = (
-        f"✅ Risk alert set for *{symbol}*:\n"
+    msg = (
+        f"✅ Risk alert set for {symbol}:\n"
         f"• Stop-Loss: ${stop_price:.2f}\n"
         f"• Take-Profit: ${take_price:.2f}\n"
         f"{'🔁 Repeat enabled' if repeat else ''}"
     )
-    await update.message.reply_text(message, parse_mode="Markdown")
-    
+    if update.callback_query:
+        await update.callback_query.message.reply_text(msg)
+    else:
+        await update.message.reply_text(msg)
+        
 async def handle_custom_alert(update, context, args, plan):
-    from models.user import get_user_plan
-
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-   # if plan != "pro":
-#        await update.message.reply_text("🔒 This feature is for Pro users. Use /upgrade to unlock.")
-#        return
-        
+   
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -230,9 +289,9 @@ async def handle_custom_alert(update, context, args, plan):
     if len(args) < 4:
         await update.message.reply_text(
             "❌ Usage:\n"
-            "/set custom BTCUSDT > 30000 rsi < 30\n"
-            "/set custom ETHUSDT < 1800 ema > 20\n"
-            "/set custom XRPUSDT > 0.5 macd [repeat]"
+            "/set custom BTC > 30000 rsi < 30\n"
+            "/set custom ETH < 1800 ema > 20\n"
+            "/set custom XRP > 0.5 macd [repeat]"
         )
         return
 
@@ -286,7 +345,7 @@ async def handle_custom_alert(update, context, args, plan):
 
     # --- Save to database ---
     from models.alert import create_custom_alert
-    create_custom_alert(user_id, symbol, p_cond, p_val, rsi_condition, rsi_value, repeat)
+    create_custom_alert(user_id, symbol, price_condition, price_value, rsi_condition, rsi_value, repeat)
 
     # --- Confirmation message ---
     indicator_name = indicator.upper()
@@ -302,64 +361,161 @@ async def handle_custom_alert(update, context, args, plan):
     else:
         indicator_text = rsi_condition  # fallback
 
-    message = (
-        f"✅ Custom alert set for *{symbol}*:\n"
+    msg= (
+        f"✅ Custom alert set for {symbol}:\n"
         f"• Price: {p_cond} {p_val}\n"
         f"• Indicator: `{indicator_text}`\n"
         f"{'🔁 Repeat enabled' if repeat else ''}"
     )
-    await update.message.reply_text(message, parse_mode="Markdown")
+    if update.callback_query:
+        await update.callback_query.message.reply_text(msg)
+    else:
+        await update.message.reply_text(msg)
+        
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.ext import ContextTypes
 
 from models.alert import (
+    get_price_alerts, get_percent_alerts, get_volume_alerts,
+    get_risk_alerts, get_custom_alerts, get_portfolio_value_limits,
     delete_price_alert, delete_percent_alert, delete_volume_alert,
-    delete_risk_alert, delete_custom_alert,
-    delete_portfolio_limit, delete_portfolio_target
+    delete_risk_alert, delete_custom_alert, delete_portfolio_limit,
+    delete_portfolio_target
 )
 
 async def remove(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    args = context.args
 
-    if not args:
-        await update.message.reply_text(
-            "❌ Usage: /remove <type> <ID>\n"
-            "Examples:\n"
-            "• /remove price 3\n"
-            "• /remove custom 12\n"
-            "• /remove portfoliolimit\n"
-            "• /remove portfoliotarget"
-        )
-        return
+    
+    keyboard = [
+        [
+            InlineKeyboardButton("💰 Price Alerts", callback_data="remove:price"),
+            InlineKeyboardButton("📈 Percent Alerts", callback_data="remove:percent")
+        ],
+        [
+            InlineKeyboardButton("📊 Volume Alerts", callback_data="remove:volume"),
+            InlineKeyboardButton("⚠️ Risk Alerts", callback_data="remove:risk")
+        ],
+        [
+            InlineKeyboardButton("🤖 Custom Alerts", callback_data="remove:custom"),
+            InlineKeyboardButton("💼 Portfolio Loss Limit", callback_data="remove:portfoliolimit")
+        ],
+        [
+            InlineKeyboardButton("🎯 Portfolio Target", callback_data="remove:portfoliotarget"),
+            InlineKeyboardButton("❌ Close", callback_data="close_menu")
+        ]
+    ]
 
-    alert_type = args[0].lower()
+    await update.message.reply_text(
+        "🗑 *Select what you want to remove:*",
+        reply_markup=InlineKeyboardMarkup(keyboard),
+        parse_mode="Markdown"
+    )
+    
+def format_alert_label(alert_type: str, row: tuple) -> str:
+    """
+    Converts raw DB tuple rows into readable labels for inline keyboards.
+    """
 
-    # Handle value-only portfolio removals
-    if alert_type in ["portfoliolimit", "portfoliotarget"]:
-        if alert_type == "portfoliolimit":
-            success = delete_portfolio_limit(user_id)
-            label = "Portfolio Loss Limit"
+    if alert_type == "price":
+        # row: (id, symbol, condition, target_price, repeat)
+        _, symbol, condition, target, _ = row
+        return f"{symbol} {condition} {target}"
+
+    elif alert_type == "percent":
+        # row: (id, symbol, base_price, threshold_percent, repeat)
+        _, symbol, base, percent, _ = row
+        return f"{symbol} Δ{percent}% (Base {base})"
+
+    elif alert_type == "volume":
+        # row: (id, symbol, timeframe, multiplier, repeat)
+        _, symbol, timeframe, mult, _ = row
+        return f"{symbol} Vol x{mult} ({timeframe})"
+
+    elif alert_type == "risk":
+        # row: (id, symbol, stop_price, take_price, repeat)
+        _, symbol, stop, take, _ = row
+        return f"{symbol} SL {stop} / TP {take}"
+
+    elif alert_type == "custom":
+        # row: (id, symbol, price_condition, price_value, rsi_condition, rsi_value, repeat)
+        _, symbol, p_cond, p_val, r_cond, r_val, _ = row
+        return f"{symbol} Price {p_cond}{p_val} + RSI {r_cond}{r_val}"
+
+    else:
+        return "Unknown Alert"
+            
+async def remove_type_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    user_id = query.from_user.id
+    alert_type = query.data.split(":")[1]
+
+    # portfolio limits (no ID list)
+    if alert_type == "portfoliolimit":
+        deleted = delete_portfolio_limit(user_id)
+        if deleted:
+            await query.edit_message_text("✅ Portfolio Loss Limit removed.")
         else:
-            success = delete_portfolio_target(user_id)
-            label = "Portfolio Profit Target"
+            await query.edit_message_text("⚠️ No portfolio loss limit set.")
+        return
 
-        if success:
-            await update.message.reply_text(f"✅ {label} removed.")
+    if alert_type == "portfoliotarget":
+        deleted = delete_portfolio_target(user_id)
+        if deleted:
+            await query.edit_message_text("✅ Portfolio Profit Target removed.")
         else:
-            await update.message.reply_text(f"⚠️ {label} was not set.")
+            await query.edit_message_text("⚠️ No portfolio target set.")
         return
 
-    # Handle ID-based removals
-    if len(args) < 2:
-        await update.message.reply_text("❌ You must specify the alert ID.")
+    # Alert lists ------------------------------------------
+    fetch_map = {
+        "price": get_price_alerts,
+        "percent": get_percent_alerts,
+        "volume": get_volume_alerts,
+        "risk": get_risk_alerts,
+        "custom": get_custom_alerts,
+    }
+
+    alerts = fetch_map[alert_type](user_id)
+
+    if not alerts:
+        await query.edit_message_text(f"⚠️ No {alert_type} alerts found.")
         return
 
-    try:
-        alert_id = int(args[1])
-    except ValueError:
-        await update.message.reply_text("❌ Invalid ID. Please use a number.")
-        return
+    keyboard = []
 
-    delete_funcs = {
+    for a in alerts:
+        alert_id = a[0]
+        label = format_alert_label(alert_type, a)
+
+        keyboard.append([
+            InlineKeyboardButton(
+                label,
+                callback_data="noop"
+            ),
+            InlineKeyboardButton(
+                "❌ Delete",
+                callback_data=f"remove_confirm:{alert_type}:{alert_id}"
+            )
+        ])
+
+    await query.edit_message_text(
+        f"🗑 *Select alert to delete:*",
+        reply_markup=InlineKeyboardMarkup(keyboard),
+        parse_mode="Markdown"
+    )
+    
+async def remove_confirm_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    user_id = query.from_user.id
+    _, alert_type, alert_id = query.data.split(":")
+    alert_id = int(alert_id)
+
+    delete_map = {
         "price": delete_price_alert,
         "percent": delete_percent_alert,
         "volume": delete_volume_alert,
@@ -367,18 +523,25 @@ async def remove(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "custom": delete_custom_alert,
     }
 
-    if alert_type not in delete_funcs:
-        await update.message.reply_text("❌ Invalid alert type. Use: price, percent, volume, risk, custom, portfolio, portfoliolimit, portfoliotarget")
-        return
-
-    deleted = delete_funcs[alert_type](user_id, alert_id)
+    deleted = delete_map[alert_type](user_id, alert_id)
 
     if deleted:
-        await update.message.reply_text(f"✅ Removed {alert_type} alert ID {alert_id}.")
+        await query.edit_message_text(f"✅ Deleted {alert_type} alert ID {alert_id}.")
     else:
-        await update.message.reply_text(f"❌ No {alert_type} alert found with ID {alert_id}, or it doesn't belong to you.")
-    
+        await query.edit_message_text(f"❌ Could not delete. It may not exist.")
         
+from telegram import Update
+from telegram.ext import CallbackContext
+
+async def close_menu_callback(update: Update, context: CallbackContext):
+    query = update.callback_query
+    await query.answer()  # Avoid the “loading” circle
+    try:
+        await query.message.delete()
+    except:
+        # Fallback: just edit text to blank if bot can't delete
+        await query.edit_message_text("Closed.")
+            
 from models.alert import (
     get_price_alerts, get_percent_alerts, get_volume_alerts,
     get_risk_alerts, get_custom_alerts, get_portfolio_value_limits
@@ -490,15 +653,18 @@ from telegram.ext import (
 
 async def watch_coin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    args = context.args
-
     plan = get_user_plan(user_id)
-    if plan == "free":
+
+    # ✅ Pro-only restriction
+    if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 /watch is a *Pro-only* feature.\nUpgrade using /upgrade@EliteTradeSignalBot to track coins over time.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
         return
+
+    # ✅ Fetch command arguments
+    args = context.args
 
     if len(args) < 3:
         await update.message.reply_text("❌ Usage: /watch BTC 5 1h")
@@ -518,24 +684,39 @@ async def watch_coin(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("❌ Invalid timeframe. Use one of: 1h, 4h, 24h, 7d")
         return
 
-    base_price = get_crypto_price(symbol)
-    if base_price is None:
+    # ✅ Await the coroutine properly
+    base_prices = await get_crypto_prices(symbol)
+
+    if not base_prices:
         await update.message.reply_text("⚠️ Failed to fetch live price. Try again.")
         return
 
-    # Save to DB
+    # ✅ Handle API response safely
+    if isinstance(base_prices, dict):
+        base_price = base_prices.get(symbol.upper()) or base_prices.get(f"{symbol.upper()}USDT")
+    else:
+        base_price = base_prices
+
+    if base_price is None:
+        await update.message.reply_text("⚠️ Could not retrieve valid price data. Try again later.")
+        return
+
+    # ✅ Save to DB
     from models.db import get_connection
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute(
-        "INSERT INTO watchlist (user_id, symbol, base_price, threshold_percent, timeframe) VALUES (?, ?, ?, ?, ?)",
-        (user_id, symbol, base_price, threshold, timeframe)
+        """
+        INSERT INTO watchlist (user_id, symbol, base_price, threshold_percent, timeframe)
+        VALUES (?, ?, ?, ?, ?)
+        """,
+        (user_id, symbol.upper(), float(base_price), threshold, timeframe)
     )
     conn.commit()
     conn.close()
 
     await update.message.reply_text(
-        f"✅ Watching *{symbol}* for ±{threshold}% price move from ${base_price:.2f} over `{timeframe}`.",
+        f"✅ Watching *{symbol}* for ±{threshold}% price move from *${base_price:,.2f}* over `{timeframe}`.",
         parse_mode="Markdown"
     )
 
@@ -544,9 +725,10 @@ async def watchlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    if plan == "free":
+  
+    if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 *Pro-only feature.* Upgrade to access your watchlist.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
         return
@@ -640,12 +822,15 @@ async def remove_all_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
 def register_alert_handlers(app):
-    app.add_handler(CommandHandler("set", set_alert))
+    #app.add_handler(CommandHandler("set", set_alert))
     app.add_handler(CommandHandler("alerts", alerts))
     app.add_handler(CommandHandler("watch", watch_coin))
     app.add_handler(CommandHandler("watchlist", watchlist))
     app.add_handler(CommandHandler("removewatch", remove_watch))
     app.add_handler(CommandHandler("remove", remove))
+    app.add_handler(CallbackQueryHandler(remove_type_handler, pattern=r"^remove:"))
+    app.add_handler(CallbackQueryHandler(remove_confirm_handler, pattern=r"^remove_confirm:"))
+    app.add_handler(CallbackQueryHandler(close_menu_callback, pattern="^close_menu$"))
     remove_all_conv = ConversationHandler(
         entry_points=[CommandHandler("removeall", remove_all_start)],  # ✅ Only this
         states={

@@ -1,0 +1,6 @@
+{
+  "symbol": "BSC-USD",
+  "unsupported": true,
+  "reason": "Non-ERC20 token or missing Ethereum contract",
+  "timestamp": "2025-11-12 09:46:17 UTC"
+}

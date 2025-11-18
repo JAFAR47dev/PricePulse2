@@ -20,26 +20,52 @@ def init_db():
 
     # Users table
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            user_id INTEGER PRIMARY KEY,
-            plan TEXT DEFAULT 'free',
-            alerts_used INTEGER DEFAULT 0,
-            last_reset TEXT,
-            auto_delete_minutes INTEGER DEFAULT 0,
-            joined_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            expiry_date TEXT,
-            username TEXT
-        )
-    """)
+    CREATE TABLE IF NOT EXISTS users (
+        user_id INTEGER PRIMARY KEY,
+        username TEXT,
+        plan TEXT DEFAULT 'free',
+        alerts_used INTEGER DEFAULT 0,
+        last_reset DATETIME,
+        auto_delete_minutes INTEGER DEFAULT 0,
+        joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        expiry_date DATETIME,
+        last_active DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+""")
 
-    # Double-check missing columns (in case table pre-existed)
+    # --- Backward compatibility check (auto-add missing columns) ---
     cursor.execute("PRAGMA table_info(users)")
     columns = {col[1] for col in cursor.fetchall()}
 
-    if "expiry_date" not in columns:
-        cursor.execute("ALTER TABLE users ADD COLUMN expiry_date TEXT")
+    # Add missing columns safely (no CURRENT_TIMESTAMP defaults)
     if "username" not in columns:
         cursor.execute("ALTER TABLE users ADD COLUMN username TEXT")
+
+    if "plan" not in columns:
+        cursor.execute("ALTER TABLE users ADD COLUMN plan TEXT DEFAULT 'free'")
+
+    if "alerts_used" not in columns:
+        cursor.execute("ALTER TABLE users ADD COLUMN alerts_used INTEGER DEFAULT 0")
+
+    if "last_reset" not in columns:
+        cursor.execute("ALTER TABLE users ADD COLUMN last_reset DATETIME")
+
+    if "auto_delete_minutes" not in columns:
+        cursor.execute("ALTER TABLE users ADD COLUMN auto_delete_minutes INTEGER DEFAULT 0")
+
+    if "joined_at" not in columns:
+        cursor.execute("ALTER TABLE users ADD COLUMN joined_at DATETIME")
+        cursor.execute("UPDATE users SET joined_at = datetime('now') WHERE joined_at IS NULL")
+
+    if "expiry_date" not in columns:
+        cursor.execute("ALTER TABLE users ADD COLUMN expiry_date DATETIME")
+
+    if "last_active" not in columns:
+        cursor.execute("ALTER TABLE users ADD COLUMN last_active DATETIME")
+        cursor.execute("UPDATE users SET last_active = datetime('now') WHERE last_active IS NULL")
+
+    # Optional: Add index for faster stats queries
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_last_active ON users(last_active)")
 
 
     # Price alerts
@@ -104,7 +130,6 @@ def init_db():
         )
     """)
 
-    # Portfolio alerts
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS portfolio_alerts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -113,7 +138,8 @@ def init_db():
             amount REAL,
             direction TEXT,
             target_value REAL,
-            repeat INTEGER
+            repeat INTEGER,
+            FOREIGN KEY (user_id) REFERENCES portfolio_limits(user_id) ON DELETE CASCADE
         )
     """)
 
@@ -122,8 +148,8 @@ def init_db():
         CREATE TABLE IF NOT EXISTS portfolio_limits (
             user_id INTEGER PRIMARY KEY,
             max_alerts INTEGER DEFAULT 0,
-            loss_limit REAL DEFAULT 0,
-            profit_target REAL DEFAULT 0
+            loss_limit REAL DEFAULT NULL,
+            profit_target REAL DEFAULT NULL
         )
     """)
 
@@ -178,12 +204,16 @@ def init_db():
         )
     """)
 
+    
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS tracked_wallets (
-            user_id INTEGER PRIMARY KEY,
-            wallet_address TEXT NOT NULL
-        )
-    """)
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            wallet_address TEXT NOT NULL,
+            UNIQUE(user_id, wallet_address)
+    )
+""")
 
     conn.commit()
     conn.close()

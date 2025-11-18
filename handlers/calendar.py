@@ -6,6 +6,7 @@ from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
 from dotenv import load_dotenv
 from utils.coin_cache import load_coin_map
+from tasks.handlers import handle_streak
 
 load_dotenv()
 COINDAR_API_KEY = os.getenv("COINDAR_API_KEY")
@@ -26,6 +27,7 @@ def fetch_coin_map():
         return {}
 
 async def calendar_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handle_streak(update, context)
     global coin_map
     try:
         if not COINDAR_API_KEY:
@@ -89,7 +91,6 @@ async def calendar_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 f"📅 {event_date} ({days_left} days left)\n\n"
             )
 
-        text += "👉 Get alerts on these events with Pro: /upgrade@EliteTradeSignalBot"
         await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
     except Exception as e:

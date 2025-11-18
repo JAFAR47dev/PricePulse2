@@ -1,9 +1,9 @@
 from models.db import get_connection
+from datetime import datetime, timedelta
 
 def get_stats():
     conn = get_connection()
     cursor = conn.cursor()
-
     stats = {}
 
     # Total users
@@ -14,6 +14,35 @@ def get_stats():
     cursor.execute("SELECT COUNT(*) FROM users WHERE plan LIKE 'pro%'")
     stats["pro_users"] = cursor.fetchone()[0]
     stats["free_users"] = stats["total_users"] - stats["pro_users"]
+
+    # Active users (last 24h / 7d / 30d)
+    cursor.execute("SELECT COUNT(*) FROM users WHERE last_active >= DATETIME('now', '-1 day')")
+    stats["active_24h"] = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM users WHERE last_active >= DATETIME('now', '-7 days')")
+    stats["active_7d"] = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM users WHERE last_active >= DATETIME('now', '-30 days')")
+    stats["active_30d"] = cursor.fetchone()[0]
+    
+    # --- Active users ---
+#    cursor.execute("""
+#        SELECT COUNT(*) FROM users
+#        WHERE last_active >= datetime('now', '-1 day')
+#    """)
+#    stats["active_24h"] = cursor.fetchone()[0]
+
+#    cursor.execute("""
+#        SELECT COUNT(*) FROM users
+#        WHERE last_active >= datetime('now', '-7 days')
+#    """)
+#    stats["active_7d"] = cursor.fetchone()[0]
+
+#    cursor.execute("""
+#        SELECT COUNT(*) FROM users
+#        WHERE last_active >= datetime('now', '-30 days')
+#    """)
+#    stats["active_30d"] = cursor.fetchone()[0]
 
     # Alerts by type
     for table in [

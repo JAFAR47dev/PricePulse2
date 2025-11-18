@@ -1,0 +1,6 @@
+{
+  "symbol": "KAS",
+  "unsupported": true,
+  "reason": "Non-ERC20 token or missing Ethereum contract",
+  "timestamp": "2025-11-14 06:13:48 UTC"
+}

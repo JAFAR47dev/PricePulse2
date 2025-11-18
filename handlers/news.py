@@ -1,26 +1,17 @@
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import (
-    ContextTypes,
-    CommandHandler,
-    MessageHandler,
-    CallbackQueryHandler,
-    ConversationHandler,
-    filters
-)
 import feedparser
+from tasks.handlers import handle_streak
 
 CRYPTO_NEWS_RSS = "https://cryptopanic.com/news/rss/"
 
-async def crypto_news(update: Update, context: ContextTypes.DEFAULT_TYPE):
+# --- Reusable function for notifications ---
+async def get_latest_crypto_news() -> str:
+    """Fetch top 5 crypto news and return a formatted Markdown string."""
     try:
-        loading = await update.message.reply_text("📰 Fetching latest crypto news...")
-
         feed = feedparser.parse(CRYPTO_NEWS_RSS)
-        entries = feed.entries[:5]  # Get top 5
+        entries = feed.entries[:5]  # Top 5 news
 
         if not entries:
-            await loading.edit_text("❌ No news found at the moment.")
-            return
+            return "❌ No news found at the moment."
 
         message = "*📰 Latest Crypto News:*\n\n"
         for entry in entries:
@@ -28,9 +19,19 @@ async def crypto_news(update: Update, context: ContextTypes.DEFAULT_TYPE):
             link = entry.link
             message += f"• [{title}]({link})\n"
 
-        await loading.edit_text(message, parse_mode="Markdown", disable_web_page_preview=True)
+        return message
 
     except Exception as e:
-        print(f"/news error: {e}")
-        await update.message.reply_text("⚠️ Failed to fetch crypto news. Try again later.")
-        
+        print(f"[News] Error fetching crypto news: {e}")
+        return "⚠️ Failed to fetch crypto news."
+
+
+# --- Keep original command working ---
+from telegram import Update
+from telegram.ext import ContextTypes
+
+async def crypto_news(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handle_streak(update, context)
+    loading = await update.message.reply_text("📰 Fetching latest crypto news...")
+    message = await get_latest_crypto_news()
+    await loading.edit_text(message, parse_mode="Markdown", disable_web_page_preview=True)

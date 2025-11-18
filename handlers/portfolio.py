@@ -1,8 +1,9 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from models.db import get_connection
+from utils.auth import is_pro_plan
 from models.user import get_user_plan
-from services.price_service import get_crypto_price  # Assuming you have this
+from utils.prices import get_crypto_prices 
 import os
 import requests
 
@@ -33,11 +34,12 @@ def get_fiat_to_usd(symbol):
         return None
         
         
+
 async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    if plan != "pro":
+    if not is_pro_plan(plan):
         await update.message.reply_text(
             "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
             parse_mode="Markdown"
@@ -65,9 +67,11 @@ async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("❌ Failed to get live exchange rate. Try again.")
             return
     else:
-        from utils.crypto import get_crypto_price  # Make sure this exists
-        price_in_usd = get_crypto_price(symbol)
-        if price_in_usd is None:
+        # ✅ Await the async function and unpack result
+        result = await get_crypto_prices([symbol])
+        price_in_usd = result.get(symbol)
+
+        if not price_in_usd:
             await update.message.reply_text("❌ Failed to fetch live crypto price.")
             return
 
@@ -87,10 +91,17 @@ async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
         parse_mode="Markdown"
     )
 
-
     
 async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    plan = get_user_plan(user_id)
+
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            parse_mode="Markdown"
+        )
+        return
     conn = get_connection()
     cursor = conn.cursor()
 
@@ -105,6 +116,12 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     total_value = 0
     message = "*📊 Your Portfolio:*\n\n"
 
+    # Collect all crypto symbols to fetch in one go
+    crypto_symbols = [symbol.upper() for symbol, _ in rows if symbol not in STABLECOINS and symbol not in FIAT_CURRENCIES and symbol != "USD"]
+
+    # ✅ Fetch all crypto prices once (avoid multiple API calls)
+    crypto_prices = await get_crypto_prices(crypto_symbols) if crypto_symbols else {}
+
     for symbol, amount in rows:
         symbol = symbol.upper()
 
@@ -114,7 +131,7 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
         elif symbol in FIAT_CURRENCIES:
             price = get_fiat_to_usd(symbol)
         else:
-            price = get_crypto_price(symbol)
+            price = crypto_prices.get(symbol)
 
         if price is None:
             message += f"• *{symbol}*: {amount} (⚠️ Price unavailable)\n"
@@ -127,11 +144,19 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message += f"\n*💰 Total Value:* ${total_value:,.2f}"
 
     await update.message.reply_text(message, parse_mode="Markdown")
-    
-    
+        
 
 async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    plan = get_user_plan(user_id)
+
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            parse_mode="Markdown"
+        )
+        return
+        
     args = context.args
 
     if len(args) < 1:
@@ -191,6 +216,14 @@ async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
 async def clear_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    plan = get_user_plan(user_id)
+
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            parse_mode="Markdown"
+        )
+        return
 
     conn = get_connection()
     cursor = conn.cursor()
@@ -213,13 +246,13 @@ async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    # Pro-only restriction
-    if plan != "pro":
+    if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users* only.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
+    
 
     if len(context.args) != 1:
         await update.message.reply_text(
@@ -253,14 +286,13 @@ async def set_portfolio_profit_target(update: Update, context: ContextTypes.DEFA
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-    # Pro-only restriction
-    if plan != "pro":
+    if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users* only.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
-
+    
     if len(context.args) != 1:
         await update.message.reply_text(
             "❌ Usage: `/portfoliotarget [amount]`\nExample: `/portfoliotarget 30000`",

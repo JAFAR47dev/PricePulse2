@@ -1,45 +1,63 @@
-# handlers/gasfees.py
 import os
 import requests
-from telegram import Update
-from telegram.constants import ParseMode
-from telegram.ext import ContextTypes
 from dotenv import load_dotenv
+from tasks.handlers import handle_streak
 
 load_dotenv()
-ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY")
+BLOCKNATIVE_API_KEY = os.getenv("BLOCKNATIVE_API_KEY")  # Ensure it's set in your .env
 
-async def gasfees_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+# --- Reusable function for notifications ---
+def get_gas_fees() -> str:
+    """Fetch Ethereum gas fees and return a formatted string."""
     try:
-        url = "https://api.etherscan.io/api"
-        params = {
-            "module": "gastracker",
-            "action": "gasoracle",
-            "apikey": ETHERSCAN_API_KEY
+        url = "https://api.blocknative.com/gasprices/blockprices"
+        headers = {
+            "Authorization": BLOCKNATIVE_API_KEY,
+            "Accept": "application/json"
         }
 
-        r = requests.get(url, params=params)
+        r = requests.get(url, headers=headers, timeout=10)
         r.raise_for_status()
         data = r.json()
 
-        if data["status"] != "1":
-            raise Exception("Etherscan error")
+        blocks = data.get("blockPrices")
+        if not blocks or not isinstance(blocks, list):
+            raise Exception("Unexpected Blocknative response")
 
-        result = data["result"]
-        low = result["SafeGasPrice"]
-        avg = result["ProposeGasPrice"]
-        high = result["FastGasPrice"]
+        block = blocks[0]
+        estimated_prices = block.get("estimatedPrices", [])
+        if not estimated_prices:
+            raise Exception("No gas data available")
+
+        # Sort by confidence (descending)
+        estimated_prices.sort(key=lambda x: x["confidence"], reverse=True)
+
+        low = estimated_prices[-1]["price"] if len(estimated_prices) > 2 else estimated_prices[-1]["price"]
+        avg = estimated_prices[len(estimated_prices)//2]["price"]
+        high = estimated_prices[0]["price"]
+        block_number = block.get("blockNumber", "N/A")
 
         text = (
-            f"⛽ *Ethereum Gas Fees*\n\n"
-            f"• Low: `{low}` Gwei (safe, slow)\n"
-            f"• Standard: `{avg}` Gwei (avg)\n"
-            f"• High: `{high}` Gwei (fast)\n\n"
-            f"🔍 _Powered by Etherscan_"
+            f"⛽ *Ethereum Gas Fees (Blocknative)*\n\n"
+            f"• Low: `{low:.1f}` Gwei (safe, slower)\n"
+            f"• Standard: `{avg:.1f}` Gwei (balanced)\n"
+            f"• High: `{high:.1f}` Gwei (fast)\n\n"
+            f"🧱 Latest Block: `{block_number}`\n"
+            f"🔍 _Powered by Blocknative_"
         )
-
-        await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
+        return text
 
     except Exception as e:
-        print("Gas fees error:", e)
-        await update.message.reply_text("⚠️ Couldn't fetch gas fees. Try again later.")
+        print("[Gas Fees] Error:", e)
+        return "⚠️ Couldn't fetch gas fees. Try again later."
+
+
+# --- Keep the original Telegram command working ---
+from telegram import Update
+from telegram.ext import ContextTypes
+from telegram.constants import ParseMode
+
+async def gasfees_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handle_streak(update, context)
+    text = get_gas_fees()
+    await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)

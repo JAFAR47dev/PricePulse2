@@ -114,5 +114,21 @@
   {
     "term": "ICO",
     "description": "Initial Coin Offering — a fundraising method where new tokens are sold to investors."
+  },
+  {
+    "term": "EMA20",
+    "description": "Exponential Moving Average (20) — a technical indicator that gives more weight to recent prices, showing the average price over the last 20 periods with an emphasis on recent data."
+  },
+  {
+    "term": "RSI",
+    "description": "Relative Strength Index — a momentum indicator that measures the speed and change of price movements to identify overbought or oversold conditions."
+  },
+  {
+    "term": "MACD",
+    "description": "Moving Average Convergence Divergence — a trend-following indicator showing the relationship between two moving averages of a coin’s price, often used to spot buy/sell momentum shifts."
+  },
+  {
+    "term": "SMA",
+    "description": "Simple Moving Average — a basic moving average calculated by adding recent closing prices and dividing by the number of periods, giving equal weight to all data points."
   }
 ]

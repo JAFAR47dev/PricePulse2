@@ -57,7 +57,8 @@ async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT user_id, username, plan, expiry_date FROM users
+        SELECT user_id, username, plan, expiry_date 
+        FROM users
         WHERE plan LIKE 'pro%'
         ORDER BY expiry_date IS NULL DESC, expiry_date ASC
     """)
@@ -68,11 +69,37 @@ async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("📭 No Pro users found.")
         return
 
+    # --- Initialize counters ---
+    monthly_count = yearly_count = lifetime_count = 0
+
     msg = "*📋 Current Pro Users:*\n\n"
     for uid, username, plan, expiry in rows:
         name_display = f"@{username}" if username else f"`{uid}`"
         plan_name = plan.replace("pro_", "").capitalize()
+
+        if "month" in plan.lower():
+            monthly_count += 1
+        elif "year" in plan.lower():
+            yearly_count += 1
+        elif "life" in plan.lower():
+            lifetime_count += 1
+
         expiry_display = expiry if expiry else "♾️ Lifetime"
         msg += f"• {name_display} — *{plan_name}* — {expiry_display}\n"
+
+    # --- Calculate expected revenue ---
+    monthly_revenue = monthly_count * 10
+    yearly_revenue = yearly_count * 99
+    lifetime_revenue = lifetime_count * 249
+    total_revenue = monthly_revenue + yearly_revenue + lifetime_revenue
+
+    msg += (
+        "\n\n💰 *Expected Revenue Summary:*\n"
+        f"🗓️ Monthly ({monthly_count} users): ${monthly_revenue}\n"
+        f"📅 Yearly ({yearly_count} users): ${yearly_revenue}\n"
+        f"♾️ Lifetime ({lifetime_count} users): ${lifetime_revenue}\n"
+        f"━━━━━━━━━━━━━━\n"
+        f"💵 *Total Expected Revenue:* ${total_revenue}"
+    )
 
     await update.message.reply_text(msg, parse_mode="Markdown")

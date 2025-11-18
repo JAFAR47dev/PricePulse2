@@ -1,151 +1,354 @@
-import httpx
+import os
 import asyncio
-from config import TWELVE_DATA_API_KEY
+import httpx
+import math
+import time
+from dotenv import load_dotenv
 
-timeframe_map = {
-    "1m": "1min",
-    "5m": "5min",
-    "15m": "15min",
-    "30m": "30min",
-    "1h": "1h",
-    "2h": "2h",
-    "4h": "4h",
-    "8h": "8h",
-    "1d": "1day",
-    "1w": "1week"
-}
+# 🔑 Load API key
+load_dotenv()
+TWELVE_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
+BASE_URL = "https://api.twelvedata.com/time_series"
 
-async def get_crypto_indicators(symbol: str, timeframe: str = "1h"):
-    if not TWELVE_DATA_API_KEY:
-        print("❌ TWELVE_DATA_API_KEY not set.")
-        return None
+# ----------------------------- In-Memory Cache -----------------------------
+_cache = {}
+CACHE_TTL = 60  # seconds to keep data fresh
 
-    if timeframe not in timeframe_map:
-        print(f"❌ Invalid timeframe: {timeframe}")
-        return None
+def get_cache_key(symbol, interval):
+    return f"{symbol.upper()}_{interval}"
 
-    symbol = symbol.upper().replace("USDT", "").replace("/", "")
-    symbol = f"{symbol}/USD"
-    print(f"📊 Final symbol for API: {symbol}")
+def get_cached_data(symbol, interval):
+    key = get_cache_key(symbol, interval)
+    entry = _cache.get(key)
+    if entry and (time.time() - entry["timestamp"] < CACHE_TTL):
+        return entry["data"]
+    return None
 
-    base_url = "https://api.twelvedata.com"
-    params = {"symbol": symbol, "interval": timeframe, "apikey": TWELVE_DATA_API_KEY}
+def set_cache(symbol, interval, data):
+    _cache[get_cache_key(symbol, interval)] = {
+        "data": data,
+        "timestamp": time.time()
+    }
 
-    async with httpx.AsyncClient() as client:
-        try:
-            # Indicator requests
-            rsi_req = client.get(f"{base_url}/rsi", params=params)
-            ema_req = client.get(f"{base_url}/ema", params={**params, "time_period": 20})
-            macd_req = client.get(f"{base_url}/macd", params=params)
-            price_req = client.get(f"{base_url}/price", params=params)
-            candles_req = client.get(f"{base_url}/time_series", params={**params, "outputsize": 24})
-            candles_7d_req = client.get(f"{base_url}/time_series", params={
-                "symbol": symbol, "interval": "1day", "outputsize": 7, "apikey": TWELVE_DATA_API_KEY
-            })
+# ----------------------------- Helper Functions -----------------------------
 
-            # Await all responses in parallel
-            rsi_resp, ema_resp, macd_resp, price_resp, candles_resp, candles_7d_resp = await asyncio.gather(
-                rsi_req, ema_req, macd_req, price_req, candles_req, candles_7d_req
-            )
+def calculate_ema(prices, period):
+    if len(prices) < period:
+        return prices[-1]
+    k = 2 / (period + 1)
+    ema = sum(prices[:period]) / period
+    for price in prices[period:]:
+        ema = price * k + ema * (1 - k)
+    return ema
 
-            # Parse JSON
-            rsi_data = rsi_resp.json()
-            ema_data = ema_resp.json()
-            macd_data = macd_resp.json()
-            price_data = price_resp.json()
-            candles_data = candles_resp.json()
-            candles_7d_data = candles_7d_resp.json()
+def calculate_rsi(prices, period=14):
+    if len(prices) < period + 1:
+        return 50.0
+    gains, losses = 0, 0
+    for i in range(1, period + 1):
+        diff = prices[i] - prices[i - 1]
+        if diff > 0:
+            gains += diff
+        else:
+            losses -= diff
+    avg_gain = gains / period
+    avg_loss = losses / period
+    for i in range(period + 1, len(prices)):
+        diff = prices[i] - prices[i - 1]
+        gain = max(diff, 0)
+        loss = abs(min(diff, 0))
+        avg_gain = (avg_gain * (period - 1) + gain) / period
+        avg_loss = (avg_loss * (period - 1) + loss) / period
+    if avg_loss == 0:
+        return 100.0
+    rs = avg_gain / avg_loss
+    return 100 - (100 / (1 + rs))
 
-            # Validate required fields
-            if (
-                "values" not in rsi_data or
-                "values" not in ema_data or
-                "values" not in macd_data or
-                "price" not in price_data or
-                "values" not in candles_data or
-                "values" not in candles_7d_data
-            ):
-                print("❌ One or more required fields are missing.")
+def calculate_macd(prices, fast=12, slow=26, signal=9):
+    if len(prices) < slow + signal:
+        return 0, 0, 0
+    ema_fast = calculate_ema(prices, fast)
+    ema_slow = calculate_ema(prices, slow)
+    macd_line = ema_fast - ema_slow
+    signal_line = calculate_ema([macd_line for _ in range(signal)], signal)
+    macd_hist = macd_line - signal_line
+    return macd_line, signal_line, macd_hist
+
+# ----------------------------- Main Function -----------------------------
+
+async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", outputsize: int = 100):
+    """
+    Fetch OHLCV from Twelve Data and calculate RSI, EMA20, MACD,
+    and 24h high/low/volume. Cached for 60 seconds per (symbol+interval).
+    """
+    symbol = symbol.upper().replace("USDT", "USD")
+
+    # 🧠 Check cache first
+    cached = get_cached_data(symbol, interval)
+    if cached:
+        print(f"⚡ Using cached data for {symbol} [{interval}]")
+        return cached
+
+    params = {
+        "symbol": symbol,
+        "interval": interval,
+        "outputsize": outputsize,
+        "apikey": TWELVE_API_KEY,
+        "format": "JSON",
+    }
+
+    async with httpx.AsyncClient(timeout=15.0) as client:
+        for attempt in range(3):
+            resp = await client.get(BASE_URL, params=params)
+            if resp.status_code == 200:
+                break
+            elif resp.status_code == 429:
+                await asyncio.sleep(2 * (attempt + 1))
+            else:
+                print(f"❌ Twelve Data API error {resp.status_code}")
                 return None
 
-            # Parse indicators
-            rsi_value = float(rsi_data["values"][0]["rsi"])
-            ema_value = float(ema_data["values"][0]["ema"])
-            macd_value = float(macd_data["values"][0]["macd"])
-            macd_signal = float(macd_data["values"][0]["macd_signal"])
-            macd_hist = float(macd_data["values"][0]["macd_hist"])
-            price_value = float(price_data["price"])
+        data = resp.json()
 
-            # 24h stats
-            highs = [float(c["high"]) for c in candles_data["values"]]
-            lows = [float(c["low"]) for c in candles_data["values"]]
-            volumes = [float(c["volume"]) for c in candles_data["values"] if "volume" in c]
+    if "values" not in data or not data["values"]:
+        print(f"⚠️ No data found for {symbol}")
+        return None
 
-            high_24h = max(highs)
-            low_24h = min(lows)
-            total_volume = sum(volumes) if volumes else None
+    candles = list(reversed(data["values"]))
+    closes = [float(c["close"]) for c in candles]
+    highs = [float(c["high"]) for c in candles]
+    lows = [float(c["low"]) for c in candles]
+    volumes = [float(c.get("volume", 0) or 0) for c in candles]
 
-            # 🆕 Compute 7-day average (SMA-7d)
-            closes_7d = [float(c["close"]) for c in candles_7d_data["values"]]
-            sma_7d = sum(closes_7d) / len(closes_7d) if closes_7d else None
+    ema20 = calculate_ema(closes, 20)
+    rsi_val = calculate_rsi(closes)
+    macd_val, macd_signal, macd_hist = calculate_macd(closes)
 
-            return {
-                "rsi": rsi_value,
-                "ema20": ema_value,
-                "macd": macd_value,
-                "macdSignal": macd_signal,
-                "macdHist": macd_hist,
-                "price": price_value,
-                "high_24h": high_24h,
-                "low_24h": low_24h,
-                "volume": total_volume,
-                "sma_7d": sma_7d  
-            }
+    if interval.endswith("h"):
+        window = 24
+    elif interval.endswith("m"):
+        try:
+            window = int(24 * 60 / int(interval[:-1]))
+        except:
+            window = 24
+    else:
+        window = 1
 
-        except Exception as e:
-            print(f"❌ Indicator fetch failed: {e}")
-            return None
-            
-import requests
+    last_window = candles[-window:]
+    high_24h = max(float(c["high"]) for c in last_window)
+    low_24h = min(float(c["low"]) for c in last_window)
+    volume_24h = sum(float(c.get("volume", 0) or 0) for c in last_window)
+
+    latest = candles[-1]
+    latest_close = float(latest["close"])
+    latest_volume = float(latest.get("volume", 0) or 0)
+
+    result = {
+        "symbol": symbol,
+        "interval": interval,
+        "price": round(latest_close, 4),
+        "rsi": round(rsi_val, 2),
+        "ema20": round(ema20, 2),
+        "macd": round(macd_val, 2),
+        "macdSignal": round(macd_signal, 2),
+        "macdHist": round(macd_hist, 2),
+        "volume": round(latest_volume, 2),
+        "high_24h": round(high_24h, 4),
+        "low_24h": round(low_24h, 4),
+        "volume_24h": round(volume_24h, 2),
+    }
+
+    # 💾 Cache it for future use
+    set_cache(symbol, interval, result)
+    print(f"✅ Cached {symbol} [{interval}] for {CACHE_TTL}s")
+
+    return result
+
+
+#import os
+#import asyncio
+#import httpx
+#import pandas as pd
+#import ta
+#from dotenv import load_dotenv
+
+# Load API key
+#load_dotenv()
+#TWELVE_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
+
+#BASE_URL = "https://api.twelvedata.com/time_series"
+
+
+#async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", outputsize: int = 100):
+#    """
+#    Fetches OHLCV data from Twelve Data and calculates RSI, EMA20, MACD,
+#    plus 24h high, low, and volume.
+#    Supports forex, crypto, and stocks.
+#    """
+
+#    params = {
+#        "symbol": symbol.upper(),
+#        "interval": interval,
+#        "outputsize": outputsize,
+#        "apikey": TWELVE_API_KEY,
+#        "format": "JSON",
+#    }
+
+#    async with httpx.AsyncClient(timeout=15.0) as client:
+#        resp = await client.get(BASE_URL, params=params)
+
+#        if resp.status_code != 200:
+#            print(f"❌ Failed to fetch Twelve Data API ({resp.status_code})")
+#            print(await resp.text())
+#            return None
+
+#        data = resp.json()
+
+#    if "values" not in data or not data["values"]:
+#        print(f"⚠️ No data found for {symbol}")
+#        return None
+
+#    # 📊 Convert to DataFrame
+#    df = pd.DataFrame(data["values"])
+#    df = df.astype({
+#        "open": float,
+#        "high": float,
+#        "low": float,
+#        "close": float,
+#        "volume": float
+#    })
+#    df["datetime"] = pd.to_datetime(df["datetime"])
+#    df = df.sort_values("datetime")  # oldest → newest
+
+#    # 🧮 Compute indicators
+#    df["rsi"] = ta.momentum.RSIIndicator(df["close"], window=14).rsi()
+#    df["ema20"] = ta.trend.EMAIndicator(df["close"], window=20).ema_indicator()
+
+#    macd = ta.trend.MACD(df["close"])
+#    df["macd"] = macd.macd()
+#    df["macd_signal"] = macd.macd_signal()
+#    df["macd_hist"] = macd.macd_diff()
+
+#    # 🎯 Latest values
+#    latest = df.iloc[-1]
+
+#    # 🕒 Compute 24h high/low/volume (approx last 24 candles if 1h interval)
+#    if interval.endswith("h"):
+#        window = 24
+#    elif interval.endswith("m"):
+#        window = int(24 * 60 / int(interval[:-1]))  # e.g., 15m → 96 points
+#    else:
+#        window = 1
+
+#    last_window = df.tail(window)
+#    high_24h = last_window["high"].max()
+#    low_24h = last_window["low"].min()
+#    volume_24h = last_window["volume"].sum()
+
+#    # ✅ Final result
+#    result = {
+#        "symbol": symbol.upper(),
+#        "price": round(latest["close"], 4),
+#        "rsi": round(latest["rsi"], 2),
+#        "ema20": round(latest["ema20"], 2),
+#        "macd": round(latest["macd"], 2),
+#        "macdSignal": round(latest["macd_signal"], 2),
+#        "macdHist": round(latest["macd_hist"], 2),
+#        "volume": round(latest["volume"], 2),
+#        "high_24h": round(high_24h, 4),
+#        "low_24h": round(low_24h, 4),
+#        "volume_24h": round(volume_24h, 2),
+#        "interval": interval,
+#    }
+
+#    return result
+
+
+
+import os
+import aiohttp
+from dotenv import load_dotenv
+from time import time
+
+# Load environment variables
+load_dotenv()
+CRYPTOCOMPARE_API_KEY = os.getenv("CRYPTOCOMPARE_API_KEY")
+CRYPTOCOMPARE_BASE_URL = "https://min-api.cryptocompare.com"
+
+# 🧠 Cache memory (symbol_timeframe → {timestamp, data})
+_volume_cache = {}
+CACHE_TTL = 120  # seconds (2 minutes cache lifespan)
 
 async def get_volume_comparison(symbol: str, timeframe: str):
     """
-    Returns current and average volume for a given symbol and timeframe.
+    Returns current and average volume for a given symbol and timeframe using live CryptoCompare data.
+    Caches results for short periods (default: 2 minutes) to avoid redundant API calls.
     """
 
-    # You can use Binance API as an example
-    symbol = symbol.upper()
+    key = f"{symbol.lower()}_{timeframe}"
+    now = time.time()
+
+    # ✅ Return cached data if still fresh
+    if key in _volume_cache and now - _volume_cache[key]["timestamp"] < CACHE_TTL:
+        return _volume_cache[key]["data"]
+
+    # ✅ Supported timeframes (mapped to CryptoCompare intervals)
     tf_map = {
-        "1h": "1h",
-        "4h": "4h",
-        "1d": "1d",
-        "15m": "15m",
-        "30m": "30m",
+        "15m": {"endpoint": "histominute", "limit": 96},  # last 24h (15-min intervals)
+        "30m": {"endpoint": "histominute", "limit": 48},  # last 24h (30-min intervals)
+        "1h": {"endpoint": "histohour", "limit": 24},     # last 24h
+        "4h": {"endpoint": "histohour", "limit": 42},     # last 7d
+        "1d": {"endpoint": "histoday", "limit": 30},      # last 30d
+        "7d": {"endpoint": "histoday", "limit": 90},      # last 90d
+        "14d": {"endpoint": "histoday", "limit": 180},
+        "30d": {"endpoint": "histoday", "limit": 365},
+        "90d": {"endpoint": "histoday", "limit": 730},
+        "180d": {"endpoint": "histoday", "limit": 1095},
+        "365d": {"endpoint": "histoday", "limit": 2000},
     }
 
     if timeframe not in tf_map:
-        raise ValueError("Invalid timeframe")
+        raise ValueError(f"❌ Invalid timeframe: {timeframe}")
 
-    interval = tf_map[timeframe]
-    limit = 50  # how many candles to fetch for average
+    tf_info = tf_map[timeframe]
+    endpoint = tf_info["endpoint"]
+    limit = tf_info["limit"]
 
-    url = f"https://api.binance.com/api/v3/klines?symbol={symbol}&interval={interval}&limit={limit}"
+    # 🌐 Build API URL
+    url = f"{CRYPTOCOMPARE_BASE_URL}/data/v2/{endpoint}"
+    params = {
+        "fsym": symbol.upper(),
+        "tsym": "USD",
+        "limit": limit,
+        "api_key": CRYPTOCOMPARE_API_KEY
+    }
 
-    response = requests.get(url)
-    if response.status_code != 200:
-        raise Exception("Failed to fetch volume data")
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, params=params) as resp:
+            if resp.status != 200:
+                text = await resp.text()
+                raise Exception(f"⚠️ CryptoCompare request failed (HTTP {resp.status}): {text}")
+            data = await resp.json()
 
-    data = response.json()
+    # 🧮 Extract and validate data
+    if "Data" not in data or "Data" not in data["Data"]:
+        raise Exception(f"⚠️ Unexpected API response for {symbol}: {data}")
 
-    volumes = [float(kline[5]) for kline in data]  # 5th index = volume
+    candles = data["Data"]["Data"]
+    volumes = [candle.get("volumeto", 0) for candle in candles if candle.get("volumeto")]
+
     if not volumes:
-        raise Exception("No volume data found")
+        raise Exception(f"⚠️ No volume data found for {symbol}")
 
     current_volume = volumes[-1]
-    average_volume = sum(volumes[:-1]) / (len(volumes) - 1)  # exclude current candle for average
+    average_volume = sum(volumes[:-1]) / max(1, len(volumes) - 1)
+    result = (round(current_volume, 2), round(average_volume, 2))
 
-    return current_volume, average_volume
-    
+    # 🧠 Store result in cache
+    _volume_cache[key] = {"timestamp": now, "data": result}
+
+    return result
+      
 import aiohttp
 import os
 import time
@@ -157,7 +360,7 @@ TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
 
 # Cache dictionary: _cache[symbol][indicator_name] = {"value": ..., "timestamp": ...}
 _indicator_cache = {}
-CACHE_TTL = 60  # seconds
+CACHE_TTL = 120  # seconds
 
 
 def is_fresh(entry):

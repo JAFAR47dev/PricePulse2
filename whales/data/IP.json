@@ -1,0 +1,6 @@
+{
+  "symbol": "IP",
+  "unsupported": true,
+  "reason": "Non-ERC20 token or missing Ethereum contract",
+  "timestamp": "2025-10-30 08:59:39 UTC"
+}

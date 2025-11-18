@@ -8,8 +8,10 @@ from telegram.ext import (
     ConversationHandler,
     filters
 )
+from tasks.handlers import handle_streak
 
-async def referral(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def referral_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handle_streak(update, context)
     user_id = update.effective_user.id
     bot_username = (await context.bot.get_me()).username
     link = f"https://t.me/{bot_username}?start={user_id}"
@@ -25,7 +27,6 @@ async def referral(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"📣 *Invite friends & earn rewards!*\n\n"
         f"🔗 *Your referral link:*\n{link}\n\n"
         f"👥 *Referrals so far:* {count}\n\n"
-        f"🎯 Use /tasks to complete tasks and unlock Pro access!\n"
-        f"💎 You also get credit when your friends join via your link.",
+        f"🎯 Use /tasks to complete tasks and unlock Pro access!\n",
         parse_mode="Markdown"
     )

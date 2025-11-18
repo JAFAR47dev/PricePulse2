@@ -8,12 +8,12 @@ async def check_ai_strategies(bot: Bot):
     conn = get_connection()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT id, user_id, symbol, condition_text FROM ai_alerts")
+    cursor.execute("SELECT id, user_id, symbol, conditions FROM ai_alerts")
     rows = cursor.fetchall()
 
     for row in rows:
         alert_id, user_id, symbol, condition_text = row
-        print(f"🔍 Checking strategy for {symbol}: {condition_text}")
+        print(f"🔍 Checking strategy for {symbol}: {conditions}")
 
         indicators = await get_crypto_indicators(symbol)
         if not indicators:
@@ -28,7 +28,7 @@ async def check_ai_strategies(bot: Bot):
             prompt = f"""
 You're an alert evaluator. A user saved the strategy:
 
-"{condition_text}"
+"{conditions}"
 
 Here is the latest market data:
 - Price: {indicators['price']}
@@ -63,7 +63,7 @@ Does the strategy trigger now? Only reply with: YES or NO.
                 if reply.startswith("yes"):
                     await bot.send_message(
                         chat_id=user_id,
-                        text=f"✅ *Strategy Triggered!*\n\n{condition_text}",
+                        text=f"✅ *Strategy Triggered!*\n\n{conditions    }",
                         parse_mode="Markdown"
                     )
 

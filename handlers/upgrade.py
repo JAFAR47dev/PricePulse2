@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import requests
 from datetime import datetime
 from config import ADMIN_ID
+from tasks.handlers import handle_streak
 
 load_dotenv()
 
@@ -29,14 +30,14 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.constants import ParseMode
 
 async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    
+    await handle_streak(update, context)
     text = (
     "*🚀 Upgrade to Pro*\n\n"
     "Unlock your full crypto potential with advanced alerts, AI tools, portfolio management, and more:\n\n"
 
     "🔔 *Unlimited Smart Alerts*\n"
     "• Create unlimited alerts: price, percent, volume, risk, custom\n"
-    "• Get auto-refresh alerts every 30 seconds\n"
+    "• Get auto-refresh alerts every 20 seconds\n"
     "• Edit and remove alerts anytime\n\n"
 
     "📊 *Advanced Portfolio & Watchlist*\n"
@@ -60,9 +61,7 @@ async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     "• Complete simple tasks to unlock 30-day Pro\n"
     "• Refer friends to earn extra Pro time\n\n"
 
-    "⚡ *Priority Access & Speed*\n"
-    "• Faster data refresh for Pro users\n"
-    "• Early access to new features\n\n"
+   
 
     "*Choose a plan below to upgrade and unlock everything:*"
 )

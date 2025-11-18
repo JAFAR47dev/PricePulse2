@@ -38,7 +38,19 @@ def calculate_rsi(closes, period=14):
     rsi = 100 - (100 / (1 + rs))
     return rsi
 
-def simulate_rsi_strategy(candles):
+def simulate_rsi_strategy(candles, stop_loss_pct=3, take_profit_pct=6):
+    """
+    Simulate an RSI-based trading strategy with stop-loss and take-profit.
+
+    Args:
+        candles (list): List of candle dicts with "close" and "rsi".
+        stop_loss_pct (float): Stop-loss threshold in percent.
+        take_profit_pct (float): Take-profit threshold in percent.
+
+    Returns:
+        dict: Summary stats (via compute_stats)
+    """
+
     wins = 0
     losses = 0
     entry_price = None
@@ -47,26 +59,63 @@ def simulate_rsi_strategy(candles):
     for i in range(1, len(candles)):
         rsi = candles[i].get("rsi")
         close = candles[i].get("close")
+
         if rsi is None or close is None:
             continue
 
+        # === BUY CONDITION ===
         if rsi < 30 and entry_price is None:
             entry_price = close
+            entry_index = i
 
-        elif rsi > 70 and entry_price:
-            ret = ((close - entry_price) / entry_price) * 100
-            returns.append(ret)
+        # === TRADE MANAGEMENT ===
+        elif entry_price is not None:
+            change_pct = ((close - entry_price) / entry_price) * 100
 
-            if ret > 0:
-                wins += 1
-            else:
+            # Stop-loss hit
+            if change_pct <= -stop_loss_pct:
+                returns.append(change_pct)
                 losses += 1
+                entry_price = None
 
-            entry_price = None
+            # Take-profit hit
+            elif change_pct >= take_profit_pct:
+                returns.append(change_pct)
+                wins += 1
+                entry_price = None
+
+            # RSI exit condition (overbought)
+            elif rsi > 70:
+                returns.append(change_pct)
+                if change_pct > 0:
+                    wins += 1
+                else:
+                    losses += 1
+                entry_price = None
+
+    # Close unclosed position at last candle
+    if entry_price:
+        final_close = candles[-1]["close"]
+        final_ret = ((final_close - entry_price) / entry_price) * 100
+        returns.append(final_ret)
+        if final_ret > 0:
+            wins += 1
+        else:
+            losses += 1
 
     return compute_stats(wins, losses, returns)
+    
+import statistics
 
-def simulate_macd_strategy(candles):
+def simulate_macd_strategy(candles, stop_loss_pct=3, take_profit_pct=6):
+    """
+    Simulate a MACD crossover strategy with stop-loss and take-profit handling.
+    
+    Args:
+        candles (list): List of dicts containing 'macd', 'macdSignal', and 'close'.
+        stop_loss_pct (float): Stop-loss threshold in percent.
+        take_profit_pct (float): Take-profit threshold in percent.
+    """
     wins = 0
     losses = 0
     entry_price = None
@@ -76,6 +125,7 @@ def simulate_macd_strategy(candles):
         prev = candles[i - 1]
         curr = candles[i]
 
+        # Ensure MACD data exists
         if not all(k in prev for k in ["macd", "macdSignal", "close"]) or not all(k in curr for k in ["macd", "macdSignal", "close"]):
             continue
 
@@ -85,61 +135,118 @@ def simulate_macd_strategy(candles):
         signal = curr["macdSignal"]
         close = curr["close"]
 
+        # === BUY SIGNAL === (MACD crosses above Signal)
         if macd_prev < signal_prev and macd > signal and entry_price is None:
             entry_price = close
 
-        elif macd_prev > signal_prev and macd < signal and entry_price:
-            ret = ((close - entry_price) / entry_price) * 100
-            returns.append(ret)
+        # === TRADE MANAGEMENT ===
+        elif entry_price is not None:
+            change_pct = ((close - entry_price) / entry_price) * 100
 
-            if ret > 0:
-                wins += 1
-            else:
+            # Stop-loss triggered
+            if change_pct <= -stop_loss_pct:
+                returns.append(change_pct)
                 losses += 1
+                entry_price = None
 
-            entry_price = None
+            # Take-profit triggered
+            elif change_pct >= take_profit_pct:
+                returns.append(change_pct)
+                wins += 1
+                entry_price = None
 
-    total_trades = wins + losses
-    win_rate = (wins / total_trades) * 100 if total_trades else 0
-    avg_return = statistics.mean(returns) if returns else 0
-    avg_gain = statistics.mean([r for r in returns if r > 0]) if wins else 0
-    avg_loss = statistics.mean([abs(r) for r in returns if r < 0]) if losses else 0
-    profit_factor = sum(r for r in returns if r > 0) / (sum(abs(r) for r in returns if r < 0) + 1e-6)
-    sharpe_ratio = avg_return / (statistics.stdev(returns) + 1e-6) if len(returns) > 1 else 0
-    win_loss_ratio = wins / losses if losses else float('inf')
+            # === SELL SIGNAL === (MACD crosses below Signal)
+            elif macd_prev > signal_prev and macd < signal:
+                returns.append(change_pct)
+                if change_pct > 0:
+                    wins += 1
+                else:
+                    losses += 1
+                entry_price = None
 
-    return {
-        "trades": total_trades,
-        "win_rate": win_rate,
-        "avg_return": avg_return,
-        "avg_gain": avg_gain,
-        "avg_loss": avg_loss,
-        "profit_factor": profit_factor,
-        "sharpe_ratio": sharpe_ratio,
-        "win_loss_ratio": win_loss_ratio,
-    }
+    # Close any open trade at the last candle
+    if entry_price:
+        final_close = candles[-1]["close"]
+        final_ret = ((final_close - entry_price) / entry_price) * 100
+        returns.append(final_ret)
+        if final_ret > 0:
+            wins += 1
+        else:
+            losses += 1
 
-def simulate_ema_strategy(candles):
+    return compute_stats(wins, losses, returns)
+
+import statistics
+
+def simulate_ema_strategy(candles, stop_loss_pct=3, take_profit_pct=6):
+    """
+    Simulate a simple EMA crossover strategy:
+    - Buy when price crosses above EMA
+    - Sell when price crosses below EMA
+    - Uses stop-loss and take-profit for realism
+    """
+    wins = 0
+    losses = 0
     entry_price = None
     returns = []
 
-    for c in candles:
-        if "close" not in c or "ema" not in c:
+    for i in range(1, len(candles)):
+        prev = candles[i - 1]
+        curr = candles[i]
+
+        if not all(k in prev for k in ["close", "ema"]) or not all(k in curr for k in ["close", "ema"]):
             continue
 
-        price = c["close"]
-        ema = c["ema"]
+        prev_close = prev["close"]
+        prev_ema = prev["ema"]
+        close = curr["close"]
+        ema = curr["ema"]
 
-        if entry_price is None and price > ema:
-            entry_price = price
+        # === BUY SIGNAL: price crosses above EMA ===
+        if prev_close < prev_ema and close > ema and entry_price is None:
+            entry_price = close
 
-        elif entry_price is not None and price < ema:
-            ret = ((price - entry_price) / entry_price) * 100
-            returns.append(ret)
-            entry_price = None
+        # === TRADE MANAGEMENT ===
+        elif entry_price is not None:
+            change_pct = ((close - entry_price) / entry_price) * 100
 
-    wins = sum(1 for r in returns if r > 0)
-    losses = sum(1 for r in returns if r < 0)
+            # Stop-loss hit
+            if change_pct <= -stop_loss_pct:
+                returns.append(change_pct)
+                losses += 1
+                entry_price = None
+
+            # Take-profit hit
+            elif change_pct >= take_profit_pct:
+                returns.append(change_pct)
+                wins += 1
+                entry_price = None
+
+            # === SELL SIGNAL: price crosses below EMA ===
+            elif prev_close > prev_ema and close < ema:
+                returns.append(change_pct)
+                if change_pct > 0:
+                    wins += 1
+                else:
+                    losses += 1
+                entry_price = None
+
+    # === Close remaining trade at the last candle ===
+    if entry_price:
+        final_close = candles[-1]["close"]
+        final_ret = ((final_close - entry_price) / entry_price) * 100
+        returns.append(final_ret)
+        if final_ret > 0:
+            wins += 1
+        else:
+            losses += 1
+
+    return compute_stats(wins, losses, returns)
+    
+    
+def compute_stats(wins, losses, returns):
+    import statistics
+
     total_trades = wins + losses
     win_rate = (wins / total_trades) * 100 if total_trades else 0
     avg_return = statistics.mean(returns) if returns else 0
@@ -151,34 +258,13 @@ def simulate_ema_strategy(candles):
 
     return {
         "trades": total_trades,
-        "win_rate": win_rate,
-        "avg_return": avg_return,
-        "avg_gain": avg_gain,
-        "avg_loss": avg_loss,
-        "profit_factor": profit_factor,
-        "sharpe_ratio": sharpe_ratio,
-        "win_loss_ratio": win_loss_ratio,
-    }
-    
-def compute_stats(wins, losses, returns):
-    total_trades = wins + losses
-    win_rate = (wins / total_trades) * 100 if total_trades > 0 else 0
-    avg_return = statistics.mean(returns) if returns else 0
-    avg_gain = statistics.mean([r for r in returns if r > 0]) if wins else 0
-    avg_loss = statistics.mean([abs(r) for r in returns if r < 0]) if losses else 0
-    profit_factor = (sum(r for r in returns if r > 0)) / (sum(abs(r) for r in returns if r < 0) + 1e-6)
-    sharpe_ratio = avg_return / (statistics.stdev(returns) + 1e-6) if len(returns) > 1 else 0
-    win_loss_ratio = wins / losses if losses > 0 else float('inf')
-
-    return {
-        "trades": total_trades,
-        "win_rate": win_rate,
-        "avg_return": avg_return,
-        "avg_gain": avg_gain,
-        "avg_loss": avg_loss,
-        "profit_factor": profit_factor,
-        "sharpe_ratio": sharpe_ratio,
-        "win_loss_ratio": win_loss_ratio,
+        "win_rate": round(win_rate, 2),
+        "avg_return": round(avg_return, 2),
+        "avg_gain": round(avg_gain, 2),
+        "avg_loss": round(avg_loss, 2),
+        "profit_factor": round(profit_factor, 2),
+        "sharpe_ratio": round(sharpe_ratio, 2),
+        "win_loss_ratio": round(win_loss_ratio, 2),
     }
 
 async def backtest_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -195,7 +281,7 @@ async def backtest_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     args = context.args
     if len(args) < 1:
         return await update.message.reply_text(
-            "❌ Usage: /backtest BTC [timeframe] [strategy]\nExample: /backtest ETH 1h rsi"
+            "❌ Usage: /bt BTC [timeframe] [strategy]\nExample: /bt ETH 1h rsi"
         )
 
     symbol = args[0].upper()
@@ -213,24 +299,45 @@ async def backtest_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             parse_mode=ParseMode.MARKDOWN
         )
 
-    await update.message.reply_text("📊 Fetching historical data for backtest...")
+    # ✅ Dynamic candle limits per timeframe
+    CANDLE_LIMITS = {
+        "1m": 2000,
+        "5m": 1500,
+        "15m": 1500,
+        "30m": 1000,
+        "1h": 1000,
+        "2h": 800,
+        "4h": 600,
+        "8h": 500,
+        "1d": 400
+    }
 
-    candles = await fetch_candles(symbol, timeframe)
-    
+    limit = CANDLE_LIMITS.get(timeframe, 1000)
 
+    await update.message.reply_text(f"📊 Fetching {limit} candles for {symbol} ({timeframe})...")
 
-    if not candles or len(candles) < 1900:
-        return await update.message.reply_text("⚠️ Failed to fetch enough historical data. Try another coin or timeframe.")
+    # Pass limit to your fetch_candles() function
+    candles = await fetch_candles(symbol, timeframe, limit=limit)
 
-    await update.message.reply_text(f"📈 Backtesting *{strategy_type.upper()}* strategy...", parse_mode=ParseMode.MARKDOWN)
+    # Ensure we have enough data
+    if not candles or len(candles) < limit * 0.8:
+        return await update.message.reply_text(
+            "⚠️ Failed to fetch enough historical data. Try another coin or timeframe."
+        )
 
+    await update.message.reply_text(
+        f"📈 Backtesting *{strategy_type.upper()}* strategy on {symbol} ({timeframe})...",
+        parse_mode=ParseMode.MARKDOWN
+    )
+
+    # Run selected backtest simulation
     if strategy_type == "rsi":
         results = simulate_rsi_strategy(candles)
     elif strategy_type == "macd":
         results = simulate_macd_strategy(candles)
     elif strategy_type == "ema":
         results = simulate_ema_strategy(candles)
-    
+
     await update.message.reply_text(
         f"📊 *Backtest Results for {symbol} ({timeframe}):*\n\n"
         f"🎯 Strategy: `{strategy_type.upper()}`\n"
