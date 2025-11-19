@@ -18,7 +18,7 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade@EliteTradeSignalBot to unlock.",
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
         return
