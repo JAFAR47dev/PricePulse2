@@ -77,12 +77,16 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, track_user_activity))
     app.add_handler(CallbackQueryHandler(track_user_activity))
 
-    app.job_queue.run_repeating(check_expired_pro_users, 43200, first=110)
-    app.job_queue.run_repeating(run_ai_strategy_checker, 300, first=60)
-    app.job_queue.run_repeating(lambda c: asyncio.create_task(refresh_top_tokens()), 604800, first=80)
-    app.job_queue.run_repeating(lambda c: asyncio.create_task(refresh_all_whales()), 604800, first=900)
-    app.job_queue.run_repeating(lambda c: asyncio.create_task(start_monitor(interval_minutes=5)), 300, first=100)
-    app.job_queue.run_repeating(lambda c: asyncio.create_task(refresh_coingecko_ids()), 259200, first=700)
+    # === JOB QUEUE (CLEANED — NO create_task NEEDED) ===
+    app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=110)
+    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=800)
+
+    # These functions MUST be async — make sure they are!
+    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=80)
+    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=900)
+    app.job_queue.run_repeating(start_monitor, interval=300, first=100)
+    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=700)
+    
     start_alert_checker(app.job_queue)
     start_notifications_scheduler(app)
 
