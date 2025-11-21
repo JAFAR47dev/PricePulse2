@@ -52,6 +52,8 @@ async def get_fiat_price(symbol):
         print(f"⚠️ Error fetching fiat price for {symbol}: {e}")
     return None
     
+
+
 async def check_price_alerts(context, symbol_prices):
     conn = get_connection()
     cursor = conn.cursor()
@@ -59,18 +61,17 @@ async def check_price_alerts(context, symbol_prices):
     try:
         cursor.execute("SELECT id, user_id, symbol, condition, target_price, repeat FROM alerts")
         for alert_id, user_id, symbol, cond, target, repeat in cursor.fetchall():
-            price = symbol_prices.get(symbol)
-            
+            price = symbol_prices.get(symbol.upper())  # normalize
+
             if price is None:
                 continue
 
-            # Check alert condition
             if (cond == ">" and price > target) or (cond == "<" and price < target):
                 try:
                     await context.bot.send_message(
                         chat_id=user_id,
                         text=(
-                            f"🔔 *Price Alert: {symbol}*\n"
+                            f"🔔 *Price Alert: {symbol.upper()}*\n"
                             f"Current price: ${price:.2f} {cond} {target}"
                         ),
                         parse_mode="Markdown"
@@ -79,15 +80,12 @@ async def check_price_alerts(context, symbol_prices):
                     print(f"Price alert error: {e}")
                     traceback.print_exc()
 
-                # Delete non-repeating alerts
                 if not repeat:
                     cursor.execute("DELETE FROM alerts WHERE id = ?", (alert_id,))
 
         conn.commit()
     finally:
         conn.close()
-
-
 
 async def check_percent_alerts(context, symbol_prices):
     conn = get_connection()
