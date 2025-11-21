@@ -3,7 +3,7 @@ from telegram.ext import ContextTypes
 from models.db import get_connection
 from utils.auth import is_pro_plan
 from models.user import get_user_plan
-from utils.prices import get_crypto_prices 
+from utils.prices import get_portfolio_crypto_prices, get_crypto_prices
 import os
 import requests
 from models.user_activity import update_last_active
@@ -130,7 +130,7 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
 
     # Fetch crypto data once
-    crypto_data = await get_crypto_prices(crypto_symbols) if crypto_symbols else {}
+    crypto_data = await get_portfolio_crypto_prices(crypto_symbols) if crypto_symbols else {}
 
     for symbol, amount in rows:
         symbol = symbol.upper()
