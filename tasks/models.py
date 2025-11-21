@@ -86,16 +86,17 @@ def get_task_progress(user_id):
         "pro_expiry_date": row[3]
     }
     
-from datetime import datetime, timedelta
+from datetime import datetime
 from utils.streaks import should_count_for_streak
 
 def update_daily_streak(user_id, message_text=None):
     """
-    Update user's daily streak. Only counts meaningful activity.
+    Update user's daily streak. Counts a new day when the date changes (UTC),
+    not based on 24 hours passing.
     Returns: (new_streak, milestone_hit, reward_ready)
     """
     if message_text and not should_count_for_streak(message_text):
-        return None, None, None  # ignore this activity
+        return None, None, None  # ignore messages that shouldn't count
 
     conn = get_connection()
     cursor = conn.cursor()
@@ -108,30 +109,46 @@ def update_daily_streak(user_id, message_text=None):
 
     today = datetime.utcnow().date()
 
+    # Defaults
     daily_streak = 0
-    last_active = None
+    last_active_raw = None
     reward_claimed = 0
 
     if row:
         daily_streak = row[0] or 0
-        last_active = row[1]
+        last_active_raw = row[1]  # may be None or a string
         reward_claimed = row[2]
 
-    # First ever usage
-    if not last_active:
+    # Handle first ever activity
+    if not last_active_raw:
         daily_streak = 1
     else:
-        last_date = datetime.strptime(last_active, "%Y-%m-%d").date()
-        if last_date == today:
-            return daily_streak, None, None  # already counted today
-        elif (today - last_date).days == 1:
-            daily_streak += 1
+        # Convert last_active_date safely
+        try:
+            last_active_date = datetime.strptime(last_active_raw, "%Y-%m-%d").date()
+        except:
+            # If stored with timestamp (e.g. "2025-11-20 07:30:11"), handle it
+            last_active_date = datetime.fromisoformat(last_active_raw).date()
+
+        if last_active_date == today:
+            # Already counted today
+            return daily_streak, None, None
+
+        # New day → count streak
+        day_diff = (today - last_active_date).days
+
+        if day_diff == 1:
+            daily_streak += 1  # consecutive day
         else:
-            daily_streak = 1  # streak broken
+            daily_streak = 1  # long gap → reset streak
 
-    milestone_hit = daily_streak if daily_streak in [3, 7, 9, 12] else None
-    reward_ready = daily_streak >= 14 and reward_claimed == 0
+    # Check milestones
+    milestone_hit = daily_streak if daily_streak in [3, 4, 7, 9, 12] else None
 
+    # 14-day reward
+    reward_ready = (daily_streak >= 14 and reward_claimed == 0)
+
+    # Write updated streak back to DB
     cursor.execute("""
         UPDATE task_progress
         SET daily_streak = ?, last_active_date = ?

@@ -3,6 +3,8 @@ from telegram import Update
 from telegram.ext import CommandHandler, ContextTypes
 from dotenv import load_dotenv
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
+
 # Load environment variables
 load_dotenv()
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
@@ -24,6 +26,8 @@ def format_num(n):
         return n
 
 async def calc_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     if len(context.args) != 2:
         await update.message.reply_text("Usage: /calc [amount] [coin/fiat]\nExample: /calc 100 btc or /calc 30000 gbp")

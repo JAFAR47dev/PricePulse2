@@ -1,4 +1,7 @@
+import requests
+import os
 from utils.indicators import get_crypto_indicators
+from utils.prices import get_crypto_prices
 from models.user import get_user_plan
 from utils.auth import is_pro_plan
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
@@ -10,9 +13,19 @@ from telegram.ext import (
     ConversationHandler,
     filters
 )
+from models.user_activity import update_last_active
 
+def safe(value):
+    try:
+        if value is None:
+            return "N/A"
+        return round(float(value), 4) if isinstance(value, (float, int)) else str(value)
+    except:
+        return "N/A"
+        
 async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
         
 
@@ -54,7 +67,7 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("🧠 Analyzing market conditions and predicting... Please wait...")
 
     # Fetch live price and indicators
-    price = get_crypto_price(symbol)
+    price = await get_crypto_prices(symbol)
     indicators = await get_crypto_indicators(symbol, timeframe)
 
     if price is None or indicators is None:
@@ -62,16 +75,33 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     prompt = f"""
-    You're a crypto analyst. Based on the following data, give a brief, realistic short-term forecast for {symbol} in the next {timeframe}:
+    You're a professional crypto market analyst. Using the live market data below, give a concise, realistic short-term outlook for {symbol} on the {timeframe} timeframe.
 
-    • Price: ${price}
-    • RSI: {safe(indicators.get('rsi'))}
-    • MACD Histogram: {safe(indicators.get('macd'))}
+    === Market Data ===
+    • Price: ${safe(indicators.get('price'))}
+    • RSI (14): {safe(indicators.get('rsi'))}
     • EMA(20): {safe(indicators.get('ema20'))}
-    • 24h High/Low: {safe(indicators.get('high_24h'))} / {safe(indicators.get('low_24h'))}
+
+    === MACD Indicators ===
+    • MACD: {safe(indicators.get('macd'))}
+    • Signal: {safe(indicators.get('macdSignal'))}
+    • Histogram: {safe(indicators.get('macdHist'))}
+
+    === 24H Statistics ===
+    • High / Low: {safe(indicators.get('high_24h'))} / {safe(indicators.get('low_24h'))}
+    • 24h Volume: {safe(indicators.get('volume_24h'))}
+
+    === Latest Candle ===
     • Volume: {safe(indicators.get('volume'))}
 
-    Only include key insights and a directional prediction (up, down, or sideways). Be concise.
+    === Instructions ===
+    Provide a brief, human-like market outlook:
+    • identify momentum (bullish, bearish, or neutral)
+    • highlight key indicators (RSI, MACD, EMA relationships)
+    • mention any likely scenarios (breakout, pullback, sideways)
+    • give a final directional prediction: UP, DOWN, or SIDEWAYS
+
+    Be concise and avoid exaggeration.
     """
 
     prediction = None

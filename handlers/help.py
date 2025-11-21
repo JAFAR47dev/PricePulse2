@@ -1,71 +1,94 @@
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import ContextTypes
+from models.user_activity import update_last_active
 
 help_pages = {
     1: "*📖 Core Features (Free)*\n\n"
-       "• `/set price BTC > 65000` – Price alert\n"
-       "• `/alerts` – View all alerts\n"
-       "• `/remove TYPE ID` – Remove specific alert\n"
-       "• `/removeall` – Remove all alerts\n"
-       "• `/c BTC` – 1h TradingView chart\n"
-       "• `/,[coin]` – Full coin info: price, % change, volume, etc.\n"
-       "• `/trend BTC` – Technical analysis (1h only)\n"
-       "• `/best`, `/worst` – Top 3 Gainers/Losers (24h)\n"
-       "• `/news` – Latest 5 crypto headlines\n"
-       "• `/comp BTC ETH SOL` – Compare market data\n"
-       "• `/cod` – Coin of the Day\n"
-        "• `/calc 100 btc` – Calculate amount of crypto or fiat\n"
-       "• `/conv 1 btc to usd` – Crypto & fiat conversion\n"
-       "• `/hmap` – Top 50 coin heatmap\n"
-       "• `/learn` – Key crypto terms\n"
-       "• `/funfact` – Random crypto facts\n"
-       "• `/markets BTC` – Exchange prices\n"
-       "• `/links BTC` – Official coin links\n",
+       "🛎️ *Basic Alerts:*\n"
+       "• `/set (price)` — Set price-based alerts \n"
+       "• `/alerts` — View your active alerts\n"
+       "• `/remove ` — Remove a specific alert type\n"
+       "• `/removeall` — Delete all alerts\n\n"
 
-    2: "*💎 Pro-Only Features (Advanced Alerts, Portfolio, AI)*\n\n"
-       "🔔 *Advanced Alerts:*\n"
-       "• `/set percent BTC 5` – % move alert\n"
-       "• `/set volume BTC 2x` – Volume spike alert\n"
-       "• `/set risk BTC 50000 60000` – SL/TP alert\n"
-       "• `/set custom BTC > 50000 rsu > 70` – Custom indicators\n\n"
-       "📈 *Portfolio & Watchlist:*\n"
-       "• `/addasset BTC 0.5` / `/portfolio` – Track holdings\n"
-       "• `/portfoliolimit 15000` – Set loss alert\n"
-       "• `/portfoliotarget 25000` – Set profit alert\n"
-       "• `/removeasset BTC`, `/clearportfolio`\n"
-       "• `/watch BTC 5 1h` – Watch % change\n"
-       "• `/watchlist` / `/removewatch BTC`\n",
+       "📊 *Charts & Data:*\n"
+       "• `/c BTC` — View 1h TradingView chart\n"
+       "• `/BTC` — Coin info: price, % change, volume, ATH, etc.\n"
+       "• `/trend BTC` — View indicators (1h only)\n"
+       "• `/best` / `/worst` — Top 3 gainers/losers (24h)\n"
+       "• `/news` — Get latest 5 crypto headlines\n\n"
+       "• `/cod` — Coin of the day\n"
+       "• `/global` — Crypto market overview\n"
+       "• `/gas` — ETH gas fees\n"
+       "• `/markets btc` — Prices on major exchanges\n"
+       "• `/links btc` — Official links for any coin\n\n"
+    
+       "📚 *Education & Fun:*\n"
+       "• `/learn` — Crypto terms explained\n"
+       "• `/funfact` — Random crypto fact\n\n"
+    
+       "📐 *Utilities:*\n"
+       "• `/calc 100 btc` — Crypto/fiat calculator\n"
+       "• `/conv 2 eth to usd` — Crypto conversion\n"
+       "• `/hmap` — Heatmap of top 50 coins\n"
+       "• `/comp btc eth` – Compare 2–3 coins\n",
+    
+    2: "*💎 Pro-Only Features (Advanced Alerts, Portfolio, Trackers)*\n\n"
+       "📈 *Advanced Alerts:*\n"
+       "• `/set (percent) ` — Alert on % price changes\n"
+       "• `/set (volume)` — Volume spike alert\n"
+       "• `/set (risk) ` — Stop-loss / Take-profit alerts\n"
+       "• `/set (custom) ` — Price + indicator alerts\n"
 
+       "🧾 *Portfolio Management:*\n"
+       "• `/portfolio` — View total value of assets\n"
+       "• `/addasset BTC 1.2` — Add coins to portfolio\n"
+       "• `/removeasset BTC` — Remove a coin\n"
+       "• `/clearportfolio` — Clear all assets\n"
+       "• `/portfoliolimit 15000` — Set a loss alert\n"
+       "• `/portfoliotarget 25000` — Set a profit alert\n\n"
+
+       "🔔 *Watchlist Tools:*\n"
+       "• `/watch BTC 5 1h` — Alert for ±% moves\n"
+       "• `/watchlist` — View all watch alerts\n"
+       "• `/removewatch BTC` — Remove coin from watchlist\n\n"
+    
+       "🐋 *On-Chain Tools:*\n"
+       "• `/track` – Track whale wallets\n"
+       "• `/untrack` – Stop tracking\n"
+       "• `/mywhales` – View whale alerts\n",
+    
     3: "*🤖 AI Tools & Screeners (Pro)*\n\n"
        "• `/prediction BTC 1h` – AI price prediction\n"
        "• `/aistrat` – Natural language alert builder\n"
        "• `/aiscan` – Detect patterns: divergence, crosses, etc.\n"
        "• `/bt BTC 1h` – Backtest strategies with AI summary\n"
-       "• `/screen` – Scan top 200 coins for setups\n"
-       "• `/track` – Whale wallet tracker (on-chain alerts)\n",
+       "• `/screen` – Scan top 200 coins for setups\n",
 
-    4: "*🎁 Get Pro for Free + Referrals*\n\n"
-       "• `/tasks` – Complete 3 growth tasks to unlock a surprise reward\n"
-       "• Tasks directly help grow user base\n"
-       "• `/referral` – Get your unique referral link\n"
-       "• Earn rewards for each invited user\n\n"
-       "*🔓 Plans Overview:*\n"
-       "• Free: Price alerts, basic charts/tools\n"
-       "• Pro: AI tools, portfolio, advanced alerts, screener, more\n"
-       "• Use `/upgrade` for pricing & crypto payment\n",
+    4: "*🎁 Growth and Navigation*\n\n"
+       "• `/tasks` — Complete tasks to earn FREE Pro\n"
+       "• `/referral` — Get your referral link\n\n"
+
+       "🧭 *Navigation & Info:*\n"
+       "• `/start` — Launch welcome menu\n"
+       "• `/help` — View detailed guide\n"
+       "• `/upgrade` — See Pro benefits & upgrade steps\n"
+       "• `/feedback` — Share your review\n"
+       "• `/notifications` — Enable/disable bot notifications\n"
+       "• `/addtogroup` — Add bot to your Telegram group\n",
 
     5: "*🌍 Forex Tools & Community*\n\n"
        "• `/fx eurusd` – Live forex rates\n"
        "• `/fxchart` – Forex Charts\n"
        "• `/fxconv 100 gbp to usd` – Fiat conversions\n"
-       "• `/fxsessions` – Open forex markets\n\n"
-       "• `/start` – Onboarding, social proof, buttons\n"
+       "• `/fxsessions` – Open forex markets\n"
        "• [Join Community](https://t.me/+tSWwj5w7S8hkZmM0) – Questions & updates\n"
        "• Admin support: DM @PricePulseDev \n\n"
        "🚀 *We’re building the smartest Telegram crypto bot!*"
 }
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     page = 1
     keyboard = [
         [InlineKeyboardButton("⏭️ Next", callback_data=f"help_page|{page+1}")],

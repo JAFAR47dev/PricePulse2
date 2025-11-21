@@ -15,6 +15,7 @@ from utils.patterns import (
 import datetime
 from models.user import get_user_plan
 from utils.auth import is_pro_plan
+from models.user_activity import update_last_active
 
 VALID_TIMEFRAMES = ["1m", "5m", "15m", "30m", "1h", "2h", "4h", "8h", "1d"]
 
@@ -22,6 +23,7 @@ VALID_TIMEFRAMES = ["1m", "5m", "15m", "30m", "1h", "2h", "4h", "8h", "1d"]
 async def aiscan_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
+    await update_last_active(user_id)
 
     if not is_pro_plan(plan):
         await update.message.reply_text(

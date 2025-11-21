@@ -69,10 +69,11 @@ from .screener import (
     screener_command, 
     screener_callback
 )
+from .prediction import predict_command
 from whales.handlers.track import register_track_handler
 from whales.handlers.mywhales import register_mywhales_handler
 from whales.handlers.untrack import register_untrack_handler
-from .insights import insights_command
+#from .insights import insights_command
 from .global_data import register_global_handler
 from .feedback import register_feedback_handler
 from stats.handlers import register_stats_handler
@@ -104,7 +105,7 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("referral", referral_command))
        app.add_handler(CommandHandler("prolist", pro_user_list))
        app.add_handler(CommandHandler("upgrade", upgrade_menu))       
-       app.add_handler(CallbackQueryHandler(handle_plan_selection,                   pattern=r"^plan_(monthly|yearly|lifetime)$"))
+       app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
        app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
        app.add_handler(CallbackQueryHandler(back_to_plans, pattern="^back_to_plans$"))
        app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^back_to_crypto_(monthly|yearly|lifetime)$"))
@@ -139,7 +140,7 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("worst", worst_losers))
        app.add_handler(CommandHandler("trend", trend_command))
        app.add_handler(CommandHandler("news", crypto_news)) 
-       app.add_handler(CommandHandler("insights", insights_command)) 
+       #app.add_handler(CommandHandler("insights", insights_command)) 
        app.add_handler(CommandHandler("addtogroup", add_to_group))     
        app.add_handler(ConversationHandler(
         entry_points=[CommandHandler("aistrat", strategy_command)],
@@ -156,6 +157,7 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("bt", backtest_command))
        app.add_handler(CommandHandler("aiscan", aiscan_command))
        app.add_handler(CommandHandler("screen", screener_command))
+       app.add_handler(CommandHandler("prediction", predict_command)) 
        app.add_handler(CallbackQueryHandler(screener_callback, pattern=r"^screener_"))               
        app.add_handler(MessageHandler(
         filters.TEXT & filters.Regex(r"^/[a-zA-Z]{2,10}$"), 

@@ -7,6 +7,7 @@ from telegram import Update, InputFile
 from telegram.ext import ContextTypes
 from telegram.helpers import escape_markdown
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 SCREENSHOT_ONE_KEY = os.getenv("SCREENSHOT_ONE_KEY")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
@@ -126,6 +127,8 @@ async def fetch_tradingview_ideas(symbol: str = None, limit: int = 3):
     
 # ✅ Main command: /insights
 async def insights_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     """Fetch and display trending crypto trade ideas with screenshots."""
     symbol = context.args[0].upper() if context.args else None

@@ -6,6 +6,7 @@ from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
 from dotenv import load_dotenv
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 load_dotenv()
 TWELVE_KEY = os.getenv("TWELVE_DATA_API_KEY")
@@ -14,6 +15,8 @@ def format_fx_pair(from_currency: str, to_currency: str) -> str:
     return f"{from_currency.upper()}/{to_currency.upper()}"
 
 async def fxconv_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     if len(context.args) != 4 or context.args[2].lower() != "to":
         return await update.message.reply_text("❌ Usage: /fxconv [amount] [from] to [to]\nExample: /fxconv 100 gbp to usd")

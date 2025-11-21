@@ -9,6 +9,7 @@ from telegram.ext import ContextTypes
 from telegram.constants import ParseMode
 from telegram.helpers import escape_markdown
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 load_dotenv()
 SCREENSHOT_ONE_KEY = os.getenv("SCREENSHOT_ONE_KEY")
@@ -56,6 +57,8 @@ def pick_tv_symbol(pair: str) -> str:
 
 
 async def fxchart_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     try:
         args = context.args or []

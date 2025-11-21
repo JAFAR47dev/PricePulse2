@@ -3,11 +3,13 @@ from telegram.ext import ContextTypes
 from models.user import get_user_plan
 from utils.tradingview import generate_chart_image 
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 VALID_TIMEFRAMES = ["1m", "5m", "15m", "30m", "1h", "4h", "1d"]
 
 async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     args = context.args
 

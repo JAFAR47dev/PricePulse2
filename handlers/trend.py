@@ -4,9 +4,11 @@ from utils.auth import is_pro_plan
 from telegram import Update
 from telegram.ext import ContextTypes
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     args = context.args
 

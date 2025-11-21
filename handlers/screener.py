@@ -6,6 +6,7 @@ from services.screener_engine import run_screener
 from models.user import get_user_plan
 from utils.auth import is_pro_plan
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+from models.user_activity import update_last_active
 
 # Predefined strategies
 STRATEGIES = {
@@ -19,7 +20,8 @@ STRATEGIES = {
 
 async def screener_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    plan = get_user_plan(user_id)  # ✅ Removed `await`
+    await update_last_active(user_id)
+    plan = get_user_plan(user_id) 
 
     if not is_pro_plan(plan):
         upgrade_button = InlineKeyboardMarkup([[

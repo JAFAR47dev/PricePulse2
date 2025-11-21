@@ -4,8 +4,11 @@ from PIL import Image, ImageDraw, ImageFont
 from telegram import Update, InputFile
 from telegram.ext import ContextTypes
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     try:
         # 1️⃣ Fetch top 50 coins by market cap

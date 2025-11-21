@@ -7,6 +7,7 @@ from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
 from dotenv import load_dotenv
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 # Load your symbol-to-ID mappings
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -41,6 +42,8 @@ HEADERS = {"x-cg-demo-api-key": COINGECKO_API_KEY} if COINGECKO_API_KEY else {}
 
 
 async def convert_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     try:
         if len(context.args) != 4 or context.args[2].lower() != "to":

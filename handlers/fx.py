@@ -6,6 +6,7 @@ from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
 from dotenv import load_dotenv
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 load_dotenv()
 TWELVE_KEY = os.getenv("TWELVE_DATA_API_KEY")
@@ -37,6 +38,8 @@ def format_pair(user_input: str) -> str | None:
     return None
 
 async def fx_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     if len(context.args) != 1:
         return await update.message.reply_text("❌ Usage: /fx [pair]\nExample: /fx eurusd or /fx usd")

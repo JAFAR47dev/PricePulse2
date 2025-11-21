@@ -6,6 +6,7 @@ from models.user import get_user_plan
 from utils.prices import get_crypto_prices 
 import os
 import requests
+from models.user_activity import update_last_active
 
 ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
 
@@ -37,11 +38,12 @@ def get_fiat_to_usd(symbol):
 
 async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
@@ -94,14 +96,16 @@ async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
 async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
+
     conn = get_connection()
     cursor = conn.cursor()
 
@@ -114,45 +118,117 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     total_value = 0
-    message = "*📊 Your Portfolio:*\n\n"
+    total_change_usd = 0
 
-    # Collect all crypto symbols to fetch in one go
-    crypto_symbols = [symbol.upper() for symbol, _ in rows if symbol not in STABLECOINS and symbol not in FIAT_CURRENCIES and symbol != "USD"]
+    message = "*📊 Your Portfolio (24h Performance):*\n\n"
 
-    # ✅ Fetch all crypto prices once (avoid multiple API calls)
-    crypto_prices = await get_crypto_prices(crypto_symbols) if crypto_symbols else {}
+    # Collect symbols for bulk fetching
+    crypto_symbols = [
+        symbol.upper()
+        for symbol, _ in rows
+        if symbol not in STABLECOINS and symbol not in FIAT_CURRENCIES and symbol != "USD"
+    ]
+
+    # Fetch crypto data once
+    crypto_data = await get_crypto_prices(crypto_symbols) if crypto_symbols else {}
 
     for symbol, amount in rows:
         symbol = symbol.upper()
 
-        # Determine price source
+        # Determine source
         if symbol in STABLECOINS or symbol == "USD":
             price = 1.0
+            pct_change_24h = 0
+            change_amt_24h = 0
         elif symbol in FIAT_CURRENCIES:
             price = get_fiat_to_usd(symbol)
+            pct_change_24h = 0
+            change_amt_24h = 0
         else:
-            price = crypto_prices.get(symbol)
+            data = crypto_data.get(symbol, {})
+            price = data.get("price")
+            pct_change_24h = data.get("change_pct")
+            change_amt_24h = data.get("change_amt")  # already price * pct/100
 
         if price is None:
             message += f"• *{symbol}*: {amount} (⚠️ Price unavailable)\n"
             continue
 
+        # Current value
         value = amount * price
         total_value += value
-        message += f"• *{symbol}*: {amount} × ${price:.2f} = *${value:,.2f}*\n"
 
-    message += f"\n*💰 Total Value:* ${total_value:,.2f}"
+        # Compute USD change for this asset
+        if pct_change_24h is None:
+            asset_change_usd = None
+        else:
+            asset_change_usd = value * (pct_change_24h / 100)
+            total_change_usd += asset_change_usd
+
+        # Percent emoji
+        if pct_change_24h is None:
+            pct_text = "⚠️ N/A"
+        elif pct_change_24h > 0:
+            pct_text = f"🟢 +{pct_change_24h:.2f}%"
+        elif pct_change_24h < 0:
+            pct_text = f"🔴 {pct_change_24h:.2f}%"
+        else:
+            pct_text = "➖ 0%"
+
+        # USD emoji
+        if asset_change_usd is None:
+            change_usd_text = "⚠️ N/A"
+        elif asset_change_usd > 0:
+            change_usd_text = f"🟢 +${asset_change_usd:,.2f}"
+        elif asset_change_usd < 0:
+            change_usd_text = f"🔴 -${abs(asset_change_usd):,.2f}"
+        else:
+            change_usd_text = "➖ $0"
+
+        # Build message
+        message += (
+            f"• *{symbol}*: {amount}\n"
+            f"  ↳ ${price:.2f} each → *${value:,.2f}*\n"
+            f"  ↳ 24h: {pct_text} | {change_usd_text}\n\n"
+        )
+
+    # Portfolio-wide 24h % change
+    if total_value == 0:
+        summary_pct = 0
+    else:
+        summary_pct = (total_change_usd / (total_value - total_change_usd)) * 100 if (total_value - total_change_usd) != 0 else 0
+
+    if summary_pct > 0:
+        summary_pct_text = f"🟢 +{summary_pct:.2f}%"
+    elif summary_pct < 0:
+        summary_pct_text = f"🔴 {summary_pct:.2f}%"
+    else:
+        summary_pct_text = "➖ 0%"
+
+    total_change_text = (
+        f"🟢 +${total_change_usd:,.2f}" if total_change_usd > 0 else
+        f"🔴 -${abs(total_change_usd):,.2f}" if total_change_usd < 0 else "➖ $0"
+    )
+
+    message += (
+        f"*💰 Total Value:* ${total_value:,.2f}\n"
+        f"*📈 24h Change:* {summary_pct_text} ({total_change_text})"
+    )
 
     await update.message.reply_text(message, parse_mode="Markdown")
-        
+    
+
+    await update.message.reply_text(message, parse_mode="Markdown")
+      
 
 async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
@@ -216,11 +292,12 @@ async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
 async def clear_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
@@ -244,11 +321,12 @@ async def clear_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
@@ -284,11 +362,12 @@ async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT
 
 async def set_portfolio_profit_target(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade@EliteTradeSignalBot to unlock full portfolio tools.",
+            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return

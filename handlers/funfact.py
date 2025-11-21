@@ -3,6 +3,8 @@ import random
 from telegram import Update
 from telegram.ext import ContextTypes
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
+
 FUN_FACTS = [
     "The first real-world Bitcoin transaction was for two pizzas worth 10,000 BTC in 2010.",
     "Ethereum was crowdfunded in 2014, raising $18 million — one of the earliest ICOs.",
@@ -60,6 +62,8 @@ FUN_FACTS = [
 ]
 
 async def funfact_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     fact = random.choice(FUN_FACTS)
     await update.message.reply_text(f"🤓 *Crypto Fun Fact*\n\n{fact}", parse_mode="Markdown")

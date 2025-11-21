@@ -7,6 +7,7 @@ from telegram.ext import ContextTypes
 from dotenv import load_dotenv
 from utils.coin_cache import load_coin_map
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 load_dotenv()
 COINDAR_API_KEY = os.getenv("COINDAR_API_KEY")
@@ -27,6 +28,8 @@ def fetch_coin_map():
         return {}
 
 async def calendar_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     global coin_map
     try:

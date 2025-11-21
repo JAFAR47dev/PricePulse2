@@ -5,6 +5,7 @@ from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
 from models.user import get_user_plan, is_pro_plan
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 # Import the new interactive flow starter
 from handlers.set_alert.flow_manager import start_set_alert
@@ -25,6 +26,7 @@ async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     If no args, launch interactive alert setup flow.
     """
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     plan = get_user_plan(user_id)
 

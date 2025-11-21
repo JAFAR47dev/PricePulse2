@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from utils.auth import is_pro_plan
 from models.user import get_user_plan
 from models.ai_alerts import save_ai_strategy
-
+from models.user_activity import update_last_active
 
 load_dotenv()
 
@@ -15,6 +15,7 @@ AWAITING_STRATEGY_INPUT = 1
 
 async def strategy_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):

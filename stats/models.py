@@ -25,24 +25,6 @@ def get_stats():
     cursor.execute("SELECT COUNT(*) FROM users WHERE last_active >= DATETIME('now', '-30 days')")
     stats["active_30d"] = cursor.fetchone()[0]
     
-    # --- Active users ---
-#    cursor.execute("""
-#        SELECT COUNT(*) FROM users
-#        WHERE last_active >= datetime('now', '-1 day')
-#    """)
-#    stats["active_24h"] = cursor.fetchone()[0]
-
-#    cursor.execute("""
-#        SELECT COUNT(*) FROM users
-#        WHERE last_active >= datetime('now', '-7 days')
-#    """)
-#    stats["active_7d"] = cursor.fetchone()[0]
-
-#    cursor.execute("""
-#        SELECT COUNT(*) FROM users
-#        WHERE last_active >= datetime('now', '-30 days')
-#    """)
-#    stats["active_30d"] = cursor.fetchone()[0]
 
     # Alerts by type
     for table in [
@@ -52,13 +34,7 @@ def get_stats():
         cursor.execute(f"SELECT COUNT(*) FROM {table}")
         stats[table] = cursor.fetchone()[0]
 
-    # Task Completion
-    cursor.execute("""
-        SELECT COUNT(*) FROM task_progress
-        WHERE task1_done = 1 AND task2_done = 1 AND task3_done = 1 AND approved_by_admin = 1
-    """)
-    stats["task_completers"] = cursor.fetchone()[0]
-
+    
     # Referrals
     cursor.execute("SELECT COUNT(*) FROM referrals")
     stats["total_referrals"] = cursor.fetchone()[0]

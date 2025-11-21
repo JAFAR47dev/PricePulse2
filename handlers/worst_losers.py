@@ -4,6 +4,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from dotenv import load_dotenv
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 # Load .env file
 load_dotenv()
@@ -56,6 +57,8 @@ async def get_top_losers_message() -> str:
 
 # --- Keep original command working ---
 async def worst_losers(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     loading_msg = await update.message.reply_text("📉 Fetching top 24h losers...")
     message = await get_top_losers_message()

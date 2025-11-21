@@ -4,6 +4,7 @@ import random
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CallbackQueryHandler, CommandHandler
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 # Load glossary once
 with open("utils/glossary.json") as f:
@@ -13,6 +14,8 @@ ITEMS_PER_PAGE = 6  # Number of terms per page
 
 # /learn command entry
 async def learn_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     await send_learn_page(update, page=0)
 

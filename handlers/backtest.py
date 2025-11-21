@@ -5,7 +5,7 @@ from models.user import get_user_plan
 from utils.auth import is_pro_plan
 from utils.ohlcv import fetch_candles
 from utils.formatting import format_large_number
-
+from models.user_activity import update_last_active
 
 import statistics
 import os
@@ -269,6 +269,7 @@ def compute_stats(wins, losses, returns):
 
 async def backtest_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):

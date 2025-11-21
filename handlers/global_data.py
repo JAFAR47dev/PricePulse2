@@ -1,12 +1,14 @@
+import os
 import requests
 from telegram import Update
 from telegram.ext import CommandHandler, ContextTypes
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 # === CoinMarketCap & FearGreed API Info ===
 CMC_GLOBAL_API = "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest"
 CMC_LISTINGS_API = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
-CMC_API_KEY = "901236ab69054eb4b9c19868b56250a5"  # Replace with your key
+CMC_API_KEY = os.getenv("CMC_API_KEY")
 FEAR_GREED_API = "https://api.alternative.me/fng/"
 
 def format_number(num):
@@ -83,6 +85,8 @@ def get_global_market_message() -> str:
 
 # --- Keep original command working ---
 async def global_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     message = get_global_market_message()
     await update.message.reply_text(message, parse_mode="Markdown")

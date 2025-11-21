@@ -6,6 +6,7 @@ import requests
 from datetime import datetime
 from config import ADMIN_ID
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 load_dotenv()
 
@@ -30,37 +31,20 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.constants import ParseMode
 
 async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     text = (
-    "*🚀 Upgrade to Pro*\n\n"
-    "Unlock your full crypto potential with advanced alerts, AI tools, portfolio management, and more:\n\n"
-
-    "🔔 *Unlimited Smart Alerts*\n"
-    "• Create unlimited alerts: price, percent, volume, risk, custom\n"
-    "• Get auto-refresh alerts every 20 seconds\n"
-    "• Edit and remove alerts anytime\n\n"
-
-    "📊 *Advanced Portfolio & Watchlist*\n"
-    "• Track crypto, stablecoins, and fiat\n"
-    "• Auto-update valuation with live prices\n"
-    "• Set loss limits and profit targets with alerts\n"
-    "• Monitor key coins using a personal watchlist\n\n"
-
-    "🧠 *AI Tools & Strategies*\n"
-    "• `/prediction` – AI price forecasting\n"
-    "• `/aistrat` – Write strategies in plain English\n"
-    "• `/aiscan` – Spot divergences, engulfing, crosses, and more\n"
-    "• `/bt` – AI-powered backtests with win rate and summary\n"
-    "• `/screen` – Scan 200+ coins for technical setups\n\n"
-
-    "🐋 *Whale Wallet Tracker*\n"
-    "• Monitor large on-chain transactions\n"
-    "• Track known or custom wallets for whale moves\n\n"
-
-    "🎁 *Earn Free Pro*\n"
-    "• Complete simple tasks to unlock 30-day Pro\n"
-    "• Refer friends to earn extra Pro time\n\n"
-
+    
+   "💎 *Upgrade to Pro & Unlock Your Full Trading Power*\n\n"
+    "🚀 *Why Go Pro?*\n"
+    "• Unlimited alerts — never miss a move\n"
+    "• % change, volume, risk & custom alert types\n"
+    "• Full chart timeframes & advanced trend analysis\n"
+    "• AI predictions, backtests, scanners & pattern detection\n"
+    "• Portfolio tracking with SL/TP automation\n"
+    "• Whale wallet tracking + real-time watchlist alerts\n\n"
+    "✨ Want FREE Pro ? Just type /tasks\n\n"
    
 
     "*Choose a plan below to upgrade and unlock everything:*"

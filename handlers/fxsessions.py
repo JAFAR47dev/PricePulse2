@@ -3,6 +3,7 @@ from telegram.ext import ContextTypes
 from datetime import datetime, timedelta, time
 import pytz
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 # Define global Forex sessions with UTC open/close times
 SESSIONS = [
@@ -55,6 +56,8 @@ def get_session_status(session, now_utc, user_tz):
         return f"🔴 *{name}*: Closed — Opens in {strfdelta(time_until)} (at {local_open_time})"
         
 async def fxsessions_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     now_utc = datetime.utcnow().replace(tzinfo=pytz.utc)
     user_tz = datetime.now().astimezone().tzinfo

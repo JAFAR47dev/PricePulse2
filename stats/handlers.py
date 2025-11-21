@@ -41,7 +41,6 @@ async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"• Watchlist: `{stats['watchlist']}`\n\n"
 
         "🎯 *Engagement Stats*\n"
-        f"• Tasks Completed: `{stats['task_completers']}`\n"
         f"• Total Referrals: `{stats['total_referrals']}`\n"
         f"• Top Referrer: `{stats['top_referrer'] or 'N/A'}` "
         f"({stats['top_referral_count']} referrals)"

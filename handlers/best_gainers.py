@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ContextTypes
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 # Load environment variables
 load_dotenv()
@@ -58,6 +59,8 @@ async def get_top_gainers_message() -> str:
 
 # --- Keep original command working ---
 async def best_gainers(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     loading_msg = await update.message.reply_text("📈 Fetching top 24h gainers...")
     message = await get_top_gainers_message()

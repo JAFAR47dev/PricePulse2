@@ -10,6 +10,7 @@ from telegram.ext import (
 from services.coin_data import get_coin_data
 from utils.formatting import format_large_number
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 async def handle_chart_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -44,6 +45,8 @@ async def handle_add_alert_button(update: Update, context: ContextTypes.DEFAULT_
         )
 
 async def coin_alias_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id)
     await handle_streak(update, context)
     cmd = update.message.text.strip().lstrip("/")
     coin_data = get_coin_data(cmd)

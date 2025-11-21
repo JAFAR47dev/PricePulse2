@@ -9,10 +9,12 @@ from telegram.ext import (
     filters
 )
 from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
 async def referral_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await handle_streak(update, context)
     user_id = update.effective_user.id
+    await update_last_active(user_id)
     bot_username = (await context.bot.get_me()).username
     link = f"https://t.me/{bot_username}?start={user_id}"
 
