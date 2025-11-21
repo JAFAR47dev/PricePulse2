@@ -218,8 +218,7 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(message, parse_mode="Markdown")
     
 
-    await update.message.reply_text(message, parse_mode="Markdown")
-      
+    
 
 async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
