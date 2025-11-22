@@ -143,7 +143,7 @@ def update_daily_streak(user_id, message_text=None):
             daily_streak = 1  # long gap → reset streak
 
     # Check milestones
-    milestone_hit = daily_streak if daily_streak in [3, 4, 7, 9, 12] else None
+    milestone_hit = daily_streak if daily_streak in [1, 4, 7, 9, 12] else None
 
     # 14-day reward
     reward_ready = (daily_streak >= 14 and reward_claimed == 0)

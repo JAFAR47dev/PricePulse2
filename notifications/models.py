@@ -145,3 +145,49 @@ def get_all_active_users():
     conn.close()
 
     return [dict(row) for row in rows]
+    
+# --- Last notified hour helpers ---
+def get_user_last_notified_hour(user_id: int) -> int | None:
+    """
+    Returns the last hour (0-23) the user was notified.
+    Returns None if never notified.
+    """
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    # Ensure column exists (migration-safe)
+    cur.execute("PRAGMA table_info(user_notifications)")
+    columns = [col["name"] for col in cur.fetchall()]
+    if "last_notified_hour" not in columns:
+        cur.execute("ALTER TABLE user_notifications ADD COLUMN last_notified_hour INTEGER")
+        conn.commit()
+
+    cur.execute("SELECT last_notified_hour FROM user_notifications WHERE user_id = ?", (user_id,))
+    row = cur.fetchone()
+    conn.close()
+
+    return row["last_notified_hour"] if row and row["last_notified_hour"] is not None else None
+
+
+def set_user_last_notified_hour(user_id: int, hour: int):
+    """
+    Update the last notified hour (0-23) for the user.
+    """
+    conn = get_connection()
+    cur = conn.cursor()
+
+    # Ensure column exists
+    cur.execute("PRAGMA table_info(user_notifications)")
+    columns = [col["name"] for col in cur.fetchall()]
+    if "last_notified_hour" not in columns:
+        cur.execute("ALTER TABLE user_notifications ADD COLUMN last_notified_hour INTEGER")
+        conn.commit()
+
+    # Insert or update
+    cur.execute("""
+        UPDATE user_notifications SET last_notified_hour = ? WHERE user_id = ?
+    """, (hour, user_id))
+
+    conn.commit()
+    conn.close()

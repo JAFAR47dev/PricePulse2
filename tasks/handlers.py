@@ -77,9 +77,6 @@ async def tasks_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 InlineKeyboardButton(f"🎁 Claim {days}-Day PRO (Tier {tier})", callback_data=f"claim_referral_tier:{tier}")
             ])
 
-    # Refresh button
-    keyboard.append([InlineKeyboardButton("🔄 Refresh", callback_data="check_status")])
-
     # --------------------------
     # SEND MESSAGE
     # --------------------------

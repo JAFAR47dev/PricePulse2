@@ -79,7 +79,7 @@ def main():
 
     # === JOB QUEUE (CLEANED — NO create_task NEEDED) ===
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=110)
-    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=800)
+    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=60)
 
     # These functions MUST be async — make sure they are!
     app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=80)

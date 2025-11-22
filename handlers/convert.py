@@ -18,8 +18,32 @@ with open(ids_path, "r") as f:
 # Lowercase the keys for consistency
 COINGECKO_IDS = {k.upper(): v for k, v in COINGECKO_IDS.items()}
 
-# Some common fiat currencies
-FIAT_CURRENCIES = {"usd", "eur", "gbp", "ngn", "jpy", "cad", "aud", "inr"}
+# Supported fiat currencies
+FIAT_CURRENCIES = {
+    "USD", "EUR", "GBP", "NGN", "JPY", "CAD", "AUD", "INR",
+
+    # --- Newly Added 20 ---
+    "CHF",  # Swiss Franc
+    "CNY",  # Chinese Yuan
+    "HKD",  # Hong Kong Dollar
+    "SGD",  # Singapore Dollar
+    "SEK",  # Swedish Krona
+    "NOK",  # Norwegian Krone
+    "DKK",  # Danish Krone
+    "ZAR",  # South African Rand
+    "BRL",  # Brazilian Real
+    "MXN",  # Mexican Peso
+    "NZD",  # New Zealand Dollar
+    "RUB",  # Russian Ruble
+    "TRY",  # Turkish Lira
+    "AED",  # UAE Dirham
+    "SAR",  # Saudi Riyal
+    "KES",  # Kenyan Shilling
+    "GHS",  # Ghanaian Cedi
+    "EGP",  # Egyptian Pound
+    "KRW",  # South Korean Won
+    "TWD",  # Taiwan Dollar
+}
 
 def format_num(n):
     """Format number dynamically: 2 decimals for large, up to 8 for small values."""

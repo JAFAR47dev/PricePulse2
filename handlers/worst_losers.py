@@ -11,55 +11,89 @@ load_dotenv()
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 COINGECKO_API = "https://api.coingecko.com/api/v3"
 
-# --- Reusable function for notifications ---
+
+# =====================================================
+# 🔥 Reliable API Caller: Top 3 Losers (24h)
+# =====================================================
 async def get_top_losers_message() -> str:
-    """Fetch top 3 losers (biggest 24h drops) and return a formatted message string."""
+    """Fetch top 3 losers (24h) with strong reliability and fail-safes."""
     try:
         headers = {"accept": "application/json"}
         if COINGECKO_API_KEY:
-            headers["x-cg-pro-api-key"] = COINGECKO_API_KEY
+            headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
 
-        async with httpx.AsyncClient() as client:
+        params = {
+            "vs_currency": "usd",
+            "order": "market_cap_desc",
+            "per_page": 100,
+            "page": 1,
+            "price_change_percentage": "24h",
+        }
+
+        async with httpx.AsyncClient(timeout=httpx.Timeout(12.0)) as client:
             response = await client.get(
                 f"{COINGECKO_API}/coins/markets",
-                params={
-                    "vs_currency": "usd",
-                    "order": "market_cap_desc",
-                    "per_page": 100,
-                    "page": 1,
-                    "price_change_percentage": "24h",
-                },
-                headers=headers,
-                timeout=10
+                params=params,
+                headers=headers
             )
+
+        # Raise if HTTP failure (429, 500, etc)
+        response.raise_for_status()
+
+        try:
             data = response.json()
+        except ValueError:
+            return "❌ API returned invalid data format."
 
-        # Sort by lowest 24h % change → biggest losses
-        top_losers = sorted(
-            data,
-            key=lambda x: x.get("price_change_percentage_24h", 0)
-        )[:3]
+        if not isinstance(data, list) or len(data) == 0:
+            return "❌ No market data available right now."
 
-        message = "🔻 *Top 3 Losers (24h)*:\n\n"
-        for coin in top_losers:
-            name = coin["name"]
-            symbol = coin["symbol"].upper()
-            price = coin["current_price"]
-            change = coin["price_change_percentage_24h"]
-            message += f"• *{name}* ({symbol})\n  Price: ${price:.2f}\n  Loss: 🔻 {change:.2f}%\n\n"
+        # Extract price changes safely
+        def safe_change(coin):
+            return coin.get("price_change_percentage_24h") or 0
 
-        return message
+        # Sort by lowest percentage → biggest losers
+        losers = sorted(data, key=safe_change)[:3]
+
+        msg = "🔻 *Top 3 Losers (24h)*:\n\n"
+
+        for coin in losers:
+            name = coin.get("name", "Unknown")
+            symbol = coin.get("symbol", "?").upper()
+            price = coin.get("current_price") or 0
+            change = coin.get("price_change_percentage_24h") or 0
+
+            msg += (
+                f"• *{name}* ({symbol})\n"
+                f"  Price: ${price:.4f}\n"
+                f"  Loss: 🔻 {change:.2f}%\n\n"
+            )
+
+        return msg
+
+    except httpx.HTTPStatusError as e:
+        print(f"[Worst] HTTP error: {e}")
+        return "❌ API error: CoinGecko rate limit or server issue."
+
+    except httpx.TimeoutException:
+        print("[Worst] Timeout error.")
+        return "⏳ Request timed out. Please try again."
 
     except Exception as e:
-        print(f"[Worst] Error fetching top losers: {e}")
-        return "❌ Could not fetch top losers."
+        print(f"[Worst] Unexpected error: {e}")
+        return "❌ Could not fetch top losers due to an unexpected error."
 
 
-# --- Keep original command working ---
+# =====================================================
+# 🚀 Command Handler (/worst)
+# =====================================================
 async def worst_losers(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id)
     await handle_streak(update, context)
+
     loading_msg = await update.message.reply_text("📉 Fetching top 24h losers...")
-    message = await get_top_losers_message()
-    await loading_msg.edit_text(message, parse_mode="Markdown")
+
+    msg = await get_top_losers_message()
+
+    await loading_msg.edit_text(msg, parse_mode="Markdown")

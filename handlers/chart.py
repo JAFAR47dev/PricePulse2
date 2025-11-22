@@ -37,7 +37,7 @@ async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
     plan = get_user_plan(user_id)
     if plan == "free" and timeframe != "1h":
         await message.reply_text(
-            "🔒 Only the `1h` chart is available for Free users.\nUse /upgrade to unlock other timeframes: 1m, 5m, 4h, 1d.",
+            "🔒 Only the `1h` chart is available for Free users.\nUse /upgrade to unlock other timeframes: 1m, 5m, 15m, 30m, 4h, 1d.",
             parse_mode="Markdown"
         )
         return

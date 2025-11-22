@@ -3,7 +3,8 @@ from telegram.ext import (
     ConversationHandler, MessageHandler, ContextTypes, filters
 )
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ContextTypes
+from models.user import get_user_plan
+from utils.auth import is_pro_plan
 
 ALERT_TYPES = [
     ("💰 Price", "price"),
@@ -16,27 +17,52 @@ ALERT_TYPES = [
 async def start_set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
     Step 1: Ask user which alert type to create.
+    Enforces plan restrictions for Free users.
     """
-    context.user_data["alert_flow"] = {
-        "step": "select_type"
-    }
 
-    # --- BUTTON LAYOUT ---
-    # 1 row: Price alone
-    row1 = [InlineKeyboardButton("💰 Price", callback_data="set_alert_type:price")]
+    user_id = update.effective_user.id
+    plan = get_user_plan(user_id)
+    pro = is_pro_plan(plan)
 
-    # 2nd + 3rd rows: Remaining 4 buttons, arranged in pairs
-    row2 = [
-        InlineKeyboardButton("📈 Percent", callback_data="set_alert_type:percent"),
-        InlineKeyboardButton("📊 Volume", callback_data="set_alert_type:volume")
-    ]
+    context.user_data["alert_flow"] = {"step": "select_type"}
 
-    row3 = [
-        InlineKeyboardButton("⚠️ Risk", callback_data="set_alert_type:risk"),
-        InlineKeyboardButton("🤖 Custom", callback_data="set_alert_type:custom")
-    ]
+    # ------------------------------------
+    # 🟢 PRO USERS → show all buttons
+    # ------------------------------------
+    if pro:
+        row1 = [InlineKeyboardButton("💰 Price", callback_data="set_alert_type:price")]
 
-    keyboard = [row1, row2, row3]
+        row2 = [
+            InlineKeyboardButton("📈 Percent", callback_data="set_alert_type:percent"),
+            InlineKeyboardButton("📊 Volume", callback_data="set_alert_type:volume")
+        ]
+
+        row3 = [
+            InlineKeyboardButton("⚠️ Risk", callback_data="set_alert_type:risk"),
+            InlineKeyboardButton("🤖 Custom", callback_data="set_alert_type:custom")
+        ]
+
+        keyboard = [row1, row2, row3]
+
+    # ------------------------------------
+    # 🔴 FREE USERS → price only
+    # show disabled buttons for others
+    # ------------------------------------
+    else:
+        row1 = [InlineKeyboardButton("💰 Price", callback_data="set_alert_type:price")]
+
+        row2 = [
+            InlineKeyboardButton("📈 Percent (Pro)", callback_data="upgrade_required"),
+            InlineKeyboardButton("📊 Volume (Pro)", callback_data="upgrade_required")
+        ]
+
+        row3 = [
+            InlineKeyboardButton("⚠️ Risk (Pro)", callback_data="upgrade_required"),
+            InlineKeyboardButton("🤖 Custom (Pro)", callback_data="upgrade_required")
+        ]
+
+        keyboard = [row1, row2, row3]
+
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     # Send message
@@ -52,6 +78,19 @@ async def start_set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=reply_markup,
             parse_mode="Markdown"
         )
+        
+async def handle_upgrade_required(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.callback_query.answer()
+    await update.callback_query.message.reply_text(
+        "🚫 Advanced alerts are for *Pro users only*.\n\n"
+        "Upgrade now to unlock:\n"
+        "• Percent alerts\n"
+        "• Volume alerts\n"
+        "• Risk alerts\n"
+        "• Custom AI alerts\n\n"
+        "Use /upgrade to get full access!",
+        parse_mode="Markdown"
+    )
 
 
 async def ask_symbol_input(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -322,6 +361,8 @@ def register_set_handlers(app):
     # /set command
     app.add_handler(CommandHandler("set", start_set_alert))
 
+    app.add_handler(CallbackQueryHandler(handle_upgrade_required, pattern="^upgrade_required$"))
+    
     # Alert type buttons
     app.add_handler(
         CallbackQueryHandler(alert_type_callback, pattern=r"^set_alert_type:")

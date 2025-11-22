@@ -30,7 +30,7 @@ from .compare import compare_command
 from .convert import convert_command
 from .calc import calc_command
 from .daily_coin import coin_of_the_day
-from .funfact import funfact_command
+from .funfact import funfact_command, funfact_random_callback
 from .gasfees import gasfees_command
 from .heatmap import heatmap_command
 from .help import (
@@ -132,6 +132,7 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("links", links_command))
        app.add_handler(CommandHandler("gas", gasfees_command))
        app.add_handler(CommandHandler("funfact", funfact_command))
+       app.add_handler(CallbackQueryHandler(funfact_random_callback, pattern="funfact_random"))
        app.add_handler(CommandHandler("fx", fx_command))
        app.add_handler(CommandHandler("fxconv", fxconv_command))
        app.add_handler(CommandHandler("fxchart", fxchart_command))

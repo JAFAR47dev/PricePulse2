@@ -42,7 +42,7 @@ def get_coin_of_the_day() -> str:
 
         headers = {"accept": "application/json"}
         if COINGECKO_API_KEY:
-            headers["x-cg-pro-api-key"] = COINGECKO_API_KEY
+            headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
 
         data = safe_fetch_coin(coin_id, headers)
         if not data:

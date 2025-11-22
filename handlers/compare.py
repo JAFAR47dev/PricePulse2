@@ -1,7 +1,6 @@
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
-from utils.prices import get_crypto_prices
 from utils.formatting import format_large_number
 import requests
 import json
@@ -37,12 +36,8 @@ async def compare_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             if not coin_id:
                 return await update.message.reply_text(f"❌ Unsupported symbol: {symbol}")
             coin_ids.append(coin_id)
-
-        # Step 1: Get live prices via your price fetcher
-        price_symbols = [f"{symbol}USDT" for symbol in coin_symbols]
-        prices = await get_crypto_prices(price_symbols)
-
-        # Step 2: Get CoinGecko market data (with API key)
+        
+        # Step 1: Get CoinGecko market data (with API key)
         url = "https://api.coingecko.com/api/v3/coins/markets"
         params = {
             "vs_currency": "usd",
@@ -62,28 +57,27 @@ async def compare_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # Map data by ID
         coin_data = {d["id"]: d for d in data}
-
-        # Step 3: Build comparison table
+        
         def row(title, attr):
             values = []
             for i, symbol in enumerate(coin_symbols):
                 coin_id = coin_ids[i]
-                if attr == "price":
-                    value = prices.get(f"{symbol}USDT")
-                    values.append(f"${format_large_number(value)}" if value else "N/A")
+                raw = coin_data[coin_id].get(attr)
+                if attr == "price" and raw is not None:
+                    values.append(f"${format_large_number(raw)}")
+                elif attr == "price_change_percentage_24h" and raw is not None:
+                    values.append(f"{raw:.2f}%")
+                elif raw is not None:
+                    values.append(f"${format_large_number(raw)}")
                 else:
-                    raw = coin_data[coin_id].get(attr)
-                    if attr == "price_change_percentage_24h" and raw is not None:
-                        values.append(f"{raw:.2f}%")
-                    elif raw is not None:
-                        values.append(f"${format_large_number(raw)}")
-                    else:
-                        values.append("N/A")
+                    values.append("N/A")
             return f"*{title}:*  " + " | ".join(values)
+    
+                    
 
         text = (
             f"🔍 *Comparing:* {' | '.join(coin_symbols)}\n\n"
-            f"{row('💵 Price', 'price')}\n"
+            f"{row('💵 Price', 'current_price')}\n"
             f"{row('📊 Market Cap', 'market_cap')}\n"
             f"{row('📈 24h Volume', 'total_volume')}\n"
             f"{row('📉 24h Change', 'price_change_percentage_24h')}"

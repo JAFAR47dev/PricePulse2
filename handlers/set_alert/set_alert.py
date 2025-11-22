@@ -3,7 +3,8 @@
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
-from models.user import get_user_plan, is_pro_plan
+from models.user import get_user_plan
+from utils.auth import is_pro_plan
 from tasks.handlers import handle_streak
 from models.user_activity import update_last_active
 
@@ -54,7 +55,7 @@ async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     # 🚫 Enforce free plan limits
-    if plan == "free" and alert_type != "price":
+    if not is_pro_plan(plan) and alert_type != "price":
         await update.message.reply_text(
             "🚫 Advanced alerts are for *Pro users* only.\nUse /upgrade to unlock.",
             parse_mode=ParseMode.MARKDOWN,

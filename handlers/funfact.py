@@ -1,9 +1,9 @@
 # handlers/funfact.py
 import random
-from telegram import Update
 from telegram.ext import ContextTypes
 from tasks.handlers import handle_streak
 from models.user_activity import update_last_active
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 
 FUN_FACTS = [
     "The first real-world Bitcoin transaction was for two pizzas worth 10,000 BTC in 2010.",
@@ -65,5 +65,32 @@ async def funfact_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id)
     await handle_streak(update, context)
+
     fact = random.choice(FUN_FACTS)
-    await update.message.reply_text(f"🤓 *Crypto Fun Fact*\n\n{fact}", parse_mode="Markdown")
+
+    keyboard = InlineKeyboardMarkup(
+        [[InlineKeyboardButton("🔄 Random", callback_data="funfact_random")]]
+    )
+
+    await update.message.reply_text(
+        f"🤓 *Crypto Fun Fact*\n\n{fact}",
+        parse_mode="Markdown",
+        reply_markup=keyboard
+    )
+    
+async def funfact_random_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    fact = random.choice(FUN_FACTS)
+
+    keyboard = InlineKeyboardMarkup(
+        [[InlineKeyboardButton("🔄 Random", callback_data="funfact_random")]]
+    )
+
+    # Edit the same message
+    await query.message.edit_text(
+        f"🤓 *Crypto Fun Fact*\n\n{fact}",
+        parse_mode="Markdown",
+        reply_markup=keyboard
+    )

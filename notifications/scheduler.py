@@ -46,8 +46,8 @@ async def send_notification(bot: Bot, user: dict, message: str):
         return False
 
 
-# --- Keep track of which users have been notified in this hour ---
-_last_notified = {}  # user_id -> hour
+from notifications.models import get_all_active_users, get_user_last_notified_hour, set_user_last_notified_hour
+from utils.timezone_utils import convert_to_local_hour
 
 async def check_notifications(app):
     bot = app.bot
@@ -58,11 +58,9 @@ async def check_notifications(app):
     if not all_users:
         return
 
-    users_to_notify = []
-
-    # --- Fetch cached API data safely once per batch ---
+    # --- Fetch cached notification data once per batch ---
     try:
-        notif_data = await get_notification_data(ttl=600)  # 10 min cache
+        notif_data = await get_notification_data(ttl=600)
     except Exception as e:
         print(f"[Scheduler] Failed to fetch notification data: {e}")
         notif_data = {
@@ -74,15 +72,17 @@ async def check_notifications(app):
             "cod": None
         }
 
-    # Current local hour per user
     for user in all_users:
         if user.get("frequency") == "off":
             continue
 
         local_hour = convert_to_local_hour(user.get("timezone") or "UTC", utc_dt=now_utc)
 
+        # --- Fetch last notified hour from DB ---
+        last_hour = get_user_last_notified_hour(user["user_id"])
+
         # Skip if already notified in this hour
-        if _last_notified.get(user["user_id"]) == local_hour:
+        if last_hour == local_hour:
             continue
 
         # --- Parse scheduled hours ---
@@ -101,11 +101,13 @@ async def check_notifications(app):
             notify = True
 
         if notify:
-            users_to_notify.append(user)
-            _last_notified[user["user_id"]] = local_hour  # mark as notified
+            message = await build_user_notification_message(user, notif_data)
+            success = await send_notification(bot, user, message)
 
-    if not users_to_notify:
-        return
+            if success:
+                # ✅ Save last notified hour in DB
+                set_user_last_notified_hour(user["user_id"], local_hour)
+                
 # --- Build dynamic message per user safely ---
 async def build_message(user):
     parts = ["📊 *Daily Market Update*"]

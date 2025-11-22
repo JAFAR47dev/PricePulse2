@@ -53,7 +53,6 @@ async def get_fiat_price(symbol):
     return None
     
 
-
 async def check_price_alerts(context, symbol_prices):
     conn = get_connection()
     cursor = conn.cursor()
@@ -86,6 +85,7 @@ async def check_price_alerts(context, symbol_prices):
         conn.commit()
     finally:
         conn.close()
+
 
 async def check_percent_alerts(context, symbol_prices):
     conn = get_connection()

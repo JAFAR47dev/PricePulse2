@@ -10,6 +10,7 @@ from telegram.constants import ParseMode
 from telegram.helpers import escape_markdown
 from tasks.handlers import handle_streak
 from models.user_activity import update_last_active
+from models.user import get_user_plan
 
 load_dotenv()
 SCREENSHOT_ONE_KEY = os.getenv("SCREENSHOT_ONE_KEY")
@@ -70,13 +71,21 @@ async def fxchart_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         pair = args[0].upper()
         timeframe = args[1].lower() if len(args) > 1 else "1h"
-
+        
+        plan = get_user_plan(user_id)
+        if plan == "free" and timeframe != "1h":
+            await update.message.reply_text(
+                "🔒 Only the `1h` chart is available for Free users.\nUse /upgrade to unlock other timeframes: 1m, 5m, 15m, 30m, 4h, 1d.",
+                parse_mode="Markdown"
+            )
+            return
+        
         if timeframe not in TF_MAP:
             return await update.message.reply_text(
                 "⚠️ Invalid timeframe. Use one of: `1m`, `5m`, `15m`, `30m`, `1h`, `4h`, `1d`, `1w`.",
                 parse_mode=ParseMode.MARKDOWN
             )
-
+                        
         if not SCREENSHOT_ONE_KEY:
             return await update.message.reply_text(
                 "⚠️ Screenshot API key not configured. Contact the bot admin.",
