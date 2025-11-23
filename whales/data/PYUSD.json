@@ -1,7 +1,7 @@
 {
   "token": "PYUSD",
   "contract": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
-  "updated_at": "2025-11-13T21:08:17.020414",
+  "updated_at": "2025-11-23T08:40:51.835934",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,56 +9,56 @@
       "address": "0x32b24247cbce7c17b0017a2159a9fa481f401b16",
       "symbol": "PYUSD",
       "rank": 1,
-      "balance": 1099999972000000.0,
-      "share": 46.19,
+      "balance": 1199999972000000.0,
+      "share": 47.44,
       "last_tx": null
     },
     {
       "address": "0x2fb074fa59c9294c71246825c1c9a0c7782d41a4",
       "symbol": "PYUSD",
       "rank": 2,
-      "balance": 404631741620152.0,
-      "share": 16.99,
+      "balance": 388631741620152.0,
+      "share": 15.36,
       "last_tx": null
     },
     {
       "address": "0x1601843c5e9bc251a3272907010afa41fa18347e",
       "symbol": "PYUSD",
       "rank": 3,
-      "balance": 250564665300154.0,
-      "share": 10.52,
+      "balance": 292632703026306.0,
+      "share": 11.57,
       "last_tx": null
     },
     {
       "address": "0x0c0d01abf3e6adfca0989ebba9d6e85dd58eab1e",
       "symbol": "PYUSD",
       "rank": 4,
-      "balance": 120005722384932.0,
-      "share": 5.04,
+      "balance": 137578723129122.0,
+      "share": 5.44,
       "last_tx": null
     },
     {
-      "address": "0x2d4d2a025b10c09bdbd794b4fce4f7ea8c7d7bb4",
+      "address": "0x779224df1c756b4edd899854f32a53e8c2b2ce5d",
       "symbol": "PYUSD",
       "rank": 5,
-      "balance": 100000000000000.0,
-      "share": 4.2,
+      "balance": 134313595277165.0,
+      "share": 5.31,
       "last_tx": null
     },
     {
-      "address": "0xa632d59b9b804a956bfaa9b48af3a1b74808fc1f",
+      "address": "0xba98fc35c9dfd69178ad5dce9fa29c64554783b5",
       "symbol": "PYUSD",
       "rank": 6,
-      "balance": 49247627665998.0,
-      "share": 2.07,
+      "balance": 55471760404669.0,
+      "share": 2.19,
       "last_tx": null
     },
     {
       "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
       "symbol": "PYUSD",
       "rank": 7,
-      "balance": 41203433913159.0,
-      "share": 1.73,
+      "balance": 41222097437309.0,
+      "share": 1.63,
       "last_tx": null
     },
     {
@@ -66,31 +66,31 @@
       "symbol": "PYUSD",
       "rank": 8,
       "balance": 40376617688538.0,
-      "share": 1.7,
+      "share": 1.6,
       "last_tx": null
     },
     {
-      "address": "0x779224df1c756b4edd899854f32a53e8c2b2ce5d",
+      "address": "0xa632d59b9b804a956bfaa9b48af3a1b74808fc1f",
       "symbol": "PYUSD",
       "rank": 9,
-      "balance": 34942945285571.0,
-      "share": 1.47,
-      "last_tx": null
-    },
-    {
-      "address": "0xba98fc35c9dfd69178ad5dce9fa29c64554783b5",
-      "symbol": "PYUSD",
-      "rank": 10,
-      "balance": 34373519116252.0,
-      "share": 1.44,
+      "balance": 32826159024266.0,
+      "share": 1.3,
       "last_tx": null
     },
     {
       "address": "0xfa0e06b54986ad96de87a8c56fea76fbd8d493f8",
       "symbol": "PYUSD",
+      "rank": 10,
+      "balance": 27162538349107.0,
+      "share": 1.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ceb1acb844c759bd47d7026e9a9f168260f0328",
+      "symbol": "PYUSD",
       "rank": 11,
-      "balance": 27734051314435.0,
-      "share": 1.16,
+      "balance": 22321890023892.0,
+      "share": 0.88,
       "last_tx": null
     },
     {
@@ -98,213 +98,181 @@
       "symbol": "PYUSD",
       "rank": 12,
       "balance": 18861540846599.0,
-      "share": 0.79,
-      "last_tx": null
-    },
-    {
-      "address": "0x5c5db9d681309a8b58d15f14e9b9ad86df5885a0",
-      "symbol": "PYUSD",
-      "rank": 13,
-      "balance": 13964388817052.0,
-      "share": 0.59,
+      "share": 0.75,
       "last_tx": null
     },
     {
       "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
       "symbol": "PYUSD",
+      "rank": 13,
+      "balance": 13921126106229.0,
+      "share": 0.55,
+      "last_tx": null
+    },
+    {
+      "address": "0xfc0539d019482d311c161ae3b756cdccdec45e87",
+      "symbol": "PYUSD",
       "rank": 14,
-      "balance": 13483423050653.0,
-      "share": 0.57,
+      "balance": 11338924000000.0,
+      "share": 0.45,
       "last_tx": null
     },
     {
       "address": "0x264bd8291fae1d75db2c5f573b07faa6715997b5",
       "symbol": "PYUSD",
       "rank": 15,
-      "balance": 12940473012953.0,
-      "share": 0.54,
-      "last_tx": null
-    },
-    {
-      "address": "0x383e6b4437b59fff47b619cba855ca29342a8559",
-      "symbol": "PYUSD",
-      "rank": 16,
-      "balance": 12403498193944.0,
-      "share": 0.52,
-      "last_tx": null
-    },
-    {
-      "address": "0xfc0539d019482d311c161ae3b756cdccdec45e87",
-      "symbol": "PYUSD",
-      "rank": 17,
-      "balance": 11976630000000.0,
-      "share": 0.5,
+      "balance": 10411129290355.0,
+      "share": 0.41,
       "last_tx": null
     },
     {
       "address": "0x7c901246a0e2b0c455aced598b9b37c02dca95b0",
       "symbol": "PYUSD",
-      "rank": 18,
+      "rank": 16,
       "balance": 10299818880012.0,
-      "share": 0.43,
+      "share": 0.41,
       "last_tx": null
     },
     {
-      "address": "0x9ceb1acb844c759bd47d7026e9a9f168260f0328",
+      "address": "0x383e6b4437b59fff47b619cba855ca29342a8559",
       "symbol": "PYUSD",
-      "rank": 19,
-      "balance": 6709557199882.0,
-      "share": 0.28,
+      "rank": 17,
+      "balance": 9448148571929.0,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c5db9d681309a8b58d15f14e9b9ad86df5885a0",
+      "symbol": "PYUSD",
+      "rank": 18,
+      "balance": 8964388817052.0,
+      "share": 0.35,
       "last_tx": null
     },
     {
       "address": "0x4911766d2c7ccf5f493909f0bf6d5499f338fa02",
       "symbol": "PYUSD",
-      "rank": 20,
+      "rank": 19,
       "balance": 5120393260000.0,
-      "share": 0.22,
+      "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0xff95c5f35f4ffb9d5f596f898ac1ae38d62749c2",
       "symbol": "PYUSD",
-      "rank": 21,
+      "rank": 20,
       "balance": 4476041416783.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0x688e72142674041f8f6af4c808a4045ca1d6ac82",
-      "symbol": "PYUSD",
-      "rank": 22,
-      "balance": 3535921216549.0,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x603816c3c509007cf9265acf85df5927c49d6da4",
-      "symbol": "PYUSD",
-      "rank": 23,
-      "balance": 2993995420000.0,
-      "share": 0.13,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0xa4b9569bf942c3aad23c0c2d322fe4aff8e1bf30",
       "symbol": "PYUSD",
-      "rank": 24,
-      "balance": 2540465149277.0,
-      "share": 0.11,
+      "rank": 21,
+      "balance": 3792470997162.0,
+      "share": 0.15,
       "last_tx": null
     },
     {
-      "address": "0x7c0f5861f7ebd94fa614383cc6ff733372fcf7eb",
+      "address": "0x100ae042ef0ea159ecc3513e9a378ff21f3829ba",
       "symbol": "PYUSD",
-      "rank": 25,
-      "balance": 2439715586565.0,
+      "rank": 22,
+      "balance": 3087504143104.0,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x9af96e5b379c37d243a670c62089053aacacc45c",
+      "symbol": "PYUSD",
+      "rank": 23,
+      "balance": 2639065878200.0,
       "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0xf845a0a05cbd91ac15c3e59d126de5dfbc2aabb7",
+      "address": "0x688e72142674041f8f6af4c808a4045ca1d6ac82",
       "symbol": "PYUSD",
-      "rank": 26,
-      "balance": 2153084052036.0,
-      "share": 0.09,
+      "rank": 24,
+      "balance": 2468277648380.0,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x31e05be59dc01ccff708dc6151e8a327a7b69af9",
       "symbol": "PYUSD",
-      "rank": 27,
+      "rank": 25,
       "balance": 2101000000000.0,
-      "share": 0.09,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x8fb008db9ced7952a861135962fbb2056b1eb0a3",
       "symbol": "PYUSD",
-      "rank": 28,
+      "rank": 26,
       "balance": 2057192150374.0,
-      "share": 0.09,
-      "last_tx": null
-    },
-    {
-      "address": "0xb080fb18286080dec011040abad111ebb4a9cf5a",
-      "symbol": "PYUSD",
-      "rank": 29,
-      "balance": 2000000001800.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x0e22a3e2224c1509670bad30337d5817257da547",
       "symbol": "PYUSD",
-      "rank": 30,
+      "rank": 27,
       "balance": 2000000001800.0,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x813d1bb109572bc23c40cff5ee53789955dac91b",
+      "address": "0xa4a90c550348ce253ade51036f8aebc552446a5f",
       "symbol": "PYUSD",
-      "rank": 31,
+      "rank": 28,
       "balance": 2000000001800.0,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x100ae042ef0ea159ecc3513e9a378ff21f3829ba",
+      "address": "0x7c0f5861f7ebd94fa614383cc6ff733372fcf7eb",
       "symbol": "PYUSD",
-      "rank": 32,
-      "balance": 1989166653104.0,
+      "rank": 29,
+      "balance": 1974770908468.0,
       "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x1174482713197f03c1d0d23094f5b3eb1ab7e3aa",
-      "symbol": "PYUSD",
-      "rank": 33,
-      "balance": 1906197427292.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x46340b20830761efd32832a74d7169b29feb9758",
-      "symbol": "PYUSD",
-      "rank": 34,
-      "balance": 1809377293088.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x8947a39966c333df00a8581cd6523457bdf36842",
-      "symbol": "PYUSD",
-      "rank": 35,
-      "balance": 1708851892496.0,
-      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x4be65e82a07b05686b092aa7d4426ce8ecd70ddc",
       "symbol": "PYUSD",
-      "rank": 36,
+      "rank": 30,
       "balance": 1700064847739.0,
       "share": 0.07,
       "last_tx": null
     },
     {
+      "address": "0x1174482713197f03c1d0d23094f5b3eb1ab7e3aa",
+      "symbol": "PYUSD",
+      "rank": 31,
+      "balance": 1617665443501.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x46340b20830761efd32832a74d7169b29feb9758",
+      "symbol": "PYUSD",
+      "rank": 32,
+      "balance": 1582223988806.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
       "address": "0x367c42a6f261ec54ffbecf5f41c226be12a3dca0",
       "symbol": "PYUSD",
-      "rank": 37,
-      "balance": 1578262000000.0,
-      "share": 0.07,
+      "rank": 33,
+      "balance": 1563657999901.0,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xe3490297a08d6fc8da46edb7b6142e4f461b62d3",
       "symbol": "PYUSD",
-      "rank": 38,
+      "rank": 34,
       "balance": 1412925343434.0,
       "share": 0.06,
       "last_tx": null
@@ -312,7 +280,7 @@
     {
       "address": "0x375532599fbb57711fd13d0265bc8b516985a82d",
       "symbol": "PYUSD",
-      "rank": 39,
+      "rank": 35,
       "balance": 1398760248000.0,
       "share": 0.06,
       "last_tx": null
@@ -320,111 +288,127 @@
     {
       "address": "0x7b1a77b35af5079583310b82ac465b6d4587dcc2",
       "symbol": "PYUSD",
-      "rank": 40,
+      "rank": 36,
       "balance": 1380476895824.0,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x625e92624bc2d88619accc1788365a69767f6200",
-      "symbol": "PYUSD",
-      "rank": 41,
-      "balance": 1336702547638.0,
-      "share": 0.06,
+      "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x65310abbb93b7f59a1cb628738358607f89bb869",
       "symbol": "PYUSD",
-      "rank": 42,
+      "rank": 37,
       "balance": 1281240688093.0,
       "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0x97b9d2102a9a65a26e1ee82d59e42d1b73b68689",
+      "address": "0xb080fb18286080dec011040abad111ebb4a9cf5a",
       "symbol": "PYUSD",
-      "rank": 43,
-      "balance": 1216353440581.0,
+      "rank": 38,
+      "balance": 1260893118838.0,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x419b3d57188b68bdc7c39930ff87be498bbb66fd",
       "symbol": "PYUSD",
-      "rank": 44,
+      "rank": 39,
       "balance": 1156363745590.0,
       "share": 0.05,
       "last_tx": null
     },
     {
+      "address": "0x523f02eb15cd9a7033a2831802cfb868194307bb",
+      "symbol": "PYUSD",
+      "rank": 40,
+      "balance": 1138439523790.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x21511a6e0848c586c800a42b0d0350d35821bc1f",
+      "symbol": "PYUSD",
+      "rank": 41,
+      "balance": 1131286619705.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
       "address": "0x587240b10e75e9c54c3a914806343902b17e544d",
       "symbol": "PYUSD",
-      "rank": 45,
+      "rank": 42,
       "balance": 1100233699050.0,
-      "share": 0.05,
+      "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x9dc1c1e5b2022847f16904e552c3cc77077dd73f",
       "symbol": "PYUSD",
-      "rank": 46,
+      "rank": 43,
       "balance": 1072673087125.0,
-      "share": 0.05,
+      "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x1b66d67e34581a8fac512f4df52f67a27bd7df57",
+      "address": "0x813d1bb109572bc23c40cff5ee53789955dac91b",
       "symbol": "PYUSD",
-      "rank": 47,
-      "balance": 1000000003859.0,
+      "rank": 44,
+      "balance": 1001336548066.0,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x8c636cb5ba2b79bfe45d8a5f113fd29d2588292d",
       "symbol": "PYUSD",
-      "rank": 48,
+      "rank": 45,
       "balance": 999579960000.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "address": "0x97b9d2102a9a65a26e1ee82d59e42d1b73b68689",
       "symbol": "PYUSD",
-      "rank": 49,
-      "balance": 980295678392.0,
+      "rank": 46,
+      "balance": 993009815864.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x5f78886bdc2d217c98acc7b5ecb77259b2589c7e",
+      "address": "0x625e92624bc2d88619accc1788365a69767f6200",
       "symbol": "PYUSD",
-      "rank": 50,
-      "balance": 886372682399.0,
-      "share": 0.04,
+      "rank": 47,
+      "balance": 862891797969.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x8947a39966c333df00a8581cd6523457bdf36842",
+      "symbol": "PYUSD",
+      "rank": 48,
+      "balance": 782808127047.0,
+      "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0xd3fbf717a7113b2b46040424beeea09c37de67cd",
       "symbol": "PYUSD",
-      "rank": 51,
+      "rank": 49,
       "balance": 724054909569.0,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
+      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
       "symbol": "PYUSD",
-      "rank": 52,
-      "balance": 687567675924.0,
+      "rank": 50,
+      "balance": 692839267013.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x0f09373dc206e4dcb43b865e7b473a407bd09a92",
       "symbol": "PYUSD",
-      "rank": 53,
+      "rank": 51,
       "balance": 685640841664.0,
       "share": 0.03,
       "last_tx": null
@@ -432,17 +416,33 @@
     {
       "address": "0x60883fb902fccd1cb70fccf332996be13ddd4439",
       "symbol": "PYUSD",
-      "rank": 54,
+      "rank": 52,
       "balance": 664750821008.0,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0xdef1fa4cefe67365ba046a7c630d6b885298e210",
+      "address": "0xb1eb35eaf9e1d61c3e026ebd1eb7337e604a18cb",
+      "symbol": "PYUSD",
+      "rank": 53,
+      "balance": 627865685580.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
+      "symbol": "PYUSD",
+      "rank": 54,
+      "balance": 605366310255.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x5f78886bdc2d217c98acc7b5ecb77259b2589c7e",
       "symbol": "PYUSD",
       "rank": 55,
-      "balance": 600000000000.0,
-      "share": 0.03,
+      "balance": 577239816072.0,
+      "share": 0.02,
       "last_tx": null
     },
     {
@@ -454,26 +454,26 @@
       "last_tx": null
     },
     {
-      "address": "0x32556362ad2b9bff71c8c666cd061ee4a38206df",
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
       "symbol": "PYUSD",
       "rank": 57,
+      "balance": 553542762388.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x32556362ad2b9bff71c8c666cd061ee4a38206df",
+      "symbol": "PYUSD",
+      "rank": 58,
       "balance": 539000000000.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
-      "symbol": "PYUSD",
-      "rank": 58,
-      "balance": 507320833097.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x945bc52841cf616456af81345f86b21c2a7a3fcc",
+      "address": "0x9a4d3d0a0c34269d393c0184114e8a2575348abc",
       "symbol": "PYUSD",
       "rank": 59,
-      "balance": 469892514993.0,
+      "balance": 534579471179.0,
       "share": 0.02,
       "last_tx": null
     },
@@ -486,42 +486,42 @@
       "last_tx": null
     },
     {
-      "address": "0xcc282e2004428939ee5149a9e7872f0b4d5d5ec7",
+      "address": "0x5d4eb0aee08ef084392f4cbe691726ef6d72dbc3",
       "symbol": "PYUSD",
       "rank": 61,
-      "balance": 292673015054.0,
+      "balance": 371823000000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xcc282e2004428939ee5149a9e7872f0b4d5d5ec7",
+      "symbol": "PYUSD",
+      "rank": 62,
+      "balance": 292888778275.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x1e30f9c2c688f85c82111d1d262bfd127e687282",
+      "symbol": "PYUSD",
+      "rank": 63,
+      "balance": 272653000000.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x6cf2656c825656bb07a6630855618df37bec7725",
       "symbol": "PYUSD",
-      "rank": 62,
+      "rank": 64,
       "balance": 269950390924.0,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0x1e39cc29009ed4760c186d8771295c1e224882d4",
-      "symbol": "PYUSD",
-      "rank": 63,
-      "balance": 254896978508.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x1da0d480df75d7f2d91b14bdea217cb39c000c0a",
-      "symbol": "PYUSD",
-      "rank": 64,
-      "balance": 254189462856.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x33566c9d8be6cf0b23795e0d380e112be9d75836",
+      "address": "0x9acc2e91f6603c80f21c3e3c4b3462b8494230a8",
       "symbol": "PYUSD",
       "rank": 65,
-      "balance": 252228167364.0,
+      "balance": 250545103080.0,
       "share": 0.01,
       "last_tx": null
     },
@@ -534,49 +534,25 @@
       "last_tx": null
     },
     {
-      "address": "0x3ef3d8ba38ebe18db133cec108f4d14ce00dd9ae",
-      "symbol": "PYUSD",
-      "rank": 67,
-      "balance": 247254318785.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
       "address": "0x58edf78281334335effa23101bbe3371b6a36a51",
       "symbol": "PYUSD",
+      "rank": 67,
+      "balance": 219066509603.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ef3d8ba38ebe18db133cec108f4d14ce00dd9ae",
+      "symbol": "PYUSD",
       "rank": 68,
-      "balance": 234921894961.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x9acc2e91f6603c80f21c3e3c4b3462b8494230a8",
-      "symbol": "PYUSD",
-      "rank": 69,
-      "balance": 225545183080.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x150bdd4f14d0392f14c7d3b3f6fc50cfa615460a",
-      "symbol": "PYUSD",
-      "rank": 70,
-      "balance": 215495606359.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
-      "symbol": "PYUSD",
-      "rank": 71,
-      "balance": 205739257043.0,
+      "balance": 212995953734.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xceb27ecb616f1582a22d0351abd302e4f5e1933d",
       "symbol": "PYUSD",
-      "rank": 72,
+      "rank": 69,
       "balance": 194115383253.0,
       "share": 0.01,
       "last_tx": null
@@ -584,15 +560,23 @@
     {
       "address": "0x05cdb1526f6e224e02919a4c018d9784ea25eb3d",
       "symbol": "PYUSD",
-      "rank": 73,
-      "balance": 184406584273.0,
+      "rank": 70,
+      "balance": 182174439793.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "PYUSD",
+      "rank": 71,
+      "balance": 180864677361.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x4fb312915b779b1339388e14b6d079741ca83128",
       "symbol": "PYUSD",
-      "rank": 74,
+      "rank": 72,
       "balance": 176439000000.0,
       "share": 0.01,
       "last_tx": null
@@ -600,95 +584,79 @@
     {
       "address": "0xca343ef04ad21b7893f898711dd0391ea3641d56",
       "symbol": "PYUSD",
-      "rank": 75,
+      "rank": 73,
       "balance": 173640844847.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x1e30f9c2c688f85c82111d1d262bfd127e687282",
-      "symbol": "PYUSD",
-      "rank": 76,
-      "balance": 172653000000.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x34c0bd5877a5ee7099d0f5688d65f4bb9158bde2",
-      "symbol": "PYUSD",
-      "rank": 77,
-      "balance": 163345322483.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xd3af49e017ec09c4b83ba42aa2dea7ebd637e7aa",
       "symbol": "PYUSD",
-      "rank": 78,
+      "rank": 74,
       "balance": 162190938330.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x13394005c1012e708fce1eb974f1130fdc73a5ce",
-      "symbol": "PYUSD",
-      "rank": 79,
-      "balance": 157233963040.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x80787af194c33b74a811f5e5c549316269d7ee1a",
-      "symbol": "PYUSD",
-      "rank": 80,
-      "balance": 121947453340.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xe3ecd65cf2ad2eba2aa2be1d0894753b2172abd1",
       "symbol": "PYUSD",
-      "rank": 81,
-      "balance": 111593750000.0,
+      "rank": 75,
+      "balance": 143693750000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x150bdd4f14d0392f14c7d3b3f6fc50cfa615460a",
+      "symbol": "PYUSD",
+      "rank": 76,
+      "balance": 135495606359.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x13394005c1012e708fce1eb974f1130fdc73a5ce",
+      "symbol": "PYUSD",
+      "rank": 77,
+      "balance": 124829764931.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x66c9fe15a0163dd68c9cf33b97ab7096806f2eee",
+      "symbol": "PYUSD",
+      "rank": 78,
+      "balance": 115616203121.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x34c0bd5877a5ee7099d0f5688d65f4bb9158bde2",
+      "symbol": "PYUSD",
+      "rank": 79,
+      "balance": 113265899602.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x21cb9dc729e7ee9ef6c809991a3b8b22a4c81ebe",
       "symbol": "PYUSD",
-      "rank": 82,
+      "rank": 80,
       "balance": 106263054668.0,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x3f2aa89cac18f8e48456cee3b0ee7e62d3eebd96",
+      "address": "0xdd2e0d86a45e4ef9bd490c2809e6405720cc357c",
       "symbol": "PYUSD",
-      "rank": 83,
-      "balance": 104397673727.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x965cf7e7d50b6f38378d8e4e712f1e796c0b9d9c",
-      "symbol": "PYUSD",
-      "rank": 84,
-      "balance": 100478605513.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xb52ac7e42dc1c742d0cb5bf953409fe5269c0f03",
-      "symbol": "PYUSD",
-      "rank": 85,
-      "balance": 98505730000.0,
+      "rank": 81,
+      "balance": 101890681686.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x168c37de9bad9b2b1d6b52f1a86c1babdfcaa618",
       "symbol": "PYUSD",
-      "rank": 86,
+      "rank": 82,
       "balance": 94106915128.0,
       "share": 0,
       "last_tx": null
@@ -696,47 +664,39 @@
     {
       "address": "0x77b0dcf2d4defc1f2ab5431ab59fe7b46dc0ef6d",
       "symbol": "PYUSD",
-      "rank": 87,
+      "rank": 83,
       "balance": 92681610451.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x9a4338dff0c995c4e8b225586edbeb8979e019b4",
-      "symbol": "PYUSD",
-      "rank": 88,
-      "balance": 88716977189.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xf4b342e4fb3dfde3d39e836fe975e99c6a93dbb8",
-      "symbol": "PYUSD",
-      "rank": 89,
-      "balance": 85160276374.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xcfc0f98f30742b6d880f90155d4ebb885e55ab33",
       "symbol": "PYUSD",
-      "rank": 90,
-      "balance": 81417209167.0,
+      "rank": 84,
+      "balance": 91268369167.0,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x9da75997624c697444958aded6790bfca96af19a",
+      "address": "0xf4b342e4fb3dfde3d39e836fe975e99c6a93dbb8",
       "symbol": "PYUSD",
-      "rank": 91,
-      "balance": 80248917255.0,
+      "rank": 85,
+      "balance": 85160276374.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x7f604d597c15b2e2f60dc645844f68b1d781b752",
+      "symbol": "PYUSD",
+      "rank": 86,
+      "balance": 82637342249.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xcacebc09ee91fe63071f261f8bfe74a99ca7ef70",
       "symbol": "PYUSD",
-      "rank": 92,
+      "rank": 87,
       "balance": 80090930255.0,
       "share": 0,
       "last_tx": null
@@ -744,64 +704,104 @@
     {
       "address": "0x3a5cc8689d1b0cef2c317bc5c0ad6ce88b27d597",
       "symbol": "PYUSD",
-      "rank": 93,
-      "balance": 77861095594.0,
+      "rank": 88,
+      "balance": 79617887921.0,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x7f604d597c15b2e2f60dc645844f68b1d781b752",
+      "address": "0x9da75997624c697444958aded6790bfca96af19a",
       "symbol": "PYUSD",
-      "rank": 94,
-      "balance": 77439211922.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xa01aa2196724a39290f465b3925e5dcafe7f2256",
-      "symbol": "PYUSD",
-      "rank": 95,
-      "balance": 77100000000.0,
+      "rank": 89,
+      "balance": 76614907543.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xa52b2b3a918effe74f02ffa3c166742af0b36ea7",
       "symbol": "PYUSD",
-      "rank": 96,
+      "rank": 90,
       "balance": 76404871247.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xdd2e0d86a45e4ef9bd490c2809e6405720cc357c",
-      "symbol": "PYUSD",
-      "rank": 97,
-      "balance": 75112035249.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x84d76e64be483a615e2447ccf3b52e938cb40688",
-      "symbol": "PYUSD",
-      "rank": 98,
-      "balance": 74986307091.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x5f5fee81e063579a41b85403b020106645290cf4",
       "symbol": "PYUSD",
-      "rank": 99,
+      "rank": 91,
       "balance": 69431740000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x8195d3496305d2dbe43b21d51e6cc77b6c9c8364",
+      "symbol": "PYUSD",
+      "rank": 92,
+      "balance": 68441166596.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xcc795c35bc107c8b02d7a375d646eeb87ec3cc84",
       "symbol": "PYUSD",
-      "rank": 100,
+      "rank": 93,
       "balance": 68000000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x42261d14176e3db6fa389b3909f8f472cef9c67b",
+      "symbol": "PYUSD",
+      "rank": 94,
+      "balance": 62738590792.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2982bb64bcd07ac3315c32cb2bb7e5e8a2de7d67",
+      "symbol": "PYUSD",
+      "rank": 95,
+      "balance": 61922481559.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xa870695a1d9632483b7b0d5caf0146e30717375c",
+      "symbol": "PYUSD",
+      "rank": 96,
+      "balance": 59225460000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x0cdec5487ab056b85271fe679e1c1f99b8b4ffb4",
+      "symbol": "PYUSD",
+      "rank": 97,
+      "balance": 56769206233.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x984e052bc3ab1acd1dfa6946dab7d41a58f325d9",
+      "symbol": "PYUSD",
+      "rank": 98,
+      "balance": 56478430000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xdcc2675bbe4d931de00da054c62eb9fcff2175a9",
+      "symbol": "PYUSD",
+      "rank": 99,
+      "balance": 53553482257.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ba9ea0ffeff9efdd7cb7eafb3ac6788a21b5aa7",
+      "symbol": "PYUSD",
+      "rank": 100,
+      "balance": 53541777209.0,
       "share": 0,
       "last_tx": null
     }

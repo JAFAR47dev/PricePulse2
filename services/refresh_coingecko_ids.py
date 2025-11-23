@@ -3,6 +3,10 @@ import asyncio
 import json
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 
 COINGECKO_TOP_COINS_URL = "https://api.coingecko.com/api/v3/coins/markets"
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "coingecko_ids.json")
@@ -11,7 +15,9 @@ OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "coingecko_ids.json")
 async def fetch_top_coins(limit=200):
     """
     Fetch top 'limit' coins from CoinGecko and return {symbol: id}.
+    Includes API key for higher rate limits.
     """
+
     params = {
         "vs_currency": "usd",
         "order": "market_cap_desc",
@@ -19,12 +25,22 @@ async def fetch_top_coins(limit=200):
         "page": 1,
     }
 
+    headers = {}
+    if COINGECKO_API_KEY:
+        headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
+
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.get(COINGECKO_TOP_COINS_URL, params=params, timeout=15) as response:
+            async with session.get(
+                COINGECKO_TOP_COINS_URL,
+                params=params,
+                headers=headers,
+                timeout=15
+            ) as response:
                 if response.status != 200:
                     print(f"⚠️ Failed to fetch top coins: HTTP {response.status}")
                     return None
+
                 data = await response.json()
                 return {coin["symbol"].upper(): coin["id"] for coin in data}
 
@@ -33,7 +49,7 @@ async def fetch_top_coins(limit=200):
         return None
 
 
-async def refresh_coingecko_ids():
+async def refresh_coingecko_ids(context=None):
     """
     Refresh the coingecko_ids.json file with the top 200 coins.
     """

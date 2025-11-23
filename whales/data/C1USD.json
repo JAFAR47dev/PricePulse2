@@ -1,6 +1,257 @@
 {
-  "symbol": "C1USD",
-  "unsupported": true,
-  "reason": "Non-ERC20 token or missing Ethereum contract",
-  "timestamp": "2025-11-13 21:22:58 UTC"
+  "token": "C1USD",
+  "contract": "0x40caa7912437002ee2c8415d43e7f575c733674c",
+  "updated_at": "2025-11-23T08:41:02.098703",
+  "version": "1.0.0",
+  "whale_count": 31,
+  "whales": [
+    {
+      "address": "0x6ddf0dc9c8ca941e72821eee23cf1d56c4a0609c",
+      "symbol": "C1USD",
+      "rank": 1,
+      "balance": 1.5052389435474908e+27,
+      "share": 60.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x847a7f73757ae04ab2dcd16211da9a181c0cec86",
+      "symbol": "C1USD",
+      "rank": 2,
+      "balance": 5e+26,
+      "share": 20,
+      "last_tx": null
+    },
+    {
+      "address": "0x0c5402bf143d20580a1bc68959d0b4271d95dfe7",
+      "symbol": "C1USD",
+      "rank": 3,
+      "balance": 2.99999905e+26,
+      "share": 12,
+      "last_tx": null
+    },
+    {
+      "address": "0x981d4ee29451bad516242427cfc2f917677fc04f",
+      "symbol": "C1USD",
+      "rank": 4,
+      "balance": 8.0000135588824e+25,
+      "share": 3.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x501d3859ecda31fc3a254186d5fe075f0f515566",
+      "symbol": "C1USD",
+      "rank": 5,
+      "balance": 5e+25,
+      "share": 2,
+      "last_tx": null
+    },
+    {
+      "address": "0xf8cc1dbe616abeff22109c9dfc0eed93be1a59fb",
+      "symbol": "C1USD",
+      "rank": 6,
+      "balance": 2.00001e+25,
+      "share": 0.8,
+      "last_tx": null
+    },
+    {
+      "address": "0xbee460fdc2e83e30fc74b0b7213b48e30c8e5522",
+      "symbol": "C1USD",
+      "rank": 7,
+      "balance": 2.000004844e+25,
+      "share": 0.8,
+      "last_tx": null
+    },
+    {
+      "address": "0xa0b66d0a8f578c3d68a2bf18a5cf329d615082b5",
+      "symbol": "C1USD",
+      "rank": 8,
+      "balance": 9.999995e+24,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0x735d74995b90654ed22aa1f4110cd8b377bf530f",
+      "symbol": "C1USD",
+      "rank": 9,
+      "balance": 6.73502e+24,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x4ced45533373a36dcde9a8e501c33f270ab32246",
+      "symbol": "C1USD",
+      "rank": 10,
+      "balance": 2.2414704525090222e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x498d4bd943e6547a2d8272195d1eae6613fcba05",
+      "symbol": "C1USD",
+      "rank": 11,
+      "balance": 1.5e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x8df313021c8fcf0f86d19452b235f0b3ea486fe9",
+      "symbol": "C1USD",
+      "rank": 12,
+      "balance": 1e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xc46a7b5c1b52b3a633079e44e6dedc248f9ac9e1",
+      "symbol": "C1USD",
+      "rank": 13,
+      "balance": 9.99360309309e+23,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x367335173f0d204b7e53beb80376a3be5eae8f3c",
+      "symbol": "C1USD",
+      "rank": 14,
+      "balance": 7.65e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xc323b830efa1b7a0c513b2c043f662ca18a4c743",
+      "symbol": "C1USD",
+      "rank": 15,
+      "balance": 7.24e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x27b000e81f120113944d33b5ade56be412aa077e",
+      "symbol": "C1USD",
+      "rank": 16,
+      "balance": 4.65e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x155872531c976a2cfb46eb00a520ad22baa3c57c",
+      "symbol": "C1USD",
+      "rank": 17,
+      "balance": 2.2995e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a3d0220182b62cdbc2ef48114c3d4429ed9b4ff",
+      "symbol": "C1USD",
+      "rank": 18,
+      "balance": 9.5e+22,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x5216c0b0fbbd72f4b9a023ccb7e6d6bb763210b3",
+      "symbol": "C1USD",
+      "rank": 19,
+      "balance": 5e+21,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xfd300a0e9b67c88618987b5bcbdb6f44ada5035c",
+      "symbol": "C1USD",
+      "rank": 20,
+      "balance": 4e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xd9aab91adf7680cd231342b63da887e786602520",
+      "symbol": "C1USD",
+      "rank": 21,
+      "balance": 1.5e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xb028224043ddc45531eb127853c3d41d480a9c07",
+      "symbol": "C1USD",
+      "rank": 22,
+      "balance": 1.26661867e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x319871c16680101dae8d005952a0651d338c3539",
+      "symbol": "C1USD",
+      "rank": 23,
+      "balance": 1e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x40caa7912437002ee2c8415d43e7f575c733674c",
+      "symbol": "C1USD",
+      "rank": 24,
+      "balance": 1e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf867df2a19969fb40eeb1928c40e2d725301f819",
+      "symbol": "C1USD",
+      "rank": 25,
+      "balance": 1e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xdcfbc46b14b2845784411475820223cf1e7f838a",
+      "symbol": "C1USD",
+      "rank": 26,
+      "balance": 5e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x098d4af94778d0ed835943e0f3f112d418d659f1",
+      "symbol": "C1USD",
+      "rank": 27,
+      "balance": 1.4e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xeb2648bba6d1ee2e319f043d45b4f34d3f2d19a7",
+      "symbol": "C1USD",
+      "rank": 28,
+      "balance": 1e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3dba5bbe7da97135aa9916d3b07a95f0e0de3db7",
+      "symbol": "C1USD",
+      "rank": 29,
+      "balance": 8e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x7313a4896cea17b2e498ec326ba6191f8dbd16d1",
+      "symbol": "C1USD",
+      "rank": 30,
+      "balance": 8e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xb293295d322aa8e5a64ff0048056f1b43e3fcd2c",
+      "symbol": "C1USD",
+      "rank": 31,
+      "balance": 5e+18,
+      "share": 0,
+      "last_tx": null
+    }
+  ]
 }

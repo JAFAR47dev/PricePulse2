@@ -1,58 +1,58 @@
-import requests
+import asyncio
+import aiohttp
 import json
 import os
 from datetime import datetime
 
-def refresh_top_tokens():
+async def refresh_top_tokens(context):
     """
     Fetch top 100 cryptocurrencies by market cap from CoinGecko
     and save to wfolder/data/top_tokens.json
+    (Async version for Telegram Job Queue)
     """
-    print("🔄 Refreshing top 100 tokens from CoinGecko...")
-
-    url = "https://api.coingecko.com/api/v3/coins/markets"
-    params = {
-        "vs_currency": "usd",
-        "order": "market_cap_desc",
-        "per_page": 100,
-        "page": 1,
-    }
-
     try:
-        response = requests.get(url, params=params, timeout=15)
-        response.raise_for_status()
-        data = response.json()
+        print("🔄 Refreshing top 100 tokens from CoinGecko...")
+
+        url = "https://api.coingecko.com/api/v3/coins/markets"
+        params = {
+            "vs_currency": "usd",
+            "order": "market_cap_desc",
+            "per_page": 100,
+            "page": 1,
+        }
+
+        # --- Use aiohttp (async) ---
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, params=params, timeout=15) as resp:
+                if resp.status != 200:
+                    print(f"⚠️ CoinGecko returned status {resp.status}")
+                    return  # no return value required
+                data = await resp.json()
 
         if not data:
             print("⚠️ No data returned from CoinGecko.")
-            return False
+            return
 
         tokens = [
-            {"id": coin["id"], "symbol": coin["symbol"], "name": coin["name"]}
+            {"id": coin.get("id"), "symbol": coin.get("symbol"), "name": coin.get("name")}
             for coin in data
+            if coin.get("id")
         ]
 
-        # ✅ Save inside wfolder/data/
+        # Save to wfolder/data/
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         data_dir = os.path.join(base_dir, "data")
         os.makedirs(data_dir, exist_ok=True)
 
         file_path = os.path.join(data_dir, "top_tokens.json")
 
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(tokens, f, indent=2, ensure_ascii=False)
+        # Save asynchronously
+        json_text = json.dumps(tokens, indent=2, ensure_ascii=False)
+        await asyncio.to_thread(lambda: open(file_path, "w", encoding="utf-8").write(json_text))
 
         print(f"✅ Top 100 tokens refreshed successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"📦 Saved to: {file_path}")
-        return True
 
-    except requests.exceptions.RequestException as e:
-        print(f"❌ Failed to refresh tokens: {e}")
-        return False
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-        return False
-
-
-if __name__ == "__main__":
-    refresh_top_tokens()
+        print(f"❌ [refresh_top_tokens] Unexpected error: {e}")
+        # No return needed

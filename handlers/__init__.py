@@ -80,6 +80,7 @@ from stats.handlers import register_stats_handler
 from tasks import register_task_handlers
 from notifications.handlers.notify_menu import register_notify_handlers
 from .add_to_group import add_to_group
+from .myplan import myplan
 
 def register_all_handlers(app):
         
@@ -104,7 +105,9 @@ def register_all_handlers(app):
        app.add_handler(CallbackQueryHandler(handle_back_to_start, pattern="^back_to_start$"))
        app.add_handler(CommandHandler("referral", referral_command))
        app.add_handler(CommandHandler("prolist", pro_user_list))
-       app.add_handler(CommandHandler("upgrade", upgrade_menu))       
+       app.add_handler(CommandHandler("myplan", myplan))
+       app.add_handler(CommandHandler("upgrade", upgrade_menu))              
+       app.add_handler(CallbackQueryHandler(upgrade_menu, pattern="^upgrade_menuu$"))
        app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^plan_(monthly|yearly|lifetime)$"))
        app.add_handler(CallbackQueryHandler(show_payment_instructions, pattern=r"^pay_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
        app.add_handler(CallbackQueryHandler(back_to_plans, pattern="^back_to_plans$"))

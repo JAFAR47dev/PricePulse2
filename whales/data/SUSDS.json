@@ -1,6 +1,809 @@
 {
-  "symbol": "SUSDS",
-  "unsupported": true,
-  "reason": "Non-ERC20 token or missing Ethereum contract",
-  "timestamp": "2025-11-13 08:01:57 UTC"
+  "token": "SUSDS",
+  "contract": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+  "updated_at": "2025-11-23T08:40:47.364471",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0xbc65ad17c5c0a2a4d159fa5a503f4992c7b545fe",
+      "symbol": "SUSDS",
+      "rank": 1,
+      "balance": 1.134059650630373e+27,
+      "share": 31.8,
+      "last_tx": null
+    },
+    {
+      "address": "0x859c9980931fa0a63765fd8ef2e29918af5b038c",
+      "symbol": "SUSDS",
+      "rank": 2,
+      "balance": 3.0944975762076682e+26,
+      "share": 8.68,
+      "last_tx": null
+    },
+    {
+      "address": "0x688cc76d3b009d805ab6b4d0a1cbd228131b5cbf",
+      "symbol": "SUSDS",
+      "rank": 3,
+      "balance": 2.7865421640331502e+26,
+      "share": 7.81,
+      "last_tx": null
+    },
+    {
+      "address": "0x1601843c5e9bc251a3272907010afa41fa18347e",
+      "symbol": "SUSDS",
+      "rank": 4,
+      "balance": 2.2072703605009266e+26,
+      "share": 6.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x7f311a4d48377030bd810395f4ccfc03bdbe9ef3",
+      "symbol": "SUSDS",
+      "rank": 5,
+      "balance": 2.0278008930690097e+26,
+      "share": 5.69,
+      "last_tx": null
+    },
+    {
+      "address": "0x4aa42145aa6ebf72e164c9bbc74fbd3788045016",
+      "symbol": "SUSDS",
+      "rank": 6,
+      "balance": 1.1205009826659703e+26,
+      "share": 3.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xa10c7ce4b876998858b1a9e12b10092229539400",
+      "symbol": "SUSDS",
+      "rank": 7,
+      "balance": 9.616548674860082e+25,
+      "share": 2.7,
+      "last_tx": null
+    },
+    {
+      "address": "0x467194771dae2967aef3ecbedd3bf9a310c76c65",
+      "symbol": "SUSDS",
+      "rank": 8,
+      "balance": 9.490308891618353e+25,
+      "share": 2.66,
+      "last_tx": null
+    },
+    {
+      "address": "0x1196f688c585d3e5c895ef8954ffb0dcdafc566a",
+      "symbol": "SUSDS",
+      "rank": 9,
+      "balance": 9.489718383813805e+25,
+      "share": 2.66,
+      "last_tx": null
+    },
+    {
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "symbol": "SUSDS",
+      "rank": 10,
+      "balance": 6.9582551195324565e+25,
+      "share": 1.95,
+      "last_tx": null
+    },
+    {
+      "address": "0x7fea5b4568751533039179116e372e26b6b41b13",
+      "symbol": "SUSDS",
+      "rank": 11,
+      "balance": 6.468013407578497e+25,
+      "share": 1.81,
+      "last_tx": null
+    },
+    {
+      "address": "0xd22eca80479ceedce59c5bba6900b6554c4e4ec6",
+      "symbol": "SUSDS",
+      "rank": 12,
+      "balance": 6.24226760304675e+25,
+      "share": 1.75,
+      "last_tx": null
+    },
+    {
+      "address": "0x7cd01d5cad4ba0caeba02583a5c61d35b23e08eb",
+      "symbol": "SUSDS",
+      "rank": 13,
+      "balance": 4.193659961256288e+25,
+      "share": 1.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x170016fa0b2ea88014d82eb2a436fb99153f5ee8",
+      "symbol": "SUSDS",
+      "rank": 14,
+      "balance": 3.1547662757309735e+25,
+      "share": 0.88,
+      "last_tx": null
+    },
+    {
+      "address": "0xca5183fb9997046fbd9ba8113139bf5a5af122a0",
+      "symbol": "SUSDS",
+      "rank": 15,
+      "balance": 2.671997071564702e+25,
+      "share": 0.75,
+      "last_tx": null
+    },
+    {
+      "address": "0x4f2083f5fbede34c2714affb3105539775f7fe64",
+      "symbol": "SUSDS",
+      "rank": 16,
+      "balance": 2.499860901912262e+25,
+      "share": 0.7,
+      "last_tx": null
+    },
+    {
+      "address": "0xa8687a15d4be32cc8f0a8a7b9704a4c3993d9613",
+      "symbol": "SUSDS",
+      "rank": 17,
+      "balance": 2.248925544831968e+25,
+      "share": 0.63,
+      "last_tx": null
+    },
+    {
+      "address": "0xc84c35f57caeeb5da8e31d1144c293ae5851ab84",
+      "symbol": "SUSDS",
+      "rank": 18,
+      "balance": 2.066852750642044e+25,
+      "share": 0.58,
+      "last_tx": null
+    },
+    {
+      "address": "0x7099c7d7fca074062a0fc593a35f788605bcad6e",
+      "symbol": "SUSDS",
+      "rank": 19,
+      "balance": 2.0058579996013045e+25,
+      "share": 0.56,
+      "last_tx": null
+    },
+    {
+      "address": "0x0cb1d4a24292bb89862f599ac5b10f42b6de07e4",
+      "symbol": "SUSDS",
+      "rank": 20,
+      "balance": 1.8540779619841336e+25,
+      "share": 0.52,
+      "last_tx": null
+    },
+    {
+      "address": "0x5697766d2ab009e029c0e61db75e77f8c15a5293",
+      "symbol": "SUSDS",
+      "rank": 21,
+      "balance": 1.8274779899378914e+25,
+      "share": 0.51,
+      "last_tx": null
+    },
+    {
+      "address": "0x225d3822de44e58ee935440e0c0b829c4232086e",
+      "symbol": "SUSDS",
+      "rank": 22,
+      "balance": 1.6147296468867482e+25,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0x6715bc100a183cc65502f05845b589c1919ca3d3",
+      "symbol": "SUSDS",
+      "rank": 23,
+      "balance": 1.5595916119795937e+25,
+      "share": 0.44,
+      "last_tx": null
+    },
+    {
+      "address": "0xf330d7aff40ac87c9b2b96244ac07f3a8a1d6e73",
+      "symbol": "SUSDS",
+      "rank": 24,
+      "balance": 1.5321635049741593e+25,
+      "share": 0.43,
+      "last_tx": null
+    },
+    {
+      "address": "0x0955f0d3729e035b9f5b808fecd602b2891a32fc",
+      "symbol": "SUSDS",
+      "rank": 25,
+      "balance": 1.5133996994718638e+25,
+      "share": 0.42,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c4d2dd5286e0b9231dbf1ee1e6c8e489f38c6e7",
+      "symbol": "SUSDS",
+      "rank": 26,
+      "balance": 1.445714477384e+25,
+      "share": 0.41,
+      "last_tx": null
+    },
+    {
+      "address": "0xd0697f70e79476195b742d5afab14be50f98cc1e",
+      "symbol": "SUSDS",
+      "rank": 27,
+      "balance": 1.213448575104381e+25,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0x2674341d40b445c21287b81c4bc95ec8e358f7e8",
+      "symbol": "SUSDS",
+      "rank": 28,
+      "balance": 1.1171971352410671e+25,
+      "share": 0.31,
+      "last_tx": null
+    },
+    {
+      "address": "0x4fccf87430fe87571fc50a605627b32d11fc1086",
+      "symbol": "SUSDS",
+      "rank": 29,
+      "balance": 1.086211078899e+25,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x0b331bda5c5a10c74d68551dfa0da953485928f1",
+      "symbol": "SUSDS",
+      "rank": 30,
+      "balance": 1.0181244689277198e+25,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x2d855063153b553bfdf544d2b33e8a5a870cb4d6",
+      "symbol": "SUSDS",
+      "rank": 31,
+      "balance": 1e+25,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x0f3c2476fbf0ed09dff00ea7f4ef252dcc72e6f1",
+      "symbol": "SUSDS",
+      "rank": 32,
+      "balance": 9.596771548046954e+24,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0xfc0d081f330321143aeb5e4ab1729e195eb1e097",
+      "symbol": "SUSDS",
+      "rank": 33,
+      "balance": 9.59074539657e+24,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x483413cccd796deddee88e4d3e202425d5e891c6",
+      "symbol": "SUSDS",
+      "rank": 34,
+      "balance": 9.391531226093092e+24,
+      "share": 0.26,
+      "last_tx": null
+    },
+    {
+      "address": "0x2e4cf76b269f34d83bea428f4c35aa5645191259",
+      "symbol": "SUSDS",
+      "rank": 35,
+      "balance": 7.598848004222008e+24,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x7cf8a8b9d8aa5e723400daaca2033670d2bfdcc8",
+      "symbol": "SUSDS",
+      "rank": 36,
+      "balance": 7.505244093599909e+24,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xd240d6e834d65e92224ed794d66467bf6d1b84af",
+      "symbol": "SUSDS",
+      "rank": 37,
+      "balance": 7.22339422051e+24,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x4fabff46addbef0d25002a6681ba54c3b973d463",
+      "symbol": "SUSDS",
+      "rank": 38,
+      "balance": 7.140501093491927e+24,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x427f1455e1811527671abac45d60520973f3bda0",
+      "symbol": "SUSDS",
+      "rank": 39,
+      "balance": 6.817479181379745e+24,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xe3f605af7fbbb0831c98614fa9c27f970bb3d5ab",
+      "symbol": "SUSDS",
+      "rank": 40,
+      "balance": 6.695683194011075e+24,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x73b59d25f472c8302f74651593b209b01eaa971a",
+      "symbol": "SUSDS",
+      "rank": 41,
+      "balance": 6.446490100671186e+24,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x00836fe54625be242bcfa286207795405ca4fd10",
+      "symbol": "SUSDS",
+      "rank": 42,
+      "balance": 6.089299383380251e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x3f2de801629116a83b9734bb72012a554e01cfc1",
+      "symbol": "SUSDS",
+      "rank": 43,
+      "balance": 5.840642276726743e+24,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x1d7847d4f669fe8df7d2e6268456fbacc87c05ee",
+      "symbol": "SUSDS",
+      "rank": 44,
+      "balance": 5.357340340922207e+24,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x7f654086ec0574e3fd89723b575250f41024d8a9",
+      "symbol": "SUSDS",
+      "rank": 45,
+      "balance": 5.3283238500545e+24,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x59456e52c80788f2a1d79de05553a841a0a5ad61",
+      "symbol": "SUSDS",
+      "rank": 46,
+      "balance": 4.696618272455939e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x75e34757ce4e9c733f3b025690402a700b18f2f5",
+      "symbol": "SUSDS",
+      "rank": 47,
+      "balance": 4.663924134539446e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x05dd8288b4951f282efa607fb6ca72c13380fba2",
+      "symbol": "SUSDS",
+      "rank": 48,
+      "balance": 4.6427019170523974e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xc613aa485900ad69a2b53a6f24ee76ee64644976",
+      "symbol": "SUSDS",
+      "rank": 49,
+      "balance": 4.487988783224076e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xf48b1a3ed02587a16a044813e78826d62b3f5ca5",
+      "symbol": "SUSDS",
+      "rank": 50,
+      "balance": 4.121465227960406e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x19e560a1c38b59db2c4c3fc6ca6b16b533c923a5",
+      "symbol": "SUSDS",
+      "rank": 51,
+      "balance": 4.111550412271636e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x75482ee4e33f0351290cd958a10e042074e7a11d",
+      "symbol": "SUSDS",
+      "rank": 52,
+      "balance": 4.0495881998883987e+24,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x165e9ba1d396ec151c29455b20d5ed9eb4256fc0",
+      "symbol": "SUSDS",
+      "rank": 53,
+      "balance": 3.7559566807845746e+24,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xd9b64f5183e37b99f7b2357c3aea0e98231ebfe2",
+      "symbol": "SUSDS",
+      "rank": 54,
+      "balance": 3.7315382992324627e+24,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x249c6b7af15dc5c40a38522a84c477d25b419df4",
+      "symbol": "SUSDS",
+      "rank": 55,
+      "balance": 3.60964596009118e+24,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x81a2612f6dea269a6dd1f6deab45c5424ee2c4b7",
+      "symbol": "SUSDS",
+      "rank": 56,
+      "balance": 3.2947319307574846e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x27d3745135693647155d87706fbff3eb5b7345c2",
+      "symbol": "SUSDS",
+      "rank": 57,
+      "balance": 3.281055508749046e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x36ed62da363be37492fd36a245ca6d796804487f",
+      "symbol": "SUSDS",
+      "rank": 58,
+      "balance": 3.2418489180088296e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x04985e93e0e7714eedf65523ca4512d2823bf970",
+      "symbol": "SUSDS",
+      "rank": 59,
+      "balance": 3.200372812503977e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xff0189f3d569b47d3ef668067cac4c968adaff64",
+      "symbol": "SUSDS",
+      "rank": 60,
+      "balance": 3.1897262436195265e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xab6b52df0000b8a61ced9b191c57bedc74fe3e99",
+      "symbol": "SUSDS",
+      "rank": 61,
+      "balance": 3.1465158635096346e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xde1e3bb1fbfe932fac3a19696c3f480bc6e1dac3",
+      "symbol": "SUSDS",
+      "rank": 62,
+      "balance": 3.145419925886157e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x5beed1a923edb0068feb95fa02d37594c901d08e",
+      "symbol": "SUSDS",
+      "rank": 63,
+      "balance": 3.05799014810652e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x4b0b3d40b0623f3a9eac09d2e01f592710ee59f0",
+      "symbol": "SUSDS",
+      "rank": 64,
+      "balance": 2.970649296065194e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xd3e0d660d8fab05b34ccb7fe7681628d9a46c675",
+      "symbol": "SUSDS",
+      "rank": 65,
+      "balance": 2.9e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xdaae2c3106a2f662529c3ed16280a36978c691f0",
+      "symbol": "SUSDS",
+      "rank": 66,
+      "balance": 2.837347530710961e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x1a237efd182d3b9ec2932d3201935d7dae19240d",
+      "symbol": "SUSDS",
+      "rank": 67,
+      "balance": 2.774703754188301e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x326195c5311bd8cb829b794afdb6c6e04fb82399",
+      "symbol": "SUSDS",
+      "rank": 68,
+      "balance": 2.7710815604874857e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x5d409e56d886231adaf00c8775665ad0f9897b56",
+      "symbol": "SUSDS",
+      "rank": 69,
+      "balance": 2.764668202979582e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xc1c66097b3e42dbe0e3f77f06b7d0bfd4f7ab07f",
+      "symbol": "SUSDS",
+      "rank": 70,
+      "balance": 2.7641555686553273e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x290525551688d1a4b80fed6ce2ba94bbc6cd9645",
+      "symbol": "SUSDS",
+      "rank": 71,
+      "balance": 2.6196020845131117e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x844dc85edd8492a56228d293cfebb823ef3e10ec",
+      "symbol": "SUSDS",
+      "rank": 72,
+      "balance": 2.597509132608994e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xc8afb3e389c2693e588bb716d37cf1b53179506f",
+      "symbol": "SUSDS",
+      "rank": 73,
+      "balance": 2.5501502955107177e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x02655b21e678151c9db87a6b6e77992e468e0e19",
+      "symbol": "SUSDS",
+      "rank": 74,
+      "balance": 2.5131563710752143e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x50d1b550f854b785cedf754114e28d496c8a89c1",
+      "symbol": "SUSDS",
+      "rank": 75,
+      "balance": 2.4790010778607387e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1748c79709f4ba2dd82834b8c82d4a505003f27",
+      "symbol": "SUSDS",
+      "rank": 76,
+      "balance": 2.4332343260517285e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x3c72f5a96ccc01dd26dc380fa3fa89fb3ff18796",
+      "symbol": "SUSDS",
+      "rank": 77,
+      "balance": 2.384385843263629e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xad87f47f97cc9f5b32cd34504187736c87ba528f",
+      "symbol": "SUSDS",
+      "rank": 78,
+      "balance": 2.3737832487755987e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x690f0581ececcf8389c223170778cd9d029606f2",
+      "symbol": "SUSDS",
+      "rank": 79,
+      "balance": 2.366487936851231e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x9421e4fa899ebadf0f7b22db9eafbcfb6d765ef6",
+      "symbol": "SUSDS",
+      "rank": 80,
+      "balance": 2.285071860092713e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xf567d9f94fb01e5646710e54a4301cff8064321d",
+      "symbol": "SUSDS",
+      "rank": 81,
+      "balance": 2.2719937494799057e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x93652ae25d0ba757c3c92a4deb0b05dd1d4efe35",
+      "symbol": "SUSDS",
+      "rank": 82,
+      "balance": 2.2046396542541332e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xe9e6d5663ec820bc5bebaca5555120ab6b4a437d",
+      "symbol": "SUSDS",
+      "rank": 83,
+      "balance": 2.1310289854856038e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x358f39a05e88bedc9521680c4c2a62f269099f20",
+      "symbol": "SUSDS",
+      "rank": 84,
+      "balance": 2.1254402803337364e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x937c16c90307e9649bc5baf83d3a1856de8254e3",
+      "symbol": "SUSDS",
+      "rank": 85,
+      "balance": 2.0963316889116868e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x3f1272c014f17ae6031b0d9040b1875b751e7df8",
+      "symbol": "SUSDS",
+      "rank": 86,
+      "balance": 2.0463032605866784e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xfd1627e3f3469c8392c8c3a261d8f0677586e5e1",
+      "symbol": "SUSDS",
+      "rank": 87,
+      "balance": 1.9508598179254546e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xf55c80c996e549bdfd511073cf115dd16368dfe9",
+      "symbol": "SUSDS",
+      "rank": 88,
+      "balance": 1.926539737969998e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x20919ce4bc18b80881106e4cca70c0ebc0a2af20",
+      "symbol": "SUSDS",
+      "rank": 89,
+      "balance": 1.887009941233159e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x62c7d15dc4268ce173cb9398d3ceb8a22b85d1a5",
+      "symbol": "SUSDS",
+      "rank": 90,
+      "balance": 1.8839977070471097e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x8fb892e9c203752dcd4ce5423263b329baf070b7",
+      "symbol": "SUSDS",
+      "rank": 91,
+      "balance": 1.88021147588942e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xafc6a25644a5009cb4f3e1be1159968f23573dbe",
+      "symbol": "SUSDS",
+      "rank": 92,
+      "balance": 1.8794921165646305e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x5721fdf72e2e2f8b612e0ff35d58c6050fb9d614",
+      "symbol": "SUSDS",
+      "rank": 93,
+      "balance": 1.8768875555408013e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x562b1a2ae43a754086dd693ec380d58a7f8d8dbe",
+      "symbol": "SUSDS",
+      "rank": 94,
+      "balance": 1.8678574671760776e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x942768a888d21bfb1bb7b7bad2ccfebbb9eab5fe",
+      "symbol": "SUSDS",
+      "rank": 95,
+      "balance": 1.859069863626168e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xb2e01fc61e1b732331bece60e80db58fc3b537d1",
+      "symbol": "SUSDS",
+      "rank": 96,
+      "balance": 1.8359494194108738e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ee18b2214aff97000d974cf647e7c347e8fa585",
+      "symbol": "SUSDS",
+      "rank": 97,
+      "balance": 1.80235173954998e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x0f6c33a3517f83a94ea9640e55a464de66662d41",
+      "symbol": "SUSDS",
+      "rank": 98,
+      "balance": 1.7802518971852992e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x0657b4bc1793bddbda1ad39e50d5c3aef3ca2439",
+      "symbol": "SUSDS",
+      "rank": 99,
+      "balance": 1.779423842323068e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x7b05de0c60366cd9f6e3b0633a1bc7f3ff68d6a7",
+      "symbol": "SUSDS",
+      "rank": 100,
+      "balance": 1.7683235417695103e+24,
+      "share": 0.05,
+      "last_tx": null
+    }
+  ]
 }

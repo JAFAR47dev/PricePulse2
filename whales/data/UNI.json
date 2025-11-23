@@ -1,7 +1,7 @@
 {
   "token": "UNI",
   "contract": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
-  "updated_at": "2025-11-12T21:48:30.063047",
+  "updated_at": "2025-11-23T08:40:42.919520",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -17,8 +17,8 @@
       "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
       "symbol": "UNI",
       "rank": 2,
-      "balance": 3.9e+25,
-      "share": 3.9,
+      "balance": 5.3316262345e+25,
+      "share": 5.33,
       "last_tx": null
     },
     {
@@ -41,7 +41,7 @@
       "address": "0x090d4613473dee047c3f2706764f49e0821d256e",
       "symbol": "UNI",
       "rank": 5,
-      "balance": 1.2637686574363844e+25,
+      "balance": 1.2632886483492844e+25,
       "share": 1.26,
       "last_tx": null
     },
@@ -57,24 +57,24 @@
       "address": "0x611f7bf868a6212f871e89f7e44684045ddfb09d",
       "symbol": "UNI",
       "rank": 7,
-      "balance": 1.20901951401e+25,
-      "share": 1.21,
-      "last_tx": null
-    },
-    {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
-      "symbol": "UNI",
-      "rank": 8,
-      "balance": 1.0995271243310027e+25,
-      "share": 1.1,
+      "balance": 1.13152878001e+25,
+      "share": 1.13,
       "last_tx": null
     },
     {
       "address": "0x6d278351f4a973d1349ef1e54ed37daed0799e19",
       "symbol": "UNI",
-      "rank": 9,
+      "rank": 8,
       "balance": 1.028605426409608e+25,
       "share": 1.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x19d373d0f95f00d368a8d57605af746c4ea9b1d0",
+      "symbol": "UNI",
+      "rank": 9,
+      "balance": 9.2954690339692e+24,
+      "share": 0.93,
       "last_tx": null
     },
     {
@@ -94,25 +94,9 @@
       "last_tx": null
     },
     {
-      "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
-      "symbol": "UNI",
-      "rank": 12,
-      "balance": 8.6098008421e+24,
-      "share": 0.86,
-      "last_tx": null
-    },
-    {
-      "address": "0x73af3bcf944a6559933396c1577b257e2054d935",
-      "symbol": "UNI",
-      "rank": 13,
-      "balance": 8.587062859365134e+24,
-      "share": 0.86,
-      "last_tx": null
-    },
-    {
       "address": "0x7d325a9c8f10758188641fe91cfd902499edc782",
       "symbol": "UNI",
-      "rank": 14,
+      "rank": 12,
       "balance": 8.0000001216387e+24,
       "share": 0.8,
       "last_tx": null
@@ -120,7 +104,7 @@
     {
       "address": "0x1c1f02f1640e52b313f2d504b3c0c7ee8ad61108",
       "symbol": "UNI",
-      "rank": 15,
+      "rank": 13,
       "balance": 8.0000000001e+24,
       "share": 0.8,
       "last_tx": null
@@ -128,7 +112,7 @@
     {
       "address": "0x5f246d7d19aa612d6718d27c1da1ee66859586b0",
       "symbol": "UNI",
-      "rank": 16,
+      "rank": 14,
       "balance": 7.3000000001e+24,
       "share": 0.73,
       "last_tx": null
@@ -136,7 +120,7 @@
     {
       "address": "0x3b93892aceb2d2745ddb041354339239f6211d0a",
       "symbol": "UNI",
-      "rank": 17,
+      "rank": 15,
       "balance": 7.2500000001e+24,
       "share": 0.73,
       "last_tx": null
@@ -144,39 +128,23 @@
     {
       "address": "0x9c980d9e5c46eaf6c1e7ddd2dcd30c1fcd9875d7",
       "symbol": "UNI",
-      "rank": 18,
+      "rank": 16,
       "balance": 7.0324610001e+24,
-      "share": 0.7,
-      "last_tx": null
-    },
-    {
-      "address": "0x8fa129f87b8a11ee1ca35abd46674f8b66984d4a",
-      "symbol": "UNI",
-      "rank": 19,
-      "balance": 7.004505140270758e+24,
       "share": 0.7,
       "last_tx": null
     },
     {
       "address": "0x9d939a9bd16c1e66f37df5ad07a11b31dd63a139",
       "symbol": "UNI",
-      "rank": 20,
+      "rank": 17,
       "balance": 7.0000000001e+24,
       "share": 0.7,
       "last_tx": null
     },
     {
-      "address": "0xa4c9492d5f1578911756a4f8463b45482deae37a",
-      "symbol": "UNI",
-      "rank": 21,
-      "balance": 6.879922983201289e+24,
-      "share": 0.69,
-      "last_tx": null
-    },
-    {
       "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
       "symbol": "UNI",
-      "rank": 22,
+      "rank": 18,
       "balance": 6.8100000001e+24,
       "share": 0.68,
       "last_tx": null
@@ -184,31 +152,55 @@
     {
       "address": "0x5ee84d30c7ee57f63f71c92247ff31f95e26916b",
       "symbol": "UNI",
-      "rank": 23,
-      "balance": 5.83833674791518e+24,
-      "share": 0.58,
+      "rank": 19,
+      "balance": 6.44427034524018e+24,
+      "share": 0.64,
       "last_tx": null
     },
     {
-      "address": "0xaccfea7d9e618f60ce1347c52ae206262412aa4a",
+      "address": "0xa4c9492d5f1578911756a4f8463b45482deae37a",
       "symbol": "UNI",
-      "rank": 24,
-      "balance": 5.591237485824509e+24,
-      "share": 0.56,
+      "rank": 20,
+      "balance": 5.87992298320129e+24,
+      "share": 0.59,
+      "last_tx": null
+    },
+    {
+      "address": "0x8fa129f87b8a11ee1ca35abd46674f8b66984d4a",
+      "symbol": "UNI",
+      "rank": 21,
+      "balance": 5.502566009540115e+24,
+      "share": 0.55,
       "last_tx": null
     },
     {
       "address": "0x3bbd4947df4e1bd80d130ddcfa9b54f1b03a1a8d",
       "symbol": "UNI",
-      "rank": 25,
+      "rank": 22,
       "balance": 5.4105964001e+24,
       "share": 0.54,
       "last_tx": null
     },
     {
+      "address": "0xaccfea7d9e618f60ce1347c52ae206262412aa4a",
+      "symbol": "UNI",
+      "rank": 23,
+      "balance": 5.35305187922562e+24,
+      "share": 0.54,
+      "last_tx": null
+    },
+    {
+      "address": "0x73af3bcf944a6559933396c1577b257e2054d935",
+      "symbol": "UNI",
+      "rank": 24,
+      "balance": 5.287062859365134e+24,
+      "share": 0.53,
+      "last_tx": null
+    },
+    {
       "address": "0xa16d450b6f3f6f7c142c5de3f65d2b0230446e01",
       "symbol": "UNI",
-      "rank": 26,
+      "rank": 25,
       "balance": 5.0000000001e+24,
       "share": 0.5,
       "last_tx": null
@@ -216,7 +208,7 @@
     {
       "address": "0xbb0dd3b2745fa1219ea5a305bcba8467ffc33133",
       "symbol": "UNI",
-      "rank": 27,
+      "rank": 26,
       "balance": 5.0000000001e+24,
       "share": 0.5,
       "last_tx": null
@@ -224,7 +216,7 @@
     {
       "address": "0xd95687cb00dc47c77f7dabb5dc89d7aed72422c4",
       "symbol": "UNI",
-      "rank": 28,
+      "rank": 27,
       "balance": 4.9999999001e+24,
       "share": 0.5,
       "last_tx": null
@@ -232,9 +224,17 @@
     {
       "address": "0x530d75828b621039979cf025072ae53b8ae4c0b0",
       "symbol": "UNI",
-      "rank": 29,
+      "rank": 28,
       "balance": 4.7000000001e+24,
       "share": 0.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+      "symbol": "UNI",
+      "rank": 29,
+      "balance": 4.6098008421e+24,
+      "share": 0.46,
       "last_tx": null
     },
     {
@@ -286,17 +286,33 @@
       "last_tx": null
     },
     {
-      "address": "0x2ec96c9af82ddd650c0776cb0da93beaa7ce2a10",
+      "address": "0x841ed663f2636863d40be4ee76243377dff13a34",
       "symbol": "UNI",
       "rank": 36,
+      "balance": 3.4046516692794167e+24,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0x2ec96c9af82ddd650c0776cb0da93beaa7ce2a10",
+      "symbol": "UNI",
+      "rank": 37,
       "balance": 3.25000006388162e+24,
       "share": 0.33,
       "last_tx": null
     },
     {
+      "address": "0xda26ce4495a00a294962e0d077964ea91ce4f698",
+      "symbol": "UNI",
+      "rank": 38,
+      "balance": 3.2107053391034897e+24,
+      "share": 0.32,
+      "last_tx": null
+    },
+    {
       "address": "0xbdf7347e4164ee0796d9b4f0a5f2dce9b77756b7",
       "symbol": "UNI",
-      "rank": 37,
+      "rank": 39,
       "balance": 3.19839735535361e+24,
       "share": 0.32,
       "last_tx": null
@@ -304,7 +320,7 @@
     {
       "address": "0x2fd0eb27494d7a336574919fc670c05adbf65c80",
       "symbol": "UNI",
-      "rank": 38,
+      "rank": 40,
       "balance": 3.1000000001e+24,
       "share": 0.31,
       "last_tx": null
@@ -312,23 +328,23 @@
     {
       "address": "0x4141dd69146b39b7919109793e51770b822b22ac",
       "symbol": "UNI",
-      "rank": 39,
+      "rank": 41,
       "balance": 3.06649519838683e+24,
       "share": 0.31,
       "last_tx": null
     },
     {
-      "address": "0xda26ce4495a00a294962e0d077964ea91ce4f698",
+      "address": "0x25da41e2cc914735ce7f9884fc55153f82329de0",
       "symbol": "UNI",
-      "rank": 40,
-      "balance": 2.980764508120463e+24,
+      "rank": 42,
+      "balance": 3.032410572863435e+24,
       "share": 0.3,
       "last_tx": null
     },
     {
       "address": "0x5624ed8a6c7eb91cba94a02eeb2d1c24dec6732d",
       "symbol": "UNI",
-      "rank": 41,
+      "rank": 43,
       "balance": 2.90000005004e+24,
       "share": 0.29,
       "last_tx": null
@@ -336,63 +352,55 @@
     {
       "address": "0x7c8406384f7a5c147a6add16407803be146147e4",
       "symbol": "UNI",
-      "rank": 42,
-      "balance": 2.8130190001e+24,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0x1d42064fc4beb5f8aaf85f4617ae8b3b5b8bd801",
-      "symbol": "UNI",
-      "rank": 43,
-      "balance": 2.7959015263728e+24,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0xee1bf4d7c53af2beafc7dc1dcea222a8c6d87ad9",
-      "symbol": "UNI",
       "rank": 44,
-      "balance": 2.7779939552667204e+24,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0x7f256695627c44e423139ec172393ecdc8a3de24",
-      "symbol": "UNI",
-      "rank": 45,
-      "balance": 2.7499999001e+24,
+      "balance": 2.8130140001e+24,
       "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
       "symbol": "UNI",
+      "rank": 45,
+      "balance": 2.79119040292086e+24,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0xee1bf4d7c53af2beafc7dc1dcea222a8c6d87ad9",
+      "symbol": "UNI",
       "rank": 46,
-      "balance": 2.7331665179701e+24,
-      "share": 0.27,
+      "balance": 2.7779939552667204e+24,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x1d42064fc4beb5f8aaf85f4617ae8b3b5b8bd801",
+      "symbol": "UNI",
+      "rank": 47,
+      "balance": 2.7737383623786565e+24,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x7f256695627c44e423139ec172393ecdc8a3de24",
+      "symbol": "UNI",
+      "rank": 48,
+      "balance": 2.7499999001e+24,
+      "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0xc52f8618ef7986ed7b47b4337b2249dea857ae4e",
       "symbol": "UNI",
-      "rank": 47,
+      "rank": 49,
       "balance": 2.6906848501e+24,
       "share": 0.27,
       "last_tx": null
     },
     {
-      "address": "0x25da41e2cc914735ce7f9884fc55153f82329de0",
-      "symbol": "UNI",
-      "rank": 48,
-      "balance": 2.548888845724424e+24,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
       "address": "0x7fd805e2852113e8167c701b43ead86364e800b9",
       "symbol": "UNI",
-      "rank": 49,
+      "rank": 50,
       "balance": 2.5314980001e+24,
       "share": 0.25,
       "last_tx": null
@@ -400,7 +408,7 @@
     {
       "address": "0x193ced5710223558cd37100165fae3fa4dfcdc14",
       "symbol": "UNI",
-      "rank": 50,
+      "rank": 51,
       "balance": 2.50000087024531e+24,
       "share": 0.25,
       "last_tx": null
@@ -408,7 +416,7 @@
     {
       "address": "0xe066472c59535a8c2cf83f89eeb9359629ef1398",
       "symbol": "UNI",
-      "rank": 51,
+      "rank": 52,
       "balance": 2.5000000001e+24,
       "share": 0.25,
       "last_tx": null
@@ -416,7 +424,7 @@
     {
       "address": "0x8608343b7987d903bb720d9425a8be54de48f1d3",
       "symbol": "UNI",
-      "rank": 52,
+      "rank": 53,
       "balance": 2.4999999001e+24,
       "share": 0.25,
       "last_tx": null
@@ -424,7 +432,7 @@
     {
       "address": "0x4c262bdb0ed4d40f1a7b85075762d6058a3b6fed",
       "symbol": "UNI",
-      "rank": 53,
+      "rank": 54,
       "balance": 2.4999999001e+24,
       "share": 0.25,
       "last_tx": null
@@ -432,7 +440,7 @@
     {
       "address": "0x67a93a3e126afd52ca06bf3b9be722820c9adfc9",
       "symbol": "UNI",
-      "rank": 54,
+      "rank": 55,
       "balance": 2.4999999001e+24,
       "share": 0.25,
       "last_tx": null
@@ -440,16 +448,8 @@
     {
       "address": "0xfb6b912cf7082031822f52e7d7ef59280f97a257",
       "symbol": "UNI",
-      "rank": 55,
-      "balance": 2.4998580001e+24,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
-      "address": "0xb0a27099582833c0cb8c7a0565759ff145113d64",
-      "symbol": "UNI",
       "rank": 56,
-      "balance": 2.495163324328983e+24,
+      "balance": 2.4998580001e+24,
       "share": 0.25,
       "last_tx": null
     },
@@ -502,17 +502,9 @@
       "last_tx": null
     },
     {
-      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
-      "symbol": "UNI",
-      "rank": 63,
-      "balance": 2.2767898292295096e+24,
-      "share": 0.23,
-      "last_tx": null
-    },
-    {
       "address": "0x4d7b61fce7716f2d91872a21ba131365273baec4",
       "symbol": "UNI",
-      "rank": 64,
+      "rank": 63,
       "balance": 2.2500000001e+24,
       "share": 0.23,
       "last_tx": null
@@ -520,7 +512,7 @@
     {
       "address": "0x8d2642ec9d19a9333c8593ab7de1cc3be44d2dbc",
       "symbol": "UNI",
-      "rank": 65,
+      "rank": 64,
       "balance": 2.2500000001e+24,
       "share": 0.23,
       "last_tx": null
@@ -528,7 +520,7 @@
     {
       "address": "0x61bed6a58c4dc592f1dc32f9ec0f67e49208405c",
       "symbol": "UNI",
-      "rank": 66,
+      "rank": 65,
       "balance": 2.2500000001e+24,
       "share": 0.23,
       "last_tx": null
@@ -536,7 +528,7 @@
     {
       "address": "0x9d45a3b23333ed95a284843633f69fb875b870cc",
       "symbol": "UNI",
-      "rank": 67,
+      "rank": 66,
       "balance": 2.24730740734531e+24,
       "share": 0.22,
       "last_tx": null
@@ -544,7 +536,7 @@
     {
       "address": "0xd2acafcb2fafee3b239ebea83b90a700db0c933b",
       "symbol": "UNI",
-      "rank": 68,
+      "rank": 67,
       "balance": 2.2081476182269e+24,
       "share": 0.22,
       "last_tx": null
@@ -552,7 +544,7 @@
     {
       "address": "0xc63ef543b5169df8ac0ced9a0d7d1d922147f6c4",
       "symbol": "UNI",
-      "rank": 69,
+      "rank": 68,
       "balance": 2.18619727944213e+24,
       "share": 0.22,
       "last_tx": null
@@ -560,16 +552,24 @@
     {
       "address": "0xd41a9951f225f6c17d68f06c675f2f6da2cb17e9",
       "symbol": "UNI",
-      "rank": 70,
+      "rank": 69,
       "balance": 2.16009018954e+24,
       "share": 0.22,
       "last_tx": null
     },
     {
-      "address": "0xf436ada6b8f4d235ba806f44b22fa4ee115c9bc2",
+      "address": "0xb0a27099582833c0cb8c7a0565759ff145113d64",
+      "symbol": "UNI",
+      "rank": 70,
+      "balance": 2.115855094328983e+24,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
       "symbol": "UNI",
       "rank": 71,
-      "balance": 2.08962627423292e+24,
+      "balance": 2.0946646303420427e+24,
       "share": 0.21,
       "last_tx": null
     },
@@ -598,18 +598,18 @@
       "last_tx": null
     },
     {
-      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "address": "0x7541f4aef75b640460cfa9ce15d559f10d310628",
       "symbol": "UNI",
       "rank": 75,
-      "balance": 1.99929494982939e+24,
+      "balance": 1.96956210491e+24,
       "share": 0.2,
       "last_tx": null
     },
     {
-      "address": "0x7541f4aef75b640460cfa9ce15d559f10d310628",
+      "address": "0xf436ada6b8f4d235ba806f44b22fa4ee115c9bc2",
       "symbol": "UNI",
       "rank": 76,
-      "balance": 1.96956210491e+24,
+      "balance": 1.96707154702572e+24,
       "share": 0.2,
       "last_tx": null
     },
@@ -622,9 +622,25 @@
       "last_tx": null
     },
     {
-      "address": "0xa51632ab150336d77ed8b3d4b107dfaedd223b23",
+      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
       "symbol": "UNI",
       "rank": 78,
+      "balance": 1.863811952945499e+24,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xf222f477c7a433306b19dbefafb46e751b74a55a",
+      "symbol": "UNI",
+      "rank": 79,
+      "balance": 1.8574715079404941e+24,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xa51632ab150336d77ed8b3d4b107dfaedd223b23",
+      "symbol": "UNI",
+      "rank": 80,
       "balance": 1.8555320001e+24,
       "share": 0.19,
       "last_tx": null
@@ -632,7 +648,7 @@
     {
       "address": "0x00f58119e84ca2bbbb64af698cfcf1ba123d8aeb",
       "symbol": "UNI",
-      "rank": 79,
+      "rank": 81,
       "balance": 1.8500000001e+24,
       "share": 0.19,
       "last_tx": null
@@ -640,15 +656,23 @@
     {
       "address": "0xc33854950a451f5992cc712b370222528b8bcad5",
       "symbol": "UNI",
-      "rank": 80,
+      "rank": 82,
       "balance": 1.8500000001e+24,
       "share": 0.19,
       "last_tx": null
     },
     {
+      "address": "0x2fb074fa59c9294c71246825c1c9a0c7782d41a4",
+      "symbol": "UNI",
+      "rank": 83,
+      "balance": 1.8090123604479309e+24,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
       "address": "0x20497cdd257569895f7e2c4cdea45e26d3154b6a",
       "symbol": "UNI",
-      "rank": 81,
+      "rank": 84,
       "balance": 1.8000001501e+24,
       "share": 0.18,
       "last_tx": null
@@ -656,7 +680,7 @@
     {
       "address": "0xdf1b4860d1688ebc8e6b4c6cc1ced03f792511b1",
       "symbol": "UNI",
-      "rank": 82,
+      "rank": 85,
       "balance": 1.8000000001e+24,
       "share": 0.18,
       "last_tx": null
@@ -664,7 +688,7 @@
     {
       "address": "0x4211986f857ec9bcd55d4a6bad8ef4d4d60deda6",
       "symbol": "UNI",
-      "rank": 83,
+      "rank": 86,
       "balance": 1.8000000001e+24,
       "share": 0.18,
       "last_tx": null
@@ -672,7 +696,7 @@
     {
       "address": "0x8890ad35cadd921da1ca5475c5bce0f54148dcc4",
       "symbol": "UNI",
-      "rank": 84,
+      "rank": 87,
       "balance": 1.8000000001e+24,
       "share": 0.18,
       "last_tx": null
@@ -680,7 +704,7 @@
     {
       "address": "0xd879446633614189e2124138372a5846932bcee9",
       "symbol": "UNI",
-      "rank": 85,
+      "rank": 88,
       "balance": 1.8000000001e+24,
       "share": 0.18,
       "last_tx": null
@@ -688,7 +712,7 @@
     {
       "address": "0x38a466cad6da151832ddb1b3b0de3c617df0db41",
       "symbol": "UNI",
-      "rank": 86,
+      "rank": 89,
       "balance": 1.8000000001e+24,
       "share": 0.18,
       "last_tx": null
@@ -696,63 +720,47 @@
     {
       "address": "0x8a96e905272a0b6558924584e284eb0f009b4ca7",
       "symbol": "UNI",
-      "rank": 87,
+      "rank": 90,
       "balance": 1.8000000001e+24,
       "share": 0.18,
       "last_tx": null
     },
     {
-      "address": "0x2fb074fa59c9294c71246825c1c9a0c7782d41a4",
-      "symbol": "UNI",
-      "rank": 88,
-      "balance": 1.78896896846456e+24,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0x1b3e7cdca3cc89e382e11e231d61e45e4709263c",
-      "symbol": "UNI",
-      "rank": 89,
-      "balance": 1.678235660248309e+24,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
       "address": "0xe8e1f50392bd61d0f8f48e8e7af51d3b8a52090a",
       "symbol": "UNI",
-      "rank": 90,
-      "balance": 1.6714305276079732e+24,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0xdf3288f9e54809c97edabdeb8f0c3c26ce0f5192",
-      "symbol": "UNI",
       "rank": 91,
-      "balance": 1.6664034547411005e+24,
+      "balance": 1.7314538563666412e+24,
       "share": 0.17,
       "last_tx": null
     },
     {
-      "address": "0xf222f477c7a433306b19dbefafb46e751b74a55a",
+      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
       "symbol": "UNI",
       "rank": 92,
-      "balance": 1.6148988021205942e+24,
-      "share": 0.16,
+      "balance": 1.6604126598359952e+24,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x7b6054d691857f28afc33accc2d7565af44c25f0",
       "symbol": "UNI",
       "rank": 93,
-      "balance": 1.5358926895373297e+24,
-      "share": 0.15,
+      "balance": 1.6232975717952277e+24,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x1b3e7cdca3cc89e382e11e231d61e45e4709263c",
+      "symbol": "UNI",
+      "rank": 94,
+      "balance": 1.608512790119461e+24,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xd268046fe47254e3da0fb3f0221cf4a5afb2e37c",
       "symbol": "UNI",
-      "rank": 94,
+      "rank": 95,
       "balance": 1.5210000001e+24,
       "share": 0.15,
       "last_tx": null
@@ -760,15 +768,15 @@
     {
       "address": "0x903ca2a612326c7ea3bee9362ba8e8b1321cd14b",
       "symbol": "UNI",
-      "rank": 95,
-      "balance": 1.4738396757728618e+24,
+      "rank": 96,
+      "balance": 1.4735416996153902e+24,
       "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x887bdd7792398626837bdcc48b20423ce1d305cc",
       "symbol": "UNI",
-      "rank": 96,
+      "rank": 97,
       "balance": 1.4400000001e+24,
       "share": 0.14,
       "last_tx": null
@@ -776,7 +784,7 @@
     {
       "address": "0x9642162ce222add150ff78b2c5975b22f5b2b646",
       "symbol": "UNI",
-      "rank": 97,
+      "rank": 98,
       "balance": 1.42720625518397e+24,
       "share": 0.14,
       "last_tx": null
@@ -784,16 +792,8 @@
     {
       "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
       "symbol": "UNI",
-      "rank": 98,
-      "balance": 1.42636491781086e+24,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
-      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
-      "symbol": "UNI",
       "rank": 99,
-      "balance": 1.411298298864435e+24,
+      "balance": 1.40628077996706e+24,
       "share": 0.14,
       "last_tx": null
     },

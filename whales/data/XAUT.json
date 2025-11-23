@@ -1,7 +1,7 @@
 {
   "token": "XAUT",
   "contract": "0x68749665ff8d2d112fa859aa293f07a622782f38",
-  "updated_at": "2025-11-13T21:23:55.749844",
+  "updated_at": "2025-11-23T08:29:20.564563",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,8 +9,8 @@
       "address": "0x5754284f345afc66a98fbb0a0afe71e0f007b949",
       "symbol": "XAUT",
       "rank": 1,
-      "balance": 142351658300.0,
-      "share": 27.27,
+      "balance": 144351658300.0,
+      "share": 27.65,
       "last_tx": null
     },
     {
@@ -41,22 +41,14 @@
       "address": "0x73f17d2f6572b436e0f5ed90ea66dc54123ac32e",
       "symbol": "XAUT",
       "rank": 5,
-      "balance": 23526763000.0,
-      "share": 4.51,
-      "last_tx": null
-    },
-    {
-      "address": "0x187c9fbf5bd0f266883c03f320260c407c7b4100",
-      "symbol": "XAUT",
-      "rank": 6,
-      "balance": 18856354390.0,
-      "share": 3.61,
+      "balance": 24825763000.0,
+      "share": 4.76,
       "last_tx": null
     },
     {
       "address": "0x93008d95635ed7591bdaea980dfb26093d8cd06e",
       "symbol": "XAUT",
-      "rank": 7,
+      "rank": 6,
       "balance": 16705636000.0,
       "share": 3.2,
       "last_tx": null
@@ -64,47 +56,47 @@
     {
       "address": "0x18e13eb54f68b25f1186d2134284c6066693af81",
       "symbol": "XAUT",
-      "rank": 8,
+      "rank": 7,
       "balance": 16612730000.0,
       "share": 3.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x187c9fbf5bd0f266883c03f320260c407c7b4100",
+      "symbol": "XAUT",
+      "rank": 8,
+      "balance": 16360725205.0,
+      "share": 3.13,
       "last_tx": null
     },
     {
       "address": "0x77134cbc06cb00b66f4c7e623d5fdbf6777635ec",
       "symbol": "XAUT",
       "rank": 9,
-      "balance": 14721151300.0,
-      "share": 2.82,
-      "last_tx": null
-    },
-    {
-      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
-      "symbol": "XAUT",
-      "rank": 10,
-      "balance": 11817190000.0,
-      "share": 2.26,
-      "last_tx": null
-    },
-    {
-      "address": "0xb0a27099582833c0cb8c7a0565759ff145113d64",
-      "symbol": "XAUT",
-      "rank": 11,
-      "balance": 10567622062.0,
-      "share": 2.02,
+      "balance": 16139067595.0,
+      "share": 3.09,
       "last_tx": null
     },
     {
       "address": "0xb9c2321bb7d0db468f570d10a424d1cc8efd696c",
       "symbol": "XAUT",
-      "rank": 12,
-      "balance": 7959305266.0,
-      "share": 1.52,
+      "rank": 10,
+      "balance": 8047330518.0,
+      "share": 1.54,
+      "last_tx": null
+    },
+    {
+      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
+      "symbol": "XAUT",
+      "rank": 11,
+      "balance": 7723050000.0,
+      "share": 1.48,
       "last_tx": null
     },
     {
       "address": "0x742d35cc6634c0532925a3b844bc454e4438f44e",
       "symbol": "XAUT",
-      "rank": 13,
+      "rank": 12,
       "balance": 7330318480.0,
       "share": 1.4,
       "last_tx": null
@@ -112,39 +104,55 @@
     {
       "address": "0xcde525bd723090284ee2f958c729d83cf117aff9",
       "symbol": "XAUT",
-      "rank": 14,
+      "rank": 13,
       "balance": 6000005812.0,
       "share": 1.15,
       "last_tx": null
     },
     {
-      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "address": "0x79ee72b4038c1da4613ac6d1c16305afe7d7b74f",
+      "symbol": "XAUT",
+      "rank": 14,
+      "balance": 5000000000.0,
+      "share": 0.96,
+      "last_tx": null
+    },
+    {
+      "address": "0xb0a27099582833c0cb8c7a0565759ff145113d64",
       "symbol": "XAUT",
       "rank": 15,
-      "balance": 3277730747.0,
-      "share": 0.63,
+      "balance": 3740228297.0,
+      "share": 0.72,
       "last_tx": null
     },
     {
       "address": "0xa726a64b66f4bd53c1c5e355cb635f7060834c04",
       "symbol": "XAUT",
       "rank": 16,
-      "balance": 3262126405.0,
-      "share": 0.62,
+      "balance": 3567891168.0,
+      "share": 0.68,
+      "last_tx": null
+    },
+    {
+      "address": "0xb99a2c4c1c4f1fc27150681b740396f6ce1cbcf5",
+      "symbol": "XAUT",
+      "rank": 17,
+      "balance": 3039498370.0,
+      "share": 0.58,
       "last_tx": null
     },
     {
       "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
       "symbol": "XAUT",
-      "rank": 17,
-      "balance": 3217416600.0,
-      "share": 0.62,
+      "rank": 18,
+      "balance": 2879042783.0,
+      "share": 0.55,
       "last_tx": null
     },
     {
       "address": "0xdfcaf20a17521a761036af8a3a758fcdd91dfc07",
       "symbol": "XAUT",
-      "rank": 18,
+      "rank": 19,
       "balance": 2878697689.0,
       "share": 0.55,
       "last_tx": null
@@ -152,105 +160,97 @@
     {
       "address": "0x6961c4d583209857318fb424d65124fa0ebb6bf5",
       "symbol": "XAUT",
-      "rank": 19,
+      "rank": 20,
       "balance": 2500004569.0,
       "share": 0.48,
-      "last_tx": null
-    },
-    {
-      "address": "0x5fefafedd49a6099572f24747338193d8864a838",
-      "symbol": "XAUT",
-      "rank": 20,
-      "balance": 2200004939.0,
-      "share": 0.42,
       "last_tx": null
     },
     {
       "address": "0x8a2b6f94ff3a89a03e8c02ee92b55af90c9454a2",
       "symbol": "XAUT",
       "rank": 21,
-      "balance": 2041643328.0,
-      "share": 0.39,
+      "balance": 2384646021.0,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0x5fefafedd49a6099572f24747338193d8864a838",
+      "symbol": "XAUT",
+      "rank": 22,
+      "balance": 2300006829.0,
+      "share": 0.44,
+      "last_tx": null
+    },
+    {
+      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "symbol": "XAUT",
+      "rank": 23,
+      "balance": 2211703070.0,
+      "share": 0.42,
       "last_tx": null
     },
     {
       "address": "0x88441ccd7c41d4d6f4edf7811c758065555226fa",
       "symbol": "XAUT",
-      "rank": 22,
+      "rank": 24,
       "balance": 1860726334.0,
       "share": 0.36,
       "last_tx": null
     },
     {
-      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
       "symbol": "XAUT",
-      "rank": 23,
-      "balance": 1312582875.0,
+      "rank": 25,
+      "balance": 1291311056.0,
       "share": 0.25,
       "last_tx": null
     },
     {
-      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
       "symbol": "XAUT",
-      "rank": 24,
-      "balance": 1278212987.0,
+      "rank": 26,
+      "balance": 1239143188.0,
       "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0x37c5357bbad26a88722bea104c489f903373ed8f",
       "symbol": "XAUT",
-      "rank": 25,
+      "rank": 27,
       "balance": 1172265000.0,
       "share": 0.22,
       "last_tx": null
     },
     {
-      "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
+      "address": "0x6546055f46e866a4b9a4a13e81273e3152bae5da",
       "symbol": "XAUT",
-      "rank": 26,
-      "balance": 1169996142.0,
-      "share": 0.22,
-      "last_tx": null
-    },
-    {
-      "address": "0xc48a38499a90e3b883c509ca08ec1b540cdf15ee",
-      "symbol": "XAUT",
-      "rank": 27,
-      "balance": 1060899703.0,
+      "rank": 28,
+      "balance": 1060682608.0,
       "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0xa0894a415c4f246ce95bae718849579c099cc1d2",
       "symbol": "XAUT",
-      "rank": 28,
+      "rank": 29,
       "balance": 1000057429.0,
       "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0xb99a2c4c1c4f1fc27150681b740396f6ce1cbcf5",
-      "symbol": "XAUT",
-      "rank": 29,
-      "balance": 945165200.0,
-      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
       "symbol": "XAUT",
       "rank": 30,
-      "balance": 904638994.0,
-      "share": 0.17,
+      "balance": 997836199.0,
+      "share": 0.19,
       "last_tx": null
     },
     {
-      "address": "0x116847c4316c34d3fe13c706f460e31562f81c7e",
+      "address": "0x3da232a0c0a5c59918d7b5ff77bf1c8fc93aee1b",
       "symbol": "XAUT",
       "rank": 31,
-      "balance": 882387200.0,
-      "share": 0.17,
+      "balance": 858612997.0,
+      "share": 0.16,
       "last_tx": null
     },
     {
@@ -262,9 +262,17 @@
       "last_tx": null
     },
     {
-      "address": "0xbba644510a7eb1bbc99fada5fa92a04cfdb04409",
+      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
       "symbol": "XAUT",
       "rank": 33,
+      "balance": 822813192.0,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0xbba644510a7eb1bbc99fada5fa92a04cfdb04409",
+      "symbol": "XAUT",
+      "rank": 34,
       "balance": 809999923.0,
       "share": 0.16,
       "last_tx": null
@@ -272,39 +280,47 @@
     {
       "address": "0x7a11de227615d69a3c5589eb7c5a1ab73fcbeffb",
       "symbol": "XAUT",
-      "rank": 34,
+      "rank": 35,
       "balance": 800000000.0,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x116847c4316c34d3fe13c706f460e31562f81c7e",
+      "symbol": "XAUT",
+      "rank": 36,
+      "balance": 782387200.0,
       "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0xbd64d1bd0f1de58a56f8287036b36739de7897a1",
       "symbol": "XAUT",
-      "rank": 35,
+      "rank": 37,
       "balance": 774237748.0,
       "share": 0.15,
       "last_tx": null
     },
     {
-      "address": "0x6546055f46e866a4b9a4a13e81273e3152bae5da",
+      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "symbol": "XAUT",
-      "rank": 36,
-      "balance": 650076963.0,
-      "share": 0.12,
+      "rank": 38,
+      "balance": 654049316.0,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x7e593457ed381546787beb14fdc9ec6cc0c135fd",
       "symbol": "XAUT",
-      "rank": 37,
-      "balance": 642397958.0,
+      "rank": 39,
+      "balance": 645699283.0,
       "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0xa99f29a2fbdcafbf057b3d8efc47cfcee670bb43",
       "symbol": "XAUT",
-      "rank": 38,
+      "rank": 40,
       "balance": 638311522.0,
       "share": 0.12,
       "last_tx": null
@@ -312,7 +328,7 @@
     {
       "address": "0xd08c9aa53e85c7098470ca259caddb0eada3a245",
       "symbol": "XAUT",
-      "rank": 39,
+      "rank": 41,
       "balance": 612331111.0,
       "share": 0.12,
       "last_tx": null
@@ -320,7 +336,7 @@
     {
       "address": "0xb60889cbedc74a5eaf60c64855cdaa2d2c08db66",
       "symbol": "XAUT",
-      "rank": 40,
+      "rank": 42,
       "balance": 592844722.0,
       "share": 0.11,
       "last_tx": null
@@ -328,55 +344,55 @@
     {
       "address": "0x42f4c378aa70aae29573721ac363f82452a4f782",
       "symbol": "XAUT",
-      "rank": 41,
+      "rank": 43,
       "balance": 585162780.0,
       "share": 0.11,
       "last_tx": null
     },
     {
-      "address": "0x915dd363dba85170de2ec6c260f5f9ec93fe5f9a",
+      "address": "0xbb3c6d28def21b6297016622a57a0b05015e3ad2",
       "symbol": "XAUT",
-      "rank": 42,
-      "balance": 565177491.0,
+      "rank": 44,
+      "balance": 567012224.0,
       "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x91dca37856240e5e1906222ec79278b16420dc92",
       "symbol": "XAUT",
-      "rank": 43,
-      "balance": 539602372.0,
-      "share": 0.1,
+      "rank": 45,
+      "balance": 559035883.0,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x99b95c60b2d68db15dffb11a71076a31ccaf1487",
+      "symbol": "XAUT",
+      "rank": 46,
+      "balance": 548548820.0,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x4c1ec3d1519225f36958408fdd33a0d5ba1f2fa7",
       "symbol": "XAUT",
-      "rank": 44,
-      "balance": 535552917.0,
+      "rank": 47,
+      "balance": 545552917.0,
       "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+      "address": "0xc48a38499a90e3b883c509ca08ec1b540cdf15ee",
       "symbol": "XAUT",
-      "rank": 45,
-      "balance": 529474343.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
-      "symbol": "XAUT",
-      "rank": 46,
-      "balance": 524230631.0,
+      "rank": 48,
+      "balance": 522398382.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x44adf7b5507bf53949b65fc92149da96a4a56552",
       "symbol": "XAUT",
-      "rank": 47,
+      "rank": 49,
       "balance": 505068317.0,
       "share": 0.1,
       "last_tx": null
@@ -384,31 +400,47 @@
     {
       "address": "0xa447b855719c3114545b10b29aabcc4955f99d67",
       "symbol": "XAUT",
-      "rank": 48,
+      "rank": 50,
       "balance": 483488955.0,
       "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0xbb3c6d28def21b6297016622a57a0b05015e3ad2",
+      "address": "0xe8a1f39c16eea2844e98f951d711bb4bb31557ad",
       "symbol": "XAUT",
-      "rank": 49,
-      "balance": 482702224.0,
+      "rank": 51,
+      "balance": 481298289.0,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x70def3c9b2b57cbfd1386353f176093d7c86e477",
       "symbol": "XAUT",
-      "rank": 50,
+      "rank": 52,
       "balance": 479727071.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x915dd363dba85170de2ec6c260f5f9ec93fe5f9a",
+      "symbol": "XAUT",
+      "rank": 53,
+      "balance": 460726783.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xed7ef9a9a05a48858a507c080def0405ad1eaa3e",
+      "symbol": "XAUT",
+      "rank": 54,
+      "balance": 456975310.0,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0xa4c2ea032eb6964f86ced9d3ba199e52a7fe5c3b",
       "symbol": "XAUT",
-      "rank": 51,
+      "rank": 55,
       "balance": 430005941.0,
       "share": 0.08,
       "last_tx": null
@@ -416,7 +448,7 @@
     {
       "address": "0x8c0824ffccbe9a3cdda4c3d409a0b7447320f364",
       "symbol": "XAUT",
-      "rank": 52,
+      "rank": 56,
       "balance": 422965051.0,
       "share": 0.08,
       "last_tx": null
@@ -424,7 +456,7 @@
     {
       "address": "0xcdd4114bd3067020dc9d077dba53798340d3b5ba",
       "symbol": "XAUT",
-      "rank": 53,
+      "rank": 57,
       "balance": 406922197.0,
       "share": 0.08,
       "last_tx": null
@@ -432,64 +464,32 @@
     {
       "address": "0x4db3f66327e7092e802db9363ff6a4fb5b3357b4",
       "symbol": "XAUT",
-      "rank": 54,
+      "rank": 58,
       "balance": 398828276.0,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0xed7ef9a9a05a48858a507c080def0405ad1eaa3e",
+      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
       "symbol": "XAUT",
-      "rank": 55,
-      "balance": 381946113.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x7a1d00de77c0162d55d84a051bdc6840852b4a60",
-      "symbol": "XAUT",
-      "rank": 56,
-      "balance": 358374761.0,
+      "rank": 59,
+      "balance": 358779785.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x4fb312915b779b1339388e14b6d079741ca83128",
       "symbol": "XAUT",
-      "rank": 57,
+      "rank": 60,
       "balance": 338140000.0,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x99b95c60b2d68db15dffb11a71076a31ccaf1487",
-      "symbol": "XAUT",
-      "rank": 58,
-      "balance": 300084329.0,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x0b91e0c63621327d78ea7dd455716199421b4101",
       "symbol": "XAUT",
-      "rank": 59,
-      "balance": 299504301.0,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
-      "symbol": "XAUT",
-      "rank": 60,
-      "balance": 298779785.0,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
-      "symbol": "XAUT",
       "rank": 61,
-      "balance": 290567697.0,
+      "balance": 299504301.0,
       "share": 0.06,
       "last_tx": null
     },
@@ -510,17 +510,25 @@
       "last_tx": null
     },
     {
-      "address": "0x548054687ef6c56c6d82e8269e5fd93d8b88fcb2",
+      "address": "0x76ec5a0d3632b2133d9f1980903305b62678fbd3",
       "symbol": "XAUT",
       "rank": 64,
-      "balance": 256328746.0,
+      "balance": 271350414.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
+      "symbol": "XAUT",
+      "rank": 65,
+      "balance": 260851459.0,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0xaefe93ade48caf8c68ea766d24779ea4ec78b688",
       "symbol": "XAUT",
-      "rank": 65,
+      "rank": 66,
       "balance": 254199314.0,
       "share": 0.05,
       "last_tx": null
@@ -528,31 +536,39 @@
     {
       "address": "0xf02e86d9e0efd57ad034faf52201b79917fe0713",
       "symbol": "XAUT",
-      "rank": 66,
+      "rank": 67,
       "balance": 253593492.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x548054687ef6c56c6d82e8269e5fd93d8b88fcb2",
+      "symbol": "XAUT",
+      "rank": 68,
+      "balance": 251893100.0,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0xa66af371cf1edab55d8fdb2df1021ceda725a881",
       "symbol": "XAUT",
-      "rank": 67,
+      "rank": 69,
       "balance": 250018377.0,
       "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0xfe5a9b9fcbb82ba1b5e872331ebf17c4213ab68a",
+      "address": "0xf8191d98ae98d2f7abdfb63a9b0b812b93c873aa",
       "symbol": "XAUT",
-      "rank": 68,
-      "balance": 249999070.0,
+      "rank": 70,
+      "balance": 248043071.0,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x53b9b72dc6f96eb4b54143b211b22e2548e4cf5c",
       "symbol": "XAUT",
-      "rank": 69,
+      "rank": 71,
       "balance": 247346925.0,
       "share": 0.05,
       "last_tx": null
@@ -560,7 +576,7 @@
     {
       "address": "0x1f6c7ae61f7682d98dceb46ea2d80d272d6fddfe",
       "symbol": "XAUT",
-      "rank": 70,
+      "rank": 72,
       "balance": 246709987.0,
       "share": 0.05,
       "last_tx": null
@@ -568,7 +584,7 @@
     {
       "address": "0x6b63a2dfb2bcd0caec0022b88be30c1451ea56aa",
       "symbol": "XAUT",
-      "rank": 71,
+      "rank": 73,
       "balance": 243879877.0,
       "share": 0.05,
       "last_tx": null
@@ -576,7 +592,7 @@
     {
       "address": "0x45e36f6b86c7b073947d07e96693d468e4475c5e",
       "symbol": "XAUT",
-      "rank": 72,
+      "rank": 74,
       "balance": 239007026.0,
       "share": 0.05,
       "last_tx": null
@@ -584,23 +600,15 @@
     {
       "address": "0xa48a523f3e0f1a9232bfe22bb6ae07bb44bf36f1",
       "symbol": "XAUT",
-      "rank": 73,
+      "rank": 75,
       "balance": 238480623.0,
       "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0x306a48df70b8f31d3ebdad8103c86946c8252283",
-      "symbol": "XAUT",
-      "rank": 74,
-      "balance": 225373111.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
       "address": "0xed780342267727f024116c70dcbedd49fde2015c",
       "symbol": "XAUT",
-      "rank": 75,
+      "rank": 76,
       "balance": 204111683.0,
       "share": 0.04,
       "last_tx": null
@@ -608,7 +616,7 @@
     {
       "address": "0x717a66f5eca6a148c56e37ceaadc99e7573b0e50",
       "symbol": "XAUT",
-      "rank": 76,
+      "rank": 77,
       "balance": 200082221.0,
       "share": 0.04,
       "last_tx": null
@@ -616,7 +624,7 @@
     {
       "address": "0x3cd68dce3249085ce58506b1ef7312d6dee272fe",
       "symbol": "XAUT",
-      "rank": 77,
+      "rank": 78,
       "balance": 200006883.0,
       "share": 0.04,
       "last_tx": null
@@ -624,47 +632,47 @@
     {
       "address": "0x9c483fa4d84a218940bfa02652fcaf01ee8f44f2",
       "symbol": "XAUT",
-      "rank": 78,
+      "rank": 79,
       "balance": 200000000.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+      "symbol": "XAUT",
+      "rank": 80,
+      "balance": 191950152.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x308672703961164e64332ba1ce19b85827502b4d",
+      "symbol": "XAUT",
+      "rank": 81,
+      "balance": 190000250.0,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x2fb600b11531f6553ae470dcffadeac5e46dc84f",
       "symbol": "XAUT",
-      "rank": 79,
+      "rank": 82,
       "balance": 186428217.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x76ec5a0d3632b2133d9f1980903305b62678fbd3",
-      "symbol": "XAUT",
-      "rank": 80,
-      "balance": 185769757.0,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x3b94e9fa105551b700e4965bf13db3153bb26557",
       "symbol": "XAUT",
-      "rank": 81,
+      "rank": 83,
       "balance": 180369343.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x62a8f27d97d617c36af421ed1eeb0ad08b22b182",
-      "symbol": "XAUT",
-      "rank": 82,
-      "balance": 179808526.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x4249ffddac62b7da3d2eefeb96b3223a6eeb234b",
       "symbol": "XAUT",
-      "rank": 83,
+      "rank": 84,
       "balance": 173723967.0,
       "share": 0.03,
       "last_tx": null
@@ -672,7 +680,7 @@
     {
       "address": "0xbe60621474804ba5292b2b19a21791f037332c6c",
       "symbol": "XAUT",
-      "rank": 84,
+      "rank": 85,
       "balance": 167629387.0,
       "share": 0.03,
       "last_tx": null
@@ -680,7 +688,7 @@
     {
       "address": "0x59275149ee03ac34f8a94ea9063359bad5527a78",
       "symbol": "XAUT",
-      "rank": 85,
+      "rank": 86,
       "balance": 166218390.0,
       "share": 0.03,
       "last_tx": null
@@ -688,7 +696,7 @@
     {
       "address": "0x55ce1c540442a61cb07d9ea52f1f9f95345bc210",
       "symbol": "XAUT",
-      "rank": 86,
+      "rank": 87,
       "balance": 160200031.0,
       "share": 0.03,
       "last_tx": null
@@ -696,7 +704,7 @@
     {
       "address": "0x5a02841018ba5ca1b6231d66238aa729caccf25a",
       "symbol": "XAUT",
-      "rank": 87,
+      "rank": 88,
       "balance": 159167779.0,
       "share": 0.03,
       "last_tx": null
@@ -704,39 +712,55 @@
     {
       "address": "0x43911ee0012cdabf825d1ffe3a3e372c9d477618",
       "symbol": "XAUT",
-      "rank": 88,
+      "rank": 89,
       "balance": 158088353.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x7a1d00de77c0162d55d84a051bdc6840852b4a60",
+      "symbol": "XAUT",
+      "rank": 90,
+      "balance": 157750510.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x348d9f21f01c36b0584ad0fddcd0780a6aaf925e",
       "symbol": "XAUT",
-      "rank": 89,
+      "rank": 91,
       "balance": 157146743.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x7ddc7587c03358b023245c1b2b40d60cf877bf50",
-      "symbol": "XAUT",
-      "rank": 90,
-      "balance": 156332950.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x0797c6f55f5c9005996a55959a341018cf69a963",
       "symbol": "XAUT",
-      "rank": 91,
-      "balance": 155210015.0,
+      "rank": 92,
+      "balance": 156595323.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x7ddc7587c03358b023245c1b2b40d60cf877bf50",
+      "symbol": "XAUT",
+      "rank": 93,
+      "balance": 156332950.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x5bdf85216ec1e38d6458c870992a69e38e03f7ef",
+      "symbol": "XAUT",
+      "rank": 94,
+      "balance": 152052781.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0xad82c21880f582ffebfb7accb0ad5c683bdca17a",
       "symbol": "XAUT",
-      "rank": 92,
+      "rank": 95,
       "balance": 150031550.0,
       "share": 0.03,
       "last_tx": null
@@ -744,7 +768,7 @@
     {
       "address": "0xac4dad44b49cfd9ed46000f8bf475b80ee3f9e9e",
       "symbol": "XAUT",
-      "rank": 93,
+      "rank": 96,
       "balance": 146827950.0,
       "share": 0.03,
       "last_tx": null
@@ -752,48 +776,24 @@
     {
       "address": "0x6105ad8a5d8b54f3d3720da1bcd32a1394bbafcc",
       "symbol": "XAUT",
-      "rank": 94,
+      "rank": 97,
       "balance": 142231623.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xe8a1f39c16eea2844e98f951d711bb4bb31557ad",
-      "symbol": "XAUT",
-      "rank": 95,
-      "balance": 135828892.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x15febd2892f3bcd04fb2bd9a3b0084c5c9ad411e",
       "symbol": "XAUT",
-      "rank": 96,
+      "rank": 98,
       "balance": 134215738.0,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0xf6ba9801b5e37c2ced4ba72607a05f4650077baa",
-      "symbol": "XAUT",
-      "rank": 97,
-      "balance": 133390210.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x2ddd1c54b7d32c773484d23ad8cb4f0251d330fc",
-      "symbol": "XAUT",
-      "rank": 98,
-      "balance": 133317297.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x9531cbba115ac1c7e3514d3ec1f13a0226287dbb",
+      "address": "0x0b07f64abc342b68aec57c0936e4b6fd4452967e",
       "symbol": "XAUT",
       "rank": 99,
-      "balance": 132996739.0,
+      "balance": 134196167.0,
       "share": 0.03,
       "last_tx": null
     },
@@ -801,7 +801,7 @@
       "address": "0x5a96128c18018a2cef539f46bbed037dad3caae8",
       "symbol": "XAUT",
       "rank": 100,
-      "balance": 131615019.0,
+      "balance": 134078212.0,
       "share": 0.03,
       "last_tx": null
     }

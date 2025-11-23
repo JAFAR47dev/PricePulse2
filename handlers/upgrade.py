@@ -44,7 +44,6 @@ async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     "• AI predictions, backtests, scanners & pattern detection\n"
     "• Portfolio tracking with SL/TP automation\n"
     "• Whale wallet tracking + real-time watchlist alerts\n\n"
-    "✨ Want FREE Pro ? Just type /tasks\n\n"
    
 
     "*Choose a plan below to upgrade and unlock everything:*"
@@ -93,15 +92,33 @@ async def back_to_plans(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await upgrade_menu(update, context)
 
 
-# --- Helper: Get live price ---
+import requests
+import os
+from dotenv import load_dotenv
+
+# Load env variable
+load_dotenv()
+COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
+
 def get_live_price_usd(coin_id: str):
+    """
+    Fetch live USD price using CoinGecko API key.
+    """
     try:
-        url = f"https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies=usd"
+        url = (
+            f"https://api.coingecko.com/api/v3/simple/price"
+            f"?ids={coin_id}&vs_currencies=usd&x_cg_demo_api_key={COINGECKO_API_KEY}"
+        )
+
         response = requests.get(url, timeout=20)
-        return response.json()[coin_id]["usd"]
+        data = response.json()
+
+        return data[coin_id]["usd"]
+
     except Exception as e:
         print("❌ Error fetching live price:", e)
         return None
+        
 
 
 # --- Helper: Calculate live amount ---
@@ -171,24 +188,24 @@ async def confirm_payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
         crypto_name = crypto_info.get("name", crypto.upper())
         usd_value = USD_PRICES.get(plan, "N/A")
 
-        # Notify admins
-        for admin_id in ADMIN_ID:
-            try:
-                await context.bot.send_message(
-                    chat_id=admin_id,
-                    text=(
-                        f"🛎 *Payment Confirmation Submitted*\n\n"
-                        f"👤 User: [{user_name}](tg://user?id={user.id}) (`{user.id}`)\n"
-                        f"📦 Plan: *{plan.capitalize()}* (${usd_value})\n"
-                        f"💱 Crypto: *{crypto_name}*\n"
-                        f"🕒 Time: {timestamp}\n\n"
-                        f"Use `/setplan {user.id} {plan}` to upgrade manually."
-                    ),
-                    parse_mode="Markdown"
-                )
-            except Exception as e:
-                print(f"❌ Failed to notify admin {admin_id}:", e)
-
+        # Notify admin  
+        admin_id = ADMIN_ID
+        try:
+            await context.bot.send_message(
+                chat_id=admin_id,
+                text=(
+                    f"🛎 *Payment Confirmation Submitted*\n\n"
+                    f"👤 User: [{user_name}](tg://user?id={user.id}) (`{user.id}`)\n"
+                    f"📦 Plan: *{plan.capitalize()}* (${usd_value})\n"
+                    f"💱 Crypto: *{crypto_name}*\n"
+                    f"🕒 Time: {timestamp}\n\n"
+                    f"Use `/setplan {user.id} {plan}` to upgrade manually."
+                ),
+                parse_mode="Markdown"
+            )
+        except Exception as e:
+            print(f"❌ Failed to notify admin {admin_id}:", e)
+    
         # Notify user
         await query.edit_message_text(
             "✅ Payment confirmation submitted successfully.\n\n"

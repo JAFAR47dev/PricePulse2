@@ -57,6 +57,7 @@ TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 if not TOKEN:
     raise ValueError("❌ TELEGRAM_BOT_TOKEN missing in .env file")
 
+
 def main():
     init_db()
     create_referrals_table()
@@ -78,14 +79,14 @@ def main():
     app.add_handler(CallbackQueryHandler(track_user_activity))
 
     # === JOB QUEUE (CLEANED — NO create_task NEEDED) ===
-    app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=110)
+    app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
     app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=60)
 
     # These functions MUST be async — make sure they are!
-    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=80)
-    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=900)
-    app.job_queue.run_repeating(start_monitor, interval=300, first=100)
-    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=700)
+    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=20)
+    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=30)
+    app.job_queue.run_repeating(start_monitor, interval=300, first=40)
+    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=50)
     
     start_alert_checker(app.job_queue)
     start_notifications_scheduler(app)

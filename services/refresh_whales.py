@@ -127,7 +127,7 @@ def save_fallback(symbol: str, reason: str):
 
 
 # ✅ Main whale refresh logic (with resume and version tracking)
-async def refresh_all_whales():
+async def refresh_all_whales(context:None):
     if not os.path.exists(TOP_TOKENS_FILE):
         print("❌ top_tokens.json not found! Run refresh_top_tokens() first.")
         return False

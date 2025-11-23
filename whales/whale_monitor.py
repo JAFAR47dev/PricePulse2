@@ -66,7 +66,7 @@ def is_large_transaction(tx):
     You can refine this logic later using live price data.
     """
     value = float(tx.get("value", 0)) / (10 ** int(tx.get("tokenDecimal", 18)))
-    return value > 100_000  # placeholder threshold
+    return value > 500_000  # placeholder threshold
 
 
 # === Monitor task ===
@@ -139,15 +139,13 @@ async def monitor_whales():
     save_json(STATE_FILE, last_seen)
     print("✅ Whale monitor completed cycle.")
 
-
-# === Run monitor periodically ===
-async def start_monitor(interval_minutes=5):
-    """Run whale monitor every N minutes"""
-    while True:
+async def start_monitor(context):
+    """Runs once every scheduled interval (handled by JobQueue)"""
+    try:
         await monitor_whales()
-        await asyncio.sleep(interval_minutes * 60)
-
-
+    except Exception as e:
+        print(f"[WhaleMonitor] Error in start_monitor: {e}")
+        
 # === Manual test entry point ===
 if __name__ == "__main__":
     asyncio.run(monitor_whales())

@@ -1,7 +1,7 @@
 {
   "token": "BNB",
   "contract": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
-  "updated_at": "2025-11-10T16:03:50.110505",
+  "updated_at": "2025-11-23T07:12:33.923362",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,8 +9,8 @@
       "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
       "symbol": "BNB",
       "rank": 1,
-      "balance": 9.0178277e+22,
-      "share": 22.95,
+      "balance": 9.0280803e+22,
+      "share": 22.98,
       "last_tx": null
     },
     {
@@ -49,7 +49,7 @@
       "address": "0xf60c2ea62edbfe808163751dd0d8693dcb30019c",
       "symbol": "BNB",
       "rank": 6,
-      "balance": 9.206018255424015e+21,
+      "balance": 9.208287466214015e+21,
       "share": 2.34,
       "last_tx": null
     },

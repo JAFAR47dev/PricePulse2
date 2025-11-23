@@ -38,9 +38,8 @@ async def handle_add_alert_button(update: Update, context: ContextTypes.DEFAULT_
     if len(parts) == 2 and parts[0] == "addalert":
         symbol = parts[1]
         await query.message.reply_text(
-            f"🛎 To add an alert for *{symbol}*, use:\n"
-            f"`/set`\n\n"
-            "Or use `/help` to see full options.",
+            f"🛎 To add an alert for *{symbol}*, use:\n\n"
+            f"`/set`\n",
             parse_mode="Markdown"
         )
 

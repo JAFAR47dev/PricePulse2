@@ -72,6 +72,7 @@ help_pages = {
        "• `/start` — Launch welcome menu\n"
        "• `/help` — View detailed guide\n"
        "• `/upgrade` — See Pro benefits & upgrade steps\n"
+       "• `/myplan` — Check your subscription plan and expiry date\n"
        "• `/feedback` — Share your review\n"
        "• `/notifications` — Enable/disable bot notifications\n"
        "• `/addtogroup` — Add bot to your Telegram group\n",
