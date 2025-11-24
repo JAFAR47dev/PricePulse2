@@ -10,7 +10,8 @@ def get_top_commands(cursor, interval):
         ORDER BY total DESC
         LIMIT 5
     """)
-    return cursor.fetchall()
+    rows = cursor.fetchall()
+    return [(cmd, int(total)) for cmd, total in rows] if rows else []
 
 def get_least_commands(cursor, interval):
     cursor.execute(f"""
@@ -21,7 +22,9 @@ def get_least_commands(cursor, interval):
         ORDER BY total ASC
         LIMIT 5
     """)
-    return cursor.fetchall()
+    rows = cursor.fetchall()
+    return [(cmd, int(total)) for cmd, total in rows] if rows else []
+    
     
 def get_stats():
     conn = get_connection()
