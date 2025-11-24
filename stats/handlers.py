@@ -7,6 +7,15 @@ from dotenv import load_dotenv
 load_dotenv()
 ADMIN_ID = int(os.getenv("ADMIN_ID"))
 
+def format_command_list(cmd_list):
+    """
+    Convert list of tuples [(command, count), ...] 
+    into a human-readable string "command1 (count), command2 (count), ..."
+    """
+    if not cmd_list:
+        return "N/A"
+    return ", ".join(f"{cmd} ({cnt})" for cmd, cnt in cmd_list)
+    
 async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
 
@@ -39,24 +48,27 @@ async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"• Custom: `{stats['custom_alerts']}`\n"
         f"• Portfolio: `{stats['portfolio_alerts']}`\n"
         f"• Watchlist: `{stats['watchlist']}`\n\n"
+        
+         "⌨️ *Command Usage — Last 24h*\n"
+        f"• Top: {format_command_list(stats.get('top_commands_24h'))}\n"
+        f"• Least: {format_command_list(stats.get('least_commands_24h'))}\n\n"
 
+        "⌨️ *Command Usage — Last 7 days*\n"
+        f"• Top: {format_command_list(stats.get('top_commands_7d'))}\n"
+        f"• Least: {format_command_list(stats.get('least_commands_7d'))}\n\n"
+
+        "⌨️ *Command Usage — Last 30 days*\n"
+        f"• Top: {format_command_list(stats.get('top_commands_30d'))}\n"
+        f"• Least: {format_command_list(stats.get('least_commands_30d'))}"
+    
         "🎯 *Engagement Stats*\n"
         f"• Total Referrals: `{stats['total_referrals']}`\n"
         f"• Top Referrer: `{stats['top_referrer'] or 'N/A'}` "
         f"({stats['top_referral_count']} referrals)\n\n"
 
-        "⌨️ *Command Usage — Last 24h*\n"
-        f"• Top: {', '.join(stats.get('top_commands_24h', [])) or 'N/A'}\n"
-        f"• Least: {', '.join(stats.get('least_commands_24h', [])) or 'N/A'}\n\n"
-
-        "⌨️ *Command Usage — Last 7 days*\n"
-        f"• Top: {', '.join(stats.get('top_commands_7d', [])) or 'N/A'}\n"
-        f"• Least: {', '.join(stats.get('least_commands_7d', [])) or 'N/A'}\n\n"
-
-        "⌨️ *Command Usage — Last 30 days*\n"
-        f"• Top: {', '.join(stats.get('top_commands_30d', [])) or 'N/A'}\n"
-        f"• Least: {', '.join(stats.get('least_commands_30d', [])) or 'N/A'}"
+       
     )
+        
 
     await update.message.reply_text(msg, parse_mode="Markdown")
 
