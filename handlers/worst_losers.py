@@ -89,7 +89,7 @@ async def get_top_losers_message() -> str:
 # =====================================================
 async def worst_losers(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/worst")
     await handle_streak(update, context)
 
     loading_msg = await update.message.reply_text("📉 Fetching top 24h losers...")

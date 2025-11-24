@@ -191,7 +191,7 @@ def get_portfolio_value_limits(user_id):
 
     try:
         cursor.execute("""
-            SELECT loss_limit, profit_target
+            SELECT loss_limit, profit_target, repeat
             FROM portfolio_limits
             WHERE user_id = ?
         """, (user_id,))
@@ -200,13 +200,17 @@ def get_portfolio_value_limits(user_id):
         if not row:
             return None
 
-        loss_limit, profit_target = row
+        loss_limit, profit_target, repeat = row
 
-        # Return only if valid values exist
-        if (loss_limit and loss_limit > 0) or (profit_target and profit_target > 0):
+        # Only return if values exist
+        if (
+            (loss_limit and loss_limit > 0) or 
+            (profit_target and profit_target > 0)
+        ):
             return {
                 "loss_limit": loss_limit,
-                "profit_target": profit_target
+                "profit_target": profit_target,
+                "repeat": repeat if repeat is not None else 0
             }
         else:
             return None

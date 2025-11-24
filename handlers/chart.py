@@ -9,7 +9,7 @@ VALID_TIMEFRAMES = ["1m", "5m", "15m", "30m", "1h", "4h", "1d"]
 
 async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/chart")
     await handle_streak(update, context)
     args = context.args
 

@@ -1,7 +1,7 @@
 {
   "token": "RETH",
   "contract": "0xae78736cd615f374d3085123a210448e74fc6393",
-  "updated_at": "2025-11-14T05:53:02.524902",
+  "updated_at": "2025-11-24T17:12:29.560359",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,16 +9,16 @@
       "address": "0xcc9ee9483f662091a1de4795249e24ac0ac2630f",
       "symbol": "RETH",
       "rank": 1,
-      "balance": 3.544770861958869e+22,
-      "share": 9.39,
+      "balance": 3.6459599713855043e+22,
+      "share": 9.73,
       "last_tx": null
     },
     {
       "address": "0x9985df20d7e9103ecbceb16a84956434b6f06ae8",
       "symbol": "RETH",
       "rank": 2,
-      "balance": 2.0891353390716883e+22,
-      "share": 5.53,
+      "balance": 2.258897540375488e+22,
+      "share": 6.03,
       "last_tx": null
     },
     {
@@ -26,47 +26,47 @@
       "symbol": "RETH",
       "rank": 3,
       "balance": 1.5375087431063395e+22,
-      "share": 4.07,
+      "share": 4.1,
       "last_tx": null
     },
     {
       "address": "0x608e1e01ef072c15e5da7235ce793f4d24eca67b",
       "symbol": "RETH",
       "rank": 4,
-      "balance": 1.479000957565352e+22,
-      "share": 3.92,
-      "last_tx": null
-    },
-    {
-      "address": "0xcafea91714e55756c125b509274ede9bc91697cb",
-      "symbol": "RETH",
-      "rank": 5,
-      "balance": 9.99004023455502e+21,
-      "share": 2.65,
+      "balance": 9.724358332517292e+21,
+      "share": 2.6,
       "last_tx": null
     },
     {
       "address": "0x03bf48b8a1b37fbead1ecabcf15b98b924ffa5ac",
       "symbol": "RETH",
-      "rank": 6,
-      "balance": 9.635992821314401e+21,
+      "rank": 5,
+      "balance": 9.567190084482876e+21,
       "share": 2.55,
       "last_tx": null
     },
     {
       "address": "0x1bee69b7dfffa4e2d53c2a2df135c388ad25dcd2",
       "symbol": "RETH",
-      "rank": 7,
-      "balance": 8.74291661979864e+21,
+      "rank": 6,
+      "balance": 8.704983333858634e+21,
       "share": 2.32,
+      "last_tx": null
+    },
+    {
+      "address": "0xcafea91714e55756c125b509274ede9bc91697cb",
+      "symbol": "RETH",
+      "rank": 7,
+      "balance": 8.248040234555019e+21,
+      "share": 2.2,
       "last_tx": null
     },
     {
       "address": "0xa3a7b6f88361f48403514059f1f16c8e78d60eec",
       "symbol": "RETH",
       "rank": 8,
-      "balance": 6.800243088818879e+21,
-      "share": 1.8,
+      "balance": 6.567989265789744e+21,
+      "share": 1.75,
       "last_tx": null
     },
     {
@@ -74,7 +74,7 @@
       "symbol": "RETH",
       "rank": 9,
       "balance": 5.670459773069714e+21,
-      "share": 1.5,
+      "share": 1.51,
       "last_tx": null
     },
     {
@@ -82,7 +82,7 @@
       "symbol": "RETH",
       "rank": 10,
       "balance": 5.037913378626426e+21,
-      "share": 1.33,
+      "share": 1.34,
       "last_tx": null
     },
     {
@@ -90,7 +90,7 @@
       "symbol": "RETH",
       "rank": 11,
       "balance": 4.911430011012232e+21,
-      "share": 1.3,
+      "share": 1.31,
       "last_tx": null
     },
     {
@@ -98,23 +98,23 @@
       "symbol": "RETH",
       "rank": 12,
       "balance": 4.808373260189412e+21,
-      "share": 1.27,
+      "share": 1.28,
       "last_tx": null
     },
     {
       "address": "0x9074d72cc82dad1e13e454755aa8f144c479532f",
       "symbol": "RETH",
       "rank": 13,
-      "balance": 4.561482411233535e+21,
-      "share": 1.21,
+      "balance": 4.600369046664816e+21,
+      "share": 1.23,
       "last_tx": null
     },
     {
       "address": "0x99c9fc46f92e8a1c0dec1b1747d010903e884be1",
       "symbol": "RETH",
       "rank": 14,
-      "balance": 4.5563903100101816e+21,
-      "share": 1.21,
+      "balance": 4.5138714104786405e+21,
+      "share": 1.2,
       "last_tx": null
     },
     {
@@ -122,7 +122,7 @@
       "symbol": "RETH",
       "rank": 15,
       "balance": 4.3004525510905655e+21,
-      "share": 1.14,
+      "share": 1.15,
       "last_tx": null
     },
     {
@@ -130,7 +130,7 @@
       "symbol": "RETH",
       "rank": 16,
       "balance": 4.2462793478763436e+21,
-      "share": 1.12,
+      "share": 1.13,
       "last_tx": null
     },
     {
@@ -142,11 +142,11 @@
       "last_tx": null
     },
     {
-      "address": "0x3154cf16ccdb4c6d922629664174b904d80f2c35",
+      "address": "0xc1c7be6aff14a64396b8e90b424e84a45aaab317",
       "symbol": "RETH",
       "rank": 18,
-      "balance": 3.6932438424384936e+21,
-      "share": 0.98,
+      "balance": 3.867641568016816e+21,
+      "share": 1.03,
       "last_tx": null
     },
     {
@@ -158,17 +158,25 @@
       "last_tx": null
     },
     {
-      "address": "0xc611a52d6427b0cac49c5d528f581d7fcdde22ae",
+      "address": "0x3154cf16ccdb4c6d922629664174b904d80f2c35",
       "symbol": "RETH",
       "rank": 20,
+      "balance": 3.0503987252446605e+21,
+      "share": 0.81,
+      "last_tx": null
+    },
+    {
+      "address": "0xc611a52d6427b0cac49c5d528f581d7fcdde22ae",
+      "symbol": "RETH",
+      "rank": 21,
       "balance": 2.803923230900904e+21,
-      "share": 0.74,
+      "share": 0.75,
       "last_tx": null
     },
     {
       "address": "0xe624fed79e8f5353b13fefa22c82385fdedff348",
       "symbol": "RETH",
-      "rank": 21,
+      "rank": 22,
       "balance": 2.7459420012567236e+21,
       "share": 0.73,
       "last_tx": null
@@ -176,7 +184,7 @@
     {
       "address": "0x9c56b6fa44873ca26ad7008b819c70074abfa604",
       "symbol": "RETH",
-      "rank": 22,
+      "rank": 23,
       "balance": 2.362360623122171e+21,
       "share": 0.63,
       "last_tx": null
@@ -184,7 +192,7 @@
     {
       "address": "0x47073d5f62d0c349f8dce1d5b6349cf164002713",
       "symbol": "RETH",
-      "rank": 23,
+      "rank": 24,
       "balance": 2e+21,
       "share": 0.53,
       "last_tx": null
@@ -192,7 +200,7 @@
     {
       "address": "0x50ae7f94fde02117548dfa8b38ab4eab215a7a72",
       "symbol": "RETH",
-      "rank": 24,
+      "rank": 25,
       "balance": 1.9643327028965545e+21,
       "share": 0.52,
       "last_tx": null
@@ -200,7 +208,7 @@
     {
       "address": "0x86a7bf0aa71a499517f9486660b92e69c6eab6d2",
       "symbol": "RETH",
-      "rank": 25,
+      "rank": 26,
       "balance": 1.8913356950639348e+21,
       "share": 0.5,
       "last_tx": null
@@ -208,15 +216,15 @@
     {
       "address": "0x0fa3433cd67b1c3d024d67c61aaa018b46456fe6",
       "symbol": "RETH",
-      "rank": 26,
+      "rank": 27,
       "balance": 1.8645360876474626e+21,
-      "share": 0.49,
+      "share": 0.5,
       "last_tx": null
     },
     {
       "address": "0x928d667b3cd35b0549b5f51dc4b8a3a566dffb76",
       "symbol": "RETH",
-      "rank": 27,
+      "rank": 28,
       "balance": 1.8005e+21,
       "share": 0.48,
       "last_tx": null
@@ -224,15 +232,23 @@
     {
       "address": "0x36ab4c2dd2aa40ace6e8fce221f56b7938f8ad76",
       "symbol": "RETH",
-      "rank": 28,
+      "rank": 29,
       "balance": 1.7582665868376883e+21,
       "share": 0.47,
       "last_tx": null
     },
     {
+      "address": "0xcafea501b78175f178b899625f06bc618ef06eb8",
+      "symbol": "RETH",
+      "rank": 30,
+      "balance": 1.742e+21,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
       "address": "0x36ed8dda673bec4f95babe8f122e6f88cf72d0fb",
       "symbol": "RETH",
-      "rank": 29,
+      "rank": 31,
       "balance": 1.7035695543589004e+21,
       "share": 0.45,
       "last_tx": null
@@ -240,31 +256,23 @@
     {
       "address": "0x253dfe2422ea022b15820fec9f94bcc5312511aa",
       "symbol": "RETH",
-      "rank": 30,
+      "rank": 32,
       "balance": 1.521143385531788e+21,
-      "share": 0.4,
+      "share": 0.41,
       "last_tx": null
     },
     {
       "address": "0x1d904f8f3ded8cd20124b27e85070a4f97c0edfc",
       "symbol": "RETH",
-      "rank": 31,
+      "rank": 33,
       "balance": 1.5182631977343438e+21,
-      "share": 0.4,
-      "last_tx": null
-    },
-    {
-      "address": "0xf8153167313ce9cfcb45bd4aff2b543513388163",
-      "symbol": "RETH",
-      "rank": 32,
-      "balance": 1.4626073574334194e+21,
-      "share": 0.39,
+      "share": 0.41,
       "last_tx": null
     },
     {
       "address": "0xa0456eaae985bdb6381bd7baac0796448933f04f",
       "symbol": "RETH",
-      "rank": 33,
+      "rank": 34,
       "balance": 1.4376813500446608e+21,
       "share": 0.38,
       "last_tx": null
@@ -272,7 +280,7 @@
     {
       "address": "0x0ce7054124a83a59370e3a8a0c4fe004bb23684d",
       "symbol": "RETH",
-      "rank": 34,
+      "rank": 35,
       "balance": 1.39639128961737e+21,
       "share": 0.37,
       "last_tx": null
@@ -280,7 +288,7 @@
     {
       "address": "0x64fa73cb6f82f182110635f82f2dd83767214978",
       "symbol": "RETH",
-      "rank": 35,
+      "rank": 36,
       "balance": 1.3811567698497595e+21,
       "share": 0.37,
       "last_tx": null
@@ -288,15 +296,15 @@
     {
       "address": "0x274d9e726844ab52e351e8f1272e7fc3f58b7e5f",
       "symbol": "RETH",
-      "rank": 36,
+      "rank": 37,
       "balance": 1.3757839642809367e+21,
-      "share": 0.36,
+      "share": 0.37,
       "last_tx": null
     },
     {
       "address": "0xb45b4fc01ea3f2063e12164e821e2e6669006b07",
       "symbol": "RETH",
-      "rank": 37,
+      "rank": 38,
       "balance": 1.3417135819525985e+21,
       "share": 0.36,
       "last_tx": null
@@ -304,17 +312,9 @@
     {
       "address": "0x41a437d84f23a5f27dab5abea732462c2062c73e",
       "symbol": "RETH",
-      "rank": 38,
-      "balance": 1.3303082038123126e+21,
-      "share": 0.35,
-      "last_tx": null
-    },
-    {
-      "address": "0xe080027bd47353b5d1639772b4a75e9ed3658a0d",
-      "symbol": "RETH",
       "rank": 39,
-      "balance": 1.2976683176157758e+21,
-      "share": 0.34,
+      "balance": 1.3303082038123126e+21,
+      "share": 0.36,
       "last_tx": null
     },
     {
@@ -322,15 +322,15 @@
       "symbol": "RETH",
       "rank": 40,
       "balance": 1.2641936759362976e+21,
-      "share": 0.33,
+      "share": 0.34,
       "last_tx": null
     },
     {
-      "address": "0x9ca1d6e730eb9fbfd45c9ff5f0ac4e3d172d8f4d",
+      "address": "0xf8153167313ce9cfcb45bd4aff2b543513388163",
       "symbol": "RETH",
       "rank": 41,
-      "balance": 1.223992411187868e+21,
-      "share": 0.32,
+      "balance": 1.2626073574334194e+21,
+      "share": 0.34,
       "last_tx": null
     },
     {
@@ -338,7 +338,7 @@
       "symbol": "RETH",
       "rank": 42,
       "balance": 1.2190728855335283e+21,
-      "share": 0.32,
+      "share": 0.33,
       "last_tx": null
     },
     {
@@ -354,7 +354,7 @@
       "symbol": "RETH",
       "rank": 44,
       "balance": 1.1875814174201844e+21,
-      "share": 0.31,
+      "share": 0.32,
       "last_tx": null
     },
     {
@@ -362,7 +362,7 @@
       "symbol": "RETH",
       "rank": 45,
       "balance": 1.1872188819468638e+21,
-      "share": 0.31,
+      "share": 0.32,
       "last_tx": null
     },
     {
@@ -410,7 +410,7 @@
       "symbol": "RETH",
       "rank": 51,
       "balance": 1.0747449824417222e+21,
-      "share": 0.28,
+      "share": 0.29,
       "last_tx": null
     },
     {
@@ -430,17 +430,25 @@
       "last_tx": null
     },
     {
-      "address": "0x79dbb72e18be3aaed8ea7f7f0a0fe7a132c2a047",
+      "address": "0xe080027bd47353b5d1639772b4a75e9ed3658a0d",
       "symbol": "RETH",
       "rank": 54,
-      "balance": 1.0518813059968861e+21,
+      "balance": 1.0485867744379276e+21,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x79dbb72e18be3aaed8ea7f7f0a0fe7a132c2a047",
+      "symbol": "RETH",
+      "rank": 55,
+      "balance": 1.0308813059968861e+21,
       "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0x74c6cfc31e8c0eafe38cfc59930d00d06c3c1ce1",
       "symbol": "RETH",
-      "rank": 55,
+      "rank": 56,
       "balance": 1.0016313705556712e+21,
       "share": 0.27,
       "last_tx": null
@@ -448,15 +456,15 @@
     {
       "address": "0xedf9e7dd50eac44000d0768de934b5c14962402a",
       "symbol": "RETH",
-      "rank": 56,
+      "rank": 57,
       "balance": 1.0000553102077481e+21,
-      "share": 0.26,
+      "share": 0.27,
       "last_tx": null
     },
     {
       "address": "0x641d1e87d3f1bf838899c6b4411c60dc60a9e8c5",
       "symbol": "RETH",
-      "rank": 57,
+      "rank": 58,
       "balance": 9.752748087195835e+20,
       "share": 0.26,
       "last_tx": null
@@ -464,7 +472,7 @@
     {
       "address": "0x9d797ec64040bda70345bba325bb9df47087506e",
       "symbol": "RETH",
-      "rank": 58,
+      "rank": 59,
       "balance": 9.688008851590658e+20,
       "share": 0.26,
       "last_tx": null
@@ -472,7 +480,7 @@
     {
       "address": "0x9274ca345ee237360d77c0458407f44cdc0a70e6",
       "symbol": "RETH",
-      "rank": 59,
+      "rank": 60,
       "balance": 9.410095581472213e+20,
       "share": 0.25,
       "last_tx": null
@@ -480,7 +488,7 @@
     {
       "address": "0xcbce5511c98dfa40d2207044351a2d629ffc5520",
       "symbol": "RETH",
-      "rank": 60,
+      "rank": 61,
       "balance": 9.30584852597004e+20,
       "share": 0.25,
       "last_tx": null
@@ -488,7 +496,7 @@
     {
       "address": "0x2cae37e9ab12ff009c2c4fa9764d087406b11dd7",
       "symbol": "RETH",
-      "rank": 61,
+      "rank": 62,
       "balance": 9.268161989992728e+20,
       "share": 0.25,
       "last_tx": null
@@ -496,7 +504,7 @@
     {
       "address": "0x834b1e1e6026e4e93833423d6462525aa2dee86f",
       "symbol": "RETH",
-      "rank": 62,
+      "rank": 63,
       "balance": 9.259277575091236e+20,
       "share": 0.25,
       "last_tx": null
@@ -504,7 +512,7 @@
     {
       "address": "0x908b224c7ba17de1af57b6e4deb50b5b35e60e7b",
       "symbol": "RETH",
-      "rank": 63,
+      "rank": 64,
       "balance": 9.069018107323392e+20,
       "share": 0.24,
       "last_tx": null
@@ -512,7 +520,7 @@
     {
       "address": "0xd6285a2debeebf39a55c3fe1e0ba202695983a48",
       "symbol": "RETH",
-      "rank": 64,
+      "rank": 65,
       "balance": 9.041488895807765e+20,
       "share": 0.24,
       "last_tx": null
@@ -520,7 +528,7 @@
     {
       "address": "0xba348616c98bb7705ac972f247c8f592547d02a4",
       "symbol": "RETH",
-      "rank": 65,
+      "rank": 66,
       "balance": 8.932760040268285e+20,
       "share": 0.24,
       "last_tx": null
@@ -528,7 +536,7 @@
     {
       "address": "0xd10f2b36278634f35ea77f0b0e2e2672a9274078",
       "symbol": "RETH",
-      "rank": 66,
+      "rank": 67,
       "balance": 8.931141807481587e+20,
       "share": 0.24,
       "last_tx": null
@@ -536,15 +544,15 @@
     {
       "address": "0xa598dfd236826b0f2c597604e3549214a12d69fd",
       "symbol": "RETH",
-      "rank": 67,
+      "rank": 68,
       "balance": 8.824310623670348e+20,
-      "share": 0.23,
+      "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0xe98e77f5f491ca14a87efb6ee90515abf66ea087",
       "symbol": "RETH",
-      "rank": 68,
+      "rank": 69,
       "balance": 8.590245363574036e+20,
       "share": 0.23,
       "last_tx": null
@@ -552,7 +560,7 @@
     {
       "address": "0x6aa19318ae844e7cabbf4487d42a46308492cad2",
       "symbol": "RETH",
-      "rank": 69,
+      "rank": 70,
       "balance": 8.585815741949528e+20,
       "share": 0.23,
       "last_tx": null
@@ -560,7 +568,7 @@
     {
       "address": "0x6f6fc217d204e7d32520e0468b0860e0b753be1d",
       "symbol": "RETH",
-      "rank": 70,
+      "rank": 71,
       "balance": 8.552652601586575e+20,
       "share": 0.23,
       "last_tx": null
@@ -568,7 +576,7 @@
     {
       "address": "0x245d19b275331a67f5cb4b7ebcba11bec43eb282",
       "symbol": "RETH",
-      "rank": 71,
+      "rank": 72,
       "balance": 8.412460491108028e+20,
       "share": 0.22,
       "last_tx": null
@@ -576,7 +584,7 @@
     {
       "address": "0x54132704fca86f85c0338b10085bc782d31214d9",
       "symbol": "RETH",
-      "rank": 72,
+      "rank": 73,
       "balance": 8.190434868377808e+20,
       "share": 0.22,
       "last_tx": null
@@ -584,7 +592,7 @@
     {
       "address": "0x6844e5e6348b836f6b06a58d3bb73dde26eaa8e8",
       "symbol": "RETH",
-      "rank": 73,
+      "rank": 74,
       "balance": 7.931537091915725e+20,
       "share": 0.21,
       "last_tx": null
@@ -592,7 +600,7 @@
     {
       "address": "0xce5a1526b433c4a094d17b3b1a43253ce2416b8e",
       "symbol": "RETH",
-      "rank": 74,
+      "rank": 75,
       "balance": 7.89454443571954e+20,
       "share": 0.21,
       "last_tx": null
@@ -600,7 +608,7 @@
     {
       "address": "0x9b6264c9cabeb5b13435abd1b3f011a88ba79254",
       "symbol": "RETH",
-      "rank": 75,
+      "rank": 76,
       "balance": 7.847169459773495e+20,
       "share": 0.21,
       "last_tx": null
@@ -608,7 +616,7 @@
     {
       "address": "0xbe5079f38396dd2b8d8f99fbe82e678d3a22acc4",
       "symbol": "RETH",
-      "rank": 76,
+      "rank": 77,
       "balance": 7.636079687786921e+20,
       "share": 0.2,
       "last_tx": null
@@ -616,7 +624,7 @@
     {
       "address": "0x0a0a4e8a5d1dd82f088db7114cff450b3d0a9d81",
       "symbol": "RETH",
-      "rank": 77,
+      "rank": 78,
       "balance": 7.611037369297438e+20,
       "share": 0.2,
       "last_tx": null
@@ -624,7 +632,7 @@
     {
       "address": "0x7edefbe35ddeff80ab23bced13e52a1368d73109",
       "symbol": "RETH",
-      "rank": 78,
+      "rank": 79,
       "balance": 7.46645108816405e+20,
       "share": 0.2,
       "last_tx": null
@@ -632,7 +640,7 @@
     {
       "address": "0x95d2b2ffb719247d8a2fc05ea267ed6c356d4490",
       "symbol": "RETH",
-      "rank": 79,
+      "rank": 80,
       "balance": 7.456746488406122e+20,
       "share": 0.2,
       "last_tx": null
@@ -640,15 +648,15 @@
     {
       "address": "0x2ddea3c5429c2e2033951fca914816e7419dcac9",
       "symbol": "RETH",
-      "rank": 80,
+      "rank": 81,
       "balance": 7.354340086124645e+20,
-      "share": 0.19,
+      "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0x3d71fc68a9514618d2dd81251e7f9946cbd81d77",
       "symbol": "RETH",
-      "rank": 81,
+      "rank": 82,
       "balance": 7.188828326065814e+20,
       "share": 0.19,
       "last_tx": null
@@ -656,24 +664,16 @@
     {
       "address": "0xaa7ce290547b1fa37db7600b883bb68c0dec6123",
       "symbol": "RETH",
-      "rank": 82,
+      "rank": 83,
       "balance": 6.938623090343202e+20,
-      "share": 0.18,
+      "share": 0.19,
       "last_tx": null
     },
     {
       "address": "0x991dde8aa9b3879322d9be79ae7421483a258e1c",
       "symbol": "RETH",
-      "rank": 83,
-      "balance": 6.911553986807083e+20,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0x5eaa10f99e7e6d177ef9f74e519e319aa49f191e",
-      "symbol": "RETH",
       "rank": 84,
-      "balance": 6.86417282453039e+20,
+      "balance": 6.911553986807083e+20,
       "share": 0.18,
       "last_tx": null
     },
@@ -686,9 +686,17 @@
       "last_tx": null
     },
     {
-      "address": "0xcda7dc28b988f2b436cfc5f04588b06d48e95903",
+      "address": "0x5eaa10f99e7e6d177ef9f74e519e319aa49f191e",
       "symbol": "RETH",
       "rank": 86,
+      "balance": 6.605746581485279e+20,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xcda7dc28b988f2b436cfc5f04588b06d48e95903",
+      "symbol": "RETH",
+      "rank": 87,
       "balance": 6.449391106651538e+20,
       "share": 0.17,
       "last_tx": null
@@ -696,7 +704,7 @@
     {
       "address": "0xa5c629e04e563355c30885b62928fd6e03558548",
       "symbol": "RETH",
-      "rank": 87,
+      "rank": 88,
       "balance": 6.34729792559459e+20,
       "share": 0.17,
       "last_tx": null
@@ -704,15 +712,15 @@
     {
       "address": "0x38568311a18e93d79db3ee93e57e3eed0f509506",
       "symbol": "RETH",
-      "rank": 88,
+      "rank": 89,
       "balance": 6.216685287932858e+20,
-      "share": 0.16,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0xf0bb20865277abd641a307ece5ee04e79073416c",
       "symbol": "RETH",
-      "rank": 89,
+      "rank": 90,
       "balance": 6.125843800245021e+20,
       "share": 0.16,
       "last_tx": null
@@ -720,7 +728,7 @@
     {
       "address": "0xe29e2ca3b99e1138ae50fb458a2d6f844a7015be",
       "symbol": "RETH",
-      "rank": 90,
+      "rank": 91,
       "balance": 5.909731258637994e+20,
       "share": 0.16,
       "last_tx": null
@@ -728,25 +736,17 @@
     {
       "address": "0x22eb7aa424dc4ba9697e12ea161d29215bfc15f1",
       "symbol": "RETH",
-      "rank": 91,
+      "rank": 92,
       "balance": 5.8358925790698065e+20,
-      "share": 0.15,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0x9a1cd0bf86faee7c1c23560c47f8fb71b947384a",
       "symbol": "RETH",
-      "rank": 92,
-      "balance": 5.812361628039629e+20,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0xaf07131c497e06361dc2f75de63dc1d3e113f7cb",
-      "symbol": "RETH",
       "rank": 93,
-      "balance": 5.810670574487206e+20,
-      "share": 0.15,
+      "balance": 5.812361628039629e+20,
+      "share": 0.16,
       "last_tx": null
     },
     {
@@ -782,9 +782,17 @@
       "last_tx": null
     },
     {
-      "address": "0x9653d3bea3b89717f08113b595df21c5f7ba0999",
+      "address": "0xaf07131c497e06361dc2f75de63dc1d3e113f7cb",
       "symbol": "RETH",
       "rank": 98,
+      "balance": 5.653835678149669e+20,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x9653d3bea3b89717f08113b595df21c5f7ba0999",
+      "symbol": "RETH",
+      "rank": 99,
       "balance": 5.604173765310056e+20,
       "share": 0.15,
       "last_tx": null
@@ -792,17 +800,9 @@
     {
       "address": "0xfe0dec020cbd460dc90ed14463fb6efe400a33ff",
       "symbol": "RETH",
-      "rank": 99,
+      "rank": 100,
       "balance": 5.489218410612238e+20,
       "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x31c2c56eed9ea2e95f3bdd870d4a6c06e05f572c",
-      "symbol": "RETH",
-      "rank": 100,
-      "balance": 5.459136642750265e+20,
-      "share": 0.14,
       "last_tx": null
     }
   ]

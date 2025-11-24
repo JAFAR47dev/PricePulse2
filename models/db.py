@@ -142,16 +142,17 @@ def init_db():
             FOREIGN KEY (user_id) REFERENCES portfolio_limits(user_id) ON DELETE CASCADE
         )
     """)
-
-    # Portfolio limits
+    
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS portfolio_limits (
             user_id INTEGER PRIMARY KEY,
             max_alerts INTEGER DEFAULT 0,
             loss_limit REAL DEFAULT NULL,
-            profit_target REAL DEFAULT NULL
+            profit_target REAL DEFAULT NULL,
+            repeat_limit_loss INTEGER DEFAULT 0,   -- 0 = off, 1 = repeat
+            repeat_limit_profit INTEGER DEFAULT 0  -- 0 = off, 1 = repeat
         )
-    """)
+        """)
 
     # Watchlist
     cursor.execute("""
@@ -214,6 +215,14 @@ def init_db():
             UNIQUE(user_id, wallet_address)
     )
 """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS command_usage (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            command TEXT NOT NULL,
+            used_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
 
     conn.commit()
     conn.close()

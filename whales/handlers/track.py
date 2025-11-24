@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 from telegram import Update
 from telegram.ext import CommandHandler, ContextTypes
+from models.user_activity import update_last_active
 
 # === File paths ===
 WHALE_DATA_DIR = "whales/data"
@@ -42,6 +43,7 @@ async def track_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     Example: /track ETH 20
     """
     user_id = str(update.effective_user.id)
+    await update_last_active(user_id, command_name="/track")
 
     # --- Parse command arguments ---
     if len(context.args) == 0:

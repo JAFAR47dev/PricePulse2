@@ -2,10 +2,12 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from models.db import get_connection
 from datetime import datetime
+from models.user_activity import update_last_active
 
 
 async def myplan(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id, command_name="/myplan")
 
     # Fetch from DB
     conn = get_connection()

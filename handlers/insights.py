@@ -128,7 +128,7 @@ async def fetch_tradingview_ideas(symbol: str = None, limit: int = 3):
 # ✅ Main command: /insights
 async def insights_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/insights")
     await handle_streak(update, context)
     """Fetch and display trending crypto trade ideas with screenshots."""
     symbol = context.args[0].upper() if context.args else None

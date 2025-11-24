@@ -33,7 +33,7 @@ from telegram.ext import ContextTypes
 
 async def crypto_news(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/news")
     await handle_streak(update, context)
     loading = await update.message.reply_text("📰 Fetching latest crypto news...")
     message = await get_latest_crypto_news()

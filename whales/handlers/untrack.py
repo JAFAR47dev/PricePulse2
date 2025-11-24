@@ -2,6 +2,7 @@ import os
 import json
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler, CallbackQueryHandler, ContextTypes
+from models.user_activity import update_last_active
 
 # === File path ===
 USER_TRACK_FILE = "whales/user_tracking.json"
@@ -26,6 +27,7 @@ async def untrack_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     /untrack [token] or /untrack all
     """
     user_id = str(update.effective_user.id)
+    await update_last_active(user_id, command_name="/untrack")
     tracking_data = load_user_tracking()
     user_data = tracking_data.get(user_id, {}).get("tracked", [])
 

@@ -21,7 +21,7 @@ with open(ids_path, "r") as f:
 
 async def compare_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/comp")
     await handle_streak(update, context)
     try:
         args = context.args

@@ -1,0 +1,809 @@
+{
+  "token": "USDG",
+  "contract": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "updated_at": "2025-11-24T17:12:32.946556",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0xeaeaa6d1891037f74ce54db935eef03212e6036b",
+      "symbol": "USDG",
+      "rank": 1,
+      "balance": 43822585396685.0,
+      "share": 15.9,
+      "last_tx": null
+    },
+    {
+      "address": "0x228c9f02cbb0e6b5dd191b539770c82918023b09",
+      "symbol": "USDG",
+      "rank": 2,
+      "balance": 38575809359787.0,
+      "share": 13.99,
+      "last_tx": null
+    },
+    {
+      "address": "0xcc282e2004428939ee5149a9e7872f0b4d5d5ec7",
+      "symbol": "USDG",
+      "rank": 3,
+      "balance": 34579095850688.0,
+      "share": 12.54,
+      "last_tx": null
+    },
+    {
+      "address": "0x2fb074fa59c9294c71246825c1c9a0c7782d41a4",
+      "symbol": "USDG",
+      "rank": 4,
+      "balance": 24397561180000.0,
+      "share": 8.85,
+      "last_tx": null
+    },
+    {
+      "address": "0x50fc9731dace42caa45d166bff404bbb7464bf21",
+      "symbol": "USDG",
+      "rank": 5,
+      "balance": 18998944394597.0,
+      "share": 6.89,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c5db9d681309a8b58d15f14e9b9ad86df5885a0",
+      "symbol": "USDG",
+      "rank": 6,
+      "balance": 16580495570856.0,
+      "share": 6.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ceb1acb844c759bd47d7026e9a9f168260f0328",
+      "symbol": "USDG",
+      "rank": 7,
+      "balance": 16211269140313.0,
+      "share": 5.88,
+      "last_tx": null
+    },
+    {
+      "address": "0xf3369f0bf79de86d3c2c4e66900c03cf0c9daca2",
+      "symbol": "USDG",
+      "rank": 8,
+      "balance": 14991005396800.0,
+      "share": 5.44,
+      "last_tx": null
+    },
+    {
+      "address": "0x8fa4ee1776032b612206e754ec2382b534d4ac6f",
+      "symbol": "USDG",
+      "rank": 9,
+      "balance": 13368400490000.0,
+      "share": 4.85,
+      "last_tx": null
+    },
+    {
+      "address": "0x264bd8291fae1d75db2c5f573b07faa6715997b5",
+      "symbol": "USDG",
+      "rank": 10,
+      "balance": 12910347764400.0,
+      "share": 4.68,
+      "last_tx": null
+    },
+    {
+      "address": "0x2685ec7136e5500239d104bf36d19e7b63e68d72",
+      "symbol": "USDG",
+      "rank": 11,
+      "balance": 10712560900000.0,
+      "share": 3.89,
+      "last_tx": null
+    },
+    {
+      "address": "0xce1ce0705025209459646b2a9811caf49406821b",
+      "symbol": "USDG",
+      "rank": 12,
+      "balance": 7533234099629.0,
+      "share": 2.73,
+      "last_tx": null
+    },
+    {
+      "address": "0xc061caa073f3d95f80f8e5428d32d2d76f5e1622",
+      "symbol": "USDG",
+      "rank": 13,
+      "balance": 3981137575846.0,
+      "share": 1.44,
+      "last_tx": null
+    },
+    {
+      "address": "0x8cc2d3f139eb6d5b6912b3218f7a0f63a6556c8e",
+      "symbol": "USDG",
+      "rank": 14,
+      "balance": 3296593894000.0,
+      "share": 1.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x77af9a7fe97855c64e55ead43abbb081c9d376c5",
+      "symbol": "USDG",
+      "rank": 15,
+      "balance": 2676557957307.0,
+      "share": 0.97,
+      "last_tx": null
+    },
+    {
+      "address": "0xaf4e8bbc4f5f11d9d6e499598310768642e1e814",
+      "symbol": "USDG",
+      "rank": 16,
+      "balance": 2500144301812.0,
+      "share": 0.91,
+      "last_tx": null
+    },
+    {
+      "address": "0x744af4bd003f658c266f9cb90b8d96bef0f85e67",
+      "symbol": "USDG",
+      "rank": 17,
+      "balance": 2499514992500.0,
+      "share": 0.91,
+      "last_tx": null
+    },
+    {
+      "address": "0x32556362ad2b9bff71c8c666cd061ee4a38206df",
+      "symbol": "USDG",
+      "rank": 18,
+      "balance": 1099990000000.0,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0x3a7d454182d402c77542bea2d09160b8d617819c",
+      "symbol": "USDG",
+      "rank": 19,
+      "balance": 1000009160000.0,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+      "symbol": "USDG",
+      "rank": 20,
+      "balance": 997972119255.0,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0xda13065802ae38eac1e052b97da20ba9d7f87fb6",
+      "symbol": "USDG",
+      "rank": 21,
+      "balance": 793473930989.0,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x43abe6de2088b60263901eaf0527e846da0fcae0",
+      "symbol": "USDG",
+      "rank": 22,
+      "balance": 500308356164.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
+      "symbol": "USDG",
+      "rank": 23,
+      "balance": 458754044963.0,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "USDG",
+      "rank": 24,
+      "balance": 448209777961.0,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x698f93caf36411fffa013625013f61a52e4c4cdd",
+      "symbol": "USDG",
+      "rank": 25,
+      "balance": 400437041096.0,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x00680ce5c6b2fa6845037171e1d84d56abc9c341",
+      "symbol": "USDG",
+      "rank": 26,
+      "balance": 350000000000.0,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x816182d5b48915460904be6e55ae42cc5e06f30a",
+      "symbol": "USDG",
+      "rank": 27,
+      "balance": 332369000000.0,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c308b1665097af7ab2e38a41577bfecdc2d1c5c",
+      "symbol": "USDG",
+      "rank": 28,
+      "balance": 303634526440.0,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x55823001c8cd87a6e86716ca768bce51f2d89c9c",
+      "symbol": "USDG",
+      "rank": 29,
+      "balance": 300781244987.0,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x7d328f5d5f4640f81b2f93d2903ec0a6c030eed6",
+      "symbol": "USDG",
+      "rank": 30,
+      "balance": 195903653102.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x9424b4317913f2a553744e5548d2a7800580bd43",
+      "symbol": "USDG",
+      "rank": 31,
+      "balance": 149328645134.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x5f7a4c11bde4f218f0025ef444c369d838ffa2ad",
+      "symbol": "USDG",
+      "rank": 32,
+      "balance": 108622162085.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x6d0d19bdddc5ed1dd501430c9621dd37ebd9062d",
+      "symbol": "USDG",
+      "rank": 33,
+      "balance": 57800974700.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x1c39d55c3c8cc5cd92e61a5396d1723706cb07d0",
+      "symbol": "USDG",
+      "rank": 34,
+      "balance": 55300185004.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xf1175917e0316c058522e6fcfdf3dd40d6c86fe7",
+      "symbol": "USDG",
+      "rank": 35,
+      "balance": 52099294324.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xff2bbb6939497d12e50675bdab8d4faad56a720f",
+      "symbol": "USDG",
+      "rank": 36,
+      "balance": 46304435616.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ab2dc7da961e53fcfb59a1cfab4437d9bffe29b",
+      "symbol": "USDG",
+      "rank": 37,
+      "balance": 41497485821.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xd93915bae6a5310ef2c1bfdc93461a8498e13b34",
+      "symbol": "USDG",
+      "rank": 38,
+      "balance": 39613218370.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xce32d238876f1dfb9f196e4d47cfa9ff3a29f337",
+      "symbol": "USDG",
+      "rank": 39,
+      "balance": 31792551401.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
+      "symbol": "USDG",
+      "rank": 40,
+      "balance": 26210063050.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x4689e647bad5d9c5c267df67fd310eb72ff74dd0",
+      "symbol": "USDG",
+      "rank": 41,
+      "balance": 20006382246.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0d086fbea2fe244db156ce41432010421f4adf64",
+      "symbol": "USDG",
+      "rank": 42,
+      "balance": 18019452740.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x982a64d4a232ab42718a28ecbf522aee38a6f4bd",
+      "symbol": "USDG",
+      "rank": 43,
+      "balance": 14418949506.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xebb7fb44984f32b064f9e4b2326fbea69c93dd32",
+      "symbol": "USDG",
+      "rank": 44,
+      "balance": 14000000000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xdb3ded7731c781224ec292e2163d9554c094fd7c",
+      "symbol": "USDG",
+      "rank": 45,
+      "balance": 11814584300.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x926a322126e80de1443543957abf5f1875370909",
+      "symbol": "USDG",
+      "rank": 46,
+      "balance": 9995000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "symbol": "USDG",
+      "rank": 47,
+      "balance": 7245812953.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf57a1e4b5d287e15a0cff7799d74a4cb3ad15ba0",
+      "symbol": "USDG",
+      "rank": 48,
+      "balance": 7000000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xefa91084315ddbf92ede36bacef6fa35de96c18b",
+      "symbol": "USDG",
+      "rank": 49,
+      "balance": 5392500000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x7772fe062c2b6ac0c0f83ca4948177be4889b1b3",
+      "symbol": "USDG",
+      "rank": 50,
+      "balance": 5073953368.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xcd83088dcf9a37dea48dc8cdbfa0fef5a84e651e",
+      "symbol": "USDG",
+      "rank": 51,
+      "balance": 4789873019.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xca6adfdf21d3444349ba73df9b293d0a56b015c6",
+      "symbol": "USDG",
+      "rank": 52,
+      "balance": 4037763981.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x018dcd16a2f3c6ae99d00240220e1e5a0aafaa16",
+      "symbol": "USDG",
+      "rank": 53,
+      "balance": 3708400000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xd3fbf717a7113b2b46040424beeea09c37de67cd",
+      "symbol": "USDG",
+      "rank": 54,
+      "balance": 3074044681.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xc7d3522e5246b4ed58a60c73953f3e9ab35a9261",
+      "symbol": "USDG",
+      "rank": 55,
+      "balance": 3068412423.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x873768fcc2a591e4735ebcbd515a61f28f818cd9",
+      "symbol": "USDG",
+      "rank": 56,
+      "balance": 3006000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4f604735c1cf31399c6e711d5962b2b3e0225ad3",
+      "symbol": "USDG",
+      "rank": 57,
+      "balance": 2755000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x61e8c5811e0d8b81f17acb57c80bbee002dcb1f3",
+      "symbol": "USDG",
+      "rank": 58,
+      "balance": 2440000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x19b50f2ce22ee7363933483ebf39ea00d167db50",
+      "symbol": "USDG",
+      "rank": 59,
+      "balance": 2370047900.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x504ce9e51e508c85a161058c12e970a903d482fc",
+      "symbol": "USDG",
+      "rank": 60,
+      "balance": 2248697352.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x673c56391a333d9ec7f96c4583e4dd3dab56060c",
+      "symbol": "USDG",
+      "rank": 61,
+      "balance": 2062375284.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x30238b895c21fb98d8f776ebbfa7a149d6d1d01e",
+      "symbol": "USDG",
+      "rank": 62,
+      "balance": 2018911200.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xab624a8b0ec5db1139f7a8c6c9af49c8e3311d68",
+      "symbol": "USDG",
+      "rank": 63,
+      "balance": 2002950630.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x31b9b4890f0c8abf6c23d872487130e8aceb7469",
+      "symbol": "USDG",
+      "rank": 64,
+      "balance": 2000000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xd4253efb26465f447c06789f10e4bf5e991edc10",
+      "symbol": "USDG",
+      "rank": 65,
+      "balance": 2000000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x545f978dc7de78353137bfd31475fecb97075f26",
+      "symbol": "USDG",
+      "rank": 66,
+      "balance": 1999900000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x0afe776a0760f8dd1236957ca9b580d75e8f6dcf",
+      "symbol": "USDG",
+      "rank": 67,
+      "balance": 1900000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xddd0a738f2780fa24c7fa1ee2bf06fb39aa2beb5",
+      "symbol": "USDG",
+      "rank": 68,
+      "balance": 1899322539.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x42b856776203aac4ef7c74ac093678e666ddd759",
+      "symbol": "USDG",
+      "rank": 69,
+      "balance": 1747174700.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3c9df24f248ff949161a5a43bbf6dd69378d7799",
+      "symbol": "USDG",
+      "rank": 70,
+      "balance": 1692475919.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4c6c1939770da79c78d25b4a83f73cd0824223d2",
+      "symbol": "USDG",
+      "rank": 71,
+      "balance": 1584618500.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x801a7cafecdd733043051a33659c9682c01d0f53",
+      "symbol": "USDG",
+      "rank": 72,
+      "balance": 1504324600.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x1715a3e4a142d8b698131108995174f37aeba10d",
+      "symbol": "USDG",
+      "rank": 73,
+      "balance": 1398764900.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x48bf7a5a1e8f278fa23bfa0d9666caf7d36f1ff2",
+      "symbol": "USDG",
+      "rank": 74,
+      "balance": 1349920076.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4740074742c731921cb7b5b6acc1f90dff4bf9c8",
+      "symbol": "USDG",
+      "rank": 75,
+      "balance": 1347682272.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x14c33c9c95a1dde33ff2b66fa398658a47e929d4",
+      "symbol": "USDG",
+      "rank": 76,
+      "balance": 1333174731.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x83f11d08fcdf40425c9f99db82826ddabdf9fde4",
+      "symbol": "USDG",
+      "rank": 77,
+      "balance": 1199988000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2e7f2740a839231c41cfde0d531828df312bea04",
+      "symbol": "USDG",
+      "rank": 78,
+      "balance": 1168285338.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x5b484ad6d1aad2ffa78efe6fcc5c81d9da65a15e",
+      "symbol": "USDG",
+      "rank": 79,
+      "balance": 1166051734.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4591fd0c3160cdbfef4caf804df3e45da23af56a",
+      "symbol": "USDG",
+      "rank": 80,
+      "balance": 1097512200.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf16d1c66a3d1c85e143172951fc3d0f9fe09b83b",
+      "symbol": "USDG",
+      "rank": 81,
+      "balance": 1080000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xbf90664017218ac7d9db5ae0c84873628e9ae1ae",
+      "symbol": "USDG",
+      "rank": 82,
+      "balance": 1079393032.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3d7e869864bafbe48d6fb8ce5cee2a0fd4580c7a",
+      "symbol": "USDG",
+      "rank": 83,
+      "balance": 1052027000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x97bf0539ae46a8a088fe83aa014ddf2415935b39",
+      "symbol": "USDG",
+      "rank": 84,
+      "balance": 1035000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x0b15da0c616a8ee2bf5e39e4892208eee70f0579",
+      "symbol": "USDG",
+      "rank": 85,
+      "balance": 1005000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xb0657ad8b008da0bfdc62bf8d8eedd11b4e70506",
+      "symbol": "USDG",
+      "rank": 86,
+      "balance": 1000000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xb3bb62d20fca12ee4ffba4eef12e14039acc2d4a",
+      "symbol": "USDG",
+      "rank": 87,
+      "balance": 1000000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3408f911951c34942126b74976e5a4cd31016053",
+      "symbol": "USDG",
+      "rank": 88,
+      "balance": 998030300.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xd4275c15b4236d5934819e981e602211411c0ee6",
+      "symbol": "USDG",
+      "rank": 89,
+      "balance": 995000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x7ace4476c64097e4bf5e9b78ef5b4185b5eff6ba",
+      "symbol": "USDG",
+      "rank": 90,
+      "balance": 980000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x12315078688b760b031a2aaba79e8dc3a0133806",
+      "symbol": "USDG",
+      "rank": 91,
+      "balance": 912000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x151214f4822b1a5a3f4c009e8bd7b19bbb0e0916",
+      "symbol": "USDG",
+      "rank": 92,
+      "balance": 900000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x05730e849dc5e3afe0f50712632e588ce26997cc",
+      "symbol": "USDG",
+      "rank": 93,
+      "balance": 878676100.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x735c703a350a6e2ac520820656b16319a45d5e4e",
+      "symbol": "USDG",
+      "rank": 94,
+      "balance": 851051100.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4584c8675c12703be484e171ff0cf0b4a8b8df6d",
+      "symbol": "USDG",
+      "rank": 95,
+      "balance": 850008072.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xdbeb1be528b204064d95ed1b931832e8a48100a2",
+      "symbol": "USDG",
+      "rank": 96,
+      "balance": 827303404.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x6defd9d6dad4d0b9fce7e4415213c64dfb2863dd",
+      "symbol": "USDG",
+      "rank": 97,
+      "balance": 799564530.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3777c930e4dca196e070d39b60c644c8aae02f23",
+      "symbol": "USDG",
+      "rank": 98,
+      "balance": 770194866.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x6908c23476d3c8aa59994662e95b40414b396bf0",
+      "symbol": "USDG",
+      "rank": 99,
+      "balance": 770000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x38a09d76c20624a7f0fcd91f7fc31f0f3e2487a5",
+      "symbol": "USDG",
+      "rank": 100,
+      "balance": 768532200.0,
+      "share": 0,
+      "last_tx": null
+    }
+  ]
+}

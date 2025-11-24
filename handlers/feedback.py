@@ -7,7 +7,7 @@ FEEDBACK_URL = "https://toptelegrambots.com/list/EliteTradeSignalBot"
 # === /feedback Command ===
 async def feedback_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/feedback")
 
     text = (
         "💬 *We’d love your feedback!*\n\n"

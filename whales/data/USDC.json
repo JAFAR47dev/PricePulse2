@@ -1,7 +1,7 @@
 {
   "token": "USDC",
   "contract": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-  "updated_at": "2025-11-23T07:12:36.419259",
+  "updated_at": "2025-11-24T17:03:25.396077",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,8 +9,8 @@
       "address": "0x37305b1cd40574e4c5ce33f8e8306be057fd7341",
       "symbol": "USDC",
       "rank": 1,
-      "balance": 3411933610353279.0,
-      "share": 6.59,
+      "balance": 3562901514343178.0,
+      "share": 6.87,
       "last_tx": null
     },
     {
@@ -18,7 +18,7 @@
       "symbol": "USDC",
       "rank": 2,
       "balance": 2313772238000000.0,
-      "share": 4.47,
+      "share": 4.46,
       "last_tx": null
     },
     {
@@ -49,16 +49,16 @@
       "address": "0x3b4d794a66304f130a4db8f2551b0070dfcf5ca7",
       "symbol": "USDC",
       "rank": 6,
-      "balance": 1214186324997869.0,
-      "share": 2.35,
+      "balance": 1202280225181756.0,
+      "share": 2.32,
       "last_tx": null
     },
     {
       "address": "0xee7ae85f2fe2239e27d9c1e23fffe168d63b4055",
       "symbol": "USDC",
       "rank": 7,
-      "balance": 1042964227523636.0,
-      "share": 2.01,
+      "balance": 1176103306550244.0,
+      "share": 2.27,
       "last_tx": null
     },
     {
@@ -81,8 +81,8 @@
       "address": "0x98c23e9d8f34fefb1b7bd6a91b7ff122f4e16f5c",
       "symbol": "USDC",
       "rank": 10,
-      "balance": 807961733575062.0,
-      "share": 1.56,
+      "balance": 876568205568050.0,
+      "share": 1.69,
       "last_tx": null
     },
     {
@@ -94,19 +94,19 @@
       "last_tx": null
     },
     {
-      "address": "0x36db199f0a1cd131ad0b5cf4fe94286faab9fda5",
+      "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
       "symbol": "USDC",
       "rank": 12,
-      "balance": 619389610952817.0,
-      "share": 1.2,
+      "balance": 629193035756217.0,
+      "share": 1.21,
       "last_tx": null
     },
     {
-      "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
+      "address": "0x36db199f0a1cd131ad0b5cf4fe94286faab9fda5",
       "symbol": "USDC",
       "rank": 13,
-      "balance": 616396165042233.0,
-      "share": 1.19,
+      "balance": 565595935842139.0,
+      "share": 1.09,
       "last_tx": null
     },
     {
@@ -142,49 +142,41 @@
       "last_tx": null
     },
     {
-      "address": "0xa5e4939f7cdd01a22d34dc9a29e45e9925b6cd62",
+      "address": "0x98f980a6f4800b53db7df568b5e1f6f230d661e5",
       "symbol": "USDC",
       "rank": 18,
+      "balance": 300662076192124.0,
+      "share": 0.58,
+      "last_tx": null
+    },
+    {
+      "address": "0xa5e4939f7cdd01a22d34dc9a29e45e9925b6cd62",
+      "symbol": "USDC",
+      "rank": 19,
       "balance": 300033979643944.0,
       "share": 0.58,
       "last_tx": null
     },
     {
-      "address": "0x98f980a6f4800b53db7df568b5e1f6f230d661e5",
+      "address": "0xbc6e40408852b3058f8631f568f905a381c9d3b8",
       "symbol": "USDC",
-      "rank": 19,
-      "balance": 275662076192124.0,
-      "share": 0.53,
+      "rank": 20,
+      "balance": 217917451681387.0,
+      "share": 0.42,
       "last_tx": null
     },
     {
       "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
       "symbol": "USDC",
-      "rank": 20,
-      "balance": 202895824287533.0,
-      "share": 0.39,
-      "last_tx": null
-    },
-    {
-      "address": "0x26300283c9cada8cb3a3f1137e678db6060a6c94",
-      "symbol": "USDC",
       "rank": 21,
-      "balance": 174000306832140.0,
-      "share": 0.34,
-      "last_tx": null
-    },
-    {
-      "address": "0x88cbac94c4473491a0c1061c5c889497053836b1",
-      "symbol": "USDC",
-      "rank": 22,
-      "balance": 174000225539092.0,
-      "share": 0.34,
+      "balance": 196181031066159.0,
+      "share": 0.38,
       "last_tx": null
     },
     {
       "address": "0x6113f523efef8db59d5890c8917e8eca3aa22b18",
       "symbol": "USDC",
-      "rank": 23,
+      "rank": 22,
       "balance": 174000014337600.0,
       "share": 0.34,
       "last_tx": null
@@ -192,7 +184,7 @@
     {
       "address": "0x539f72f9d3246618a07e666bdf46ee384252cd4a",
       "symbol": "USDC",
-      "rank": 24,
+      "rank": 23,
       "balance": 174000002401200.0,
       "share": 0.34,
       "last_tx": null
@@ -200,23 +192,15 @@
     {
       "address": "0x0335fa1231490f98d95e70779cef92438888da53",
       "symbol": "USDC",
-      "rank": 25,
+      "rank": 24,
       "balance": 174000001287600.0,
-      "share": 0.34,
-      "last_tx": null
-    },
-    {
-      "address": "0x059417c5d2e60bcad25c3cef000cacda4e232aa8",
-      "symbol": "USDC",
-      "rank": 26,
-      "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
     },
     {
       "address": "0x4b9b78378e21570e28d67866b9eeb1958a1b348d",
       "symbol": "USDC",
-      "rank": 27,
+      "rank": 25,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -224,7 +208,7 @@
     {
       "address": "0xf56dc9528004c3377755424ce5ff235dcba9abb7",
       "symbol": "USDC",
-      "rank": 28,
+      "rank": 26,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -232,7 +216,7 @@
     {
       "address": "0x21890971c338d3b47bcab2e91b8615509a55881c",
       "symbol": "USDC",
-      "rank": 29,
+      "rank": 27,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -240,7 +224,7 @@
     {
       "address": "0x9e6b253b9d809f4795d5a9cb533be3055406bd92",
       "symbol": "USDC",
-      "rank": 30,
+      "rank": 28,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -248,7 +232,7 @@
     {
       "address": "0x52845fa35d0a620a659396b938110dd3913d773f",
       "symbol": "USDC",
-      "rank": 31,
+      "rank": 29,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -256,7 +240,7 @@
     {
       "address": "0xa7cfd17d484939aa071d39ef20b3cf67f5bba497",
       "symbol": "USDC",
-      "rank": 32,
+      "rank": 30,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -264,7 +248,7 @@
     {
       "address": "0x155788cbaa69d4015b26f0a75c6969d94a8cdc62",
       "symbol": "USDC",
-      "rank": 33,
+      "rank": 31,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -272,7 +256,7 @@
     {
       "address": "0x48d6e73303722e2cb94747053478cbbae4bd7256",
       "symbol": "USDC",
-      "rank": 34,
+      "rank": 32,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -280,7 +264,7 @@
     {
       "address": "0xbfcd9e9eeb612e601b1b3aae1d6022bdb45108f3",
       "symbol": "USDC",
-      "rank": 35,
+      "rank": 33,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -288,7 +272,7 @@
     {
       "address": "0xc5a63344929c6f561b6fd1313d5504d6522e0e26",
       "symbol": "USDC",
-      "rank": 36,
+      "rank": 34,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -296,7 +280,7 @@
     {
       "address": "0xf1c9cadca913df551553bcd48feea7c540ee8dca",
       "symbol": "USDC",
-      "rank": 37,
+      "rank": 35,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -304,7 +288,7 @@
     {
       "address": "0xc05183579d86d6f24583f839df79780b565f6d30",
       "symbol": "USDC",
-      "rank": 38,
+      "rank": 36,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -312,7 +296,7 @@
     {
       "address": "0x8a4c719627f2d7ac1372b32009ef0e469f0a71a2",
       "symbol": "USDC",
-      "rank": 39,
+      "rank": 37,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -320,7 +304,7 @@
     {
       "address": "0x6e1d6266b68fa977f094ad92a2bfe5e90bf5925a",
       "symbol": "USDC",
-      "rank": 40,
+      "rank": 38,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -328,7 +312,7 @@
     {
       "address": "0x6880166ceb5f8d83fb1169f8201048027a0664a3",
       "symbol": "USDC",
-      "rank": 41,
+      "rank": 39,
       "balance": 174000000156600.0,
       "share": 0.34,
       "last_tx": null
@@ -336,7 +320,7 @@
     {
       "address": "0xc1aa8b149077f4334b8d59e461f79938e6849259",
       "symbol": "USDC",
-      "rank": 42,
+      "rank": 40,
       "balance": 173999999826000.0,
       "share": 0.34,
       "last_tx": null
@@ -344,7 +328,7 @@
     {
       "address": "0xa118ed863354becd2edc86d6eca7a22a5cfee83d",
       "symbol": "USDC",
-      "rank": 43,
+      "rank": 41,
       "balance": 173999999826000.0,
       "share": 0.34,
       "last_tx": null
@@ -352,15 +336,23 @@
     {
       "address": "0x2732e2410b05b9eb32eb93a33ae7e985c5a37e17",
       "symbol": "USDC",
-      "rank": 44,
+      "rank": 42,
       "balance": 173999999826000.0,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0x55fe002aeff02f77364de339a1292923a15844b8",
+      "symbol": "USDC",
+      "rank": 43,
+      "balance": 173757892938142.0,
       "share": 0.34,
       "last_tx": null
     },
     {
       "address": "0xcec970fe2014b783362af8272f31bed932df7e36",
       "symbol": "USDC",
-      "rank": 45,
+      "rank": 44,
       "balance": 173695709543305.0,
       "share": 0.34,
       "last_tx": null
@@ -368,8 +360,16 @@
     {
       "address": "0x3919999ab82ffe3d8ed5820c2ea457e38b5f23ed",
       "symbol": "USDC",
-      "rank": 46,
+      "rank": 45,
       "balance": 173053627123558.0,
+      "share": 0.33,
+      "last_tx": null
+    },
+    {
+      "address": "0x26704ccfcd45b5780dcd58d38b12f5e0cdb481a0",
+      "symbol": "USDC",
+      "rank": 46,
+      "balance": 172643722163529.0,
       "share": 0.33,
       "last_tx": null
     },
@@ -382,18 +382,18 @@
       "last_tx": null
     },
     {
-      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
+      "address": "0x05ff6964d21e5dae3b1010d5ae0465b3c450f381",
       "symbol": "USDC",
       "rank": 48,
-      "balance": 155332547144492.0,
-      "share": 0.3,
+      "balance": 166900443158159.0,
+      "share": 0.32,
       "last_tx": null
     },
     {
-      "address": "0x55fe002aeff02f77364de339a1292923a15844b8",
+      "address": "0x5f20b82bfa794c9cba8a15a49a02f6879e6af77c",
       "symbol": "USDC",
       "rank": 49,
-      "balance": 149827782442816.0,
+      "balance": 151921212370299.0,
       "share": 0.29,
       "last_tx": null
     },
@@ -401,46 +401,22 @@
       "address": "0xf6080d9fbeebcd44d89affbfd42f098cbff92816",
       "symbol": "USDC",
       "rank": 50,
-      "balance": 148803018702324.0,
+      "balance": 149888723277423.0,
       "share": 0.29,
-      "last_tx": null
-    },
-    {
-      "address": "0x26704ccfcd45b5780dcd58d38b12f5e0cdb481a0",
-      "symbol": "USDC",
-      "rank": 51,
-      "balance": 144520650613529.0,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0x5f20b82bfa794c9cba8a15a49a02f6879e6af77c",
-      "symbol": "USDC",
-      "rank": 52,
-      "balance": 144417968586109.0,
-      "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0xe3cbe3a636ab6a754e9e41b12b09d09ce9e53db3",
       "symbol": "USDC",
-      "rank": 53,
-      "balance": 143175068120142.0,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0xd3a22590f8243f8e83ac230d1842c9af0404c4a1",
-      "symbol": "USDC",
-      "rank": 54,
-      "balance": 143011360277651.0,
+      "rank": 51,
+      "balance": 144665864187108.0,
       "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0x3bd0e57e2917d3d9a93f479b3a23b28c3f31a789",
       "symbol": "USDC",
-      "rank": 55,
+      "rank": 52,
       "balance": 136000010000000.0,
       "share": 0.26,
       "last_tx": null
@@ -448,23 +424,15 @@
     {
       "address": "0x0b07f64abc342b68aec57c0936e4b6fd4452967e",
       "symbol": "USDC",
-      "rank": 56,
-      "balance": 132481428966575.0,
+      "rank": 53,
+      "balance": 133259595138763.0,
       "share": 0.26,
-      "last_tx": null
-    },
-    {
-      "address": "0x260b364fe0d3d37e6fd3cda0fa50926a06c54cea",
-      "symbol": "USDC",
-      "rank": 57,
-      "balance": 120774080840462.0,
-      "share": 0.23,
       "last_tx": null
     },
     {
       "address": "0x8c8461b20a3f72f978ff3c5863ffb180587ad98f",
       "symbol": "USDC",
-      "rank": 58,
+      "rank": 54,
       "balance": 118635710549103.0,
       "share": 0.23,
       "last_tx": null
@@ -472,47 +440,39 @@
     {
       "address": "0xb80e23d02aacce6ad443adb5604252bf95378868",
       "symbol": "USDC",
-      "rank": 59,
+      "rank": 55,
       "balance": 115207814288953.0,
-      "share": 0.22,
-      "last_tx": null
-    },
-    {
-      "address": "0xbc6e40408852b3058f8631f568f905a381c9d3b8",
-      "symbol": "USDC",
-      "rank": 60,
-      "balance": 114581055907555.0,
       "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0x38195abcb374a78428a10b85f1562e6829b560b0",
       "symbol": "USDC",
-      "rank": 61,
+      "rank": 56,
       "balance": 108092487975040.0,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xbd02c51150a4ab6ce97b9de2025644594f3e75b8",
+      "symbol": "USDC",
+      "rank": 57,
+      "balance": 106834933335229.0,
       "share": 0.21,
       "last_tx": null
     },
     {
       "address": "0xca8c67d90bec1962e8fa334d687a1ceddb681f4e",
       "symbol": "USDC",
-      "rank": 62,
-      "balance": 103922535337369.0,
-      "share": 0.2,
-      "last_tx": null
-    },
-    {
-      "address": "0xbd02c51150a4ab6ce97b9de2025644594f3e75b8",
-      "symbol": "USDC",
-      "rank": 63,
-      "balance": 101629437760511.0,
+      "rank": 58,
+      "balance": 105885000159880.0,
       "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0xfbe804a9a7009dac6e12307dab066a9733bcc33d",
       "symbol": "USDC",
-      "rank": 64,
+      "rank": 59,
       "balance": 100000000044124.0,
       "share": 0.19,
       "last_tx": null
@@ -520,23 +480,23 @@
     {
       "address": "0x060087d12801e36f1fe2b1a8d8a90dc6348bd599",
       "symbol": "USDC",
-      "rank": 65,
+      "rank": 60,
       "balance": 99999999997433.0,
       "share": 0.19,
       "last_tx": null
     },
     {
-      "address": "0x87fc29c23a5a408f490a500d680c133644525162",
+      "address": "0x260b364fe0d3d37e6fd3cda0fa50926a06c54cea",
       "symbol": "USDC",
-      "rank": 66,
-      "balance": 97543264864776.0,
+      "rank": 61,
+      "balance": 98177926716198.0,
       "share": 0.19,
       "last_tx": null
     },
     {
       "address": "0x48eacec240176e28abc63fe08dbf6af0f1043783",
       "symbol": "USDC",
-      "rank": 67,
+      "rank": 62,
       "balance": 97244614698554.0,
       "share": 0.19,
       "last_tx": null
@@ -544,71 +504,79 @@
     {
       "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
       "symbol": "USDC",
-      "rank": 68,
-      "balance": 97199101298331.0,
-      "share": 0.19,
+      "rank": 63,
+      "balance": 95236624547615.0,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x6f4565c9d673dbdd379aba0b13f8088d1af3bb0c",
       "symbol": "USDC",
-      "rank": 69,
+      "rank": 64,
       "balance": 94095385500505.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
+      "symbol": "USDC",
+      "rank": 65,
+      "balance": 92356190977448.0,
       "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x6709383e211ab08a6e3270532e756220400424a6",
       "symbol": "USDC",
-      "rank": 70,
-      "balance": 90159679225247.0,
+      "rank": 66,
+      "balance": 89784626885247.0,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x87fc29c23a5a408f490a500d680c133644525162",
+      "symbol": "USDC",
+      "rank": 67,
+      "balance": 88241787170439.0,
       "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
       "symbol": "USDC",
-      "rank": 71,
-      "balance": 80187295070586.0,
-      "share": 0.15,
+      "rank": 68,
+      "balance": 87610882792309.0,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
+      "symbol": "USDC",
+      "rank": 69,
+      "balance": 83999070192583.0,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xcee284f754e854890e311e3280b767f80797180d",
       "symbol": "USDC",
-      "rank": 72,
-      "balance": 77460303539858.0,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x05ff6964d21e5dae3b1010d5ae0465b3c450f381",
-      "symbol": "USDC",
-      "rank": 73,
-      "balance": 77361075476656.0,
+      "rank": 70,
+      "balance": 77606747732630.0,
       "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0xc3d688b66703497daa19211eedff47f25384cdc3",
       "symbol": "USDC",
-      "rank": 74,
-      "balance": 75946842248440.0,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
-      "symbol": "USDC",
-      "rank": 75,
-      "balance": 75504914767710.0,
+      "rank": 71,
+      "balance": 76605731178557.0,
       "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x1508c10b821a0988b640567beed31f9c49b4a83b",
       "symbol": "USDC",
-      "rank": 76,
+      "rank": 72,
       "balance": 69987911153834.0,
       "share": 0.14,
       "last_tx": null
@@ -616,7 +584,7 @@
     {
       "address": "0xe6158b784b7b43923773e08bfd07da2855f3f3b4",
       "symbol": "USDC",
-      "rank": 77,
+      "rank": 73,
       "balance": 69500800042242.0,
       "share": 0.13,
       "last_tx": null
@@ -624,7 +592,7 @@
     {
       "address": "0x6e3fa9c42aa721d8bd2456297c67eaa6cf7c8482",
       "symbol": "USDC",
-      "rank": 78,
+      "rank": 74,
       "balance": 66810926965536.0,
       "share": 0.13,
       "last_tx": null
@@ -632,7 +600,7 @@
     {
       "address": "0x59a0f98345f54bab245a043488ece7fcecd7b596",
       "symbol": "USDC",
-      "rank": 79,
+      "rank": 75,
       "balance": 66610053991873.0,
       "share": 0.13,
       "last_tx": null
@@ -640,55 +608,31 @@
     {
       "address": "0xdce6ad97606cec0bb823e5f5890fcf4ebc5de2be",
       "symbol": "USDC",
-      "rank": 80,
+      "rank": 76,
       "balance": 63753990948700.0,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x445f16314284b43dfa1fd3cd77b9dea4a1bebd97",
-      "symbol": "USDC",
-      "rank": 81,
-      "balance": 62385279934852.0,
       "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x1c3b25019ed4e4876e7af7903cc3e1e23287c337",
       "symbol": "USDC",
-      "rank": 82,
-      "balance": 60031272848640.0,
+      "rank": 77,
+      "balance": 60031272848796.0,
       "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x304c9c032a82ca287c1681ea68189f8c0de5746d",
-      "symbol": "USDC",
-      "rank": 83,
-      "balance": 59489840117357.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xfa5dd3578a15a35811cb13110f6d3c220afac412",
-      "symbol": "USDC",
-      "rank": 84,
-      "balance": 59325270756441.0,
-      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x05eb4a26cf1d63b0d0b93c2256dab74e59a219a2",
       "symbol": "USDC",
-      "rank": 85,
-      "balance": 59250337254047.0,
+      "rank": 78,
+      "balance": 58850337254047.0,
       "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x774a9ba18223240bb4dec7af1c9aa32bfd7b9a6d",
       "symbol": "USDC",
-      "rank": 86,
+      "rank": 79,
       "balance": 57800006000000.0,
       "share": 0.11,
       "last_tx": null
@@ -696,7 +640,7 @@
     {
       "address": "0xdd237237d0071fc16d722dadbedbdc71a20ea1ce",
       "symbol": "USDC",
-      "rank": 87,
+      "rank": 80,
       "balance": 57793597640000.0,
       "share": 0.11,
       "last_tx": null
@@ -704,39 +648,63 @@
     {
       "address": "0xd8a3c2901b736170b70088a0df9aa914317d43c6",
       "symbol": "USDC",
-      "rank": 88,
+      "rank": 81,
       "balance": 57755100011050.0,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xfa5dd3578a15a35811cb13110f6d3c220afac412",
+      "symbol": "USDC",
+      "rank": 82,
+      "balance": 56325270756741.0,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x1dfc6bec8499fcb5e3151c7c6d27feb9d7eae1d4",
+      "symbol": "USDC",
+      "rank": 83,
+      "balance": 56080016043085.0,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x304c9c032a82ca287c1681ea68189f8c0de5746d",
+      "symbol": "USDC",
+      "rank": 84,
+      "balance": 55900662381672.0,
       "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xf41f15d7200c940161e0b15181b2f85631730650",
       "symbol": "USDC",
-      "rank": 89,
+      "rank": 85,
       "balance": 55525567758392.0,
       "share": 0.11,
       "last_tx": null
     },
     {
-      "address": "0xbe480d406671bb3673633292ddfad0144250b2dd",
+      "address": "0x6c5f9f5c181231b15cef6ccfb9792f6cf61ad361",
       "symbol": "USDC",
-      "rank": 90,
-      "balance": 51198094272408.0,
+      "rank": 86,
+      "balance": 53171770538529.0,
       "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0x28cc933fecf280e720299b1258e8680355d8841f",
+      "address": "0xbe480d406671bb3673633292ddfad0144250b2dd",
       "symbol": "USDC",
-      "rank": 91,
-      "balance": 51188130437604.0,
+      "rank": 87,
+      "balance": 51198094272408.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x4cd83180d9b62405d1178ed8dcef6d251f31fc40",
       "symbol": "USDC",
-      "rank": 92,
+      "rank": 88,
       "balance": 50550059586703.0,
       "share": 0.1,
       "last_tx": null
@@ -744,61 +712,93 @@
     {
       "address": "0x20d6919414931889ca910911a610aa8f4c52deda",
       "symbol": "USDC",
-      "rank": 93,
+      "rank": 89,
       "balance": 50253470656435.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x804a7934bd8cd166d35d8fb5a1eb1035c8ee05ce",
-      "symbol": "USDC",
-      "rank": 94,
-      "balance": 50000000015000.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x937988bccdbbc1e8be1623f3de1048535e6cf92f",
-      "symbol": "USDC",
-      "rank": 95,
-      "balance": 49998214785180.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x1751f24f68ddf0a58abacafa044decec5d0668ff",
-      "symbol": "USDC",
-      "rank": 96,
-      "balance": 49492311649336.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x6c5f9f5c181231b15cef6ccfb9792f6cf61ad361",
-      "symbol": "USDC",
-      "rank": 97,
-      "balance": 49394477389029.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
       "symbol": "USDC",
-      "rank": 98,
-      "balance": 49321262577714.0,
+      "rank": 90,
+      "balance": 50033455886105.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x804a7934bd8cd166d35d8fb5a1eb1035c8ee05ce",
+      "symbol": "USDC",
+      "rank": 91,
+      "balance": 50000000015000.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x1751f24f68ddf0a58abacafa044decec5d0668ff",
+      "symbol": "USDC",
+      "rank": 92,
+      "balance": 49492311649336.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x28cc933fecf280e720299b1258e8680355d8841f",
+      "symbol": "USDC",
+      "rank": 93,
+      "balance": 49396758761094.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xb1a6ac52a21435c744b5b4129b07e6c44bcd629b",
       "symbol": "USDC",
-      "rank": 99,
+      "rank": 94,
       "balance": 48657472880000.0,
       "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0x202b9fced83b24d1f0321d6ffadbb99b7a14b2cd",
+      "address": "0xa2bd9d560df03554135ac581de113fb9cd488b08",
+      "symbol": "USDC",
+      "rank": 95,
+      "balance": 48000022713610.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x4f4407de69cd5d5fa29fb14e7b89ddb6f65dcfcb",
+      "symbol": "USDC",
+      "rank": 96,
+      "balance": 48000014308804.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xf5a6f9473e461e21ae16a8784b53bca41cafcdeb",
+      "symbol": "USDC",
+      "rank": 97,
+      "balance": 48000008563201.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xbf5873232e187efefda0eee994fde08b36262ad6",
+      "symbol": "USDC",
+      "rank": 98,
+      "balance": 48000005976000.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xbbf9012ba02f01de68256d4ab43da224cbc04a4c",
+      "symbol": "USDC",
+      "rank": 99,
+      "balance": 48000000043200.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xd5edac27567a6812e1870379ee9368e3fbaef1ad",
       "symbol": "USDC",
       "rank": 100,
       "balance": 48000000043200.0,

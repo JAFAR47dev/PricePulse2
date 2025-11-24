@@ -80,13 +80,13 @@ def main():
 
     # === JOB QUEUE (CLEANED — NO create_task NEEDED) ===
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
-    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=60)
+    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=600)
 
     # These functions MUST be async — make sure they are!
-    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=20)
-    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=30)
-    app.job_queue.run_repeating(start_monitor, interval=300, first=40)
-    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=50)
+    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=200)
+    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=300)
+    app.job_queue.run_repeating(start_monitor, interval=300, first=400)
+    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=500)
     
     start_alert_checker(app.job_queue)
     start_notifications_scheduler(app)

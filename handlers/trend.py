@@ -8,7 +8,7 @@ from models.user_activity import update_last_active
 
 async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/trend")
     await handle_streak(update, context)
     args = context.args
 

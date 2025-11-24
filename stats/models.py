@@ -1,6 +1,28 @@
 from models.db import get_connection
 from datetime import datetime, timedelta
 
+def get_top_commands(cursor, interval):
+    cursor.execute(f"""
+        SELECT command, COUNT(*) AS total
+        FROM command_usage
+        WHERE used_at >= DATETIME('now', '-{interval}')
+        GROUP BY command
+        ORDER BY total DESC
+        LIMIT 5
+    """)
+    return cursor.fetchall()
+
+def get_least_commands(cursor, interval):
+    cursor.execute(f"""
+        SELECT command, COUNT(*) AS total
+        FROM command_usage
+        WHERE used_at >= DATETIME('now', '-{interval}')
+        GROUP BY command
+        ORDER BY total ASC
+        LIMIT 5
+    """)
+    return cursor.fetchall()
+    
 def get_stats():
     conn = get_connection()
     cursor = conn.cursor()
@@ -24,6 +46,15 @@ def get_stats():
 
     cursor.execute("SELECT COUNT(*) FROM users WHERE last_active >= DATETIME('now', '-30 days')")
     stats["active_30d"] = cursor.fetchone()[0]
+    
+    stats["top_commands_24h"] = get_top_commands(cursor, "1 day")
+    stats["least_commands_24h"] = get_least_commands(cursor, "1 day")
+
+    stats["top_commands_7d"] = get_top_commands(cursor, "7 days")
+    stats["least_commands_7d"] = get_least_commands(cursor, "7 days")
+
+    stats["top_commands_30d"] = get_top_commands(cursor, "30 days")
+    stats["least_commands_30d"] = get_least_commands(cursor, "30 days")
     
 
     # Alerts by type
@@ -53,3 +84,4 @@ def get_stats():
 
     conn.close()
     return stats
+    

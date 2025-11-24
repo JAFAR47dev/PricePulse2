@@ -86,7 +86,7 @@ def get_global_market_message() -> str:
 # --- Keep original command working ---
 async def global_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/global")
     await handle_streak(update, context)
     message = get_global_market_message()
     await update.message.reply_text(message, parse_mode="Markdown")

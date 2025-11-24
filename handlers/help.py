@@ -89,7 +89,7 @@ help_pages = {
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/help")
     page = 1
     keyboard = [
         [InlineKeyboardButton("⏭️ Next", callback_data=f"help_page|{page+1}")],

@@ -338,13 +338,14 @@ async def check_portfolio_alerts(context, symbol_prices):
             portfolios[user_id].append((symbol, amount))
 
         for user_id, assets in portfolios.items():
-            # Fetch portfolio limit/target for the user
+            # Fetch portfolio limit/target + repeat value
             limit_data = get_portfolio_value_limits(user_id)
             if not limit_data:
                 continue
 
             loss_limit = limit_data.get("loss_limit")
             profit_target = limit_data.get("profit_target")
+            repeat = limit_data.get("repeat", 0)  # 0 = one-time, 1 = persistent
 
             total_value = 0
             for symbol, amount in assets:
@@ -364,7 +365,9 @@ async def check_portfolio_alerts(context, symbol_prices):
 
                 total_value += price * amount
 
-            # 🔻 Loss limit alert
+            # -------------------------------
+            # 🔻 LOSS LIMIT CHECK
+            # -------------------------------
             if loss_limit and total_value <= loss_limit:
                 try:
                     if context:
@@ -372,19 +375,25 @@ async def check_portfolio_alerts(context, symbol_prices):
                             chat_id=user_id,
                             text=(
                                 f"⚠️ *Portfolio Loss Alert*\n"
-                                f"Your total value dropped to ${total_value:,.2f}.\n"
-                                f"Loss limit was: ${loss_limit:,.2f}"
+                                f"Your total value dropped to **${total_value:,.2f}**.\n"
+                                f"Loss limit: **${loss_limit:,.2f}**"
                             ),
                             parse_mode="Markdown"
                         )
-                    cursor.execute(
-                        "UPDATE portfolio_limits SET loss_limit = NULL WHERE user_id = ?",
-                        (user_id,)
-                    )
+
+                    # Remove limit ONLY if not repeating
+                    if repeat == 0:
+                        cursor.execute(
+                            "UPDATE portfolio_limits SET loss_limit = NULL WHERE user_id = ?",
+                            (user_id,)
+                        )
+
                 except Exception:
                     traceback.print_exc()
 
-            # 🎯 Profit target alert
+            # -------------------------------
+            # 🎯 PROFIT TARGET CHECK
+            # -------------------------------
             elif profit_target and total_value >= profit_target:
                 try:
                     if context:
@@ -392,15 +401,19 @@ async def check_portfolio_alerts(context, symbol_prices):
                             chat_id=user_id,
                             text=(
                                 f"🎯 *Portfolio Target Reached*\n"
-                                f"Your total value is now ${total_value:,.2f}.\n"
-                                f"Target goal was: ${profit_target:,.2f}"
+                                f"Your total value is now **${total_value:,.2f}**.\n"
+                                f"Target goal: **${profit_target:,.2f}**"
                             ),
                             parse_mode="Markdown"
                         )
-                    cursor.execute(
-                        "UPDATE portfolio_limits SET profit_target = NULL WHERE user_id = ?",
-                        (user_id,)
-                    )
+
+                    # Remove limit ONLY if not repeating
+                    if repeat == 0:
+                        cursor.execute(
+                            "UPDATE portfolio_limits SET profit_target = NULL WHERE user_id = ?",
+                            (user_id,)
+                        )
+
                 except Exception:
                     traceback.print_exc()
 

@@ -38,7 +38,7 @@ def get_fiat_to_usd(symbol):
 
 async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/addasset")
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
@@ -96,9 +96,10 @@ async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
 async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/portfolio")
     plan = get_user_plan(user_id)
 
+    # --- PRO CHECK ---
     if not is_pro_plan(plan):
         await update.message.reply_text(
             "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
@@ -106,66 +107,94 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT symbol, amount FROM portfolio WHERE user_id = ?", (user_id,))
-    rows = cursor.fetchall()
-    conn.close()
+    # --- LOAD PORTFOLIO SAFELY ---
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT symbol, amount FROM portfolio WHERE user_id = ?", (user_id,))
+        rows = cursor.fetchall()
+        conn.close()
+    except Exception as e:
+        print("❌ DB ERROR in view_portfolio:", e)
+        await update.message.reply_text("⚠️ Error loading your portfolio. Please try again.")
+        return
 
     if not rows:
         await update.message.reply_text("📭 Your portfolio is empty. Add assets using /addasset")
         return
 
-    total_value = 0
-    total_change_usd = 0
+    # Build list of crypto symbols that need API fetching
+    crypto_symbols = []
+    for symbol, _ in rows:
+        s = symbol.upper().strip()
+        if s not in STABLECOINS and s not in FIAT_CURRENCIES and s != "USD":
+            crypto_symbols.append(s)
+
+    # --- FETCH CRYPTO PRICES SAFELY ---
+    crypto_data = {}
+    if crypto_symbols:
+        try:
+            crypto_data = await get_portfolio_crypto_prices(crypto_symbols)
+        except Exception as e:
+            print("❌ Price fetch error:", e)
+            crypto_data = {}
+
+    # --- BUILD PORTFOLIO MESSAGE ---
+    total_value = 0.0
+    total_change_usd = 0.0
 
     message = "*📊 Your Portfolio (24h Performance):*\n\n"
+    MAX_LENGTH = 3500  # Telegram Buffer
 
-    # Collect symbols for bulk fetching
-    crypto_symbols = [
-        symbol.upper()
-        for symbol, _ in rows
-        if symbol not in STABLECOINS and symbol not in FIAT_CURRENCIES and symbol != "USD"
-    ]
-
-    # Fetch crypto data once
-    crypto_data = await get_portfolio_crypto_prices(crypto_symbols) if crypto_symbols else {}
+    async def safe_send(text):
+        """Prevent Telegram limit issues."""
+        if len(text) > MAX_LENGTH:
+            await update.message.reply_text(text[:MAX_LENGTH], parse_mode="Markdown")
+            return text[MAX_LENGTH:]
+        return text
 
     for symbol, amount in rows:
-        symbol = symbol.upper()
+        symbol = symbol.upper().strip()
 
-        # Determine source
+        # --- Determine source: stablecoin / fiat / crypto ---
         if symbol in STABLECOINS or symbol == "USD":
             price = 1.0
             pct_change_24h = 0
-            change_amt_24h = 0
         elif symbol in FIAT_CURRENCIES:
-            price = get_fiat_to_usd(symbol)
+            try:
+                price = get_fiat_to_usd(symbol)
+            except Exception:
+                price = None
             pct_change_24h = 0
-            change_amt_24h = 0
         else:
             data = crypto_data.get(symbol, {})
             price = data.get("price")
             pct_change_24h = data.get("change_pct")
-            change_amt_24h = data.get("change_amt")  # already price * pct/100
 
         if price is None:
-            message += f"• *{symbol}*: {amount} (⚠️ Price unavailable)\n"
+            message += f"• *{symbol}*: {amount} (⚠️ Price unavailable)\n\n"
+            message = await safe_send(message)
             continue
 
-        # Current value
-        value = amount * price
+        # --- Current USD value ---
+        try:
+            value = amount * price
+        except Exception:
+            value = 0
+
         total_value += value
 
-        # Compute USD change for this asset
+        # --- Compute USD change ---
         if pct_change_24h is None:
             asset_change_usd = None
         else:
-            asset_change_usd = value * (pct_change_24h / 100)
-            total_change_usd += asset_change_usd
+            try:
+                asset_change_usd = value * (pct_change_24h / 100)
+                total_change_usd += asset_change_usd
+            except Exception:
+                asset_change_usd = None
 
-        # Percent emoji
+        # --- Text formatting ---
         if pct_change_24h is None:
             pct_text = "⚠️ N/A"
         elif pct_change_24h > 0:
@@ -175,7 +204,6 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             pct_text = "➖ 0%"
 
-        # USD emoji
         if asset_change_usd is None:
             change_usd_text = "⚠️ N/A"
         elif asset_change_usd > 0:
@@ -185,18 +213,24 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             change_usd_text = "➖ $0"
 
-        # Build message
         message += (
             f"• *{symbol}*: {amount}\n"
-            f"  ↳ ${price:.2f} each → *${value:,.2f}*\n"
+            f"  ↳ ${price:,.4f} each → *${value:,.2f}*\n"
             f"  ↳ 24h: {pct_text} | {change_usd_text}\n\n"
         )
 
-    # Portfolio-wide 24h % change
-    if total_value == 0:
+        message = await safe_send(message)
+
+    # --- Portfolio-wide % calculation SAFE ---
+    if total_value == 0 or (total_value - total_change_usd) == 0:
         summary_pct = 0
     else:
-        summary_pct = (total_change_usd / (total_value - total_change_usd)) * 100 if (total_value - total_change_usd) != 0 else 0
+        try:
+            summary_pct = (total_change_usd / (total_value - total_change_usd)) * 100
+        except ZeroDivisionError:
+            summary_pct = 0
+        except Exception:
+            summary_pct = 0
 
     if summary_pct > 0:
         summary_pct_text = f"🟢 +{summary_pct:.2f}%"
@@ -216,12 +250,11 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     await update.message.reply_text(message, parse_mode="Markdown")
-    
       
 
 async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/removeasset")
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
@@ -290,7 +323,7 @@ async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
 async def clear_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/clearportfolio")
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
@@ -319,81 +352,126 @@ async def clear_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/portfoliolimit")
     plan = get_user_plan(user_id)
 
+    # --- PRO CHECK ---
     if not is_pro_plan(plan):
         await update.message.reply_text(
             "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
-    
 
-    if len(context.args) != 1:
+    if len(context.args) == 0:
         await update.message.reply_text(
-            "❌ Usage: `/portfoliolimit [amount]`\nExample: `/portfoliolimit 15000`",
+            "❌ Usage: `/portfoliolimit [amount] [repeat]`\n"
+            "Example: `/portfoliolimit 15000 repeat`",
             parse_mode="Markdown"
         )
         return
 
+    # --- EXTRACT AMOUNT ---
+    raw_amount = context.args[0].replace(",", "")
     try:
-        amount = float(context.args[0].replace(",", ""))
+        amount = float(raw_amount)
         if amount <= 0:
             raise ValueError
     except ValueError:
         await update.message.reply_text("❌ Please enter a valid number greater than 0.")
         return
 
-    # Set or update the limit
+    # --- CHECK FOR 'repeat' KEYWORD ---
+    repeat_flag = 1 if (len(context.args) > 1 and context.args[1].lower() == "repeat") else 0
+
+    # --- SAVE TO DATABASE ---
     conn = get_connection()
     cursor = conn.cursor()
+
     cursor.execute("INSERT OR IGNORE INTO portfolio_limits (user_id) VALUES (?)", (user_id,))
-    cursor.execute("UPDATE portfolio_limits SET loss_limit = ? WHERE user_id = ?", (amount, user_id))
+
+    cursor.execute("""
+        UPDATE portfolio_limits
+        SET loss_limit = ?, repeat_limit_loss = ?
+        WHERE user_id = ?
+    """, (amount, repeat_flag, user_id))
+
     conn.commit()
     conn.close()
 
+    # --- RESPONSE ---
+    if repeat_flag:
+        repeat_text = "🔁 *Repeating alert enabled* — you'll get alerted every time it drops below this level."
+    else:
+        repeat_text = "🔔 (One-time alert — it will not repeat.)"
+
     await update.message.reply_text(
-        f"✅ Portfolio *loss alert* set!\nYou'll be notified if your portfolio drops below *${amount:,.2f}*.",
+        f"✅ Portfolio *loss alert* set!\n"
+        f"📉 Trigger at: *${amount:,.2f}*\n\n"
+        f"{repeat_text}",
         parse_mode="Markdown"
     )
+    
 
 async def set_portfolio_profit_target(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/portfoliotarget")
     plan = get_user_plan(user_id)
 
+    # --- PRO CHECK ---
     if not is_pro_plan(plan):
         await update.message.reply_text(
             "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
             parse_mode="Markdown"
         )
         return
-    
-    if len(context.args) != 1:
+
+    # --- ARG CHECK ---
+    if len(context.args) == 0:
         await update.message.reply_text(
-            "❌ Usage: `/portfoliotarget [amount]`\nExample: `/portfoliotarget 30000`",
+            "❌ Usage: `/portfoliotarget [amount] [repeat]`\n"
+            "Example: `/portfoliotarget 30000 repeat`",
             parse_mode="Markdown"
         )
         return
 
+    # --- PARSE AMOUNT ---
+    raw_amount = context.args[0].replace(",", "")
     try:
-        amount = float(context.args[0].replace(",", ""))
+        amount = float(raw_amount)
         if amount <= 0:
             raise ValueError
     except ValueError:
         await update.message.reply_text("❌ Please enter a valid number greater than 0.")
         return
 
-    # Save to database
+    # --- REPEAT FLAG ---
+    repeat_flag = 1 if (len(context.args) > 1 and context.args[1].lower() == "repeat") else 0
+
+    # --- SAVE TO DATABASE ---
     conn = get_connection()
     cursor = conn.cursor()
+
     cursor.execute("INSERT OR IGNORE INTO portfolio_limits (user_id) VALUES (?)", (user_id,))
-    cursor.execute("UPDATE portfolio_limits SET profit_target = ? WHERE user_id = ?", (amount, user_id))
+
+    cursor.execute("""
+        UPDATE portfolio_limits
+        SET profit_target = ?, repeat_limit_profit = ?
+        WHERE user_id = ?
+    """, (amount, repeat_flag, user_id))
+
     conn.commit()
     conn.close()
 
+    # --- USER FEEDBACK ---
+    if repeat_flag:
+        repeat_text = "🔁 *Repeating alert enabled* — you'll be alerted every time your portfolio exceeds this value."
+    else:
+        repeat_text = "🔔 (One-time alert — it will not repeat.)"
+
     await update.message.reply_text(
-        f"✅ Portfolio *profit alert* set!\nYou'll be notified if your portfolio exceeds *${amount:,.2f}*.",
+        f"✅ Portfolio *profit alert* set!\n"
+        f"📈 Trigger at: *${amount:,.2f}*\n\n"
+        f"{repeat_text}",
         parse_mode="Markdown"
     )

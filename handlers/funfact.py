@@ -63,7 +63,7 @@ FUN_FACTS = [
 
 async def funfact_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/funfact")
     await handle_streak(update, context)
 
     fact = random.choice(FUN_FACTS)

@@ -80,7 +80,7 @@ async def get_top_gainers_message() -> str:
 async def best_gainers(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         user_id = update.effective_user.id
-        await update_last_active(user_id)
+        await update_last_active(user_id, command_name="/best")
         await handle_streak(update, context)
         loading_msg = await update.message.reply_text("📈 Fetching top 24h gainers...")
         message = await get_top_gainers_message()

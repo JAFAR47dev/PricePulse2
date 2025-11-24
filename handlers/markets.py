@@ -14,7 +14,7 @@ with open("utils/coingecko_ids.json", "r") as f:
 
 async def markets_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/markets")
     await handle_streak(update, context)
     if len(context.args) != 1:
         return await update.message.reply_text("❌ Usage: /markets [coin]")

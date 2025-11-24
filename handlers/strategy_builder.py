@@ -15,7 +15,7 @@ AWAITING_STRATEGY_INPUT = 1
 
 async def strategy_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/aistrat")
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):

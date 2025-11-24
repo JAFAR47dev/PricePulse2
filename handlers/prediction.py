@@ -25,7 +25,7 @@ def safe(value):
         
 async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/prediction")
     plan = get_user_plan(user_id)
         
 

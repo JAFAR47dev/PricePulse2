@@ -51,7 +51,7 @@ def format_num(n):
 
 async def calc_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/calc")
     await handle_streak(update, context)
     if len(context.args) != 2:
         await update.message.reply_text("Usage: /calc [amount] [coin/fiat]\nExample: /calc 100 btc or /calc 30000 gbp")

@@ -60,7 +60,7 @@ from telegram.constants import ParseMode
 
 async def gasfees_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/gas")
     await handle_streak(update, context)
     text = get_gas_fees()
     await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)

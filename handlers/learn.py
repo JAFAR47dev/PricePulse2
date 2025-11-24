@@ -15,7 +15,7 @@ ITEMS_PER_PAGE = 6  # Number of terms per page
 # /learn command entry
 async def learn_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/learn")
     await handle_streak(update, context)
     await send_learn_page(update, page=0)
 

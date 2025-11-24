@@ -77,7 +77,7 @@ from telegram.constants import ParseMode
 
 async def coin_of_the_day(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/cod")
     await handle_streak(update, context)
     text = get_coin_of_the_day()
     await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)

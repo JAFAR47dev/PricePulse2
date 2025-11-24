@@ -7,6 +7,7 @@ from notifications.handlers.frequency_handler import frequency_callback_handler
 from notifications.handlers.content_handler import register_content_handlers
 from notifications.handlers.time_handler import register_time_handlers
 from notifications.handlers.test_handler import test_callback_handler
+from models.user_activity import update_last_active
 
 def format_yes_no(value):
     return "✅" if value == 1 else "❌"
@@ -19,6 +20,7 @@ async def notify_callback_refresh(query, context):
 
 async def notify_command(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
+    await update_last_active(user_id, command_name="/notifications")
     settings = get_user_notification_settings(user_id)
 
     text = (

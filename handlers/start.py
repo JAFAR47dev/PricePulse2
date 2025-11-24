@@ -13,7 +13,7 @@ from models.user_activity import update_last_active
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     user_id = user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/start")
     username = user.username
     name = user.first_name or "Trader"
     args = context.args

@@ -1,7 +1,7 @@
 {
   "token": "POL",
   "contract": "0x455e53cbb86018ac2b8092fdcd39d8444affc3f6",
-  "updated_at": "2025-11-13T21:47:48.676250",
+  "updated_at": "2025-11-24T17:03:14.132871",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,39 +9,39 @@
       "address": "0x5e3ef299fddf15eaa0432e6e66473ace8c13d908",
       "symbol": "POL",
       "rank": 1,
-      "balance": 3.5648649133836924e+27,
-      "share": 33.84,
+      "balance": 3.5317415503765736e+27,
+      "share": 33.5,
       "last_tx": null
     },
     {
       "address": "0x401f6c983ea34274ec46f84d70b31c151321188b",
       "symbol": "POL",
       "rank": 2,
-      "balance": 2.682462100878161e+27,
-      "share": 25.46,
+      "balance": 2.713790444741533e+27,
+      "share": 25.74,
       "last_tx": null
     },
     {
       "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
       "symbol": "POL",
       "rank": 3,
-      "balance": 5.60084190622e+26,
-      "share": 5.32,
+      "balance": 5.81174729207e+26,
+      "share": 5.51,
       "last_tx": null
     },
     {
       "address": "0x29e7df7b6a1b2b07b731457f499e1696c60e2c4e",
       "symbol": "POL",
       "rank": 4,
-      "balance": 4.377237174717856e+26,
-      "share": 4.16,
+      "balance": 4.281248288000048e+26,
+      "share": 4.06,
       "last_tx": null
     },
     {
       "address": "0x4c569c1e541a19132ac893748e0ad54c7c989ff4",
       "symbol": "POL",
       "rank": 5,
-      "balance": 1.908813083416328e+26,
+      "balance": 1.9116756179097292e+26,
       "share": 1.81,
       "last_tx": null
     },
@@ -49,7 +49,7 @@
       "address": "0x3a3c006053a9b40286b9951a11be4c5808c11dc8",
       "symbol": "POL",
       "rank": 6,
-      "balance": 1.5728427851422837e+26,
+      "balance": 1.572739650340873e+26,
       "share": 1.49,
       "last_tx": null
     },
@@ -62,17 +62,9 @@
       "last_tx": null
     },
     {
-      "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
-      "symbol": "POL",
-      "rank": 8,
-      "balance": 1.342787819632e+26,
-      "share": 1.27,
-      "last_tx": null
-    },
-    {
       "address": "0x84faec6529a98b72cad63254211f3f0399f38367",
       "symbol": "POL",
-      "rank": 9,
+      "rank": 8,
       "balance": 1.3059077631162133e+26,
       "share": 1.24,
       "last_tx": null
@@ -80,7 +72,7 @@
     {
       "address": "0x0ba98b0067778ed0da2093c1f1600d4d17ccbf01",
       "symbol": "POL",
-      "rank": 10,
+      "rank": 9,
       "balance": 1.3059077631162133e+26,
       "share": 1.24,
       "last_tx": null
@@ -88,7 +80,7 @@
     {
       "address": "0x796ce52e96000a76e926c35d8e6284a544456168",
       "symbol": "POL",
-      "rank": 11,
+      "rank": 10,
       "balance": 1.304338025631294e+26,
       "share": 1.24,
       "last_tx": null
@@ -96,7 +88,7 @@
     {
       "address": "0x58a3cabac2d8a807b73a44d26526b1ea7b7b6938",
       "symbol": "POL",
-      "rank": 12,
+      "rank": 11,
       "balance": 1.3002924649019076e+26,
       "share": 1.23,
       "last_tx": null
@@ -104,89 +96,97 @@
     {
       "address": "0xa5946a2c7a6c4232224b89a696ae51879bf5aed1",
       "symbol": "POL",
-      "rank": 13,
-      "balance": 1.27125058470495e+26,
+      "rank": 12,
+      "balance": 1.2791833942795e+26,
       "share": 1.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+      "symbol": "POL",
+      "rank": 13,
+      "balance": 1.142787819632e+26,
+      "share": 1.08,
       "last_tx": null
     },
     {
       "address": "0x187c9fbf5bd0f266883c03f320260c407c7b4100",
       "symbol": "POL",
       "rank": 14,
-      "balance": 8.756851049534296e+25,
+      "balance": 9.548686050014567e+25,
+      "share": 0.91,
+      "last_tx": null
+    },
+    {
+      "address": "0x86380e136a3aad5677a210ad02713694c4e6a5b9",
+      "symbol": "POL",
+      "rank": 15,
+      "balance": 8.707222357456379e+25,
       "share": 0.83,
       "last_tx": null
     },
     {
       "address": "0x1157a2076b9bb22a85cc2c162f20fab3898f4101",
       "symbol": "POL",
-      "rank": 15,
-      "balance": 8.574427322543258e+25,
-      "share": 0.81,
-      "last_tx": null
-    },
-    {
-      "address": "0x86380e136a3aad5677a210ad02713694c4e6a5b9",
-      "symbol": "POL",
       "rank": 16,
-      "balance": 8.280171822007614e+25,
-      "share": 0.79,
+      "balance": 8.53308948214371e+25,
+      "share": 0.81,
       "last_tx": null
     },
     {
       "address": "0x43cef25cd1f908bfac82ef5971734a43fec75772",
       "symbol": "POL",
       "rank": 17,
-      "balance": 7.108563502347048e+25,
-      "share": 0.67,
-      "last_tx": null
-    },
-    {
-      "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
-      "symbol": "POL",
-      "rank": 18,
-      "balance": 4.895484426302213e+25,
-      "share": 0.46,
+      "balance": 7.715269024399e+25,
+      "share": 0.73,
       "last_tx": null
     },
     {
       "address": "0xcd6507d87f605f5e95c12f7c4b1fc3279dc944ab",
       "symbol": "POL",
+      "rank": 18,
+      "balance": 7.688716914e+25,
+      "share": 0.73,
+      "last_tx": null
+    },
+    {
+      "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
+      "symbol": "POL",
       "rank": 19,
-      "balance": 4.416994414e+25,
+      "balance": 4.8799431892812294e+25,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0xc984295ad7a950fb5031154bcfc0b6267b948706",
+      "symbol": "POL",
+      "rank": 20,
+      "balance": 4.387990149317605e+25,
       "share": 0.42,
       "last_tx": null
     },
     {
       "address": "0xbc2cb4bf5510a1cc06863c96196a2361c8462525",
       "symbol": "POL",
-      "rank": 20,
+      "rank": 21,
       "balance": 4.079461505604001e+25,
       "share": 0.39,
-      "last_tx": null
-    },
-    {
-      "address": "0xafcd96e580138cfa2332c632e66308eacd45c5da",
-      "symbol": "POL",
-      "rank": 21,
-      "balance": 4e+25,
-      "share": 0.38,
       "last_tx": null
     },
     {
       "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
       "symbol": "POL",
       "rank": 22,
-      "balance": 3.98293722858566e+25,
+      "balance": 4.00911116129736e+25,
       "share": 0.38,
       "last_tx": null
     },
     {
-      "address": "0x611f7bf868a6212f871e89f7e44684045ddfb09d",
+      "address": "0xafcd96e580138cfa2332c632e66308eacd45c5da",
       "symbol": "POL",
       "rank": 23,
-      "balance": 3.69865603e+25,
-      "share": 0.35,
+      "balance": 4e+25,
+      "share": 0.38,
       "last_tx": null
     },
     {
@@ -209,31 +209,31 @@
       "address": "0xc6f35423ada89cb1e362dddf68d7e1b07138b808",
       "symbol": "POL",
       "rank": 26,
-      "balance": 3.144874163270025e+25,
+      "balance": 3.1415235051581535e+25,
       "share": 0.3,
       "last_tx": null
     },
     {
-      "address": "0xaba347381803d17789f4e1bace7e74573005c251",
+      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
       "symbol": "POL",
       "rank": 27,
-      "balance": 3e+25,
+      "balance": 3.0119239141546786e+25,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x611f7bf868a6212f871e89f7e44684045ddfb09d",
+      "symbol": "POL",
+      "rank": 28,
+      "balance": 2.929153803e+25,
       "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0x835678a611b28684005a5e2233695fb6cbbb0007",
       "symbol": "POL",
-      "rank": 28,
-      "balance": 2.89474770368e+25,
-      "share": 0.27,
-      "last_tx": null
-    },
-    {
-      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
-      "symbol": "POL",
       "rank": 29,
-      "balance": 2.8085372486946e+25,
+      "balance": 2.89474770368e+25,
       "share": 0.27,
       "last_tx": null
     },
@@ -246,65 +246,49 @@
       "last_tx": null
     },
     {
-      "address": "0xfa58659f64a393a6e1a548abc70ad2cfe1e8f9cb",
-      "symbol": "POL",
-      "rank": 31,
-      "balance": 2.6509941653965356e+25,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
       "address": "0x458e433ae998f687d5ec323077521fc2721c5e20",
       "symbol": "POL",
-      "rank": 32,
-      "balance": 2.631869502e+25,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
-      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
-      "symbol": "POL",
-      "rank": 33,
-      "balance": 2.617770528700902e+25,
-      "share": 0.25,
+      "rank": 31,
+      "balance": 2.784837527e+25,
+      "share": 0.26,
       "last_tx": null
     },
     {
       "address": "0x7f604d597c15b2e2f60dc645844f68b1d781b752",
       "symbol": "POL",
-      "rank": 34,
-      "balance": 2.5957214361242123e+25,
+      "rank": 32,
+      "balance": 2.635861789919381e+25,
       "share": 0.25,
       "last_tx": null
     },
     {
-      "address": "0xc984295ad7a950fb5031154bcfc0b6267b948706",
+      "address": "0x5ee84d30c7ee57f63f71c92247ff31f95e26916b",
       "symbol": "POL",
-      "rank": 35,
-      "balance": 2.5279901493176043e+25,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
-      "symbol": "POL",
-      "rank": 36,
-      "balance": 2.4048094290937385e+25,
-      "share": 0.23,
+      "rank": 33,
+      "balance": 2.3324600589650784e+25,
+      "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
       "symbol": "POL",
-      "rank": 37,
-      "balance": 2.3596583349295105e+25,
-      "share": 0.22,
+      "rank": 34,
+      "balance": 2.2564576684317097e+25,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x7760701a5f64adfed9438b2ed823b1e014956873",
+      "symbol": "POL",
+      "rank": 35,
+      "balance": 2.2301466802869402e+25,
+      "share": 0.21,
       "last_tx": null
     },
     {
       "address": "0x655fe3fc7764e621ca738254eb1b90fae3461d51",
       "symbol": "POL",
-      "rank": 38,
+      "rank": 36,
       "balance": 2.2240198402546025e+25,
       "share": 0.21,
       "last_tx": null
@@ -312,15 +296,23 @@
     {
       "address": "0xa74e8ae2f83d2564af25420ad4d6a7fe224b053f",
       "symbol": "POL",
-      "rank": 39,
+      "rank": 37,
       "balance": 2.2209331e+25,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+      "symbol": "POL",
+      "rank": 38,
+      "balance": 2.2044652486946e+25,
       "share": 0.21,
       "last_tx": null
     },
     {
       "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
       "symbol": "POL",
-      "rank": 40,
+      "rank": 39,
       "balance": 2.1931544e+25,
       "share": 0.21,
       "last_tx": null
@@ -328,7 +320,7 @@
     {
       "address": "0x1a7ffe5bd7bcb8473f80ea37914553251c56801d",
       "symbol": "POL",
-      "rank": 41,
+      "rank": 40,
       "balance": 1.9970505430721084e+25,
       "share": 0.19,
       "last_tx": null
@@ -336,47 +328,39 @@
     {
       "address": "0x3f43b56004cb9a8927f11b78949a2624a455868b",
       "symbol": "POL",
-      "rank": 42,
-      "balance": 1.9142076864299025e+25,
-      "share": 0.18,
+      "rank": 41,
+      "balance": 1.8114936854299026e+25,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x970f6cccf27b64a0f20c2f9302a8df1a6382245a",
       "symbol": "POL",
-      "rank": 43,
+      "rank": 42,
       "balance": 1.8000001e+25,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0x194601ae6cd6dc44a47f5a5d0bca02046524f2e9",
-      "symbol": "POL",
-      "rank": 44,
-      "balance": 1.7768546223157885e+25,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0x5ee84d30c7ee57f63f71c92247ff31f95e26916b",
-      "symbol": "POL",
-      "rank": 45,
-      "balance": 1.7583040423500784e+25,
       "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x280c3f929757d6d8ecf441fa583ed2d9d51cc284",
       "symbol": "POL",
-      "rank": 46,
-      "balance": 1.7551466671772441e+25,
-      "share": 0.17,
+      "rank": 43,
+      "balance": 1.7221986496517046e+25,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "POL",
+      "rank": 44,
+      "balance": 1.617771007816902e+25,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x7dd1704914cb9d69fe4e8b19c45a870b69e97f93",
       "symbol": "POL",
-      "rank": 47,
+      "rank": 45,
       "balance": 1.6164557523056296e+25,
       "share": 0.15,
       "last_tx": null
@@ -384,135 +368,111 @@
     {
       "address": "0x7c012811cb056ea8346522932070daa402642b43",
       "symbol": "POL",
-      "rank": 48,
+      "rank": 46,
       "balance": 1.5200019161839493e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x6b80467bd92fe148e804cb25cdb301f981f02ddc",
+      "symbol": "POL",
+      "rank": 47,
+      "balance": 1.5094330850841695e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xdc1a9e35644646d5bb5313a9577e92903eac970b",
+      "symbol": "POL",
+      "rank": 48,
+      "balance": 1.5094330850841695e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x06fee78664800e0c98661e9304f9f83541138d60",
+      "symbol": "POL",
+      "rank": 49,
+      "balance": 1.5094330850841695e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xd0ae26baef498f2670f36e0171c86f8d94781e68",
+      "symbol": "POL",
+      "rank": 50,
+      "balance": 1.4929347972954418e+25,
       "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0x09b788cfc3c109540425d998b1004f79874e6971",
       "symbol": "POL",
-      "rank": 49,
-      "balance": 1.489199944233851e+25,
+      "rank": 51,
+      "balance": 1.492478013282864e+25,
       "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0xf8191d98ae98d2f7abdfb63a9b0b812b93c873aa",
+      "address": "0x1c461527f1277748d47b3b2adc921bb2737c1609",
       "symbol": "POL",
-      "rank": 50,
-      "balance": 1.3971866713675178e+25,
+      "rank": 52,
+      "balance": 1.4839846537592372e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xa07bfc4dee5c440d7940f2a626d69b450807dc3c",
+      "symbol": "POL",
+      "rank": 53,
+      "balance": 1.4835769482030391e+25,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "POL",
+      "rank": 54,
+      "balance": 1.365256315355864e+25,
       "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
       "symbol": "POL",
-      "rank": 51,
-      "balance": 1.370915263743056e+25,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
-      "symbol": "POL",
-      "rank": 52,
-      "balance": 1.363774734157144e+25,
+      "rank": 55,
+      "balance": 1.3548357723094889e+25,
       "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0xe716a215f62a282a74606cd5e7f54f9147471a3c",
       "symbol": "POL",
-      "rank": 53,
+      "rank": 56,
       "balance": 1.3304816e+25,
       "share": 0.13,
       "last_tx": null
     },
     {
-      "address": "0x7017d9dc9e4bbc4e961b896071679371723a8ed8",
-      "symbol": "POL",
-      "rank": 54,
-      "balance": 1.275477e+25,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xbe416fd6ac989c0ba3bf8f5807345afe7d370c32",
-      "symbol": "POL",
-      "rank": 55,
-      "balance": 1.192762894439309e+25,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
       "address": "0x0c501d43206b97fa4300f1b0962742b4f938f70e",
       "symbol": "POL",
-      "rank": 56,
-      "balance": 1.1835057362866936e+25,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xd658fbe6c22459e5236614bce947106257935ced",
-      "symbol": "POL",
       "rank": 57,
-      "balance": 1.17137005645736e+25,
+      "balance": 1.1986361122866937e+25,
       "share": 0.11,
       "last_tx": null
     },
     {
-      "address": "0x465eeabf21fec77ebf02ebfc0a97bb69a7ebe316",
+      "address": "0x755f05491285ac10710daac05de86ae5f8ba3c9c",
       "symbol": "POL",
       "rank": 58,
-      "balance": 1.1565428889207566e+25,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x706f155f23a0ca5c3e8da4d78e8080d6e447b226",
-      "symbol": "POL",
-      "rank": 59,
-      "balance": 1.1500805887345339e+25,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x64614f9305134768f8b26c1f8eaa4dbdcbdd3270",
-      "symbol": "POL",
-      "rank": 60,
-      "balance": 1.1500805887345339e+25,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xf86e58e30ca6beffa1c6e738344a1ffbda925ddc",
-      "symbol": "POL",
-      "rank": 61,
-      "balance": 1.1500805887345339e+25,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x11f4551835336ce4a58e80d161fa2e13c0880224",
-      "symbol": "POL",
-      "rank": 62,
-      "balance": 1.1500805887345339e+25,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x8836d20c417958707527a62bf6862aea3a897c47",
-      "symbol": "POL",
-      "rank": 63,
-      "balance": 1.1500805887345339e+25,
+      "balance": 1.1153589275125322e+25,
       "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x62732050fca612c8f149121378a8be5184da7d9e",
       "symbol": "POL",
-      "rank": 64,
+      "rank": 59,
       "balance": 1.0176154863446168e+25,
       "share": 0.1,
       "last_tx": null
@@ -520,31 +480,39 @@
     {
       "address": "0xc03739d03e547a9ccc44abf40451b1577bbff3a0",
       "symbol": "POL",
-      "rank": 65,
-      "balance": 1.013050604193999e+25,
+      "rank": 60,
+      "balance": 1.013049604193999e+25,
       "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "address": "0x651af8e9ff216bd8f1624b3a584ff612710b5d92",
       "symbol": "POL",
-      "rank": 66,
-      "balance": 9.576589196856733e+24,
+      "rank": 61,
+      "balance": 1.0001577105068758e+25,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0xc095e413dbdfa46be1dbac8e5fd8398e942f02d6",
       "symbol": "POL",
-      "rank": 67,
-      "balance": 9.568460851848e+24,
+      "rank": 62,
+      "balance": 9.864900932243e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x7017d9dc9e4bbc4e961b896071679371723a8ed8",
+      "symbol": "POL",
+      "rank": 63,
+      "balance": 9.704805e+24,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0xb94dd22cb487a3778aa2a77adcd1cc15448d42c6",
       "symbol": "POL",
-      "rank": 68,
+      "rank": 64,
       "balance": 9.255189779420398e+24,
       "share": 0.09,
       "last_tx": null
@@ -552,7 +520,7 @@
     {
       "address": "0xf197c6f2ac14d25ee2789a73e4847732c7f16bc9",
       "symbol": "POL",
-      "rank": 69,
+      "rank": 65,
       "balance": 8.892453416796119e+24,
       "share": 0.08,
       "last_tx": null
@@ -560,39 +528,47 @@
     {
       "address": "0x5b71d5fd6bb118665582dd87922bf3b9de6c75f9",
       "symbol": "POL",
-      "rank": 70,
-      "balance": 8.876667927336793e+24,
+      "rank": 66,
+      "balance": 8.848098197979827e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x9b0c45d46d386cedd98873168c36efd0dcba8d46",
+      "symbol": "POL",
+      "rank": 67,
+      "balance": 8.7395401259571e+24,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x7f6d23e436099ec78a73c430b16782b0d68585bd",
       "symbol": "POL",
-      "rank": 71,
+      "rank": 68,
       "balance": 8.726061394243794e+24,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
-      "symbol": "POL",
-      "rank": 72,
-      "balance": 8.211800602451797e+24,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xb334b6c04d341faace597b6ba1e84fe78bda503b",
       "symbol": "POL",
-      "rank": 73,
-      "balance": 8.197470853755945e+24,
+      "rank": 69,
+      "balance": 8.698791492871906e+24,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x12f5a09fe1c0b2e40f63b696ab1b39d374e88632",
+      "symbol": "POL",
+      "rank": 70,
+      "balance": 8.416754051286508e+24,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xd5f1be3b4199024bb29ea5a4905e509128d61d83",
       "symbol": "POL",
-      "rank": 74,
+      "rank": 71,
       "balance": 8.09471136799009e+24,
       "share": 0.08,
       "last_tx": null
@@ -600,7 +576,7 @@
     {
       "address": "0xae0f1f06143407044890294ba484525afc3ffae0",
       "symbol": "POL",
-      "rank": 75,
+      "rank": 72,
       "balance": 8.062458963135414e+24,
       "share": 0.08,
       "last_tx": null
@@ -608,23 +584,31 @@
     {
       "address": "0xfb6d8a125fd9f9ce73fcbaeab4b9813bb4ea1e11",
       "symbol": "POL",
-      "rank": 76,
-      "balance": 7.428801357492762e+24,
+      "rank": 73,
+      "balance": 7.403921356492762e+24,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x77134cbc06cb00b66f4c7e623d5fdbf6777635ec",
       "symbol": "POL",
-      "rank": 77,
-      "balance": 7.04714357807369e+24,
-      "share": 0.07,
+      "rank": 74,
+      "balance": 6.648073329796699e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xfa58659f64a393a6e1a548abc70ad2cfe1e8f9cb",
+      "symbol": "POL",
+      "rank": 75,
+      "balance": 6.509941653965357e+24,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x0b68c08ef86898824534c03169af954d49dc1aef",
       "symbol": "POL",
-      "rank": 78,
+      "rank": 76,
       "balance": 6.466133185200012e+24,
       "share": 0.06,
       "last_tx": null
@@ -632,15 +616,23 @@
     {
       "address": "0x28cc933fecf280e720299b1258e8680355d8841f",
       "symbol": "POL",
-      "rank": 79,
-      "balance": 6.288468457553143e+24,
+      "rank": 77,
+      "balance": 6.36976122781313e+24,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xb51bf9029d778899d42e96ebcdc0498bd061006d",
+      "symbol": "POL",
+      "rank": 78,
+      "balance": 6.175275998398155e+24,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xa31f61e01305e4293522c2cd17f97de38ffb9f79",
       "symbol": "POL",
-      "rank": 80,
+      "rank": 79,
       "balance": 6.134500012e+24,
       "share": 0.06,
       "last_tx": null
@@ -648,32 +640,40 @@
     {
       "address": "0x8e35729d13b6653de3ef748264ba619c301854d0",
       "symbol": "POL",
-      "rank": 81,
+      "rank": 80,
       "balance": 5.90164428e+24,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0xb51bf9029d778899d42e96ebcdc0498bd061006d",
+      "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
       "symbol": "POL",
-      "rank": 82,
-      "balance": 5.801289054895256e+24,
-      "share": 0.06,
+      "rank": 81,
+      "balance": 5.675339372015706e+24,
+      "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0x755f05491285ac10710daac05de86ae5f8ba3c9c",
+      "address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
       "symbol": "POL",
-      "rank": 83,
-      "balance": 5.741580555651992e+24,
+      "rank": 82,
+      "balance": 5.672784610494279e+24,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x50e11ee6ecd5dc8f5cbd06951fca04c536e8fb24",
       "symbol": "POL",
-      "rank": 84,
+      "rank": 83,
       "balance": 5.567977990036722e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xe6377285c58c7baa846564c246d9dbe910398779",
+      "symbol": "POL",
+      "rank": 84,
+      "balance": 5.46325865793e+24,
       "share": 0.05,
       "last_tx": null
     },
@@ -686,10 +686,10 @@
       "last_tx": null
     },
     {
-      "address": "0xe6377285c58c7baa846564c246d9dbe910398779",
+      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
       "symbol": "POL",
       "rank": 86,
-      "balance": 5.243927268851e+24,
+      "balance": 5.327229122318125e+24,
       "share": 0.05,
       "last_tx": null
     },
@@ -710,17 +710,9 @@
       "last_tx": null
     },
     {
-      "address": "0xf60c2ea62edbfe808163751dd0d8693dcb30019c",
+      "address": "0x6d6cc65e2060d0a280fcd47b6c22ec5636797fec",
       "symbol": "POL",
       "rank": 89,
-      "balance": 5.139813601029923e+24,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0xd6216fc19db775df9774a6e33526131da7d19a2c",
-      "symbol": "POL",
-      "rank": 90,
       "balance": 5.109252369197645e+24,
       "share": 0.05,
       "last_tx": null
@@ -728,16 +720,24 @@
     {
       "address": "0xb8ba36e591facee901ffd3d5d82df491551ad7ef",
       "symbol": "POL",
-      "rank": 91,
-      "balance": 4.99400119105934e+24,
+      "rank": 90,
+      "balance": 5.06005700286462e+24,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x951f33a95bfd1ed3964fedf21808a84443cda771",
       "symbol": "POL",
-      "rank": 92,
+      "rank": 91,
       "balance": 4.987705349440605e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x76ffbc90999696a5cd90350f43260b34d8beefd0",
+      "symbol": "POL",
+      "rank": 92,
+      "balance": 4.868502221582351e+24,
       "share": 0.05,
       "last_tx": null
     },
@@ -745,23 +745,23 @@
       "address": "0xd3a9ba0588fbaca6127fe11187c057ba719a0dc0",
       "symbol": "POL",
       "rank": 93,
-      "balance": 4.937751141645782e+24,
+      "balance": 4.836411856685481e+24,
       "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0x76ffbc90999696a5cd90350f43260b34d8beefd0",
+      "address": "0x3bc301b4a92cc2f9000b6a9264e787b53736ff92",
       "symbol": "POL",
       "rank": 94,
-      "balance": 4.781354241280507e+24,
+      "balance": 4.7857223611532976e+24,
       "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0x295681443356adae91589343ce85e480d325c4bc",
+      "address": "0x26bd5169987bb63e0ff4e93a53bdcc5d7e4d84ca",
       "symbol": "POL",
       "rank": 95,
-      "balance": 4.724792e+24,
+      "balance": 4.728767126576538e+24,
       "share": 0.04,
       "last_tx": null
     },
@@ -782,18 +782,18 @@
       "last_tx": null
     },
     {
-      "address": "0x651af8e9ff216bd8f1624b3a584ff612710b5d92",
+      "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
       "symbol": "POL",
       "rank": 98,
-      "balance": 4.667651320584965e+24,
+      "balance": 4.6963642539337946e+24,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
+      "address": "0x8bbee4d783884fd4a49dc32f6c593821cc7d87e9",
       "symbol": "POL",
       "rank": 99,
-      "balance": 4.662156254562726e+24,
+      "balance": 4.678059811718612e+24,
       "share": 0.04,
       "last_tx": null
     },

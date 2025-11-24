@@ -269,7 +269,7 @@ def compute_stats(wins, losses, returns):
 
 async def backtest_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/bt")
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):

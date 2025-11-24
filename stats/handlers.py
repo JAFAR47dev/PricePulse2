@@ -20,7 +20,7 @@ async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Format message
     msg = (
         "*📊 PricePulseBot Statistics*\n\n"
-        
+
         "👥 *Users Summary*\n"
         f"• Total Users: `{stats['total_users']}`\n"
         f"• Pro Users: `{stats['pro_users']}`\n"
@@ -43,11 +43,23 @@ async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🎯 *Engagement Stats*\n"
         f"• Total Referrals: `{stats['total_referrals']}`\n"
         f"• Top Referrer: `{stats['top_referrer'] or 'N/A'}` "
-        f"({stats['top_referral_count']} referrals)"
+        f"({stats['top_referral_count']} referrals)\n\n"
+
+        "⌨️ *Command Usage — Last 24h*\n"
+        f"• Top: {', '.join(stats.get('top_commands_24h', [])) or 'N/A'}\n"
+        f"• Least: {', '.join(stats.get('least_commands_24h', [])) or 'N/A'}\n\n"
+
+        "⌨️ *Command Usage — Last 7 days*\n"
+        f"• Top: {', '.join(stats.get('top_commands_7d', [])) or 'N/A'}\n"
+        f"• Least: {', '.join(stats.get('least_commands_7d', [])) or 'N/A'}\n\n"
+
+        "⌨️ *Command Usage — Last 30 days*\n"
+        f"• Top: {', '.join(stats.get('top_commands_30d', [])) or 'N/A'}\n"
+        f"• Least: {', '.join(stats.get('least_commands_30d', [])) or 'N/A'}"
     )
 
     await update.message.reply_text(msg, parse_mode="Markdown")
-    
+
+
 def register_stats_handler(app):
-        
     app.add_handler(CommandHandler("stats", show_stats))

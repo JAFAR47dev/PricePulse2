@@ -9,9 +9,11 @@ from tasks.models import (
     init_task_progress,
     update_daily_streak
     )
+from models.user_activity import update_last_active
 
 async def tasks_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    await update_last_active(user_id, command_name="/tasks")
 
     # Ensure DB row exists
     init_task_progress(user_id)

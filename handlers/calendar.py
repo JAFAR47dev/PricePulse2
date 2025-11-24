@@ -29,7 +29,7 @@ def fetch_coin_map():
 
 async def calendar_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update_last_active(user_id)
+    await update_last_active(user_id, command_name="/cal")
     await handle_streak(update, context)
     global coin_map
     try:
