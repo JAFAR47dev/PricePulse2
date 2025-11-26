@@ -146,6 +146,8 @@ def get_all_active_users():
 
     return [dict(row) for row in rows]
     
+
+    
 # --- Last notified hour helpers ---
 def get_user_last_notified_hour(user_id: int) -> int | None:
     """

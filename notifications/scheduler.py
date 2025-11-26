@@ -5,7 +5,6 @@ from datetime import datetime
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from pytz import UTC
 from telegram import Bot
-
 from notifications.models import get_all_active_users
 from utils.timezone_utils import convert_to_local_hour
 from notifications.services.notification_data import get_notification_data
@@ -13,9 +12,6 @@ from notifications.services.notification_data import get_notification_data
 
 # Cache notification messages per hour to avoid regenerating
 notification_cache = {}
-
-# Scheduler instance
-scheduler = AsyncIOScheduler(timezone=UTC)
 
 
 async def send_notification(bot: Bot, user: dict, message: str):
@@ -201,20 +197,61 @@ async def build_message(user):
         )
     )
 
-def start_notifications_scheduler(app):
-    """Start APScheduler to check notifications every hour at 0th minute."""
-    # Ensure event loop exists (fixes Pydroid3 RuntimeError)
-    try:
-        loop = asyncio.get_event_loop()
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
+# notifications/scheduler.py
 
-    # Schedule the hourly job
-    scheduler.add_job(
-        lambda: asyncio.create_task(check_notifications(app)),
-        'cron',
-        minute=0  # Every hour
+from telegram.ext import JobQueue
+
+def start_notifications_scheduler(app):
+    """
+    Schedule portfolio/notification checks using Telegram bot JobQueue.
+    This runs every hour at the 0th minute (or adjust interval as needed).
+    """
+
+    # Interval in seconds (3600 = 1 hour)
+    interval_seconds = 900
+
+    # Schedule repeating job
+    app.job_queue.run_repeating(
+        callback=check_notifications,
+        interval=interval_seconds,
+        first=15, 
+        name="notifications_scheduler",
+        data=app, 
     )
-    scheduler.start()
-    print("Notifications scheduler started")
+
+    print("✅ Notifications scheduler started")
+    
+#import asyncio
+#from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+#async def start_notifications_scheduler(app):
+#    """Start APScheduler to check notifications every hour at 0th minute."""
+#    loop = asyncio.get_running_loop()  
+#    scheduler = AsyncIOScheduler(event_loop=loop)
+
+#    scheduler.add_job(
+#        check_notifications,
+#        'cron',
+#        minute=0,
+#        args=[app]
+#    )
+#    scheduler.start()
+#    print("Notifications scheduler started")
+#    
+#def start_notifications_scheduler(app):
+#    """Start APScheduler to check notifications every hour at 0th minute."""
+#    # Ensure event loop exists (fixes Pydroid3 RuntimeError)
+#    try:
+#        loop = asyncio.get_event_loop()
+#    except RuntimeError:
+#        loop = asyncio.new_event_loop()
+#        asyncio.set_event_loop(loop)
+
+#    # Schedule the hourly job
+#    scheduler.add_job(
+#        lambda: asyncio.create_task(check_notifications(app)),
+#        'cron',
+#        minute=0  # Every hour
+#    )
+#    scheduler.start()
+#    print("Notifications scheduler started")

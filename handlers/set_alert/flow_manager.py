@@ -312,8 +312,8 @@ async def handle_final_alert_creation(update, context, alert_flow):
     elif alert_type == "risk":
         args = [
             alert_flow["symbol"],
-            str(alert_flow["stop"]),
-            str(alert_flow["take"])
+            str(alert_flow["stop_loss"]),
+            str(alert_flow["take_profit"])
         ]
         if repeat_flag:
             args.append(repeat_flag)
@@ -322,11 +322,9 @@ async def handle_final_alert_creation(update, context, alert_flow):
     elif alert_type == "custom":
         args = [
             alert_flow["symbol"],
-            alert_flow.get("condition"),
-            str(alert_flow.get("target")),
-            alert_flow.get("custom_indicator"),
-            alert_flow.get("custom_condition_value")
-        ]
+            alert_flow["condition"],
+            str(alert_flow["target"]),
+        ] + alert_flow["indicator_block"]
         if repeat_flag:
             args.append(repeat_flag)
         await handle_custom_alert(update, context, args, plan)

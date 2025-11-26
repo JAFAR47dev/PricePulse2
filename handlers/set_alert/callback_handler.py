@@ -87,10 +87,19 @@ async def details_input_handler(update: Update, context: ContextTypes.DEFAULT_TY
                 raise ValueError
             alert_flow["stop_loss"] = stop_loss
             alert_flow["take_profit"] = take_profit
-
+       
         elif alert_type == "custom":
-            alert_flow["custom_condition"] = user_input
+            # Save raw condition text
+            alert_flow["condition"] = user_input  
 
+            # Ensure indicator_block exists (required by flow manager)
+            if "indicator_block" not in alert_flow:
+                alert_flow["indicator_block"] = [alert_flow["condition"]]
+            else:
+                # Append custom condition to indicator block
+                alert_flow["indicator_block"].append(alert_flow["condition"])
+        
+        
     except Exception:
         await update.message.reply_text("❌ Invalid input format. Please try again.")
         return

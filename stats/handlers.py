@@ -59,7 +59,7 @@ async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         "⌨️ *Command Usage — Last 30 days*\n"
         f"• Top: {format_command_list(stats.get('top_commands_30d'))}\n"
-        f"• Least: {format_command_list(stats.get('least_commands_30d'))}"
+        f"• Least: {format_command_list(stats.get('least_commands_30d'))}\n\n"
     
         "🎯 *Engagement Stats*\n"
         f"• Total Referrals: `{stats['total_referrals']}`\n"

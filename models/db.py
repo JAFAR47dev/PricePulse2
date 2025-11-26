@@ -10,8 +10,18 @@ os.makedirs(os.path.join(BASE_DIR, 'data'), exist_ok=True)
 
 
 def get_connection():
-    """Returns a connection to the SQLite database."""
-    return sqlite3.connect(DB_FILE)
+    """
+    Returns a connection to the SQLite database with:
+    - timeout to avoid 'database is locked'
+    - check_same_thread=False for multi-thread access
+    """
+    conn = sqlite3.connect(DB_FILE, timeout=10, check_same_thread=False)
+
+    # Enable WAL mode to prevent database locking during concurrent access
+    conn.execute("PRAGMA journal_mode=WAL;")
+    conn.execute("PRAGMA synchronous=NORMAL;")
+
+    return conn
 
 
 def init_db():
@@ -31,7 +41,7 @@ def init_db():
         expiry_date DATETIME,
         last_active DATETIME DEFAULT CURRENT_TIMESTAMP
     )
-""")
+    """)
 
     # --- Backward compatibility check (auto-add missing columns) ---
     cursor.execute("PRAGMA table_info(users)")
@@ -153,6 +163,18 @@ def init_db():
             repeat_limit_profit INTEGER DEFAULT 0  -- 0 = off, 1 = repeat
         )
         """)
+   # Ensure repeat_limit_loss and repeat_limit_profit columns exist
+    cursor.execute("PRAGMA table_info(portfolio_limits)")
+    columns = [col[1] for col in cursor.fetchall()]
+
+    # Add repeat_limit_loss if missing
+    if "repeat_limit_loss" not in columns:
+        cursor.execute("ALTER TABLE portfolio_limits ADD COLUMN repeat_limit_loss INTEGER DEFAULT 0")
+
+    # Add repeat_limit_profit if missing
+    if "repeat_limit_profit" not in columns:
+        cursor.execute("ALTER TABLE portfolio_limits ADD COLUMN repeat_limit_profit INTEGER DEFAULT 0")
+    
 
     # Watchlist
     cursor.execute("""

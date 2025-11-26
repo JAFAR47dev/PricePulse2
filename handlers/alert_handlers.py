@@ -278,16 +278,21 @@ async def handle_custom_alert(update, context, args, plan):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
-   
+    # safe reply function
+    async def safe_reply(text):
+        if update.message:
+            return await update.message.reply_text(text)
+        elif update.callback_query:
+            return await update.callback_query.message.reply_text(text)
+
     if not is_pro_plan(plan):
-        await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
-            parse_mode="Markdown"
+        await safe_reply(
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock."
         )
         return
 
     if len(args) < 4:
-        await update.message.reply_text(
+        await safe_reply(
             "❌ Usage:\n"
             "/set custom BTC > 30000 rsi < 30\n"
             "/set custom ETH < 1800 ema > 20\n"
@@ -301,16 +306,16 @@ async def handle_custom_alert(update, context, args, plan):
     try:
         p_val = float(args[2])
     except ValueError:
-        await update.message.reply_text("❌ Invalid price value.")
+        await safe_reply("❌ Invalid price value.")
         return
-
+        
     # --- Indicator condition ---
     remaining = args[3:]
     repeat = 1 if "repeat" in [x.lower() for x in remaining] else 0
     remaining = [x for x in remaining if x.lower() != "repeat"]
 
     if not remaining:
-        await update.message.reply_text("❌ Missing indicator condition.")
+        await safe_reply("❌ Missing indicator condition.")
         return
 
     indicator = remaining[0].lower()
@@ -323,24 +328,24 @@ async def handle_custom_alert(update, context, args, plan):
 
     elif indicator == "rsi":
         if len(remaining) < 3:
-            await update.message.reply_text("❌ RSI condition requires a comparison and value.\nExample: rsi < 30")
+            await safe_reply("❌ RSI condition requires a comparison and value.\nExample: rsi < 30")
             return
         rsi_condition = remaining[1]
         try:
             rsi_value = float(remaining[2])
         except ValueError:
-            await update.message.reply_text("❌ Invalid RSI value.")
+            await safe_reply("❌ Invalid RSI value.")
             return
 
     elif indicator == "ema":
         if len(remaining) < 3 or remaining[1] != ">" or not remaining[2].isdigit():
-            await update.message.reply_text("❌ EMA condition must be: ema > 20")
+            await safe_reply("❌ EMA condition must be: ema > 20")
             return
         rsi_condition = f"ema>{remaining[2]}"
         rsi_value = None
 
     else:
-        await update.message.reply_text("❌ Unknown indicator. Use rsi, ema, or macd.")
+        await safe_reply("❌ Unknown indicator. Use rsi, ema, or macd.")
         return
 
     # --- Save to database ---
@@ -621,12 +626,20 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
     limits = get_portfolio_value_limits(user_id)
     if limits:
         text = "🎯 *Portfolio Value Limits:*\n"
-        if limits["loss_limit"] > 0:
-            text += f"• 🔻 Loss Limit: ${limits['loss_limit']:.2f}\n→ /remove portfoliolimit\n"
-        if limits["profit_target"] > 0:
-            text += f"• 🚀 Target: ${limits['profit_target']:.2f}\n→ /remove portfoliotarget\n"
+    
+        # Loss limit
+        if limits["loss_limit"] and limits["loss_limit"] > 0:
+            repeat_text = " (🔁 Repeat)" if limits.get("repeat_loss") else ""
+            text += f"• 🔻 Loss Limit: ${limits['loss_limit']:.2f}{repeat_text}\n→ /remove portfoliolimit\n"
+    
+        # Profit target
+        if limits["profit_target"] and limits["profit_target"] > 0:
+            repeat_text = " (🔁 Repeat)" if limits.get("repeat_profit") else ""
+            text += f"• 🚀 Target: ${limits['profit_target']:.2f}{repeat_text}\n→ /remove portfoliotarget\n"
+    
         text += "\n"
         alert_sections.append(text)
+    
     # === WATCHLIST ENTRIES ===
     watchlist_rows = get_watchlist_alerts(user_id)
     if watchlist_rows:

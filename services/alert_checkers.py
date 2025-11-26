@@ -338,27 +338,25 @@ async def check_portfolio_alerts(context, symbol_prices):
             portfolios[user_id].append((symbol, amount))
 
         for user_id, assets in portfolios.items():
-            # Fetch portfolio limit/target + repeat value
+            # Fetch portfolio limit/target + repeat flags
             limit_data = get_portfolio_value_limits(user_id)
             if not limit_data:
                 continue
 
             loss_limit = limit_data.get("loss_limit")
             profit_target = limit_data.get("profit_target")
-            repeat = limit_data.get("repeat", 0)  # 0 = one-time, 1 = persistent
+            repeat_loss = limit_data.get("repeat_loss", 0)       # 0 = one-time, 1 = repeat
+            repeat_profit = limit_data.get("repeat_profit", 0)   # 0 = one-time, 1 = repeat
 
             total_value = 0
             for symbol, amount in assets:
                 symbol = symbol.upper().strip()
 
                 fiat_price = await get_fiat_price(symbol)
-                if fiat_price:
+                if fiat_price is not None:
                     price = fiat_price
                 else:
-                    price = (
-                        symbol_prices.get(symbol)
-                        or symbol_prices.get(f"{symbol}USDT")
-                    )
+                    price = symbol_prices.get(symbol) or symbol_prices.get(f"{symbol}USDT")
 
                 if price is None:
                     continue
@@ -368,7 +366,7 @@ async def check_portfolio_alerts(context, symbol_prices):
             # -------------------------------
             # 🔻 LOSS LIMIT CHECK
             # -------------------------------
-            if loss_limit and total_value <= loss_limit:
+            if loss_limit is not None and total_value <= loss_limit:
                 try:
                     if context:
                         await context.bot.send_message(
@@ -382,7 +380,7 @@ async def check_portfolio_alerts(context, symbol_prices):
                         )
 
                     # Remove limit ONLY if not repeating
-                    if repeat == 0:
+                    if repeat_loss == 0:
                         cursor.execute(
                             "UPDATE portfolio_limits SET loss_limit = NULL WHERE user_id = ?",
                             (user_id,)
@@ -394,7 +392,7 @@ async def check_portfolio_alerts(context, symbol_prices):
             # -------------------------------
             # 🎯 PROFIT TARGET CHECK
             # -------------------------------
-            elif profit_target and total_value >= profit_target:
+            if profit_target is not None and total_value >= profit_target:
                 try:
                     if context:
                         await context.bot.send_message(
@@ -408,7 +406,7 @@ async def check_portfolio_alerts(context, symbol_prices):
                         )
 
                     # Remove limit ONLY if not repeating
-                    if repeat == 0:
+                    if repeat_profit == 0:
                         cursor.execute(
                             "UPDATE portfolio_limits SET profit_target = NULL WHERE user_id = ?",
                             (user_id,)

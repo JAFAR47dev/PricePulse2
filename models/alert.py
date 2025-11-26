@@ -186,12 +186,23 @@ def get_custom_alerts(user_id):
 from models.db import get_connection
 
 def get_portfolio_value_limits(user_id):
+    """
+    Fetch user's portfolio loss/profit limits and repeat flags.
+    Returns a dict:
+    {
+        "loss_limit": float | None,
+        "profit_target": float | None,
+        "repeat_loss": 0|1,
+        "repeat_profit": 0|1
+    }
+    Returns None if no limits are set.
+    """
     conn = get_connection()
     cursor = conn.cursor()
 
     try:
         cursor.execute("""
-            SELECT loss_limit, profit_target, repeat
+            SELECT loss_limit, profit_target, repeat_limit_loss, repeat_limit_profit
             FROM portfolio_limits
             WHERE user_id = ?
         """, (user_id,))
@@ -200,22 +211,21 @@ def get_portfolio_value_limits(user_id):
         if not row:
             return None
 
-        loss_limit, profit_target, repeat = row
+        loss_limit, profit_target, repeat_loss, repeat_profit = row
 
-        # Only return if values exist
-        if (
-            (loss_limit and loss_limit > 0) or 
-            (profit_target and profit_target > 0)
-        ):
+        # Only return if at least one limit exists
+        if (loss_limit and loss_limit > 0) or (profit_target and profit_target > 0):
             return {
                 "loss_limit": loss_limit,
                 "profit_target": profit_target,
-                "repeat": repeat if repeat is not None else 0
+                "repeat_loss": repeat_loss if repeat_loss is not None else 0,
+                "repeat_profit": repeat_profit if repeat_profit is not None else 0
             }
         else:
             return None
 
-    except Exception:
+    except Exception as e:
+        print("❌ Error fetching portfolio limits:", e)
         return None
 
     finally:
