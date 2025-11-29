@@ -69,7 +69,7 @@ def get_global_market_message() -> str:
             f"🪙 *Altcoin Market Cap:* ${format_number(altcoin_market_cap)}\n\n"
             f"💵 *Stablecoin Cap:* ${format_number(stablecoin_market_cap)}\n"
             f"🔄 *Stablecoin Volume (24h):* ${format_number(stablecoin_volume)}\n"
-            f"⚙️ *DeFi Market Cap:* ${format_number(defi_market_cap)} ({defi_dominance:.2f}% dominance)\n"
+            f"⚙️ *DeFi Market Cap:* ${format_number(defi_market_cap)}\n"
             f"📉 *Derivatives Volume (24h):* ${format_number(derivatives_volume)}\n\n"
             f"🚀 *Top Gainer (24h):* {top_gainer['name']} ({top_gainer['symbol']}) +{top_gainer['quote']['USD']['percent_change_24h']:.2f}%\n"
             f"📉 *Top Loser (24h):* {top_loser['name']} ({top_loser['symbol']}) {top_loser['quote']['USD']['percent_change_24h']:.2f}%\n\n"

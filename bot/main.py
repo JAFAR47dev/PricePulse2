@@ -51,6 +51,7 @@ from models.user_activity import update_last_active
 from utils.private_guard_manager import apply_private_command_restrictions
 from notifications.models import create_notifications_table
 from notifications.scheduler import start_notifications_scheduler
+from handlers.fav.utils.db_favorites import init_favorites_table
 # === Load environment ===
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -60,9 +61,10 @@ if not TOKEN:
 
 def main():
     init_db()
-    create_referrals_table()
-    create_task_progress_table()
-    create_notifications_table()
+    init_favorites_table()
+    #create_referrals_table()
+#    create_task_progress_table()
+#    create_notifications_table()
 
     app = ApplicationBuilder().token(TOKEN).build()
     print("✅ Application created")

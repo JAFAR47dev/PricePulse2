@@ -16,6 +16,11 @@ from .admin import (
 set_plan,
  pro_user_list
 )
+from .fav.fav_handler import (
+fav_command,
+fav_text_handler
+)
+from .fav.callback_handler import fav_callback_handler
 from .upgrade import (
     upgrade_menu, handle_plan_selection, back_to_plans,
     show_payment_instructions, confirm_payment
@@ -144,7 +149,10 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("worst", worst_losers))
        app.add_handler(CommandHandler("trend", trend_command))
        app.add_handler(CommandHandler("news", crypto_news)) 
-       #app.add_handler(CommandHandler("insights", insights_command)) 
+       #app.add_handler(CommandHandler("insights", insights_command))
+       app.add_handler(CommandHandler("fav", fav_command))
+       app.add_handler(CallbackQueryHandler(fav_callback_handler, pattern="^fav_"))
+       app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), fav_text_handler))
        app.add_handler(CommandHandler("addtogroup", add_to_group))     
        app.add_handler(ConversationHandler(
         entry_points=[CommandHandler("aistrat", strategy_command)],
