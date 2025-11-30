@@ -1,5 +1,4 @@
 # handlers/fav/callback_handler.py
-
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import ContextTypes
 from handlers.fav.utils.db_favorites import add_favorite, remove_favorite, get_favorites

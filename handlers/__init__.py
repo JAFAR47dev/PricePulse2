@@ -87,6 +87,8 @@ from notifications.handlers.notify_menu import register_notify_handlers
 from .add_to_group import add_to_group
 from .myplan import myplan
 
+
+
 def register_all_handlers(app):
         
        register_alert_handlers(app)
@@ -98,7 +100,7 @@ def register_all_handlers(app):
        register_stats_handler(app)
        register_task_handlers(app)
        register_notify_handlers(app) 
-       register_set_handlers(app)
+       
        
        app.add_handler(CommandHandler("start", start_command))
        app.add_handler(CommandHandler("help", help_command))
@@ -153,6 +155,7 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("fav", fav_command))
        app.add_handler(CallbackQueryHandler(fav_callback_handler, pattern="^fav_"))
        app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), fav_text_handler))
+       register_set_handlers(app)
        app.add_handler(CommandHandler("addtogroup", add_to_group))     
        app.add_handler(ConversationHandler(
         entry_points=[CommandHandler("aistrat", strategy_command)],
@@ -177,12 +180,4 @@ def register_all_handlers(app):
     ))
        app.add_handler(CallbackQueryHandler(handle_chart_button, pattern=r"^chart_"))
        app.add_handler(CallbackQueryHandler(handle_add_alert_button, pattern=r"^addalert_"))
-        
-       
-        
-
-
-        
-                          
-       
         

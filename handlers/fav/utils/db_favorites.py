@@ -1,34 +1,8 @@
-# utils/db_favorites.py
-
-import sqlite3
-import os
-
-# Same base directory logic as your main DB
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_FILE = os.path.join(BASE_DIR, 'data', 'alerts.db')
-
-# Ensure /data directory exists
-os.makedirs(os.path.join(BASE_DIR, 'data'), exist_ok=True)
-
-
-def get_conn():
-    """
-    Returns a connection to the same alerts.db file.
-    - WAL mode for concurrency
-    - timeout=10 to avoid locked DB errors
-    - check_same_thread=False for multi-threaded Telegram bot
-    """
-    conn = sqlite3.connect(DB_FILE, timeout=10, check_same_thread=False)
-    conn.execute("PRAGMA journal_mode=WAL;")
-    conn.execute("PRAGMA synchronous=NORMAL;")
-    return conn
-
+# handlers/fav/utils/db_favorites.py
+from models.db import get_connection
 
 def init_favorites_table():
-    """
-    Creates the favorites table if it doesn't exist.
-    """
-    conn = get_conn()
+    conn = get_connection()
     c = conn.cursor()
     c.execute("""
         CREATE TABLE IF NOT EXISTS favorites (
@@ -40,9 +14,8 @@ def init_favorites_table():
     conn.commit()
     conn.close()
 
-
 def add_favorite(user_id, symbol):
-    conn = get_conn()
+    conn = get_connection()
     c = conn.cursor()
     try:
         c.execute(
@@ -50,28 +23,27 @@ def add_favorite(user_id, symbol):
             (user_id, symbol.upper())
         )
         conn.commit()
+        # rowcount is 1 if inserted, 0 if ignored
+        return c.rowcount > 0
     finally:
         conn.close()
 
-
 def remove_favorite(user_id, symbol):
-    conn = get_conn()
+    conn = get_connection()
     c = conn.cursor()
-    c.execute(
-        "DELETE FROM favorites WHERE user_id = ? AND symbol = ?",
-        (user_id, symbol.upper())
-    )
-    conn.commit()
-    conn.close()
-
+    try:
+        c.execute("DELETE FROM favorites WHERE user_id = ? AND symbol = ?", (user_id, symbol.upper()))
+        conn.commit()
+        return c.rowcount > 0
+    finally:
+        conn.close()
 
 def get_favorites(user_id):
-    conn = get_conn()
+    conn = get_connection()
     c = conn.cursor()
-    c.execute(
-        "SELECT symbol FROM favorites WHERE user_id = ?",
-        (user_id,)
-    )
-    rows = c.fetchall()
-    conn.close()
-    return [r[0] for r in rows]
+    try:
+        c.execute("SELECT symbol FROM favorites WHERE user_id = ? ORDER BY symbol", (user_id,))
+        rows = c.fetchall()
+        return [r[0] for r in rows]
+    finally:
+        conn.close()

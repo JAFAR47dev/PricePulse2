@@ -127,10 +127,15 @@ async def persistence_callback_handler(update: Update, context: ContextTypes.DEF
     # Update step → next is confirm
     alert_flow["step"] = "confirm_alert"
 
-    await query.edit_message_text(
+    import asyncio
+
+    msg = await query.edit_message_text(
         f"🔁 Persistent: {'Yes' if alert_flow['repeat'] else 'No'}\n\n"
-        "✅ Now confirm your alert."
+    "✅ Now confirm your alert."
     )
+
+    await asyncio.sleep(5)
+    await msg.delete()
 
     # Display final summary
     await confirm_alert(update, context)

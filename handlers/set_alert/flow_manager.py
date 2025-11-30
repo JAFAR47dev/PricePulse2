@@ -344,7 +344,16 @@ from .callback_handler import symbol_input_handler
 from .callback_handler import details_input_handler
 
 async def set_alert_message_router(update, context):
-    alert_flow = context.user_data.get("alert_flow", {})
+    # If user is in Favorites flow, ignore /set flow completely
+    if context.user_data.get("fav_mode"):
+        return
+
+    # Get alert flow
+    alert_flow = context.user_data.get("alert_flow")
+    
+    if not alert_flow or "fav_mode" in context.user_data:
+            return
+            
 
     step = alert_flow.get("step")
 
@@ -353,7 +362,8 @@ async def set_alert_message_router(update, context):
 
     elif step == "details_input":
         return await details_input_handler(update, context)
-
+        
+        
     # Ignore unrelated messages
 def register_set_handlers(app):
     # /set command
@@ -376,10 +386,10 @@ def register_set_handlers(app):
     )  
   
 
-
     app.add_handler(
-         MessageHandler(
-             filters.TEXT & ~filters.COMMAND,
-             set_alert_message_router
-         )
-     )
+        MessageHandler(
+            filters.TEXT & ~filters.COMMAND,
+            set_alert_message_router
+        )
+    )
+    

@@ -79,9 +79,9 @@ async def coin_alias_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # ✅ Build message with ATH % difference
     msg = f"""📊 *{coin_data['name']}* (`{coin_data['symbol'].upper()}`)
 
-💰 Price: `${price:,.2f}`
-📈 24h High: `${high:,.2f}`
-📉 24h Low: `${low:,.2f}`
+💰 Price: `${price:,.3f}`
+📈 24h High: `${high:,.3f}`
+📉 24h Low: `${low:,.3f}`
 🕐 1h: {pc_1h:.2f}%
 📅 24h: {pc_24h:.2f}%
 📆 7d: {pc_7d:.2f}%

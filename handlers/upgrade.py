@@ -21,9 +21,9 @@ USD_PRICES = {
 
 # --- Crypto Meta ---
 CRYPTO_DETAILS = {
-    "usdt": {"name": "USDT (TRC20)", "wallet": "TVex1n73MazbhC4C55P1449KsiEi9H5v1p", "id": "tether"},
-    "ton": {"name": "TON", "wallet": "UQB6scBD94g_P3yoRkkC1ti5meFLfz4lpmNt7eoQhpLjD-lP", "id": "the-open-network"},
-    "btc": {"name": "Bitcoin (BTC)", "wallet": "bc1qxhaqvxlnzvhw66savhkq5c7y6cyglmwtda77xe", "id": "bitcoin"}
+    "usdt": {"name": "USDT (TRC20)", "wallet": "TCvaGAp7UrMHwwzMH9jLukL9BbAGq39iLX", "id": "tether"},
+    "ton": {"name": "TON", "wallet": "UQDgqP7E0jzxoLFrSHVJiq6E4o4RZu3tdtHLPOEfyq0XMEyE", "id": "the-open-network"},
+    "btc": {"name": "Bitcoin (BTC)", "wallet": "14i5aBLB8yWh5gnApYUTaMAvPKukR6BqCM", "id": "bitcoin"}
 }
 
 # --- Step 1: Show Upgrade Plans ---
