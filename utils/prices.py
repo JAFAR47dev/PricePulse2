@@ -99,7 +99,12 @@ async def get_crypto_prices(symbols):
         return cached_prices  
         
 
-async def get_portfolio_crypto_prices(symbols):
+import aiohttp
+import asyncio
+import time
+from typing import List, Dict, Any
+
+async def get_portfolio_crypto_prices(symbols) -> Dict[str, Dict[str, Any]]:
     """
     Safe multi-price fetcher for portfolio tools.
     ALWAYS RETURNS A CONSISTENT FORMAT:
@@ -107,12 +112,32 @@ async def get_portfolio_crypto_prices(symbols):
         "BTC": { "price": float|None, "change_pct": float|None },
         ...
     }
-    """
 
-    # Normalize input
+    Depends on these globals in the module:
+      - COINGECKO_API_KEY
+      - COINGECKO_BASE_URL
+      - COINGECKO_IDS     (mapping UPPER_SYMBOL -> coin_id)
+      - CACHE             (dict)
+      - CACHE_TTL         (seconds)
+    """
+    # Normalize and deduplicate while preserving order
     if isinstance(symbols, str):
         symbols = [symbols]
-    symbols = [s.upper().strip() for s in symbols if isinstance(s, str)]
+    if not symbols:
+        return {}
+
+    seen = set()
+    normalized = []
+    for s in symbols:
+        if not isinstance(s, str):
+            continue
+        k = s.upper().strip()
+        if k and k not in seen:
+            seen.add(k)
+            normalized.append(k)
+    symbols = normalized
+    if not symbols:
+        return {}
 
     now = time.time()
     cached = {}
@@ -121,7 +146,7 @@ async def get_portfolio_crypto_prices(symbols):
     # ------- CHECK CACHE -------
     for sym in symbols:
         c = CACHE.get(sym)
-        if c and now - c.get("time", 0) < CACHE_TTL:
+        if c and (now - c.get("time", 0) < CACHE_TTL):
             cached[sym] = {
                 "price": c.get("price"),
                 "change_pct": c.get("change_pct")
@@ -129,25 +154,27 @@ async def get_portfolio_crypto_prices(symbols):
         else:
             missing.append(sym)
 
-    # If all symbols cached → return immediately
+    # If all symbols cached → return in same order
     if not missing:
         return {sym: cached[sym] for sym in symbols}
 
     # ------- MAP SYMBOLS TO COINGECKO IDs -------
     ids = []
     sym_to_id = {}
-
     for sym in missing:
+        # tolerate keys in COINGECKO_IDS as uppercase
         coin_id = COINGECKO_IDS.get(sym)
         if coin_id:
             ids.append(coin_id)
             sym_to_id[coin_id] = sym
 
-    # If none of the missing symbols have IDs → return cached + placeholder
+    # Prepare output with cached placeholders
+    output: Dict[str, Dict[str, Any]] = {}
+    for sym in symbols:
+        output[sym] = cached.get(sym, {"price": None, "change_pct": None})
+
     if not ids:
-        output = {}
-        for sym in symbols:
-            output[sym] = cached.get(sym, {"price": None, "change_pct": None})
+        # none of the missing symbols map to CoinGecko IDs — return cached+placeholders
         return output
 
     # ------- BUILD API URL -------
@@ -162,88 +189,70 @@ async def get_portfolio_crypto_prices(symbols):
     if COINGECKO_API_KEY:
         headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
 
-    # Output dictionary
-    output = {}
-
     # ------- FETCH WITH RETRIES -------
+    fetched_ok = False
     try:
-        async with aiohttp.ClientSession() as session:
+        timeout = aiohttp.ClientTimeout(total=12)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
             for attempt in range(3):
-
                 try:
-                    async with session.get(url, headers=headers, timeout=10) as resp:
-                        status = resp.status
+                    resp = await session.get(url, headers=headers)
+                    status = resp.status
 
-                        # Rate limit
-                        if status == 429:
-                            wait = 2 ** attempt
-                            print(f"⚠️ Rate-limited. Retrying in {wait}s...")
-                            await asyncio.sleep(wait)
+                    if status == 429:
+                        wait = 2 ** attempt
+                        print(f"⚠️ CoinGecko rate-limited. Retrying in {wait}s (attempt {attempt+1}/3)...")
+                        await asyncio.sleep(wait)
+                        continue
+
+                    if status != 200:
+                        txt = await resp.text()
+                        print(f"❌ CoinGecko HTTP {status}: {txt}")
+                        # small backoff and retry
+                        await asyncio.sleep(1)
+                        continue
+
+                    data = await resp.json()
+                    fetched_ok = True
+
+                    # parse results for each coin_id
+                    for coin_id in ids:
+                        sym = sym_to_id.get(coin_id)
+                        if not sym:
                             continue
+                        content = data.get(coin_id, {}) if isinstance(data, dict) else {}
+                        price = content.get("usd")
+                        change_pct = content.get("usd_24h_change")
 
-                        # Other non-200 error
-                        if status != 200:
-                            txt = await resp.text()
-                            print(f"❌ HTTP {status}: {txt}")
-                            raise Exception(f"HTTP {status}")
+                        # safe conversion
+                        try:
+                            price_val = float(price) if price is not None and price != "" else None
+                        except Exception:
+                            price_val = None
+                        try:
+                            change_val = float(change_pct) if change_pct is not None and change_pct != "" else None
+                        except Exception:
+                            change_val = None
 
-                        data = await resp.json()
+                        # update cache + output
+                        CACHE[sym] = {
+                            "price": price_val,
+                            "change_pct": change_val,
+                            "time": time.time()
+                        }
+                        output[sym] = {"price": price_val, "change_pct": change_val}
+
+                    break  # success
 
                 except asyncio.TimeoutError:
                     print("⏳ Timeout from CoinGecko, retrying...")
                     await asyncio.sleep(1)
-                    continue
                 except Exception as e:
-                    print(f"❌ API error: {e}")
+                    print(f"❌ CoinGecko request error (attempt {attempt+1}): {e}")
                     await asyncio.sleep(1)
-                    continue
-
-                # ---------- PARSE API RESPONSE SAFELY ----------
-                for coin_id in ids:
-                    sym = sym_to_id.get(coin_id)
-
-                    content = data.get(coin_id, {}) if isinstance(data, dict) else {}
-
-                    price = content.get("usd")
-                    change_pct = content.get("usd_24h_change")
-
-                    # Normalize values
-                    price = float(price) if price not in [None, ""] else None
-                    change_pct = float(change_pct) if change_pct not in [None, ""] else None
-
-                    # Update cache
-                    CACHE[sym] = {
-                        "price": price,
-                        "change_pct": change_pct,
-                        "time": time.time()
-                    }
-
-                    output[sym] = {
-                        "price": price,
-                        "change_pct": change_pct
-                    }
-
-                break  # success → break retry loop
-
-            else:
-                # All retries failed → fallback
-                raise Exception("All retries failed.")
 
     except Exception as e:
-        print("❌ FINAL ERROR:", e)
-        # Fallback to cached only
-        for sym in symbols:
-            c = CACHE.get(sym)
-            output[sym] = {
-                "price": c.get("price") if c else None,
-                "change_pct": c.get("change_pct") if c else None
-            }
+        print(f"❌ FINAL ERROR while fetching prices: {e}")
 
-        return output
-
-    # ------- MERGE CACHED VALUES FOR SYMBOLS NOT UPDATED -------
-    for sym in symbols:
-        if sym not in output:
-            output[sym] = cached.get(sym, {"price": None, "change_pct": None})
-
-    return output  
+    # If fetch failed entirely, output currently contains cached values or placeholders (already set)
+    return output

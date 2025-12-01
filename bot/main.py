@@ -62,9 +62,9 @@ if not TOKEN:
 def main():
     init_db()
     init_favorites_table()
-    #create_referrals_table()
-#    create_task_progress_table()
-#    create_notifications_table()
+    create_referrals_table()
+    create_task_progress_table()
+    create_notifications_table()
 
     app = ApplicationBuilder().token(TOKEN).build()
     print("✅ Application created")
