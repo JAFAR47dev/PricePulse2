@@ -3,7 +3,8 @@ from telegram.ext import ContextTypes
 from models.db import get_connection
 from utils.auth import is_pro_plan
 from models.user import get_user_plan
-from utils.prices import get_crypto_prices, get_portfolio_crypto_prices
+from utils.prices import get_crypto_prices
+from utils.portfolio_prices import get_portfolio_crypto_prices
 import os
 import requests
 from models.user_activity import update_last_active
@@ -144,95 +145,64 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
             print("❌ Price fetch error in view_portfolio:", e)
             crypto_data = {}
 
-    # --- BUILD PORTFOLIO MESSAGE WITH CHUNKED SENDING ---
+    # --- BUILD RESPONSE IN ONE MESSAGE ---
     total_value = 0.0
     total_change_usd = 0.0
 
-    header = "*📊 Your Portfolio (24h Performance):*\n\n"
-    buf = header
-    MAX_LENGTH = 3500  # safe buffer for Telegram message size
-
-    async def flush_buffer(force=False):
-        nonlocal buf
-        if not buf:
-            return
-        try:
-            # if buffer is small and not forced, keep accumulating
-            if not force and len(buf) < MAX_LENGTH:
-                return
-            # send current buffer
-            await update.message.reply_text(buf, parse_mode="Markdown")
-        except Exception as e:
-            print("❌ Failed to send portfolio chunk:", e)
-            # swallow send errors (we don't want to crash)
-        finally:
-            buf = ""  # reset buffer after sending
+    text = "*📊 Your Portfolio (24h Performance):*\n\n"
 
     for symbol, amount in rows:
         symbol = (symbol or "").upper().strip()
 
-        # --- Determine source: stablecoin / fiat / crypto ---
+        # Determine price source
         price = None
         pct_change_24h = None
 
         if symbol in STABLECOINS or symbol == "USD":
             price = 1.0
             pct_change_24h = 0.0
+
         elif symbol in FIAT_CURRENCIES:
             try:
                 price = get_fiat_to_usd(symbol)
-            except Exception as e:
-                print(f"❌ Fiat conversion error for {symbol}:", e)
+            except:
                 price = None
             pct_change_24h = 0.0
+
         else:
             data = crypto_data.get(symbol) or {}
-            # expect structure {"price": float|None, "change_pct": float|None}
             price = data.get("price")
             pct_change_24h = data.get("change_pct")
 
-        # Formatting for missing price
+        # Handle missing price
         if price is None:
-            buf += f"• *{symbol}*: {amount} (⚠️ Price unavailable)\n\n"
-            # flush if too long
-            if len(buf) >= MAX_LENGTH:
-                await flush_buffer(force=True)
+            text += f"• *{symbol}*: {amount} (⚠️ Price unavailable)\n\n"
             continue
 
-        # --- Current USD value ---
-        try:
-            value = float(amount) * float(price)
-        except Exception:
-            value = 0.0
-
+        # Calculate value
+        value = float(amount) * float(price)
         total_value += value
 
-        # --- Compute USD change for this asset ---
-        asset_change_usd = None
-        if pct_change_24h is None:
+        # Change USD
+        try:
+            asset_change_usd = value * (float(pct_change_24h) / 100.0)
+            total_change_usd += asset_change_usd
+        except:
             asset_change_usd = None
-        else:
-            try:
-                asset_change_usd = value * (float(pct_change_24h) / 100.0)
-                total_change_usd += asset_change_usd
-            except Exception:
-                asset_change_usd = None
 
-        # --- Text formatting with emojis ---
+        # Format %
         if pct_change_24h is None:
             pct_text = "⚠️ N/A"
         else:
-            try:
-                pct_val = float(pct_change_24h)
-                if pct_val > 0:
-                    pct_text = f"🟢 +{pct_val:.2f}%"
-                elif pct_val < 0:
-                    pct_text = f"🔴 {pct_val:.2f}%"
-                else:
-                    pct_text = "➖ 0%"
-            except Exception:
-                pct_text = "⚠️ N/A"
+            pct_val = float(pct_change_24h)
+            if pct_val > 0:
+                pct_text = f"🟢 +{pct_val:.2f}%"
+            elif pct_val < 0:
+                pct_text = f"🔴 {pct_val:.2f}%"
+            else:
+                pct_text = "➖ 0%"
 
+        # Format USD change
         if asset_change_usd is None:
             change_usd_text = "⚠️ N/A"
         else:
@@ -243,23 +213,30 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
             else:
                 change_usd_text = "➖ $0"
 
-        # Per-asset line
-        # Price formatting: show 4 decimals for small coins, 2 for big ones
-        try:
-            price_display = f"${price:,.4f}" if price < 1 else f"${price:,.2f}"
-        except Exception:
-            price_display = f"${price}"
+        # Price format
+        price_display = f"${price:,.4f}" if price < 1 else f"${price:,.2f}"
 
-        buf += (
+        # Add to final text
+        text += (
             f"• *{symbol}*: {amount}\n"
             f"  ↳ {price_display} each → *${value:,.2f}*\n"
             f"  ↳ 24h: {pct_text} | {change_usd_text}\n\n"
         )
 
-        # send chunk if buffer too large
-        if len(buf) >= MAX_LENGTH:
-            await flush_buffer(force=True)
+    # --- SUMMARY ---
+    text += "*💼 Portfolio Summary:*\n\n"
+    text += f"• Total Value: *${total_value:,.2f}*\n"
 
+    if total_change_usd > 0:
+        text += f"• 24h Change: 🟢 +${total_change_usd:,.2f}"
+    elif total_change_usd < 0:
+        text += f"• 24h Change: 🔴 -${abs(total_change_usd):,.2f}"
+    else:
+        text += f"• 24h Change: ➖ $0"
+
+    # --- SEND ONCE ---
+    await update.message.reply_text(text, parse_mode="Markdown")
+    
 async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/removeasset")

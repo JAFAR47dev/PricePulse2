@@ -352,7 +352,7 @@ async def set_alert_message_router(update, context):
     alert_flow = context.user_data.get("alert_flow")
     
     if not alert_flow or "fav_mode" in context.user_data:
-            return
+        return
             
 
     step = alert_flow.get("step")
