@@ -28,21 +28,22 @@ async def fav_command(update, context):
 
 async def fav_text_handler(update, context):
     try:
+        
         print("DEBUG fav_text_handler called; user_data:", context.user_data)
 
-        mode = context.user_data.get("fav_mode")
-
-        # If not in fav mode OR set flow is active, ignore
-        if not mode or "alert_flow" in context.user_data:
+        
+        fav_mode = context.user_data.get("fav_mode")
+    
+        if context.user_data.get("alert_flow") or fav_mode is None:
             return
-
+        
         symbol = update.message.text.strip().upper()
         user_id = update.effective_user.id
 
         # -------------------------
         # ADD FAVORITE
         # -------------------------
-        if mode == "add":
+        if fav_mode == "add":
             try:
                 success = add_favorite(user_id, symbol)
             except Exception as e:
@@ -66,7 +67,7 @@ async def fav_text_handler(update, context):
         # -------------------------
         # REMOVE FAVORITE
         # -------------------------
-        elif mode == "remove":
+        elif fav_mode == "remove":
             try:
                 success = remove_favorite(user_id, symbol)
             except Exception as e:

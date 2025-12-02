@@ -230,6 +230,10 @@ async def check_risk_alerts(context, symbol_prices):
     finally:
         conn.close()
 
+import json
+import traceback
+from utils.indicators import get_cached_rsi, get_cached_macd, get_cached_ema
+
 async def check_custom_alerts(context, symbol_prices):
     conn = get_connection()
     cursor = conn.cursor()
@@ -238,65 +242,93 @@ async def check_custom_alerts(context, symbol_prices):
 
     try:
         cursor.execute("""
-            SELECT id, user_id, symbol, price_condition, price_value, 
-                   rsi_condition, rsi_value, repeat 
+            SELECT id, user_id, symbol, condition_json, repeat 
             FROM custom_alerts
         """)
         rows = cursor.fetchall()
 
-        for alert_id, user_id, symbol, p_cond, p_val, r_cond, r_val, repeat in rows:
+        for alert_id, user_id, symbol, condition_json, repeat in rows:
             price = symbol_prices.get(symbol)
-            
             if price is None:
                 continue
 
-            price_match = (p_cond == ">" and price > p_val) or (p_cond == "<" and price < p_val)
-            indicator_match = False
-
             try:
-                # RSI condition
-                if r_cond in [">", "<"] and r_val is not None:
+                indicator_blocks = json.loads(condition_json)
+            except Exception as e:
+                print(f"⚠️ Failed to parse condition_json for alert {alert_id}: {e}")
+                continue
+
+            alert_triggered = True  # start assuming true
+
+            # Evaluate each block
+            for block in indicator_blocks:
+                b_type = block.get("type")
+                operator = block.get("operator")
+                value = block.get("value")
+
+                if b_type == "price":
+                    if operator == ">" and not (price > value):
+                        alert_triggered = False
+                        break
+                    elif operator == "<" and not (price < value):
+                        alert_triggered = False
+                        break
+
+                elif b_type == "rsi":
                     if symbol not in indicator_cache:
                         indicator_cache[symbol] = {}
                     if "rsi" not in indicator_cache[symbol]:
                         indicator_cache[symbol]["rsi"] = await get_cached_rsi(symbol)
                     rsi = indicator_cache[symbol]["rsi"]
-                    indicator_match = (r_cond == ">" and rsi > r_val) or (r_cond == "<" and rsi < r_val)
+                    if rsi is None:
+                        alert_triggered = False
+                        break
+                    if operator == ">" and not (rsi > value):
+                        alert_triggered = False
+                        break
+                    elif operator == "<" and not (rsi < value):
+                        alert_triggered = False
+                        break
 
-                # MACD condition
-                elif r_cond == "macd":
+                elif b_type == "macd":
                     if symbol not in indicator_cache:
                         indicator_cache[symbol] = {}
                     if "macd" not in indicator_cache[symbol]:
                         indicator_cache[symbol]["macd"] = await get_cached_macd(symbol)
                     macd, signal, hist = indicator_cache[symbol]["macd"]
-                    indicator_match = hist > 0
+                    if hist <= 0:
+                        alert_triggered = False
+                        break
 
-                # EMA condition (e.g. ema>20)
-                elif r_cond.startswith("ema>"):
-                    period = int(r_cond.split(">")[1])
+                elif b_type == "ema":
+                    period = value
                     if symbol not in indicator_cache:
                         indicator_cache[symbol] = {}
                     ema_key = f"ema{period}"
                     if ema_key not in indicator_cache[symbol]:
                         indicator_cache[symbol][ema_key] = await get_cached_ema(symbol, period)
                     ema = indicator_cache[symbol][ema_key]
-                    indicator_match = ema is not None and price > ema
+                    if ema is None or price <= ema:
+                        alert_triggered = False
+                        break
 
-            except Exception as e:
-                print(f"Custom alert indicator error for {symbol}: {e}")
-                traceback.print_exc()
-                continue
+                else:
+                    print(f"⚠️ Unknown indicator type {b_type} for alert {alert_id}")
+                    alert_triggered = False
+                    break
 
-            # If both price and indicator match, trigger alert
-            if price_match and indicator_match:
+            if alert_triggered:
                 try:
+                    blocks_text = "\n".join(
+                        f"{blk['type'].upper()} {blk.get('operator','')} {blk.get('value','')}"
+                        for blk in indicator_blocks
+                    )
                     await context.bot.send_message(
                         chat_id=user_id,
                         text=(
                             f"🧠 *Custom Alert for {symbol}*\n"
-                            f"Price: ${price:.2f} ({p_cond}{p_val}) ✅\n"
-                            f"Indicator: `{r_cond}` ✅"
+                            f"{blocks_text}\n"
+                            f"{'🔁 Repeat enabled' if repeat else ''}"
                         ),
                         parse_mode="Markdown"
                     )
@@ -305,10 +337,10 @@ async def check_custom_alerts(context, symbol_prices):
                         to_delete.append(alert_id)
 
                 except Exception as e:
-                    print(f"Custom alert send error for {symbol}: {e}")
+                    print(f"❌ Custom alert send error for {symbol}: {e}")
                     traceback.print_exc()
             else:
-                print(f"Skipped alert for {symbol}: price_match={price_match}, indicator_match={indicator_match}")
+                print(f"Skipped alert {alert_id} for {symbol}: conditions not met.")
 
         if to_delete:
             cursor.executemany("DELETE FROM custom_alerts WHERE id = ?", [(aid,) for aid in to_delete])
@@ -316,7 +348,7 @@ async def check_custom_alerts(context, symbol_prices):
 
     finally:
         conn.close()
-
+        
 
 
 async def check_portfolio_alerts(context, symbol_prices):

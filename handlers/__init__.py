@@ -25,7 +25,7 @@ from .upgrade import (
     upgrade_menu, handle_plan_selection, back_to_plans,
     show_payment_instructions, confirm_payment
 )
-from .best_gainers import best_gainers
+from .best_gainers import best_gainers, best_callback_handler
 from .calendar import calendar_command
 from .coin_alias_handler import (
     handle_chart_button, handle_add_alert_button,
@@ -56,7 +56,7 @@ handle_how_it_helps, handle_view_commands,
 handle_join_community, handle_back_to_start
 )
 from .trend import trend_command
-from .worst_losers import worst_losers
+from .worst_losers import worst_losers, worst_callback_handler
 from .fx import fx_command
 from .fxconv import fxconv_command
 from .fxchart import fxchart_command
@@ -147,14 +147,15 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("fxconv", fxconv_command))
        app.add_handler(CommandHandler("fxchart", fxchart_command))
        app.add_handler(CommandHandler("fxsessions", fxsessions_command))
-       app.add_handler(CommandHandler("best", best_gainers))    
+       app.add_handler(CommandHandler("best", best_gainers))
+       app.add_handler(CallbackQueryHandler(best_callback_handler, pattern="^best_"))    
        app.add_handler(CommandHandler("worst", worst_losers))
+       app.add_handler(CallbackQueryHandler(worst_callback_handler, pattern="^worst_"))
        app.add_handler(CommandHandler("trend", trend_command))
        app.add_handler(CommandHandler("news", crypto_news)) 
        #app.add_handler(CommandHandler("insights", insights_command))
        app.add_handler(CommandHandler("fav", fav_command))
        app.add_handler(CallbackQueryHandler(fav_callback_handler, pattern="^fav_"))
-       app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), fav_text_handler))
        register_set_handlers(app)
        app.add_handler(CommandHandler("addtogroup", add_to_group))     
        app.add_handler(ConversationHandler(

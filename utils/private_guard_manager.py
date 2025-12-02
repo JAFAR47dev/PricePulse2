@@ -11,7 +11,8 @@ PRIVATE_ONLY_COMMANDS = [
     "clearportfolio", "portfoliolimit",
     "portfoliotarget", "prediction", "aistrat",
     "aiscan", "bt", "screen", "track", "untrack",
-    "mywhales", "tasks", "referral", "upgrade", "myplan"
+    "mywhales", "tasks", "referral", "upgrade", "myplan",
+    "fav"
 ]
 
 # ✅ Guard function: blocks private-only commands in groups

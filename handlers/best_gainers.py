@@ -11,30 +11,31 @@ load_dotenv()
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 COINGECKO_API = "https://api.coingecko.com/api/v3"
 
-async def get_top_gainers_message() -> str:
-    """Fetch top 3 gainers and return a formatted message string."""
+async def get_top_gainers_message(per_page: int = 100) -> str:
+    """Fetch top 3 gainers and return a formatted message."""
     try:
         headers = {}
         if COINGECKO_API_KEY:
             headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
 
-        async with httpx.AsyncClient() as client:
+        params = {
+            "vs_currency": "usd",
+            "order": "market_cap_desc",
+            "per_page": per_page,
+            "page": 1,
+            "price_change_percentage": "24h",
+        }
+
+        async with httpx.AsyncClient(timeout=10) as client:
             response = await client.get(
                 f"{COINGECKO_API}/coins/markets",
-                params={
-                    "vs_currency": "usd",
-                    "order": "market_cap_desc",
-                    "per_page": 100,
-                    "page": 1,
-                    "price_change_percentage": "24h",
-                },
-                headers=headers,
-                timeout=10
+                params=params,
+                headers=headers
             )
-            response.raise_for_status()
-            data = response.json()
 
-        # Safety: remove coins without 24h change or price
+        response.raise_for_status()
+        data = response.json()
+
         safe_coins = []
         for c in data:
             try:
@@ -43,7 +44,6 @@ async def get_top_gainers_message() -> str:
                 name = c.get("name") or "Unknown"
                 symbol = (c.get("symbol") or "N/A").upper()
 
-                # Skip coins with missing price
                 if price is None or change is None:
                     continue
 
@@ -53,38 +53,63 @@ async def get_top_gainers_message() -> str:
                     "price": price,
                     "change": change
                 })
-            except Exception:
-                continue  # skip any problematic coin
+            except:
+                continue
 
-        # Sort by highest 24h % gain
         top_gainers = sorted(safe_coins, key=lambda x: x["change"], reverse=True)[:3]
 
         if not top_gainers:
             return "❌ No gainers found."
 
-        message = "🏆 *Top 3 Gainers (24h)*:\n\n"
+        msg = f"🏆 *Top 3 Gainers (24h) — from Top {per_page} Coins*\n\n"
+
         for coin in top_gainers:
-            message += (
+            msg += (
                 f"• *{coin['name']}* ({coin['symbol']})\n"
-                f"  Price: ${coin['price']:.2f}\n"
+                f"  Price: ${coin['price']:.4f}\n"
                 f"  Gain: 📈 {coin['change']:.2f}%\n\n"
             )
 
-        return message
+        return msg
 
     except Exception as e:
-        print(f"[Best] Error fetching top gainers: {e}")
+        print(f"[Best] Error: {e}")
         return "❌ Could not fetch top gainers."
-
+        
+        
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 async def best_gainers(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    try:
-        user_id = update.effective_user.id
-        await update_last_active(user_id, command_name="/best")
-        await handle_streak(update, context)
-        loading_msg = await update.message.reply_text("📈 Fetching top 24h gainers...")
-        message = await get_top_gainers_message()
-        await loading_msg.edit_text(message, parse_mode="Markdown")
-    except Exception as e:
-        print(f"[Best Command] Error: {e}")
-        await update.message.reply_text("⚠️ Something went wrong while fetching top gainers.")
+    user_id = update.effective_user.id
+    await update_last_active(user_id, command_name="/best")
+    await handle_streak(update, context)
+
+    keyboard = [
+        [
+            InlineKeyboardButton("Top 50", callback_data="best_50"),
+            InlineKeyboardButton("Top 100", callback_data="best_100"),
+        ],
+        [
+            InlineKeyboardButton("Top 200", callback_data="best_200"),
+            InlineKeyboardButton("Top 500", callback_data="best_500"),
+        ]
+    ]
+
+    await update.message.reply_text(
+        "📈 *Choose coin range to scan gainers:*",
+        parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+    
+    
+async def best_callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    per_page = int(query.data.split("_")[1])
+
+    loading_msg = await query.message.reply_text(f"📈 Scanning top {per_page} coins...")
+
+    msg = await get_top_gainers_message(per_page)
+
+    await loading_msg.edit_text(msg, parse_mode="Markdown")

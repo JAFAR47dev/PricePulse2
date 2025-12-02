@@ -228,8 +228,29 @@ async def confirm_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif alert_type.lower() == "risk":
         details = f"Stop: {alert_flow.get('stop_loss', '?')} | Take: {alert_flow.get('take_profit', '?')}"
     elif alert_type.lower() == "custom":
-        details = f"Condition: {alert_flow.get('custom_condition', '?')}"
+        # Render readable custom condition
+        condition = alert_flow.get("condition")
 
+        if not condition:
+            details = "Condition: ?"
+        else:
+            # Convert parsed condition back to readable text for confirmation screen
+            readable = []
+
+            # Price rule
+            price_rule = condition.get("price")
+            if price_rule:
+                readable.append(f"Price {price_rule['operator']} {price_rule['value']}")
+
+            # Indicator rules
+            for ind in condition.get("indicators", []):
+                readable.append(
+                    f"{ind['indicator']} {ind['operator']} {ind['value']}"
+                )
+
+            # Join into one clean line
+            details = "Condition: " + " AND ".join(readable)
+            
     summary = (
         "✅ *Confirm Alert Setup:*\n\n"
         f"• Type: {alert_type}\n"
@@ -320,15 +341,20 @@ async def handle_final_alert_creation(update, context, alert_flow):
         await handle_risk_alert(update, context, args, plan)
 
     elif alert_type == "custom":
-        args = [
-            alert_flow["symbol"],
-            alert_flow["condition"],
-            str(alert_flow["target"]),
-        ] + alert_flow["indicator_block"]
+        symbol = alert_flow["symbol"]
+
+        # NEW: use parsed structure instead of indicator_block
+        parsed_condition = alert_flow.get("condition", {})
+
+        # args format expected by handle_custom_alert:
+        # [symbol, parsed_condition]
+        args = [symbol, parsed_condition]
+
         if repeat_flag:
             args.append(repeat_flag)
-        await handle_custom_alert(update, context, args, plan)
 
+        await handle_custom_alert(update, context, args, plan)
+    
     # Clear flow after saving
     context.user_data.pop("alert_flow", None)
     
@@ -344,17 +370,14 @@ from .callback_handler import symbol_input_handler
 from .callback_handler import details_input_handler
 
 async def set_alert_message_router(update, context):
-    # If user is in Favorites flow, ignore /set flow completely
-    if context.user_data.get("fav_mode"):
-        return
-
-    # Get alert flow
+     
+    print("DEBUG set_text_handler called; user_data:", context.user_data)
+ 
     alert_flow = context.user_data.get("alert_flow")
     
-    if not alert_flow or "fav_mode" in context.user_data:
-        return
-            
-
+    if context.user_data.get("fav_mode") or alert_flow is None:
+        return   
+    
     step = alert_flow.get("step")
 
     if step == "symbol_input":
@@ -362,8 +385,24 @@ async def set_alert_message_router(update, context):
 
     elif step == "details_input":
         return await details_input_handler(update, context)
-        
-        
+
+from handlers.fav.fav_handler import fav_text_handler    
+
+async def global_text_router(update, context):
+    ud = context.user_data
+    print("DEBUG global router:", ud)
+
+    # Priority 1: /set flow
+    if ud.get("alert_flow"):
+        return await set_alert_message_router(update, context)
+
+    # Priority 2: /fav flow
+    if ud.get("fav_mode"):
+        return await fav_text_handler(update, context)
+
+    # Not in any mode → ignore
+    return
+           
     # Ignore unrelated messages
 def register_set_handlers(app):
     # /set command
@@ -385,11 +424,5 @@ def register_set_handlers(app):
         CallbackQueryHandler(confirmation_callback_handler, pattern=r"^set_alert_confirm:")  
     )  
   
-
-    app.add_handler(
-        MessageHandler(
-            filters.TEXT & ~filters.COMMAND,
-            set_alert_message_router
-        )
-    )
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, global_text_router))
     

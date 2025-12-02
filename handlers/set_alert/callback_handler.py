@@ -89,16 +89,48 @@ async def details_input_handler(update: Update, context: ContextTypes.DEFAULT_TY
             alert_flow["take_profit"] = take_profit
        
         elif alert_type == "custom":
-            # Save raw condition text
-            alert_flow["condition"] = user_input  
+            user_text = user_input.strip()
 
-            # Ensure indicator_block exists (required by flow manager)
-            if "indicator_block" not in alert_flow:
-                alert_flow["indicator_block"] = [alert_flow["condition"]]
-            else:
-                # Append custom condition to indicator block
-                alert_flow["indicator_block"].append(alert_flow["condition"])
-        
+            # Initialize structure
+            condition_data = {
+                "price": None,
+                "indicators": []
+            }
+
+            tokens = user_text.split()
+
+            # ----------- PRICE PARSING -----------
+            # Detect if first item is a number (e.g., "144545")
+            if tokens and tokens[0].replace(".", "", 1).isdigit():
+                price_value = float(tokens[0])
+                condition_data["price"] = {
+                    "operator": ">",   # default meaning BTC > price
+                    "value": price_value
+                }
+                tokens = tokens[1:]  # remove the price
+
+            # ----------- INDICATOR PARSING -----------
+            # Example: RSI < 45
+            if len(tokens) >= 3:
+                indicator = tokens[0].upper()
+                operator = tokens[1]
+                value = tokens[2]
+
+                if value.replace(".", "", 1).isdigit():
+                    indicator_value = float(value)
+
+                    condition_data["indicators"].append({
+                        "indicator": indicator,
+                        "operator": operator,
+                        "value": indicator_value
+                    })
+
+            # Store the parsed condition in alert_flow
+            alert_flow["condition"] = condition_data
+
+            # also store full text for `indicator_block`
+            alert_flow["indicator_block"] = [user_text]
+    
         
     except Exception:
         await update.message.reply_text("❌ Invalid input format. Please try again.")
@@ -134,7 +166,7 @@ async def persistence_callback_handler(update: Update, context: ContextTypes.DEF
     "✅ Now confirm your alert."
     )
 
-    await asyncio.sleep(5)
+    await asyncio.sleep(3)
     await msg.delete()
 
     # Display final summary

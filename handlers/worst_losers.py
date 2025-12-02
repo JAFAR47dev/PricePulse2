@@ -12,11 +12,7 @@ COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 COINGECKO_API = "https://api.coingecko.com/api/v3"
 
 
-# =====================================================
-# 🔥 Reliable API Caller: Top 3 Losers (24h)
-# =====================================================
-async def get_top_losers_message() -> str:
-    """Fetch top 3 losers (24h) with strong reliability and fail-safes."""
+async def get_top_losers_message(per_page: int = 100) -> str:
     try:
         headers = {"accept": "application/json"}
         if COINGECKO_API_KEY:
@@ -25,7 +21,7 @@ async def get_top_losers_message() -> str:
         params = {
             "vs_currency": "usd",
             "order": "market_cap_desc",
-            "per_page": 100,
+            "per_page": per_page,
             "page": 1,
             "price_change_percentage": "24h",
         }
@@ -37,25 +33,19 @@ async def get_top_losers_message() -> str:
                 headers=headers
             )
 
-        # Raise if HTTP failure (429, 500, etc)
         response.raise_for_status()
-
-        try:
-            data = response.json()
-        except ValueError:
-            return "❌ API returned invalid data format."
+        data = response.json()
 
         if not isinstance(data, list) or len(data) == 0:
             return "❌ No market data available right now."
 
-        # Extract price changes safely
+        # Extract price change safely
         def safe_change(coin):
             return coin.get("price_change_percentage_24h") or 0
 
-        # Sort by lowest percentage → biggest losers
         losers = sorted(data, key=safe_change)[:3]
 
-        msg = "🔻 *Top 3 Losers (24h)*:\n\n"
+        msg = f"🔻 *Top 3 Losers (24h) — from Top {per_page} Coins*\n\n"
 
         for coin in losers:
             name = coin.get("name", "Unknown")
@@ -71,29 +61,45 @@ async def get_top_losers_message() -> str:
 
         return msg
 
-    except httpx.HTTPStatusError as e:
-        print(f"[Worst] HTTP error: {e}")
-        return "❌ API error: CoinGecko rate limit or server issue."
-
-    except httpx.TimeoutException:
-        print("[Worst] Timeout error.")
-        return "⏳ Request timed out. Please try again."
-
     except Exception as e:
-        print(f"[Worst] Unexpected error: {e}")
-        return "❌ Could not fetch top losers due to an unexpected error."
+        print(f"Error worst losers: {e}")
+        return "❌ Could not fetch top losers due to an API error."
+        
 
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-# =====================================================
-# 🚀 Command Handler (/worst)
-# =====================================================
 async def worst_losers(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/worst")
     await handle_streak(update, context)
 
-    loading_msg = await update.message.reply_text("📉 Fetching top 24h losers...")
+    keyboard = [
+        [
+            InlineKeyboardButton("Top 50", callback_data="worst_50"),
+            InlineKeyboardButton("Top 100", callback_data="worst_100"),
+        ],
+        [
+            InlineKeyboardButton("Top 200", callback_data="worst_200"),
+            InlineKeyboardButton("Top 500", callback_data="worst_500"),
+        ]
+    ]
 
-    msg = await get_top_losers_message()
+    await update.message.reply_text(
+        "📉 *Choose coin range to scan losers:*",
+        parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+    
+async def worst_callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    per_page = int(query.data.split("_")[1])
+
+    loading_msg = await query.message.reply_text(f"📉 Scanning top {per_page} coins...")
+
+    msg = await get_top_losers_message(per_page)
 
     await loading_msg.edit_text(msg, parse_mode="Markdown")
+    
+    

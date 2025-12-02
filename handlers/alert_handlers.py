@@ -276,107 +276,80 @@ async def handle_risk_alert(update, context, args, plan):
         
 async def handle_custom_alert(update, context, args, plan):
     user_id = update.effective_user.id
-    plan = get_user_plan(user_id)
 
-    # safe reply function
-    async def safe_reply(text):
-        if update.message:
-            return await update.message.reply_text(text)
-        elif update.callback_query:
-            return await update.callback_query.message.reply_text(text)
-
+    # --- Ensure Pro Plan ---
     if not is_pro_plan(plan):
-        await safe_reply(
-            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock."
-        )
-        return
+        msg = "🔒 Custom alerts are for *Pro users only*.\nUse /upgrade to unlock."
+        if update.callback_query:
+            return await update.callback_query.message.reply_text(msg)
+        return await update.message.reply_text(msg)
 
-    if len(args) < 4:
-        await safe_reply(
-            "❌ Usage:\n"
-            "/set custom BTC > 30000 rsi < 30\n"
-            "/set custom ETH < 1800 ema > 20\n"
-            "/set custom XRP > 0.5 macd [repeat]"
-        )
-        return
+    # args format:
+    # args = [ symbol, condition_dict, repeat_flag ]
+    if len(args) < 2:
+        return await update.message.reply_text("❌ Invalid custom alert payload.")
 
-    # --- Price condition ---
     symbol = args[0].upper()
-    p_cond = args[1]
-    try:
-        p_val = float(args[2])
-    except ValueError:
-        await safe_reply("❌ Invalid price value.")
-        return
-        
-    # --- Indicator condition ---
-    remaining = args[3:]
-    repeat = 1 if "repeat" in [x.lower() for x in remaining] else 0
-    remaining = [x for x in remaining if x.lower() != "repeat"]
+    condition = args[1]               # Parsed condition dict
+    repeat = 1 if (len(args) > 2 and args[2]) else 0
 
-    if not remaining:
-        await safe_reply("❌ Missing indicator condition.")
-        return
+    # -----------------------------
+    # EXTRACT PRICE CONDITION
+    # -----------------------------
+    price_rule = condition.get("price")
+    if not price_rule:
+        return await update.message.reply_text("❌ Custom alert must include a price condition.")
 
-    indicator = remaining[0].lower()
-    rsi_condition = None
-    rsi_value = None
+    price_operator = price_rule["operator"]      # ">" or "<"
+    price_value = price_rule["value"]            # float
 
-    if indicator == "macd":
-        rsi_condition = "macd"
-        rsi_value = None
+    # -----------------------------
+    # EXTRACT INDICATOR CONDITIONS
+    # -----------------------------
+    indicators = condition.get("indicators", [])
 
-    elif indicator == "rsi":
-        if len(remaining) < 3:
-            await safe_reply("❌ RSI condition requires a comparison and value.\nExample: rsi < 30")
-            return
-        rsi_condition = remaining[1]
-        try:
-            rsi_value = float(remaining[2])
-        except ValueError:
-            await safe_reply("❌ Invalid RSI value.")
-            return
+    if not indicators:
+        return await update.message.reply_text(
+            "❌ Custom alert must include at least one indicator rule.\nExample: RSI < 30"
+        )
 
-    elif indicator == "ema":
-        if len(remaining) < 3 or remaining[1] != ">" or not remaining[2].isdigit():
-            await safe_reply("❌ EMA condition must be: ema > 20")
-            return
-        rsi_condition = f"ema>{remaining[2]}"
-        rsi_value = None
+    # Prepare indicator text for DB and UI
+    indicator_entries = []
+    readable_parts = []
 
-    else:
-        await safe_reply("❌ Unknown indicator. Use rsi, ema, or macd.")
-        return
+    for ind in indicators:
+        name = ind["indicator"]          # e.g. 'RSI', 'EMA', 'MACD'
+        op = ind["operator"]             # > or <
+        val = ind["value"]               # numeric or None
 
-    # --- Save to database ---
-    from models.alert import create_custom_alert
-    create_custom_alert(user_id, symbol, price_condition, price_value, rsi_condition, rsi_value, repeat)
+        indicator_entries.append({
+            "indicator": name,
+            "operator": op,
+            "value": val
+        })
 
-    # --- Confirmation message ---
-    indicator_name = indicator.upper()
+        if val is None:
+            readable_parts.append(f"{name} {op}")
+        else:
+            readable_parts.append(f"{name} {op} {val}")
 
-    # Format indicator details
-    if indicator == "macd":
-        indicator_text = "MACD crossover"
-    elif indicator == "rsi":
-        indicator_text = f"RSI {rsi_condition} {rsi_value}"
-    elif indicator == "ema":
-        ema_val = rsi_condition.split(">")[1]
-        indicator_text = f"EMA > {ema_val}"
-    else:
-        indicator_text = rsi_condition  # fallback
+    # -----------------------------
+    # BUILD CONFIRMATION MESSAGE
+    # -----------------------------
+    readable_condition = f"Price {price_operator} {price_value} AND " + " AND ".join(readable_parts)
 
-    msg= (
-        f"✅ Custom alert set for {symbol}:\n"
-        f"• Price: {p_cond} {p_val}\n"
-        f"• Indicator: `{indicator_text}`\n"
-        f"{'🔁 Repeat enabled' if repeat else ''}"
+    msg = (
+        f"✅ *Custom Alert Created*\n\n"
+        f"• *Symbol:* {symbol}\n"
+        f"• *Condition:* {readable_condition}\n"
+        f"• *Repeat:* {'Yes 🔁' if repeat else 'No'}"
     )
+
     if update.callback_query:
-        await update.callback_query.message.reply_text(msg)
-    else:
-        await update.message.reply_text(msg)
-        
+        return await update.callback_query.message.reply_text(msg, parse_mode="Markdown")
+
+    return await update.message.reply_text(msg, parse_mode="Markdown")
+    
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import ContextTypes
 

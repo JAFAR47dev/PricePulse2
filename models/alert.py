@@ -49,18 +49,27 @@ def create_risk_alert(user_id, symbol, stop_price, take_price, repeat):
     conn.commit()
     conn.close()
     
-def create_custom_alert(user_id, symbol, price_condition, price_value, indicator_condition, indicator_value, repeat):
+def create_custom_alert(user_id, symbol, indicator_blocks, repeat):
+    
     conn = get_connection()
     cursor = conn.cursor()
+
     cursor.execute(
         """
-        INSERT INTO custom_alerts (user_id, symbol, price_condition, price_value, rsi_condition, rsi_value, repeat)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO custom_alerts (user_id, symbol, condition_json, repeat)
+        VALUES (?, ?, ?, ?)
         """,
-        (user_id, symbol, price_condition, price_value, indicator_condition, indicator_value, repeat)
+        (
+            user_id,
+            symbol.upper(),
+            json.dumps(indicator_blocks),  # Store as JSON text
+            repeat
+        )
     )
+
     conn.commit()
     conn.close()
+    
     
 def count_user_price_alerts(user_id):
     conn = get_connection()

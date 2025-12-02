@@ -126,19 +126,24 @@ def init_db():
         )
     """)
 
-    # Custom alerts
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS custom_alerts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER,
             symbol TEXT,
-            price_condition TEXT,
-            price_value REAL,
-            rsi_condition TEXT,
-            rsi_value REAL,
-            repeat INTEGER
+            repeat INTEGER DEFAULT 0
         )
     """)
+
+    cursor.execute("PRAGMA table_info(custom_alerts)")
+    columns = [col[1] for col in cursor.fetchall()]
+
+    if "condition_json" not in columns:
+        cursor.execute("ALTER TABLE custom_alerts ADD COLUMN condition_json TEXT")
+
+
+        
+    
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS portfolio_alerts (
