@@ -30,63 +30,299 @@ def set_cache(symbol, interval, data):
         "timestamp": time.time()
     }
 
-# ----------------------------- Helper Functions -----------------------------
+# ----------------------------- Indicator Helpers -----------------------------
 
 def calculate_ema(prices, period):
+    if len(prices) == 0:
+        return None
+
+    # If fewer prices exist, return the average of what's available
     if len(prices) < period:
-        return prices[-1]
+        return sum(prices) / len(prices)
+
     k = 2 / (period + 1)
+
+    # Start with SMA as seed
     ema = sum(prices[:period]) / period
+
+    # Apply EMA formula on remaining prices
     for price in prices[period:]:
-        ema = price * k + ema * (1 - k)
+        ema = (price - ema) * k + ema
+
     return ema
+    
 
 def calculate_rsi(prices, period=14):
-    if len(prices) < period + 1:
+    length = len(prices)
+
+    # Not enough data → neutral RSI
+    if length < period + 1:
         return 50.0
-    gains, losses = 0, 0
+
+    # Step 1: Initial average gain/loss
+    gains, losses = 0.0, 0.0
     for i in range(1, period + 1):
         diff = prices[i] - prices[i - 1]
         if diff > 0:
             gains += diff
         else:
-            losses -= diff
+            losses += abs(diff)
+
     avg_gain = gains / period
     avg_loss = losses / period
-    for i in range(period + 1, len(prices)):
+
+    # Step 2: Wilder smoothing
+    for i in range(period + 1, length):
         diff = prices[i] - prices[i - 1]
         gain = max(diff, 0)
         loss = abs(min(diff, 0))
+
         avg_gain = (avg_gain * (period - 1) + gain) / period
         avg_loss = (avg_loss * (period - 1) + loss) / period
+
+    # Step 3: Calculate RSI
     if avg_loss == 0:
         return 100.0
-    rs = avg_gain / avg_loss
-    return 100 - (100 / (1 + rs))
 
+    rs = avg_gain / avg_loss
+    rsi = 100 - (100 / (1 + rs))
+
+    return rsi
+    
 def calculate_macd(prices, fast=12, slow=26, signal=9):
     if len(prices) < slow + signal:
         return 0, 0, 0
-    ema_fast = calculate_ema(prices, fast)
-    ema_slow = calculate_ema(prices, slow)
-    macd_line = ema_fast - ema_slow
-    signal_line = calculate_ema([macd_line for _ in range(signal)], signal)
-    macd_hist = macd_line - signal_line
-    return macd_line, signal_line, macd_hist
 
+    # --- Step 1: Fast EMA series ---
+    ema_fast_series = []
+    k_fast = 2 / (fast + 1)
+    ema = sum(prices[:fast]) / fast
+    ema_fast_series.append(ema)
+    for price in prices[fast:]:
+        ema = price * k_fast + ema * (1 - k_fast)
+        ema_fast_series.append(ema)
+
+    # --- Step 2: Slow EMA series ---
+    ema_slow_series = []
+    k_slow = 2 / (slow + 1)
+    ema = sum(prices[:slow]) / slow
+    ema_slow_series.append(ema)
+    for price in prices[slow:]:
+        ema = price * k_slow + ema * (1 - k_slow)
+        ema_slow_series.append(ema)
+
+    # Align fast and slow EMA series by truncating start
+    offset = slow - fast
+    ema_fast_series = ema_fast_series[offset:]
+
+    # --- Step 3: MACD Series ---
+    macd_series = [
+        fast_ema - slow_ema
+        for fast_ema, slow_ema in zip(ema_fast_series, ema_slow_series)
+    ]
+
+    # --- Step 4: Signal Line (EMA of MACD series) ---
+    if len(macd_series) < signal:
+        return 0, 0, 0
+
+    k_signal = 2 / (signal + 1)
+    ema = sum(macd_series[:signal]) / signal
+    for value in macd_series[signal:]:
+        ema = value * k_signal + ema * (1 - k_signal)
+    signal_line = ema
+
+    macd_line = macd_series[-1]
+    macd_hist = macd_line - signal_line
+
+    return macd_line, signal_line, macd_hist
+    
+def calculate_stochastic(highs, lows, closes, period=14, d_period=3):
+    if len(closes) < period + d_period:
+        return 50, 50
+
+    # %K calculation
+    highest = max(highs[-period:])
+    lowest = min(lows[-period:])
+
+    if highest == lowest:
+        k = 50
+    else:
+        k = (closes[-1] - lowest) / (highest - lowest) * 100
+
+    # --- REAL %D using last %K values ---
+    # Build last d_period K values properly
+    k_values = []
+    for i in range(d_period):
+        h = max(highs[-period-i : len(highs)-i])
+        l = min(lows[-period-i : len(lows)-i])
+        if h == l:
+            k_values.append(50)
+        else:
+            k_values.append((closes[-1-i] - l) / (h - l) * 100)
+
+    d = sum(k_values) / d_period  # SMA
+
+    return k, d
+    
+
+def calculate_cci(highs, lows, closes, period=20):
+    if len(closes) < period:
+        return 0
+    tp = [(highs[i] + lows[i] + closes[i]) / 3 for i in range(len(closes))]
+    sma = sum(tp[-period:]) / period
+    md = sum(abs(tp[i] - sma) for i in range(len(tp) - period, len(tp))) / period
+    if md == 0:
+        return 0
+    return (tp[-1] - sma) / (0.015 * md)
+
+def calculate_atr(highs, lows, closes, period=14):
+    trs = []
+    for i in range(1, len(closes)):
+        tr = max(
+            highs[i] - lows[i],
+            abs(highs[i] - closes[i - 1]),
+            abs(lows[i] - closes[i - 1])
+        )
+        trs.append(tr)
+
+    # If not enough data, return average TR so far (more accurate)
+    if len(trs) < period:
+        return sum(trs) / len(trs)
+
+    # Standard ATR = SMA of last N TRs
+    return sum(trs[-period:]) / period
+
+def calculate_mfi(highs, lows, closes, volumes, period=14):
+    if len(closes) < period + 1:
+        return 50
+
+    typical = [(highs[i] + lows[i] + closes[i]) / 3 for i in range(len(closes))]
+
+    pos_flow = 0
+    neg_flow = 0
+
+    # Only use the last N periods
+    start = len(typical) - period
+
+    for i in range(start, len(typical)):
+        if i == 0:
+            continue
+        
+        mf = typical[i] * volumes[i]
+
+        if typical[i] > typical[i - 1]:
+            pos_flow += mf
+        else:
+            neg_flow += mf
+
+    if neg_flow == 0:
+        return 100
+
+    mfr = pos_flow / neg_flow
+    return 100 - (100 / (1 + mfr))
+    
+def calculate_adx(highs, lows, closes, period=14):
+    """
+    Calculate ADX (Average Directional Index) and +DI / -DI
+    Returns: adx, plus_di, minus_di
+    """
+    if len(highs) < period + 1:
+        return 0.0, 0.0, 0.0  # Not enough data
+
+    tr_list = []
+    plus_dm = []
+    minus_dm = []
+
+    for i in range(1, len(highs)):
+        high_diff = highs[i] - highs[i - 1]
+        low_diff = lows[i - 1] - lows[i]
+
+        # True Range
+        tr = max(
+            highs[i] - lows[i],
+            abs(highs[i] - closes[i - 1]),
+            abs(lows[i] - closes[i - 1])
+        )
+        tr_list.append(tr)
+
+        # Directional movements
+        plus_dm.append(high_diff if high_diff > low_diff and high_diff > 0 else 0)
+        minus_dm.append(low_diff if low_diff > high_diff and low_diff > 0 else 0)
+
+    # Smooth TR, +DM, -DM using Wilder's smoothing
+    def smooth(series, period):
+        smoothed = []
+        smoothed.append(sum(series[:period]))
+        for i in range(period, len(series)):
+            value = smoothed[-1] - (smoothed[-1] / period) + series[i]
+            smoothed.append(value)
+        return smoothed
+
+    tr_smooth = smooth(tr_list, period)
+    plus_dm_smooth = smooth(plus_dm, period)
+    minus_dm_smooth = smooth(minus_dm, period)
+
+    plus_di = [(100 * (p / t)) for p, t in zip(plus_dm_smooth, tr_smooth)]
+    minus_di = [(100 * (m / t)) for m, t in zip(minus_dm_smooth, tr_smooth)]
+
+    dx = [(abs(p - m) / (p + m) * 100) if (p + m) != 0 else 0 for p, m in zip(plus_di, minus_di)]
+
+    # ADX = smoothed DX
+    if len(dx) < period:
+        adx = sum(dx) / len(dx)
+    else:
+        adx = sum(dx[:period]) / period
+        for i in range(period, len(dx)):
+            adx = ((adx * (period - 1)) + dx[i]) / period
+
+    return round(adx, 2), round(plus_di[-1], 2), round(minus_di[-1], 2)
+    
+    
+def calculate_vwap(closes, volumes):
+    """
+    Calculate VWAP (Volume Weighted Average Price)
+    Returns a single float value for the VWAP over the provided data.
+    """
+    if not closes or not volumes or len(closes) != len(volumes):
+        return None  # invalid input
+
+    cumulative_vol_price = 0.0
+    cumulative_volume = 0.0
+
+    for price, volume in zip(closes, volumes):
+        cumulative_vol_price += price * volume
+        cumulative_volume += volume
+
+    if cumulative_volume == 0:
+        return None  # avoid division by zero
+
+    vwap = cumulative_vol_price / cumulative_volume
+    return round(vwap, 4)
+    
+def calculate_bbands(closes, period=20):
+    if len(closes) < period:
+        return None, None, None
+
+    window = closes[-period:]
+    sma = sum(window) / period
+
+    # Sample standard deviation (period - 1)
+    variance = sum((c - sma) ** 2 for c in window) / (period - 1)
+    std = variance ** 0.5
+
+    upper = sma + 2 * std
+    lower = sma - 2 * std
+
+    return upper, sma, lower
+    
 # ----------------------------- Main Function -----------------------------
 
 async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", outputsize: int = 100):
-    """
-    Fetch OHLCV from Twelve Data and calculate RSI, EMA20, MACD,
-    and 24h high/low/volume. Cached for 60 seconds per (symbol+interval).
-    """
     symbol = symbol.upper().replace("USDT", "USD")
 
-    # 🧠 Check cache first
+    # Cache check
     cached = get_cached_data(symbol, interval)
     if cached:
-        print(f"⚡ Using cached data for {symbol} [{interval}]")
         return cached
 
     params = {
@@ -98,20 +334,10 @@ async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", o
     }
 
     async with httpx.AsyncClient(timeout=15.0) as client:
-        for attempt in range(3):
-            resp = await client.get(BASE_URL, params=params)
-            if resp.status_code == 200:
-                break
-            elif resp.status_code == 429:
-                await asyncio.sleep(2 * (attempt + 1))
-            else:
-                print(f"❌ Twelve Data API error {resp.status_code}")
-                return None
+        resp = await client.get(BASE_URL, params=params)
 
-        data = resp.json()
-
+    data = resp.json()
     if "values" not in data or not data["values"]:
-        print(f"⚠️ No data found for {symbol}")
         return None
 
     candles = list(reversed(data["values"]))
@@ -120,50 +346,55 @@ async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", o
     lows = [float(c["low"]) for c in candles]
     volumes = [float(c.get("volume", 0) or 0) for c in candles]
 
+    # ---- Existing calculations ----
     ema20 = calculate_ema(closes, 20)
     rsi_val = calculate_rsi(closes)
     macd_val, macd_signal, macd_hist = calculate_macd(closes)
 
-    if interval.endswith("h"):
-        window = 24
-    elif interval.endswith("m"):
-        try:
-            window = int(24 * 60 / int(interval[:-1]))
-        except:
-            window = 24
-    else:
-        window = 1
-
-    last_window = candles[-window:]
-    high_24h = max(float(c["high"]) for c in last_window)
-    low_24h = min(float(c["low"]) for c in last_window)
-    volume_24h = sum(float(c.get("volume", 0) or 0) for c in last_window)
+    # ---- NEW indicators ----
+    stoch_k, stoch_d = calculate_stochastic(highs, lows, closes)
+    cci_val = calculate_cci(highs, lows, closes)
+    atr_val = calculate_atr(highs, lows, closes)
+    mfi_val = calculate_mfi(highs, lows, closes, volumes)
+    bb_upper, bb_mid, bb_lower = calculate_bbands(closes)
+    adx_val = calculate_adx(highs, lows, closes, period=14)  # ADX for trend strength
+    vwap_val = calculate_vwap(closes, volumes)              # VWAP for average price
 
     latest = candles[-1]
-    latest_close = float(latest["close"])
-    latest_volume = float(latest.get("volume", 0) or 0)
+    last_price = float(latest["close"])
 
+    # Safe rounding helper
+    def safe_round(val, digits=2):
+        return round(val, digits) if isinstance(val, (int, float)) else None
+
+    # Build result safely
     result = {
         "symbol": symbol,
         "interval": interval,
-        "price": round(latest_close, 4),
-        "rsi": round(rsi_val, 2),
-        "ema20": round(ema20, 2),
-        "macd": round(macd_val, 2),
-        "macdSignal": round(macd_signal, 2),
-        "macdHist": round(macd_hist, 2),
-        "volume": round(latest_volume, 2),
-        "high_24h": round(high_24h, 4),
-        "low_24h": round(low_24h, 4),
-        "volume_24h": round(volume_24h, 2),
+        "price": safe_round(last_price, 4),
+        "ema20": safe_round(ema20, 2),
+        "rsi": safe_round(rsi_val, 2),
+        "macd": safe_round(macd_val, 2),
+        "macdSignal": safe_round(macd_signal, 2),
+        "macdHist": safe_round(macd_hist, 2),
+
+        # NEW Indicators (✨)
+        "stochK": safe_round(stoch_k, 2),
+        "stochD": safe_round(stoch_d, 2),
+        "cci": safe_round(cci_val, 2),
+        "atr": safe_round(atr_val, 4),
+        "mfi": safe_round(mfi_val, 2),
+        "bbUpper": safe_round(bb_upper, 2),
+        "bbMiddle": safe_round(bb_mid, 2),
+        "bbLower": safe_round(bb_lower, 2),
+        "adx": safe_round(adx_val, 2),
+        "vwap": safe_round(vwap_val, 2),
     }
 
-    # 💾 Cache it for future use
+
     set_cache(symbol, interval, result)
-    print(f"✅ Cached {symbol} [{interval}] for {CACHE_TTL}s")
-
     return result
-
+    
 
 #import os
 #import asyncio

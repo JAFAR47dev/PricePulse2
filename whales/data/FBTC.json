@@ -1,7 +1,7 @@
 {
   "token": "FBTC",
   "contract": "0xc96de26018a54d51c097160568752c4e3bd6c364",
-  "updated_at": "2025-11-14T06:14:29.945996",
+  "updated_at": "2025-12-03T20:45:12.049541",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,8 +9,8 @@
       "address": "0xcca43cef272c30415866914351fdfc3e881bb7c2",
       "symbol": "FBTC",
       "rank": 1,
-      "balance": 52955739707.0,
-      "share": 50.13,
+      "balance": 48109645512.0,
+      "share": 55.98,
       "last_tx": null
     },
     {
@@ -18,55 +18,55 @@
       "symbol": "FBTC",
       "rank": 2,
       "balance": 15157458965.0,
-      "share": 14.35,
-      "last_tx": null
-    },
-    {
-      "address": "0x80b10b2b96dda249f37d0c5ebe40bbcdbcc79ec7",
-      "symbol": "FBTC",
-      "rank": 3,
-      "balance": 14596799619.0,
-      "share": 13.82,
+      "share": 17.64,
       "last_tx": null
     },
     {
       "address": "0x4adf44961a7cbe8ee46b2bf04e7198e879677825",
       "symbol": "FBTC",
-      "rank": 4,
+      "rank": 3,
       "balance": 9978518582.0,
-      "share": 9.45,
+      "share": 11.61,
       "last_tx": null
     },
     {
-      "address": "0x8ebe821d31c7a0330982a80f063b8c3f96715017",
+      "address": "0xbad51f8f8c8d658afa7b976447fecb2a0102eee4",
+      "symbol": "FBTC",
+      "rank": 4,
+      "balance": 3695880000.0,
+      "share": 4.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x80b10b2b96dda249f37d0c5ebe40bbcdbcc79ec7",
       "symbol": "FBTC",
       "rank": 5,
-      "balance": 4151090934.0,
-      "share": 3.93,
-      "last_tx": null
-    },
-    {
-      "address": "0x8fcecd352ddda0e04539d13962dbe78af54bdc08",
-      "symbol": "FBTC",
-      "rank": 6,
-      "balance": 2928282085.0,
-      "share": 2.77,
+      "balance": 2000000000.0,
+      "share": 2.33,
       "last_tx": null
     },
     {
       "address": "0x6522b7f9d481eceb96557f44753a4b893f837e90",
       "symbol": "FBTC",
-      "rank": 7,
-      "balance": 1089630702.0,
-      "share": 1.03,
+      "rank": 6,
+      "balance": 1741256355.0,
+      "share": 2.03,
       "last_tx": null
     },
     {
       "address": "0x9dbe5dffaeb4ac2e0ac14f8b4e08b3bc55de5232",
       "symbol": "FBTC",
+      "rank": 7,
+      "balance": 1032864758.0,
+      "share": 1.2,
+      "last_tx": null
+    },
+    {
+      "address": "0xb24e2b802706695b5f2e59c3af5b648aa766a70b",
+      "symbol": "FBTC",
       "rank": 8,
-      "balance": 962171127.0,
-      "share": 0.91,
+      "balance": 937926832.0,
+      "share": 1.09,
       "last_tx": null
     },
     {
@@ -74,7 +74,7 @@
       "symbol": "FBTC",
       "rank": 9,
       "balance": 888391350.0,
-      "share": 0.84,
+      "share": 1.03,
       "last_tx": null
     },
     {
@@ -82,23 +82,23 @@
       "symbol": "FBTC",
       "rank": 10,
       "balance": 697511588.0,
-      "share": 0.66,
-      "last_tx": null
-    },
-    {
-      "address": "0xb24e2b802706695b5f2e59c3af5b648aa766a70b",
-      "symbol": "FBTC",
-      "rank": 11,
-      "balance": 639249000.0,
-      "share": 0.61,
+      "share": 0.81,
       "last_tx": null
     },
     {
       "address": "0x170d847a8320f3b6a77ee15b0cae430e3ec933a0",
       "symbol": "FBTC",
+      "rank": 11,
+      "balance": 323253407.0,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0xce2ab1f9ea8ad1795e7f7d177064efc64f8ce2ad",
+      "symbol": "FBTC",
       "rank": 12,
-      "balance": 373253407.0,
-      "share": 0.35,
+      "balance": 266102478.0,
+      "share": 0.31,
       "last_tx": null
     },
     {
@@ -106,7 +106,7 @@
       "symbol": "FBTC",
       "rank": 13,
       "balance": 253372053.0,
-      "share": 0.24,
+      "share": 0.29,
       "last_tx": null
     },
     {
@@ -114,93 +114,85 @@
       "symbol": "FBTC",
       "rank": 14,
       "balance": 204644178.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0xac364d14020f1da0044699691a91f06ca6131fe3",
-      "symbol": "FBTC",
-      "rank": 15,
-      "balance": 113830507.0,
-      "share": 0.11,
+      "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0x3d9bcca8bc7d438a4c5171435f41a0af5d5e6083",
       "symbol": "FBTC",
+      "rank": 15,
+      "balance": 177976365.0,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x0bd3df983e80048c6a2e388fc173436c55c0190b",
+      "symbol": "FBTC",
       "rank": 16,
-      "balance": 105689531.0,
-      "share": 0.1,
+      "balance": 100000000.0,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0xbe6297731720b7e218031ca8970921f9b41f3d00",
       "symbol": "FBTC",
       "rank": 17,
-      "balance": 104697981.0,
+      "balance": 90238563.0,
       "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x0bd3df983e80048c6a2e388fc173436c55c0190b",
-      "symbol": "FBTC",
-      "rank": 18,
-      "balance": 100000000.0,
-      "share": 0.09,
-      "last_tx": null
-    },
-    {
-      "address": "0xfff8634de89271b6075c55fa89b4e9a087fdb9fe",
-      "symbol": "FBTC",
-      "rank": 19,
-      "balance": 64042315.0,
-      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x0c4085d8e714ca77ac5f46cd2b80a92d238a7cd3",
       "symbol": "FBTC",
-      "rank": 20,
-      "balance": 63244618.0,
+      "rank": 18,
+      "balance": 54570744.0,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xbc15ddb819ce347f8a67b5485910b8a37911f283",
       "symbol": "FBTC",
-      "rank": 21,
-      "balance": 28212567.0,
+      "rank": 19,
+      "balance": 28165693.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x1df10568de38a689ec6741749b903a8ff9606788",
       "symbol": "FBTC",
-      "rank": 22,
+      "rank": 20,
       "balance": 25000000.0,
-      "share": 0.02,
+      "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x047d41f2544b7f63a8e991af2068a363d210d6da",
       "symbol": "FBTC",
-      "rank": 23,
-      "balance": 22934876.0,
-      "share": 0.02,
+      "rank": 21,
+      "balance": 23059376.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x14200888c9b85b4f1e589de4be12e46916b7af31",
+      "symbol": "FBTC",
+      "rank": 22,
+      "balance": 22791624.0,
+      "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0xf6680ea3b480ca2b72d96ea13ccaf2cfd8e6908c",
       "symbol": "FBTC",
-      "rank": 24,
-      "balance": 21552526.0,
+      "rank": 23,
+      "balance": 20590955.0,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0xa11e181e86dc32ea40f609a6dc81b1d50cc99025",
       "symbol": "FBTC",
-      "rank": 25,
+      "rank": 24,
       "balance": 12883800.0,
       "share": 0.01,
       "last_tx": null
@@ -208,7 +200,7 @@
     {
       "address": "0x3af0e0cb6e87d67c2708debb77ae3f8acd7493b5",
       "symbol": "FBTC",
-      "rank": 26,
+      "rank": 25,
       "balance": 12721291.0,
       "share": 0.01,
       "last_tx": null
@@ -216,7 +208,7 @@
     {
       "address": "0x2ac685c6c793e4c85e37905377e1b8bcbdd03f13",
       "symbol": "FBTC",
-      "rank": 27,
+      "rank": 26,
       "balance": 9850000.0,
       "share": 0.01,
       "last_tx": null
@@ -224,7 +216,7 @@
     {
       "address": "0xad5a18c5539868ea8c50bf99ad3939ca8fc75209",
       "symbol": "FBTC",
-      "rank": 28,
+      "rank": 27,
       "balance": 8649375.0,
       "share": 0.01,
       "last_tx": null
@@ -232,7 +224,7 @@
     {
       "address": "0xa4ca04d02bfdc3a2df56b9b6994520e69df43f67",
       "symbol": "FBTC",
-      "rank": 29,
+      "rank": 28,
       "balance": 7219229.0,
       "share": 0.01,
       "last_tx": null
@@ -240,23 +232,23 @@
     {
       "address": "0x91942b802439f2169c36441ef3b250af6bac15bd",
       "symbol": "FBTC",
-      "rank": 30,
+      "rank": 29,
       "balance": 4965435.0,
-      "share": 0,
+      "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x6c77bde03952bbcb923815d90a73a7ed7ec895d1",
       "symbol": "FBTC",
-      "rank": 31,
+      "rank": 30,
       "balance": 4878293.0,
-      "share": 0,
+      "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x31ae14d23713f705a75807ee6878e87b37c3ad51",
       "symbol": "FBTC",
-      "rank": 32,
+      "rank": 31,
       "balance": 3341022.0,
       "share": 0,
       "last_tx": null
@@ -264,7 +256,7 @@
     {
       "address": "0xb833b1b0ef7f2b2183076868c18cf9a20661ac7e",
       "symbol": "FBTC",
-      "rank": 33,
+      "rank": 32,
       "balance": 2981398.0,
       "share": 0,
       "last_tx": null
@@ -272,7 +264,7 @@
     {
       "address": "0xc8c3a7a88123494dff9be49142ede9d78f7b04f9",
       "symbol": "FBTC",
-      "rank": 34,
+      "rank": 33,
       "balance": 2515756.0,
       "share": 0,
       "last_tx": null
@@ -280,23 +272,15 @@
     {
       "address": "0x696f791a7e362308b75bc401e22a494800333e70",
       "symbol": "FBTC",
-      "rank": 35,
+      "rank": 34,
       "balance": 2347432.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x42a856dbebb97abc1269eab32f3bb40c15102819",
-      "symbol": "FBTC",
-      "rank": 36,
-      "balance": 2044217.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x65a45a8b0c82c914f9a3ae3af9b5d379cd416513",
       "symbol": "FBTC",
-      "rank": 37,
+      "rank": 35,
       "balance": 1954240.0,
       "share": 0,
       "last_tx": null
@@ -304,7 +288,7 @@
     {
       "address": "0xd6e85c739931fc5b7fad2c003ea343c0fe50fcaf",
       "symbol": "FBTC",
-      "rank": 38,
+      "rank": 36,
       "balance": 1935467.0,
       "share": 0,
       "last_tx": null
@@ -312,7 +296,7 @@
     {
       "address": "0x03d18856152c148a46478d3f4b48833ef0c83cfc",
       "symbol": "FBTC",
-      "rank": 39,
+      "rank": 37,
       "balance": 1907532.0,
       "share": 0,
       "last_tx": null
@@ -320,15 +304,15 @@
     {
       "address": "0x0b835f07a2a54c0e80c1f585e5b6dd732816da3f",
       "symbol": "FBTC",
-      "rank": 40,
-      "balance": 1802296.0,
+      "rank": 38,
+      "balance": 1797963.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x386b76d9ca5f5fb150b6bfb35cf5379b22b26dd8",
       "symbol": "FBTC",
-      "rank": 41,
+      "rank": 39,
       "balance": 1641272.0,
       "share": 0,
       "last_tx": null
@@ -336,7 +320,7 @@
     {
       "address": "0x5d16c194882c133c67980d66beb2329f49ff5e14",
       "symbol": "FBTC",
-      "rank": 42,
+      "rank": 40,
       "balance": 1526000.0,
       "share": 0,
       "last_tx": null
@@ -344,7 +328,7 @@
     {
       "address": "0xf8553c8552f906c19286f21711721e206ee4909e",
       "symbol": "FBTC",
-      "rank": 43,
+      "rank": 41,
       "balance": 1258828.0,
       "share": 0,
       "last_tx": null
@@ -352,15 +336,23 @@
     {
       "address": "0xb11dcbacc82200721ecceeefb4d80233355f6fe0",
       "symbol": "FBTC",
-      "rank": 44,
+      "rank": 42,
       "balance": 1254397.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x8fcecd352ddda0e04539d13962dbe78af54bdc08",
+      "symbol": "FBTC",
+      "rank": 43,
+      "balance": 1229763.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xfe4ecd930a1282325aef8e946f17c0e25744de45",
       "symbol": "FBTC",
-      "rank": 45,
+      "rank": 44,
       "balance": 1172584.0,
       "share": 0,
       "last_tx": null
@@ -368,32 +360,40 @@
     {
       "address": "0xfd543fdd0ddd37ddcb390ce79e52d14a5e1dba14",
       "symbol": "FBTC",
-      "rank": 46,
+      "rank": 45,
       "balance": 1120504.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xb97ab3198f6117d2d093807faa670eb1c11f67a0",
-      "symbol": "FBTC",
-      "rank": 47,
-      "balance": 1072460.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x641834845105da8342e73e777b36c823cdf917ba",
       "symbol": "FBTC",
-      "rank": 48,
+      "rank": 46,
       "balance": 1072024.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x42a856dbebb97abc1269eab32f3bb40c15102819",
+      "symbol": "FBTC",
+      "rank": 47,
+      "balance": 1044217.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x8f4856037b8b2eb537c0ac7fcd3e8f869959fe0e",
       "symbol": "FBTC",
-      "rank": 49,
+      "rank": 48,
       "balance": 1002209.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xea43467683be1c70733fe667a507d800e441c201",
+      "symbol": "FBTC",
+      "rank": 49,
+      "balance": 1000000.0,
       "share": 0,
       "last_tx": null
     },
@@ -430,7 +430,7 @@
       "last_tx": null
     },
     {
-      "address": "0xf90782c5d1ce2dcbd719b1f7a767794a11e857ef",
+      "address": "0x0fd9b6ca13c75a72d2ffc5ff130d214a60396102",
       "symbol": "FBTC",
       "rank": 54,
       "balance": 625000.0,
@@ -438,7 +438,7 @@
       "last_tx": null
     },
     {
-      "address": "0x0fd9b6ca13c75a72d2ffc5ff130d214a60396102",
+      "address": "0xf5b12ef6b2cac28ff7a17a76124b665fac750f60",
       "symbol": "FBTC",
       "rank": 55,
       "balance": 625000.0,
@@ -510,25 +510,33 @@
       "last_tx": null
     },
     {
-      "address": "0xc0fc3ddfec95ca45a0d2393f518d3ea1ccf44f8b",
+      "address": "0x3de41a398a77bc3453a251569c82b88d285282ec",
       "symbol": "FBTC",
       "rank": 64,
-      "balance": 396298.0,
+      "balance": 421310.0,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x40328669bc9e3780dfa0141dbc87450a4af6ea11",
+      "address": "0xc0fc3ddfec95ca45a0d2393f518d3ea1ccf44f8b",
       "symbol": "FBTC",
       "rank": 65,
-      "balance": 344620.0,
+      "balance": 409879.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xdb57fdf5fd24a9d0e1ea94552eb2c7bdcb28fa27",
+      "symbol": "FBTC",
+      "rank": 66,
+      "balance": 352561.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x301166d066a39059394d5f730c2ff1d1fb95753a",
       "symbol": "FBTC",
-      "rank": 66,
+      "rank": 67,
       "balance": 325752.0,
       "share": 0,
       "last_tx": null
@@ -536,16 +544,8 @@
     {
       "address": "0x01c020c8f90aebc4d8fcac2ea1acec596da4e01b",
       "symbol": "FBTC",
-      "rank": 67,
-      "balance": 323506.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x83d3d5c1e551a0a5c8a10e7f44cee2e54cd345ea",
-      "symbol": "FBTC",
       "rank": 68,
-      "balance": 321446.0,
+      "balance": 323506.0,
       "share": 0,
       "last_tx": null
     },
@@ -574,17 +574,33 @@
       "last_tx": null
     },
     {
-      "address": "0x19b5cc75846bf6286d599ec116536a333c4c2c14",
+      "address": "0xfff8634de89271b6075c55fa89b4e9a087fdb9fe",
       "symbol": "FBTC",
       "rank": 72,
+      "balance": 280289.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x19b5cc75846bf6286d599ec116536a333c4c2c14",
+      "symbol": "FBTC",
+      "rank": 73,
       "balance": 249266.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x40328669bc9e3780dfa0141dbc87450a4af6ea11",
+      "symbol": "FBTC",
+      "rank": 74,
+      "balance": 243176.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x58faca894e43f6e6a9c3053e5414d524ea00c1f3",
       "symbol": "FBTC",
-      "rank": 73,
+      "rank": 75,
       "balance": 233059.0,
       "share": 0,
       "last_tx": null
@@ -592,7 +608,7 @@
     {
       "address": "0x29990883f3fd3c7a7adfd37c199f3d48f5cf69cd",
       "symbol": "FBTC",
-      "rank": 74,
+      "rank": 76,
       "balance": 220000.0,
       "share": 0,
       "last_tx": null
@@ -600,23 +616,15 @@
     {
       "address": "0xf047ab4c75cebf0eb9ed34ae2c186f3611aeafa6",
       "symbol": "FBTC",
-      "rank": 75,
+      "rank": 77,
       "balance": 212187.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x58d70fda6598bf70328d936281d16106380b0c28",
-      "symbol": "FBTC",
-      "rank": 76,
-      "balance": 206238.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xdcfae64f4a58728b10e1e16b53b40592166acae3",
       "symbol": "FBTC",
-      "rank": 77,
+      "rank": 78,
       "balance": 203895.0,
       "share": 0,
       "last_tx": null
@@ -624,7 +632,7 @@
     {
       "address": "0x83f8e5bdc5953276dfddc0fcc6a7c11bf9242764",
       "symbol": "FBTC",
-      "rank": 78,
+      "rank": 79,
       "balance": 200000.0,
       "share": 0,
       "last_tx": null
@@ -632,7 +640,7 @@
     {
       "address": "0x1419b48e5c1f5ce413cf02d6dcbe1314170e3386",
       "symbol": "FBTC",
-      "rank": 79,
+      "rank": 80,
       "balance": 188102.0,
       "share": 0,
       "last_tx": null
@@ -640,7 +648,7 @@
     {
       "address": "0x8d76e7847dfbea6e9f4c235cadf51586ba3560a2",
       "symbol": "FBTC",
-      "rank": 80,
+      "rank": 81,
       "balance": 184041.0,
       "share": 0,
       "last_tx": null
@@ -648,7 +656,7 @@
     {
       "address": "0xda14a01be3c46456a50f2c0a547ecdc1bdf242ce",
       "symbol": "FBTC",
-      "rank": 81,
+      "rank": 82,
       "balance": 173485.0,
       "share": 0,
       "last_tx": null
@@ -656,7 +664,7 @@
     {
       "address": "0x26ebd72c4420bc2b836fb070b1cafa1dd590b3fc",
       "symbol": "FBTC",
-      "rank": 82,
+      "rank": 83,
       "balance": 165385.0,
       "share": 0,
       "last_tx": null
@@ -664,7 +672,7 @@
     {
       "address": "0xa3a211bdfba8d614c3d030da6cdbc98940db3ba8",
       "symbol": "FBTC",
-      "rank": 83,
+      "rank": 84,
       "balance": 162427.0,
       "share": 0,
       "last_tx": null
@@ -672,7 +680,7 @@
     {
       "address": "0x29a425878fcbc1ae425f29fc9daa25c7fb14966f",
       "symbol": "FBTC",
-      "rank": 84,
+      "rank": 85,
       "balance": 161737.0,
       "share": 0,
       "last_tx": null
@@ -680,7 +688,7 @@
     {
       "address": "0xe4d405dfba629d40673066eb139c63f385c91bad",
       "symbol": "FBTC",
-      "rank": 85,
+      "rank": 86,
       "balance": 154645.0,
       "share": 0,
       "last_tx": null
@@ -688,7 +696,7 @@
     {
       "address": "0x92d374dd17f8416c8129f5efa81f28e0926a60b7",
       "symbol": "FBTC",
-      "rank": 86,
+      "rank": 87,
       "balance": 150784.0,
       "share": 0,
       "last_tx": null
@@ -696,16 +704,8 @@
     {
       "address": "0x5e007ed35c7d89f5889eb6fd0cdcaa38059560ef",
       "symbol": "FBTC",
-      "rank": 87,
-      "balance": 142953.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xcc7e6de27ddf225e24e8652f62101dab4656e20a",
-      "symbol": "FBTC",
       "rank": 88,
-      "balance": 124500.0,
+      "balance": 142953.0,
       "share": 0,
       "last_tx": null
     },
@@ -798,10 +798,10 @@
       "last_tx": null
     },
     {
-      "address": "0xd4a1acb89b00c8706fe98485becd8c33e8a774dc",
+      "address": "0x785fa76b07487683e99a3d84455a13a94ec9088d",
       "symbol": "FBTC",
       "rank": 100,
-      "balance": 96333.0,
+      "balance": 90620.0,
       "share": 0,
       "last_tx": null
     }

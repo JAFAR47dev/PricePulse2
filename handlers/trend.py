@@ -27,7 +27,7 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     plan = get_user_plan(user_id)
     if plan == "free" and timeframe != "1h":
         await update.message.reply_text(
-            "🔒 Only the *1h* timeframe is available on Free Plan.\nUse /upgrade@EliteTradeSignalBot to unlock more.",
+            "🔒 Only the *1h* timeframe is available on Free Plan.\nUse /upgrade to unlock more.",
             parse_mode="Markdown"
         )
         return
@@ -40,13 +40,13 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("⚠️ Could not fetch indicator data.")
             return
 
-        # Safely extract values (convert to float if possible)
-        def safe_float(value):
+        def safe_float(v):
             try:
-                return float(value)
-            except (TypeError, ValueError):
+                return float(v)
+            except:
                 return None
 
+        # Extract all indicators
         price = safe_float(indicators.get("price"))
         rsi = safe_float(indicators.get("rsi"))
         ema20 = safe_float(indicators.get("ema20"))
@@ -54,44 +54,92 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         macd_signal = safe_float(indicators.get("macdSignal"))
         macd_hist = safe_float(indicators.get("macdHist"))
 
+        # NEW INDICATORS
+        stochK = safe_float(indicators.get("stochK"))
+        stochD = safe_float(indicators.get("stochD"))
+        cci = safe_float(indicators.get("cci"))
+        atr = safe_float(indicators.get("atr"))
+        mfi = safe_float(indicators.get("mfi"))
+        bbUpper = safe_float(indicators.get("bbUpper"))
+        bbMiddle = safe_float(indicators.get("bbMiddle"))
+        bbLower = safe_float(indicators.get("bbLower"))
+        adx = safe_float(indicators.get("adx"))
+        vwap = safe_float(indicators.get("vwap"))
+
+        
+        # ---------------------- BUILD MESSAGE ----------------------
         msg = f"📊 *Trend Analysis for {symbol}* ({timeframe})\n"
         msg += f"━━━━━━━━━━━━━━━━━━━━━━━\n"
 
-        # Price
-        if price is not None:
-            msg += f"💰 *Price:* `${price:.2f}`\n"
-        else:
-            msg += "💰 *Price:* `N/A`\n"
+        # PRICE
+        msg += f"💰 *Price:* `${price:.2f}`\n" if price else "💰 *Price:* `N/A`\n"
+
+        msg += "\n📈 *Indicators:*\n"
 
         # RSI
-        if rsi is not None:
-            if rsi > 70:
-                rsi_trend = "🔺 *Overbought*"
-            elif rsi < 30:
-                rsi_trend = "🔻 *Oversold*"
-            else:
-                rsi_trend = "🟡 *Neutral*"
-            msg += f"📉 *RSI:* `{rsi:.2f}` → {rsi_trend}\n"
+        if rsi:
+            if rsi > 70: r = "🔺 Overbought"
+            elif rsi < 30: r = "🔻 Oversold"
+            else: r = "🟡 Neutral"
+            msg += f"• *RSI:* `{rsi:.2f}` → {r}\n"
         else:
-            msg += "📉 *RSI:* `N/A`\n"
+            msg += "• RSI: `N/A`\n"
 
         # MACD
-        if macd is not None and macd_signal is not None:
-            macd_trend = "🔼 Bullish" if macd > macd_signal else "🔽 Bearish"
-            msg += f"📈 *MACD:* `{macd}`\n"
-            msg += f"📊 *Signal:* `{macd_signal}`\n"
-            msg += f"🧮 *Histogram:* `{macd_hist if macd_hist is not None else 'N/A'}` → {macd_trend}\n"
+        if macd is not None:
+            trend = "🔼 Bullish" if macd > macd_signal else "🔽 Bearish"
+            msg += f"• *MACD:* `{macd}` | Signal `{macd_signal}`\n"
+            msg += f"  Histogram: `{macd_hist}` → {trend}\n"
         else:
-            msg += "📈 *MACD:* `N/A`\n"
+            msg += "• MACD: `N/A`\n"
 
-        # EMA
-        if ema20 is not None:
-            msg += f"📏 *EMA(20):* `${ema20:.2f}`\n"
+        # EMA20
+        msg += f"• *EMA20:* `${ema20:.2f}`\n" if ema20 else "• EMA20: `N/A`\n"
+
+        # STOCHASTIC
+        if stochK and stochD:
+            msg += f"• *Stoch K:* `{stochK}` | *D:* `{stochD}`\n"
         else:
-            msg += "📏 *EMA(20):* `N/A`\n"
+            msg += "• Stochastic: `N/A`\n"
 
-        await update.message.reply_text(msg, parse_mode="Markdown")
+        # CCI
+        msg += f"• *CCI:* `{cci}`\n" if cci else "• CCI: `N/A`\n"
+
+        # ATR
+        msg += f"• *ATR:* `{atr}`\n" if atr else "• ATR: `N/A`\n"
+
+        # MFI
+        if mfi:
+            if mfi > 80: m = "🔺 Overbought"
+            elif mfi < 20: m = "🔻 Oversold"
+            else: m = "🟡 Neutral"
+            msg += f"• *MFI:* `{mfi}` → {m}\n"
+        else:
+            msg += "• MFI: `N/A`\n"
+
+        # ADX
+        if adx is not None:
+            if adx >= 25: a = "💪 Strong Trend"
+            else: a = "⚖️ Weak/No Trend"
+            msg += f"• *ADX:* `{adx:.2f}` → {a}\n"
+        else:
+            msg += "• ADX: `N/A`\n"
+
+        # VWAP
+        msg += f"• *VWAP:* `${vwap:.2f}`\n" if vwap else "• VWAP: `N/A`\n"
+
+        # BOLLINGER BANDS
+        if bbUpper and bbMiddle and bbLower:
+            msg += "\n📉 *Bollinger Bands:*\n"
+            msg += f"• Upper: `${bbUpper}`\n"
+            msg += f"• Middle: `${bbMiddle}`\n"
+            msg += f"• Lower: `${bbLower}`\n"
+        else:
+            msg += "\n📉 Bollinger Bands: `N/A`\n"
+    
+            await update.message.reply_text(msg, parse_mode="Markdown")
 
     except Exception as e:
         print("Trend command error:", e)
         await update.message.reply_text("❌ Error fetching trend data.")
+                

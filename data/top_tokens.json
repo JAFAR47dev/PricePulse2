@@ -25,24 +25,24 @@
     "name": "BNB"
   },
   {
-    "id": "usd-coin",
-    "symbol": "usdc",
-    "name": "USDC"
-  },
-  {
     "id": "solana",
     "symbol": "sol",
     "name": "Solana"
   },
   {
-    "id": "tron",
-    "symbol": "trx",
-    "name": "TRON"
+    "id": "usd-coin",
+    "symbol": "usdc",
+    "name": "USDC"
   },
   {
     "id": "staked-ether",
     "symbol": "steth",
     "name": "Lido Staked Ether"
+  },
+  {
+    "id": "tron",
+    "symbol": "trx",
+    "name": "TRON"
   },
   {
     "id": "dogecoin",
@@ -70,14 +70,14 @@
     "name": "Wrapped stETH"
   },
   {
-    "id": "wrapped-bitcoin",
-    "symbol": "wbtc",
-    "name": "Wrapped Bitcoin"
-  },
-  {
     "id": "bitcoin-cash",
     "symbol": "bch",
     "name": "Bitcoin Cash"
+  },
+  {
+    "id": "wrapped-bitcoin",
+    "symbol": "wbtc",
+    "name": "Wrapped Bitcoin"
   },
   {
     "id": "wrapped-beacon-eth",
@@ -85,14 +85,14 @@
     "name": "Wrapped Beacon ETH"
   },
   {
+    "id": "chainlink",
+    "symbol": "link",
+    "name": "Chainlink"
+  },
+  {
     "id": "usds",
     "symbol": "usds",
     "name": "USDS"
-  },
-  {
-    "id": "binance-bridged-usdt-bnb-smart-chain",
-    "symbol": "bsc-usd",
-    "name": "Binance Bridged USDT (BNB Smart Chain)"
   },
   {
     "id": "hyperliquid",
@@ -100,19 +100,19 @@
     "name": "Hyperliquid"
   },
   {
-    "id": "chainlink",
-    "symbol": "link",
-    "name": "Chainlink"
-  },
-  {
-    "id": "leo-token",
-    "symbol": "leo",
-    "name": "LEO Token"
+    "id": "binance-bridged-usdt-bnb-smart-chain",
+    "symbol": "bsc-usd",
+    "name": "Binance Bridged USDT (BNB Smart Chain)"
   },
   {
     "id": "weth",
     "symbol": "weth",
     "name": "WETH"
+  },
+  {
+    "id": "leo-token",
+    "symbol": "leo",
+    "name": "LEO Token"
   },
   {
     "id": "stellar",
@@ -145,6 +145,11 @@
     "name": "Litecoin"
   },
   {
+    "id": "sui",
+    "symbol": "sui",
+    "name": "Sui"
+  },
+  {
     "id": "hedera-hashgraph",
     "symbol": "hbar",
     "name": "Hedera"
@@ -158,11 +163,6 @@
     "id": "zcash",
     "symbol": "zec",
     "name": "Zcash"
-  },
-  {
-    "id": "sui",
-    "symbol": "sui",
-    "name": "Sui"
   },
   {
     "id": "shiba-inu",
@@ -190,29 +190,9 @@
     "name": "Cronos"
   },
   {
-    "id": "paypal-usd",
-    "symbol": "pyusd",
-    "name": "PayPal USD"
-  },
-  {
-    "id": "ethena-staked-usde",
-    "symbol": "susde",
-    "name": "Ethena Staked USDe"
-  },
-  {
-    "id": "usdt0",
-    "symbol": "usdt0",
-    "name": "USDT0"
-  },
-  {
     "id": "the-open-network",
     "symbol": "ton",
     "name": "Toncoin"
-  },
-  {
-    "id": "uniswap",
-    "symbol": "uni",
-    "name": "Uniswap"
   },
   {
     "id": "polkadot",
@@ -220,19 +200,29 @@
     "name": "Polkadot"
   },
   {
+    "id": "paypal-usd",
+    "symbol": "pyusd",
+    "name": "PayPal USD"
+  },
+  {
+    "id": "uniswap",
+    "symbol": "uni",
+    "name": "Uniswap"
+  },
+  {
+    "id": "usdt0",
+    "symbol": "usdt0",
+    "name": "USDT0"
+  },
+  {
+    "id": "ethena-staked-usde",
+    "symbol": "susde",
+    "name": "Ethena Staked USDe"
+  },
+  {
     "id": "mantle",
     "symbol": "mnt",
     "name": "Mantle"
-  },
-  {
-    "id": "usd1-wlfi",
-    "symbol": "usd1",
-    "name": "USD1"
-  },
-  {
-    "id": "canton-network",
-    "symbol": "cc",
-    "name": "Canton"
   },
   {
     "id": "aave",
@@ -240,9 +230,19 @@
     "name": "Aave"
   },
   {
+    "id": "canton-network",
+    "symbol": "cc",
+    "name": "Canton"
+  },
+  {
     "id": "bittensor",
     "symbol": "tao",
     "name": "Bittensor"
+  },
+  {
+    "id": "usd1-wlfi",
+    "symbol": "usd1",
+    "name": "USD1"
   },
   {
     "id": "bitget-token",
@@ -250,9 +250,9 @@
     "name": "Bitget Token"
   },
   {
-    "id": "memecore",
-    "symbol": "m",
-    "name": "MemeCore"
+    "id": "near",
+    "symbol": "near",
+    "name": "NEAR Protocol"
   },
   {
     "id": "blackrock-usd-institutional-digital-liquidity-fund",
@@ -260,9 +260,14 @@
     "name": "BlackRock USD Institutional Digital Liquidity Fund"
   },
   {
-    "id": "near",
-    "symbol": "near",
-    "name": "NEAR Protocol"
+    "id": "memecore",
+    "symbol": "m",
+    "name": "MemeCore"
+  },
+  {
+    "id": "okb",
+    "symbol": "okb",
+    "name": "OKB"
   },
   {
     "id": "tether-gold",
@@ -275,14 +280,19 @@
     "name": "Falcon USD"
   },
   {
-    "id": "okb",
-    "symbol": "okb",
-    "name": "OKB"
-  },
-  {
     "id": "ethereum-classic",
     "symbol": "etc",
     "name": "Ethereum Classic"
+  },
+  {
+    "id": "ethena",
+    "symbol": "ena",
+    "name": "Ethena"
+  },
+  {
+    "id": "aster-2",
+    "symbol": "aster",
+    "name": "Aster"
   },
   {
     "id": "internet-computer",
@@ -290,9 +300,14 @@
     "name": "Internet Computer"
   },
   {
-    "id": "aster-2",
-    "symbol": "aster",
-    "name": "Aster"
+    "id": "pepe",
+    "symbol": "pepe",
+    "name": "Pepe"
+  },
+  {
+    "id": "jito-staked-sol",
+    "symbol": "jitosol",
+    "name": "Jito Staked SOL"
   },
   {
     "id": "pi-network",
@@ -305,29 +320,14 @@
     "name": "Rain"
   },
   {
-    "id": "jito-staked-sol",
-    "symbol": "jitosol",
-    "name": "Jito Staked SOL"
-  },
-  {
-    "id": "ethena",
-    "symbol": "ena",
-    "name": "Ethena"
-  },
-  {
-    "id": "pump-fun",
-    "symbol": "pump",
-    "name": "Pump.fun"
-  },
-  {
     "id": "binance-peg-weth",
     "symbol": "weth",
     "name": "Binance-Peg WETH"
   },
   {
-    "id": "pepe",
-    "symbol": "pepe",
-    "name": "Pepe"
+    "id": "pump-fun",
+    "symbol": "pump",
+    "name": "Pump.fun"
   },
   {
     "id": "wrapped-solana",
@@ -340,19 +340,14 @@
     "name": "Jupiter Perpetuals Liquidity Provider Token"
   },
   {
-    "id": "htx-dao",
-    "symbol": "htx",
-    "name": "HTX DAO"
-  },
-  {
     "id": "ondo-finance",
     "symbol": "ondo",
     "name": "Ondo"
   },
   {
-    "id": "quant-network",
-    "symbol": "qnt",
-    "name": "Quant"
+    "id": "htx-dao",
+    "symbol": "htx",
+    "name": "HTX DAO"
   },
   {
     "id": "kaspa",
@@ -360,9 +355,9 @@
     "name": "Kaspa"
   },
   {
-    "id": "pax-gold",
-    "symbol": "paxg",
-    "name": "PAX Gold"
+    "id": "worldcoin-wld",
+    "symbol": "wld",
+    "name": "Worldcoin"
   },
   {
     "id": "aptos",
@@ -370,24 +365,24 @@
     "name": "Aptos"
   },
   {
+    "id": "pax-gold",
+    "symbol": "paxg",
+    "name": "PAX Gold"
+  },
+  {
     "id": "syrupusdc",
     "symbol": "syrupusdc",
     "name": "syrupUSDC"
   },
   {
-    "id": "worldcoin-wld",
-    "symbol": "wld",
-    "name": "Worldcoin"
+    "id": "quant-network",
+    "symbol": "qnt",
+    "name": "Quant"
   },
   {
-    "id": "usdtb",
-    "symbol": "usdtb",
-    "name": "USDtb"
-  },
-  {
-    "id": "bfusd",
-    "symbol": "bfusd",
-    "name": "BFUSD"
+    "id": "kucoin-shares",
+    "symbol": "kcs",
+    "name": "KuCoin"
   },
   {
     "id": "polygon-ecosystem-token",
@@ -395,14 +390,29 @@
     "name": "POL (ex-MATIC)"
   },
   {
+    "id": "rocket-pool-eth",
+    "symbol": "reth",
+    "name": "Rocket Pool ETH"
+  },
+  {
+    "id": "bfusd",
+    "symbol": "bfusd",
+    "name": "BFUSD"
+  },
+  {
     "id": "binance-bridged-usdc-bnb-smart-chain",
     "symbol": "usdc",
     "name": "Binance Bridged USDC (BNB Smart Chain)"
   },
   {
-    "id": "kucoin-shares",
-    "symbol": "kcs",
-    "name": "KuCoin"
+    "id": "global-dollar",
+    "symbol": "usdg",
+    "name": "Global Dollar"
+  },
+  {
+    "id": "wbnb",
+    "symbol": "wbnb",
+    "name": "Wrapped BNB"
   },
   {
     "id": "sky",
@@ -415,44 +425,9 @@
     "name": "Ripple USD"
   },
   {
-    "id": "global-dollar",
-    "symbol": "usdg",
-    "name": "Global Dollar"
-  },
-  {
-    "id": "hashnote-usyc",
-    "symbol": "usyc",
-    "name": "Circle USYC"
-  },
-  {
-    "id": "rocket-pool-eth",
-    "symbol": "reth",
-    "name": "Rocket Pool ETH"
-  },
-  {
-    "id": "hash-2",
-    "symbol": "hash",
-    "name": "Provenance Blockchain"
-  },
-  {
-    "id": "wbnb",
-    "symbol": "wbnb",
-    "name": "Wrapped BNB"
-  },
-  {
     "id": "algorand",
     "symbol": "algo",
     "name": "Algorand"
-  },
-  {
-    "id": "official-trump",
-    "symbol": "trump",
-    "name": "Official Trump"
-  },
-  {
-    "id": "gatechain-token",
-    "symbol": "gt",
-    "name": "Gate"
   },
   {
     "id": "arbitrum",
@@ -460,14 +435,19 @@
     "name": "Arbitrum"
   },
   {
-    "id": "cosmos",
-    "symbol": "atom",
-    "name": "Cosmos Hub"
+    "id": "gatechain-token",
+    "symbol": "gt",
+    "name": "Gate"
   },
   {
-    "id": "binance-staked-sol",
-    "symbol": "bnsol",
-    "name": "Binance Staked SOL"
+    "id": "hashnote-usyc",
+    "symbol": "usyc",
+    "name": "Circle USYC"
+  },
+  {
+    "id": "official-trump",
+    "symbol": "trump",
+    "name": "Official Trump"
   },
   {
     "id": "syrupusdt",
@@ -475,14 +455,14 @@
     "name": "syrupUSDT"
   },
   {
+    "id": "binance-staked-sol",
+    "symbol": "bnsol",
+    "name": "Binance Staked SOL"
+  },
+  {
     "id": "vechain",
     "symbol": "vet",
     "name": "VeChain"
-  },
-  {
-    "id": "flare-networks",
-    "symbol": "flr",
-    "name": "Flare"
   },
   {
     "id": "filecoin",
@@ -490,13 +470,33 @@
     "name": "Filecoin"
   },
   {
+    "id": "cosmos",
+    "symbol": "atom",
+    "name": "Cosmos Hub"
+  },
+  {
+    "id": "hash-2",
+    "symbol": "hash",
+    "name": "Provenance Blockchain"
+  },
+  {
     "id": "kelp-dao-restaked-eth",
     "symbol": "rseth",
     "name": "Kelp DAO Restaked ETH"
   },
   {
+    "id": "flare-networks",
+    "symbol": "flr",
+    "name": "Flare"
+  },
+  {
     "id": "ignition-fbtc",
     "symbol": "fbtc",
     "name": "Function FBTC"
+  },
+  {
+    "id": "lombard-staked-btc",
+    "symbol": "lbtc",
+    "name": "Lombard Staked BTC"
   }
 ]

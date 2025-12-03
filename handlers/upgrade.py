@@ -199,7 +199,7 @@ async def confirm_payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     f"📦 Plan: *{plan.capitalize()}* (${usd_value})\n"
                     f"💱 Crypto: *{crypto_name}*\n"
                     f"🕒 Time: {timestamp}\n\n"
-                    f"Use `/setplan {user.id} {plan}` to upgrade manually."
+                    f"Use `/setplan {user.id} pro_{plan}` to upgrade manually."
                 ),
                 parse_mode="Markdown"
             )
