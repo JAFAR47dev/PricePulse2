@@ -1,6 +1,6 @@
 import requests
 from io import BytesIO
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from telegram import Update, InputFile
 from telegram.ext import ContextTypes
 from tasks.handlers import handle_streak
@@ -10,14 +10,16 @@ async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/hmap")
     await handle_streak(update, context)
+    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
+
 
     try:
-        # 1️⃣ Fetch top 50 coins by market cap
+        # 1️⃣ Fetch top 100 coins by market cap
         url = "https://api.coingecko.com/api/v3/coins/markets"
         params = {
             "vs_currency": "usd",
             "order": "market_cap_desc",
-            "per_page": 50,
+            "per_page": 100,
             "page": 1,
             "sparkline": "false"
         }
@@ -28,8 +30,8 @@ async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         coins = [c for c in coins if "symbol" in c and c.get("price_change_percentage_24h") is not None]
 
         # 2️⃣ HD Image Canvas
-        WIDTH = 680
-        HEIGHT = 450
+        WIDTH = 720
+        HEIGHT = 480
         img = Image.new("RGB", (WIDTH, HEIGHT), color=(10, 10, 10))
         draw = ImageDraw.Draw(img)
 
@@ -40,10 +42,10 @@ async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             except:
                 return ImageFont.load_default()
 
-        font_large = load_font(60)
-        font_small = load_font(40)
+        font_large = load_font(100)
+        font_small = load_font(80)
 
-        cols = 5
+        cols = 10
         rows = 10  # Because 50 coins, 5 per row
         cell_w = WIDTH // cols
         cell_h = HEIGHT // rows
@@ -73,6 +75,7 @@ async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 color = (160, 0, 0)
             else:
                 color = (80, 80, 80)
+             
 
             # Draw cell box
             margin = 6
@@ -98,6 +101,20 @@ async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Draw text
             draw.text((symbol_x, symbol_y), symbol, fill="white", font=font_large)
             draw.text((pct_x, pct_y), pct, fill="white", font=font_small)
+            
+        # 3️⃣ SHARPEN IMAGE WITHOUT AFFECTING TEXT SIZE
+        # Upscale → Sharpen → Downscale (best quality method)
+        from PIL import ImageFilter
+
+        # Step 1: upscale canvas for higher fidelity
+        upscaled = img.resize((WIDTH * 4, HEIGHT * 4), resample=Image.LANCZOS)
+
+        # Step 2: controlled sharpening
+        upscaled = upscaled.filter(ImageFilter.UnsharpMask(radius=2, percent=250, threshold=3))
+
+        # Step 3: downscale back to original size for crisp output
+        img = upscaled.resize((WIDTH, HEIGHT), resample=Image.LANCZOS)
+
 
         # 4️⃣ Send image
         image_stream = BytesIO()
@@ -106,7 +123,7 @@ async def heatmap_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         await update.message.reply_photo(
             photo=InputFile(image_stream, filename="heatmap.png"),
-            caption="💹 *Market Heatmap of Top 50 Coins* — 24h Change",
+            caption="💹 *Market Heatmap of Top 100 Coins* — 24h Change",
             parse_mode="Markdown"
         )
 

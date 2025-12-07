@@ -125,24 +125,21 @@ def init_db():
             repeat INTEGER
         )
     """)
-
+    
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS custom_alerts (
+        CREATE TABLE IF NOT EXISTS indicator_alerts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER,
             symbol TEXT,
-            repeat INTEGER DEFAULT 0
+            indicator TEXT,
+            condition TEXT,
+            timeframe TEXT DEFAULT '1h',
+            repeat INTEGER DEFAULT 0,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP
         )
     """)
-
-    cursor.execute("PRAGMA table_info(custom_alerts)")
-    columns = [col[1] for col in cursor.fetchall()]
-
-    if "condition_json" not in columns:
-        cursor.execute("ALTER TABLE custom_alerts ADD COLUMN condition_json TEXT")
-
-
-        
+    
+          
     
 
     cursor.execute("""
@@ -209,16 +206,7 @@ def init_db():
     )
 """)
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS user_tasks (
-            user_id INTEGER PRIMARY KEY,
-            invited_count INTEGER DEFAULT 0,
-            task2_submitted INTEGER DEFAULT 0,
-            task3_submitted INTEGER DEFAULT 0,
-            reward_claimed INTEGER DEFAULT 0
-    )
-""")
-
+    
    
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS ai_alerts (

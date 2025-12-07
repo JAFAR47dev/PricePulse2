@@ -17,7 +17,7 @@ from services.alert_checkers import (
     check_percent_alerts,
     check_volume_alerts,
     check_risk_alerts,
-    check_custom_alerts,
+    check_indicator_alerts,
     check_portfolio_alerts,
     check_watchlist_alerts
 )
@@ -34,7 +34,7 @@ async def check_alerts(context):
         all_symbols = set()
         alert_tables = [
             "alerts", "percent_alerts", "volume_alerts",
-            "risk_alerts", "custom_alerts", "portfolio", "watchlist"
+            "risk_alerts", "indicator_alerts", "portfolio", "watchlist"
         ]
 
         for table in alert_tables:
@@ -74,7 +74,7 @@ async def check_alerts(context):
             check_percent_alerts,
             check_volume_alerts,
             check_risk_alerts,
-            check_custom_alerts,
+            check_indicator_alerts,
             check_portfolio_alerts,
             check_watchlist_alerts,
         ]
@@ -130,7 +130,7 @@ def delete_all_alerts(user_id):
         "percent_alerts",
         "volume_alerts",
         "risk_alerts",
-        "custom_alerts",
+        "indicator_alerts",
         "portfolio_limits",
         "watchlist"
     ]

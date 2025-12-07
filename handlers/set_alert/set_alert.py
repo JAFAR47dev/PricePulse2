@@ -17,7 +17,7 @@ from handlers.alert_handlers import (
     handle_percent_alert,
     handle_volume_alert,
     handle_risk_alert,
-    handle_custom_alert,
+    handle_indicator_alert,
 )
 
 async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -45,12 +45,12 @@ async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "percent": handle_percent_alert,
         "volume": handle_volume_alert,
         "risk": handle_risk_alert,
-        "custom": handle_custom_alert,
+        "indicator": handle_indicator_alert,
     }
 
     if alert_type not in handlers:
         await update.message.reply_text(
-            "❌ Invalid alert type.\nUse one of: price, percent, volume, risk, custom"
+            "❌ Invalid alert type.\nUse one of: price, percent, volume, risk, indicator"
         )
         return
 

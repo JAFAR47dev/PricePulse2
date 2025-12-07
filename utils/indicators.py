@@ -357,8 +357,8 @@ async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", o
     atr_val = calculate_atr(highs, lows, closes)
     mfi_val = calculate_mfi(highs, lows, closes, volumes)
     bb_upper, bb_mid, bb_lower = calculate_bbands(closes)
-    adx_val = calculate_adx(highs, lows, closes, period=14)  # ADX for trend strength
-    vwap_val = calculate_vwap(closes, volumes)              # VWAP for average price
+    adx_val = calculate_adx(highs, lows, closes, period=14) 
+    vwap_val = calculate_vwap(closes, volumes)             
 
     latest = candles[-1]
     last_price = float(latest["close"])
@@ -377,8 +377,6 @@ async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", o
         "macd": safe_round(macd_val, 2),
         "macdSignal": safe_round(macd_signal, 2),
         "macdHist": safe_round(macd_hist, 2),
-
-        # NEW Indicators (✨)
         "stochK": safe_round(stoch_k, 2),
         "stochD": safe_round(stoch_d, 2),
         "cci": safe_round(cci_val, 2),
@@ -395,105 +393,6 @@ async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", o
     set_cache(symbol, interval, result)
     return result
     
-
-#import os
-#import asyncio
-#import httpx
-#import pandas as pd
-#import ta
-#from dotenv import load_dotenv
-
-# Load API key
-#load_dotenv()
-#TWELVE_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
-
-#BASE_URL = "https://api.twelvedata.com/time_series"
-
-
-#async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", outputsize: int = 100):
-#    """
-#    Fetches OHLCV data from Twelve Data and calculates RSI, EMA20, MACD,
-#    plus 24h high, low, and volume.
-#    Supports forex, crypto, and stocks.
-#    """
-
-#    params = {
-#        "symbol": symbol.upper(),
-#        "interval": interval,
-#        "outputsize": outputsize,
-#        "apikey": TWELVE_API_KEY,
-#        "format": "JSON",
-#    }
-
-#    async with httpx.AsyncClient(timeout=15.0) as client:
-#        resp = await client.get(BASE_URL, params=params)
-
-#        if resp.status_code != 200:
-#            print(f"❌ Failed to fetch Twelve Data API ({resp.status_code})")
-#            print(await resp.text())
-#            return None
-
-#        data = resp.json()
-
-#    if "values" not in data or not data["values"]:
-#        print(f"⚠️ No data found for {symbol}")
-#        return None
-
-#    # 📊 Convert to DataFrame
-#    df = pd.DataFrame(data["values"])
-#    df = df.astype({
-#        "open": float,
-#        "high": float,
-#        "low": float,
-#        "close": float,
-#        "volume": float
-#    })
-#    df["datetime"] = pd.to_datetime(df["datetime"])
-#    df = df.sort_values("datetime")  # oldest → newest
-
-#    # 🧮 Compute indicators
-#    df["rsi"] = ta.momentum.RSIIndicator(df["close"], window=14).rsi()
-#    df["ema20"] = ta.trend.EMAIndicator(df["close"], window=20).ema_indicator()
-
-#    macd = ta.trend.MACD(df["close"])
-#    df["macd"] = macd.macd()
-#    df["macd_signal"] = macd.macd_signal()
-#    df["macd_hist"] = macd.macd_diff()
-
-#    # 🎯 Latest values
-#    latest = df.iloc[-1]
-
-#    # 🕒 Compute 24h high/low/volume (approx last 24 candles if 1h interval)
-#    if interval.endswith("h"):
-#        window = 24
-#    elif interval.endswith("m"):
-#        window = int(24 * 60 / int(interval[:-1]))  # e.g., 15m → 96 points
-#    else:
-#        window = 1
-
-#    last_window = df.tail(window)
-#    high_24h = last_window["high"].max()
-#    low_24h = last_window["low"].min()
-#    volume_24h = last_window["volume"].sum()
-
-#    # ✅ Final result
-#    result = {
-#        "symbol": symbol.upper(),
-#        "price": round(latest["close"], 4),
-#        "rsi": round(latest["rsi"], 2),
-#        "ema20": round(latest["ema20"], 2),
-#        "macd": round(latest["macd"], 2),
-#        "macdSignal": round(latest["macd_signal"], 2),
-#        "macdHist": round(latest["macd_hist"], 2),
-#        "volume": round(latest["volume"], 2),
-#        "high_24h": round(high_24h, 4),
-#        "low_24h": round(low_24h, 4),
-#        "volume_24h": round(volume_24h, 2),
-#        "interval": interval,
-#    }
-
-#    return result
-
 
 
 import os

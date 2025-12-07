@@ -31,24 +31,42 @@ COINGECKO_IDS_PATH = os.path.join("services", "coingecko_ids.json")
 with open(COINGECKO_IDS_PATH, "r") as f:
     COINGECKO_ID_MAP = json.load(f)
 
+import logging
+
 async def get_coingecko_24h(coin_id: str, vs_currency="usd"):
     url = "https://api.coingecko.com/api/v3/coins/markets"
     params = {
         "vs_currency": vs_currency,
         "ids": coin_id,
     }
-    async with httpx.AsyncClient(timeout=10) as client:
-        resp = await client.get(url, params=params)
-        data = resp.json()
-        if not data or len(data) == 0:
+
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            resp = await client.get(url, params=params)
+            data = resp.json()
+
+        # Check if we got a list
+        if isinstance(data, list) and len(data) > 0:
+            coin = data[0]
+            return {
+                "high_24h": coin.get("high_24h", "N/A"),
+                "low_24h": coin.get("low_24h", "N/A"),
+                "volume_24h": coin.get("total_volume", "N/A"),
+                "current_price": coin.get("current_price", "N/A"),
+            }
+
+        # If data is a dict, maybe an error message
+        elif isinstance(data, dict) and "error" in data:
+            logging.warning(f"CoinGecko API error for {coin_id}: {data['error']}")
             return None
-        coin = data[0]
-        return {
-            "high_24h": coin.get("high_24h"),
-            "low_24h": coin.get("low_24h"),
-            "volume_24h": coin.get("total_volume"),
-            "current_price": coin.get("current_price"),
-        }
+        else:
+            logging.warning(f"Unexpected CoinGecko response for {coin_id}: {data}")
+            return None
+
+    except Exception as e:
+        logging.exception(f"Failed to fetch CoinGecko 24h data for {coin_id}: {e}")
+        return None
+        
 
 async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id

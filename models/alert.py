@@ -49,20 +49,25 @@ def create_risk_alert(user_id, symbol, stop_price, take_price, repeat):
     conn.commit()
     conn.close()
     
-def create_custom_alert(user_id, symbol, indicator_blocks, repeat):
     
+import json
+def create_indicator_alert(user_id, symbol, indicator, operator, value, timeframe="1h", repeat=0):
     conn = get_connection()
     cursor = conn.cursor()
 
+    condition_json = json.dumps({"operator": operator, "value": value})
+
     cursor.execute(
         """
-        INSERT INTO custom_alerts (user_id, symbol, condition_json, repeat)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO indicator_alerts (user_id, symbol, indicator, condition, timeframe, repeat)
+        VALUES (?, ?, ?, ?, ?, ?)
         """,
         (
             user_id,
             symbol.upper(),
-            json.dumps(indicator_blocks),  # Store as JSON text
+            indicator.upper(),
+            condition_json,
+            timeframe,
             repeat
         )
     )
@@ -71,66 +76,67 @@ def create_custom_alert(user_id, symbol, indicator_blocks, repeat):
     conn.close()
     
     
-def count_user_price_alerts(user_id):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM alerts WHERE user_id = ?", (user_id,))
-    count = cursor.fetchone()[0]
-    conn.close()
-    return count
     
- 
-def update_price_alert(alert_id, condition, new_price):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        "UPDATE alerts SET condition = ?, target_price = ? WHERE id = ?",
-        (condition, new_price, alert_id)
-    )
-    conn.commit()
-    conn.close()
-    
-def update_percent_alert(alert_id, new_percent):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        "UPDATE percent_alerts SET threshold_percent = ? WHERE id = ?",
-        (new_percent, alert_id)
-    )
-    conn.commit()
-    conn.close()
-    
-def update_risk_alert(alert_id, stop_price, take_price):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        "UPDATE risk_alerts SET stop_price = ?, take_price = ? WHERE id = ?",
-        (stop_price, take_price, alert_id)
-    )
-    conn.commit()
-    conn.close()
-    
-def update_volume_alert(alert_id, multiplier):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        "UPDATE volume_alerts SET multiplier = ? WHERE id = ?",
-        (multiplier, alert_id)
-    )
-    conn.commit()
-    conn.close()
-    
-def update_custom_alert(alert_id, price_cond, price_val, indicator_cond, indicator_val):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("""
-        UPDATE custom_alerts
-        SET price_condition = ?, price_value = ?, rsi_condition = ?, rsi_value = ?
-        WHERE id = ?
-    """, (price_cond, price_val, indicator_cond, indicator_val, alert_id))
-    conn.commit()
-    conn.close()
-    
+#def count_user_price_alerts(user_id):
+#    conn = get_connection()
+#    cursor = conn.cursor()
+#    cursor.execute("SELECT COUNT(*) FROM alerts WHERE user_id = ?", (user_id,))
+#    count = cursor.fetchone()[0]
+#    conn.close()
+#    return count
+#    
+# 
+#def update_price_alert(alert_id, condition, new_price):
+#    conn = get_connection()
+#    cursor = conn.cursor()
+#    cursor.execute(
+#        "UPDATE alerts SET condition = ?, target_price = ? WHERE id = ?",
+#        (condition, new_price, alert_id)
+#    )
+#    conn.commit()
+#    conn.close()
+#    
+#def update_percent_alert(alert_id, new_percent):
+#    conn = get_connection()
+#    cursor = conn.cursor()
+#    cursor.execute(
+#        "UPDATE percent_alerts SET threshold_percent = ? WHERE id = ?",
+#        (new_percent, alert_id)
+#    )
+#    conn.commit()
+#    conn.close()
+#    
+#def update_risk_alert(alert_id, stop_price, take_price):
+#    conn = get_connection()
+#    cursor = conn.cursor()
+#    cursor.execute(
+#        "UPDATE risk_alerts SET stop_price = ?, take_price = ? WHERE id = ?",
+#        (stop_price, take_price, alert_id)
+#    )
+#    conn.commit()
+#    conn.close()
+#    
+#def update_volume_alert(alert_id, multiplier):
+#    conn = get_connection()
+#    cursor = conn.cursor()
+#    cursor.execute(
+#        "UPDATE volume_alerts SET multiplier = ? WHERE id = ?",
+#        (multiplier, alert_id)
+#    )
+#    conn.commit()
+#    conn.close()
+#    
+#def update_custom_alert(alert_id, price_cond, price_val, indicator_cond, indicator_val):
+#    conn = get_connection()
+#    cursor = conn.cursor()
+#    cursor.execute("""
+#        UPDATE custom_alerts
+#        SET price_condition = ?, price_value = ?, rsi_condition = ?, rsi_value = ?
+#        WHERE id = ?
+#    """, (price_cond, price_val, indicator_cond, indicator_val, alert_id))
+#    conn.commit()
+#    conn.close()
+#    
 def get_price_alerts(user_id):
     conn = get_connection()
     cursor = conn.cursor()
@@ -179,33 +185,35 @@ def get_risk_alerts(user_id):
     conn.close()
     return rows
     
-def get_custom_alerts(user_id):
+import json
+
+def get_indicator_alerts(user_id):
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT id, symbol, price_condition, price_value, rsi_condition, rsi_value, repeat
-        FROM custom_alerts
+        SELECT id, symbol, indicator, condition, timeframe, repeat
+        FROM indicator_alerts
         WHERE user_id = ?
+        ORDER BY created_at DESC
     """, (user_id,))
     rows = cursor.fetchall()
     conn.close()
-    return rows
+
+    parsed = []
+    for row in rows:
+        alert_id, symbol, indicator, condition_json, timeframe, repeat = row
+        condition = json.loads(condition_json) if condition_json else {}
+
+        parsed.append(
+            (alert_id, symbol, indicator, condition, timeframe, repeat)
+        )
+
+    return parsed
     
 
 from models.db import get_connection
 
 def get_portfolio_value_limits(user_id):
-    """
-    Fetch user's portfolio loss/profit limits and repeat flags.
-    Returns a dict:
-    {
-        "loss_limit": float | None,
-        "profit_target": float | None,
-        "repeat_loss": 0|1,
-        "repeat_profit": 0|1
-    }
-    Returns None if no limits are set.
-    """
     conn = get_connection()
     cursor = conn.cursor()
 
@@ -273,13 +281,26 @@ def get_risk_alert_by_id(user_id, alert_id):
     conn.close()
     return row
 
-def get_custom_alert_by_id(user_id, alert_id):
+
+def get_indicator_alert_by_id(user_id, alert_id):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM custom_alerts WHERE user_id = ? AND id = ?", (user_id, alert_id))
+    cursor.execute("""
+        SELECT id, user_id, symbol, indicator, condition, timeframe, repeat, created_at
+        FROM indicator_alerts
+        WHERE user_id = ? AND id = ?
+    """, (user_id, alert_id))
     row = cursor.fetchone()
     conn.close()
-    return row
+
+    if not row:
+        return None
+
+    alert_id, user_id, symbol, indicator, condition_json, timeframe, repeat, created_at = row
+    condition = json.loads(condition_json) if condition_json else {}
+
+    return (alert_id, user_id, symbol, indicator, condition, timeframe, repeat, created_at)
+    
     
 
 def delete_price_alert(user_id, alert_id):
@@ -330,11 +351,11 @@ def delete_risk_alert(user_id, alert_id):
     conn.close()
     return deleted > 0
     
-def delete_custom_alert(user_id, alert_id):
+def delete_indicator_alert(user_id, alert_id):
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute(
-        "DELETE FROM custom_alerts WHERE id = ? AND user_id = ?",
+        "DELETE FROM indicator_alerts WHERE id = ? AND user_id = ?",
         (alert_id, user_id)
     )
     deleted = cursor.rowcount

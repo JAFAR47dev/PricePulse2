@@ -11,6 +11,7 @@ import traceback, time, aiohttp, os
 from dotenv import load_dotenv
 from models.db import get_connection
 from models.alert import get_portfolio_value_limits  # <-- import your helper
+import json
 
 load_dotenv()
 TWELVE_KEY = os.getenv("TWELVE_DATA_API_KEY")
@@ -230,106 +231,173 @@ async def check_risk_alerts(context, symbol_prices):
     finally:
         conn.close()
 
-import json
-import traceback
-from utils.indicators import get_cached_rsi, get_cached_macd, get_cached_ema
 
-async def check_custom_alerts(context, symbol_prices):
+from utils.indicators import get_crypto_indicators
+
+
+async def check_indicator_alerts(context, symbol_list):
+    """
+    Checks all indicator alerts using the new DB structure:
+    indicator, condition(JSON), timeframe, repeat
+    """
+
     conn = get_connection()
     cursor = conn.cursor()
     to_delete = []
-    indicator_cache = {}
+
+    # Cache to avoid calling API multiple times
+    live_cache = {}
 
     try:
         cursor.execute("""
-            SELECT id, user_id, symbol, condition_json, repeat 
-            FROM custom_alerts
+            SELECT id, user_id, symbol, indicator, condition, timeframe, repeat
+            FROM indicator_alerts
         """)
         rows = cursor.fetchall()
 
-        for alert_id, user_id, symbol, condition_json, repeat in rows:
-            price = symbol_prices.get(symbol)
-            if price is None:
+        for (
+            alert_id,
+            user_id,
+            symbol,
+            indicator_name,
+            condition,
+            timeframe,
+            repeat,
+        ) in rows:
+
+            symbol = symbol.upper()
+
+            # Skip symbols not in price list
+            if symbol not in symbol_list:
                 continue
 
+            # ---- Parse condition JSON safely ----
+           # cond = None
             try:
-                indicator_blocks = json.loads(condition_json)
+                # If condition is a JSON string, convert it
+                if isinstance(condition, str):
+                    condition = json.loads(condition)
+
+                # If still not a dict, skip
+                if not isinstance(condition, dict):
+                    print(f"⚠️ Invalid condition format for indicator alert {alert_id}")
+                    continue
+
+                operator = condition.get("operator", "?")
+                value = condition.get("value", "?")
+
             except Exception as e:
-                print(f"⚠️ Failed to parse condition_json for alert {alert_id}: {e}")
+                print(f"⚠️ Error parsing condition for alert {alert_id}: {e}")
+                continue
+    
+            except:
+                print(f"⚠️ Invalid condition dict for indicator alert {alert_id}")
+                continue
+                                                     
+            # Must exist
+            #if not cond:
+                print(f"⚠️ Missing condition for indicator alert {alert_id}")
                 continue
 
-            alert_triggered = True  # start assuming true
+           
+            # Validate keys exist
+            if operator is None or value is None:
+                print(f"⚠️ Condition missing keys for indicator alert {alert_id}")
+                continue
 
-            # Evaluate each block
-            for block in indicator_blocks:
-                b_type = block.get("type")
-                operator = block.get("operator")
-                value = block.get("value")
+            # ---- Fetch indicators for (symbol, timeframe) once ----
+            cache_key = f"{symbol}_{timeframe}"
+            if cache_key not in live_cache:
+                data = await get_crypto_indicators(symbol, timeframe)
+                live_cache[cache_key] = data
+            else:
+                data = live_cache[cache_key]
 
-                if b_type == "price":
-                    if operator == ">" and not (price > value):
-                        alert_triggered = False
-                        break
-                    elif operator == "<" and not (price < value):
-                        alert_triggered = False
-                        break
+            if not data:
+                print(f"⚠️ Missing indicator data for {symbol} {timeframe}")
+                continue
 
-                elif b_type == "rsi":
-                    if symbol not in indicator_cache:
-                        indicator_cache[symbol] = {}
-                    if "rsi" not in indicator_cache[symbol]:
-                        indicator_cache[symbol]["rsi"] = await get_cached_rsi(symbol)
-                    rsi = indicator_cache[symbol]["rsi"]
-                    if rsi is None:
-                        alert_triggered = False
-                        break
-                    if operator == ">" and not (rsi > value):
-                        alert_triggered = False
-                        break
-                    elif operator == "<" and not (rsi < value):
-                        alert_triggered = False
-                        break
+            # ---- Extract live indicator value ----
+            live_val = None
 
-                elif b_type == "macd":
-                    if symbol not in indicator_cache:
-                        indicator_cache[symbol] = {}
-                    if "macd" not in indicator_cache[symbol]:
-                        indicator_cache[symbol]["macd"] = await get_cached_macd(symbol)
-                    macd, signal, hist = indicator_cache[symbol]["macd"]
-                    if hist <= 0:
-                        alert_triggered = False
-                        break
+            if indicator_name.lower() == "rsi":
+                live_val = data.get("rsi")
 
-                elif b_type == "ema":
-                    period = value
-                    if symbol not in indicator_cache:
-                        indicator_cache[symbol] = {}
-                    ema_key = f"ema{period}"
-                    if ema_key not in indicator_cache[symbol]:
-                        indicator_cache[symbol][ema_key] = await get_cached_ema(symbol, period)
-                    ema = indicator_cache[symbol][ema_key]
-                    if ema is None or price <= ema:
-                        alert_triggered = False
-                        break
+            elif indicator_name.lower().startswith("ema"):
+                # ema20, ema50 etc
+                live_val = data.get(indicator_name.lower())
 
-                else:
-                    print(f"⚠️ Unknown indicator type {b_type} for alert {alert_id}")
-                    alert_triggered = False
-                    break
+            elif indicator_name.lower() == "macd":
+                live_val = data.get("macdHist")  # histogram is strongest signal
 
-            if alert_triggered:
+            elif indicator_name.lower() == "stochk":
+                live_val = data.get("stochK")
+
+            elif indicator_name.lower() == "stochd":
+                live_val = data.get("stochD")
+
+            elif indicator_name.lower() == "cci":
+                live_val = data.get("cci")
+
+            elif indicator_name.lower() == "atr":
+                live_val = data.get("atr")
+
+            elif indicator_name.lower() == "mfi":
+                live_val = data.get("mfi")
+
+            elif indicator_name.lower() == "bbupper":
+                live_val = data.get("bbUpper")
+
+            elif indicator_name.lower() == "bbmiddle":
+                live_val = data.get("bbMiddle")
+
+            elif indicator_name.lower() == "bblower":
+                live_val = data.get("bbLower")
+
+            elif indicator_name.lower() == "adx":
+                live_val = data.get("adx")
+
+            elif indicator_name.lower() == "vwap":
+                live_val = data.get("vwap")
+
+            else:
+                print(f"⚠️ Unsupported indicator {indicator_name} in alert {alert_id}")
+                continue
+
+            if live_val is None:
+                print(f"⚠️ Live value missing for {indicator_name} ({symbol})")
+                continue
+
+            # ---- Evaluate operator ----
+            triggered = False
+
+            if operator == ">" and live_val > value:
+                triggered = True
+            elif operator == "<" and live_val < value:
+                triggered = True
+            elif operator == ">=" and live_val >= value:
+                triggered = True
+            elif operator == "<=" and live_val <= value:
+                triggered = True
+            elif operator in ("=", "==") and live_val == value:
+                triggered = True
+
+            # ---- Trigger alert ----
+            if triggered:
                 try:
-                    blocks_text = "\n".join(
-                        f"{blk['type'].upper()} {blk.get('operator','')} {blk.get('value','')}"
-                        for blk in indicator_blocks
+                    msg = (
+                        f"📊 *Indicator Alert Triggered*\n"
+                        f"• *Symbol:* {symbol}\n"
+                        f"• *Indicator:* {indicator_name.upper()}\n"
+                        f"• *Condition:* {operator} {value}\n"
+                        f"• *Timeframe:* {timeframe}\n"
+                        f"• *Current Value:* `{live_val}`\n"
+                        f"{'🔁 Repeat enabled' if repeat else '❌ Not repeating'}"
                     )
+
                     await context.bot.send_message(
                         chat_id=user_id,
-                        text=(
-                            f"🧠 *Custom Alert for {symbol}*\n"
-                            f"{blocks_text}\n"
-                            f"{'🔁 Repeat enabled' if repeat else ''}"
-                        ),
+                        text=msg,
                         parse_mode="Markdown"
                     )
 
@@ -337,13 +405,15 @@ async def check_custom_alerts(context, symbol_prices):
                         to_delete.append(alert_id)
 
                 except Exception as e:
-                    print(f"❌ Custom alert send error for {symbol}: {e}")
+                    print(f"❌ Failed to send alert {alert_id}: {e}")
                     traceback.print_exc()
-            else:
-                print(f"Skipped alert {alert_id} for {symbol}: conditions not met.")
 
+        # ---- Delete non-repeat alerts ----
         if to_delete:
-            cursor.executemany("DELETE FROM custom_alerts WHERE id = ?", [(aid,) for aid in to_delete])
+            cursor.executemany(
+                "DELETE FROM indicator_alerts WHERE id = ?",
+                [(aid,) for aid in to_delete]
+            )
             conn.commit()
 
     finally:

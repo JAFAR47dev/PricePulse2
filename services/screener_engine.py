@@ -2,7 +2,7 @@ import json
 from utils.ohlcv import fetch_candles
 
 # Load top 200 coin IDs (symbol + id mapping)
-with open("utils/coingecko_ids.json", "r") as f:
+with open("services/coingecko_ids.json", "r") as f:
     TOP_200_COINS = json.load(f)
 
 # Convert dict to list of dicts for iteration

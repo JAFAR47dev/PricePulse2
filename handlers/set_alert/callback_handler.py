@@ -88,50 +88,50 @@ async def details_input_handler(update: Update, context: ContextTypes.DEFAULT_TY
             alert_flow["stop_loss"] = stop_loss
             alert_flow["take_profit"] = take_profit
        
-        elif alert_type == "custom":
+        elif alert_type == "indicator":
             user_text = user_input.strip()
+            tokens = user_text.split()
+    
+            if len(tokens) < 3:
+                await update.message.reply_text(
+                    "❌ Invalid format.\n\n"
+                    "**Correct format:**\n"
+                    "`indicator operator value [timeframe]`\n\n"
+                    "**Examples:**\n"
+                    "`rsi < 30 1h`\n"
+                    "`ema20 > 50000 4h`\n"
+                    "`macd < 0 15m`\n",
+                    parse_mode="Markdown"
+                )
+                return
 
-            # Initialize structure
+            indicator_raw = tokens[0].lower()
+            operator_raw = tokens[1]
+            value_raw = tokens[2]
+            timeframe_raw = tokens[3].lower() if len(tokens) > 3 else "1h"
+
+            # Only numeric values allowed for indicator alerts
+            try:
+                numeric_value = float(value_raw)
+            except:
+                return await update.message.reply_text(
+                    f"❌ `{value_raw}` is not a valid number.\n"
+                    "Example: `rsi < 30 1h`",
+                    parse_mode="Markdown"
+                )
+
+            # Build parsed structure for later validation/DB saving
             condition_data = {
-                "price": None,
-                "indicators": []
+                "indicator": indicator_raw,
+                "operator": operator_raw,
+                "value": numeric_value,
+                "timeframe": timeframe_raw
             }
 
-            tokens = user_text.split()
-
-            # ----------- PRICE PARSING -----------
-            # Detect if first item is a number (e.g., "144545")
-            if tokens and tokens[0].replace(".", "", 1).isdigit():
-                price_value = float(tokens[0])
-                condition_data["price"] = {
-                    "operator": ">",   # default meaning BTC > price
-                    "value": price_value
-                }
-                tokens = tokens[1:]  # remove the price
-
-            # ----------- INDICATOR PARSING -----------
-            # Example: RSI < 45
-            if len(tokens) >= 3:
-                indicator = tokens[0].upper()
-                operator = tokens[1]
-                value = tokens[2]
-
-                if value.replace(".", "", 1).isdigit():
-                    indicator_value = float(value)
-
-                    condition_data["indicators"].append({
-                        "indicator": indicator,
-                        "operator": operator,
-                        "value": indicator_value
-                    })
-
-            # Store the parsed condition in alert_flow
+            # Store parsed data into alert_flow for next step
             alert_flow["condition"] = condition_data
-
-            # also store full text for `indicator_block`
-            alert_flow["indicator_block"] = [user_text]
-    
-        
+            alert_flow["indicator_block"] = user_text  
+       
     except Exception:
         await update.message.reply_text("❌ Invalid input format. Please try again.")
         return

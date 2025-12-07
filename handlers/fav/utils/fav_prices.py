@@ -30,26 +30,6 @@ def cache_set(key, value):
     CACHE[key] = (value, time.time())
 
 
-# -----------------------------
-# RSI Calculator (unchanged)
-# -----------------------------
-def calculate_rsi(closes):
-    if len(closes) < 15:
-        return None
-
-    deltas = [closes[i] - closes[i - 1] for i in range(1, len(closes))]
-    gains = [d for d in deltas if d > 0]
-    losses = [-d for d in deltas if d < 0]
-
-    avg_gain = (sum(gains) / 14) if gains else 0
-    avg_loss = (sum(losses) / 14) if losses else 0
-
-    if avg_loss == 0:
-        return 100
-
-    rs = avg_gain / avg_loss if avg_loss != 0 else float("inf")
-    return round(100 - (100 / (1 + rs)), 2)
-
 
 # -----------------------------------
 # Async Market Data Fetcher
@@ -182,73 +162,6 @@ async def fetch_market_data(symbols: list):
     cache_set(cache_key, {})
     return {}
 
-import aiohttp
-import os
-import time
-from dotenv import load_dotenv
-
-load_dotenv()
-
-TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
-
-CACHE_TTL = 120  # seconds
-_indicator_cache = {}  # { cache_key: { "value": x, "timestamp": t } }
-
-
-def cache_get(key):
-    entry = _indicator_cache.get(key)
-    if entry and (time.time() - entry["timestamp"] < CACHE_TTL):
-        return entry["value"]
-    return None
-
-
-def cache_set(key, value):
-    _indicator_cache[key] = {
-        "value": value,
-        "timestamp": time.time(),
-    }
-
-
-# -----------------------------
-# Async RSI Fetcher (single)
-# -----------------------------
-async def fetch_rsi(symbol: str):
-    symbol = symbol.upper()
-    cache_key = f"rsi_{symbol}"
-
-    # Cache check
-    cached = cache_get(cache_key)
-    if cached is not None:
-        return cached
-
-    url = (
-        "https://api.twelvedata.com/rsi?"
-        f"symbol={symbol}USDT&interval=1h&time_period=14&apikey={TWELVE_DATA_API_KEY}"
-    )
-
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, timeout=12) as resp:
-                data = await resp.json()
-
-        # API error
-        if "status" in data and data["status"] == "error":
-            cache_set(cache_key, None)
-            return None
-
-        values = data.get("values", [])
-        if not values:
-            cache_set(cache_key, None)
-            return None
-
-        rsi_value = float(values[0].get("rsi", 0))
-
-        cache_set(cache_key, rsi_value)
-        return rsi_value
-
-    except Exception:
-        cache_set(cache_key, None)
-        return None
         
 
 # ---------------------------------
@@ -270,10 +183,6 @@ async def get_fav_prices(symbols: list):
     # Fetch market data in one batch (your existing function)
     market = await fetch_market_data(symbols)
 
-    # --- Fetch all RSI values in parallel ---
-    rsi_tasks = {sym: asyncio.create_task(fetch_rsi(sym)) for sym in symbols}
-    rsi_results = {sym: await task for sym, task in rsi_tasks.items()}
-
     final = {}
 
     for sym in symbols:
@@ -281,7 +190,7 @@ async def get_fav_prices(symbols: list):
         if not entry:
             continue
 
-        entry["rsi"] = rsi_results.get(sym)
+        # No RSI attached anymore
         final[sym] = entry
 
     return final

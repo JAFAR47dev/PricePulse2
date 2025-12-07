@@ -13,7 +13,7 @@ from models.alert import (
     create_percent_alert,
     create_volume_alert,
     create_risk_alert,
-    create_custom_alert
+    create_indicator_alert
     )
 
 
@@ -274,72 +274,66 @@ async def handle_risk_alert(update, context, args, plan):
     else:
         await update.message.reply_text(msg)
         
-async def handle_custom_alert(update, context, args, plan):
+from utils.indicator_rules import validate_indicator_rule
+
+async def handle_indicator_alert(update, context, args, plan):
     user_id = update.effective_user.id
 
     # --- Ensure Pro Plan ---
     if not is_pro_plan(plan):
-        msg = "🔒 Custom alerts are for *Pro users only*.\nUse /upgrade to unlock."
+        msg = (
+            "🔒 *Indicator Alerts are for Pro users only.*\n"
+            "Upgrade with /upgrade to unlock."
+        )
         if update.callback_query:
-            return await update.callback_query.message.reply_text(msg)
-        return await update.message.reply_text(msg)
+            return await update.callback_query.message.reply_text(msg, parse_mode="Markdown")
+        return await update.message.reply_text(msg, parse_mode="Markdown")
 
-    # args format:
-    # args = [ symbol, condition_dict, repeat_flag ]
+    # --- Validate args format ---
     if len(args) < 2:
-        return await update.message.reply_text("❌ Invalid custom alert payload.")
+        return await update.message.reply_text("❌ Invalid alert payload.")
 
     symbol = args[0].upper()
-    condition = args[1]               # Parsed condition dict
+    condition = args[1]
     repeat = 1 if (len(args) > 2 and args[2]) else 0
 
-    # -----------------------------
-    # EXTRACT PRICE CONDITION
-    # -----------------------------
-    price_rule = condition.get("price")
-    if not price_rule:
-        return await update.message.reply_text("❌ Custom alert must include a price condition.")
+    
+    # --- Single indicator rule expected ---
+    indicator_rule = {
+        "indicator": condition.get("indicator"),
+        "operator": condition.get("operator"),
+        "value": condition.get("value"),
+        "timeframe": condition.get("timeframe", "1h")
+    }
 
-    price_operator = price_rule["operator"]      # ">" or "<"
-    price_value = price_rule["value"]            # float
+    # Validate indicator using your file
+    ok, error = validate_indicator_rule(indicator_rule)
+    if not ok:
+        return await update.message.reply_text(error, parse_mode="Markdown")
 
-    # -----------------------------
-    # EXTRACT INDICATOR CONDITIONS
-    # -----------------------------
-    indicators = condition.get("indicators", [])
-
-    if not indicators:
-        return await update.message.reply_text(
-            "❌ Custom alert must include at least one indicator rule.\nExample: RSI < 30"
+    # Build readable indicator text
+    ind_text = (
+        f"{indicator_rule['indicator'].upper()} "
+        f"{indicator_rule['operator']} {indicator_rule['value']} "
+        f"({indicator_rule['timeframe']})"
         )
+    
+    readable_condition = ind_text
+    
+    # Insert into DB
+    create_indicator_alert(
+        user_id=user_id,
+        symbol=symbol,
+        indicator=indicator_rule["indicator"],
+        operator=indicator_rule["operator"],
+        value=indicator_rule["value"],
+        timeframe=indicator_rule.get("timeframe", "1h"),
+        repeat=repeat
+    )
 
-    # Prepare indicator text for DB and UI
-    indicator_entries = []
-    readable_parts = []
-
-    for ind in indicators:
-        name = ind["indicator"]          # e.g. 'RSI', 'EMA', 'MACD'
-        op = ind["operator"]             # > or <
-        val = ind["value"]               # numeric or None
-
-        indicator_entries.append({
-            "indicator": name,
-            "operator": op,
-            "value": val
-        })
-
-        if val is None:
-            readable_parts.append(f"{name} {op}")
-        else:
-            readable_parts.append(f"{name} {op} {val}")
-
-    # -----------------------------
-    # BUILD CONFIRMATION MESSAGE
-    # -----------------------------
-    readable_condition = f"Price {price_operator} {price_value} AND " + " AND ".join(readable_parts)
-
+    # --- Confirmation Message ---
     msg = (
-        f"✅ *Custom Alert Created*\n\n"
+        "✅ *Indicator Alert Created*\n\n"
         f"• *Symbol:* {symbol}\n"
         f"• *Condition:* {readable_condition}\n"
         f"• *Repeat:* {'Yes 🔁' if repeat else 'No'}"
@@ -349,15 +343,16 @@ async def handle_custom_alert(update, context, args, plan):
         return await update.callback_query.message.reply_text(msg, parse_mode="Markdown")
 
     return await update.message.reply_text(msg, parse_mode="Markdown")
+
     
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import ContextTypes
 
 from models.alert import (
     get_price_alerts, get_percent_alerts, get_volume_alerts,
-    get_risk_alerts, get_custom_alerts, get_portfolio_value_limits,
+    get_risk_alerts, get_indicator_alerts, get_portfolio_value_limits,
     delete_price_alert, delete_percent_alert, delete_volume_alert,
-    delete_risk_alert, delete_custom_alert, delete_portfolio_limit,
+    delete_risk_alert, delete_indicator_alert, delete_portfolio_limit,
     delete_portfolio_target
 )
 
@@ -375,7 +370,7 @@ async def remove(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("⚠️ Risk Alerts", callback_data="remove:risk")
         ],
         [
-            InlineKeyboardButton("🤖 Custom Alerts", callback_data="remove:custom"),
+            InlineKeyboardButton("🤖 Indicator Alerts", callback_data="remove:indicator"),
             InlineKeyboardButton("💼 Portfolio Loss Limit", callback_data="remove:portfoliolimit")
         ],
         [
@@ -414,12 +409,18 @@ def format_alert_label(alert_type: str, row: tuple) -> str:
         # row: (id, symbol, stop_price, take_price, repeat)
         _, symbol, stop, take, _ = row
         return f"{symbol} SL {stop} / TP {take}"
+    
+    elif alert_type == "indicator":
+        # row: (id, user_id, symbol, indicator, condition, timeframe, repeat, created_at)
+        _, symbol, indicator, condition, timeframe, _ = row
+        
+        # --- FIX: Unpack condition dict ---
+        operator = condition.get("operator", "?")
+        value = condition.get("value", "?")
+        condition_text = f"{operator} {value}"
 
-    elif alert_type == "custom":
-        # row: (id, symbol, price_condition, price_value, rsi_condition, rsi_value, repeat)
-        _, symbol, p_cond, p_val, r_cond, r_val, _ = row
-        return f"{symbol} Price {p_cond}{p_val} + RSI {r_cond}{r_val}"
-
+        return f"{symbol} {indicator.upper()} {condition_text} ({timeframe})"
+    
     else:
         return "Unknown Alert"
             
@@ -453,7 +454,7 @@ async def remove_type_handler(update: Update, context: ContextTypes.DEFAULT_TYPE
         "percent": get_percent_alerts,
         "volume": get_volume_alerts,
         "risk": get_risk_alerts,
-        "custom": get_custom_alerts,
+        "indicator": get_indicator_alerts,
     }
 
     alerts = fetch_map[alert_type](user_id)
@@ -498,7 +499,7 @@ async def remove_confirm_handler(update: Update, context: ContextTypes.DEFAULT_T
         "percent": delete_percent_alert,
         "volume": delete_volume_alert,
         "risk": delete_risk_alert,
-        "custom": delete_custom_alert,
+        "indicator": delete_indicator_alert,
     }
 
     deleted = delete_map[alert_type](user_id, alert_id)
@@ -522,7 +523,7 @@ async def close_menu_callback(update: Update, context: CallbackContext):
             
 from models.alert import (
     get_price_alerts, get_percent_alerts, get_volume_alerts,
-    get_risk_alerts, get_custom_alerts, get_portfolio_value_limits
+    get_risk_alerts, get_indicator_alerts, get_portfolio_value_limits
 )
 from models.watchlist import get_watchlist_alerts
 from models.db import get_connection
@@ -539,7 +540,7 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = "💰 *Price Alerts:*\n"
         for alert_id, symbol, cond, target, repeat in price_rows:
             rep = "🔁" if repeat else ""
-            text += f"#P-{alert_id}: {symbol} {cond} {target} {rep}\n→ /remove price {alert_id}\n\n"
+            text += f"#P-{alert_id}: {symbol} {cond} {target} {rep}\n→ /remove \n\n"
         alert_sections.append(text)
 
     # === PERCENT ALERTS ===
@@ -548,7 +549,7 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = "📉 *Percent Alerts:*\n"
         for alert_id, symbol, base, threshold, repeat in percent_rows:
             rep = "🔁" if repeat else ""
-            text += f"#%-{alert_id}: {symbol} ±{threshold}% from ${base:.2f} {rep}\n→ /remove percent {alert_id}\n\n"
+            text += f"#%-{alert_id}: {symbol} ±{threshold}% from ${base:.2f} {rep}\n→ /remove \n\n"
         alert_sections.append(text)
 
     # === VOLUME ALERTS ===
@@ -557,7 +558,7 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = "📊 *Volume Alerts:*\n"
         for alert_id, symbol, tf, mult, repeat in volume_rows:
             rep = "🔁" if repeat else ""
-            text += f"#V-{alert_id}: {symbol} volume > {mult}x avg ({tf}) {rep}\n→ /remove volume {alert_id}\n\n"
+            text += f"#V-{alert_id}: {symbol} volume > {mult}x avg ({tf}) {rep}\n→ /remove \n\n"
         alert_sections.append(text)
 
     # === RISK ALERTS ===
@@ -566,33 +567,33 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = "🛡 *Risk Alerts (SL/TP):*\n"
         for alert_id, symbol, sl, tp, repeat in risk_rows:
             rep = "🔁" if repeat else ""
-            text += f"#R-{alert_id}: {symbol} SL: {sl} / TP: {tp} {rep}\n→ /remove risk {alert_id}\n\n"
+            text += f"#R-{alert_id}: {symbol} SL: {sl} / TP: {tp} {rep}\n→ /remove \n\n"
         alert_sections.append(text)
 
-    # === CUSTOM ALERTS ===
-    custom_rows = get_custom_alerts(user_id)
-    if custom_rows:
-        text = "🧠 *Custom Alerts:*\n"
-        for alert_id, symbol, p_cond, p_val, r_cond, r_val, repeat in custom_rows:
+    # === INDICATOR ALERTS ===
+    indicator_rows = get_indicator_alerts(user_id)
+    if indicator_rows:
+        text = "📊 *Indicator Alerts:*\n"
+        for row in indicator_rows:
+            alert_id, symbol, indicator, condition, timeframe, repeat = row
+
             rep = "🔁" if repeat else ""
 
-            # Format indicator part
-            if r_cond == "macd":
-                indicator_text = "MACD crossover"
-            elif r_cond.startswith("ema>"):
-                ema_val = r_cond.split(">")[1]
-                indicator_text = f"EMA > {ema_val}"
-            elif r_cond.lower() in ["<", ">", "<=", ">=", "=", "=="] and r_val is not None:
-                indicator_text = f"RSI {r_cond} {r_val}"
-            else:
-                indicator_text = r_cond.upper()
+            # Format indicator name for display
+            pretty_indicator = indicator.upper()
+            
+            # --- FIX: Unpack condition dict ---
+            operator = condition.get("operator", "?")
+            value = condition.get("value", "?")
+            condition_text = f"{operator} {value}"
 
             text += (
-                f"#C-{alert_id}: {symbol} Price {p_cond} {p_val} & {indicator_text} {rep}\n"
-                f"→ /remove custom {alert_id}\n\n"
+                f"#I-{alert_id}: {symbol} {pretty_indicator} {condition_text} [{timeframe}] {rep}\n"
+                f"→ /remove \n\n"
             )
-        alert_sections.append(text)
 
+        alert_sections.append(text)
+    
     from models.alert import get_portfolio_value_limits
 
     # === PORTFOLIO VALUE LIMITS ===
@@ -603,12 +604,12 @@ async def alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Loss limit
         if limits["loss_limit"] and limits["loss_limit"] > 0:
             repeat_text = " (🔁 Repeat)" if limits.get("repeat_loss") else ""
-            text += f"• 🔻 Loss Limit: ${limits['loss_limit']:.2f}{repeat_text}\n→ /remove portfoliolimit\n"
+            text += f"• 🔻 Loss Limit: ${limits['loss_limit']:.2f}{repeat_text}\n→ /remove \n"
     
         # Profit target
         if limits["profit_target"] and limits["profit_target"] > 0:
             repeat_text = " (🔁 Repeat)" if limits.get("repeat_profit") else ""
-            text += f"• 🚀 Target: ${limits['profit_target']:.2f}{repeat_text}\n→ /remove portfoliotarget\n"
+            text += f"• 🚀 Target: ${limits['profit_target']:.2f}{repeat_text}\n→ /remove \n"
     
         text += "\n"
         alert_sections.append(text)
@@ -783,7 +784,7 @@ async def remove_all_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(
         "⚠️ *Are you sure you want to delete ALL your alerts?*\n"
-        "This includes *Price, Percent, Volume, Risk, Custom, Portfolio,* and *Watchlist* alerts.",
+        "This includes *Price, Percent, Volume, Risk, Indicator, Portfolio,* and *Watchlist* alerts.",
         parse_mode="Markdown",
         reply_markup=reply_markup
     )

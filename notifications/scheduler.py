@@ -97,7 +97,7 @@ async def check_notifications(app):
             notify = True
 
         if notify:
-            message = await build_user_notification_message(user, notif_data)
+            message = await build_user(user, notif_data)
             success = await send_notification(bot, user, message)
 
             if success:

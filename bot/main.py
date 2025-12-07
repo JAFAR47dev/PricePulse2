@@ -22,7 +22,6 @@ logging.basicConfig(
 logger = logging.getLogger("bot")
 logger.setLevel(logging.INFO)
 
-
 # Suppress specific warning messages that python-telegram-bot prints and APScheduler tentative job info.
 # We match by message substring so other warnings still appear.
 warnings.filterwarnings("ignore", message="If 'per_message=False'")

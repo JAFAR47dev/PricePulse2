@@ -46,7 +46,8 @@ async def aiscan_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "❌ Invalid timeframe. Choose from: 1m, 5m, 15m, 30m, 1h, 2h, 4h, 8h, 1d"
         )
 
-    await update.message.reply_text(f"🔍 Scanning {symbol} ({tf}) for patterns...")
+    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
+
 
     candles = await fetch_candles(symbol, tf)
     if not candles:

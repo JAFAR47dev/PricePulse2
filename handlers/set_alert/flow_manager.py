@@ -11,7 +11,7 @@ ALERT_TYPES = [
     ("📈 Percent", "percent"),
     ("📊 Volume", "volume"),
     ("⚠️ Risk", "risk"),
-    ("🤖 Custom", "custom"),
+    ("🤖 Indicator", "indicator"),
 ]
 
 async def start_set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -39,7 +39,7 @@ async def start_set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         row3 = [
             InlineKeyboardButton("⚠️ Risk", callback_data="set_alert_type:risk"),
-            InlineKeyboardButton("🤖 Custom", callback_data="set_alert_type:custom")
+            InlineKeyboardButton("🤖 Indicator", callback_data="set_alert_type:indicator")
         ]
 
         keyboard = [row1, row2, row3]
@@ -58,7 +58,7 @@ async def start_set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         row3 = [
             InlineKeyboardButton("⚠️ Risk (Pro)", callback_data="upgrade_required"),
-            InlineKeyboardButton("🤖 Custom (Pro)", callback_data="upgrade_required")
+            InlineKeyboardButton("🤖 Indicator (Pro)", callback_data="upgrade_required")
         ]
 
         keyboard = [row1, row2, row3]
@@ -87,7 +87,7 @@ async def handle_upgrade_required(update: Update, context: ContextTypes.DEFAULT_
         "• Percent alerts\n"
         "• Volume alerts\n"
         "• Risk alerts\n"
-        "• Custom AI alerts\n\n"
+        "• Indicator alerts\n\n"
         "Use /upgrade to get full access!",
         parse_mode="Markdown"
     )
@@ -154,9 +154,9 @@ async def ask_for_details(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "⚠️ *Risk Alert*\nEnter stop-loss and take-profit separated by space (e.g., `30000 35000`):",
             parse_mode="Markdown"
         )
-    elif alert_type == "custom":
+    elif alert_type == "indicator":
         await update.message.reply_text(
-            "🤖 *Custom Alert*\nEnter full custom condition (e.g., `BTC > 30000 rsi < 30`):",
+            "🤖 *Indicator Alert*\nEnter full indicator condition (e.g., `rsi < 30`):",
             parse_mode="Markdown"
         )
     else:
@@ -227,30 +227,9 @@ async def confirm_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
         details = f"Multiplier: {alert_flow.get('multiplier', '?')}× | Timeframe: {alert_flow.get('timeframe', '1h')}"
     elif alert_type.lower() == "risk":
         details = f"Stop: {alert_flow.get('stop_loss', '?')} | Take: {alert_flow.get('take_profit', '?')}"
-    elif alert_type.lower() == "custom":
-        # Render readable custom condition
-        condition = alert_flow.get("condition")
-
-        if not condition:
-            details = "Condition: ?"
-        else:
-            # Convert parsed condition back to readable text for confirmation screen
-            readable = []
-
-            # Price rule
-            price_rule = condition.get("price")
-            if price_rule:
-                readable.append(f"Price {price_rule['operator']} {price_rule['value']}")
-
-            # Indicator rules
-            for ind in condition.get("indicators", []):
-                readable.append(
-                    f"{ind['indicator']} {ind['operator']} {ind['value']}"
-                )
-
-            # Join into one clean line
-            details = "Condition: " + " AND ".join(readable)
-            
+    elif alert_type.lower() == "indicator":
+        details = f"Condition: {alert_flow.get('indicator_block', '?')}"
+        
     summary = (
         "✅ *Confirm Alert Setup:*\n\n"
         f"• Type: {alert_type}\n"
@@ -287,7 +266,7 @@ from handlers.alert_handlers import (
     handle_percent_alert,
     handle_volume_alert,
     handle_risk_alert,
-    handle_custom_alert,
+    handle_indicator_alert,
 )
 
 async def handle_final_alert_creation(update, context, alert_flow):
@@ -340,20 +319,33 @@ async def handle_final_alert_creation(update, context, alert_flow):
             args.append(repeat_flag)
         await handle_risk_alert(update, context, args, plan)
 
-    elif alert_type == "custom":
-        symbol = alert_flow["symbol"]
+    elif alert_type == "indicator":
 
-        # NEW: use parsed structure instead of indicator_block
-        parsed_condition = alert_flow.get("condition", {})
+        # Symbol already stored earlier in alert_flow
+        symbol = alert_flow.get("symbol")
+        if not symbol:
+            return await update.message.reply_text(
+                "❌ No symbol selected. Please start again with /set",
+                parse_mode="Markdown"
+            )
 
-        # args format expected by handle_custom_alert:
-        # [symbol, parsed_condition]
+        # Retrieve parsed condition created by the message handler
+        parsed_condition = alert_flow.get("condition")
+        if not parsed_condition:
+            return await update.message.reply_text(
+                "❌ No indicator condition provided.\n"
+                "Format: `indicator operator value timeframe`\n"
+                "Example: `rsi < 30 1h`",
+                parse_mode="Markdown"
+            )
+
         args = [symbol, parsed_condition]
 
+    
         if repeat_flag:
             args.append(repeat_flag)
 
-        await handle_custom_alert(update, context, args, plan)
+        return await handle_indicator_alert(update, context, args, plan)
     
     # Clear flow after saving
     context.user_data.pop("alert_flow", None)

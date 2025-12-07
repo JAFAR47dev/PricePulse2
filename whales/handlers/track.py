@@ -84,14 +84,67 @@ async def track_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
+        
     # --- Check if it's a valid ERC20 token ---
     if whale_data.get("unsupported"):
         reason = whale_data.get("reason", "Unsupported token type.")
+
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton("📜 View Supported Tokens", callback_data="whale_supported_tokens")]
+        ])
+
         await update.message.reply_text(
             f"⚠️ *{token}* cannot be tracked.\nReason: {reason}",
+            reply_markup=keyboard,
             parse_mode="Markdown",
         )
         return
+
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+import os, json
+
+async def whale_supported_tokens_callback(update, context):
+    query = update.callback_query
+    await query.answer()
+
+    folder = "whales/data"
+    supported = []
+
+    try:
+        for file in os.listdir(folder):
+            if file.endswith(".json"):
+                with open(os.path.join(folder, file), "r") as f:
+                    data = json.load(f)
+                    # Only list supported tokens
+                    if not data.get("unsupported"):
+                        symbol = data.get("token", "N/A").upper()
+                        supported.append(f"{symbol}")
+    
+
+        # Arrange tokens in rows of 5
+        rows = []
+        row_size = 5
+
+        for i in range(0, len(supported), row_size):
+            chunk = supported[i:i + row_size]
+            rows.append(" | ".join(chunk))
+
+        supported_list = "\n".join(rows)
+
+        msg = (
+            "📜 *Supported Tokens for Whale Tracking*\n\n"
+            f"{supported_list}"
+        )
+
+
+        await query.message.reply_text(msg, parse_mode="Markdown")
+
+    except Exception as e:
+        await query.message.reply_text("⚠️ Error loading supported tokens.")
+        print("Supported token error:", e)
+
+    return
+        
 
     # --- Load or create user tracking data ---
     tracking_data = load_user_tracking()
@@ -120,7 +173,10 @@ async def track_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         parse_mode="Markdown",
     )
 
+from telegram.ext import CallbackQueryHandler
 
-# === Function to register handler ===
 def register_track_handler(app):
     app.add_handler(CommandHandler("track", track_command))
+    app.add_handler(CallbackQueryHandler(whale_supported_tokens_callback, pattern="^whale_supported_tokens$"))
+    
+

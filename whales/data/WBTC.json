@@ -1,7 +1,7 @@
 {
   "token": "WBTC",
   "contract": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
-  "updated_at": "2025-11-23T07:13:53.722103",
+  "updated_at": "2025-12-07T08:40:54.745796",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,39 +9,39 @@
       "address": "0x5ee5bf7ae06d1be5997a1a72006fe6c607ec6de8",
       "symbol": "WBTC",
       "rank": 1,
-      "balance": 4125408153567.0,
-      "share": 32.54,
+      "balance": 4277573739840.0,
+      "share": 34.23,
       "last_tx": null
     },
     {
       "address": "0xa3a7b6f88361f48403514059f1f16c8e78d60eec",
       "symbol": "WBTC",
       "rank": 2,
-      "balance": 818983024266.0,
-      "share": 6.46,
+      "balance": 828057390689.0,
+      "share": 6.63,
       "last_tx": null
     },
     {
       "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
       "symbol": "WBTC",
       "rank": 3,
-      "balance": 563156939242.0,
-      "share": 4.44,
+      "balance": 521899138150.0,
+      "share": 4.18,
       "last_tx": null
     },
     {
       "address": "0xc3d688b66703497daa19211eedff47f25384cdc3",
       "symbol": "WBTC",
       "rank": 4,
-      "balance": 483406088543.0,
-      "share": 3.81,
+      "balance": 486911696437.0,
+      "share": 3.9,
       "last_tx": null
     },
     {
       "address": "0x3ee18b2214aff97000d974cf647e7c347e8fa585",
       "symbol": "WBTC",
       "rank": 5,
-      "balance": 411981293548.0,
+      "balance": 406579742262.0,
       "share": 3.25,
       "last_tx": null
     },
@@ -49,95 +49,95 @@
       "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
       "symbol": "WBTC",
       "rank": 6,
-      "balance": 243215141540.0,
-      "share": 1.92,
+      "balance": 243274979386.0,
+      "share": 1.95,
       "last_tx": null
     },
     {
       "address": "0xccf4429db6322d5c611ee964527d42e5d685dd6a",
       "symbol": "WBTC",
       "rank": 7,
-      "balance": 226321488245.0,
-      "share": 1.79,
-      "last_tx": null
-    },
-    {
-      "address": "0x18709e89bd403f470088abdacebe86cc60dda12e",
-      "symbol": "WBTC",
-      "rank": 8,
-      "balance": 201571625618.0,
-      "share": 1.59,
+      "balance": 225831129497.0,
+      "share": 1.81,
       "last_tx": null
     },
     {
       "address": "0x3afdc9bca9213a35503b077a6072f3d0d5ab0840",
       "symbol": "WBTC",
-      "rank": 9,
-      "balance": 140809019866.0,
-      "share": 1.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x312e67b47a2a29ae200184949093d92369f80b53",
-      "symbol": "WBTC",
-      "rank": 10,
-      "balance": 100591998684.0,
-      "share": 0.79,
+      "rank": 8,
+      "balance": 122948373860.0,
+      "share": 0.98,
       "last_tx": null
     },
     {
       "address": "0x99c9fc46f92e8a1c0dec1b1747d010903e884be1",
       "symbol": "WBTC",
-      "rank": 11,
-      "balance": 89349139186.0,
-      "share": 0.7,
-      "last_tx": null
-    },
-    {
-      "address": "0xd9ff8396554a0d18b2cfbec53e1979b7ecce8373",
-      "symbol": "WBTC",
-      "rank": 12,
-      "balance": 79267052250.0,
-      "share": 0.63,
+      "rank": 9,
+      "balance": 89085782340.0,
+      "share": 0.71,
       "last_tx": null
     },
     {
       "address": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
       "symbol": "WBTC",
-      "rank": 13,
-      "balance": 77017456274.0,
-      "share": 0.61,
+      "rank": 10,
+      "balance": 80447560216.0,
+      "share": 0.64,
       "last_tx": null
     },
     {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "address": "0x312e67b47a2a29ae200184949093d92369f80b53",
       "symbol": "WBTC",
-      "rank": 14,
-      "balance": 75616834580.0,
-      "share": 0.6,
+      "rank": 11,
+      "balance": 78346053750.0,
+      "share": 0.63,
       "last_tx": null
     },
     {
       "address": "0x652356478073ba1d38b310850446d0a4c3cad4bd",
       "symbol": "WBTC",
-      "rank": 15,
+      "rank": 12,
       "balance": 75018944546.0,
-      "share": 0.59,
+      "share": 0.6,
+      "last_tx": null
+    },
+    {
+      "address": "0xd9ff8396554a0d18b2cfbec53e1979b7ecce8373",
+      "symbol": "WBTC",
+      "rank": 13,
+      "balance": 69192710991.0,
+      "share": 0.55,
       "last_tx": null
     },
     {
       "address": "0xe74b28c2eae8679e3ccc3a94d5d0de83ccb84705",
       "symbol": "WBTC",
-      "rank": 16,
+      "rank": 14,
       "balance": 67124712359.0,
-      "share": 0.53,
+      "share": 0.54,
       "last_tx": null
     },
     {
       "address": "0x99ac8ca7087fa4a2a1fb6357269965a2014abc35",
       "symbol": "WBTC",
+      "rank": 15,
+      "balance": 66143402684.0,
+      "share": 0.53,
+      "last_tx": null
+    },
+    {
+      "address": "0x18709e89bd403f470088abdacebe86cc60dda12e",
+      "symbol": "WBTC",
+      "rank": 16,
+      "balance": 65471625618.0,
+      "share": 0.52,
+      "last_tx": null
+    },
+    {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "symbol": "WBTC",
       "rank": 17,
-      "balance": 64985464919.0,
+      "balance": 63120900000.0,
       "share": 0.51,
       "last_tx": null
     },
@@ -146,21 +146,13 @@
       "symbol": "WBTC",
       "rank": 18,
       "balance": 62384148412.0,
-      "share": 0.49,
-      "last_tx": null
-    },
-    {
-      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
-      "symbol": "WBTC",
-      "rank": 19,
-      "balance": 61240658683.0,
-      "share": 0.48,
+      "share": 0.5,
       "last_tx": null
     },
     {
       "address": "0xc76c7253592e27f090019f9949585366f799d6f7",
       "symbol": "WBTC",
-      "rank": 20,
+      "rank": 19,
       "balance": 60353108720.0,
       "share": 0.48,
       "last_tx": null
@@ -168,41 +160,49 @@
     {
       "address": "0x4197ba364ae6698015ae5c1468f54087602715b2",
       "symbol": "WBTC",
+      "rank": 20,
+      "balance": 60037935924.0,
+      "share": 0.48,
+      "last_tx": null
+    },
+    {
+      "address": "0xe0438eb3703bf871e31ce639bd351109c88666ea",
+      "symbol": "WBTC",
       "rank": 21,
-      "balance": 59728013117.0,
-      "share": 0.47,
+      "balance": 57745256794.0,
+      "share": 0.46,
       "last_tx": null
     },
     {
       "address": "0x9ff58f4ffb29fa2266ab25e75e2a8b3503311656",
       "symbol": "WBTC",
       "rank": 22,
-      "balance": 58717943369.0,
+      "balance": 56888357715.0,
       "share": 0.46,
-      "last_tx": null
-    },
-    {
-      "address": "0x9db9e0e53058c89e5b94e29621a205198648425b",
-      "symbol": "WBTC",
-      "rank": 23,
-      "balance": 53424801215.0,
-      "share": 0.42,
-      "last_tx": null
-    },
-    {
-      "address": "0xe0438eb3703bf871e31ce639bd351109c88666ea",
-      "symbol": "WBTC",
-      "rank": 24,
-      "balance": 50590074859.0,
-      "share": 0.4,
       "last_tx": null
     },
     {
       "address": "0x283751a21eafbfcd52297820d27c1f1963d9b5b4",
       "symbol": "WBTC",
-      "rank": 25,
-      "balance": 48383098677.0,
+      "rank": 23,
+      "balance": 49398028106.0,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0x9db9e0e53058c89e5b94e29621a205198648425b",
+      "symbol": "WBTC",
+      "rank": 24,
+      "balance": 47967712550.0,
       "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
+      "symbol": "WBTC",
+      "rank": 25,
+      "balance": 46439837107.0,
+      "share": 0.37,
       "last_tx": null
     },
     {
@@ -214,9 +214,17 @@
       "last_tx": null
     },
     {
-      "address": "0x1d5a591eebb5bcb20f440d121e4f62e8d1689997",
+      "address": "0x604dd02d620633ae427888d41bfd15e38483736e",
       "symbol": "WBTC",
       "rank": 27,
+      "balance": 40824933799.0,
+      "share": 0.33,
+      "last_tx": null
+    },
+    {
+      "address": "0x1d5a591eebb5bcb20f440d121e4f62e8d1689997",
+      "symbol": "WBTC",
+      "rank": 28,
       "balance": 40052947720.0,
       "share": 0.32,
       "last_tx": null
@@ -224,16 +232,8 @@
     {
       "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "symbol": "WBTC",
-      "rank": 28,
-      "balance": 39732799721.0,
-      "share": 0.31,
-      "last_tx": null
-    },
-    {
-      "address": "0x604dd02d620633ae427888d41bfd15e38483736e",
-      "symbol": "WBTC",
       "rank": 29,
-      "balance": 38988660426.0,
+      "balance": 39114737813.0,
       "share": 0.31,
       "last_tx": null
     },
@@ -241,8 +241,8 @@
       "address": "0x8eb8a3b98659cce290402893d0123abb75e3ab28",
       "symbol": "WBTC",
       "rank": 30,
-      "balance": 37469667524.0,
-      "share": 0.3,
+      "balance": 36580815504.0,
+      "share": 0.29,
       "last_tx": null
     },
     {
@@ -250,29 +250,21 @@
       "symbol": "WBTC",
       "rank": 31,
       "balance": 34518098051.0,
-      "share": 0.27,
+      "share": 0.28,
       "last_tx": null
     },
     {
-      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
       "symbol": "WBTC",
       "rank": 32,
-      "balance": 32494627767.0,
-      "share": 0.26,
-      "last_tx": null
-    },
-    {
-      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
-      "symbol": "WBTC",
-      "rank": 33,
-      "balance": 32212504888.0,
-      "share": 0.25,
+      "balance": 27857164753.0,
+      "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0xadc842a26b185897ac22042c99961f854ca4395f",
       "symbol": "WBTC",
-      "rank": 34,
+      "rank": 33,
       "balance": 27382822923.0,
       "share": 0.22,
       "last_tx": null
@@ -280,16 +272,24 @@
     {
       "address": "0xbfe5e57fa7a851f1f404e33a57e8fc5bf182df06",
       "symbol": "WBTC",
-      "rank": 35,
+      "rank": 34,
       "balance": 27375663957.0,
       "share": 0.22,
       "last_tx": null
     },
     {
-      "address": "0xab2731d2889e9111623568c191fcc12ea25562c6",
+      "address": "0xb6e1757763bdf04c22e25f13676c3488e4d3178b",
+      "symbol": "WBTC",
+      "rank": 35,
+      "balance": 25516746828.0,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x66c7a7348250f453a37cf86410a946f9668de386",
       "symbol": "WBTC",
       "rank": 36,
-      "balance": 23829710405.0,
+      "balance": 23401829096.0,
       "share": 0.19,
       "last_tx": null
     },
@@ -297,22 +297,14 @@
       "address": "0xe8f7c89c5efa061e340f2d2f206ec78fd8f7e124",
       "symbol": "WBTC",
       "rank": 37,
-      "balance": 23536162437.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0x66c7a7348250f453a37cf86410a946f9668de386",
-      "symbol": "WBTC",
-      "rank": 38,
-      "balance": 23401829096.0,
+      "balance": 22811062709.0,
       "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x1ac296547248ba59a39878b2f8087bd75762df5d",
       "symbol": "WBTC",
-      "rank": 39,
+      "rank": 38,
       "balance": 21659301597.0,
       "share": 0.17,
       "last_tx": null
@@ -320,7 +312,7 @@
     {
       "address": "0xfaf5358a4ac02833dd82e1beb3347d81bdf596cc",
       "symbol": "WBTC",
-      "rank": 40,
+      "rank": 39,
       "balance": 21029206809.0,
       "share": 0.17,
       "last_tx": null
@@ -328,8 +320,16 @@
     {
       "address": "0xb65e2ee1873189690453554125ba35df7a64bed8",
       "symbol": "WBTC",
-      "rank": 41,
+      "rank": 40,
       "balance": 20884762318.0,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "WBTC",
+      "rank": 41,
+      "balance": 20215263753.0,
       "share": 0.16,
       "last_tx": null
     },
@@ -342,73 +342,49 @@
       "last_tx": null
     },
     {
-      "address": "0xda5928d59ece82808af2cbbe4f2872fea8e12cd6",
-      "symbol": "WBTC",
-      "rank": 43,
-      "balance": 19959318093.0,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
       "address": "0xf7a5159085722718dc1276de5979df468975ec11",
       "symbol": "WBTC",
-      "rank": 44,
+      "rank": 43,
       "balance": 19297730000.0,
       "share": 0.15,
       "last_tx": null
     },
     {
-      "address": "0xfbd4cdb413e45a52e2c8312f670e9ce67e794c37",
-      "symbol": "WBTC",
-      "rank": 45,
-      "balance": 17871122447.0,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
       "address": "0x250893ca4ba5d05626c785e8da758026928fcd24",
       "symbol": "WBTC",
-      "rank": 46,
-      "balance": 17645013287.0,
-      "share": 0.14,
+      "rank": 44,
+      "balance": 19113958208.0,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0xf3315095db3f53af331a83cee931b1e3751cfc8f",
       "symbol": "WBTC",
-      "rank": 47,
+      "rank": 45,
       "balance": 17267620000.0,
       "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0xaf297dec752c909092a117a932a8ca4aaaff9795",
+      "address": "0xceff51756c56ceffca006cd410b03ffc46dd3a58",
       "symbol": "WBTC",
-      "rank": 48,
-      "balance": 16238627947.0,
+      "rank": 46,
+      "balance": 16224846043.0,
       "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x563654bfe483530f2a82ba2b17c28bc4daa7447b",
       "symbol": "WBTC",
-      "rank": 49,
+      "rank": 47,
       "balance": 16223569561.0,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0xceff51756c56ceffca006cd410b03ffc46dd3a58",
-      "symbol": "WBTC",
-      "rank": 50,
-      "balance": 15904102232.0,
       "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x0c4809be72f9e117d75381438c5daec8abe75bad",
       "symbol": "WBTC",
-      "rank": 51,
+      "rank": 48,
       "balance": 15422457096.0,
       "share": 0.12,
       "last_tx": null
@@ -416,23 +392,15 @@
     {
       "address": "0x6de947950eb32f00773554309c6fa598d0ff6a9b",
       "symbol": "WBTC",
-      "rank": 52,
+      "rank": 49,
       "balance": 15004526470.0,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x9b82ed6a59fa973bbebbc14c73fbcb81173822d8",
-      "symbol": "WBTC",
-      "rank": 53,
-      "balance": 15000000006.0,
       "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0xce0adbb76a8ce7224bec6b586e18743aeb03250a",
       "symbol": "WBTC",
-      "rank": 54,
+      "rank": 50,
       "balance": 14934240364.0,
       "share": 0.12,
       "last_tx": null
@@ -440,127 +408,119 @@
     {
       "address": "0x89638209d697505f9b9f8a3971a7d0c8b093483d",
       "symbol": "WBTC",
-      "rank": 55,
+      "rank": 51,
       "balance": 14144352407.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xff6e37014e8298da01c8b771832ccd6bbf87c102",
-      "symbol": "WBTC",
-      "rank": 56,
-      "balance": 13936641592.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x8af700ba841f30e0a3fcb0ee4c4a9d223e1efa05",
-      "symbol": "WBTC",
-      "rank": 57,
-      "balance": 13562927485.0,
       "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x4f4495243837681061c4743b74b3eedf548d56a5",
       "symbol": "WBTC",
-      "rank": 58,
-      "balance": 12891278212.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x77134cbc06cb00b66f4c7e623d5fdbf6777635ec",
-      "symbol": "WBTC",
-      "rank": 59,
-      "balance": 12851124666.0,
+      "rank": 52,
+      "balance": 13075843587.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x0129e54adb82583878952baf5b4ab0df150e1e3c",
       "symbol": "WBTC",
-      "rank": 60,
+      "rank": 53,
       "balance": 12846211936.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0xe8a1f39c16eea2844e98f951d711bb4bb31557ad",
-      "symbol": "WBTC",
-      "rank": 61,
-      "balance": 12785602778.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xb14e0e365e077a1ec50eddd055e99c07f04f48dd",
       "symbol": "WBTC",
-      "rank": 62,
+      "rank": 54,
       "balance": 12253683611.0,
       "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0x22a867f24093d9249653e07d89805016c8d6a2a0",
+      "address": "0xc186fa914353c44b2e33ebe05f21846f1048beda",
       "symbol": "WBTC",
-      "rank": 63,
-      "balance": 12138749645.0,
+      "rank": 55,
+      "balance": 12220036483.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x56534741cd8b152df6d48adf7ac51f75169a83b2",
       "symbol": "WBTC",
-      "rank": 64,
-      "balance": 12120536999.0,
+      "rank": 56,
+      "balance": 12160393980.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x22a867f24093d9249653e07d89805016c8d6a2a0",
+      "symbol": "WBTC",
+      "rank": 57,
+      "balance": 12138749645.0,
       "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xf35a711fea733c23f409c6f8e72b8ecd640758ea",
       "symbol": "WBTC",
-      "rank": 65,
+      "rank": 58,
       "balance": 11799010318.0,
       "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0x5f6aad80b8ef9615af74fc7124b557cc2a298f00",
+      "address": "0x8af700ba841f30e0a3fcb0ee4c4a9d223e1efa05",
       "symbol": "WBTC",
-      "rank": 66,
-      "balance": 11652998763.0,
+      "rank": 59,
+      "balance": 11562927485.0,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0xbf90ec08fb901e094ccc59ddbb83daa35d855043",
       "symbol": "WBTC",
-      "rank": 67,
+      "rank": 60,
       "balance": 11561717896.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xff6e37014e8298da01c8b771832ccd6bbf87c102",
+      "symbol": "WBTC",
+      "rank": 61,
+      "balance": 10951663697.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x4fde54266707f3a0fa74bf8b215c79d1c3a157f4",
+      "symbol": "WBTC",
+      "rank": 62,
+      "balance": 10921418905.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "symbol": "WBTC",
+      "rank": 63,
+      "balance": 10896394918.0,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x051f1d88f0af5763fb888ec4378b4d8b29ea3319",
       "symbol": "WBTC",
-      "rank": 68,
-      "balance": 10730237758.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x2db1ec186acdeaf7d0fc78bffe335560b0fe0085",
-      "symbol": "WBTC",
-      "rank": 69,
-      "balance": 10669055701.0,
-      "share": 0.08,
+      "rank": 64,
+      "balance": 10818733664.0,
+      "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0xe08a8b19e5722a201eaf20a6bc595ef655397bd5",
       "symbol": "WBTC",
-      "rank": 70,
+      "rank": 65,
       "balance": 10598478266.0,
       "share": 0.08,
       "last_tx": null
@@ -568,63 +528,63 @@
     {
       "address": "0xb03717ae4662b2eceeb64cb837d70b37d2074ef9",
       "symbol": "WBTC",
-      "rank": 71,
+      "rank": 66,
       "balance": 10472145105.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0xb6e1757763bdf04c22e25f13676c3488e4d3178b",
-      "symbol": "WBTC",
-      "rank": 72,
-      "balance": 10380126617.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x100ae042ef0ea159ecc3513e9a378ff21f3829ba",
-      "symbol": "WBTC",
-      "rank": 73,
-      "balance": 10372376956.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xab96e9ae52351f27ff9ace45ac2cb7083044eb69",
       "symbol": "WBTC",
-      "rank": 74,
+      "rank": 67,
       "balance": 10300000000.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xe85dc543813b8c2cfeaac371517b925a166a9293",
+      "symbol": "WBTC",
+      "rank": 68,
+      "balance": 10293989227.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xe506b2b5bbd1a166c8e44cc9942b6bd0eda51d90",
+      "symbol": "WBTC",
+      "rank": 69,
+      "balance": 10128299999.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x95fc37a27a2f68e3a647cdc081f0a89bb47c3012",
       "symbol": "WBTC",
-      "rank": 75,
-      "balance": 10121436878.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0xf8191d98ae98d2f7abdfb63a9b0b812b93c873aa",
-      "symbol": "WBTC",
-      "rank": 76,
-      "balance": 10111265569.0,
+      "rank": 70,
+      "balance": 10118244478.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xb7e1ff012863a19df2e3ef324a33b40701d4f315",
       "symbol": "WBTC",
-      "rank": 77,
+      "rank": 71,
       "balance": 10083480003.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x470458c91978d2d929704489ad730dc3e3001113",
+      "symbol": "WBTC",
+      "rank": 72,
+      "balance": 10082353475.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x6823b3018faf8c55491e5c21f21c1bbd2f513195",
       "symbol": "WBTC",
-      "rank": 78,
+      "rank": 73,
       "balance": 10065603829.0,
       "share": 0.08,
       "last_tx": null
@@ -632,7 +592,7 @@
     {
       "address": "0x9b4c5b8691513d76089b3e7744423935d168ec13",
       "symbol": "WBTC",
-      "rank": 79,
+      "rank": 74,
       "balance": 10061455287.0,
       "share": 0.08,
       "last_tx": null
@@ -640,7 +600,7 @@
     {
       "address": "0x37d63649527cc66eee5b6d96b3305f0f764618f5",
       "symbol": "WBTC",
-      "rank": 80,
+      "rank": 75,
       "balance": 10055148662.0,
       "share": 0.08,
       "last_tx": null
@@ -648,23 +608,23 @@
     {
       "address": "0x0f8179a26ae4709ec59048a266e690d49553605a",
       "symbol": "WBTC",
-      "rank": 81,
+      "rank": 76,
       "balance": 10024141862.0,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0xc79b6416bd17446f930d32a7b78cf60d35a12be7",
+      "address": "0x367c42a6f261ec54ffbecf5f41c226be12a3dca0",
       "symbol": "WBTC",
-      "rank": 82,
-      "balance": 10000001813.0,
+      "rank": 77,
+      "balance": 10000000000.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x2dcce95c9249ff2c2db1edbce1bc7cded965fa3d",
       "symbol": "WBTC",
-      "rank": 83,
+      "rank": 78,
       "balance": 9970590162.0,
       "share": 0.08,
       "last_tx": null
@@ -672,15 +632,23 @@
     {
       "address": "0x37f677f1b0a39a56d0e7d0d376a7af5f79ced49f",
       "symbol": "WBTC",
-      "rank": 84,
+      "rank": 79,
       "balance": 9911885589.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "WBTC",
+      "rank": 80,
+      "balance": 9836288823.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x65a5b02380af3f0ec7efd785d7c737d7cb80c82e",
       "symbol": "WBTC",
-      "rank": 85,
+      "rank": 81,
       "balance": 9735137431.0,
       "share": 0.08,
       "last_tx": null
@@ -688,79 +656,103 @@
     {
       "address": "0x9407253bbd6f8ce7c1f061792a495a54e5cbb911",
       "symbol": "WBTC",
-      "rank": 86,
+      "rank": 82,
       "balance": 9696789136.0,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x470458c91978d2d929704489ad730dc3e3001113",
+      "address": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
       "symbol": "WBTC",
-      "rank": 87,
-      "balance": 9631238915.0,
+      "rank": 83,
+      "balance": 9689114167.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xbb4313ee38500a19c047858cd381618b63d29d91",
+      "symbol": "WBTC",
+      "rank": 84,
+      "balance": 9490083369.0,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x9dbe5dffaeb4ac2e0ac14f8b4e08b3bc55de5232",
       "symbol": "WBTC",
-      "rank": 88,
-      "balance": 9556979397.0,
+      "rank": 85,
+      "balance": 9467646643.0,
       "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0xfcbebb78179721209bb4917d89522e014ce516b1",
-      "symbol": "WBTC",
-      "rank": 89,
-      "balance": 9499998500.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xbb4313ee38500a19c047858cd381618b63d29d91",
-      "symbol": "WBTC",
-      "rank": 90,
-      "balance": 9490083369.0,
-      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xee7f7f53f0d0c8c56a38e97c5a58e4d321a174dc",
       "symbol": "WBTC",
-      "rank": 91,
+      "rank": 86,
       "balance": 9377004700.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x7277c705b5b1963b602cb4e3ab8e188d925bed00",
+      "symbol": "WBTC",
+      "rank": 87,
+      "balance": 9267089126.0,
       "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0x7f62f9592b823331e012d3c5ddf2a7714cfb9de2",
+      "address": "0xc79b6416bd17446f930d32a7b78cf60d35a12be7",
       "symbol": "WBTC",
-      "rank": 92,
-      "balance": 8717888365.0,
+      "rank": 88,
+      "balance": 9099929385.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x412feab2a75fdc52dcb354f409684d9ad1de8d3d",
+      "symbol": "WBTC",
+      "rank": 89,
+      "balance": 9049629538.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x517ce9b6d1fcffd29805c3e19b295247fcd94aef",
+      "symbol": "WBTC",
+      "rank": 90,
+      "balance": 9000000000.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xda5928d59ece82808af2cbbe4f2872fea8e12cd6",
+      "symbol": "WBTC",
+      "rank": 91,
+      "balance": 8959318093.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x6a26f6a1a94160d828b3ad36b2aff72ca8792e0d",
       "symbol": "WBTC",
-      "rank": 93,
+      "rank": 92,
       "balance": 8686662151.0,
       "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0x367c42a6f261ec54ffbecf5f41c226be12a3dca0",
+      "address": "0xb1e60dd62c5e6d04f4fa01e962ce2c2065be8808",
       "symbol": "WBTC",
-      "rank": 94,
-      "balance": 8595018000.0,
+      "rank": 93,
+      "balance": 8612998910.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x98725ee62833096c1c9be26001f3cda9a6241ef3",
       "symbol": "WBTC",
-      "rank": 95,
+      "rank": 94,
       "balance": 8500000000.0,
       "share": 0.07,
       "last_tx": null
@@ -768,7 +760,7 @@
     {
       "address": "0xcf4ca74f832696523fa37169441fea64ef7458ea",
       "symbol": "WBTC",
-      "rank": 96,
+      "rank": 95,
       "balance": 8439000000.0,
       "share": 0.07,
       "last_tx": null
@@ -776,33 +768,41 @@
     {
       "address": "0xa90d16a3039704b4d87c05e7f4b6fe65809bd90e",
       "symbol": "WBTC",
-      "rank": 97,
+      "rank": 96,
       "balance": 8395417267.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xfbd4cdb413e45a52e2c8312f670e9ce67e794c37",
+      "symbol": "WBTC",
+      "rank": 97,
+      "balance": 8377390071.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x24b12457d3a68eca9daca48f0628276592bebcdd",
+      "symbol": "WBTC",
+      "rank": 98,
+      "balance": 8323050382.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x5738df8073ad05d0c0fcf60e358033268ebf16cc",
       "symbol": "WBTC",
-      "rank": 98,
-      "balance": 8275232285.0,
+      "rank": 99,
+      "balance": 8289181540.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xf5f5b97624542d72a9e06f04804bf81baa15e2b4",
       "symbol": "WBTC",
-      "rank": 99,
-      "balance": 8270214425.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x5a0da46f313e05a45b7ac674998ff99ed50f39b7",
-      "symbol": "WBTC",
       "rank": 100,
-      "balance": 8120875784.0,
-      "share": 0.06,
+      "balance": 8260064454.0,
+      "share": 0.07,
       "last_tx": null
     }
   ]

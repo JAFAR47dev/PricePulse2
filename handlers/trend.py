@@ -32,7 +32,8 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
-    await update.message.reply_text("📡 Analyzing trend data... please wait.")
+    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
+
 
     try:
         indicators = await get_crypto_indicators(symbol, timeframe)

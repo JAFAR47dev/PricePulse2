@@ -1,10 +1,17 @@
 # handlers/fav/fav_handler.py
 import traceback
+from telegram import Update
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, filters
 from handlers.fav.utils.db_favorites import add_favorite, remove_favorite, get_favorites
+from tasks.handlers import handle_streak
+from models.user_activity import update_last_active
 
-async def fav_command(update, context):
+async def fav_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update_last_active(user_id, command_name="/fav")
+    await handle_streak(update, context)
+    
     
     context.user_data.pop("alert_flow", None)
     
@@ -28,10 +35,7 @@ async def fav_command(update, context):
 
 async def fav_text_handler(update, context):
     try:
-        
-        print("DEBUG fav_text_handler called; user_data:", context.user_data)
-
-        
+                
         fav_mode = context.user_data.get("fav_mode")
     
         if context.user_data.get("alert_flow") or fav_mode is None:
