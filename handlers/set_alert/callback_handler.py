@@ -4,7 +4,11 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from .flow_manager import ask_symbol_input  # We will create this next step
-
+from utils.indicator_rules import (
+    SUPPORTED_INDICATORS,
+    SUPPORTED_INTERVALS,
+    validate_indicator_rule
+) 
 async def alert_type_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
     Handle selection of alert type from inline keyboard.
@@ -88,29 +92,85 @@ async def details_input_handler(update: Update, context: ContextTypes.DEFAULT_TY
             alert_flow["stop_loss"] = stop_loss
             alert_flow["take_profit"] = take_profit
        
+       # elif alert_type == "indicator":
+#            user_text = user_input.strip()
+#            tokens = user_text.split()
+#    
+#            if len(tokens) < 3:
+#                await update.message.reply_text(
+#                    "❌ Invalid format.\n\n"
+#                    "**Correct format:**\n"
+#                    "`indicator operator value [timeframe]`\n\n"
+#                    "**Examples:**\n"
+#                    "`rsi < 30 1h`\n"
+#                    "`ema20 > 50000 4h`\n"
+#                    "`macd < 0 15m`\n",
+#                    parse_mode="Markdown"
+#                )
+#                return
+
+#            indicator_raw = tokens[0].lower()
+#            operator_raw = tokens[1]
+#            value_raw = tokens[2]
+#            timeframe_raw = tokens[3].lower() if len(tokens) > 3 else "1h"
+
+#            # Only numeric values allowed for indicator alerts
+#            try:
+#                numeric_value = float(value_raw)
+#            except:
+#                return await update.message.reply_text(
+#                    f"❌ `{value_raw}` is not a valid number.\n"
+#                    "Example: `rsi < 30 1h`",
+#                    parse_mode="Markdown"
+#                )
+
+#            # Build parsed structure for later validation/DB saving
+#            condition_data = {
+#                "indicator": indicator_raw,
+#                "operator": operator_raw,
+#                "value": numeric_value,
+#                "timeframe": timeframe_raw
+#            }
+
+#            # Store parsed data into alert_flow for next step
+#            alert_flow["condition"] = condition_data
+#            alert_flow["indicator_block"] = user_text  
+#    
+
         elif alert_type == "indicator":
             user_text = user_input.strip()
             tokens = user_text.split()
-    
+
             if len(tokens) < 3:
-                await update.message.reply_text(
+                example_list = "\n".join(
+                    f"• `{rule['example']}`" 
+                    for rule in SUPPORTED_INDICATORS.values()
+                    if "example" in rule
+                )
+                return await update.message.reply_text(
                     "❌ Invalid format.\n\n"
                     "**Correct format:**\n"
                     "`indicator operator value [timeframe]`\n\n"
                     "**Examples:**\n"
-                    "`rsi < 30 1h`\n"
-                    "`ema20 > 50000 4h`\n"
-                    "`macd < 0 15m`\n",
+                    f"{example_list}",
                     parse_mode="Markdown"
                 )
-                return
 
             indicator_raw = tokens[0].lower()
             operator_raw = tokens[1]
             value_raw = tokens[2]
             timeframe_raw = tokens[3].lower() if len(tokens) > 3 else "1h"
+            
+            # --- Timeframe validation ---
+            if timeframe_raw not in SUPPORTED_INTERVALS:
+                supported_tf = ", ".join(SUPPORTED_INTERVALS)
+                return await update.message.reply_text(
+                    f"❌ Unsupported timeframe: `{timeframe_raw}`\n\n"
+                    f"**Supported intervals:**\n{supported_tf}",
+                    parse_mode="Markdown"
+                )
 
-            # Only numeric values allowed for indicator alerts
+            # Validate numeric value
             try:
                 numeric_value = float(value_raw)
             except:
@@ -120,7 +180,7 @@ async def details_input_handler(update: Update, context: ContextTypes.DEFAULT_TY
                     parse_mode="Markdown"
                 )
 
-            # Build parsed structure for later validation/DB saving
+            # Build the parsed rule
             condition_data = {
                 "indicator": indicator_raw,
                 "operator": operator_raw,
@@ -128,9 +188,19 @@ async def details_input_handler(update: Update, context: ContextTypes.DEFAULT_TY
                 "timeframe": timeframe_raw
             }
 
-            # Store parsed data into alert_flow for next step
+            # --- Validate using indicator_rules.py ---
+            ok, error_message = validate_indicator_rule(condition_data)
+            if not ok:
+                return await update.message.reply_text(
+                    error_message,
+                    parse_mode="Markdown"
+                )
+
+            # Save to alert_flow for the next step
             alert_flow["condition"] = condition_data
-            alert_flow["indicator_block"] = user_text  
+            alert_flow["indicator_block"] = user_text
+           
+          
        
     except Exception:
         await update.message.reply_text("❌ Invalid input format. Please try again.")
@@ -166,7 +236,7 @@ async def persistence_callback_handler(update: Update, context: ContextTypes.DEF
     "✅ Now confirm your alert."
     )
 
-    await asyncio.sleep(3)
+    await asyncio.sleep(0.5)
     await msg.delete()
 
     # Display final summary

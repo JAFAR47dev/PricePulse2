@@ -158,18 +158,18 @@ def register_all_handlers(app):
        app.add_handler(CallbackQueryHandler(fav_callback_handler, pattern="^fav_"))
        register_set_handlers(app)
        app.add_handler(CommandHandler("addtogroup", add_to_group))     
-       app.add_handler(ConversationHandler(
-        entry_points=[CommandHandler("aistrat", strategy_command)],
-        states={
-            AWAITING_STRATEGY_INPUT: [
-                MessageHandler(filters.TEXT & ~filters.COMMAND, handle_strategy_input)
-            ]
-        },
-        fallbacks=[]
-    ))
+       #app.add_handler(ConversationHandler(
+#        entry_points=[CommandHandler("aistrat", strategy_command)],
+#        states={
+#            AWAITING_STRATEGY_INPUT: [
+#                MessageHandler(filters.TEXT & ~filters.COMMAND, handle_strategy_input)
+#            ]
+#        },
+#        fallbacks=[]
+#    ))
 
-       app.add_handler(CallbackQueryHandler(confirm_strategy_callback, pattern="^confirm_strategy$"))
-       app.add_handler(CallbackQueryHandler(cancel_strategy_callback, pattern="^cancel_strategy$"))
+#       app.add_handler(CallbackQueryHandler(confirm_strategy_callback, pattern="^confirm_strategy$"))
+#       app.add_handler(CallbackQueryHandler(cancel_strategy_callback, pattern="^cancel_strategy$"))
        app.add_handler(CommandHandler("bt", backtest_command))
        app.add_handler(CommandHandler("aiscan", aiscan_command))
        app.add_handler(CommandHandler("screen", screener_command))

@@ -78,7 +78,7 @@ SUPPORTED_INDICATORS = {
 SUPPORTED_INTERVALS = [
     "1min", "5min", "15min", "30min",
     "1h", "2h", "4h", "8h", "12h",
-    "1d", "1w", "1mo"
+    "1d", "1w"
 ]
 
 def validate_indicator_rule(ind):

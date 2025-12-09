@@ -59,7 +59,6 @@ help_pages = {
     
     3: "*🤖 AI Tools & Screeners (Pro)*\n\n"
        "• `/prediction BTC 1h` – AI price prediction\n"
-       "• `/aistrat` – Natural language alert builder\n"
        "• `/aiscan` – Detect patterns: divergence, crosses, etc.\n"
        "• `/bt BTC 1h` – Backtest strategies with AI summary\n"
        "• `/screen` – Scan top 200 coins for setups\n",

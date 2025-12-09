@@ -138,7 +138,7 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             msg += "\n📉 Bollinger Bands: `N/A`\n"
     
-            await update.message.reply_text(msg, parse_mode="Markdown")
+        await update.message.reply_text(msg, parse_mode="Markdown")
 
     except Exception as e:
         print("Trend command error:", e)

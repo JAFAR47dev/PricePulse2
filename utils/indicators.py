@@ -194,32 +194,32 @@ def calculate_atr(highs, lows, closes, period=14):
 
 def calculate_mfi(highs, lows, closes, volumes, period=14):
     if len(closes) < period + 1:
-        return 50
+        return 50  # neutral fallback
 
-    typical = [(highs[i] + lows[i] + closes[i]) / 3 for i in range(len(closes))]
+    typical_prices = [
+        (highs[i] + lows[i] + closes[i]) / 3
+        for i in range(len(closes))
+    ]
 
     pos_flow = 0
     neg_flow = 0
 
-    # Only use the last N periods
-    start = len(typical) - period
+    start = len(closes) - period
 
-    for i in range(start, len(typical)):
-        if i == 0:
-            continue
-        
-        mf = typical[i] * volumes[i]
+    for i in range(start, len(closes)):
+        money_flow = typical_prices[i] * volumes[i]
 
-        if typical[i] > typical[i - 1]:
-            pos_flow += mf
-        else:
-            neg_flow += mf
+        if typical_prices[i] > typical_prices[i - 1]:
+            pos_flow += money_flow
+        elif typical_prices[i] < typical_prices[i - 1]:
+            neg_flow += money_flow
+        # If equal, ignore (no flow)
 
     if neg_flow == 0:
         return 100
 
-    mfr = pos_flow / neg_flow
-    return 100 - (100 / (1 + mfr))
+    ratio = pos_flow / neg_flow
+    return 100 - (100 / (1 + ratio))
     
 def calculate_adx(highs, lows, closes, period=14):
     """
