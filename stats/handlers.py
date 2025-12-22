@@ -45,7 +45,7 @@ async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"• Percent: `{stats['percent_alerts']}`\n"
         f"• Volume: `{stats['volume_alerts']}`\n"
         f"• Risk: `{stats['risk_alerts']}`\n"
-        f"• Custom: `{stats['custom_alerts']}`\n"
+        f"• Indicator: `{stats['indicator_alerts']}`\n"
         f"• Portfolio: `{stats['portfolio_alerts']}`\n"
         f"• Watchlist: `{stats['watchlist']}`\n\n"
         

@@ -51,7 +51,7 @@ async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     args = context.args
     if len(args) != 2:
-        await update.message.reply_text("❌ Usage: /addasset BTC 1.2")
+        await update.message.reply_text("❌ Usage: /add BTC 1.2")
         return
 
     symbol = args[0].upper()
@@ -124,7 +124,7 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     if not rows:
-        await update.message.reply_text("📭 Your portfolio is empty. Add assets using /addasset")
+        await update.message.reply_text("📭 Your portfolio is empty. Add assets using /add")
         return
 
     # Build list of crypto symbols that need API fetching
@@ -350,8 +350,8 @@ async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT
 
     if len(context.args) == 0:
         await update.message.reply_text(
-            "❌ Usage: `/portfoliolimit [amount] [repeat]`\n"
-            "Example: `/portfoliolimit 15000 repeat`",
+            "❌ Usage: `/pflimit [amount] [repeat]`\n"
+            "Example: `/pflimit 15000 repeat`",
             parse_mode="Markdown"
         )
         return
@@ -414,8 +414,8 @@ async def set_portfolio_profit_target(update: Update, context: ContextTypes.DEFA
     # --- ARG CHECK ---
     if len(context.args) == 0:
         await update.message.reply_text(
-            "❌ Usage: `/portfoliotarget [amount] [repeat]`\n"
-            "Example: `/portfoliotarget 30000 repeat`",
+            "❌ Usage: `/pftarget [amount] [repeat]`\n"
+            "Example: `/pftarget 30000 repeat`",
             parse_mode="Markdown"
         )
         return

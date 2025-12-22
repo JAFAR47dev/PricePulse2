@@ -99,7 +99,7 @@ async def test_callback_handler(update: Update, context: ContextTypes.DEFAULT_TY
                 f"• *{cod_data.get('coin', 'N/A')}* — {cod_data.get('reason', 'No reason provided.')}"
             )
         else:
-            parts.append(f"\n💡 *Coin of the Day:* {cod_data}")
+            parts.append(f"\n💡 *Coin:* {cod_data}")
 
     # --- Combine all sections ---
     message = "\n".join(parts)

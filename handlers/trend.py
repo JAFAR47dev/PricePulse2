@@ -82,7 +82,7 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             if rsi > 70: r = "🔺 Overbought"
             elif rsi < 30: r = "🔻 Oversold"
             else: r = "🟡 Neutral"
-            msg += f"• *RSI:* `{rsi:.2f}` → {r}\n"
+            msg += f"• *RSI(14):* `{rsi:.2f}` → {r}\n"
         else:
             msg += "• RSI: `N/A`\n"
 
@@ -119,15 +119,15 @@ async def trend_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             msg += "• MFI: `N/A`\n"
 
         # ADX
-        if adx is not None:
-            if adx >= 25: a = "💪 Strong Trend"
-            else: a = "⚖️ Weak/No Trend"
-            msg += f"• *ADX:* `{adx:.2f}` → {a}\n"
-        else:
-            msg += "• ADX: `N/A`\n"
+#        if adx is not None:
+#            if adx >= 25: a = "💪 Strong Trend"
+#            else: a = "⚖️ Weak/No Trend"
+#            msg += f"• *ADX:* `{adx:.2f}` → {a}\n"
+#        else:
+#            msg += "• ADX: `N/A`\n"
 
-        # VWAP
-        msg += f"• *VWAP:* `${vwap:.2f}`\n" if vwap else "• VWAP: `N/A`\n"
+#        # VWAP
+#        msg += f"• *VWAP:* `${vwap:.2f}`\n" if vwap else "• VWAP: `N/A`\n"
 
         # BOLLINGER BANDS
         if bbUpper and bbMiddle and bbLower:

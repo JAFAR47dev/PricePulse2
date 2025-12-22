@@ -227,9 +227,8 @@ async def fav_callback_handler(update, context):
         keyboard = InlineKeyboardMarkup([buttons]) if buttons else None
 
        
-        await safe_edit(
-            query,
-            msg,
+        await query.edit_message_text(
+            text=msg,
             parse_mode="Markdown",
             reply_markup=keyboard
-        ) 
+        )

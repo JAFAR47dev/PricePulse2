@@ -15,11 +15,12 @@ help_pages = {
        "• `/BTC` — Coin info: price, % change, volume, ATH, etc.\n"
        "• `/trend BTC` — View indicators (1h only)\n"
        "• `/best` / `/worst` — Top 3 gainers/losers (24h)\n"
-       "• `/news` — Get latest 5 crypto headlines\n\n"
+       "• `/news` — Get latest 5 crypto headlines\n"
        "• `/cod` — Coin of the day\n"
        "• `/global` — Crypto market overview\n"
        "• `/gas` — ETH gas fees\n"
        "• `/markets btc` — Prices on major exchanges\n"
+       "• `/fav` — Keep track of your favorite crypto\n"
        "• `/links btc` — Official links for any coin\n\n"
     
        "📚 *Education & Fun:*\n"
@@ -29,7 +30,7 @@ help_pages = {
        "📐 *Utilities:*\n"
        "• `/calc 100 btc` — Crypto/fiat calculator\n"
        "• `/conv 2 eth to usd` — Crypto conversion\n"
-       "• `/hmap` — Heatmap of top 50 coins\n"
+       "• `/hmap` — Heatmap of top 100 coins\n"
        "• `/comp btc eth` – Compare 2–3 coins\n",
     
     2: "*💎 Pro-Only Features (Advanced Alerts, Portfolio, Trackers)*\n\n"
@@ -37,15 +38,15 @@ help_pages = {
        "• `/set (percent) ` — Alert on % price changes\n"
        "• `/set (volume)` — Volume spike alert\n"
        "• `/set (risk) ` — Stop-loss / Take-profit alerts\n"
-       "• `/set (custom) ` — Price + indicator alerts\n"
+       "• `/set (indicator) ` — Indicator alerts\n\n"
 
        "🧾 *Portfolio Management:*\n"
        "• `/portfolio` — View total value of assets\n"
-       "• `/addasset BTC 1.2` — Add coins to portfolio\n"
+       "• `/add BTC 1.2` — Add coins to portfolio\n"
        "• `/removeasset BTC` — Remove a coin\n"
-       "• `/clearportfolio` — Clear all assets\n"
-       "• `/portfoliolimit 15000` — Set a loss alert\n"
-       "• `/portfoliotarget 25000` — Set a profit alert\n\n"
+       "• `/clearpf` — Clear all assets\n"
+       "• `/pflimit 15000` — Set a loss alert\n"
+       "• `/pftarget 25000` — Set a profit alert\n\n"
 
        "🔔 *Watchlist Tools:*\n"
        "• `/watch BTC 5 1h` — Alert for ±% moves\n"

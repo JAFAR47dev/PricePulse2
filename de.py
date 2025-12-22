@@ -1,12 +1,17 @@
-import asyncio
-from utils.indicators import get_crypto_indicators  # replace with your actual filename
+from models.db import get_connection
 
+def drop_command_usage_table():
+    conn = get_connection()
+    cursor = conn.cursor()
 
-# 🧪 Example Test
-async def test():
-    data = await get_crypto_indicators("BTC/USD", "1h")
-    print(json.dumps(data, indent=2))
+    cursor.execute("DROP TABLE IF EXISTS command_usage")
 
+    conn.commit()
+    conn.close()
+
+    print("✅ command_usage table dropped from core database")
+
+# Run the function directly
 if __name__ == "__main__":
-    asyncio.run(test())
+    drop_command_usage_table()
     

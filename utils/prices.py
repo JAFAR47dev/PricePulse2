@@ -5,7 +5,7 @@ import asyncio
 import time
 from dotenv import load_dotenv
 
- #=== Load environment variables ===
+# === Load environment variables ===
 load_dotenv()
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3/simple/price"
@@ -19,81 +19,159 @@ with open(file_path, "r") as f:
 
 # === Caching setup ===
 CACHE = {}
-CACHE_TTL = 90 # seconds
+CACHE_TTL = 90  # seconds
+
+# === Request deduplication ===
+PENDING_REQUESTS = {}  # Track in-flight requests to avoid duplicates
 
 
-async def get_crypto_prices(symbols):  
-    """  
-    Fetch multiple crypto prices using CoinGecko API with caching and retry delay.  
-    Returns a dict like { "BTC": 67000.5, "ETH": 3200.8 }.  
-    """  
-    if isinstance(symbols, str):  
-        symbols = [symbols]  
+async def get_crypto_prices(symbols):
+    """
+    Fetch multiple crypto prices using CoinGecko API with caching, 
+    request deduplication, and retry delay.
+    Returns a dict like { "BTC": 67000.5, "ETH": 3200.8 }.
+    """
+    if isinstance(symbols, str):
+        symbols = [symbols]
 
-    # Normalize symbols  
-    symbols = [s.upper() for s in symbols]  
+    # Normalize symbols
+    symbols = [s.upper() for s in symbols]
 
-    # Check cache first  
-    now = time.time()  
-    cached_prices = {}  
-    missing_symbols = []  
+    # Check cache first
+    now = time.time()
+    cached_prices = {}
+    missing_symbols = []
 
-    for sym in symbols:  
-        cached_entry = CACHE.get(sym)  
-        if cached_entry and now - cached_entry["time"] < CACHE_TTL:  
-            cached_prices[sym] = cached_entry["price"]  
-        else:  
-            missing_symbols.append(sym)  
+    for sym in symbols:
+        cached_entry = CACHE.get(sym)
+        if cached_entry and now - cached_entry["time"] < CACHE_TTL:
+            cached_prices[sym] = cached_entry["price"]
+        else:
+            missing_symbols.append(sym)
 
-    # If all are cached, return immediately  
-    if not missing_symbols:  
-        return cached_prices  
+    # If all are cached, return immediately
+    if not missing_symbols:
+        return cached_prices
 
-    # Map missing symbols to CoinGecko IDs  
-    ids = []  
-    symbol_to_id = {}  
-    for sym in missing_symbols:  
-        coin_id = COINGECKO_IDS.get(sym)  
-        if coin_id:  
-            ids.append(coin_id)  
-            symbol_to_id[coin_id] = sym  
+    # Map missing symbols to CoinGecko IDs
+    ids = []
+    symbol_to_id = {}
+    for sym in missing_symbols:
+        coin_id = COINGECKO_IDS.get(sym)
+        if coin_id:
+            ids.append(coin_id)
+            symbol_to_id[coin_id] = sym
 
-    if not ids:  
-        print("⚠️ No valid CoinGecko IDs found for given symbols.")  
-        return cached_prices  
+    if not ids:
+        print("⚠️ No valid CoinGecko IDs found for given symbols.")
+        return cached_prices
 
-    # Build API request  
-    url = f"{COINGECKO_BASE_URL}?ids={','.join(ids)}&vs_currencies=usd"  
-    headers = {}  
-    if COINGECKO_API_KEY:  
-        headers["x-cg-demo-api-key"] = COINGECKO_API_KEY  
+    # Create request key for deduplication
+    request_key = tuple(sorted(ids))
+    
+    # Check if there's already a pending request for these IDs
+    if request_key in PENDING_REQUESTS:
+        # Wait for the existing request to complete
+        try:
+            await PENDING_REQUESTS[request_key]
+        except Exception:
+            pass  # If the original request failed, we'll retry below
+        
+        # After waiting, check cache again (the other request may have populated it)
+        fresh_prices = {}
+        still_missing = []
+        now = time.time()
+        
+        for sym in missing_symbols:
+            cached_entry = CACHE.get(sym)
+            if cached_entry and now - cached_entry["time"] < CACHE_TTL:
+                fresh_prices[sym] = cached_entry["price"]
+            else:
+                still_missing.append(sym)
+        
+        # Merge cached and fresh prices
+        cached_prices.update(fresh_prices)
+        
+        # If everything is now cached, return
+        if not still_missing:
+            return cached_prices
+        
+        # Update missing list
+        missing_symbols = still_missing
+        ids = [COINGECKO_IDS[sym] for sym in missing_symbols if sym in COINGECKO_IDS]
+        symbol_to_id = {COINGECKO_IDS[sym]: sym for sym in missing_symbols if sym in COINGECKO_IDS}
+        request_key = tuple(sorted(ids))
 
-    try:  
-        async with aiohttp.ClientSession() as session:  
-            for attempt in range(3):  # up to 3 retries  
-                async with session.get(url, headers=headers, timeout=10) as response:  
-                    if response.status == 429:  
-                        wait = 2 ** attempt  # exponential backoff (2s, 4s, 8s)  
-                        print(f"⚠️ Rate limit hit. Retrying in {wait}s...")  
-                        await asyncio.sleep(wait)  
-                        continue  
-                    elif response.status != 200:  
-                        text = await response.text()  
-                        print(f"❌ HTTP error {response.status}: {text}")  
-                        return cached_prices  
+    # Create a new request future
+    request_future = asyncio.Future()
+    PENDING_REQUESTS[request_key] = request_future
 
-                    data = await response.json()  
+    try:
+        # Build API request
+        url = f"{COINGECKO_BASE_URL}?ids={','.join(ids)}&vs_currencies=usd"
+        headers = {}
+        if COINGECKO_API_KEY:
+            headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
 
-                    # Update cache  
-                    for coin_id, content in data.items():  
-                        usd_price = content.get("usd")  
-                        if usd_price is not None:  
-                            sym = symbol_to_id[coin_id]  
-                            CACHE[sym] = {"price": float(usd_price), "time": time.time()}  
-                            cached_prices[sym] = float(usd_price)  
+        async with aiohttp.ClientSession() as session:
+            for attempt in range(3):  # up to 3 retries
+                async with session.get(url, headers=headers, timeout=10) as response:
+                    if response.status == 429:
+                        wait = 2 ** attempt  # exponential backoff (2s, 4s, 8s)
+                        print(f"⚠️ Rate limit hit. Retrying in {wait}s...")
+                        await asyncio.sleep(wait)
+                        continue
+                    elif response.status != 200:
+                        text = await response.text()
+                        print(f"❌ HTTP error {response.status}: {text}")
+                        request_future.set_exception(Exception(f"HTTP {response.status}"))
+                        return cached_prices
 
-                    return cached_prices  
+                    data = await response.json()
 
-    except Exception as e:  
-        print(f"❌ Error fetching crypto prices: {e}")  
-        return cached_prices  
+                    # Update cache
+                    for coin_id, content in data.items():
+                        usd_price = content.get("usd")
+                        if usd_price is not None:
+                            sym = symbol_to_id[coin_id]
+                            CACHE[sym] = {"price": float(usd_price), "time": time.time()}
+                            cached_prices[sym] = float(usd_price)
+
+                    # Mark request as successful
+                    request_future.set_result(True)
+                    return cached_prices
+            
+            # If all retries exhausted
+            request_future.set_exception(Exception("Max retries exceeded"))
+            return cached_prices
+
+    except Exception as e:
+        print(f"❌ Error fetching crypto prices: {e}")
+        if not request_future.done():
+            request_future.set_exception(e)
+        return cached_prices
+    finally:
+        # Clean up the pending request
+        PENDING_REQUESTS.pop(request_key, None)
+
+
+# === Bonus: Batch fetching helper ===
+async def get_crypto_prices_batch(symbol_lists, batch_delay=0.2):
+    """
+    Fetch prices for multiple groups of symbols with a small delay between batches
+    to avoid rate limits. This is useful when you have many different price requests.
+    
+    Args:
+        symbol_lists: List of symbol lists, e.g., [["BTC", "ETH"], ["SOL", "ADA"]]
+        batch_delay: Seconds to wait between batches (default: 0.2s)
+    
+    Returns:
+        List of dicts with prices for each symbol list
+    """
+    results = []
+    for i, symbols in enumerate(symbol_lists):
+        if i > 0:
+            await asyncio.sleep(batch_delay)
+        prices = await get_crypto_prices(symbols)
+        results.append(prices)
+    return results

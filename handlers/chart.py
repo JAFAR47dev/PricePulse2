@@ -55,3 +55,4 @@ async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
         caption=f"📈 *{symbol}* — {timeframe.upper()} Chart (TradingView)",
         parse_mode="Markdown"
     )
+       

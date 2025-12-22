@@ -117,8 +117,7 @@ async def predict_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     timeframe = timeframe_map[user_input_tf]
 
     await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
-    await update.message.reply_text("🧠 Analyzing market conditions and predicting... Please wait...")
-
+    
     # Fetch indicators
     indicators = await get_crypto_indicators(symbol, timeframe)
     if indicators is None:

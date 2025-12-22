@@ -9,6 +9,7 @@ from telegram.ext import (
     filters
 )
 from models.user_activity import update_last_active
+from config import ADMIN_ID
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user

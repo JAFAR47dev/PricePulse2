@@ -86,7 +86,7 @@ from tasks import register_task_handlers
 from notifications.handlers.notify_menu import register_notify_handlers
 from .add_to_group import add_to_group
 from .myplan import myplan
-
+from .signals import signals_command
 
 
 def register_all_handlers(app):
@@ -100,7 +100,7 @@ def register_all_handlers(app):
        register_stats_handler(app)
        register_task_handlers(app)
        register_notify_handlers(app) 
-       
+       register_set_handlers(app)
        
        app.add_handler(CommandHandler("start", start_command))
        app.add_handler(CommandHandler("help", help_command))
@@ -121,12 +121,26 @@ def register_all_handlers(app):
        app.add_handler(CallbackQueryHandler(handle_plan_selection, pattern=r"^back_to_crypto_(monthly|yearly|lifetime)$"))
        app.add_handler(CallbackQueryHandler(confirm_payment, pattern=r"^confirm_(monthly|yearly|lifetime)_(usdt|ton|btc)$"))
        app.add_handler(CommandHandler("c", show_chart))
-       app.add_handler(CommandHandler("portfolio", view_portfolio))
-       app.add_handler(CommandHandler("addasset", add_asset))
+       app.add_handler(CommandHandler(["portfolio", "pf"], view_portfolio))
+
+       app.add_handler(CommandHandler(["addasset", "add"], add_asset))
+
        app.add_handler(CommandHandler("removeasset", remove_asset))
-       app.add_handler(CommandHandler("portfoliolimit", set_portfolio_loss_limit))
-       app.add_handler(CommandHandler("portfoliotarget", set_portfolio_profit_target))
-       app.add_handler(CommandHandler("clearportfolio", clear_portfolio))
+
+       app.add_handler(CommandHandler(
+           ["portfoliolimit", "pflimit"],
+           set_portfolio_loss_limit
+       ))
+
+       app.add_handler(CommandHandler(
+           ["portfoliotarget", "pftarget"],
+           set_portfolio_profit_target
+       ))
+
+       app.add_handler(CommandHandler(
+           ["clearportfolio", "clearpf"],
+           clear_portfolio
+       ))
        app.add_handler(CommandHandler("setplan", set_plan))
        app.add_handler(CommandHandler("cod", coin_of_the_day))
        app.add_handler(CommandHandler("cal", calendar_command))
@@ -156,8 +170,8 @@ def register_all_handlers(app):
        #app.add_handler(CommandHandler("insights", insights_command))
        app.add_handler(CommandHandler("fav", fav_command))
        app.add_handler(CallbackQueryHandler(fav_callback_handler, pattern="^fav_"))
-       register_set_handlers(app)
-       app.add_handler(CommandHandler("addtogroup", add_to_group))     
+       app.add_handler(CommandHandler("addtogroup", add_to_group)) 
+       app.add_handler(CommandHandler("signals", signals_command))    
        #app.add_handler(ConversationHandler(
 #        entry_points=[CommandHandler("aistrat", strategy_command)],
 #        states={

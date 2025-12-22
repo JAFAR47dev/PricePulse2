@@ -80,7 +80,6 @@ async def worst_losers(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("Top 200", callback_data="worst_200"),
-            InlineKeyboardButton("Top 500", callback_data="worst_500"),
         ]
     ]
 

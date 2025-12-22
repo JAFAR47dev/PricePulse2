@@ -14,45 +14,84 @@ from models.alert import get_portfolio_value_limits  # <-- import your helper
 import json
 
 load_dotenv()
-TWELVE_KEY = os.getenv("TWELVE_DATA_API_KEY")
 
-# Cache fiat prices for 5 minutes
+COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
+
+# -----------------------
+# 60-SECOND CACHE
+# -----------------------
 fiat_cache = {}
-CACHE_DURATION = 300  # 5 minutes
+CACHE_DURATION = 60  # seconds
+
+# CoinGecko fiat IDs (lowercase required)
+FIAT_IDS = {
+    "USD": "usd",
+    "USDT": "usd",  
+    "EUR": "eur",
+    "GBP": "gbp",
+    "JPY": "jpy",
+    "NGN": "ngn",
+    "CAD": "cad",
+    "AUD": "aud",
+    "CHF": "chf",
+}
 
 
-async def get_fiat_price(symbol):
+async def get_fiat_price(symbol: str):
     """
-    Fetch fiat price (USD base) from Twelve Data API, with 5-minute caching.
+    Fetch fiat price vs USD using CoinGecko with 60s caching.
+    Returns float or None.
     """
     symbol = symbol.upper()
 
-    # Direct 1:1 mappings
-    if symbol in ["USD", "USDT"]:
+    # 1:1 mappings
+    if symbol in ("USD", "USDT"):
         return 1.0
 
-    # Return cached value if not expired
-    if symbol in fiat_cache and time.time() - fiat_cache[symbol]["time"] < CACHE_DURATION:
-        return fiat_cache[symbol]["value"]
-
-    # Supported fiats you want to fetch live (vs USD)
-    supported_fiats = ["EUR", "GBP", "JPY", "NGN", "CAD", "AUD", "CHF"]
-    if symbol not in supported_fiats:
+    if symbol not in FIAT_IDS:
         return None
 
+    # Return cached value if valid
+    cached = fiat_cache.get(symbol)
+    if cached and time.time() - cached["time"] < CACHE_DURATION:
+        return cached["value"]
+
     try:
-        url = f"https://api.twelvedata.com/price?symbol={symbol}/USD&apikey={TWELVE_KEY}"
+        params = {
+            "ids": "usd",
+            "vs_currencies": FIAT_IDS[symbol],
+        }
+
+        headers = {}
+        if COINGECKO_API_KEY:
+            headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
+
         async with aiohttp.ClientSession() as session:
-            async with session.get(url, timeout=10) as response:
-                data = await response.json()
-                if "price" in data:
-                    price = float(data["price"])
-                    fiat_cache[symbol] = {"value": price, "time": time.time()}
-                    return price
+            async with session.get(
+                "https://api.coingecko.com/api/v3/simple/price",
+                params=params,
+                headers=headers,
+                timeout=10
+            ) as resp:
+                data = await resp.json()
+
+                if "usd" not in data or FIAT_IDS[symbol] not in data["usd"]:
+                    return None
+
+                price = float(data["usd"][FIAT_IDS[symbol]])
+
+                # Cache result
+                fiat_cache[symbol] = {
+                    "value": price,
+                    "time": time.time()
+                }
+
+                return price
+
     except Exception as e:
-        print(f"⚠️ Error fetching fiat price for {symbol}: {e}")
+        print(f"⚠️ CoinGecko fiat price error ({symbol}): {e}")
+
     return None
-    
 
 async def check_price_alerts(context, symbol_prices):
     conn = get_connection()
@@ -476,7 +515,7 @@ async def check_portfolio_alerts(context, symbol_prices):
                             text=(
                                 f"⚠️ *Portfolio Loss Alert*\n"
                                 f"Your total value dropped to **${total_value:,.2f}**.\n"
-                                f"Loss limit: **${loss_limit:,.2f}**"
+                                f"Loss limit: **${limit_data['loss_limit']:,.2f}**"
                             ),
                             parse_mode="Markdown"
                         )
@@ -502,7 +541,7 @@ async def check_portfolio_alerts(context, symbol_prices):
                             text=(
                                 f"🎯 *Portfolio Target Reached*\n"
                                 f"Your total value is now **${total_value:,.2f}**.\n"
-                                f"Target goal: **${profit_target:,.2f}**"
+                                f"Target goal: **${limit_data['profit_target']:,.2f}**"
                             ),
                             parse_mode="Markdown"
                         )

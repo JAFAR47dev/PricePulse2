@@ -63,7 +63,7 @@ def get_stats():
     # Alerts by type
     for table in [
         "alerts", "percent_alerts", "volume_alerts",
-        "risk_alerts", "custom_alerts", "portfolio_alerts", "watchlist"
+        "risk_alerts", "indicator_alerts", "portfolio_alerts", "watchlist"
     ]:
         cursor.execute(f"SELECT COUNT(*) FROM {table}")
         stats[table] = cursor.fetchone()[0]

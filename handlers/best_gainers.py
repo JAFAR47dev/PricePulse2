@@ -91,7 +91,6 @@ async def best_gainers(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("Top 200", callback_data="best_200"),
-            InlineKeyboardButton("Top 500", callback_data="best_500"),
         ]
     ]
 

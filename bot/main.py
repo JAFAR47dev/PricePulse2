@@ -40,7 +40,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from handlers import register_all_handlers
 from tasks.check_expiry import check_expired_pro_users
 from tasks.models import create_referrals_table, create_task_progress_table
-from models.db import init_db
+from db.migrations import init_db
+from models.analytics_table import init_analytics_tables
 from services.alert_service import start_alert_checker, run_ai_strategy_checker
 from services.refresh_tokens import refresh_top_tokens
 from services.refresh_whales import refresh_all_whales
@@ -60,6 +61,7 @@ if not TOKEN:
 
 def main():
     init_db()
+    init_analytics_tables() 
     init_favorites_table()
     create_referrals_table()
     create_task_progress_table()
@@ -87,7 +89,7 @@ def main():
     app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=200)
     app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=300)
     app.job_queue.run_repeating(start_monitor, interval=300, first=400)
-    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=500)
+    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=150)
     
     start_alert_checker(app.job_queue)
     start_notifications_scheduler(app)
