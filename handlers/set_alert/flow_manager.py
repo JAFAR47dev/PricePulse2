@@ -378,22 +378,28 @@ async def set_alert_message_router(update, context):
     elif step == "details_input":
         return await details_input_handler(update, context)
 
-from handlers.fav.fav_handler import fav_text_handler    
+from handlers.fav.fav_handler import fav_text_handler
+from handlers.broadcast import broadcast_message_handler
 
 async def global_text_router(update, context):
     ud = context.user_data
     print("DEBUG global router:", ud)
 
-    # Priority 1: /set flow
+    # Priority 1: /broadcast flow (admin only)
+    if ud.get("broadcast_mode"):
+        return await broadcast_message_handler(update, context)
+
+    # Priority 2: /set flow
     if ud.get("alert_flow"):
         return await set_alert_message_router(update, context)
 
-    # Priority 2: /fav flow
+    # Priority 3: /fav flow
     if ud.get("fav_mode"):
         return await fav_text_handler(update, context)
 
     # Not in any mode → ignore
     return
+    
            
     # Ignore unrelated messages
 def register_set_handlers(app):

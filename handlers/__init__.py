@@ -4,7 +4,7 @@ from telegram.ext import (
     ConversationHandler, MessageHandler, ContextTypes, filters
 )
 
-
+from handlers.broadcast import register_broadcast_handlers
 from handlers.set_alert.flow_manager import register_set_handlers
 from .alert_handlers import register_alert_handlers
 from .chart import show_chart
@@ -101,6 +101,7 @@ def register_all_handlers(app):
        register_task_handlers(app)
        register_notify_handlers(app) 
        register_set_handlers(app)
+       register_broadcast_handlers(app)
        
        app.add_handler(CommandHandler("start", start_command))
        app.add_handler(CommandHandler("help", help_command))

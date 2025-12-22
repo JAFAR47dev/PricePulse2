@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from notifications.models import get_user_notification_settings
 from notifications.services.notification_data import get_notification_data
-from notifications.scheduler import send_notification
+from notifications.scheduler import send_notification_with_retry
 
 
 async def test_callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -105,7 +105,7 @@ async def test_callback_handler(update: Update, context: ContextTypes.DEFAULT_TY
     message = "\n".join(parts)
 
     # --- Send the message using the user's preferred method ---
-    await send_notification(context.bot, settings, message)
+    await send_notification_with_retry(context.bot, settings, message)
 
     # --- Confirm to user ---
     await query.answer("✅ Test notification sent!")
