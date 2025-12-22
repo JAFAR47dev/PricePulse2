@@ -40,7 +40,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from handlers import register_all_handlers
 from tasks.check_expiry import check_expired_pro_users
 from tasks.models import create_referrals_table, create_task_progress_table
-from db.migrations import init_db
+from database.migrations import init_db
 from models.analytics_table import init_analytics_tables
 from services.alert_service import start_alert_checker, run_ai_strategy_checker
 from services.refresh_tokens import refresh_top_tokens
