@@ -80,7 +80,6 @@ help_pages = {
     5: "*🌍 Forex Tools & Community*\n\n"
        "• `/fx eurusd` – Live forex rates\n"
        "• `/fxchart` – Forex Charts\n"
-       "• `/fxconv 100 gbp to usd` – Fiat conversions\n"
        "• `/fxsessions` – Open forex markets\n"
        "• [Join Community](https://t.me/+tSWwj5w7S8hkZmM0) – Questions & updates\n"
        "• Admin support: DM @PricePulseDev \n\n"

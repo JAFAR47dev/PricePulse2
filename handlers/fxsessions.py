@@ -6,18 +6,24 @@ import pytz
 from tasks.handlers import handle_streak
 from models.user_activity import update_last_active
 
-# Sessions defined as LOCAL market hours (local timezone + open/close hour)
-# This is DST-safe because we convert the local times to UTC for each date.
+# Sessions defined with their UTC offset ranges (when they're open in UTC time)
+# These are approximate and account for typical DST patterns
 SESSIONS = [
-    {"name": "Sydney", "tz": "Australia/Sydney", "open": 8, "close": 17},
-    {"name": "Tokyo",  "tz": "Asia/Tokyo",      "open": 9, "close": 18},
-    {"name": "London", "tz": "Europe/London",   "open": 8, "close": 17},
-    {"name": "New York", "tz": "America/New_York", "open": 8, "close": 17},
-    {"name": "Hong Kong", "tz": "Asia/Hong_Kong", "open": 9, "close": 18},
+    # Sydney: typically opens around 22:00 UTC (previous day) to 07:00 UTC
+    {"name": "Sydney", "utc_open": 22, "utc_close": 7, "crosses_midnight": True},
+    # Tokyo: typically opens around 00:00 UTC to 09:00 UTC
+    {"name": "Tokyo", "utc_open": 0, "utc_close": 9, "crosses_midnight": False},
+    # London: typically opens around 08:00 UTC to 17:00 UTC (winter) / 07:00-16:00 (summer)
+    {"name": "London", "utc_open": 8, "utc_close": 17, "crosses_midnight": False},
+    # New York: typically opens around 13:00 UTC to 22:00 UTC (winter) / 12:00-21:00 (summer)
+    {"name": "New York", "utc_open": 13, "utc_close": 22, "crosses_midnight": False},
+    # Hong Kong: typically opens around 01:00 UTC to 10:00 UTC
+    {"name": "Hong Kong", "utc_open": 1, "utc_close": 10, "crosses_midnight": False},
 ]
 
+
 def format_timedelta(td: timedelta) -> str:
-    # friendly Hh Mm
+    """Format timedelta as 'Xh Ym' or 'Ym'"""
     total_seconds = int(td.total_seconds())
     if total_seconds < 0:
         total_seconds = 0
@@ -27,114 +33,148 @@ def format_timedelta(td: timedelta) -> str:
         return f"{hours}h {minutes}m"
     return f"{minutes}m"
 
-def make_aware_local(dt_date, hour, local_tz):
-    """Return a timezone-aware datetime in local_tz for date dt_date at given hour."""
-    local_naive = datetime.combine(dt_date, time(hour, 0))
-    local = local_tz.localize(local_naive, is_dst=None)
-    return local
 
-def get_session_status(session, now_utc, user_tz):
+def get_session_status(session: dict, now_utc: datetime) -> str:
     """
-    Calculate open/closed for a session.
-    session: dict with keys name, tz (pytz zone string), open (int hour), close (int hour)
-    now_utc: timezone-aware UTC datetime
-    user_tz: timezone object or tzinfo for user's local display
+    Calculate if a session is open/closed based on UTC time.
+    
+    Args:
+        session: dict with 'name', 'utc_open', 'utc_close', 'crosses_midnight'
+        now_utc: current UTC datetime (timezone-aware)
+    
+    Returns:
+        Formatted status string
     """
-    local_tz = pytz.timezone(session["tz"])
-    local_now = now_utc.astimezone(local_tz)
-    today = local_now.date()
-
-    open_local = make_aware_local(today, session["open"], local_tz)
-    close_local = make_aware_local(today, session["close"], local_tz)
-
-    # If close <= open in local time, session crosses midnight (close is next day)
-    if close_local <= open_local:
-        close_local = close_local + timedelta(days=1)
-
-    open_utc = open_local.astimezone(pytz.utc)
-    close_utc = close_local.astimezone(pytz.utc)
-
-    # If now is before open_utc but local_now is after midnight and it's actually part of previous day's session,
-    # also check previous day's open (handles early local morning hours falling into previous day's session)
-    if now_utc < open_utc and (local_now.hour < session["open"]):
-        # try previous day's session
-        prev_open_local = make_aware_local(today - timedelta(days=1), session["open"], local_tz)
-        prev_close_local = make_aware_local(today - timedelta(days=1), session["close"], local_tz)
-        if prev_close_local <= prev_open_local:
-            prev_close_local = prev_close_local + timedelta(days=1)
-        prev_open_utc = prev_open_local.astimezone(pytz.utc)
-        prev_close_utc = prev_close_local.astimezone(pytz.utc)
-        if prev_open_utc <= now_utc < prev_close_utc:
-            open_utc, close_utc = prev_open_utc, prev_close_utc
-
-    is_open = (open_utc <= now_utc < close_utc)
-
-    if is_open:
-        time_left = close_utc - now_utc
-        local_close_for_user = close_utc.astimezone(user_tz).strftime("%Y-%m-%d %H:%M")
-        return f"🟢 *{session['name']}*: Open — Closes in {format_timedelta(time_left)} (at {local_close_for_user})"
-    else:
-        # find next open (today or tomorrow)
-        if now_utc < open_utc:
-            next_open_utc = open_utc
+    current_hour = now_utc.hour
+    current_minute = now_utc.minute
+    
+    open_hour = session["utc_open"]
+    close_hour = session["utc_close"]
+    crosses_midnight = session["crosses_midnight"]
+    
+    # Create datetime objects for open and close times today
+    today = now_utc.date()
+    open_time = datetime.combine(today, time(open_hour, 0)).replace(tzinfo=pytz.utc)
+    close_time = datetime.combine(today, time(close_hour, 0)).replace(tzinfo=pytz.utc)
+    
+    # Handle sessions that cross midnight
+    if crosses_midnight:
+        # If close_hour < open_hour, the close is on the next day
+        close_time = close_time + timedelta(days=1)
+        
+        # Check if we're in the session (either today's late hours or tomorrow's early hours)
+        if now_utc >= open_time or now_utc < close_time:
+            is_open = True
+            # Calculate time until close
+            if now_utc >= open_time:
+                time_left = close_time - now_utc
+            else:
+                # We're in the early morning hours of the next day
+                time_left = close_time - now_utc
         else:
-            # next day's open
-            next_open_local = make_aware_local(today + timedelta(days=1), session["open"], local_tz)
-            next_open_utc = next_open_local.astimezone(pytz.utc)
+            is_open = False
+            # Next open is today at open_hour
+            if now_utc < open_time:
+                next_open = open_time
+            else:
+                next_open = open_time + timedelta(days=1)
+            time_until = next_open - now_utc
+    else:
+        # Normal session (doesn't cross midnight)
+        if open_time <= now_utc < close_time:
+            is_open = True
+            time_left = close_time - now_utc
+        else:
+            is_open = False
+            # Calculate next open
+            if now_utc < open_time:
+                next_open = open_time
+            else:
+                # Next open is tomorrow
+                next_open = open_time + timedelta(days=1)
+            time_until = next_open - now_utc
+    
+    # Format the status message
+    if is_open:
+        close_time_str = close_time.strftime("%H:%M UTC")
+        return f"🟢 *{session['name']}*: Open — Closes in {format_timedelta(time_left)} (at {close_time_str})"
+    else:
+        next_open_str = next_open.strftime("%H:%M UTC")
+        day_suffix = " (tomorrow)" if next_open.date() > now_utc.date() else ""
+        return f"🔴 *{session['name']}*: Closed — Opens in {format_timedelta(time_until)} (at {next_open_str}{day_suffix})"
 
-        time_until = next_open_utc - now_utc
-        next_open_local_for_user = next_open_utc.astimezone(user_tz).strftime("%Y-%m-%d %H:%M")
-        return f"🔴 *{session['name']}*: Closed — Opens in {format_timedelta(time_until)} (at {next_open_local_for_user})"
 
-def forex_weekend_window():
+def is_forex_weekend(now_utc: datetime) -> tuple[bool, datetime | None]:
     """
-    Returns two timezone-aware datetimes (utc) marking the weekend close and reopen:
-    closed_from (Fri 22:00 UTC) up to (but not including) reopen_at (Sun 22:00 UTC).
+    Check if it's forex weekend (Friday 22:00 UTC to Sunday 22:00 UTC).
+    
+    Returns:
+        (is_weekend, reopen_time)
     """
-    now = datetime.utcnow().replace(tzinfo=pytz.utc)
-    # Find most recent Friday
-    friday = now.date() + timedelta((4 - now.weekday()) % 7)  # next or this Friday
-    # But we want the nearest previous Friday relative to now — simplify: compute last Friday
-    # safer approach:
-    last_friday = now.date() - timedelta(days=(now.weekday() - 4) % 7)
-    closed_from = datetime.combine(last_friday, time(22, 0)).replace(tzinfo=pytz.utc)
-    # reopen is next Sunday 22:00 UTC after that Friday
-    reopen_date = (last_friday + timedelta(days=2))  # Sunday
-    reopen_at = datetime.combine(reopen_date, time(22, 0)).replace(tzinfo=pytz.utc)
-    return closed_from, reopen_at
+    weekday = now_utc.weekday()  # 0=Monday, 4=Friday, 6=Sunday
+    hour = now_utc.hour
+    
+    # Friday after 22:00 UTC
+    if weekday == 4 and hour >= 22:
+        # Calculate when Sunday 22:00 UTC is
+        days_until_sunday = 2
+        reopen_date = now_utc.date() + timedelta(days=days_until_sunday)
+        reopen_time = datetime.combine(reopen_date, time(22, 0)).replace(tzinfo=pytz.utc)
+        return True, reopen_time
+    
+    # All of Saturday
+    if weekday == 5:
+        # Calculate Sunday 22:00 UTC
+        days_until_sunday = 1
+        reopen_date = now_utc.date() + timedelta(days=days_until_sunday)
+        reopen_time = datetime.combine(reopen_date, time(22, 0)).replace(tzinfo=pytz.utc)
+        return True, reopen_time
+    
+    # Sunday before 22:00 UTC
+    if weekday == 6 and hour < 22:
+        # Reopen today at 22:00 UTC
+        reopen_time = datetime.combine(now_utc.date(), time(22, 0)).replace(tzinfo=pytz.utc)
+        return True, reopen_time
+    
+    return False, None
+
 
 async def fxsessions_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
     Handler: /fxsessions
-    Shows Forex market session status (UTC-aware, DST-correct, shows local times).
+    Shows Forex market session status in UTC time.
     """
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/fxsessions")
     await handle_streak(update, context)
 
-    now_utc = datetime.utcnow().replace(tzinfo=pytz.utc)
-
-    # user's local tz (system local)
-    user_tz = datetime.now().astimezone().tzinfo
-
-    # Weekend detection: closed Friday 22:00 UTC -> Sunday 22:00 UTC
-    closed_from, reopen_at = forex_weekend_window()
-    if closed_from <= now_utc < reopen_at:
-        next_local_open = reopen_at.astimezone(user_tz)
+    # Get current UTC time
+    now_utc = datetime.now(pytz.utc)
+    current_time_str = now_utc.strftime("%A, %B %d, %Y at %H:%M UTC")
+    
+    # Check if it's weekend
+    is_weekend, reopen_time = is_forex_weekend(now_utc)
+    
+    if is_weekend:
+        time_until_open = reopen_time - now_utc
+        reopen_str = reopen_time.strftime("%A at %H:%M UTC")
+        
         text = (
-            f"🕒 Your local time: *{now_utc.astimezone(user_tz).strftime('%A %Y-%m-%d %H:%M')}*\n"
-            "📅 It's the weekend — Forex markets are currently *closed*.\n\n"
-            f"🟠 Trading resumes: *{reopen_at.strftime('%Y-%m-%d %H:%M UTC')}* "
-            f"→ local: *{next_local_open.strftime('%A %H:%M')}*"
+            f"🕒 Current time: *{current_time_str}*\n\n"
+            "📅 *Weekend — Forex markets are closed*\n\n"
+            f"🟠 Markets reopen: *{reopen_str}*\n"
+            f"⏰ Time until open: *{format_timedelta(time_until_open)}*"
         )
         return await update.message.reply_text(text, parse_mode="Markdown")
-
-    # Otherwise compute session statuses
-    session_lines = [get_session_status(s, now_utc, user_tz) for s in SESSIONS]
-
+    
+    # Get status for all sessions
+    session_lines = [get_session_status(session, now_utc) for session in SESSIONS]
+    
     text = (
-        f"🕒 Your local time: *{now_utc.astimezone(user_tz).strftime('%A %Y-%m-%d %H:%M')}*\n"
+        f"🕒 Current time: *{current_time_str}*\n\n"
         "🌐 *Forex Session Status*\n\n" +
-        "\n".join(session_lines)
+        "\n\n".join(session_lines) +
+        "\n\n_All times shown in UTC_"
     )
+    
     await update.message.reply_text(text, parse_mode="Markdown")

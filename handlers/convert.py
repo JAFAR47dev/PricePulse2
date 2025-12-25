@@ -41,6 +41,7 @@ def format_num(n: float) -> str:
 
 
 async def fetch_price(coin_id: str, vs: str):
+    """Fetch crypto price in specified currency (fiat or crypto)"""
     url = "https://api.coingecko.com/api/v3/simple/price"
     params = {"ids": coin_id, "vs_currencies": vs}
 
@@ -52,6 +53,30 @@ async def fetch_price(coin_id: str, vs: str):
             return data.get(coin_id, {}).get(vs)
 
 
+async def fetch_exchange_rate(from_fiat: str, to_fiat: str):
+    """Fetch fiat-to-fiat exchange rate using a crypto intermediary (USD)"""
+    # Use BTC as intermediary to get fiat rates
+    btc_id = "bitcoin"
+    
+    async with aiohttp.ClientSession(headers=HEADERS) as session:
+        url = "https://api.coingecko.com/api/v3/simple/price"
+        params = {"ids": btc_id, "vs_currencies": f"{from_fiat.lower()},{to_fiat.lower()}"}
+        
+        async with session.get(url, params=params, timeout=10) as r:
+            if r.status != 200:
+                return None
+            data = await r.json()
+            btc_data = data.get(btc_id, {})
+            
+            from_rate = btc_data.get(from_fiat.lower())
+            to_rate = btc_data.get(to_fiat.lower())
+            
+            if from_rate and to_rate:
+                # Convert via BTC: from_fiat -> BTC -> to_fiat
+                return to_rate / from_rate
+            return None
+
+
 async def convert_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/conv")
@@ -60,7 +85,11 @@ async def convert_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         if len(context.args) != 4 or context.args[2].lower() != "to":
             return await update.message.reply_text(
-                "❌ Usage:\n`/conv 2 eth to usd`\n`/conv 100 usd to btc`",
+                "❌ Usage:\n"
+                "`/conv 2 eth to usd` (Crypto → Fiat)\n"
+                "`/conv 100 usd to btc` (Fiat → Crypto)\n"
+                "`/conv 1 btc to eth` (Crypto → Crypto)\n"
+                "`/conv 100 usd to eur` (Fiat → Fiat)",
                 parse_mode=ParseMode.MARKDOWN
             )
 
@@ -73,7 +102,15 @@ async def convert_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         from_is_fiat = from_symbol in FIAT_CURRENCIES
         to_is_fiat = to_symbol in FIAT_CURRENCIES
 
-        # 🔹 Crypto → Fiat
+        # Validate input
+        if not ((from_is_crypto or from_is_fiat) and (to_is_crypto or to_is_fiat)):
+            return await update.message.reply_text(
+                f"❌ Unsupported currency: *{from_symbol}* or *{to_symbol}*\n\n"
+                "Please use valid crypto symbols (BTC, ETH, etc.) or fiat codes (USD, EUR, etc.)",
+                parse_mode=ParseMode.MARKDOWN
+            )
+
+        # 🔹 Case 1: Crypto → Fiat
         if from_is_crypto and to_is_fiat:
             coin_id = COINGECKO_IDS[from_symbol]
             rate = await fetch_price(coin_id, to_symbol.lower())
@@ -88,7 +125,7 @@ async def convert_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 f"(1 {from_symbol} = {format_num(rate)} {to_symbol})"
             )
 
-        # 🔹 Fiat → Crypto
+        # 🔹 Case 2: Fiat → Crypto
         elif from_is_fiat and to_is_crypto:
             coin_id = COINGECKO_IDS[to_symbol]
             rate = await fetch_price(coin_id, from_symbol.lower())
@@ -103,12 +140,45 @@ async def convert_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 f"(1 {to_symbol} = {format_num(rate)} {from_symbol})"
             )
 
+        # 🔹 Case 3: Crypto → Crypto
+        elif from_is_crypto and to_is_crypto:
+            from_coin_id = COINGECKO_IDS[from_symbol]
+            to_coin_id = COINGECKO_IDS[to_symbol]
+            
+            # Get both prices in USD for comparison
+            from_price_usd = await fetch_price(from_coin_id, "usd")
+            to_price_usd = await fetch_price(to_coin_id, "usd")
+
+            if from_price_usd is None or to_price_usd is None:
+                raise Exception("Rate fetch failed")
+
+            # Calculate cross rate
+            rate = from_price_usd / to_price_usd
+            converted = amount * rate
+            
+            text = (
+                f"💱 *{format_num(amount)} {from_symbol}* = "
+                f"*{format_num(converted)} {to_symbol}*\n"
+                f"(1 {from_symbol} = {format_num(rate)} {to_symbol})"
+            )
+
+        # 🔹 Case 4: Fiat → Fiat
+        elif from_is_fiat and to_is_fiat:
+            rate = await fetch_exchange_rate(from_symbol, to_symbol)
+
+            if rate is None:
+                raise Exception("Rate fetch failed")
+
+            converted = amount * rate
+            text = (
+                f"💱 *{format_num(amount)} {from_symbol}* = "
+                f"*{format_num(converted)} {to_symbol}*\n"
+                f"(1 {from_symbol} = {format_num(rate)} {to_symbol})"
+            )
+
         else:
             return await update.message.reply_text(
-                "❌ Only *Crypto ↔ Fiat* conversions are supported.\n\n"
-                "Examples:\n"
-                "`/conv 2 eth to usd`\n"
-                "`/conv 100 usd to btc`",
+                "❌ Invalid conversion pair.",
                 parse_mode=ParseMode.MARKDOWN
             )
 

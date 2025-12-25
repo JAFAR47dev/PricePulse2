@@ -58,7 +58,6 @@ handle_join_community, handle_back_to_start
 from .trend import trend_command
 from .worst_losers import worst_losers, worst_callback_handler
 from .fx import fx_command
-from .fxconv import fxconv_command
 from .fxchart import fxchart_command
 from .fxsessions import fxsessions_command
 from .strategy_builder import (
@@ -159,7 +158,6 @@ def register_all_handlers(app):
        app.add_handler(CommandHandler("funfact", funfact_command))
        app.add_handler(CallbackQueryHandler(funfact_random_callback, pattern="funfact_random"))
        app.add_handler(CommandHandler("fx", fx_command))
-       app.add_handler(CommandHandler("fxconv", fxconv_command))
        app.add_handler(CommandHandler("fxchart", fxchart_command))
        app.add_handler(CommandHandler("fxsessions", fxsessions_command))
        app.add_handler(CommandHandler("best", best_gainers))

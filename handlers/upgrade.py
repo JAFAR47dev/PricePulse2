@@ -39,7 +39,7 @@ async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
    "💎 *Upgrade to Pro & Unlock Your Full Trading Power*\n\n"
     "🚀 *Why Go Pro?*\n"
     "• Unlimited alerts — never miss a move\n"
-    "• % change, volume, risk & custom alert types\n"
+    "• % change, volume, risk & indicator alert types\n"
     "• Full chart timeframes & advanced trend analysis\n"
     "• AI predictions, backtests, scanners & pattern detection\n"
     "• Portfolio tracking with SL/TP automation\n"
