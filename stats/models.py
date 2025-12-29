@@ -1,31 +1,50 @@
 from models.db import get_connection
-from datetime import datetime, timedelta
+from models.analytics_db import get_analytics_connection
+from datetime import datetime
 
-def get_top_commands(cursor, interval):
-    cursor.execute(f"""
+
+# ---------- ANALYTICS (command_usage DB) ----------
+
+def get_top_commands(interval):
+    conn = get_analytics_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
         SELECT command, COUNT(*) AS total
         FROM command_usage
-        WHERE used_at >= DATETIME('now', '-{interval}')
+        WHERE used_at >= DATETIME('now', ?)
         GROUP BY command
         ORDER BY total DESC
         LIMIT 5
-    """)
+    """, (f"-{interval}",))
+
     rows = cursor.fetchall()
+    conn.close()
+
     return [(cmd, int(total)) for cmd, total in rows] if rows else []
 
-def get_least_commands(cursor, interval):
-    cursor.execute(f"""
+
+def get_least_commands(interval):
+    conn = get_analytics_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
         SELECT command, COUNT(*) AS total
         FROM command_usage
-        WHERE used_at >= DATETIME('now', '-{interval}')
+        WHERE used_at >= DATETIME('now', ?)
         GROUP BY command
         ORDER BY total ASC
         LIMIT 5
-    """)
+    """, (f"-{interval}",))
+
     rows = cursor.fetchall()
+    conn.close()
+
     return [(cmd, int(total)) for cmd, total in rows] if rows else []
-    
-    
+
+
+# ---------- MAIN STATS (main DB) ----------
+
 def get_stats():
     conn = get_connection()
     cursor = conn.cursor()
@@ -40,7 +59,7 @@ def get_stats():
     stats["pro_users"] = cursor.fetchone()[0]
     stats["free_users"] = stats["total_users"] - stats["pro_users"]
 
-    # Active users (last 24h / 7d / 30d)
+    # Active users
     cursor.execute("SELECT COUNT(*) FROM users WHERE last_active >= DATETIME('now', '-1 day')")
     stats["active_24h"] = cursor.fetchone()[0]
 
@@ -49,31 +68,24 @@ def get_stats():
 
     cursor.execute("SELECT COUNT(*) FROM users WHERE last_active >= DATETIME('now', '-30 days')")
     stats["active_30d"] = cursor.fetchone()[0]
-    
-    stats["top_commands_24h"] = get_top_commands(cursor, "1 day")
-    stats["least_commands_24h"] = get_least_commands(cursor, "1 day")
-
-    stats["top_commands_7d"] = get_top_commands(cursor, "7 days")
-    stats["least_commands_7d"] = get_least_commands(cursor, "7 days")
-
-    stats["top_commands_30d"] = get_top_commands(cursor, "30 days")
-    stats["least_commands_30d"] = get_least_commands(cursor, "30 days")
-    
 
     # Alerts by type
     for table in [
-        "alerts", "percent_alerts", "volume_alerts",
-        "risk_alerts", "indicator_alerts", "portfolio_alerts", "watchlist"
+        "alerts",
+        "percent_alerts",
+        "volume_alerts",
+        "risk_alerts",
+        "indicator_alerts",
+        "portfolio_alerts",
+        "watchlist",
     ]:
         cursor.execute(f"SELECT COUNT(*) FROM {table}")
         stats[table] = cursor.fetchone()[0]
 
-    
     # Referrals
     cursor.execute("SELECT COUNT(*) FROM referrals")
     stats["total_referrals"] = cursor.fetchone()[0]
 
-    # Top referrer
     cursor.execute("""
         SELECT referrer_id, COUNT(*) AS count
         FROM referrals
@@ -86,5 +98,15 @@ def get_stats():
     stats["top_referral_count"] = row[1] if row else 0
 
     conn.close()
+
+    # ---------- Command usage (analytics DB) ----------
+    stats["top_commands_24h"] = get_top_commands("1 day")
+    stats["least_commands_24h"] = get_least_commands("1 day")
+
+    stats["top_commands_7d"] = get_top_commands("7 days")
+    stats["least_commands_7d"] = get_least_commands("7 days")
+
+    stats["top_commands_30d"] = get_top_commands("30 days")
+    stats["least_commands_30d"] = get_least_commands("30 days")
+
     return stats
-    

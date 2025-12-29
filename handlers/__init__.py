@@ -51,9 +51,17 @@ from .news import crypto_news
 from .prediction import predict_command
 from .referral import referral_command
 from .start import (
-start_command, handle_upgrade_menu,
-handle_how_it_helps, handle_view_commands,
-handle_join_community, handle_back_to_start
+    start_command, 
+    handle_upgrade_menu,
+    handle_how_it_helps, 
+    handle_alerts,
+    handle_markets,
+    handle_trade,
+    handle_portfolio,
+    handle_ai,
+    handle_learn,
+    handle_account,
+    handle_back_to_start
 )
 from .trend import trend_command
 from .worst_losers import worst_losers, worst_callback_handler
@@ -103,13 +111,18 @@ def register_all_handlers(app):
        register_broadcast_handlers(app)
        
        app.add_handler(CommandHandler("start", start_command))
+       app.add_handler(CallbackQueryHandler(handle_upgrade_menu, pattern="^upgrade_menu$"))
+       app.add_handler(CallbackQueryHandler(handle_how_it_helps, pattern="^how_it_helps$"))
+       app.add_handler(CallbackQueryHandler(handle_alerts, pattern="^alerts$"))
+       app.add_handler(CallbackQueryHandler(handle_markets, pattern="^markets$"))
+       app.add_handler(CallbackQueryHandler(handle_trade, pattern="^trade$"))
+       app.add_handler(CallbackQueryHandler(handle_portfolio, pattern="^portfolio$"))
+       app.add_handler(CallbackQueryHandler(handle_ai, pattern="^ai$"))
+       app.add_handler(CallbackQueryHandler(handle_learn, pattern="^learn$"))
+       app.add_handler(CallbackQueryHandler(handle_account, pattern="^account$"))
+       app.add_handler(CallbackQueryHandler(handle_back_to_start, pattern="^back_to_start$"))
        app.add_handler(CommandHandler("help", help_command))
        app.add_handler(CallbackQueryHandler(handle_help_pagination, pattern=r"^help_"))
-       app.add_handler(CallbackQueryHandler(handle_upgrade_menu, pattern="^upgrade_menu$"))    
-       app.add_handler(CallbackQueryHandler(handle_how_it_helps, pattern="^how_it_helps$"))
-       app.add_handler(CallbackQueryHandler(handle_view_commands, pattern="^view_commands$"))
-       app.add_handler(CallbackQueryHandler(handle_join_community, pattern="^join_community$"))
-       app.add_handler(CallbackQueryHandler(handle_back_to_start, pattern="^back_to_start$"))
        app.add_handler(CommandHandler("referral", referral_command))
        app.add_handler(CommandHandler("prolist", pro_user_list))
        app.add_handler(CommandHandler("myplan", myplan))

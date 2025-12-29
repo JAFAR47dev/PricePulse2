@@ -131,6 +131,14 @@ def get_all_active_users():
             group_id,
             morning_time,
             evening_time,
+            
+            include_global,
+            include_gainers,
+            include_losers,
+            include_news,
+            include_gas,
+            include_cod,
+        
             COALESCE(timezone, 'UTC') AS timezone
         FROM user_notifications
         WHERE frequency != 'off'

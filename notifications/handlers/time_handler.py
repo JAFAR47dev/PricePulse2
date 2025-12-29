@@ -33,7 +33,8 @@ async def time_menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     keyboard = build_keyboard(MORNING, "notify_time_morning_")
     await query.message.edit_text(
-        "⏰ *Select Morning Notification Time:*",
+        "⏰ *Select Morning Notification Time:*\n"
+        "_Times shown are in UTC_",
         parse_mode="Markdown",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
@@ -60,7 +61,8 @@ async def apply_morning_time(update: Update, context: ContextTypes.DEFAULT_TYPE)
     if settings["frequency"] == "twice":
         keyboard = build_keyboard(EVENING, "notify_time_evening_")
         return await query.message.edit_text(
-            f"✅ Morning time set: *{local_time}*\n\nNow select *Evening Time*: ",
+            f"✅ Morning time set: *{local_time}*\n\nNow select *Evening Time*: \n"
+            "_Times shown are in UTC_",
             parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup(keyboard),
         )

@@ -92,15 +92,22 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "✨ Join the growing Pro community and level up your trading!"
     )
 
-    # --- Inline Buttons ---
+    # --- Inline Buttons (3 per row, logically grouped) ---
     keyboard = [
         [
-            InlineKeyboardButton("🚀 Upgrade", callback_data="upgrade_menu"),
-            InlineKeyboardButton("📈 How It Helps", callback_data="how_it_helps")
+            InlineKeyboardButton("🔔 Alerts", callback_data="alerts"),
+            InlineKeyboardButton("📊 Markets", callback_data="markets"),
+            InlineKeyboardButton("💰 Trade", callback_data="trade")
         ],
         [
-            InlineKeyboardButton("📚 View Commands", callback_data="view_commands"),
-            InlineKeyboardButton("👥 Join Community", callback_data="join_community")
+            InlineKeyboardButton("📁 Portfolio", callback_data="portfolio"),
+            InlineKeyboardButton("🤖 AI", callback_data="ai"),
+            InlineKeyboardButton("📚 Learn", callback_data="learn")
+        ],
+        [
+            InlineKeyboardButton("📈 How It Helps", callback_data="how_it_helps"),
+            InlineKeyboardButton("🚀 Upgrade", callback_data="upgrade_menu"),
+            InlineKeyboardButton("👤 Account", callback_data="account")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -110,6 +117,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=reply_markup,
         parse_mode="Markdown"
     )
+    
 
 async def handle_upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -155,155 +163,187 @@ async def handle_how_it_helps(update: Update, context: ContextTypes.DEFAULT_TYPE
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     await query.edit_message_text(text=upgrade_text, parse_mode="Markdown", reply_markup=reply_markup)
-    
-    
-async def handle_view_commands(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+async def handle_alerts(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-    upgrade_text = (
-    "📘 *Available Bot Commands*\n\n"
-
-    "━━━━━━━━━━━━━━━━━━━\n"
-    "⚙️ *Free Plan Commands*\n"
-    "━━━━━━━━━━━━━━━━━━━\n"
-    "🛎️ *Basic Alerts:*\n"
-    "• `/set (price)` — Set price-based alerts \n"
-    "• `/alerts` — View your active alerts\n"
-    "• `/remove ` — Remove a specific alert type\n"
-    "• `/removeall` — Delete all alerts\n\n"
-
-    "📊 *Charts & Data:*\n"
-    "• `/c BTC` — View 1h TradingView chart\n"
-    "• `/BTC` — Coin info: price, % change, volume, ATH, etc.\n"
-    "• `/trend BTC` — View indicators (1h only)\n"
-    "• `/best` / `/worst` — Top 3 gainers/losers (24h)\n"
-    "• `/news` — Get latest 5 crypto headlines\n\n"
-    "• `/cod` — Coin of the day\n"
-    "• `/global` — Crypto market overview\n"
-    "• `/gas` — ETH gas fees\n"
-    "• `/markets btc` — Prices on major exchanges\n"
-    "• `/links btc` — Official links for any coin\n\n"
-    
-    "📚 *Education & Fun:*\n"
-    "• `/learn` — Crypto terms explained\n"
-    "• `/funfact` — Random crypto fact\n\n"
-    
-    "📐 *Utilities:*\n"
-    "• `/calc 100 btc` — Crypto/fiat calculator\n"
-    "• `/conv 2 eth to usd` — Crypto conversion\n"
-    "• `/hmap` — Heatmap of top 50 coins\n"
-    "• `/comp btc eth` – Compare 2–3 coins\n\n"
-
-
-     "*🌍 Forex Tools & Community*\n\n"
-       "• `/fx eurusd` – Live forex rates\n"
-       "• `/fxchart` – Forex Charts\n"
-       "• `/fxconv 100 gbp to usd` – Fiat conversions\n"
-       "• `/fxsessions` – Open forex markets\n\n"
-
-    "🎁 *Growth & Referral:*\n"
-    "• `/tasks` — Complete tasks to earn FREE Pro\n"
-    "• `/referral` — Get your referral link\n\n"
-
-    "🧭 *Navigation & Info:*\n"
-    "• `/start` — Launch welcome menu\n"
-    "• `/help` — View detailed guide\n"
-    "• `/upgrade` — See Pro benefits & upgrade steps\n"
-    "• `/feedback` — Share your review\n"
-    "• `/notifications` — Enable/disable bot notifications\n"
-    "• `/addtogroup` — Add bot to your Telegram group\n\n"
-    
-    "━━━━━━━━━━━━━━━━━━━\n"
-    "💎 *Pro Plan Features*\n"
-    "━━━━━━━━━━━━━━━━━━━\n"
-    "📈 *Advanced Alerts:*\n"
-    "• `/set (percent) ` — Alert on % price changes\n"
-    "• `/set (volume)` — Volume spike alert\n"
-    "• `/set (risk) ` — Stop-loss / Take-profit alerts\n"
-    "• `/set (custom) ` — Price + indicator alerts\n"
-
-    "🧾 *Portfolio Management:*\n"
-    "• `/portfolio` — View total value of assets\n"
-    "• `/addasset BTC 1.2` — Add coins to portfolio\n"
-    "• `/removeasset BTC` — Remove a coin\n"
-    "• `/clearportfolio` — Clear all assets\n"
-    "• `/portfoliolimit 15000` — Set a loss alert\n"
-    "• `/portfoliotarget 25000` — Set a profit alert\n\n"
-
-    "🔔 *Watchlist Tools:*\n"
-    "• `/watch BTC 5 1h` — Alert for ±% moves\n"
-    "• `/watchlist` — View all watch alerts\n"
-    "• `/removewatch BTC` — Remove coin from watchlist\n\n"
-
-    "🤖 *Smart Tools:*\n"
-    "• `/c BTC 4h` — Unlock full chart timeframes\n"
-    "• `/trend ETH 1d` — Advanced trend analysis\n"
-    "• `/prediction BTC 1h` — AI-based price forecasting\n"
-    "• `/aistrat` – Natural language alert builder\n"
-    "• `/aiscan` – Detect patterns: divergence, crosses, etc.\n"
-    "• `/bt BTC 1h` – Backtest strategies with AI summary\n"
-    "• `/screen` – Scan top 200+ coins for setups\n"
-    
-    
-    "🐋 *On-Chain Tools:*\n"
-    "• `/track` – Track whale wallets\n"
-    "• `/untrack` – Stop tracking\n"
-    "• `/mywhales` – View whale alerts\n\n"
-    
-    "━━━━━━━━━━━━━━━━━━━\n"
-    "💬 *Feature Request?*\n"
-    "Got an idea or need a custom feature?\n"
-    "👉 [Join our community](https://t.me/+tSWwj5w7S8hkZmM0) and share your thoughts!"
+    alerts_text = (
+        "🔔 *Alerts Menu*\n\n"
+        "Set up custom alerts to never miss important market moves.\n\n"
+        "Available commands:\n"
+        "• `/set` — Create price alerts\n"
+        "• `/alerts` — View active alerts\n"
+        "• `/remove` — Remove specific alerts\n"
+        "• `/removeall` — Clear all alerts"
     )
+
     keyboard = [
         [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    await query.edit_message_text(text=upgrade_text, parse_mode="Markdown", reply_markup=reply_markup)
-    
-    
-    
-async def handle_join_community(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await query.edit_message_text(text=alerts_text, parse_mode="Markdown", reply_markup=reply_markup)
+
+async def handle_markets(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-    community_link = "https://t.me/+tSWwj5w7S8hkZmM0"  # Private invite link
-
-    upgrade_text = (
-        "🤝 *Join Our Trading Community!*\n\n"
-        "Connect with hundreds of traders, share signals, ask questions, and learn from others using this bot.\n\n"
-        f"🔗 Join here: {community_link}"
+    markets_text = (
+        "📊 *Markets Menu*\n\n"
+        "Track market data, charts, and trends.\n\n"
+        "Available commands:\n"
+        "• `/c BTC` — View charts\n"
+        "• `/BTC` — Coin info\n"
+        "• `/trend BTC` — View indicators\n"
+        "• `/best` / `/worst` — Top movers\n"
+        "• `/global` — Market overview\n"
+        "• `/fav` — Keep track of your favorite crypto"
     )
+
     keyboard = [
         [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    await query.edit_message_text(text=upgrade_text, parse_mode="Markdown", reply_markup=reply_markup)
-    
+    await query.edit_message_text(text=markets_text, parse_mode="Markdown", reply_markup=reply_markup)
+
+async def handle_trade(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    trade_text = (
+        "💰 *Trade Menu*\n\n"
+        "Trading tools and utilities.\n\n"
+        "Available commands:\n"
+        "• `/calc` — Crypto calculator\n"
+        "• `/conv` — Currency conversion\n"
+        "• `/comp` — Compare coins\n"
+        "• `/markets` — Exchange prices\n"
+        "• `/gas` — ETH gas fees"
+    )
+
+    keyboard = [
+        [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    await query.edit_message_text(text=trade_text, parse_mode="Markdown", reply_markup=reply_markup)
+
+async def handle_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    portfolio_text = (
+        "📁 *Portfolio Menu*\n\n"
+        "Manage and track your crypto portfolio.\n\n"
+        "Available commands:\n"
+        "• `/portfolio` — View portfolio\n"
+        "• `/add` — Add assets\n"
+        "• `/removeasset` — Remove assets\n"
+        "• `/pflimit` — Set loss alert\n"
+        "• `/pftarget` — Set profit alert"
+    )
+
+    keyboard = [
+        [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    await query.edit_message_text(text=portfolio_text, parse_mode="Markdown", reply_markup=reply_markup)
+
+async def handle_ai(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    ai_text = (
+        "🤖 *AI Tools Menu*\n\n"
+        "Advanced AI-powered trading features.\n\n"
+        "Available commands:\n"
+        "• `/prediction` — AI price forecasting\n"
+        "• `/aiscan` — Pattern detection\n"
+        "• `/bt` — Backtest strategies\n"
+        "• `/screen` — Scan 200+ coins"
+    )
+
+    keyboard = [
+        [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    await query.edit_message_text(text=ai_text, parse_mode="Markdown", reply_markup=reply_markup)
+
+async def handle_learn(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    learn_text = (
+        "📚 *Learn Menu*\n\n"
+        "Educational resources and crypto information.\n\n"
+        "Available commands:\n"
+        "• `/learn` — Crypto terms explained\n"
+        "• `/funfact` — Random crypto facts\n"
+        "• `/news` — Latest crypto news\n"
+        "• `/cod` — Coin of the day\n"
+        "• `/links` — Official coin links"
+    )
+
+    keyboard = [
+        [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    await query.edit_message_text(text=learn_text, parse_mode="Markdown", reply_markup=reply_markup)
+
+async def handle_account(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    account_text = (
+        "👤 *Account Menu*\n\n"
+        "Manage your account settings and preferences.\n\n"
+        "Available commands:\n"
+        "• `/upgrade` — Upgrade to Pro\n"
+        "• `/tasks` — Earn FREE Pro\n"
+        "• `/referral` — Get referral link\n"
+        "• `/notifications` — Toggle notifications\n"
+        "• `/feedback` — Share your review"
+    )
+
+    keyboard = [
+        [InlineKeyboardButton("⬅️ Back", callback_data="back_to_start")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    await query.edit_message_text(text=account_text, parse_mode="Markdown", reply_markup=reply_markup)
+
 async def handle_back_to_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     user = update.effective_user
     name = user.first_name or "Trader"
 
+    # --- Inline Buttons (3 per row, logically grouped) ---
     keyboard = [
         [
-            InlineKeyboardButton("🚀 Upgrade", callback_data="upgrade_menu"),
-            InlineKeyboardButton("📈 How It Helps", callback_data="how_it_helps")
+            InlineKeyboardButton("🔔 Alerts", callback_data="alerts"),
+            InlineKeyboardButton("📊 Markets", callback_data="markets"),
+            InlineKeyboardButton("💰 Trade", callback_data="trade")
         ],
         [
-            InlineKeyboardButton("📚 View Commands", callback_data="view_commands"),
-            InlineKeyboardButton("👥 Join Community", callback_data="join_community")
+            InlineKeyboardButton("📁 Portfolio", callback_data="portfolio"),
+            InlineKeyboardButton("🤖 AI", callback_data="ai"),
+            InlineKeyboardButton("📚 Learn", callback_data="learn")
+        ],
+        [
+            InlineKeyboardButton("📈 How It Helps", callback_data="how_it_helps"),
+            InlineKeyboardButton("🚀 Upgrade", callback_data="upgrade_menu"),
+            InlineKeyboardButton("👤 Account", callback_data="account")
         ]
     ]
-
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     welcome_text = (
-  
         f"👋 Welcome *{name}*!\n\n"
         f"📈 _You're now using one of Telegram's most powerful crypto trading assistants._\n\n"
         "💹 Thousands of traders use this bot daily to:\n"

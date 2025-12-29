@@ -45,8 +45,8 @@ help_pages = {
        "• `/add BTC 1.2` — Add coins to portfolio\n"
        "• `/removeasset BTC` — Remove a coin\n"
        "• `/clearpf` — Clear all assets\n"
-       "• `/pflimit 15000` — Set a loss alert\n"
-       "• `/pftarget 25000` — Set a profit alert\n\n"
+       "• `/pflimit 15000 [repeat]` — Set a loss alert with optional repeat keyword\n"
+       "• `/pftarget 25000 [repeat]` — Set a profit alert with optional repeat keyword\n\n"
 
        "🔔 *Watchlist Tools:*\n"
        "• `/watch BTC 5 1h` — Alert for ±% moves\n"
