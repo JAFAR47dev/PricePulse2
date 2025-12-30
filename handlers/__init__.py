@@ -63,6 +63,20 @@ from .start import (
     handle_account,
     handle_back_to_start
 )
+from .menu import (
+    menu_command,
+    support_command,
+    handle_menu_alerts,
+    handle_menu_markets,
+    handle_menu_trade,
+    handle_menu_portfolio,
+    handle_menu_ai,
+    handle_menu_learn,
+    handle_menu_how_it_helps,
+    handle_menu_upgrade,
+    handle_menu_account,
+    handle_back_to_menu
+)
 from .trend import trend_command
 from .worst_losers import worst_losers, worst_callback_handler
 from .fx import fx_command
@@ -121,6 +135,18 @@ def register_all_handlers(app):
        app.add_handler(CallbackQueryHandler(handle_learn, pattern="^learn$"))
        app.add_handler(CallbackQueryHandler(handle_account, pattern="^account$"))
        app.add_handler(CallbackQueryHandler(handle_back_to_start, pattern="^back_to_start$"))
+       app.add_handler(CommandHandler("menu", menu_command))
+       app.add_handler(CallbackQueryHandler(handle_menu_alerts, pattern="^menu_alerts$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_markets, pattern="^menu_markets$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_trade, pattern="^menu_trade$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_portfolio, pattern="^menu_portfolio$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_ai, pattern="^menu_ai$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_learn, pattern="^menu_learn$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_how_it_helps, pattern="^menu_how_it_helps$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_upgrade, pattern="^menu_upgrade$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_account, pattern="^menu_account$"))
+       app.add_handler(CallbackQueryHandler(handle_back_to_menu, pattern="^back_to_menu$"))
+       app.add_handler(CommandHandler("support", support_command))
        app.add_handler(CommandHandler("help", help_command))
        app.add_handler(CallbackQueryHandler(handle_help_pagination, pattern=r"^help_"))
        app.add_handler(CommandHandler("referral", referral_command))

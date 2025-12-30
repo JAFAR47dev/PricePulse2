@@ -133,29 +133,46 @@ def init_task_progress(user_id: int):
     cursor = conn.cursor()
 
     try:
-        cursor.execute("""
-            INSERT OR IGNORE INTO task_progress (
-                user_id,
-                daily_streak,
-                last_active_date,
-                streak_reward_claimed,
-                pro_expiry_date,
-                referral_count,
-                claimed_referral_rewards,
-                referral_rewards_claimed,
-                social_tg,
-                social_tw,
-                social_story
-            ) VALUES (?, 0, NULL, 0, NULL, 0, '[]', '', 0, 0, 0)
-        """, (user_id,))
+        # ✅ Get all existing columns dynamically
+        cursor.execute("PRAGMA table_info(task_progress)")
+        columns = [col[1] for col in cursor.fetchall()]
+        
+        # ✅ Build dynamic INSERT with only existing columns
+        column_defaults = {
+            'user_id': user_id,
+            'daily_streak': 0,
+            'last_active_date': None,
+            'streak_reward_claimed': 0,
+            'pro_expiry_date': None,
+            'referral_count': 0,
+            'claimed_referral_rewards': '[]',
+            'referral_rewards_claimed': '',
+            'social_tg': 0,
+            'social_tw': 0,
+            'social_story': 0
+        }
+        
+        # ✅ Only use columns that actually exist in the table
+        insert_columns = [col for col in column_defaults.keys() if col in columns]
+        insert_values = [column_defaults[col] for col in insert_columns]
+        
+        # ✅ Build the SQL dynamically
+        columns_str = ', '.join(insert_columns)
+        placeholders = ', '.join(['?' for _ in insert_columns])
+        
+        cursor.execute(f"""
+            INSERT OR IGNORE INTO task_progress ({columns_str})
+            VALUES ({placeholders})
+        """, insert_values)
 
         conn.commit()
+        print(f"✅ Task progress initialized for user {user_id}")
     except Exception as e:
-        print(f"Error initializing task progress for user {user_id}: {e}")
+        print(f"❌ Error initializing task progress for user {user_id}: {e}")
         conn.rollback()
     finally:
         conn.close()
-
+        
 
 # ============================================================================
 # HELPER FUNCTIONS
@@ -213,65 +230,79 @@ def get_task_progress(user_id: int) -> Dict:
     cursor = conn.cursor()
 
     try:
+        # ✅ Select all columns with *
         cursor.execute("""
-            SELECT 
-                daily_streak,
-                last_active_date,
-                streak_reward_claimed,
-                pro_expiry_date,
-                referral_count,
-                claimed_referral_rewards,
-                social_tg,
-                social_tw,
-                social_story
+            SELECT *
             FROM task_progress 
             WHERE user_id = ?
         """, (user_id,))
         
         row = cursor.fetchone()
 
-        if not row:
-            # Return default values if no row exists
-            return {
-                "daily_streak": 0,
-                "last_active_date": None,
-                "streak_reward_claimed": 0,
-                "pro_expiry_date": None,
-                "referral_count": 0,
-                "claimed_referral_rewards": [],
-                "social_tg": 0,
-                "social_tw": 0,
-                "social_story": 0
-            }
-
-        return {
-            "daily_streak": row[0] or 0,
-            "last_active_date": row[1],
-            "streak_reward_claimed": row[2] or 0,
-            "pro_expiry_date": row[3],
-            "referral_count": row[4] or 0,
-            "claimed_referral_rewards": json.loads(row[5] or "[]"),
-            "social_tg": row[6] or 0,
-            "social_tw": row[7] or 0,
-            "social_story": row[8] or 0
-        }
-    
-    except Exception as e:
-        print(f"Error getting task progress for user {user_id}: {e}")
-        return {
+        # ✅ Default values for all possible fields
+        defaults = {
+            "user_id": user_id,
             "daily_streak": 0,
             "last_active_date": None,
             "streak_reward_claimed": 0,
             "pro_expiry_date": None,
             "referral_count": 0,
             "claimed_referral_rewards": [],
+            "referral_rewards_claimed": "",
             "social_tg": 0,
             "social_tw": 0,
-            "social_story": 0
+            "social_story": 0,
+            "created_at": None,
+            "updated_at": None
+        }
+
+        if not row:
+            # Return default values if no row exists
+            return defaults
+
+        # ✅ Get column names from cursor description
+        column_names = [description[0] for description in cursor.description]
+        
+        # ✅ Build result dictionary dynamically
+        result = {}
+        for i, col_name in enumerate(column_names):
+            value = row[i]
+            
+            # Handle JSON columns
+            if col_name == "claimed_referral_rewards":
+                result[col_name] = json.loads(value or "[]")
+            else:
+                result[col_name] = value
+        
+        # ✅ Fill in any missing columns with defaults (for backwards compatibility)
+        for key, default_value in defaults.items():
+            if key not in result:
+                result[key] = default_value
+        
+        return result
+    
+    except Exception as e:
+        print(f"❌ Error getting task progress for user {user_id}: {e}")
+        import traceback
+        traceback.print_exc()
+        # Return defaults on error
+        return {
+            "user_id": user_id,
+            "daily_streak": 0,
+            "last_active_date": None,
+            "streak_reward_claimed": 0,
+            "pro_expiry_date": None,
+            "referral_count": 0,
+            "claimed_referral_rewards": [],
+            "referral_rewards_claimed": "",
+            "social_tg": 0,
+            "social_tw": 0,
+            "social_story": 0,
+            "created_at": None,
+            "updated_at": None
         }
     finally:
         conn.close()
-
 
 # ============================================================================
 # DAILY STREAK SYSTEM

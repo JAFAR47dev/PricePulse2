@@ -198,6 +198,7 @@ async def handle_markets(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• `/trend BTC` — View indicators\n"
         "• `/best` / `/worst` — Top movers\n"
         "• `/global` — Market overview\n"
+        "• `/hmap` — Heatmap of top 100 coins\n"
         "• `/fav` — Keep track of your favorite crypto"
     )
 
@@ -307,6 +308,7 @@ async def handle_account(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• `/tasks` — Earn FREE Pro\n"
         "• `/referral` — Get referral link\n"
         "• `/notifications` — Toggle notifications\n"
+        "• `/myplan` — Check your subscription plan and expiry date\n"
         "• `/feedback` — Share your review"
     )
 
