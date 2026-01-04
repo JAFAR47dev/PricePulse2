@@ -396,89 +396,280 @@ async def get_crypto_indicators(symbol: str = "BTC/USD", interval: str = "1h", o
 
 
 import os
+import asyncio
 import aiohttp
 from dotenv import load_dotenv
-from time import time
+from time import time  # ✅ Import the time function directly
+from typing import Tuple, Optional
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
 CRYPTOCOMPARE_API_KEY = os.getenv("CRYPTOCOMPARE_API_KEY")
 CRYPTOCOMPARE_BASE_URL = "https://min-api.cryptocompare.com"
 
+# Validate API key at startup
+if not CRYPTOCOMPARE_API_KEY:
+    logger.warning("⚠️ CRYPTOCOMPARE_API_KEY not found in environment variables")
+
 # 🧠 Cache memory (symbol_timeframe → {timestamp, data})
 _volume_cache = {}
 CACHE_TTL = 120  # seconds (2 minutes cache lifespan)
 
-async def get_volume_comparison(symbol: str, timeframe: str):
+# Request configuration
+REQUEST_TIMEOUT = 30  # seconds
+MAX_RETRIES = 3
+RETRY_DELAY = 1  # seconds
+
+
+async def get_volume_comparison(
+    symbol: str, 
+    timeframe: str,
+    use_cache: bool = True
+) -> Tuple[float, float]:
     """
     Returns current and average volume for a given symbol and timeframe using live CryptoCompare data.
     Caches results for short periods (default: 2 minutes) to avoid redundant API calls.
+    
+    Args:
+        symbol: Trading pair symbol (e.g., 'BTC', 'ETH')
+        timeframe: Time interval for analysis (e.g., '1h', '1d')
+        use_cache: Whether to use cached data if available
+        
+    Returns:
+        Tuple of (current_volume, average_volume)
+        
+    Raises:
+        ValueError: If timeframe is invalid or symbol is empty
+        Exception: If API request fails or returns invalid data
     """
+    
+    # Input validation
+    if not symbol or not isinstance(symbol, str):
+        raise ValueError("❌ Symbol must be a non-empty string")
+    
+    if not timeframe or not isinstance(timeframe, str):
+        raise ValueError("❌ Timeframe must be a non-empty string")
+    
+    symbol = symbol.strip().upper()
+    timeframe = timeframe.strip().lower()
+    
+    if not symbol:
+        raise ValueError("❌ Symbol cannot be empty after stripping whitespace")
 
     key = f"{symbol.lower()}_{timeframe}"
     now = time.time()
 
-    # ✅ Return cached data if still fresh
-    if key in _volume_cache and now - _volume_cache[key]["timestamp"] < CACHE_TTL:
-        return _volume_cache[key]["data"]
+    # ✅ Return cached data if still fresh and caching is enabled
+    if use_cache and key in _volume_cache:
+        cache_entry = _volume_cache[key]
+        if now - cache_entry["timestamp"] < CACHE_TTL:
+            logger.debug(f"📦 Returning cached data for {key}")
+            return cache_entry["data"]
 
     # ✅ Supported timeframes (mapped to CryptoCompare intervals)
     tf_map = {
-        "15m": {"endpoint": "histominute", "limit": 96},  # last 24h (15-min intervals)
-        "30m": {"endpoint": "histominute", "limit": 48},  # last 24h (30-min intervals)
-        "1h": {"endpoint": "histohour", "limit": 24},     # last 24h
-        "4h": {"endpoint": "histohour", "limit": 42},     # last 7d
-        "1d": {"endpoint": "histoday", "limit": 30},      # last 30d
-        "7d": {"endpoint": "histoday", "limit": 90},      # last 90d
-        "14d": {"endpoint": "histoday", "limit": 180},
-        "30d": {"endpoint": "histoday", "limit": 365},
-        "90d": {"endpoint": "histoday", "limit": 730},
-        "180d": {"endpoint": "histoday", "limit": 1095},
-        "365d": {"endpoint": "histoday", "limit": 2000},
+        "1m": {"endpoint": "histominute", "limit": 1440, "aggregate": 1},   # last 24h (1-min intervals)
+        "5m": {"endpoint": "histominute", "limit": 288, "aggregate": 5},    # last 24h (5-min intervals)
+        "15m": {"endpoint": "histominute", "limit": 96, "aggregate": 15},   # last 24h (15-min intervals)
+        "30m": {"endpoint": "histominute", "limit": 48, "aggregate": 30},   # last 24h (30-min intervals)
+        "1h": {"endpoint": "histohour", "limit": 25, "aggregate": 1},       # last 25h (to get 24 complete + 1 current)
+        "4h": {"endpoint": "histohour", "limit": 43, "aggregate": 4},       # last 7d + current
+        "1d": {"endpoint": "histoday", "limit": 31, "aggregate": 1},        # last 30d + current
+        "7d": {"endpoint": "histoday", "limit": 91, "aggregate": 7},        # last 90d + current
+        "14d": {"endpoint": "histoday", "limit": 181, "aggregate": 14},     # last ~6 months + current
+        "30d": {"endpoint": "histoday", "limit": 366, "aggregate": 30},     # last ~3 years + current
+        "90d": {"endpoint": "histoday", "limit": 731, "aggregate": 90},     # last ~6 years + current
+        "180d": {"endpoint": "histoday", "limit": 1096, "aggregate": 180},  # last ~9 years + current
+        "365d": {"endpoint": "histoday", "limit": 2001, "aggregate": 365},  # maximum history + current
     }
 
     if timeframe not in tf_map:
-        raise ValueError(f"❌ Invalid timeframe: {timeframe}")
+        valid_timeframes = ", ".join(tf_map.keys())
+        raise ValueError(
+            f"❌ Invalid timeframe: '{timeframe}'. "
+            f"Valid options: {valid_timeframes}"
+        )
 
     tf_info = tf_map[timeframe]
     endpoint = tf_info["endpoint"]
     limit = tf_info["limit"]
+    aggregate = tf_info.get("aggregate", 1)
 
     # 🌐 Build API URL
     url = f"{CRYPTOCOMPARE_BASE_URL}/data/v2/{endpoint}"
     params = {
-        "fsym": symbol.upper(),
+        "fsym": symbol,
         "tsym": "USD",
         "limit": limit,
-        "api_key": CRYPTOCOMPARE_API_KEY
+        "aggregate": aggregate
     }
+    
+    # Only add API key if it exists
+    if CRYPTOCOMPARE_API_KEY:
+        params["api_key"] = CRYPTOCOMPARE_API_KEY
+    else:
+        logger.warning("⚠️ Making request without API key - rate limits may apply")
 
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url, params=params) as resp:
-            if resp.status != 200:
-                text = await resp.text()
-                raise Exception(f"⚠️ CryptoCompare request failed (HTTP {resp.status}): {text}")
-            data = await resp.json()
+    # Retry logic with exponential backoff
+    last_exception = None
+    data = None
+    
+    for attempt in range(MAX_RETRIES):
+        try:
+            timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT)
+            async with aiohttp.ClientSession(timeout=timeout) as session:
+                async with session.get(url, params=params) as resp:
+                    # Handle different HTTP status codes
+                    if resp.status == 200:
+                        data = await resp.json()
+                        break
+                    elif resp.status == 429:
+                        # Rate limit hit
+                        retry_after = int(resp.headers.get('Retry-After', RETRY_DELAY * (2 ** attempt)))
+                        logger.warning(f"⚠️ Rate limited. Retrying after {retry_after}s...")
+                        await asyncio.sleep(retry_after)
+                        continue
+                    elif resp.status in (401, 403):
+                        text = await resp.text()
+                        raise Exception(f"❌ Authentication failed (HTTP {resp.status}): {text}")
+                    elif resp.status == 404:
+                        raise ValueError(f"❌ Symbol '{symbol}' not found")
+                    else:
+                        text = await resp.text()
+                        raise Exception(f"⚠️ CryptoCompare request failed (HTTP {resp.status}): {text}")
+                        
+        except asyncio.TimeoutError as e:
+            last_exception = e
+            logger.warning(f"⚠️ Request timeout (attempt {attempt + 1}/{MAX_RETRIES})")
+            if attempt < MAX_RETRIES - 1:
+                await asyncio.sleep(RETRY_DELAY * (2 ** attempt))
+                continue
+            raise Exception(f"❌ Request timed out after {MAX_RETRIES} attempts")
+            
+        except aiohttp.ClientError as e:
+            last_exception = e
+            logger.warning(f"⚠️ Network error (attempt {attempt + 1}/{MAX_RETRIES}): {e}")
+            if attempt < MAX_RETRIES - 1:
+                await asyncio.sleep(RETRY_DELAY * (2 ** attempt))
+                continue
+            raise Exception(f"❌ Network error after {MAX_RETRIES} attempts: {e}")
+    
+    # Check if we got data after all retries
+    if data is None:
+        if last_exception:
+            raise Exception(f"❌ Failed after {MAX_RETRIES} attempts: {last_exception}")
+        raise Exception(f"❌ Failed to fetch data after {MAX_RETRIES} attempts")
 
     # 🧮 Extract and validate data
-    if "Data" not in data or "Data" not in data["Data"]:
-        raise Exception(f"⚠️ Unexpected API response for {symbol}: {data}")
+    if not isinstance(data, dict):
+        raise Exception(f"⚠️ Invalid API response type: expected dict, got {type(data)}")
+    
+    if "Data" not in data:
+        error_msg = data.get("Message", "Unknown error")
+        raise Exception(f"⚠️ API error for {symbol}: {error_msg}")
+    
+    if not isinstance(data["Data"], dict) or "Data" not in data["Data"]:
+        raise Exception(f"⚠️ Unexpected API response structure for {symbol}")
 
     candles = data["Data"]["Data"]
-    volumes = [candle.get("volumeto", 0) for candle in candles if candle.get("volumeto")]
+    
+    if not isinstance(candles, list):
+        raise Exception(f"⚠️ Expected list of candles, got {type(candles)}")
+    
+    if len(candles) < 3:  # Need at least 3: current + 2 historical for average
+        raise Exception(f"⚠️ Insufficient data for {symbol}: only {len(candles)} candle(s) available")
+
+    # Extract volumes with better validation
+    volumes = []
+    timestamps = []
+    for i, candle in enumerate(candles):
+        if not isinstance(candle, dict):
+            logger.warning(f"⚠️ Skipping invalid candle at index {i}")
+            continue
+        
+        volume = candle.get("volumeto")
+        timestamp = candle.get("time")
+        if volume is not None and isinstance(volume, (int, float)) and volume >= 0:
+            volumes.append(float(volume))
+            if timestamp:
+                timestamps.append(timestamp)
 
     if not volumes:
-        raise Exception(f"⚠️ No volume data found for {symbol}")
+        raise Exception(f"⚠️ No valid volume data found for {symbol}")
+    
+    if len(volumes) < 3:
+        raise Exception(f"⚠️ Insufficient volume data for {symbol}: only {len(volumes)} value(s)")
 
-    current_volume = volumes[-1]
-    average_volume = sum(volumes[:-1]) / max(1, len(volumes) - 1)
+    # 🔍 DEBUG: Log the last few volumes to understand the pattern
+    logger.info(f"📊 Last 5 volumes for {symbol} ({timeframe}): {[f'{v:,.0f}' for v in volumes[-5:]]}")
+    
+    # 🔥 Use the LAST candle as current (it's the most recent complete or forming candle)
+    # Use all PREVIOUS candles for the average
+    current_volume = volumes[-1]  
+    historical_volumes = volumes[:-1]  
+    
+    if not historical_volumes:
+        raise Exception(f"⚠️ Not enough historical data for {symbol}")
+    
+    average_volume = sum(historical_volumes) / len(historical_volumes)
+    
+    # 🔍 Additional debug info
+    logger.info(f"📊 {symbol} ({timeframe}) - Current: ${current_volume:,.2f}, Avg: ${average_volume:,.2f}, Min: ${min(historical_volumes):,.2f}, Max: ${max(historical_volumes):,.2f}")
+    
     result = (round(current_volume, 2), round(average_volume, 2))
 
     # 🧠 Store result in cache
     _volume_cache[key] = {"timestamp": now, "data": result}
+    logger.info(f"✅ Volume comparison for {symbol} ({timeframe}): current={current_volume:,.2f}, avg={average_volume:,.2f}")
 
     return result
-      
+       
+def clear_cache(symbol: Optional[str] = None, timeframe: Optional[str] = None):
+    """
+    Clear cache entries. If symbol and timeframe are provided, clears specific entry.
+    Otherwise, clears entire cache.
+    
+    Args:
+        symbol: Optional symbol to clear
+        timeframe: Optional timeframe to clear
+    """
+    global _volume_cache
+    
+    if symbol and timeframe:
+        key = f"{symbol.lower()}_{timeframe.lower()}"
+        if key in _volume_cache:
+            del _volume_cache[key]
+            logger.info(f"🧹 Cleared cache for {key}")
+    else:
+        _volume_cache.clear()
+        logger.info("🧹 Cleared entire cache")
+
+
+def get_cache_stats() -> dict:
+    """
+    Returns statistics about the current cache state.
+    
+    Returns:
+        Dictionary with cache statistics
+    """
+    now = time.time()  # ✅ Call time() function correctly
+    active_entries = sum(
+        1 for entry in _volume_cache.values()
+        if now - entry["timestamp"] < CACHE_TTL
+    )
+    
+    return {
+        "total_entries": len(_volume_cache),
+        "active_entries": active_entries,
+        "stale_entries": len(_volume_cache) - active_entries,
+        "cache_ttl": CACHE_TTL
+    }
+
 import aiohttp
 import os
 import time

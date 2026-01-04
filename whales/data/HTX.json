@@ -1,7 +1,7 @@
 {
   "token": "HTX",
   "contract": "0x61ec85ab89377db65762e234c946b5c25a56e99e",
-  "updated_at": "2025-11-24T17:02:35.868335",
+  "updated_at": "2026-01-03T07:39:18.169705",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,16 +9,16 @@
       "address": "0xaca1973a26692742a783d63dc198c99fb0fdc98d",
       "symbol": "HTX",
       "rank": 1,
-      "balance": 9.265863348286002e+29,
-      "share": 51.3,
+      "balance": 9.612773866655025e+29,
+      "share": 51.32,
       "last_tx": null
     },
     {
       "address": "0x4fb312915b779b1339388e14b6d079741ca83128",
       "symbol": "HTX",
       "rank": 2,
-      "balance": 5.54559341638e+29,
-      "share": 30.7,
+      "balance": 5.86568341638e+29,
+      "share": 31.31,
       "last_tx": null
     },
     {
@@ -26,30 +26,30 @@
       "symbol": "HTX",
       "rank": 3,
       "balance": 2.9967565e+29,
-      "share": 16.59,
+      "share": 16,
       "last_tx": null
     },
     {
       "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "symbol": "HTX",
       "rank": 4,
-      "balance": 3.0380582634667956e+27,
+      "balance": 3.250488008936024e+27,
       "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0x6805a14cd145ad1a2f44eb3abb53a79f631cdbf1",
-      "symbol": "HTX",
-      "rank": 5,
-      "balance": 1.6170338104720303e+27,
-      "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x321213458a2591a79b2fde9f9ade2ef72c4c1356",
       "symbol": "HTX",
-      "rank": 6,
+      "rank": 5,
       "balance": 1.3340563790786599e+27,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xf55d5a80bd1aeb3244dab2103d6798dfaa771a36",
+      "symbol": "HTX",
+      "rank": 6,
+      "balance": 1.2312289527509802e+27,
       "share": 0.07,
       "last_tx": null
     },
@@ -57,8 +57,8 @@
       "address": "0xa03400e098f4421b34a3a44a1b4e571419517687",
       "symbol": "HTX",
       "rank": 7,
-      "balance": 1.2138213154647064e+27,
-      "share": 0.07,
+      "balance": 1.2085336913189183e+27,
+      "share": 0.06,
       "last_tx": null
     },
     {
@@ -94,9 +94,17 @@
       "last_tx": null
     },
     {
-      "address": "0x390d7e5c7c046b2ae6d9226d40524d824cb69ea9",
+      "address": "0x727b81dac0beda2c3f33f2f317eb9e410b92eb30",
       "symbol": "HTX",
       "rank": 12,
+      "balance": 6.050633611723568e+26,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x390d7e5c7c046b2ae6d9226d40524d824cb69ea9",
+      "symbol": "HTX",
+      "rank": 13,
       "balance": 5.890337435587331e+26,
       "share": 0.03,
       "last_tx": null
@@ -104,7 +112,7 @@
     {
       "address": "0x7ad64eb886594669e9c07ef6ae564771ed3225cb",
       "symbol": "HTX",
-      "rank": 13,
+      "rank": 14,
       "balance": 4.894662614781671e+26,
       "share": 0.03,
       "last_tx": null
@@ -112,7 +120,7 @@
     {
       "address": "0x6fa04ef396eb212456ef12d9e4dc37af2ad02ea0",
       "symbol": "HTX",
-      "rank": 14,
+      "rank": 15,
       "balance": 4.472881872292924e+26,
       "share": 0.02,
       "last_tx": null
@@ -120,31 +128,15 @@
     {
       "address": "0x458d8e0e5646be89fd638dd3cbe37dfe473dbfb1",
       "symbol": "HTX",
-      "rank": 15,
-      "balance": 4.317533035984644e+26,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xedc4f2bfb417d49a730672ee0c3c0da939d9a95f",
-      "symbol": "HTX",
       "rank": 16,
-      "balance": 4.292848555827425e+26,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x0dd120a429863a7c2ffe9af1d86896f77bb91208",
-      "symbol": "HTX",
-      "rank": 17,
-      "balance": 3.6837396418750615e+26,
+      "balance": 4.317533035984644e+26,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x17d2be03a31e266b94835b246493952788b6d89d",
       "symbol": "HTX",
-      "rank": 18,
+      "rank": 17,
       "balance": 3.58392957105395e+26,
       "share": 0.02,
       "last_tx": null
@@ -152,7 +144,7 @@
     {
       "address": "0xb67f335fc588510b5d21e06b3df3bcbb3aaaddf1",
       "symbol": "HTX",
-      "rank": 19,
+      "rank": 18,
       "balance": 3.529205337506701e+26,
       "share": 0.02,
       "last_tx": null
@@ -160,31 +152,31 @@
     {
       "address": "0x93e223c9ad0143e14955be5b82be1ed4f64abe19",
       "symbol": "HTX",
-      "rank": 20,
+      "rank": 19,
       "balance": 3.4466026615448304e+26,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x3b805e29e6fa30e3692d23f5cbd8fc450c942013",
-      "symbol": "HTX",
-      "rank": 21,
-      "balance": 2.8486785269472058e+26,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x4a9df7d3b914e4484d742490d445d6581cd447b7",
       "symbol": "HTX",
-      "rank": 22,
+      "rank": 20,
       "balance": 2.7747374654430847e+26,
-      "share": 0.02,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x3b805e29e6fa30e3692d23f5cbd8fc450c942013",
+      "symbol": "HTX",
+      "rank": 21,
+      "balance": 2.650953931258224e+26,
+      "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x1406f4dfccba7cb9983e1a1add459b516b5a4ff9",
       "symbol": "HTX",
-      "rank": 23,
+      "rank": 22,
       "balance": 2.520085412695344e+26,
       "share": 0.01,
       "last_tx": null
@@ -192,8 +184,16 @@
     {
       "address": "0x0423ac8f86f1415d2b278d4d0a10f061710a6ae9",
       "symbol": "HTX",
-      "rank": 24,
+      "rank": 23,
       "balance": 2.3690718179530847e+26,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x661e13f3f040816d6ab5387c259cc0a40ddfae8e",
+      "symbol": "HTX",
+      "rank": 24,
+      "balance": 2.1067797426997026e+26,
       "share": 0.01,
       "last_tx": null
     },
@@ -262,9 +262,17 @@
       "last_tx": null
     },
     {
-      "address": "0x6d54c3fb34b4c1c111205af95e6dbaf876383a38",
+      "address": "0x123e4a1322a3e10e4b78ce7f0ce9df2b8a2581dc",
       "symbol": "HTX",
       "rank": 33,
+      "balance": 1.5176560414389931e+26,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x6d54c3fb34b4c1c111205af95e6dbaf876383a38",
+      "symbol": "HTX",
+      "rank": 34,
       "balance": 1.5074820528122405e+26,
       "share": 0.01,
       "last_tx": null
@@ -272,16 +280,8 @@
     {
       "address": "0x56abcd231f516628fa3f8cbc2aa8c3e319d747a1",
       "symbol": "HTX",
-      "rank": 34,
-      "balance": 1.3973164747407718e+26,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0xca316ffb194619cb67a1c513510fa55f44320021",
-      "symbol": "HTX",
       "rank": 35,
-      "balance": 1.3153694059308983e+26,
+      "balance": 1.3973164747407718e+26,
       "share": 0.01,
       "last_tx": null
     },
@@ -289,14 +289,22 @@
       "address": "0x5aafc1f252d544f744d17a4e734afd6efc47ede4",
       "symbol": "HTX",
       "rank": 36,
-      "balance": 1.3030789716953382e+26,
+      "balance": 1.330787976359962e+26,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xca316ffb194619cb67a1c513510fa55f44320021",
+      "symbol": "HTX",
+      "rank": 37,
+      "balance": 1.3153694059308983e+26,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x287cba83152824b503e632c53bca0c98fcfd0a70",
       "symbol": "HTX",
-      "rank": 37,
+      "rank": 38,
       "balance": 1.2591578608869637e+26,
       "share": 0.01,
       "last_tx": null
@@ -304,16 +312,8 @@
     {
       "address": "0x52dfa4309cd1031678be06ce9d01131924450753",
       "symbol": "HTX",
-      "rank": 38,
-      "balance": 1.2062236100995642e+26,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0xeaf1ec16463bb2aad73c1d99c7fdc152ad51e0bf",
-      "symbol": "HTX",
       "rank": 39,
-      "balance": 1.1879685833083707e+26,
+      "balance": 1.2062236100995642e+26,
       "share": 0.01,
       "last_tx": null
     },
@@ -402,22 +402,22 @@
       "symbol": "HTX",
       "rank": 50,
       "balance": 9.202050284118796e+25,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x123e4a1322a3e10e4b78ce7f0ce9df2b8a2581dc",
-      "symbol": "HTX",
-      "rank": 51,
-      "balance": 9.121567725068683e+25,
-      "share": 0.01,
+      "share": 0,
       "last_tx": null
     },
     {
       "address": "0xa846ac57fe9160bee374df5eca0e4009a63cc91b",
       "symbol": "HTX",
-      "rank": 52,
+      "rank": 51,
       "balance": 9.02859118463131e+25,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x1616b057f8a89955d4a4f9fd9eb10289ac0e44a1",
+      "symbol": "HTX",
+      "rank": 52,
+      "balance": 8.877071070030359e+25,
       "share": 0,
       "last_tx": null
     },
@@ -502,9 +502,25 @@
       "last_tx": null
     },
     {
-      "address": "0x5ec9191ba1f05b7c4d7a48771c6771d38790967c",
+      "address": "0x95c4f5b83aa70810d4f142d58e5f7242bd891cb0",
       "symbol": "HTX",
       "rank": 63,
+      "balance": 6.684318527224262e+25,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x99f5eb405ec308878782b576bcd12bc1e676593b",
+      "symbol": "HTX",
+      "rank": 64,
+      "balance": 6.399193445816937e+25,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x5ec9191ba1f05b7c4d7a48771c6771d38790967c",
+      "symbol": "HTX",
+      "rank": 65,
       "balance": 6.144995394612409e+25,
       "share": 0,
       "last_tx": null
@@ -512,23 +528,23 @@
     {
       "address": "0x000000fee13a103a10d593b9ae06b3e05f2e7e1c",
       "symbol": "HTX",
-      "rank": 64,
-      "balance": 6.116648885545406e+25,
+      "rank": 66,
+      "balance": 6.123225197283227e+25,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x95c4f5b83aa70810d4f142d58e5f7242bd891cb0",
+      "address": "0x568a7ac3caf3e85a902afab4521fa425d7e0a2e5",
       "symbol": "HTX",
-      "rank": 65,
-      "balance": 6.061759631308312e+25,
+      "rank": 67,
+      "balance": 6.015424381504634e+25,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x8356f06ce4c4171676ac8e552206bdc4aa544277",
       "symbol": "HTX",
-      "rank": 66,
+      "rank": 68,
       "balance": 6.014238837053634e+25,
       "share": 0,
       "last_tx": null
@@ -536,7 +552,7 @@
     {
       "address": "0x53eb988c3c0d1b90a58efc7f71f50e3d9e0d0056",
       "symbol": "HTX",
-      "rank": 67,
+      "rank": 69,
       "balance": 5.889952853523166e+25,
       "share": 0,
       "last_tx": null
@@ -544,7 +560,7 @@
     {
       "address": "0x589c9a3359a694ad05f1d7aa26a22bc7f3616a6e",
       "symbol": "HTX",
-      "rank": 68,
+      "rank": 70,
       "balance": 5.697975980084459e+25,
       "share": 0,
       "last_tx": null
@@ -552,7 +568,7 @@
     {
       "address": "0x3d01d8c85c710abcf3ff807228bc874dfaa0d862",
       "symbol": "HTX",
-      "rank": 69,
+      "rank": 71,
       "balance": 5.675507885179148e+25,
       "share": 0,
       "last_tx": null
@@ -560,7 +576,7 @@
     {
       "address": "0xd7f20249025970a0a3ae9a45af788ff841b0c500",
       "symbol": "HTX",
-      "rank": 70,
+      "rank": 72,
       "balance": 5.6487080074443654e+25,
       "share": 0,
       "last_tx": null
@@ -568,7 +584,7 @@
     {
       "address": "0x7f7e190e8a77ce2ea9c5069951a1007e73311512",
       "symbol": "HTX",
-      "rank": 71,
+      "rank": 73,
       "balance": 5.6248536373985285e+25,
       "share": 0,
       "last_tx": null
@@ -576,7 +592,7 @@
     {
       "address": "0x88fca24e4639bd18a38a08d5113a2069203476ab",
       "symbol": "HTX",
-      "rank": 72,
+      "rank": 74,
       "balance": 5.558554414151962e+25,
       "share": 0,
       "last_tx": null
@@ -584,7 +600,7 @@
     {
       "address": "0x1b43029c8f03e051aabb6d55525b467eb4915281",
       "symbol": "HTX",
-      "rank": 73,
+      "rank": 75,
       "balance": 5.466951155488217e+25,
       "share": 0,
       "last_tx": null
@@ -592,7 +608,7 @@
     {
       "address": "0xfae7428ec5cafc53afc50a93735e3bdfcad79c6b",
       "symbol": "HTX",
-      "rank": 74,
+      "rank": 76,
       "balance": 5.368027421459198e+25,
       "share": 0,
       "last_tx": null
@@ -600,7 +616,7 @@
     {
       "address": "0xd499a80af5e0c928d116c5a9d81552f3b1620325",
       "symbol": "HTX",
-      "rank": 75,
+      "rank": 77,
       "balance": 5.328720166280946e+25,
       "share": 0,
       "last_tx": null
@@ -608,7 +624,7 @@
     {
       "address": "0x2bf99cc40903e2c5b2e206579a59d531b885cf7d",
       "symbol": "HTX",
-      "rank": 76,
+      "rank": 78,
       "balance": 5.271242535891391e+25,
       "share": 0,
       "last_tx": null
@@ -616,7 +632,7 @@
     {
       "address": "0xb12a456749b3c6641648fe92d38bc2f6efc55fd4",
       "symbol": "HTX",
-      "rank": 77,
+      "rank": 79,
       "balance": 5.195439545355866e+25,
       "share": 0,
       "last_tx": null
@@ -624,7 +640,7 @@
     {
       "address": "0x7f81f5728b2d4c8d56285da170de64147aea3f67",
       "symbol": "HTX",
-      "rank": 78,
+      "rank": 80,
       "balance": 5.064723888248713e+25,
       "share": 0,
       "last_tx": null
@@ -632,7 +648,7 @@
     {
       "address": "0x049c7e682efa67626c22786e698d03863a997abe",
       "symbol": "HTX",
-      "rank": 79,
+      "rank": 81,
       "balance": 5.059862871325872e+25,
       "share": 0,
       "last_tx": null
@@ -640,7 +656,7 @@
     {
       "address": "0x1eb5b2cac7c17a7e0ec7a82d43ebfffacbee570b",
       "symbol": "HTX",
-      "rank": 80,
+      "rank": 82,
       "balance": 4.981515173348156e+25,
       "share": 0,
       "last_tx": null
@@ -648,7 +664,7 @@
     {
       "address": "0xe86f29a31f6e599f3b34a31f20582e0e8cf08403",
       "symbol": "HTX",
-      "rank": 81,
+      "rank": 83,
       "balance": 4.973793946615588e+25,
       "share": 0,
       "last_tx": null
@@ -656,7 +672,7 @@
     {
       "address": "0x694f88f5f075bcc1c4cf3b112bd0c631da824861",
       "symbol": "HTX",
-      "rank": 82,
+      "rank": 84,
       "balance": 4.791363868088696e+25,
       "share": 0,
       "last_tx": null
@@ -664,7 +680,7 @@
     {
       "address": "0x8d7ab1e8e8bc99b80ae5d141e819147e17bcb913",
       "symbol": "HTX",
-      "rank": 83,
+      "rank": 85,
       "balance": 4.7780204326472e+25,
       "share": 0,
       "last_tx": null
@@ -672,7 +688,7 @@
     {
       "address": "0x107617c87c8c57daa9e5fd817882e7b498034a7a",
       "symbol": "HTX",
-      "rank": 84,
+      "rank": 86,
       "balance": 4.706265947706736e+25,
       "share": 0,
       "last_tx": null
@@ -680,7 +696,7 @@
     {
       "address": "0x44c28f61a5c2dd24fc71d7df8e85e18af4ab2bd8",
       "symbol": "HTX",
-      "rank": 85,
+      "rank": 87,
       "balance": 4.691668381597104e+25,
       "share": 0,
       "last_tx": null
@@ -688,7 +704,7 @@
     {
       "address": "0x0d499dc148c98eee70a8a1d4255b0f416f86afba",
       "symbol": "HTX",
-      "rank": 86,
+      "rank": 88,
       "balance": 4.504591428232657e+25,
       "share": 0,
       "last_tx": null
@@ -696,7 +712,7 @@
     {
       "address": "0x8be3a466d71240f1ff2b98e391d74510542dc040",
       "symbol": "HTX",
-      "rank": 87,
+      "rank": 89,
       "balance": 4.400965823560583e+25,
       "share": 0,
       "last_tx": null
@@ -704,7 +720,7 @@
     {
       "address": "0xf5eb9d39f8c17d21c9cd5be744c6f1eb456d693f",
       "symbol": "HTX",
-      "rank": 88,
+      "rank": 90,
       "balance": 4.2527674224181486e+25,
       "share": 0,
       "last_tx": null
@@ -712,7 +728,7 @@
     {
       "address": "0xd32ac2444e72da85c8e45792bda593d936ee831c",
       "symbol": "HTX",
-      "rank": 89,
+      "rank": 91,
       "balance": 4.208082583335606e+25,
       "share": 0,
       "last_tx": null
@@ -720,7 +736,7 @@
     {
       "address": "0x6867547341628fc371f9b402a321379774c51c9a",
       "symbol": "HTX",
-      "rank": 90,
+      "rank": 92,
       "balance": 4.150841793355592e+25,
       "share": 0,
       "last_tx": null
@@ -728,7 +744,7 @@
     {
       "address": "0x095ed51d589d51a924a9b5697357017c85e91dda",
       "symbol": "HTX",
-      "rank": 91,
+      "rank": 93,
       "balance": 4.13991549855547e+25,
       "share": 0,
       "last_tx": null
@@ -736,7 +752,7 @@
     {
       "address": "0xa26d52fba2373ec1a789cd8ecad350a4bbdf5b9a",
       "symbol": "HTX",
-      "rank": 92,
+      "rank": 94,
       "balance": 4.137095873724665e+25,
       "share": 0,
       "last_tx": null
@@ -744,7 +760,7 @@
     {
       "address": "0xf246d99a18a64de918c3ae2d571f1dcd2288ade8",
       "symbol": "HTX",
-      "rank": 93,
+      "rank": 95,
       "balance": 4.100717636696517e+25,
       "share": 0,
       "last_tx": null
@@ -752,7 +768,7 @@
     {
       "address": "0xe4af11e9230135d0266b105cc11328d6f85f83af",
       "symbol": "HTX",
-      "rank": 94,
+      "rank": 96,
       "balance": 4.078346866212578e+25,
       "share": 0,
       "last_tx": null
@@ -760,7 +776,7 @@
     {
       "address": "0xe94f685391013b728e02a12e63fe334e92988d67",
       "symbol": "HTX",
-      "rank": 95,
+      "rank": 97,
       "balance": 4.0187503439743015e+25,
       "share": 0,
       "last_tx": null
@@ -768,7 +784,7 @@
     {
       "address": "0xa82c1dac3790b91e2acf0984b482e8c5a2e88ada",
       "symbol": "HTX",
-      "rank": 96,
+      "rank": 98,
       "balance": 3.9580377745474074e+25,
       "share": 0,
       "last_tx": null
@@ -776,7 +792,7 @@
     {
       "address": "0xefc662fe5c73e58bddfd97015a21726d6423b088",
       "symbol": "HTX",
-      "rank": 97,
+      "rank": 99,
       "balance": 3.915615375e+25,
       "share": 0,
       "last_tx": null
@@ -784,24 +800,8 @@
     {
       "address": "0x4a01340f7ce7d5ff893507e5611a4bd9a65f9171",
       "symbol": "HTX",
-      "rank": 98,
-      "balance": 3.903411621947062e+25,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x1417dcd620e689f7e956a6de850bccd2f8e5fe0a",
-      "symbol": "HTX",
-      "rank": 99,
-      "balance": 3.8552897041668783e+25,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x8160ac3a30c8754423c70613c7e99f72870f4ca1",
-      "symbol": "HTX",
       "rank": 100,
-      "balance": 3.8521587580414125e+25,
+      "balance": 3.903411621947062e+25,
       "share": 0,
       "last_tx": null
     }

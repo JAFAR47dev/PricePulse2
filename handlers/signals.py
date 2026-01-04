@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from typing import Optional, Dict, List
 
-from services.signal_data import fetch_top_200_indicator_data
+from services.signal_data import fetch_top_100_indicator_data
 from services.pre_score_engine import rank_top_setups
 from services.ai_postprocess import post_process_and_rank
 

@@ -1,7 +1,7 @@
 {
   "token": "LEO",
   "contract": "0x2af5d2ad76741191d15dfe7bf6ac92d4bd912ca3",
-  "updated_at": "2025-11-23T07:14:03.246744",
+  "updated_at": "2026-01-02T07:31:01.087939",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -17,16 +17,16 @@
       "address": "0x742d35cc6634c0532925a3b844bc454e4438f44e",
       "symbol": "LEO",
       "rank": 2,
-      "balance": 8.6167612565e+24,
-      "share": 1.31,
+      "balance": 8.76059830663e+24,
+      "share": 1.33,
       "last_tx": null
     },
     {
       "address": "0x77134cbc06cb00b66f4c7e623d5fdbf6777635ec",
       "symbol": "LEO",
       "rank": 3,
-      "balance": 8.705248839790317e+23,
-      "share": 0.13,
+      "balance": 9.2710162864551e+23,
+      "share": 0.14,
       "last_tx": null
     },
     {
@@ -49,15 +49,15 @@
       "address": "0x9239b0a8911b6c2bd7a35ac044738557c24c5624",
       "symbol": "LEO",
       "rank": 6,
-      "balance": 1.61496514e+23,
+      "balance": 1.1873406371e+23,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
+      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
       "symbol": "LEO",
       "rank": 7,
-      "balance": 1.2498051e+23,
+      "balance": 1.026683914669311e+23,
       "share": 0.02,
       "last_tx": null
     },
@@ -65,22 +65,14 @@
       "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
       "symbol": "LEO",
       "rank": 8,
-      "balance": 1.1796824016642275e+23,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
-      "symbol": "LEO",
-      "rank": 9,
-      "balance": 1.043107149030234e+23,
-      "share": 0.02,
+      "balance": 7.876717574117373e+22,
+      "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x6d0c8294293926ec07fca0a3dfc5b501748c43f9",
       "symbol": "LEO",
-      "rank": 10,
+      "rank": 9,
       "balance": 7.388589116515e+22,
       "share": 0.01,
       "last_tx": null
@@ -88,7 +80,7 @@
     {
       "address": "0x06db35e5989bfd8e1220764123ead5d97084fa59",
       "symbol": "LEO",
-      "rank": 11,
+      "rank": 10,
       "balance": 4.4840488e+22,
       "share": 0.01,
       "last_tx": null
@@ -96,23 +88,15 @@
     {
       "address": "0x67c67b5a3c4009cf849f86be37e79db3923f1055",
       "symbol": "LEO",
-      "rank": 12,
+      "rank": 11,
       "balance": 4.38e+22,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
-      "symbol": "LEO",
-      "rank": 13,
-      "balance": 4.2216921688e+22,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x9dc2f2eb768704ca32afebc751e11a7827f0ab15",
       "symbol": "LEO",
-      "rank": 14,
+      "rank": 12,
       "balance": 3.238664e+22,
       "share": 0,
       "last_tx": null
@@ -120,8 +104,24 @@
     {
       "address": "0x26071cdce61473253970bd7b678101e58a1e47cb",
       "symbol": "LEO",
-      "rank": 15,
+      "rank": 13,
       "balance": 2.5109990212684153e+22,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
+      "symbol": "LEO",
+      "rank": 14,
+      "balance": 2.366695e+22,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
+      "symbol": "LEO",
+      "rank": 15,
+      "balance": 2.341429749e+22,
       "share": 0,
       "last_tx": null
     },
@@ -153,7 +153,7 @@
       "address": "0x1467bab3230e5dc57bc8c92e69978994ce5b8eab",
       "symbol": "LEO",
       "rank": 19,
-      "balance": 1.59719704895e+22,
+      "balance": 1.49326204895e+22,
       "share": 0,
       "last_tx": null
     },
@@ -222,18 +222,18 @@
       "last_tx": null
     },
     {
-      "address": "0xfdcb65c31c55ffceb18909cb7fddd55957ac0d77",
+      "address": "0x1b73d199e4c69925b73393b508466899faca93fa",
       "symbol": "LEO",
       "rank": 28,
-      "balance": 9.515e+21,
+      "balance": 9.962885387997655e+21,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0xd29fc595d45b9e86684258f7aef02e27234fd744",
+      "address": "0xfdcb65c31c55ffceb18909cb7fddd55957ac0d77",
       "symbol": "LEO",
       "rank": 29,
-      "balance": 8.70327e+21,
+      "balance": 9.515e+21,
       "share": 0,
       "last_tx": null
     },
@@ -302,9 +302,17 @@
       "last_tx": null
     },
     {
-      "address": "0xc7128596e0cbfe72776eedbd306237baf34db9e6",
+      "address": "0x16f6d15381bee4a25b25f0d1c4161b78f7f21fde",
       "symbol": "LEO",
       "rank": 38,
+      "balance": 5.00026e+21,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xc7128596e0cbfe72776eedbd306237baf34db9e6",
+      "symbol": "LEO",
+      "rank": 39,
       "balance": 5.00023166614e+21,
       "share": 0,
       "last_tx": null
@@ -312,16 +320,8 @@
     {
       "address": "0xd91153bd5cdb84c6696dea02b2882f2ec7c0e47a",
       "symbol": "LEO",
-      "rank": 39,
-      "balance": 4.949287658550679e+21,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x1fcf1f5c801febc1009fcc8ed9c8349c367d23ac",
-      "symbol": "LEO",
       "rank": 40,
-      "balance": 4.92874661693e+21,
+      "balance": 4.949287658550679e+21,
       "share": 0,
       "last_tx": null
     },
@@ -353,7 +353,7 @@
       "address": "0x91dca37856240e5e1906222ec79278b16420dc92",
       "symbol": "LEO",
       "rank": 44,
-      "balance": 3.488893710550492e+21,
+      "balance": 3.706770235329062e+21,
       "share": 0,
       "last_tx": null
     },
@@ -446,17 +446,9 @@
       "last_tx": null
     },
     {
-      "address": "0x120051a72966950b8ce12eb5496b5d1eeec1541b",
-      "symbol": "LEO",
-      "rank": 56,
-      "balance": 2.0036836154599269e+21,
-      "share": 0,
-      "last_tx": null
-    },
-    {
       "address": "0x39f0a6609d43368335d4468191dba787306ce140",
       "symbol": "LEO",
-      "rank": 57,
+      "rank": 56,
       "balance": 2.0005e+21,
       "share": 0,
       "last_tx": null
@@ -464,7 +456,7 @@
     {
       "address": "0x3fb43db984df0ef0afec5a9a6448f8cd7abdecbd",
       "symbol": "LEO",
-      "rank": 58,
+      "rank": 57,
       "balance": 2.000380199e+21,
       "share": 0,
       "last_tx": null
@@ -472,8 +464,16 @@
     {
       "address": "0xdeb6ad2a7820839464da79bac953ae6189215443",
       "symbol": "LEO",
-      "rank": 59,
+      "rank": 58,
       "balance": 2e+21,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2ac5770d6780a5c17e97f9b8763290e0552060fa",
+      "symbol": "LEO",
+      "rank": 59,
+      "balance": 1.9969605916e+21,
       "share": 0,
       "last_tx": null
     },
@@ -481,7 +481,7 @@
       "address": "0x92ea7496eba5f001d620005f88f3e8e686e3d4ea",
       "symbol": "LEO",
       "rank": 60,
-      "balance": 1.95462e+21,
+      "balance": 1.99332e+21,
       "share": 0,
       "last_tx": null
     },
@@ -494,9 +494,17 @@
       "last_tx": null
     },
     {
-      "address": "0xb2656c2942ba92aef8af9fc8324d2ecade0aedc3",
+      "address": "0x22f08491184f37ade8e71006eaa07906ea3e8b08",
       "symbol": "LEO",
       "rank": 62,
+      "balance": 1.91867905e+21,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xb2656c2942ba92aef8af9fc8324d2ecade0aedc3",
+      "symbol": "LEO",
+      "rank": 63,
       "balance": 1.85819873768e+21,
       "share": 0,
       "last_tx": null
@@ -504,16 +512,8 @@
     {
       "address": "0x18213ee130f782fc508044396019ab81cefe5c27",
       "symbol": "LEO",
-      "rank": 63,
-      "balance": 1.84e+21,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x22f08491184f37ade8e71006eaa07906ea3e8b08",
-      "symbol": "LEO",
       "rank": 64,
-      "balance": 1.83203e+21,
+      "balance": 1.84e+21,
       "share": 0,
       "last_tx": null
     },
@@ -622,9 +622,17 @@
       "last_tx": null
     },
     {
-      "address": "0x52369383370de687641c149155397fa01a8a6e67",
+      "address": "0x578e7843ec06ed807fda38a42235ad5f2bbd2e3d",
       "symbol": "LEO",
       "rank": 78,
+      "balance": 1.26e+21,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x52369383370de687641c149155397fa01a8a6e67",
+      "symbol": "LEO",
+      "rank": 79,
       "balance": 1.2181e+21,
       "share": 0,
       "last_tx": null
@@ -632,7 +640,7 @@
     {
       "address": "0x19cb8bc12614be6029533190ff5e01d3ccf60124",
       "symbol": "LEO",
-      "rank": 79,
+      "rank": 80,
       "balance": 1.2085423364245965e+21,
       "share": 0,
       "last_tx": null
@@ -640,7 +648,7 @@
     {
       "address": "0xc97a4ed29f03fd549c4ae79086673523122d2bc5",
       "symbol": "LEO",
-      "rank": 80,
+      "rank": 81,
       "balance": 1.2e+21,
       "share": 0,
       "last_tx": null
@@ -648,15 +656,23 @@
     {
       "address": "0x565ea3577f463ce3fbe11bf48e907c7dd619f0a2",
       "symbol": "LEO",
-      "rank": 81,
+      "rank": 82,
       "balance": 1.2e+21,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3c9df24f248ff949161a5a43bbf6dd69378d7799",
+      "symbol": "LEO",
+      "rank": 83,
+      "balance": 1.192655558271e+21,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x2a0c0dbecc7e4d658f48e01e3fa353f44050c208",
       "symbol": "LEO",
-      "rank": 82,
+      "rank": 84,
       "balance": 1.1609514451577783e+21,
       "share": 0,
       "last_tx": null
@@ -664,32 +680,16 @@
     {
       "address": "0x68de7c2208d4793cc50eccfd95c2d8aecf7118f5",
       "symbol": "LEO",
-      "rank": 83,
+      "rank": 85,
       "balance": 1.1542248e+21,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x3c9df24f248ff949161a5a43bbf6dd69378d7799",
-      "symbol": "LEO",
-      "rank": 84,
-      "balance": 1.143655558271e+21,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xb290a9a2ded963487d595df9b897961fe668a634",
       "symbol": "LEO",
-      "rank": 85,
-      "balance": 1.140168142687747e+21,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
-      "symbol": "LEO",
       "rank": 86,
-      "balance": 1.1372525339711919e+21,
+      "balance": 1.140168142687747e+21,
       "share": 0,
       "last_tx": null
     },
@@ -758,17 +758,9 @@
       "last_tx": null
     },
     {
-      "address": "0x3c02290922a3618a4646e3bbca65853ea45fe7c6",
-      "symbol": "LEO",
-      "rank": 95,
-      "balance": 1.0113543308081522e+21,
-      "share": 0,
-      "last_tx": null
-    },
-    {
       "address": "0xdf1241cb46453647f2be4973f1d46926532aae4d",
       "symbol": "LEO",
-      "rank": 96,
+      "rank": 95,
       "balance": 1.0104607913098236e+21,
       "share": 0,
       "last_tx": null
@@ -776,7 +768,7 @@
     {
       "address": "0x37ec1c4f1664ee1e7c4f779ac1b2e429a79d775b",
       "symbol": "LEO",
-      "rank": 97,
+      "rank": 96,
       "balance": 1.01e+21,
       "share": 0,
       "last_tx": null
@@ -784,7 +776,7 @@
     {
       "address": "0x0aad62676dc0918aa3bf4b98b523be9d19761dec",
       "symbol": "LEO",
-      "rank": 98,
+      "rank": 97,
       "balance": 1.0081e+21,
       "share": 0,
       "last_tx": null
@@ -792,13 +784,21 @@
     {
       "address": "0xb7f90246902134201bdd3a8668dacd610dadf2ef",
       "symbol": "LEO",
-      "rank": 99,
+      "rank": 98,
       "balance": 1e+21,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x81c8369212796bcfc50c664a52f82edfeea31f2e",
+      "symbol": "LEO",
+      "rank": 99,
+      "balance": 9.98e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xb737a39dbf70370b1bbdaf1200c9f00956c31c6e",
       "symbol": "LEO",
       "rank": 100,
       "balance": 9.98e+20,

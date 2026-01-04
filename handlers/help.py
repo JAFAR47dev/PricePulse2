@@ -62,7 +62,10 @@ help_pages = {
        "• `/prediction BTC 1h` – AI price prediction\n"
        "• `/aiscan` – Detect patterns: divergence, crosses, etc.\n"
        "• `/bt BTC 1h` – Backtest strategies with AI summary\n"
-       "• `/screen` – Scan top 200 coins for setups\n",
+       "• `/screen` – Scan top 200 coins for setups\n"
+       "• `/signals` — Get trading signals\n"
+        "• `/regime` — Market regime overview\n"
+        "• `/today` — Today's market summary\n",
 
     4: "*🎁 Growth and Navigation*\n\n"
        "• `/tasks` — Complete tasks to earn FREE Pro\n"
@@ -81,8 +84,7 @@ help_pages = {
        "• `/fx eurusd` – Live forex rates\n"
        "• `/fxchart` – Forex Charts\n"
        "• `/fxsessions` – Open forex markets\n"
-       "• [Join Community](https://t.me/+tSWwj5w7S8hkZmM0) – Questions & updates\n"
-       "• Admin support: DM @PricePulseDev \n\n"
+       "• [Join Community](https://t.me/+tSWwj5w7S8hkZmM0) – Questions & updates\n\n"
        "🚀 *We’re building the smartest Telegram crypto bot!*"
 }
 

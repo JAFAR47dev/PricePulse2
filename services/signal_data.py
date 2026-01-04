@@ -1,38 +1,98 @@
 import asyncio
 import json
 import os
-from typing import Dict, List, Optional
+import time
+from typing import Dict, List, Optional, Tuple
 from decimal import Decimal, InvalidOperation
 import httpx
+from dotenv import load_dotenv
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-IDS_PATH = os.path.join(BASE_DIR, "coingecko_ids.json")
+IDS_PATH = os.path.join(BASE_DIR, "top100_coingecko_ids.json")
 
-# Your API configuration
+# API Configuration
+load_dotenv()
+CMC_API_KEY = os.getenv("CMC_API_KEY", "")
 TWELVE_API_KEY = os.getenv("TWELVE_DATA_API_KEY", "")
-BATCH_BASE_URL = "https://api.twelvedata.com/time_series"
 
-# Cache to avoid repeated calculations
-_indicator_cache = {}
+# CoinMarketCap endpoints
+CMC_BASE_URL = "https://pro-api.coinmarketcap.com/v1"
+CMC_QUOTES_URL = f"{CMC_BASE_URL}/cryptocurrency/quotes/latest"
+
+# Twelve Data config
+TWELVE_BASE_URL = "https://api.twelvedata.com/time_series"
+EXCHANGE = "binance"
+
+# Rate limiting configuration (20 requests per minute)
+RATE_LIMIT_REQUESTS = 20
+RATE_LIMIT_PERIOD = 60  # seconds
+_rate_limit_queue = []
+
+# Cache configuration (10 minutes)
+CACHE_DURATION = 600  # 10 minutes in seconds
+_cache_store = {}
+
+# Top 100 coins only
+MAX_COINS = 100
 
 
 # -----------------------------
-# Load Top Coins
+# Rate Limiting
 # -----------------------------
 
-# Major coins typically supported by TwelveData API
-SUPPORTED_SYMBOLS = {
-    'BTC', 'ETH', 'BNB', 'XRP', 'ADA', 'DOGE', 'SOL', 'TRX', 'DOT', 'MATIC',
-    'LTC', 'SHIB', 'AVAX', 'UNI', 'LINK', 'XLM', 'ATOM', 'ETC', 'FIL', 'HBAR',
-    'APT', 'ARB', 'OP', 'NEAR', 'VET', 'ALGO', 'ICP', 'QNT', 'GRT', 'SAND',
-    'MANA', 'XMR', 'AAVE', 'MKR', 'EOS', 'FTM', 'AXS', 'THETA', 'XTZ', 'EGLD',
-    'FLOW', 'CHZ', 'KLAY', 'RUNE', 'ZEC', 'DASH', 'COMP', 'SNX', 'YFI', 'CRV',
-    'SUSHI', '1INCH', 'ENJ', 'BAT', 'ZIL', 'HOT', 'ICX', 'ONT', 'ZRX', 'QTUM',
-}
+async def rate_limit():
+    """Enforce rate limit of 20 requests per minute."""
+    global _rate_limit_queue
+    
+    current_time = time.time()
+    
+    # Remove requests older than 60 seconds
+    _rate_limit_queue = [t for t in _rate_limit_queue if current_time - t < RATE_LIMIT_PERIOD]
+    
+    # If we've hit the limit, wait
+    if len(_rate_limit_queue) >= RATE_LIMIT_REQUESTS:
+        oldest_request = _rate_limit_queue[0]
+        wait_time = RATE_LIMIT_PERIOD - (current_time - oldest_request)
+        if wait_time > 0:
+            await asyncio.sleep(wait_time)
+            return await rate_limit()  # Recursive call after waiting
+    
+    # Add current request to queue
+    _rate_limit_queue.append(current_time)
 
 
-def load_top_coins(limit: int = 200, filter_supported: bool = True) -> List[Dict[str, str]]:
-    """Load top coins from coingecko_ids.json file."""
+# -----------------------------
+# Cache Management
+# -----------------------------
+
+def get_cache_key(symbol: str, timeframe: str, source: str = "combined") -> str:
+    """Generate cache key for a symbol/timeframe combination."""
+    return f"{source}:{symbol}:{timeframe}"
+
+
+def get_cached_data(cache_key: str) -> Optional[Dict]:
+    """Retrieve cached data if still valid (within 10 minutes)."""
+    if cache_key in _cache_store:
+        data, timestamp = _cache_store[cache_key]
+        if time.time() - timestamp < CACHE_DURATION:
+            return data
+        else:
+            del _cache_store[cache_key]
+    return None
+
+
+def set_cached_data(cache_key: str, data: Dict) -> None:
+    """Store data in cache with current timestamp."""
+    _cache_store[cache_key] = (data, time.time())
+
+
+# -----------------------------
+# Load Top 100 Coins
+# -----------------------------
+
+def load_top_coins(limit: int = 100) -> List[Dict[str, str]]:
+    """Load top 100 coins from top100_coingecko_ids.json file."""
     if not os.path.exists(IDS_PATH):
         raise FileNotFoundError(f"Coin IDs file not found: {IDS_PATH}")
     
@@ -51,10 +111,6 @@ def load_top_coins(limit: int = 200, filter_supported: bool = True) -> List[Dict
             continue
         
         symbol_upper = symbol.upper()
-        
-        if filter_supported and symbol_upper not in SUPPORTED_SYMBOLS:
-            continue
-        
         coins.append({"symbol": symbol_upper, "id": coin_id})
     
     return coins[:limit]
@@ -126,7 +182,6 @@ def calculate_macd(prices: List[float]) -> tuple:
     
     macd = ema12 - ema26
     
-    # Calculate signal line (9-period EMA of MACD)
     macd_values = []
     for i in range(26, len(prices)):
         e12 = calculate_ema(prices[:i+1], 12)
@@ -206,177 +261,198 @@ def detect_volatility(atr_pct: float) -> str:
     return "high"
 
 
-def validate_numeric(value: any, min_val: float = None, max_val: float = None) -> bool:
-    """Validate that a value is numeric and within optional bounds."""
-    try:
-        num = float(value)
-        
-        if not (num == num):  # NaN check
-            return False
-        if num == float('inf') or num == float('-inf'):
-            return False
-        
-        if min_val is not None and num < min_val:
-            return False
-        if max_val is not None and num > max_val:
-            return False
-        
-        return True
-    except (TypeError, ValueError, InvalidOperation):
-        return False
-
-
-import json
-import time
-import httpx
-from typing import List, Dict, Optional
-
 # -----------------------------
-# CONFIG
+# CoinMarketCap API Functions
 # -----------------------------
-BATCH_BASE_URL = "https://api.twelvedata.com/time_series"
-MAX_BATCH_SIZE = 100  # Safe limit (<120)
-EXCHANGE = "binance"
 
-# -----------------------------
-# Helpers
-# -----------------------------
-def chunked(lst, size):
-    for i in range(0, len(lst), size):
-        yield lst[i:i + size]
-
-
-def normalize_symbol(symbol: str) -> str:
+async def fetch_cmc_data(symbol: str, timeframe: str = "1h", debug: bool = False) -> Optional[Dict]:
     """
-    Convert BTC/USD → BTCUSDT (Binance-native)
+    Fetch current data from CoinMarketCap API.
+    Note: CMC doesn't provide historical OHLCV in the free tier,
+    so we fetch current quotes and use Twelve Data for historical data.
     """
-    if symbol.endswith("/USD"):
-        return symbol.replace("/USD", "USDT")
-    return symbol.replace("/", "")
-
-
-# -----------------------------
-# BATCH OHLCV FETCHER
-# -----------------------------
-async def fetch_batch_ohlcv_data(
-    symbols: List[str],
-    timeframe: str = "1h",
-    outputsize: int = 100,
-    debug: bool = False
-) -> Dict[str, Dict]:
-    """
-    Fetch OHLCV data for multiple symbols using TwelveData batch endpoint.
-    Uses Binance exchange + USDT pairs for maximum coverage.
-    """
-
-    all_results: Dict[str, Dict] = {}
-
-    for batch in chunked(symbols, MAX_BATCH_SIZE):
-        normalized = [normalize_symbol(s) for s in batch]
-        symbol_string = ",".join(normalized)
-
-        params = {
-            "symbol": symbol_string,
-            "interval": timeframe,
-            "outputsize": outputsize,
-            "exchange": EXCHANGE,          # ✅ REQUIRED
-            "apikey": TWELVE_API_KEY,
-            "format": "JSON",
-        }
-
+    cache_key = get_cache_key(symbol, timeframe, "cmc")
+    cached = get_cached_data(cache_key)
+    if cached:
         if debug:
-            print(f"🌐 Batch request ({len(batch)} symbols)")
-            print(f"   Exchange: {EXCHANGE}")
-            print(f"   Symbols: {symbol_string[:120]}")
-
-        try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
-                resp = await client.get(BATCH_BASE_URL, params=params)
-                resp.raise_for_status()
-                data = resp.json()
-
-            # -----------------------------
-            # RESPONSE PARSING
-            # -----------------------------
-            if len(batch) == 1:
-                if isinstance(data, dict) and "values" in data:
-                    all_results[batch[0]] = data
-                elif debug:
-                    print(f"⚠️ No values for {batch[0]}")
-            else:
-                for fmt, original in zip(normalized, batch):
-                    if (
-                        isinstance(data, dict)
-                        and fmt in data
-                        and isinstance(data[fmt], dict)
-                        and "values" in data[fmt]
-                        and data[fmt]["values"]
-                    ):
-                        all_results[original] = data[fmt]
-                    elif debug:
-                        print(f"⚠️ Missing values for {original}")
-
-        except httpx.HTTPStatusError as e:
-            print(f"❌ API error {e.response.status_code}: {e.response.text[:200]}")
-        except Exception as e:
-            print(f"❌ Batch fetch error: {type(e).__name__}: {e}")
-
-        # Soft rate limit protection
-        await asyncio.sleep(0.5)
-
-    return all_results    
+            print(f"✓ Cache hit for {symbol} (CMC)")
+        return cached
     
-# -----------------------------
-# OHLCV → INDICATORS
-# -----------------------------
-def process_ohlcv_to_indicators(
-    symbol: str,
-    ohlcv_data: Dict,
-    timeframe: str
-) -> Optional[Dict]:
-    """
-    Convert OHLCV candles into a normalized indicator pack.
-    """
-
+    if not CMC_API_KEY:
+        if debug:
+            print(f"⚠️ No CMC API key provided")
+        return None
+    
+    await rate_limit()
+    
+    params = {
+        "symbol": symbol,
+        "convert": "USD"
+    }
+    
+    headers = {
+        "X-CMC_PRO_API_KEY": CMC_API_KEY,
+        "Accept": "application/json"
+    }
+    
     try:
-        values = ohlcv_data.get("values")
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.get(CMC_QUOTES_URL, params=params, headers=headers)
+            resp.raise_for_status()
+            data = resp.json()
+        
+        if data.get("status", {}).get("error_code") == 0 and "data" in data:
+            if symbol in data["data"]:
+                result = {"quote": data["data"][symbol], "source": "cmc"}
+                set_cached_data(cache_key, result)
+                if debug:
+                    print(f"✓ CMC data fetched for {symbol}")
+                return result
+        
+        if debug:
+            print(f"⚠️ CMC returned no data for {symbol}")
+        return None
+    
+    except httpx.HTTPStatusError as e:
+        if debug:
+            print(f"❌ CMC API error for {symbol}: {e.response.status_code}")
+        return None
+    except Exception as e:
+        if debug:
+            print(f"❌ CMC fetch error for {symbol}: {type(e).__name__}: {e}")
+        return None
+
+
+# -----------------------------
+# Twelve Data API Functions (Fallback for Historical OHLCV)
+# -----------------------------
+
+def normalize_symbol_twelve(symbol: str) -> str:
+    """Convert BTC → BTCUSDT for Twelve Data."""
+    return f"{symbol}USDT"
+
+
+async def fetch_twelve_ohlcv(symbol: str, timeframe: str = "1h", outputsize: int = 100, debug: bool = False) -> Optional[Dict]:
+    """Fetch OHLCV data from Twelve Data API (fallback for historical data)."""
+    cache_key = get_cache_key(symbol, timeframe, "twelve")
+    cached = get_cached_data(cache_key)
+    if cached:
+        if debug:
+            print(f"✓ Cache hit for {symbol} (Twelve)")
+        return cached
+    
+    if not TWELVE_API_KEY:
+        if debug:
+            print(f"⚠️ No Twelve Data API key provided")
+        return None
+    
+    await rate_limit()
+    
+    normalized = normalize_symbol_twelve(symbol)
+    
+    params = {
+        "symbol": normalized,
+        "interval": timeframe,
+        "outputsize": outputsize,
+        "exchange": EXCHANGE,
+        "apikey": TWELVE_API_KEY,
+        "format": "JSON"
+    }
+    
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.get(TWELVE_BASE_URL, params=params)
+            resp.raise_for_status()
+            data = resp.json()
+        
+        if isinstance(data, dict) and "values" in data and data["values"]:
+            result = {"values": data["values"], "source": "twelve"}
+            set_cached_data(cache_key, result)
+            if debug:
+                print(f"✓ Twelve Data fetched for {symbol}")
+            return result
+        
+        if debug:
+            print(f"⚠️ Twelve Data returned no values for {symbol}")
+        return None
+    
+    except httpx.HTTPStatusError as e:
+        if debug:
+            print(f"❌ Twelve Data API error for {symbol}: {e.response.status_code}")
+        return None
+    except Exception as e:
+        if debug:
+            print(f"❌ Twelve Data fetch error for {symbol}: {type(e).__name__}: {e}")
+        return None
+
+
+# -----------------------------
+# Process OHLCV to Indicators
+# -----------------------------
+
+def process_ohlcv_to_indicators(symbol: str, ohlcv_data: Dict, cmc_data: Optional[Dict], timeframe: str) -> Optional[Dict]:
+    """Process OHLCV format to indicators, using CMC for current price if available."""
+    try:
+        values = ohlcv_data.get("values", [])
         if not values:
             return None
-
+        
+        # Twelve Data format: reverse to get chronological order
         candles = list(reversed(values))
-
+        
         closes = [float(c["close"]) for c in candles]
-        highs  = [float(c["high"]) for c in candles]
-        lows   = [float(c["low"]) for c in candles]
+        highs = [float(c["high"]) for c in candles]
+        lows = [float(c["low"]) for c in candles]
+        
+        # Use CMC current price if available, otherwise use latest close
+        if cmc_data and "quote" in cmc_data:
+            last_price = float(cmc_data["quote"]["quote"]["USD"]["price"])
+            source = "cmc+twelve"
+        else:
+            last_price = closes[-1]
+            source = "twelve"
+        
+        return calculate_indicators_from_prices(symbol, timeframe, closes, highs, lows, last_price, source)
+    
+    except Exception as e:
+        print(f"⚠️ Indicator processing error for {symbol}: {e}")
+        return None
 
-        # --- Indicator calculations ---
+
+def calculate_indicators_from_prices(
+    symbol: str, 
+    timeframe: str, 
+    closes: List[float], 
+    highs: List[float], 
+    lows: List[float],
+    last_price: float,
+    source: str
+) -> Optional[Dict]:
+    """Calculate all indicators from price arrays."""
+    try:
         ema20 = calculate_ema(closes, 20)
-        rsi   = calculate_rsi(closes)
+        rsi = calculate_rsi(closes)
         macd, macd_signal, macd_hist = calculate_macd(closes)
-        atr   = calculate_atr(highs, lows, closes)
-
-        # --- Mandatory enforcement ---
+        atr = calculate_atr(highs, lows, closes)
+        
         if any(v is None for v in [ema20, rsi, macd, macd_signal, atr]):
             return None
-
-        last_price = closes[-1]
-
+        
         macd_norm = normalize_macd(macd, macd_signal)
         if macd_norm is None:
             return None
-
+        
         ema_dist = price_distance(last_price, ema20)
-        atr_pct  = atr_percent(atr, last_price)
-
+        atr_pct = atr_percent(atr, last_price)
+        
         if ema_dist is None or atr_pct is None:
             return None
-
-        # --- Context ---
+        
         trend = detect_trend(rsi, macd_norm)
         volatility = detect_volatility(atr_pct)
-
+        
         return {
-            "symbol": symbol.replace("/USDT", "").replace("/USD", ""),
+            "symbol": symbol,
             "timeframe": timeframe,
             "price": round(last_price, 6),
             "rsi": round(rsi, 2),
@@ -385,100 +461,90 @@ def process_ohlcv_to_indicators(
             "atr_pct": atr_pct,
             "trend": trend,
             "volatility": volatility,
+            "source": source,
             "extras": {
                 "macdHist": round(macd_hist, 2),
             }
         }
-
+    
     except Exception as e:
-        print(f"⚠️ Indicator processing error for {symbol}: {e}")
+        print(f"⚠️ Indicator calculation error for {symbol}: {e}")
         return None
 
+
 # -----------------------------
-# Main Function - Fetch All Coins in Batches
+# Main Function
 # -----------------------------
 
-async def fetch_top_200_indicator_data(
+async def fetch_top_100_indicator_data(
     timeframe: str = "1h",
-    limit: int = 200,
-    filter_supported: bool = True,
-    batch_size: int = 100,
-    debug: bool = True  # Default to True for now
+    debug: bool = False
 ) -> List[Dict]:
     """
-    Fetch indicator data for top coins using BATCH API calls.
-    
-    This dramatically reduces API credits by fetching multiple symbols per request.
-    
-    Args:
-        timeframe: Timeframe for indicators (e.g., '1h', '4h', '1d')
-        limit: Maximum number of coins to fetch
-        filter_supported: Only fetch data for known supported symbols
-        batch_size: Number of symbols per API call (max 120 for TwelveData)
-        debug: Enable debug output to see API response structure
-        
-    Returns:
-        List of valid indicator packs
+    Fetch indicator data for top 100 coins using CMC API with Twelve Data fallback.
+    - Rate limited to 20 requests/minute
+    - Results cached for 10 minutes
+    - Uses CoinMarketCap for current prices
+    - Falls back to Twelve Data for historical OHLCV when needed
     """
     try:
-        coins = load_top_coins(limit, filter_supported=filter_supported)
+        coins = load_top_coins(MAX_COINS)
         
         if not coins:
-            print("⚠️ No coins loaded")
+            print("⚠️ No coins loaded from top100_coingecko_ids.json")
             return []
         
-        # Prepare symbol list
-        symbols = [f"{coin['symbol']}/USD" for coin in coins]
-        
-        print(f"📊 Fetching indicators for {len(symbols)} coins using BATCH API...")
-        print(f"   API calls needed: {(len(symbols) + batch_size - 1) // batch_size}")
-        
-        if debug:
-            print(f"   Debug mode enabled")
-            print(f"   Sample symbols: {', '.join(symbols[:5])}")
+        print(f"📊 Fetching indicators for {len(coins)} coins...")
+        print(f"   Primary: CoinMarketCap API (current quotes)")
+        print(f"   Fallback: Twelve Data API (historical OHLCV)")
+        print(f"   Rate Limit: {RATE_LIMIT_REQUESTS} requests/min")
+        print(f"   Cache Duration: {CACHE_DURATION//60} minutes")
         
         all_results = []
+        cmc_count = 0
+        twelve_count = 0
+        cache_count = 0
+        combined_count = 0
         
-        # Process in batches
-        for i in range(0, len(symbols), batch_size):
-            batch_symbols = symbols[i:i + batch_size]
+        for coin in coins:
+            symbol = coin["symbol"]
             
-            print(f"\n📦 Batch {i//batch_size + 1}: Fetching {len(batch_symbols)} symbols...")
+            # Check cache first
+            cache_key_combined = get_cache_key(symbol, timeframe, "combined")
+            if get_cached_data(cache_key_combined):
+                cache_count += 1
             
-            # Single API call for entire batch - PASS DEBUG PARAMETER
-            ohlcv_data = await fetch_batch_ohlcv_data(batch_symbols, timeframe, debug=debug)
+            # Try to get CMC current price (for real-time data)
+            cmc_data = await fetch_cmc_data(symbol, timeframe, debug=debug)
             
-            if debug:
-                print(f"   Received data for {len(ohlcv_data)} symbols")
+            # Get historical OHLCV from Twelve Data (needed for indicators)
+            twelve_data = await fetch_twelve_ohlcv(symbol, timeframe, debug=debug)
             
-            # Process each symbol's data
-            processed_count = 0
-            for symbol in batch_symbols:
-                if symbol in ohlcv_data:
-                    result = process_ohlcv_to_indicators(symbol, ohlcv_data[symbol], timeframe)
-                    if result:
-                        all_results.append(result)
-                        processed_count += 1
-                    elif debug:
-                        print(f"⚠️ Failed to process indicators for {symbol}")
-                elif debug:
-                    print(f"⚠️ No data received for {symbol}")
+            if twelve_data:
+                # Process indicators using Twelve Data OHLCV
+                result = process_ohlcv_to_indicators(symbol, twelve_data, cmc_data, timeframe)
+                
+                if result:
+                    all_results.append(result)
+                    
+                    # Track source
+                    if result["source"] == "cmc+twelve":
+                        combined_count += 1
+                    elif result["source"] == "cmc":
+                        cmc_count += 1
+                    else:
+                        twelve_count += 1
+                    
+                    # Cache the result
+                    set_cached_data(cache_key_combined, result)
             
-            if debug:
-                print(f"   Successfully processed {processed_count}/{len(batch_symbols)} symbols")
-            
-            # Rate limiting: wait between batches
-            if i + batch_size < len(symbols):
-                if debug:
-                    print(f"   Waiting 1 second before next batch...")
-                await asyncio.sleep(1)
+            elif debug:
+                print(f"⚠️ No data available for {symbol}")
         
-        success_rate = (len(all_results) / len(symbols) * 100) if symbols else 0
-        print(f"\n✅ Successfully fetched {len(all_results)}/{len(symbols)} coins ({success_rate:.1f}%)")
-        
-        if len(all_results) == 0 and not debug:
-            print("\n💡 Run with debug=True to see API response structure:")
-            print("   await fetch_top_200_indicator_data(debug=True)")
+        success_rate = (len(all_results) / len(coins) * 100) if coins else 0
+        print(f"\n✅ Successfully fetched {len(all_results)}/{len(coins)} coins ({success_rate:.1f}%)")
+        print(f"   CMC+Twelve: {combined_count} | Twelve only: {twelve_count} | Cached: {cache_count}")
+        print(f"   Total API calls: ~{len(_rate_limit_queue)}")
         
         return all_results
     
@@ -488,3 +554,33 @@ async def fetch_top_200_indicator_data(
         if debug:
             print(traceback.format_exc())
         return []
+
+
+# -----------------------------
+# Clear Cache Function
+# -----------------------------
+
+def clear_cache():
+    """Manually clear all cached data."""
+    global _cache_store, _rate_limit_queue
+    _cache_store.clear()
+    _rate_limit_queue.clear()
+    print("✓ Cache and rate limit queue cleared")
+
+
+# -----------------------------
+# Example Usage
+# -----------------------------
+
+async def main():
+    """Example usage of the indicator fetcher."""
+    results = await fetch_top_100_indicator_data(timeframe="1h", debug=True)
+    
+    if results:
+        print(f"\n📈 Sample Results:")
+        for result in results[:5]:
+            print(f"   {result['symbol']}: ${result['price']} | RSI: {result['rsi']} | Trend: {result['trend']} | Source: {result['source']}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

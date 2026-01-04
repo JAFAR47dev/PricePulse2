@@ -46,12 +46,14 @@ from services.alert_service import start_alert_checker, run_ai_strategy_checker
 from services.refresh_tokens import refresh_top_tokens
 from services.refresh_whales import refresh_all_whales
 from whales.whale_monitor import start_monitor
-from services.refresh_coingecko_ids import refresh_coingecko_ids
+from services.refresh_top200_coins import refresh_top200_coingecko_ids
+from services.refresh_top100_coins import refresh_top100_coingecko_ids
 from models.user_activity import update_last_active
 from utils.private_guard_manager import apply_private_command_restrictions
 from notifications.models import create_notifications_table
 from notifications.scheduler import start_scheduler, stop_scheduler
 from handlers.fav.utils.db_favorites import init_favorites_table
+from services.screener_job import setup_screener_jobs
 
 # === Load environment ===
 load_dotenv()
@@ -103,6 +105,7 @@ def main():
         .token(TOKEN)
         .post_init(post_init)
         .post_shutdown(post_shutdown)
+        #.updater(None) 
         .build()
     )
     logger.info("✅ Application created with lifecycle hooks")
@@ -123,14 +126,16 @@ def main():
 
     # === JOB QUEUE - BACKGROUND TASKS ===
     app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
-    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=600)
-    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=200)
-    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=300)
-    app.job_queue.run_repeating(start_monitor, interval=300, first=400)
-    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=150)
+    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=2100)
+    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=1800)
+    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=1500)
+    app.job_queue.run_repeating(start_monitor, interval=300, first=1200)
+    app.job_queue.run_repeating(refresh_top200_coingecko_ids, interval=259200, first=900)
+    app.job_queue.run_repeating(refresh_top100_coingecko_ids, interval=259200, first=600)
     
     # Start alert checker
     start_alert_checker(app.job_queue)
+    setup_screener_jobs(app)
     logger.info("✅ Job queue tasks scheduled")
 
     logger.info("🤖 Bot is now running...")
