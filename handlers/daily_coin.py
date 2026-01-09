@@ -12,7 +12,7 @@ COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 # --- Helper to select today's coin ---
 def get_daily_symbol():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    ids_path = os.path.join(base_dir, "../utils/coingecko_ids.json")
+    ids_path = os.path.join(base_dir, "../services/top200_coingecko_ids.json")
 
     with open(ids_path) as f:
         symbol_to_id = json.load(f)
@@ -60,8 +60,6 @@ def get_coin_of_the_day() -> str:
             f"📊 24h Change: {change:+.2f}%\n"
             f"📈 Market Cap: ${market_cap / 1e9:.2f}B\n"
             f"🔍 Use Case: {desc}\n\n"
-            f"✨ Want full charts, portfolio tracking & alerts?\n"
-            f"👉 /upgrade"
         )
         return text
 

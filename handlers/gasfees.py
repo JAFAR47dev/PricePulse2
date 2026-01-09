@@ -13,6 +13,14 @@ BLOCKNATIVE_API_URL = "https://api.blocknative.com/gasprices/blockprices"
 REQUEST_TIMEOUT = 10
 MIN_CONFIDENCE_THRESHOLD = 70  # Only use estimates with 70%+ confidence
 
+# Gas units for common transactions
+GAS_UNITS = {
+    "transfer": 21000,          # Simple ETH transfer
+    "erc20": 65000,             # ERC-20 token transfer
+    "swap": 150000,             # Uniswap/DEX swap
+    "nft_mint": 100000,         # NFT minting
+}
+
 class GasFeeError(Exception):
     """Custom exception for gas fee fetching errors"""
     pass
@@ -21,6 +29,40 @@ class GasFeeError(Exception):
 def validate_api_key() -> bool:
     """Validate that API key is configured"""
     return bool(BLOCKNATIVE_API_KEY and BLOCKNATIVE_API_KEY.strip())
+
+
+def get_eth_price() -> Optional[float]:
+    """
+    Fetch current ETH price in USD from CoinGecko.
+    Returns None if fetch fails.
+    """
+    try:
+        url = "https://api.coingecko.com/api/v3/simple/price"
+        params = {"ids": "ethereum", "vs_currencies": "usd"}
+        response = requests.get(url, params=params, timeout=5)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("ethereum", {}).get("usd")
+    except Exception as e:
+        print(f"[ETH Price] Failed to fetch: {e}")
+        return None
+
+
+def calculate_gas_cost_usd(gwei_price: float, gas_units: int, eth_price: float) -> float:
+    """
+    Calculate gas cost in USD.
+    
+    Args:
+        gwei_price: Gas price in Gwei
+        gas_units: Number of gas units for the transaction
+        eth_price: Current ETH price in USD
+    
+    Returns:
+        Cost in USD
+    """
+    # Convert Gwei to ETH (1 ETH = 1e9 Gwei)
+    eth_cost = (gwei_price * gas_units) / 1e9
+    return eth_cost * eth_price
 
 
 def extract_gas_prices(block_data: Dict[str, Any]) -> Dict[str, float]:
@@ -71,6 +113,31 @@ def extract_gas_prices(block_data: Dict[str, Any]) -> Dict[str, float]:
         }
 
 
+def format_usd_costs(prices: Dict[str, float], eth_price: float, tx_type: str = "transfer") -> str:
+    """
+    Format USD cost estimates for a transaction type.
+    
+    Args:
+        prices: Dict with 'low', 'standard', 'high' gas prices in Gwei
+        eth_price: Current ETH price in USD
+        tx_type: Type of transaction (default: "transfer")
+    
+    Returns:
+        Formatted string with USD estimates
+    """
+    gas_units = GAS_UNITS.get(tx_type, GAS_UNITS["transfer"])
+    
+    low_usd = calculate_gas_cost_usd(prices["low"], gas_units, eth_price)
+    standard_usd = calculate_gas_cost_usd(prices["standard"], gas_units, eth_price)
+    high_usd = calculate_gas_cost_usd(prices["high"], gas_units, eth_price)
+    
+    return (
+        f"• Low: `{prices['low']:.1f}` Gwei (~${low_usd:.2f})\n"
+        f"• Standard: `{prices['standard']:.1f}` Gwei (~${standard_usd:.2f})\n"
+        f"• High: `{prices['high']:.1f}` Gwei (~${high_usd:.2f})\n"
+    )
+
+
 def get_gas_fees() -> str:
     """
     Fetch Ethereum gas fees and return a formatted string.
@@ -108,20 +175,39 @@ def get_gas_fees() -> str:
         # Extract categorized prices
         prices = extract_gas_prices(block)
         
+        # Fetch ETH price
+        eth_price = get_eth_price()
+        
         # Build response text
-        text = (
-            f"⛽ *Ethereum Gas Fees*\n\n"
-            f"• Low: `{prices['low']:.1f}` Gwei (slower)\n"
-            f"• Standard: `{prices['standard']:.1f}` Gwei (balanced)\n"
-            f"• High: `{prices['high']:.1f}` Gwei (fast)\n\n"
-        )
+        text = f"⛽ *Ethereum Gas Fees*\n\n"
+        
+        if eth_price:
+            # Show costs for ETH transfer (most common)
+            text += f"💸 *ETH Transfer (~{GAS_UNITS['transfer']:,} gas)*\n"
+            text += format_usd_costs(prices, eth_price, "transfer")
+            
+            text += f"\n🪙 *ERC-20 Transfer (~{GAS_UNITS['erc20']:,} gas)*\n"
+            text += format_usd_costs(prices, eth_price, "erc20")
+            
+            text += f"\n🔄 *DEX Swap (~{GAS_UNITS['swap']:,} gas)*\n"
+            text += format_usd_costs(prices, eth_price, "swap")
+            
+            text += f"\n💎 *ETH Price:* ${eth_price:,.2f}\n"
+        else:
+            # Fallback if ETH price unavailable
+            text += (
+                f"• Low: `{prices['low']:.1f}` Gwei (slower)\n"
+                f"• Standard: `{prices['standard']:.1f}` Gwei (balanced)\n"
+                f"• High: `{prices['high']:.1f}` Gwei (fast)\n\n"
+            )
+            text += "⚠️ _USD estimates unavailable_\n"
         
         if base_fee:
             text += f"📊 Base Fee: `{base_fee:.1f}` Gwei\n"
         
         text += (
-            f"🧱 Block: `{block_number}`\n"
-            f"🔍 _Powered by Blocknative_"
+            f"🧱 Block: `{block_number}`\n\n"
+            f"_Gas costs are approximate and vary by transaction complexity_"
         )
         
         return text

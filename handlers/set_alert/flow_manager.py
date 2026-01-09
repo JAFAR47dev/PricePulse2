@@ -380,26 +380,30 @@ async def set_alert_message_router(update, context):
 
 from handlers.fav.fav_handler import fav_text_handler
 from handlers.broadcast import broadcast_message_handler
+from notifications.handlers.delivery_handler import catch_group_forward
 
 async def global_text_router(update, context):
     ud = context.user_data
     print("DEBUG global router:", ud)
 
-    # Priority 1: /broadcast flow (admin only)
-    if ud.get("broadcast_mode"):
+    # Priority 1: /broadcast flow
+    if ud.get("broadcast_mode") is True:
         return await broadcast_message_handler(update, context)
 
     # Priority 2: /set flow
-    if ud.get("alert_flow"):
+    if ud.get("alert_flow") is True:
         return await set_alert_message_router(update, context)
 
     # Priority 3: /fav flow
-    if ud.get("fav_mode"):
+    if ud.get("fav_mode") is True:
         return await fav_text_handler(update, context)
-
-    # Not in any mode → ignore
-    return
     
+    # Priority 4: Group delivery setup
+    if ud.get("awaiting_group_forward") is True:
+        return await catch_group_forward(update, context)
+
+    return
+
            
     # Ignore unrelated messages
 def register_set_handlers(app):

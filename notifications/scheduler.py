@@ -311,7 +311,7 @@ async def build_message(user: Dict[str, Any], notif_data: Dict[str, Any]) -> str
                 f"💎 *ETH Dom:* {g.get('eth_dominance', 'N/A')}"
             )
         else:
-            parts.append(f"\n🌍 {g}")
+            parts.append(f"\n {g}")
 
     # --- 🚀 Top Gainers ---
     if user.get("include_gainers") and notif_data.get("gainers"):

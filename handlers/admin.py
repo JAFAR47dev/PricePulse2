@@ -45,8 +45,9 @@ async def set_plan(update: Update, context: ContextTypes.DEFAULT_TYPE):
 from telegram import Update
 from telegram.ext import ContextTypes
 from models.db import get_connection
-import os
+import asyncio
 
+PROLIST_TIMEOUT = 120  # seconds (2 minutes)
 
 async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
@@ -66,16 +67,23 @@ async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn.close()
 
     if not rows:
-        await update.message.reply_text("📭 No Pro users found.")
+        response = await update.message.reply_text("📭 No Pro users found.")
+        # Delete response message after timeout
+        asyncio.create_task(delete_message_after_delay(context, update.message.chat_id, response.message_id, PROLIST_TIMEOUT))
         return
 
-    # --- Initialize counters ---
     monthly_count = yearly_count = lifetime_count = 0
-
     msg = "*📋 Current Pro Users:*\n\n"
+
     for uid, username, plan, expiry in rows:
-        name_display = f"@{username}" if username else f"`{uid}`"
+        name = f"@{username}" if username else f"`{uid}`"
         plan_name = plan.replace("pro_", "").capitalize()
+        expiry_display = expiry if expiry else "♾️ Lifetime"
+
+        msg += f"• {name} — *{plan_name}* — {expiry_display}\n"
+
+        if uid == ADMIN_ID:
+            continue
 
         if "month" in plan.lower():
             monthly_count += 1
@@ -84,22 +92,24 @@ async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
         elif "life" in plan.lower():
             lifetime_count += 1
 
-        expiry_display = expiry if expiry else "♾️ Lifetime"
-        msg += f"• {name_display} — *{plan_name}* — {expiry_display}\n"
-
-    # --- Calculate expected revenue ---
-    monthly_revenue = monthly_count * 10
-    yearly_revenue = yearly_count * 99
-    lifetime_revenue = lifetime_count * 249
-    total_revenue = monthly_revenue + yearly_revenue + lifetime_revenue
-
-    msg += (
-        "\n\n💰 *Expected Revenue Summary:*\n"
-        f"🗓️ Monthly ({monthly_count} users): ${monthly_revenue}\n"
-        f"📅 Yearly ({yearly_count} users): ${yearly_revenue}\n"
-        f"♾️ Lifetime ({lifetime_count} users): ${lifetime_revenue}\n"
+    revenue = (
+        f"\n\n💰 *Expected Revenue Summary (Auto-expires):*\n"
+        f"🗓️ Monthly ({monthly_count}): ${monthly_count * 10}\n"
+        f"📅 Yearly ({yearly_count}): ${yearly_count * 99}\n"
+        f"♾️ Lifetime ({lifetime_count}): ${lifetime_count * 249}\n"
         f"━━━━━━━━━━━━━━\n"
-        f"💵 *Total Expected Revenue:* ${total_revenue}"
+        f"💵 *Total:* ${(monthly_count*10)+(yearly_count*99)+(lifetime_count*249)}"
     )
 
-    await update.message.reply_text(msg, parse_mode="Markdown")
+    sent = await update.message.reply_text(msg + revenue, parse_mode="Markdown")
+    
+    # Delete the results after 2 minutes
+    asyncio.create_task(delete_message_after_delay(context, update.message.chat_id, sent.message_id, PROLIST_TIMEOUT))
+    
+    
+async def delete_message_after_delay(context, chat_id, message_id, delay=PROLIST_TIMEOUT):
+    await asyncio.sleep(delay)
+    try:
+        await context.bot.delete_message(chat_id, message_id)
+    except:
+        pass

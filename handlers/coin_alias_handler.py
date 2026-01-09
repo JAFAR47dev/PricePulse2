@@ -11,6 +11,7 @@ from services.coin_data import get_coin_data
 from utils.formatting import format_large_number
 from tasks.handlers import handle_streak
 from models.user_activity import update_last_active
+from handlers.set_alert.flow_manager import start_set_alert
 
 async def handle_chart_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -37,11 +38,11 @@ async def handle_add_alert_button(update: Update, context: ContextTypes.DEFAULT_
     parts = query.data.split("_")
     if len(parts) == 2 and parts[0] == "addalert":
         symbol = parts[1]
-        await query.message.reply_text(
-            f"🛎 To add an alert for *{symbol}*, use:\n\n"
-            f"`/set`\n",
-            parse_mode="Markdown"
-        )
+
+
+        # 🚀 Directly launch /set interactive flow
+        await start_set_alert(update, context)
+        
 
 async def coin_alias_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -102,7 +103,7 @@ async def coin_alias_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
     await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=keyboard)
     
 EXCLUDED_COMMANDS = {
-    "start", "help", "tasks", "referral", "referrals", "alerts", "watch", "watchlist",
+    "start", "help", "menu", "support", "regime", "signals", "today", "tasks", "referral", "referrals", "alerts", "watch", "watchlist",
     "upgrade", "remove", "removeall", "best", "worst", "news", "trend", "addasset",
     "portfolio", "portfoliotarget", "portfoliolimit", "prediction", "edit", "stats",
     "setplan", "prolist", "calc", "aistrat", "screen", "aiscan", "hmap", "track", "cal", "fxcal", "fxsessions"

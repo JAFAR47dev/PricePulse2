@@ -27,7 +27,7 @@ async def aiscan_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This is a *Pro-only* feature.\nUpgrade to unlock AI backtesting.\n\n👉 /upgrade",
+            "🔒 This is a *Pro-only* feature.\nUpgrade to unlock AI Pattern Scanner.\n\n👉 /upgrade",
             parse_mode=ParseMode.MARKDOWN
         )
         return

@@ -143,9 +143,9 @@ async def track_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if len(context.args) >= 2:
         try:
             limit = int(context.args[1])
-            if limit <= 0 or limit > 10000:  # reasonable upper bound
+            if limit <= 0 or limit > 100:  # reasonable upper bound
                 await update.message.reply_text(
-                    "⚠️ Number of whales must be between 1 and 10000.\nExample: `/track ETH 20`",
+                    "⚠️ Number of whales must be between 1 and 100.\nExample: `/track ETH 20`",
                     parse_mode="Markdown",
                 )
                 return

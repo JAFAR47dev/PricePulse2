@@ -14,16 +14,16 @@ load_dotenv()
 
 # --- USD Plan Prices ---
 USD_PRICES = {
-    "monthly": 10,
-    "yearly": 99,
-    "lifetime": 249
+    "monthly": 7.99,
+    "yearly": 59,
+    "lifetime": 149
 }
 
 # --- Crypto Meta ---
 CRYPTO_DETAILS = {
-    "usdt": {"name": "USDT (TRC20)", "wallet": "TCvaGAp7UrMHwwzMH9jLukL9BbAGq39iLX", "id": "tether"},
+    "usdt": {"name": "USDT (TRC20)", "wallet": "TD1XFtspTGeQUjPJ4B4ki7pcTCsXLGAcva", "id": "tether"},
     "ton": {"name": "TON", "wallet": "UQDgqP7E0jzxoLFrSHVJiq6E4o4RZu3tdtHLPOEfyq0XMEyE", "id": "the-open-network"},
-    "btc": {"name": "Bitcoin (BTC)", "wallet": "14i5aBLB8yWh5gnApYUTaMAvPKukR6BqCM", "id": "bitcoin"}
+    "btc": {"name": "Bitcoin (BTC)", "wallet": "bc1q6898mactfdqqfut87wxckpjvd2nwdj22r8svh8", "id": "bitcoin"}
 }
 
 # --- Step 1: Show Upgrade Plans ---
@@ -35,24 +35,52 @@ async def upgrade_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update_last_active(user_id, command_name="/upgrade")
     await handle_streak(update, context)
     text = (
+    "💎 *Upgrade to Pro — Stop Losing Money to Slow Decisions*\n\n"
     
-   "💎 *Upgrade to Pro & Unlock Your Full Trading Power*\n\n"
-    "🚀 *Why Go Pro?*\n"
-    "• Unlimited alerts — never miss a move\n"
-    "• % change, volume, risk & indicator alert types\n"
-    "• Full chart timeframes & advanced trend analysis\n"
-    "• AI predictions, backtests, scanners & pattern detection\n"
-    "• Portfolio tracking with SL/TP automation\n"
-    "• Whale wallet tracking + real-time watchlist alerts\n\n"
-   
-
-    "*Choose a plan below to upgrade and unlock everything:*"
+    "You're already paying for this.\n"
+    "Most traders spend *$30-60/month* on TradingView, alert apps, news feeds, and portfolio trackers.\n"
+    "Then *waste hours* switching between them — and still miss the move.\n\n"
+    
+    "❌ *What that costs you:*\n"
+    "• Late entries because you didn't see the breakout\n"
+    "• Missed exits because alerts didn't fire\n"
+    "• Bad trades because you couldn't confirm the setup fast enough\n\n"
+    
+    "✅ *Pro fixes this — everything you need, one chat, instant answers:*\n\n"
+    
+    "🔔 *Never Miss a Move*\n"
+    "   Unlimited alerts: price, %, volume, risk, indicators — set once, forget it\n\n"
+    
+    "📊 *Confirm Setups in Seconds*\n"
+    "   Charts, trends, regime analysis — no timeframe limits, instant access\n\n"
+    
+    "🤖 *Trade Like You Have a Research Team*\n"
+    "   AI predictions, pattern scanner, strategy backtests — see what's working NOW\n\n"
+    
+    "💼 *Protect Your Portfolio Automatically*\n"
+    "   Smart stop-loss & take-profit alerts — discipline, even when you're not watching\n\n"
+    
+    "🐋 *Follow the Smart Money*\n"
+    "   Whale wallet tracking — know when institutions are moving before price reacts\n\n"
+    
+    "👁️ *Monitor Everything at Once*\n"
+    "   Advanced watchlists — real-time tracking across 100+ coins\n\n"
+    
+    "⚡ *One bot. One subscription. Zero switching.*\n"
+    "Pro users don't trade harder — they trade *smarter* and *faster*.\n\n"
+    
+    "🎁 *Founding Member Pricing — Lock It In Now*\n"
+    "Early users get Pro at launch pricing. Price increases as we add features.\n\n"
+    
+    "*Choose your plan below 👇*"
 )
 
+
+
     keyboard = [
-        [InlineKeyboardButton("📆 Monthly - $10", callback_data="plan_monthly")],
-        [InlineKeyboardButton("📅 Yearly - $99", callback_data="plan_yearly")],
-        [InlineKeyboardButton("♾️ Lifetime - $249", callback_data="plan_lifetime")],
+        [InlineKeyboardButton("📆 Monthly - $7.99", callback_data="plan_monthly")],
+        [InlineKeyboardButton("📅 Yearly - $59", callback_data="plan_yearly")],
+        [InlineKeyboardButton("♾️ Lifetime - $149", callback_data="plan_lifetime")],
     ]
     markup = InlineKeyboardMarkup(keyboard)
 

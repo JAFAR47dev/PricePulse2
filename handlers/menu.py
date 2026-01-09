@@ -1,4 +1,14 @@
-Here's the implementation for the new /menu command:
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.ext import (
+    ContextTypes,
+    CommandHandler,
+    MessageHandler,
+    CallbackQueryHandler,
+    ConversationHandler,
+    filters
+)
+from models.user_activity import update_last_active
+
 async def menu_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     user_id = user.id
@@ -42,14 +52,17 @@ async def handle_menu_alerts(update: Update, context: ContextTypes.DEFAULT_TYPE)
     await query.answer()
 
     alerts_text = (
-        "🔔 *Alerts Menu*\n\n"
-        "Set up custom alerts to never miss important market moves.\n\n"
-        "Available commands:\n"
-        "• `/set` — Create price alerts\n"
-        "• `/alerts` — View active alerts\n"
-        "• `/remove` — Remove specific alerts\n"
-        "• `/removeall` — Clear all alerts"
-    )
+    "🔔 *Alerts Menu*\n\n"
+    "Set up custom alerts to never miss important market moves.\n\n"
+    "Available commands:\n"
+    "• `/set` — Create alerts\n"
+    "• `/alerts` — View active alerts\n"
+    "• `/remove` — Remove specific alerts\n"
+    "• `/removeall` — Clear all alerts\n"
+    "• `/watch` — Watch a coin for % moves\n"
+    "• `/watchlist` — View your watchlist\n"
+    "• `/removewatch` — Remove a coin from watchlist"
+)
 
     keyboard = [
         [InlineKeyboardButton("⬅️ Back to Menu", callback_data="back_to_menu")]
@@ -133,10 +146,12 @@ async def handle_menu_ai(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Advanced AI-powered trading features.\n\n"
         "Available commands:\n"
         "• `/prediction` — AI price forecasting\n"
-        "• `/aistrat` — Natural language alerts\n"
         "• `/aiscan` — Pattern detection\n"
         "• `/bt` — Backtest strategies\n"
-        "• `/screen` — Scan 200+ coins"
+        "• `/screen` — Scan 200+ coins\n"
+        "• `/signals` — Get trading signals\n"
+        "• `/regime` — Market regime overview\n"
+        "• `/today` — Today's market summary"
     )
 
     keyboard = [
@@ -224,8 +239,10 @@ async def handle_menu_account(update: Update, context: ContextTypes.DEFAULT_TYPE
         "• `/upgrade` — Upgrade to Pro\n"
         "• `/tasks` — Earn FREE Pro\n"
         "• `/referral` — Get referral link\n"
+        "• `/myplan` — Check your subscription plan and expiry date\n"
         "• `/notifications` — Toggle notifications\n"
-        "• `/feedback` — Share your review"
+        "• `/feedback` — Share your review\n"
+        "• `/support` — Contact support"
     )
 
     keyboard = [

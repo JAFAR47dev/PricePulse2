@@ -3,7 +3,7 @@ from telegram.ext import (
     ApplicationBuilder, CommandHandler, CallbackQueryHandler,
     ConversationHandler, MessageHandler, ContextTypes, filters
 )
-
+from config import ADMIN_ID
 from handlers.broadcast import register_broadcast_handlers
 from handlers.set_alert.flow_manager import register_set_handlers
 from .alert_handlers import register_alert_handlers
@@ -26,7 +26,6 @@ from .upgrade import (
     show_payment_instructions, confirm_payment
 )
 from .best_gainers import best_gainers, best_callback_handler
-from .calendar import calendar_command
 from .coin_alias_handler import (
     handle_chart_button, handle_add_alert_button,
     coin_alias_handler, coin_command_router 
@@ -108,6 +107,11 @@ from notifications.handlers.notify_menu import register_notify_handlers
 from .add_to_group import add_to_group
 from .myplan import myplan
 from .signals import signals_command
+from .regime import (
+	regime_command,
+	regime_callback_handler
+	)
+from .today import today_command
 
 
 def register_all_handlers(app):
@@ -151,6 +155,9 @@ def register_all_handlers(app):
        app.add_handler(CallbackQueryHandler(handle_help_pagination, pattern=r"^help_"))
        app.add_handler(CommandHandler("referral", referral_command))
        app.add_handler(CommandHandler("prolist", pro_user_list))
+       app.add_handler(CommandHandler("regime", regime_command))
+       app.add_handler(CallbackQueryHandler(regime_callback_handler, pattern="^regime_"))
+       app.add_handler(CommandHandler("today", today_command))
        app.add_handler(CommandHandler("myplan", myplan))
        app.add_handler(CommandHandler("upgrade", upgrade_menu))              
        app.add_handler(CallbackQueryHandler(upgrade_menu, pattern="^upgrade_menuu$"))
@@ -182,7 +189,6 @@ def register_all_handlers(app):
        ))
        app.add_handler(CommandHandler("setplan", set_plan))
        app.add_handler(CommandHandler("cod", coin_of_the_day))
-       app.add_handler(CommandHandler("cal", calendar_command))
        app.add_handler(CommandHandler("hmap", heatmap_command))
        app.add_handler(CommandHandler("conv", convert_command))
        app.add_handler(CommandHandler("calc", calc_command))

@@ -264,7 +264,10 @@ async def handle_ai(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• `/prediction` — AI price forecasting\n"
         "• `/aiscan` — Pattern detection\n"
         "• `/bt` — Backtest strategies\n"
-        "• `/screen` — Scan 200+ coins"
+        "• `/screen` — Scan 200+ coins\n"
+        "• `/signals` — Get trading signals\n"
+        "• `/regime` — Market regime overview\n"
+        "• `/today` — Today's market summary"
     )
 
     keyboard = [
@@ -309,7 +312,8 @@ async def handle_account(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• `/referral` — Get referral link\n"
         "• `/notifications` — Toggle notifications\n"
         "• `/myplan` — Check your subscription plan and expiry date\n"
-        "• `/feedback` — Share your review"
+        "• `/feedback` — Share your review\n"
+        "• `/support` — Contact support"
     )
 
     keyboard = [
