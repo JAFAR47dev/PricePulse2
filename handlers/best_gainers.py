@@ -1,7 +1,7 @@
 import os
 import httpx
 from dotenv import load_dotenv
-from telegram import Update
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from tasks.handlers import handle_streak
 from models.user_activity import update_last_active
@@ -10,6 +10,73 @@ from models.user_activity import update_last_active
 load_dotenv()
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 COINGECKO_API = "https://api.coingecko.com/api/v3"
+
+
+# ============================================================================
+# DATA FUNCTION (for notifications)
+# ============================================================================
+
+async def get_top_gainers_data(per_page: int = 100) -> list:
+    """
+    Fetch top 3 gainers and return raw data as list of tuples.
+    
+    Returns:
+        list: [(coin_name, change_percent), ...] or empty list on error
+    """
+    try:
+        headers = {}
+        if COINGECKO_API_KEY:
+            headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
+
+        params = {
+            "vs_currency": "usd",
+            "order": "market_cap_desc",
+            "per_page": per_page,
+            "page": 1,
+            "price_change_percentage": "24h",
+        }
+
+        async with httpx.AsyncClient(timeout=10) as client:
+            response = await client.get(
+                f"{COINGECKO_API}/coins/markets",
+                params=params,
+                headers=headers
+            )
+
+        response.raise_for_status()
+        data = response.json()
+
+        safe_coins = []
+        for c in data:
+            try:
+                change = c.get("price_change_percentage_24h")
+                name = c.get("name") or "Unknown"
+                symbol = (c.get("symbol") or "N/A").upper()
+
+                if change is None:
+                    continue
+
+                safe_coins.append({
+                    "name": name,
+                    "symbol": symbol,
+                    "change": change
+                })
+            except:
+                continue
+
+        top_gainers = sorted(safe_coins, key=lambda x: x["change"], reverse=True)[:3]
+
+        # Return as list of tuples: [(name, change_str), ...]
+        return [(f"{c['name']} ({c['symbol']})", f"+{c['change']:.2f}%") for c in top_gainers]
+
+    except Exception as e:
+        print(f"[Best] Error: {e}")
+        return []
+
+
+# ============================================================================
+# MESSAGE FUNCTION (for Telegram commands)
+# ============================================================================
 
 async def get_top_gainers_message(per_page: int = 100) -> str:
     """Fetch top 3 gainers and return a formatted message."""
@@ -75,9 +142,11 @@ async def get_top_gainers_message(per_page: int = 100) -> str:
     except Exception as e:
         print(f"[Best] Error: {e}")
         return "❌ Could not fetch top gainers."
-        
-        
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+
+
+# ============================================================================
+# TELEGRAM COMMAND HANDLERS
+# ============================================================================
 
 async def best_gainers(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -99,8 +168,8 @@ async def best_gainers(update: Update, context: ContextTypes.DEFAULT_TYPE):
         parse_mode="Markdown",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
-    
-    
+
+
 async def best_callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()

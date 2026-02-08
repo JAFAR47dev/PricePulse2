@@ -15,7 +15,7 @@ COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 
 # Load CoinGecko ID mappings
 base_dir = os.path.dirname(os.path.abspath(__file__))
-ids_path = os.path.join(base_dir, "../utils/coingecko_ids.json")
+ids_path = os.path.join(base_dir, "../services/top200_coingecko_ids.json")
 with open(ids_path, "r") as f:
     COINGECKO_IDS = json.load(f)
 

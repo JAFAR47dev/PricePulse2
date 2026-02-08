@@ -18,7 +18,7 @@ async def show_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not args:
         await message.reply_text(
-            "❌ Usage: `/c BTC [timeframe]`\nExample: `/c BTC 1h`",
+            "❌ Usage: `/c [coin] [timeframe]`\nExample: `/c BTC 1h`",
             parse_mode="Markdown"
         )
         return

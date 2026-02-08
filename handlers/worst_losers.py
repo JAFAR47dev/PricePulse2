@@ -1,6 +1,6 @@
 import os
 import httpx
-from telegram import Update
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from dotenv import load_dotenv
 from tasks.handlers import handle_streak
@@ -11,6 +11,67 @@ load_dotenv()
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 COINGECKO_API = "https://api.coingecko.com/api/v3"
 
+
+# ============================================================================
+# DATA FUNCTION (for notifications)
+# ============================================================================
+
+async def get_top_losers_data(per_page: int = 100) -> list:
+    """
+    Fetch top 3 losers and return raw data as list of tuples.
+    
+    Returns:
+        list: [(coin_name, change_percent), ...] or empty list on error
+    """
+    try:
+        headers = {"accept": "application/json"}
+        if COINGECKO_API_KEY:
+            headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
+
+        params = {
+            "vs_currency": "usd",
+            "order": "market_cap_desc",
+            "per_page": per_page,
+            "page": 1,
+            "price_change_percentage": "24h",
+        }
+
+        async with httpx.AsyncClient(timeout=httpx.Timeout(12.0)) as client:
+            response = await client.get(
+                f"{COINGECKO_API}/coins/markets",
+                params=params,
+                headers=headers
+            )
+
+        response.raise_for_status()
+        data = response.json()
+
+        if not isinstance(data, list) or len(data) == 0:
+            return []
+
+        # Extract price change safely
+        def safe_change(coin):
+            return coin.get("price_change_percentage_24h") or 0
+
+        losers = sorted(data, key=safe_change)[:3]
+
+        # Return as list of tuples: [(name, change_str), ...]
+        return [
+            (
+                f"{c.get('name', 'Unknown')} ({c.get('symbol', '?').upper()})",
+                f"{c.get('price_change_percentage_24h', 0):.2f}%"
+            )
+            for c in losers
+        ]
+
+    except Exception as e:
+        print(f"[Worst] Error: {e}")
+        return []
+
+
+# ============================================================================
+# MESSAGE FUNCTION (for Telegram commands)
+# ============================================================================
 
 async def get_top_losers_message(per_page: int = 100) -> str:
     try:
@@ -62,11 +123,13 @@ async def get_top_losers_message(per_page: int = 100) -> str:
         return msg
 
     except Exception as e:
-        print(f"Error worst losers: {e}")
+        print(f"[Worst] Error: {e}")
         return "❌ Could not fetch top losers due to an API error."
-        
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+
+# ============================================================================
+# TELEGRAM COMMAND HANDLERS
+# ============================================================================
 
 async def worst_losers(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -88,7 +151,8 @@ async def worst_losers(update: Update, context: ContextTypes.DEFAULT_TYPE):
         parse_mode="Markdown",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
-    
+
+
 async def worst_callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
@@ -100,5 +164,3 @@ async def worst_callback_handler(update: Update, context: ContextTypes.DEFAULT_T
     msg = await get_top_losers_message(per_page)
 
     await loading_msg.edit_text(msg, parse_mode="Markdown")
-    
-    

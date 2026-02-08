@@ -165,13 +165,19 @@ async def send_notification_with_retry(
     for attempt in range(1, max_retries + 1):
         try:
             chat_id = None
-            if user.get("delivery") == "private":
+            delivery = user.get("delivery", "private")
+            
+            if delivery == "private":
                 chat_id = user.get("user_id")
-            elif user.get("delivery") == "group":
+            elif delivery == "group":
                 chat_id = user.get("group_id")
 
+            # ✅ Better validation with helpful error message
             if not chat_id:
-                return False, "No valid chat_id"
+                if delivery == "group":
+                    return False, "Group delivery selected but no group configured. Please set up a group in /notifications"
+                else:
+                    return False, "No valid chat_id available"
 
             await bot.send_message(
                 chat_id=chat_id,
@@ -190,13 +196,20 @@ async def send_notification_with_retry(
             return True, ""
 
         except Forbidden as e:
-            error = f"Bot blocked: {e}"
+            error = f"Bot blocked by user or removed from group"
             print(f"[Notification] ❌ {error} - user {user_id}")
             log_notification(user_id, "blocked", datetime.utcnow(), message, str(e))
             return False, error
             
         except BadRequest as e:
-            error = f"Bad request: {e}"
+            error_msg = str(e)
+            if "chat not found" in error_msg.lower():
+                error = "Chat not found. Please add the bot to your group or start a private chat"
+            elif "have no rights" in error_msg.lower():
+                error = "Bot doesn't have permission to send messages in this group"
+            else:
+                error = f"Invalid request: {error_msg}"
+            
             print(f"[Notification] ❌ {error} - user {user_id}")
             log_notification(user_id, "failed", datetime.utcnow(), message, str(e))
             return False, error
@@ -210,7 +223,7 @@ async def send_notification_with_retry(
         except TelegramError as e:
             error = f"Telegram error: {e}"
             if attempt < max_retries:
-                wait_time = 2 ** attempt  # Exponential backoff: 2s, 4s, 8s
+                wait_time = 2 ** attempt  # Exponential backoff
                 print(f"[Notification] ⚠️ Attempt {attempt} failed, retrying in {wait_time}s - user {user_id}")
                 await asyncio.sleep(wait_time)
             else:
@@ -225,7 +238,7 @@ async def send_notification_with_retry(
             return False, error
     
     return False, f"Failed after {max_retries} retries"
-
+    
 
 # ============================================================================
 # MESSAGE BUILDING
@@ -286,22 +299,13 @@ def should_notify_user(user: Dict[str, Any], current_utc_hour: int, last_hour: O
 
 
 async def build_message(user: Dict[str, Any], notif_data: Dict[str, Any]) -> str:
-    """
-    Build dynamic notification message per user safely.
-    
-    Args:
-        user: User dictionary with notification preferences
-        notif_data: Notification data dictionary
-        
-    Returns:
-        str: Formatted message string
-    """
+    """Build dynamic notification message per user safely."""
     parts = ["📊 *Daily Market Update*"]
 
     # --- 🌍 Global Market Section ---
     if user.get("include_global") and notif_data.get("global"):
         g = notif_data["global"]
-        if isinstance(g, dict):
+        if isinstance(g, dict) and g:  # ✅ Added check for empty dict
             parts.append(
                 "\n🌍 *Global Market Overview*\n"
                 f"💰 *Market Cap:* {g.get('market_cap', 'N/A')}\n"
@@ -310,60 +314,48 @@ async def build_message(user: Dict[str, Any], notif_data: Dict[str, Any]) -> str
                 f"🏆 *BTC Dom:* {g.get('btc_dominance', 'N/A')} | "
                 f"💎 *ETH Dom:* {g.get('eth_dominance', 'N/A')}"
             )
-        else:
-            parts.append(f"\n🌍 {g}")
 
     # --- 🚀 Top Gainers ---
     if user.get("include_gainers") and notif_data.get("gainers"):
         gainers_data = notif_data["gainers"]
         if isinstance(gainers_data, list) and len(gainers_data) > 0:
             formatted = "\n".join(
-                [f"• {c[0]} — 📈 *{c[1]}*" for c in gainers_data[:3] if len(c) >= 2]
+                [f"• {coin} — 📈 *{change}*" for coin, change in gainers_data[:3]]
             )
             if formatted:
                 parts.append(f"\n🚀 *Top Gainers (24h)*\n{formatted}")
-        elif isinstance(gainers_data, str):
-            parts.append(f"\n🚀 *Top Gainers:* {gainers_data}")
 
     # --- 📉 Top Losers ---
     if user.get("include_losers") and notif_data.get("losers"):
         losers_data = notif_data["losers"]
         if isinstance(losers_data, list) and len(losers_data) > 0:
             formatted = "\n".join(
-                [f"• {c[0]} — 🔻 *{c[1]}*" for c in losers_data[:3] if len(c) >= 2]
+                [f"• {coin} — 🔻 *{change}*" for coin, change in losers_data[:3]]
             )
             if formatted:
                 parts.append(f"\n📉 *Top Losers (24h)*\n{formatted}")
-        elif isinstance(losers_data, str):
-            parts.append(f"\n📉 *Top Losers:* {losers_data}")
 
     # --- 📰 News Section ---
     if user.get("include_news") and notif_data.get("news"):
         news_data = notif_data["news"]
         if isinstance(news_data, list) and len(news_data) > 0:
             formatted_news = []
-            for n in news_data[:3]:
-                if isinstance(n, str) and '](' in n:
-                    try:
-                        title = n.split('](')[0].replace('[', '').strip()
-                        url = n.split('](')[1].rstrip(')')
+            for item in news_data[:3]:
+                if isinstance(item, dict):
+                    title = item.get('title', 'Untitled')
+                    url = item.get('url', '')
+                    if url:
                         formatted_news.append(f"• [{title}]({url})")
-                    except (IndexError, ValueError):
-                        formatted_news.append(f"• {n}")
-                else:
-                    formatted_news.append(f"• {n}")
+                    else:
+                        formatted_news.append(f"• {title}")
             
             if formatted_news:
                 parts.append(f"\n📰 *Latest Crypto News*\n" + "\n".join(formatted_news))
-        elif isinstance(news_data, str):
-            parts.append(f"\n📰 *News:* {news_data}")
 
     # --- ⛽ Gas Fees ---
     if user.get("include_gas") and notif_data.get("gas"):
         gas_data = notif_data["gas"]
-        if isinstance(gas_data, str):
-            parts.append(f"\n⛽ *Gas Fees*\n{gas_data}")
-        elif isinstance(gas_data, dict):
+        if isinstance(gas_data, dict) and gas_data:
             parts.append(
                 "\n⛽ *Gas Fees (ETH)*\n"
                 f"• Low: {gas_data.get('low', 'N/A')}\n"
@@ -374,13 +366,11 @@ async def build_message(user: Dict[str, Any], notif_data: Dict[str, Any]) -> str
     # --- 💡 Coin of the Day ---
     if user.get("include_cod") and notif_data.get("cod"):
         cod_data = notif_data["cod"]
-        if isinstance(cod_data, dict):
+        if isinstance(cod_data, dict) and cod_data:
             parts.append(
                 f"\n💡 *Coin of the Day*\n"
                 f"• *{cod_data.get('coin', 'N/A')}* — {cod_data.get('reason', 'No reason provided.')}"
             )
-        elif isinstance(cod_data, str):
-            parts.append(f"\n💡 *Coin of the Day:* {cod_data}")
 
     return "\n".join(parts)
 
@@ -712,7 +702,7 @@ async def send_emergency_broadcast(
                     stats["failed"] += 1
             
             # Small delay to avoid rate limits
-            await asyncio.sleep(0.1)
+            await asyncio.sleep(0.3)
         
         print(f"[Broadcast] Completed - Sent: {stats['sent']}, Failed: {stats['failed']}, Blocked: {stats['blocked']}")
         return stats

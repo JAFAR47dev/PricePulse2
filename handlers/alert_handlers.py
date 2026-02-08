@@ -28,7 +28,7 @@ async def set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not is_pro_plan(plan):
         await update.message.reply_text(
-            "🔒 This is a *Pro-only* feature.\nUpgrade to unlock AI backtesting.\n\n👉 /upgrade",
+            "🔒 This is a *Pro-only* feature.\nUpgrade to unlock.\n\n👉 /upgrade",
             parse_mode=ParseMode.MARKDOWN
         )
         return
@@ -146,15 +146,37 @@ async def handle_percent_alert(update, context, args, plan):
     else:
         await update.message.reply_text(msg)
         
-from utils.indicators import get_volume_comparison 
+
+from utils.indicators import get_volume_comparison, clear_cache
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 async def handle_volume_alert(update, context, args, plan):
+    """
+    Handle volume alert creation with comprehensive validation and error handling.
+    
+    Args:
+        update: Telegram update object
+        context: Telegram context object
+        args: Command arguments list
+        plan: User's subscription plan
+    """
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
 
+    # 🔒 Determine message object (works for both direct messages and callback queries)
+    if update.callback_query:
+        message = update.callback_query.message
+        # Acknowledge the callback to remove the loading state
+        await update.callback_query.answer()
+    else:
+        message = update.message
+
     # 🔒 Restrict to Pro users
     if not is_pro_plan(plan):
-        await update.message.reply_text(
+        await message.reply_text(
             "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
             parse_mode="Markdown"
         )
@@ -162,75 +184,218 @@ async def handle_volume_alert(update, context, args, plan):
 
     # ✅ Usage check
     if len(args) < 2:
-        await update.message.reply_text(
+        await message.reply_text(
             "❌ Usage: `/set volume <symbol> <multiplier> [timeframe] [repeat]`\n\n"
-            "Example: `/set volume BTCUSDT 2.5 4h repeat`\n\n"
-            "_Default timeframe: 1h_",
+            "Example: `/set volume BTC 2.5 4h repeat`\n\n"
+            "_Default timeframe: 1h_\n\n"
+            "Valid timeframes:\n"
+            "• Short-term: `1m`, `5m`, `15m`, `30m`, `1h`, `4h`\n"
+            "• Long-term: `1d`, `7d`, `14d`, `30d`, `90d`, `180d`, `365d`",
             parse_mode="Markdown"
         )
         return
 
-    # 🎯 Parse symbol and multiplier
-    symbol = args[0].upper()
+    # 🎯 Parse and validate symbol
+    symbol = args[0].strip().upper()
+    
+    if not symbol:
+        await message.reply_text("❌ Symbol cannot be empty")
+        return
+    
+    # Remove common suffixes if user includes them
+    if symbol.endswith("USDT"):
+        symbol = symbol[:-4]
+    elif symbol.endswith("USD"):
+        symbol = symbol[:-3]
 
+    # 🔢 Parse and validate multiplier
     try:
         multiplier = float(args[1])
         if multiplier <= 1:
-            raise ValueError
-    except ValueError:
-        await update.message.reply_text("❌ Multiplier must be a number greater than 1 (e.g., 2.5)")
+            await message.reply_text(
+                "❌ Multiplier must be greater than 1.0\n\n"
+                "_Example: 2.5 means alert when volume is 2.5× the average_",
+                parse_mode="Markdown"
+            )
+            return
+        if multiplier > 100:
+            await message.reply_text(
+                "⚠️ Multiplier seems too high. Maximum allowed is 100×",
+                parse_mode="Markdown"
+            )
+            return
+    except (ValueError, TypeError):
+        await message.reply_text(
+            "❌ Invalid multiplier. Must be a number greater than 1\n\n"
+            "_Examples: 2, 2.5, 3.0_",
+            parse_mode="Markdown"
+        )
         return
 
-    # 🕒 Timeframe handling (default = 1h)
-    valid_timeframes = ["15m", "30m", "1h", "4h", "1d" , "7d", "14d", "30d", "90d", "180d", "365"]
-    timeframe = "1h"
+    # 🕒 Timeframe validation - NOW INCLUDING 1m and 5m
+    valid_timeframes = ["1m", "5m", "15m", "30m", "1h", "4h", "1d", "7d", "14d", "30d", "90d", "180d", "365d"]
+    timeframe = "1h"  # default
 
     if len(args) > 2:
-        tf_candidate = args[2].lower()
+        tf_candidate = args[2].strip().lower()
         if tf_candidate in valid_timeframes:
             timeframe = tf_candidate
         elif tf_candidate != "repeat":
-            await update.message.reply_text(
+            await message.reply_text(
                 f"⚠️ Invalid timeframe: `{tf_candidate}`\n\n"
-                f"Please use one of: `{'`, `'.join(valid_timeframes)}`\n"
-                f"_Example: /set volume BTC 2.5 4h repeat_",
+                f"*Valid short-term:* `1m`, `5m`, `15m`, `30m`, `1h`, `4h`\n"
+                f"*Valid long-term:* `1d`, `7d`, `14d`, `30d`, `90d`, `180d`, `365d`\n\n"
+                f"_Example: `/set volume BTC 2.5 5m repeat`_",
                 parse_mode="Markdown"
             )
             return
 
-    # 🔁 Check for 'repeat'
-    repeat = 1 if "repeat" in [a.lower() for a in args] else 0
+    # 🔁 Check for 'repeat' flag
+    repeat = 1 if "repeat" in [a.lower().strip() for a in args] else 0
 
-    # 📊 Fetch current + average volume
+    # ⚠️ Warning for very short timeframes
+    if timeframe in ["1m", "5m"] and not repeat:
+        await message.reply_text(
+            f"⚠️ *Note:* {timeframe} is a very short timeframe.\n\n"
+            f"Consider using `repeat` to get continuous alerts:\n"
+            f"`/set volume {symbol} {multiplier} {timeframe} repeat`\n\n"
+            f"Proceeding with one-time alert...",
+            parse_mode="Markdown"
+        )
+
+    # 📊 Send "fetching data" message
+    status_message = await message.reply_text(
+        f"⏳ Fetching volume data for *{symbol}* ({timeframe})...",
+        parse_mode="Markdown"
+    )
+
+    # 📊 Fetch current + average volume with comprehensive error handling
     try:
         current_volume, average_volume = await get_volume_comparison(symbol, timeframe)
+        
+        # Validate returned values
+        if current_volume < 0 or average_volume < 0:
+            raise ValueError("Received negative volume values")
+        
+        if average_volume == 0:
+            await status_message.edit_text(
+                f"⚠️ Cannot create alert for *{symbol}*\n\n"
+                f"Average volume is zero for the {timeframe} timeframe. "
+                f"This symbol may have insufficient trading history or be inactive.",
+                parse_mode="Markdown"
+            )
+            return
+            
+    except ValueError as e:
+        error_msg = str(e)
+        if "Invalid timeframe" in error_msg:
+            await status_message.edit_text(
+                f"❌ Invalid timeframe configuration\n\n{error_msg}",
+                parse_mode="Markdown"
+            )
+        elif "not found" in error_msg.lower():
+            await status_message.edit_text(
+                f"❌ Symbol *{symbol}* not found\n\n"
+                f"Please verify the symbol is correct and supported by CryptoCompare.",
+                parse_mode="Markdown"
+            )
+        else:
+            await status_message.edit_text(
+                f"❌ Invalid input: {error_msg}",
+                parse_mode="Markdown"
+            )
+        return
+        
     except Exception as e:
-        await update.message.reply_text(f"⚠️ Could not fetch volume data for {symbol}.\n{e}")
+        error_msg = str(e)
+        logger.error(f"Volume fetch failed for {symbol} ({timeframe}): {error_msg}")
+        
+        # Provide specific error messages based on error type
+        if "Authentication failed" in error_msg:
+            await status_message.edit_text(
+                "⚠️ API authentication error. Please contact support.",
+                parse_mode="Markdown"
+            )
+        elif "Rate limited" in error_msg or "429" in error_msg:
+            await status_message.edit_text(
+                "⚠️ Rate limit reached. Please try again in a few moments.\n\n"
+                "_Tip: Very short timeframes (1m, 5m) use more API calls_",
+                parse_mode="Markdown"
+            )
+        elif "timeout" in error_msg.lower():
+            await status_message.edit_text(
+                f"⚠️ Request timed out while fetching data for *{symbol}*\n\n"
+                f"The API might be slow. Please try again.",
+                parse_mode="Markdown"
+            )
+        elif "Network error" in error_msg:
+            await status_message.edit_text(
+                "⚠️ Network connectivity issue. Please try again.",
+                parse_mode="Markdown"
+            )
+        elif "Insufficient data" in error_msg:
+            await status_message.edit_text(
+                f"⚠️ Not enough historical data for *{symbol}* ({timeframe})\n\n"
+                f"Try a different timeframe or symbol.",
+                parse_mode="Markdown"
+            )
+        else:
+            await status_message.edit_text(
+                f"⚠️ Could not fetch volume data for *{symbol}*\n\n"
+                f"Error: {error_msg}\n\n"
+                f"_Try a different symbol or timeframe_",
+                parse_mode="Markdown"
+            )
         return
 
     # 💡 Calculate trigger volume
     trigger_volume = round(average_volume * multiplier, 2)
 
-    # 💾 Store alert
+    
     create_volume_alert(user_id, symbol, multiplier, timeframe, repeat)
+        
+       
+
+    # 📊 Calculate volume change percentage
+    if current_volume > 0 and average_volume > 0:
+        volume_change_pct = ((current_volume - average_volume) / average_volume) * 100
+        volume_status = "🔥" if volume_change_pct >= 0 else "📉"
+        volume_change_text = f"\n{volume_status} *Change:* {volume_change_pct:+.1f}% vs average"
+    else:
+        volume_change_text = ""
+
+    # ⚡ Add timeframe-specific context
+    timeframe_context = ""
+    if timeframe in ["1m", "5m"]:
+        timeframe_context = "\n\n⚡ *High-frequency monitoring active*"
+    elif timeframe in ["15m", "30m", "1h"]:
+        timeframe_context = "\n\n⏱ *Intraday monitoring active*"
 
     # ✅ Confirmation message with real data
     msg = (
-        f"✅ Volume Alert Created!\n\n"
-        f"• Symbol: {symbol}\n"
-        f"• Timeframe: {timeframe}\n"
-        f"• Average Volume: {average_volume:,} USD\n"
-        f"• Current Volume: {current_volume:,} USD\n"
-        f"• Trigger When Volume ≥ {trigger_volume:,} USD\n"
-        f"• Multiplier: {multiplier}×\n"
-        f"• Repeat: {'Yes' if repeat else 'No'}"
+        f"✅ *Volume Alert Created!*\n\n"
+        f"📊 *Symbol:* {symbol}\n"
+        f"⏱ *Timeframe:* {timeframe}\n"
+        f"📈 *Average Volume:* ${average_volume:,.2f}\n"
+        f"💰 *Current Volume:* ${current_volume:,.2f}"
+        f"{volume_change_text}\n\n"
+        f"🎯 *Alert Trigger:* Volume ≥ ${trigger_volume:,.2f}\n"
+        f"✖️ *Multiplier:* {multiplier}×\n"
+        f"🔁 *Repeat:* {'✅ Yes' if repeat else '❌ No (one-time)'}"
+        f"{timeframe_context}\n\n"
+        f"_You'll be notified when {symbol} volume reaches {multiplier}× the average_"
     )
-    if update.callback_query:
-        await update.callback_query.message.reply_text(msg)
-    else:
-        await update.message.reply_text(msg)
-        
     
+    # Update the status message with final result
+    await status_message.edit_text(msg, parse_mode="Markdown")
+    
+    # Log successful alert creation
+    logger.info(
+        f"Volume alert created - User: {user_id}, Symbol: {symbol}, "
+        f"Multiplier: {multiplier}, Timeframe: {timeframe}, Repeat: {repeat}"
+    )
+
+
 async def handle_risk_alert(update, context, args, plan):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
@@ -658,55 +823,84 @@ async def watch_coin(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     symbol = args[0].upper()
+
     try:
         threshold = float(args[1])
         if threshold <= 0:
             raise ValueError
     except ValueError:
-        await update.message.reply_text("❌ Invalid threshold. Enter a number greater than 0.")
+        await update.message.reply_text(
+            "❌ Invalid threshold. Enter a number greater than 0."
+        )
         return
 
     timeframe = args[2].lower()
     if timeframe not in ["1h", "4h", "24h", "7d"]:
-        await update.message.reply_text("❌ Invalid timeframe. Use one of: 1h, 4h, 24h, 7d")
+        await update.message.reply_text(
+            "❌ Invalid timeframe. Use one of: 1h, 4h, 24h, 7d"
+        )
         return
 
-    # ✅ Await the coroutine properly
+    # ✅ Fetch current price
     base_prices = await get_crypto_prices(symbol)
 
     if not base_prices:
-        await update.message.reply_text("⚠️ Failed to fetch live price. Try again.")
+        await update.message.reply_text(
+            "⚠️ Failed to fetch live price. Try again."
+        )
         return
 
-    # ✅ Handle API response safely
     if isinstance(base_prices, dict):
-        base_price = base_prices.get(symbol.upper()) or base_prices.get(f"{symbol.upper()}USDT")
+        base_price = (
+            base_prices.get(symbol)
+            or base_prices.get(f"{symbol}USDT")
+        )
     else:
         base_price = base_prices
 
     if base_price is None:
-        await update.message.reply_text("⚠️ Could not retrieve valid price data. Try again later.")
+        await update.message.reply_text(
+            "⚠️ Could not retrieve valid price data."
+        )
         return
 
-    # ✅ Save to DB
+    # ✅ Save or update watch entry (UPSERT)
     from models.db import get_connection
     conn = get_connection()
     cursor = conn.cursor()
+
     cursor.execute(
         """
-        INSERT INTO watchlist (user_id, symbol, base_price, threshold_percent, timeframe)
+        INSERT INTO watchlist (
+            user_id,
+            symbol,
+            base_price,
+            threshold_percent,
+            timeframe
+        )
         VALUES (?, ?, ?, ?, ?)
+        ON CONFLICT(user_id, symbol)
+        DO UPDATE SET
+            base_price = excluded.base_price,
+            threshold_percent = excluded.threshold_percent,
+            timeframe = excluded.timeframe
         """,
-        (user_id, symbol.upper(), float(base_price), threshold, timeframe)
+        (
+            user_id,
+            symbol,
+            float(base_price),
+            threshold,
+            timeframe
+        )
     )
+
     conn.commit()
     conn.close()
 
     await update.message.reply_text(
-        f"✅ Watching *{symbol}* for ±{threshold}% price move from *${base_price:,.2f}* over `{timeframe}`.",
-        parse_mode="Markdown"
-    )
-
+    f"✅ Watching *{symbol}*: alert triggers on ±{threshold}% move from *${base_price:,.2f}* within the next `{timeframe}`.",
+    parse_mode="Markdown"
+	)
 
 async def watchlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -743,6 +937,16 @@ async def watchlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def remove_watch(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    plan = get_user_plan(user_id)
+
+  
+    if not is_pro_plan(plan):
+        await update.message.reply_text(
+            "🔒 This feature is for *Pro users only*.\nUse /upgrade to unlock.",
+            parse_mode="Markdown"
+        )
+        return
+        
     args = context.args
 
     if not args:

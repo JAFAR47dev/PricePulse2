@@ -1,6 +1,809 @@
 {
-  "symbol": "LBTC",
-  "unsupported": true,
-  "reason": "Non-ERC20 token or missing Ethereum contract",
-  "timestamp": "2025-12-03 20:45:26 UTC"
+  "token": "LBTC",
+  "contract": "0x8236a87084f8b84306f72007f36f2618a5634494",
+  "updated_at": "2026-01-31T07:18:23.940489",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0xa9d4ecebd48c282a70cfd3c469d6c8f178a5738e",
+      "symbol": "LBTC",
+      "rank": 1,
+      "balance": 279420486148.0,
+      "share": 25.67,
+      "last_tx": null
+    },
+    {
+      "address": "0x65906988adee75306021c417a1a3458040239602",
+      "symbol": "LBTC",
+      "rank": 2,
+      "balance": 262251192435.0,
+      "share": 24.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "symbol": "LBTC",
+      "rank": 3,
+      "balance": 174353423750.0,
+      "share": 16.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xacb11bc20b1945e59976e3307d2a805faa126c31",
+      "symbol": "LBTC",
+      "rank": 4,
+      "balance": 89365317803.0,
+      "share": 8.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xd4e20eca1f996dab35883dc0ad5e3428af888d45",
+      "symbol": "LBTC",
+      "rank": 5,
+      "balance": 50000000000.0,
+      "share": 4.59,
+      "last_tx": null
+    },
+    {
+      "address": "0x79851bb0db6b03f348fa9c98ef5d23ad3b03b014",
+      "symbol": "LBTC",
+      "rank": 6,
+      "balance": 32437999999.0,
+      "share": 2.98,
+      "last_tx": null
+    },
+    {
+      "address": "0x468c34703f6c648ccf39dbab11305d17c70ba011",
+      "symbol": "LBTC",
+      "rank": 7,
+      "balance": 25069313713.0,
+      "share": 2.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x96c8ae2ac9a5cd5fc354e375db4d0ca75fc0685e",
+      "symbol": "LBTC",
+      "rank": 8,
+      "balance": 15799965128.0,
+      "share": 1.45,
+      "last_tx": null
+    },
+    {
+      "address": "0x033c208a1626b78e8258ad3e8ee0e6d923cbe709",
+      "symbol": "LBTC",
+      "rank": 9,
+      "balance": 13630023974.0,
+      "share": 1.25,
+      "last_tx": null
+    },
+    {
+      "address": "0x52d757b42719ce13c92edd87fa14ccc0898c3f9b",
+      "symbol": "LBTC",
+      "rank": 10,
+      "balance": 11400100000.0,
+      "share": 1.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xcecd97daf0b5a8a4e870c17ef825c8ebd602b2b8",
+      "symbol": "LBTC",
+      "rank": 11,
+      "balance": 11264003995.0,
+      "share": 1.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x3d5ccde8e2fb939b36f2234ad4a93a455276a223",
+      "symbol": "LBTC",
+      "rank": 12,
+      "balance": 10626303093.0,
+      "share": 0.98,
+      "last_tx": null
+    },
+    {
+      "address": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+      "symbol": "LBTC",
+      "rank": 13,
+      "balance": 9036978287.0,
+      "share": 0.83,
+      "last_tx": null
+    },
+    {
+      "address": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+      "symbol": "LBTC",
+      "rank": 14,
+      "balance": 8825645950.0,
+      "share": 0.81,
+      "last_tx": null
+    },
+    {
+      "address": "0x5401b8620e5fb570064ca9114fd1e135fd77d57c",
+      "symbol": "LBTC",
+      "rank": 15,
+      "balance": 8694573744.0,
+      "share": 0.8,
+      "last_tx": null
+    },
+    {
+      "address": "0x312e67b47a2a29ae200184949093d92369f80b53",
+      "symbol": "LBTC",
+      "rank": 16,
+      "balance": 7637434505.0,
+      "share": 0.7,
+      "last_tx": null
+    },
+    {
+      "address": "0xda4963f60052f100ab14886ffcae1b7587def2ae",
+      "symbol": "LBTC",
+      "rank": 17,
+      "balance": 6099276920.0,
+      "share": 0.56,
+      "last_tx": null
+    },
+    {
+      "address": "0x3709b14badf355f23a951c22d8156ed5d288f3a1",
+      "symbol": "LBTC",
+      "rank": 18,
+      "balance": 5995137878.0,
+      "share": 0.55,
+      "last_tx": null
+    },
+    {
+      "address": "0x76624ff43d610f64177bb9c194a2503642e9b803",
+      "symbol": "LBTC",
+      "rank": 19,
+      "balance": 5000815017.0,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0x50ab8968f8b29ea9c62a5a388e815d27153689d4",
+      "symbol": "LBTC",
+      "rank": 20,
+      "balance": 5000547627.0,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0x0737e9e44c0cbbb6d46ce15d659538c8fd370fab",
+      "symbol": "LBTC",
+      "rank": 21,
+      "balance": 3445599000.0,
+      "share": 0.32,
+      "last_tx": null
+    },
+    {
+      "address": "0xa8b77e916aa5f4ddf96f25f7d0725f8a8240971b",
+      "symbol": "LBTC",
+      "rank": 22,
+      "balance": 3190000000.0,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0xaacd3dea89e25fb23e8205694aa177421b192e4e",
+      "symbol": "LBTC",
+      "rank": 23,
+      "balance": 3072880697.0,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0xfb45f0dc58dea715b5b1f1cea7769012cebbcd13",
+      "symbol": "LBTC",
+      "rank": 24,
+      "balance": 2450991926.0,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0xf833603a864d2d36ce8bf0b9451ffd468b8df376",
+      "symbol": "LBTC",
+      "rank": 25,
+      "balance": 2100000000.0,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x651641299c7ec0aa44ad7ed9b7e12702fed2022f",
+      "symbol": "LBTC",
+      "rank": 26,
+      "balance": 1994871254.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c0988dfa49dc70b532e72382d1339a8d6a877f5",
+      "symbol": "LBTC",
+      "rank": 27,
+      "balance": 1993586084.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x59456e52c80788f2a1d79de05553a841a0a5ad61",
+      "symbol": "LBTC",
+      "rank": 28,
+      "balance": 1783118352.0,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x87428a53e14d24ab19c6ca4939b4df93b8996ca9",
+      "symbol": "LBTC",
+      "rank": 29,
+      "balance": 1730539518.0,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x3a7647c1323144a16e7d0d71a581e3fe5bd95299",
+      "symbol": "LBTC",
+      "rank": 30,
+      "balance": 1688639000.0,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x54bd93ad656718e099c4840317afffaa845ea351",
+      "symbol": "LBTC",
+      "rank": 31,
+      "balance": 1333658969.0,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x1290a6b480f7ef14925229fdb66f5680ad8f44ad",
+      "symbol": "LBTC",
+      "rank": 32,
+      "balance": 941455900.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x55575ebef4c3e264805b27f86897d872ab605aea",
+      "symbol": "LBTC",
+      "rank": 33,
+      "balance": 911568989.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x6780ac060fdcba20ae02a6197c84bdc70cf8716b",
+      "symbol": "LBTC",
+      "rank": 34,
+      "balance": 880225313.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x0ae8b212cd707be1cdbfaea00d843405bc9848f1",
+      "symbol": "LBTC",
+      "rank": 35,
+      "balance": 819870761.0,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xec03f3edbfbd5c5db70b50c051d199465b7e777d",
+      "symbol": "LBTC",
+      "rank": 36,
+      "balance": 761367165.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x6f1159d6b8e3b79eb607c65c5c1d2c1bc60cec98",
+      "symbol": "LBTC",
+      "rank": 37,
+      "balance": 602088925.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x9663ca24ef69ee379b4a18981858f65cb804cc2d",
+      "symbol": "LBTC",
+      "rank": 38,
+      "balance": 597984406.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x180a1b935d28494f9ff4233985562b18b3dcfa74",
+      "symbol": "LBTC",
+      "rank": 39,
+      "balance": 565928382.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xed5dcc1690d753f6fe6cc97eed4daa317475ab8c",
+      "symbol": "LBTC",
+      "rank": 40,
+      "balance": 559555206.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x4aaee20543e118a5f86d626ed5b98e37b9835ebf",
+      "symbol": "LBTC",
+      "rank": 41,
+      "balance": 431984434.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x398b7c52ca4fab73dcb51c0e27dba812e29eaede",
+      "symbol": "LBTC",
+      "rank": 42,
+      "balance": 423742751.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x39bae193094431d56b8943b321d5bc5c9a2d2dd4",
+      "symbol": "LBTC",
+      "rank": 43,
+      "balance": 404462723.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xf146d6248030f91a18d106f974eef20cd4215e7c",
+      "symbol": "LBTC",
+      "rank": 44,
+      "balance": 400000000.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xd0dfdf006335d99749b1b2823ed6cc76ff8acb33",
+      "symbol": "LBTC",
+      "rank": 45,
+      "balance": 396744169.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x6ea868cb863ee6b4864d66affdb26720b2a73387",
+      "symbol": "LBTC",
+      "rank": 46,
+      "balance": 389562800.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x0468bb4841060dcac257e88555200ce91065fe3e",
+      "symbol": "LBTC",
+      "rank": 47,
+      "balance": 381250000.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xa803650b81dbb52ee7b30e84c1eb4eca8345b382",
+      "symbol": "LBTC",
+      "rank": 48,
+      "balance": 361844489.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xe7fc02f63f34e5c8961944907dafccebdde8dab0",
+      "symbol": "LBTC",
+      "rank": 49,
+      "balance": 358496100.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x35f453946cfdcfd06f590f5b60dd43e5fe1952fd",
+      "symbol": "LBTC",
+      "rank": 50,
+      "balance": 357976086.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xc60b7444c28811a57e4ec36b8ad92dc9208cce8a",
+      "symbol": "LBTC",
+      "rank": 51,
+      "balance": 348709888.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xc0c8520c0197370377c17ccd328d3b1fa1bf658d",
+      "symbol": "LBTC",
+      "rank": 52,
+      "balance": 325003573.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+      "symbol": "LBTC",
+      "rank": 53,
+      "balance": 321863890.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x260b364fe0d3d37e6fd3cda0fa50926a06c54cea",
+      "symbol": "LBTC",
+      "rank": 54,
+      "balance": 321439531.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x2f3bc4c27a4437aeca13de0e37cdf1028f3706f0",
+      "symbol": "LBTC",
+      "rank": 55,
+      "balance": 310894601.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xb94c94241d97c15c11b9d6d3280110be91c602ca",
+      "symbol": "LBTC",
+      "rank": 56,
+      "balance": 304360000.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x222879f80a506590d6357b14bf32d10759d772e9",
+      "symbol": "LBTC",
+      "rank": 57,
+      "balance": 302578142.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xf1bc4497a8c67a381cbe4d2ec634c6db7d8c7e92",
+      "symbol": "LBTC",
+      "rank": 58,
+      "balance": 301451449.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xff9a69a1def6827ed9f7028dcba669996f35bb9f",
+      "symbol": "LBTC",
+      "rank": 59,
+      "balance": 300885494.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xf7123d28e1248ddd261177bc1852811c41bf5418",
+      "symbol": "LBTC",
+      "rank": 60,
+      "balance": 298992047.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x1eafa35d4e5d11fdb3921968379fddd2c0f9023f",
+      "symbol": "LBTC",
+      "rank": 61,
+      "balance": 285859916.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x18e296053cbdf986196903e889b7dca7a73882f6",
+      "symbol": "LBTC",
+      "rank": 62,
+      "balance": 280991420.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x1c9798db3773d30780ff6448e015e7775c1ae75b",
+      "symbol": "LBTC",
+      "rank": 63,
+      "balance": 275980038.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xde2925d582fc8711a0e93271c12615bdd043ed1c",
+      "symbol": "LBTC",
+      "rank": 64,
+      "balance": 265367096.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xee108f0d469c7303df00b6ca09b0743b2081f3eb",
+      "symbol": "LBTC",
+      "rank": 65,
+      "balance": 242572849.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xfe13c6d06121a27cae69e634ac25e8d3316d3048",
+      "symbol": "LBTC",
+      "rank": 66,
+      "balance": 234846992.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x93af1b9bdd5a98ba92d746dbb8217e652309c857",
+      "symbol": "LBTC",
+      "rank": 67,
+      "balance": 229678436.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x70167b76543c4a12b49b2f2b70cbf04d99345786",
+      "symbol": "LBTC",
+      "rank": 68,
+      "balance": 223778871.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x92c9124290924f400ec84479e33e3a68c4180ccc",
+      "symbol": "LBTC",
+      "rank": 69,
+      "balance": 216010701.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xb630051f4d94049ebe97af3f7e4919382f29e958",
+      "symbol": "LBTC",
+      "rank": 70,
+      "balance": 204081306.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xbcac091fc89a21352f6304b88ffaef407893c557",
+      "symbol": "LBTC",
+      "rank": 71,
+      "balance": 203954733.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ee8b7ddcc2d20f99a4bf04efc2cbcc66424e961",
+      "symbol": "LBTC",
+      "rank": 72,
+      "balance": 202890867.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xf7e40a4e64469ad9c517ee978b2b235ff29cc34c",
+      "symbol": "LBTC",
+      "rank": 73,
+      "balance": 200360124.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x3b11267dfc4b9ebe8427e8f557056b4b6ce98112",
+      "symbol": "LBTC",
+      "rank": 74,
+      "balance": 200128141.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x897dd6d8fdf3295a02c00c3298132f76d9e70685",
+      "symbol": "LBTC",
+      "rank": 75,
+      "balance": 199770242.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x1f1cc1f167c97517373a3bd138dccf3168a57ea6",
+      "symbol": "LBTC",
+      "rank": 76,
+      "balance": 195902501.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x7527557858b4b40f9199a49ab3746179f36bd9d8",
+      "symbol": "LBTC",
+      "rank": 77,
+      "balance": 194068203.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xb676c8f47e7dfdeb8bf01239b42bb1e0f1f3cbe1",
+      "symbol": "LBTC",
+      "rank": 78,
+      "balance": 177662523.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xd4a66b8a4be2ab560aa6ce485f119d6204db7c68",
+      "symbol": "LBTC",
+      "rank": 79,
+      "balance": 175818067.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xbc35161043ee2d74816d421efd6a45fda73b050a",
+      "symbol": "LBTC",
+      "rank": 80,
+      "balance": 171646515.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xbc1796b4d9d112de8cf29849ee3e732ffd27d4d8",
+      "symbol": "LBTC",
+      "rank": 81,
+      "balance": 153203687.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xdcdecb10800b110b8e06c454fd5700955a48d6d1",
+      "symbol": "LBTC",
+      "rank": 82,
+      "balance": 152166876.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x04bc4214a6613ea044ee3378370bc34849c9d80b",
+      "symbol": "LBTC",
+      "rank": 83,
+      "balance": 150672324.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x93ad45f11eeaa21eb49bdc4050233d0946e9eca4",
+      "symbol": "LBTC",
+      "rank": 84,
+      "balance": 149807614.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x42a856dbebb97abc1269eab32f3bb40c15102819",
+      "symbol": "LBTC",
+      "rank": 85,
+      "balance": 148940813.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa45ae70ab7a3b8ce0d82adaef676e1f58ce147af",
+      "symbol": "LBTC",
+      "rank": 86,
+      "balance": 142687785.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xf3ff8db5b15b2ea226fbdcd297749822c9666e5b",
+      "symbol": "LBTC",
+      "rank": 87,
+      "balance": 141152351.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xeddcc22617bc04d9fd1eb6a9133b1fc6bb77c27d",
+      "symbol": "LBTC",
+      "rank": 88,
+      "balance": 130140478.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xff66a858325ffbe089227cea34f970b3fc6d1ef9",
+      "symbol": "LBTC",
+      "rank": 89,
+      "balance": 129815088.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x55d3c5cee1efe3f26526cf9fe3264b2cd2aeb35a",
+      "symbol": "LBTC",
+      "rank": 90,
+      "balance": 129587700.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0c8dd31effa902f155a12b8716934a4ef818c662",
+      "symbol": "LBTC",
+      "rank": 91,
+      "balance": 127280096.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc781c0cc527cb8c351be3a64c690216c535c6f36",
+      "symbol": "LBTC",
+      "rank": 92,
+      "balance": 125146758.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x9a2e6bb3114b1eeb5492d97188a3ecb09e39fac8",
+      "symbol": "LBTC",
+      "rank": 93,
+      "balance": 121749526.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xf003c7540eb55057e95bad50d7d8c55d327dc571",
+      "symbol": "LBTC",
+      "rank": 94,
+      "balance": 120585071.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xf62c1bf088bbe28ac4aceb3f1d523e77f17363f4",
+      "symbol": "LBTC",
+      "rank": 95,
+      "balance": 115933975.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa103da8b696af7d9d2b93b7c20d044ff10f1e0c1",
+      "symbol": "LBTC",
+      "rank": 96,
+      "balance": 111591718.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xee88442e9d2d3764ac7ab60b618cd73cd9a5fa51",
+      "symbol": "LBTC",
+      "rank": 97,
+      "balance": 110833985.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xbfcdd5f81d9c79e584f77d39673689d35cf3c8c3",
+      "symbol": "LBTC",
+      "rank": 98,
+      "balance": 108516471.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x457109c27d78b32c27c4e52d0f3b34412ccd290b",
+      "symbol": "LBTC",
+      "rank": 99,
+      "balance": 106607725.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x6d72cc615aa395431daebb08c262e29e3e7996ab",
+      "symbol": "LBTC",
+      "rank": 100,
+      "balance": 104562718.0,
+      "share": 0.01,
+      "last_tx": null
+    }
+  ]
 }

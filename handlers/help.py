@@ -28,7 +28,7 @@ help_pages = {
        "• `/funfact` — Random crypto fact\n\n"
     
        "📐 *Utilities:*\n"
-       "• `/calc 100 btc` — Crypto/fiat calculator\n"
+       "• `/calc btc 100` — Crypto/fiat calculator\n"
        "• `/conv 2 eth to usd` — Crypto conversion\n"
        "• `/hmap` — Heatmap of top 100 coins\n"
        "• `/comp btc eth` – Compare 2–3 coins\n",
@@ -51,19 +51,24 @@ help_pages = {
        "🔔 *Watchlist Tools:*\n"
        "• `/watch BTC 5 1h` — Alert for ±% moves\n"
        "• `/watchlist` — View all watch alerts\n"
-       "• `/removewatch BTC` — Remove coin from watchlist\n\n"
+       "• `/removewatch BTC` — Remove coin from watchlist\n",
     
-       "🐋 *On-Chain Tools:*\n"
-       "• `/track` – Track whale wallets\n"
-       "• `/untrack` – Stop tracking\n"
-       "• `/mywhales` – View whale alerts\n",
-    
+       #"🐋 *On-Chain Tools:*\n"
+#       "• `/track` – Track whale wallets\n"
+#       "• `/untrack` – Stop tracking\n"
+#       "• `/mywhales` – View whale alerts\n",
+#    
     3: "*🤖 AI Tools & Screeners (Pro)*\n\n"
-       "• `/prediction BTC 1h` – AI price prediction\n"
+       "• `/today` — Today's market summary\n"
+       "• `/analysis btc 1h` - AI Technical Analysis\n"
        "• `/aiscan` – Detect patterns: divergence, crosses, etc.\n"
-       "• `/bt BTC 1h` – Backtest strategies with AI summary\n"
-       "• `/screen` – Scan top 200 coins for setups\n",
-
+       "• `/bt BTC 7d` – Backtest strategies\n"
+       "• `/screen` – Scan top 100 coins for setups\n"
+       "• `/levels` — Key support & resistance zones\n"
+      # "• `/signals` — Get trading signals\n"
+       "• `/hold` — Capital preservation analysis (hold vs exit)\n"
+       "• `/regime` — Market regime overview\n",
+        
     4: "*🎁 Growth and Navigation*\n\n"
        "• `/tasks` — Complete tasks to earn FREE Pro\n"
        "• `/referral` — Get your referral link\n\n"
@@ -75,14 +80,14 @@ help_pages = {
        "• `/myplan` — Check your subscription plan and expiry date\n"
        "• `/feedback` — Share your review\n"
        "• `/notifications` — Enable/disable bot notifications\n"
+       "• `/privacy` - View our privacy policy and terms\n"
        "• `/addtogroup` — Add bot to your Telegram group\n",
 
     5: "*🌍 Forex Tools & Community*\n\n"
-       "• `/fx eurusd` – Live forex rates\n"
+       "• `/fx eurusd gbpusd` – Live forex rates\n"
        "• `/fxchart` – Forex Charts\n"
        "• `/fxsessions` – Open forex markets\n"
-       "• [Join Community](https://t.me/+tSWwj5w7S8hkZmM0) – Questions & updates\n"
-       "• Admin support: DM @PricePulseDev \n\n"
+       "• [Join Community](https://t.me/+tSWwj5w7S8hkZmM0) – Questions & updates\n\n"
        "🚀 *We’re building the smartest Telegram crypto bot!*"
 }
 
