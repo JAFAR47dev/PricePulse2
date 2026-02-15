@@ -1,7 +1,7 @@
 {
   "token": "CRO",
   "contract": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
-  "updated_at": "2025-11-23T08:39:06.700037",
+  "updated_at": "2026-02-03T23:20:35.329494",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,7 +9,7 @@
       "address": "0x000000000000000000000000000000000000dead",
       "symbol": "CRO",
       "rank": 1,
-      "balance": 8.683845134827957e+18,
+      "balance": 8.68446290406116e+18,
       "share": 86.84,
       "last_tx": null
     },
@@ -17,8 +17,8 @@
       "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
       "symbol": "CRO",
       "rank": 2,
-      "balance": 3.376213293417746e+17,
-      "share": 3.38,
+      "balance": 3.304570697016811e+17,
+      "share": 3.3,
       "last_tx": null
     },
     {
@@ -33,8 +33,8 @@
       "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
       "symbol": "CRO",
       "rank": 4,
-      "balance": 1.144443290056993e+17,
-      "share": 1.14,
+      "balance": 1.3360456949549742e+17,
+      "share": 1.34,
       "last_tx": null
     },
     {
@@ -46,19 +46,19 @@
       "last_tx": null
     },
     {
-      "address": "0x98b5098ec2e3abcf6926fac250859c4eaedef964",
+      "address": "0x4f39792efd1f5f9de8777f1d8025b5b5cbde51ff",
       "symbol": "CRO",
       "rank": 6,
-      "balance": 7.198866802164e+16,
-      "share": 0.72,
+      "balance": 5.9904275308e+16,
+      "share": 0.6,
       "last_tx": null
     },
     {
-      "address": "0x124ee40c0ba1597936774b4d83f0c11aeb1406bd",
+      "address": "0x5b71d5fd6bb118665582dd87922bf3b9de6c75f9",
       "symbol": "CRO",
       "rank": 7,
-      "balance": 5.966165182559714e+16,
-      "share": 0.6,
+      "balance": 5.9203870846953096e+16,
+      "share": 0.59,
       "last_tx": null
     },
     {
@@ -70,11 +70,11 @@
       "last_tx": null
     },
     {
-      "address": "0x5b71d5fd6bb118665582dd87922bf3b9de6c75f9",
+      "address": "0x98b5098ec2e3abcf6926fac250859c4eaedef964",
       "symbol": "CRO",
       "rank": 9,
-      "balance": 5.371697451513208e+16,
-      "share": 0.54,
+      "balance": 4.7966688e+16,
+      "share": 0.48,
       "last_tx": null
     },
     {
@@ -86,97 +86,105 @@
       "last_tx": null
     },
     {
-      "address": "0x24eb3a39856723138796c5068a17ba4fb15cd25e",
+      "address": "0x99b3e96d3a50999e2055e92ada68071edd2e6afe",
       "symbol": "CRO",
       "rank": 11,
-      "balance": 1.460892691046836e+16,
+      "balance": 2.494184112560853e+16,
+      "share": 0.25,
+      "last_tx": null
+    },
+    {
+      "address": "0xe4f221f5f5fb7451c9746526d420f4223308b845",
+      "symbol": "CRO",
+      "rank": 12,
+      "balance": 2.456717329855332e+16,
+      "share": 0.25,
+      "last_tx": null
+    },
+    {
+      "address": "0x3e6e9227a4ddb7a8e03922e6e4054f1d9762ecf5",
+      "symbol": "CRO",
+      "rank": 13,
+      "balance": 2.4374141931405748e+16,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x4bc3ac2964b9560ca1e47c74bc373cd3218419bd",
+      "symbol": "CRO",
+      "rank": 14,
+      "balance": 2.4172820139243584e+16,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x1967dcd29133075a15d0e020b6b70d0ddf9af93f",
+      "symbol": "CRO",
+      "rank": 15,
+      "balance": 1.5057968737651382e+16,
       "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x24eb3a39856723138796c5068a17ba4fb15cd25e",
+      "symbol": "CRO",
+      "rank": 16,
+      "balance": 1.3493767567316832e+16,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x867a11b790c69c5e700a526d2a3d07e855f75ca4",
       "symbol": "CRO",
-      "rank": 12,
-      "balance": 1.2019961555377144e+16,
+      "rank": 17,
+      "balance": 1.2044519673352968e+16,
       "share": 0.12,
       "last_tx": null
     },
     {
-      "address": "0x99b3e96d3a50999e2055e92ada68071edd2e6afe",
+      "address": "0x77fb357f55bef5a70d30663955f8c9f35794df0e",
       "symbol": "CRO",
-      "rank": 13,
-      "balance": 9487375601594180.0,
+      "rank": 18,
+      "balance": 9161563067169466.0,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x6262998ced04146fa42253a5c0af90ca02dfd2a3",
       "symbol": "CRO",
-      "rank": 14,
+      "rank": 19,
       "balance": 8018694876876616.0,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x77fb357f55bef5a70d30663955f8c9f35794df0e",
+      "address": "0xbed1eb542f9a5aa6419ff3deb921a372681111f6",
       "symbol": "CRO",
-      "rank": 15,
-      "balance": 7964802552778954.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x3e6e9227a4ddb7a8e03922e6e4054f1d9762ecf5",
-      "symbol": "CRO",
-      "rank": 16,
-      "balance": 7076203822399766.0,
+      "rank": 20,
+      "balance": 6600983087906673.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x9b0c45d46d386cedd98873168c36efd0dcba8d46",
       "symbol": "CRO",
-      "rank": 17,
-      "balance": 6952344166526253.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xbed1eb542f9a5aa6419ff3deb921a372681111f6",
-      "symbol": "CRO",
-      "rank": 18,
-      "balance": 6651043217210503.0,
-      "share": 0.07,
+      "rank": 21,
+      "balance": 6383814187497762.0,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x93e5a466d85badd1e82ea3a40492e3af8ceaa097",
       "symbol": "CRO",
-      "rank": 19,
+      "rank": 22,
       "balance": 5629836199862500.0,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x360d5a1f1f0790733dea887b51e4eda9f052d009",
-      "symbol": "CRO",
-      "rank": 20,
-      "balance": 3002260313223146.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xe276af672ddb2c697e523201161a898b9e3ad40b",
-      "symbol": "CRO",
-      "rank": 21,
-      "balance": 2786857395944801.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
       "address": "0xa10609e229656bf9dcede436160bf82a7375f6c4",
       "symbol": "CRO",
-      "rank": 22,
+      "rank": 23,
       "balance": 2712900100000000.0,
       "share": 0.03,
       "last_tx": null
@@ -184,16 +192,8 @@
     {
       "address": "0x8dac80ce96f69f9762bc450faa4d7fbd5891ae18",
       "symbol": "CRO",
-      "rank": 23,
-      "balance": 2615000000000000.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x686753701045f0ea3887b493260b5850839d1284",
-      "symbol": "CRO",
       "rank": 24,
-      "balance": 2584107503244354.0,
+      "balance": 2615000000000000.0,
       "share": 0.03,
       "last_tx": null
     },
@@ -206,153 +206,193 @@
       "last_tx": null
     },
     {
-      "address": "0x95693f0bd2b2618ab8d20820d1f8106fa526ef5a",
+      "address": "0xa87c42af7bcc12c77ebafde351f71a32cbee61a8",
       "symbol": "CRO",
       "rank": 26,
-      "balance": 2301064600000000.0,
+      "balance": 2503694195000000.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x905708a30fe5929316dea02d6a3ccfdac03e2b37",
+      "symbol": "CRO",
+      "rank": 27,
+      "balance": 2458799666696381.0,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
       "symbol": "CRO",
-      "rank": 27,
-      "balance": 2294085574400000.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x905708a30fe5929316dea02d6a3ccfdac03e2b37",
-      "symbol": "CRO",
       "rank": 28,
-      "balance": 2110437363326250.0,
+      "balance": 2358829830471050.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x377b8ce04761754e8ac153b47805a9cf6b190873",
+      "address": "0x95693f0bd2b2618ab8d20820d1f8106fa526ef5a",
       "symbol": "CRO",
       "rank": 29,
-      "balance": 1821302263092668.0,
+      "balance": 2301064600000000.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0xa87c42af7bcc12c77ebafde351f71a32cbee61a8",
+      "address": "0x46340b20830761efd32832a74d7169b29feb9758",
       "symbol": "CRO",
       "rank": 30,
-      "balance": 1652767926000000.0,
+      "balance": 2185931433157077.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+      "address": "0xcc4627971022b87461540edd2df85704bc4d1e6f",
       "symbol": "CRO",
       "rank": 31,
-      "balance": 1601538016200000.0,
+      "balance": 2065514537460525.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x18d46dc721f4ad347b8ad284f183ff16a99dd713",
+      "address": "0x581bacbbda4c46b5056f796668553d336507f8d7",
       "symbol": "CRO",
       "rank": 32,
-      "balance": 1544959210841673.0,
+      "balance": 2065514537460525.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x133a00ef237b13ae0042fb7e444c1aa80004a63a",
+      "address": "0xf2fd9f1309d68513d366f566b18e41b98ed0dc0e",
       "symbol": "CRO",
       "rank": 33,
-      "balance": 1537507877200000.0,
+      "balance": 2065514537460525.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x34de7e643b7c745e3adccb5a9e396bf13354559d",
+      "address": "0xaad7b0d48502855ce053eed00060c7adb9161e50",
       "symbol": "CRO",
       "rank": 34,
-      "balance": 1519704990189276.0,
+      "balance": 2055915424401530.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x446b86a33e2a438f569b15855189e3da28d027ba",
+      "address": "0x9f68934ff04c03651c3288d01c1f0177ab4b439c",
       "symbol": "CRO",
       "rank": 35,
-      "balance": 1454457907000000.0,
-      "share": 0.01,
+      "balance": 2030491999899864.0,
+      "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x8a75ade98f4628e584298acb876acbc88e7de429",
       "symbol": "CRO",
       "rank": 36,
-      "balance": 1408937924881874.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x9f68934ff04c03651c3288d01c1f0177ab4b439c",
-      "symbol": "CRO",
-      "rank": 37,
-      "balance": 1408937924881874.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x326beaf0fa2b1911b5b5fb4305085de247d4327a",
-      "symbol": "CRO",
-      "rank": 38,
-      "balance": 1408937924881874.0,
-      "share": 0.01,
+      "balance": 1931667395312534.0,
+      "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x83fda6a2b1868d9ef7bf866b9bb44b4d99b77c1e",
       "symbol": "CRO",
-      "rank": 39,
-      "balance": 1408937924881874.0,
-      "share": 0.01,
+      "rank": 37,
+      "balance": 1931667395312534.0,
+      "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x969461828b3eae0abec549c13f54fdfb0b5c5768",
       "symbol": "CRO",
-      "rank": 40,
-      "balance": 1408937924881874.0,
-      "share": 0.01,
+      "rank": 38,
+      "balance": 1931667395312534.0,
+      "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0xaad7b0d48502855ce053eed00060c7adb9161e50",
+      "address": "0x326beaf0fa2b1911b5b5fb4305085de247d4327a",
+      "symbol": "CRO",
+      "rank": 39,
+      "balance": 1922707925235148.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x377b8ce04761754e8ac153b47805a9cf6b190873",
+      "symbol": "CRO",
+      "rank": 40,
+      "balance": 1836141624217185.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
       "symbol": "CRO",
       "rank": 41,
-      "balance": 1408937924881874.0,
-      "share": 0.01,
+      "balance": 1714707711101541.0,
+      "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x0c501d43206b97fa4300f1b0962742b4f938f70e",
+      "address": "0x68ebf19da857c7b3f356bbe8a465494c9b41708d",
       "symbol": "CRO",
       "rank": 42,
-      "balance": 1316675894231007.0,
+      "balance": 1680325476390010.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xa6a05bb49bc0bd69500a0313831e524410ec44cc",
+      "symbol": "CRO",
+      "rank": 43,
+      "balance": 1606771768000000.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x34de7e643b7c745e3adccb5a9e396bf13354559d",
+      "symbol": "CRO",
+      "rank": 44,
+      "balance": 1597296680531275.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x133a00ef237b13ae0042fb7e444c1aa80004a63a",
+      "symbol": "CRO",
+      "rank": 45,
+      "balance": 1537507877200000.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x446b86a33e2a438f569b15855189e3da28d027ba",
+      "symbol": "CRO",
+      "rank": 46,
+      "balance": 1454457907000000.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x32ee03f1a6da1a33ff81e12828116876b774bd46",
       "symbol": "CRO",
-      "rank": 43,
+      "rank": 47,
       "balance": 1206150100000000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x18d46dc721f4ad347b8ad284f183ff16a99dd713",
+      "symbol": "CRO",
+      "rank": 48,
+      "balance": 1201355578582204.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x260def80a21501830c84fa3d43645ad0fd143266",
       "symbol": "CRO",
-      "rank": 44,
+      "rank": 49,
       "balance": 1150606800000000.0,
       "share": 0.01,
       "last_tx": null
@@ -360,23 +400,15 @@
     {
       "address": "0x58594f07b22fa2a4578da035613bdc9038f1f2b6",
       "symbol": "CRO",
-      "rank": 45,
+      "rank": 50,
       "balance": 1136737800000000.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x50e11ee6ecd5dc8f5cbd06951fca04c536e8fb24",
-      "symbol": "CRO",
-      "rank": 46,
-      "balance": 1106747371269652.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x935d2e470284fb536227a76a723f96a94efae6a9",
       "symbol": "CRO",
-      "rank": 47,
+      "rank": 51,
       "balance": 1104501479630838.0,
       "share": 0.01,
       "last_tx": null
@@ -384,7 +416,7 @@
     {
       "address": "0xaa10db8804d076601999c7cd769e02e44a99d5b2",
       "symbol": "CRO",
-      "rank": 48,
+      "rank": 52,
       "balance": 1059839625000000.0,
       "share": 0.01,
       "last_tx": null
@@ -392,7 +424,7 @@
     {
       "address": "0x136be1eb608c60706ef99500dd3df34fed836f44",
       "symbol": "CRO",
-      "rank": 49,
+      "rank": 53,
       "balance": 1046453900000000.0,
       "share": 0.01,
       "last_tx": null
@@ -400,7 +432,7 @@
     {
       "address": "0x1b14376ee2d46ae5c27a43d902d96d4f3f264b83",
       "symbol": "CRO",
-      "rank": 50,
+      "rank": 54,
       "balance": 1029409264000000.0,
       "share": 0.01,
       "last_tx": null
@@ -408,7 +440,7 @@
     {
       "address": "0xfae2bdd7c8e2f3f3cfbaca03001cf1ea4ad8df8e",
       "symbol": "CRO",
-      "rank": 51,
+      "rank": 55,
       "balance": 990131500000000.0,
       "share": 0.01,
       "last_tx": null
@@ -416,39 +448,23 @@
     {
       "address": "0x4f2bc163c8758d7f88771496f7b0afde767045f3",
       "symbol": "CRO",
-      "rank": 52,
-      "balance": 980967668000000.0,
+      "rank": 56,
+      "balance": 978177038000000.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x5c4091c78f3e95cd8a6aa5ed340b2dabb72717f5",
       "symbol": "CRO",
-      "rank": 53,
+      "rank": 57,
       "balance": 961778000000000.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x500ff6dfd61f47c23e73e4c5cef3ea5272ac2543",
-      "symbol": "CRO",
-      "rank": 54,
-      "balance": 934704846758916.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
-      "symbol": "CRO",
-      "rank": 55,
-      "balance": 933050341834588.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x88097ca2c24486f2b55851bbc3e59a4b07ee97cd",
       "symbol": "CRO",
-      "rank": 56,
+      "rank": 58,
       "balance": 896889200000000.0,
       "share": 0.01,
       "last_tx": null
@@ -456,15 +472,23 @@
     {
       "address": "0x26769f254f1ba073cef6e9e47a7320332a4da3d8",
       "symbol": "CRO",
-      "rank": 57,
+      "rank": 59,
       "balance": 894366181393841.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
+      "symbol": "CRO",
+      "rank": 60,
+      "balance": 878248841235589.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xb0a3a2b60e969afd26561429aa4c1444c57e4411",
       "symbol": "CRO",
-      "rank": 58,
+      "rank": 61,
       "balance": 871698591660000.0,
       "share": 0.01,
       "last_tx": null
@@ -472,15 +496,23 @@
     {
       "address": "0xd1c9cac7d45fb347f93863d27a86ae0f557d6f6b",
       "symbol": "CRO",
-      "rank": 59,
+      "rank": 62,
       "balance": 867626000000000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x500ff6dfd61f47c23e73e4c5cef3ea5272ac2543",
+      "symbol": "CRO",
+      "rank": 63,
+      "balance": 859120463365983.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xba5032f639d86cee9dcf4301dd8e20cfbe64eadd",
       "symbol": "CRO",
-      "rank": 60,
+      "rank": 64,
       "balance": 855089500000000.0,
       "share": 0.01,
       "last_tx": null
@@ -488,7 +520,7 @@
     {
       "address": "0xd8c9ab1550bbe576a0f0ca1129e4a537f4bb108c",
       "symbol": "CRO",
-      "rank": 61,
+      "rank": 65,
       "balance": 850827900000000.0,
       "share": 0.01,
       "last_tx": null
@@ -496,23 +528,15 @@
     {
       "address": "0x357c2487a54f9c921aaa6d13e7fdfbc94eeb77c2",
       "symbol": "CRO",
-      "rank": 62,
+      "rank": 66,
       "balance": 806217500000000.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0xdd276dc5223d0120f9bf1776f38957cc8da23cb0",
-      "symbol": "CRO",
-      "rank": 63,
-      "balance": 800318738000000.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x4fb312915b779b1339388e14b6d079741ca83128",
       "symbol": "CRO",
-      "rank": 64,
+      "rank": 67,
       "balance": 777076145515626.0,
       "share": 0.01,
       "last_tx": null
@@ -520,7 +544,7 @@
     {
       "address": "0x0b61d2ba77958ee2455e5d107b749ac82b607834",
       "symbol": "CRO",
-      "rank": 65,
+      "rank": 68,
       "balance": 774885000000000.0,
       "share": 0.01,
       "last_tx": null
@@ -528,15 +552,23 @@
     {
       "address": "0x9fb538820d4fde2fcc509dc01ae73a192f36cfcc",
       "symbol": "CRO",
-      "rank": 66,
-      "balance": 746235032529348.0,
+      "rank": 69,
+      "balance": 757253643664435.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xb23360ccdd9ed1b15d45e5d3824bb409c8d7c460",
+      "symbol": "CRO",
+      "rank": 70,
+      "balance": 746679499940197.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x32e226e7b0cc704c9845422a78fccf12e90df13e",
       "symbol": "CRO",
-      "rank": 67,
+      "rank": 71,
       "balance": 715665192210000.0,
       "share": 0.01,
       "last_tx": null
@@ -544,7 +576,7 @@
     {
       "address": "0x8d3464e7e06532cdde043bb53f73ea40d661c837",
       "symbol": "CRO",
-      "rank": 68,
+      "rank": 72,
       "balance": 713582919150000.0,
       "share": 0.01,
       "last_tx": null
@@ -552,15 +584,23 @@
     {
       "address": "0xee885c8a2298567f22d423f7076250ac7c3f7858",
       "symbol": "CRO",
-      "rank": 69,
+      "rank": 73,
       "balance": 708729300000000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa0c48912820f40aa2537a31a67da33d7eaf237d5",
+      "symbol": "CRO",
+      "rank": 74,
+      "balance": 701659091113889.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x87771cd372e66a618b50843b455a7dcfb6770ab2",
       "symbol": "CRO",
-      "rank": 70,
+      "rank": 75,
       "balance": 696014912460000.0,
       "share": 0.01,
       "last_tx": null
@@ -568,31 +608,31 @@
     {
       "address": "0xd3c241eca68a108e8006eb5e0783527932209b64",
       "symbol": "CRO",
-      "rank": 71,
+      "rank": 76,
       "balance": 679317059900000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xb8e6d31e7b212b2b7250ee9c26c56cebbfbe6b23",
+      "symbol": "CRO",
+      "rank": 77,
+      "balance": 674096593204926.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xadd377eaeaccabe2bb6e41abb8eac8c038b51b27",
       "symbol": "CRO",
-      "rank": 72,
+      "rank": 78,
       "balance": 674031100000000.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x1a9d699aee3a56ca49d0cc3b542ae3a37885a3e1",
-      "symbol": "CRO",
-      "rank": 73,
-      "balance": 663498377012839.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x9b31bf3e21f97c01c753c08050f0cadeaaf498c5",
       "symbol": "CRO",
-      "rank": 74,
+      "rank": 79,
       "balance": 651972951850000.0,
       "share": 0.01,
       "last_tx": null
@@ -600,7 +640,7 @@
     {
       "address": "0xcb68c68b87622c226e0d24526f07993cd9e28bbb",
       "symbol": "CRO",
-      "rank": 75,
+      "rank": 80,
       "balance": 651388538840000.0,
       "share": 0.01,
       "last_tx": null
@@ -608,7 +648,7 @@
     {
       "address": "0xe0c39a450ce34ba668592d89cbe2c52aceb0a61f",
       "symbol": "CRO",
-      "rank": 76,
+      "rank": 81,
       "balance": 646702400000000.0,
       "share": 0.01,
       "last_tx": null
@@ -616,7 +656,7 @@
     {
       "address": "0x60a68976da4a13fc8cbbe18367a4896f3f0b5f49",
       "symbol": "CRO",
-      "rank": 77,
+      "rank": 82,
       "balance": 643345004500000.0,
       "share": 0.01,
       "last_tx": null
@@ -624,23 +664,15 @@
     {
       "address": "0xc06973ce5a634bb60f165366be527ad3be30cb71",
       "symbol": "CRO",
-      "rank": 78,
+      "rank": 83,
       "balance": 643330700000000.0,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x46340b20830761efd32832a74d7169b29feb9758",
-      "symbol": "CRO",
-      "rank": 79,
-      "balance": 630972486678249.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xa0ad718e47f49a8e04aca12c2d98770fa35c2c05",
       "symbol": "CRO",
-      "rank": 80,
+      "rank": 84,
       "balance": 607494887235439.0,
       "share": 0.01,
       "last_tx": null
@@ -648,7 +680,7 @@
     {
       "address": "0x3e48ce2712d9b232429cf8b9e71591d8142984e2",
       "symbol": "CRO",
-      "rank": 81,
+      "rank": 85,
       "balance": 594916305100000.0,
       "share": 0.01,
       "last_tx": null
@@ -656,39 +688,55 @@
     {
       "address": "0x8b30a413f0dd07ce3b36b06e30722bce42933683",
       "symbol": "CRO",
-      "rank": 82,
+      "rank": 86,
       "balance": 589641900000000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x1a9d699aee3a56ca49d0cc3b542ae3a37885a3e1",
+      "symbol": "CRO",
+      "rank": 87,
+      "balance": 563925281786638.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0c501d43206b97fa4300f1b0962742b4f938f70e",
+      "symbol": "CRO",
+      "rank": 88,
+      "balance": 563886877933001.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x442689f3f26cbccc2e288daea986b9d67346149a",
       "symbol": "CRO",
-      "rank": 83,
-      "balance": 585596201837199.0,
+      "rank": 89,
+      "balance": 557306202837200.0,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xcc9a2a4e08c7b868e8f2a8ffdd8da11083998817",
       "symbol": "CRO",
-      "rank": 84,
+      "rank": 90,
       "balance": 492637700000000.0,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0xab782bc7d4a2b306825de5a7730034f8f63ee1bc",
+      "address": "0x95ccf123e71f4fc4641c0f9a933c4fe5cf7dee44",
       "symbol": "CRO",
-      "rank": 85,
-      "balance": 486849226013139.0,
+      "rank": 91,
+      "balance": 484852756246924.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xc035dea7cf56280ef4f210d8a0a9b1355c5f0129",
       "symbol": "CRO",
-      "rank": 86,
+      "rank": 92,
       "balance": 484847400000000.0,
       "share": 0,
       "last_tx": null
@@ -696,7 +744,7 @@
     {
       "address": "0x7448f7d123006c3598005d8788731b40dd488113",
       "symbol": "CRO",
-      "rank": 87,
+      "rank": 93,
       "balance": 482156200000000.0,
       "share": 0,
       "last_tx": null
@@ -704,55 +752,23 @@
     {
       "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "symbol": "CRO",
-      "rank": 88,
+      "rank": 94,
       "balance": 480000000000000.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x95ccf123e71f4fc4641c0f9a933c4fe5cf7dee44",
-      "symbol": "CRO",
-      "rank": 89,
-      "balance": 476647129331261.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x68ebf19da857c7b3f356bbe8a465494c9b41708d",
-      "symbol": "CRO",
-      "rank": 90,
-      "balance": 447870886360000.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x229f9a098721ee4fd6cd2fb290f40253208ac287",
       "symbol": "CRO",
-      "rank": 91,
+      "rank": 95,
       "balance": 440722400000000.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x9a88341c03402b9fb05b5f33dc98cc8afc515d5d",
-      "symbol": "CRO",
-      "rank": 92,
-      "balance": 438264470598001.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x581bacbbda4c46b5056f796668553d336507f8d7",
-      "symbol": "CRO",
-      "rank": 93,
-      "balance": 407698513715280.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xe27eb2dd6a7d9abb82b8eb245f89564e9f6fb16b",
       "symbol": "CRO",
-      "rank": 94,
+      "rank": 96,
       "balance": 405802100000000.0,
       "share": 0,
       "last_tx": null
@@ -760,7 +776,7 @@
     {
       "address": "0x09c7a8b80ce18b470b3a16b4fa4be8bc778e6a83",
       "symbol": "CRO",
-      "rank": 95,
+      "rank": 97,
       "balance": 405033100000000.0,
       "share": 0,
       "last_tx": null
@@ -768,7 +784,7 @@
     {
       "address": "0x36ce004596469861b9b6110285132f767b89c09a",
       "symbol": "CRO",
-      "rank": 96,
+      "rank": 98,
       "balance": 400734200000000.0,
       "share": 0,
       "last_tx": null
@@ -776,32 +792,16 @@
     {
       "address": "0x55e7fd258dffca187f791fb5ab1be9fa38e25d20",
       "symbol": "CRO",
-      "rank": 97,
+      "rank": 99,
       "balance": 398619500000000.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x87b1d1b59725209879cc5c5adeb99d8bc9eccf12",
-      "symbol": "CRO",
-      "rank": 98,
-      "balance": 387937599480108.0,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x6cfbf0616f974d2aa8f78dbcaebd75ba6bfec2d9",
       "symbol": "CRO",
-      "rank": 99,
-      "balance": 387426199710000.0,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xef2efc10fad9bccc7059f8933e0bf473d7b2b0e7",
-      "symbol": "CRO",
       "rank": 100,
-      "balance": 374329035151286.0,
+      "balance": 387426199710000.0,
       "share": 0,
       "last_tx": null
     }

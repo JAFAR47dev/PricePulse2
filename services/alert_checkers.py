@@ -105,7 +105,7 @@ async def check_price_alerts(context, symbol_prices):
             if price is None:
                 continue
 
-            if (cond == ">" and price > target) or (cond == "<" and price < target):
+            if (cond in [">", "above", "over"] and price > target) or (cond in ["<", "below", "under"] and price < target):
                 try:
                     await context.bot.send_message(
                         chat_id=user_id,

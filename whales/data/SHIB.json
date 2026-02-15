@@ -1,6 +1,809 @@
 {
-  "symbol": "SHIB",
-  "unsupported": true,
-  "reason": "Non-ERC20 token or missing Ethereum contract",
-  "timestamp": "2025-11-23 08:38:48 UTC"
+  "token": "SHIB",
+  "contract": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+  "updated_at": "2026-02-03T23:20:11.101018",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0xdead000000000000000042069420694206942069",
+      "symbol": "SHIB",
+      "rank": 1,
+      "balance": 4.1043300191322885e+32,
+      "share": 41.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x02e2201576fbbefb52812f2ee7f08eb4774b481e",
+      "symbol": "SHIB",
+      "rank": 2,
+      "balance": 5.82734854694543e+31,
+      "share": 5.83,
+      "last_tx": null
+    },
+    {
+      "address": "0x40b38765696e3d5d8d9d834d8aad4bb6e418e489",
+      "symbol": "SHIB",
+      "rank": 3,
+      "balance": 3.927324304925326e+31,
+      "share": 3.93,
+      "last_tx": null
+    },
+    {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "symbol": "SHIB",
+      "rank": 4,
+      "balance": 3.2572728352024886e+31,
+      "share": 3.26,
+      "last_tx": null
+    },
+    {
+      "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
+      "symbol": "SHIB",
+      "rank": 5,
+      "balance": 2.829576925250478e+31,
+      "share": 2.83,
+      "last_tx": null
+    },
+    {
+      "address": "0xa7060aece919e4b7d9928b8418a9d30731471fa9",
+      "symbol": "SHIB",
+      "rank": 6,
+      "balance": 1.4279485372807744e+31,
+      "share": 1.43,
+      "last_tx": null
+    },
+    {
+      "address": "0x73af3bcf944a6559933396c1577b257e2054d935",
+      "symbol": "SHIB",
+      "rank": 7,
+      "balance": 1.368161284591045e+31,
+      "share": 1.37,
+      "last_tx": null
+    },
+    {
+      "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+      "symbol": "SHIB",
+      "rank": 8,
+      "balance": 1.3420655242350635e+31,
+      "share": 1.34,
+      "last_tx": null
+    },
+    {
+      "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
+      "symbol": "SHIB",
+      "rank": 9,
+      "balance": 9.24000000010324e+30,
+      "share": 0.92,
+      "last_tx": null
+    },
+    {
+      "address": "0x611f7bf868a6212f871e89f7e44684045ddfb09d",
+      "symbol": "SHIB",
+      "rank": 10,
+      "balance": 7.24398450700228e+30,
+      "share": 0.72,
+      "last_tx": null
+    },
+    {
+      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
+      "symbol": "SHIB",
+      "rank": 11,
+      "balance": 5.093081620430233e+30,
+      "share": 0.51,
+      "last_tx": null
+    },
+    {
+      "address": "0x2d7af085f2256f114c8a9f540969f0e0ab1c2e5e",
+      "symbol": "SHIB",
+      "rank": 12,
+      "balance": 5.000004289901824e+30,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0xe1474359c74e78fa8387d9cb58f393693e378de3",
+      "symbol": "SHIB",
+      "rank": 13,
+      "balance": 5.0000000584188753e+30,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0xc35fff873c5751b04f64e565058acdf7f080a557",
+      "symbol": "SHIB",
+      "rank": 14,
+      "balance": 5.00000000010324e+30,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0x127f19e9e3dac0f00f2e7f2affe2ccf972062df0",
+      "symbol": "SHIB",
+      "rank": 15,
+      "balance": 5.00000000010324e+30,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0x6feb9b158262aac3e01549692fd3723a7d29c93e",
+      "symbol": "SHIB",
+      "rank": 16,
+      "balance": 5.00000000010324e+30,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0xfd54ea5842fefc9e0df4ede3b4bb9950d4ede13e",
+      "symbol": "SHIB",
+      "rank": 17,
+      "balance": 5.00000000010324e+30,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0x42aa1a233656be26fa29e40a562bc4f119caefe4",
+      "symbol": "SHIB",
+      "rank": 18,
+      "balance": 5.00000000010324e+30,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0x2c4139a033ea0b995211c7b6fa74dc312e32ffe8",
+      "symbol": "SHIB",
+      "rank": 19,
+      "balance": 4.6443079321230044e+30,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0x19184ab45c40c2920b0e0e31413b9434abd243ed",
+      "symbol": "SHIB",
+      "rank": 20,
+      "balance": 3.93422961235424e+30,
+      "share": 0.39,
+      "last_tx": null
+    },
+    {
+      "address": "0x78342e5ae73f078d86374f1dddb2b27d011c609e",
+      "symbol": "SHIB",
+      "rank": 21,
+      "balance": 3.831335637621747e+30,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0xb4a81261b16b92af0b9f7c4a83f1e885132d81e4",
+      "symbol": "SHIB",
+      "rank": 22,
+      "balance": 3.8258730195740297e+30,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "SHIB",
+      "rank": 23,
+      "balance": 3.572163314934483e+30,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0x841ed663f2636863d40be4ee76243377dff13a34",
+      "symbol": "SHIB",
+      "rank": 24,
+      "balance": 3.562469061113863e+30,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0x76ec5a0d3632b2133d9f1980903305b62678fbd3",
+      "symbol": "SHIB",
+      "rank": 25,
+      "balance": 3.0008766255154135e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x1c4b70a3968436b9a0a9cf5205c787eb81bb558c",
+      "symbol": "SHIB",
+      "rank": 26,
+      "balance": 3.00000000010324e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x48a61e3f74e4971e665fb34fa66d38a46da0872b",
+      "symbol": "SHIB",
+      "rank": 27,
+      "balance": 3.00000000010324e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x66fb93981e3d77695e49cce4b0fec02678ed1a03",
+      "symbol": "SHIB",
+      "rank": 28,
+      "balance": 2.990716815006221e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x2f42a5f8785ef7a0f8311a25307ade2033db5b50",
+      "symbol": "SHIB",
+      "rank": 29,
+      "balance": 2.9761550457732646e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x5f6cd9454112aa4f48abab2ce2e9ff3751f9b642",
+      "symbol": "SHIB",
+      "rank": 30,
+      "balance": 2.9757653668523543e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x790ee1125677826c832bd6c4891946921d82287b",
+      "symbol": "SHIB",
+      "rank": 31,
+      "balance": 2.97572994655589e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xcc5379f093ff5aef28658256ba7c93af3a4077ce",
+      "symbol": "SHIB",
+      "rank": 32,
+      "balance": 2.9756945271026256e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xf6644b78871abf8f7ac6cd234a77ed871854cda6",
+      "symbol": "SHIB",
+      "rank": 33,
+      "balance": 2.9755528577209647e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xd474a70a3e5d2b5624dc7b5186cd244c45debe9b",
+      "symbol": "SHIB",
+      "rank": 34,
+      "balance": 2.974773917182294e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xbf1c4b4f4c9f29f8e023547a862944a6bdd21a97",
+      "symbol": "SHIB",
+      "rank": 35,
+      "balance": 2.974561549627585e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x27890465b7dee4f04a3699236fe1c305efa33c7f",
+      "symbol": "SHIB",
+      "rank": 36,
+      "balance": 2.9738185019091914e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x3399e4aef2f8159eaf4e3a35bfb6e29506754f69",
+      "symbol": "SHIB",
+      "rank": 37,
+      "balance": 2.9738185019091914e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x83ab72a348590a686e8aa9daa3c6e24b0a92ed15",
+      "symbol": "SHIB",
+      "rank": 38,
+      "balance": 2.9738185019091914e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xd69618d26d0b7c639aefc4e6cd3b287ff382fb4b",
+      "symbol": "SHIB",
+      "rank": 39,
+      "balance": 2.9738185019091914e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xb7916ba0227de3217a1f14fb7ac9a0eacc2c4ad2",
+      "symbol": "SHIB",
+      "rank": 40,
+      "balance": 2.973075825325849e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xa0e1423d7a09048c9ba1a29f71bc99f5d71b3169",
+      "symbol": "SHIB",
+      "rank": 41,
+      "balance": 2.9719095112992e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x38267686df36ebc2be10e85d1c46a134b82f5d01",
+      "symbol": "SHIB",
+      "rank": 42,
+      "balance": 2.9719095112992e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x5bb9e289c97093ddf1bcdcacb006d218df48caf2",
+      "symbol": "SHIB",
+      "rank": 43,
+      "balance": 2.9719095112992e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xa4b251671d981cb17b1ce1a00679d4200a40023f",
+      "symbol": "SHIB",
+      "rank": 44,
+      "balance": 2.9719095112992e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x2ec5a24bc0089f6fdc03447a973fbad7b947654b",
+      "symbol": "SHIB",
+      "rank": 45,
+      "balance": 2.970673511098436e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xdb604514902a7db27b6d132940bedd8fcb5cc243",
+      "symbol": "SHIB",
+      "rank": 46,
+      "balance": 2.968451299587979e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xf335efed11f8d7c5283133bab27de5a7ea836065",
+      "symbol": "SHIB",
+      "rank": 47,
+      "balance": 2.966162023634379e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xa33ae71cb4a90d53ab3db89c6be19802f3ecc30c",
+      "symbol": "SHIB",
+      "rank": 48,
+      "balance": 2.9599109658781465e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x8ee6f526c9a50b249f07d39c5d9e0b736431b993",
+      "symbol": "SHIB",
+      "rank": 49,
+      "balance": 2.951071238859706e+30,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xdb96db34d5bcc24eb172c7627b7cc3ff70676a08",
+      "symbol": "SHIB",
+      "rank": 50,
+      "balance": 2.941384097701014e+30,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x4e3e5f7df7ca3d963586d3ddb3fd48c627857a50",
+      "symbol": "SHIB",
+      "rank": 51,
+      "balance": 2.938825410260027e+30,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x111cff45948819988857bbf1966a0399e0d1141e",
+      "symbol": "SHIB",
+      "rank": 52,
+      "balance": 2.85706427432624e+30,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x434587332cc35d33db75b93f4f27cc496c67a4db",
+      "symbol": "SHIB",
+      "rank": 53,
+      "balance": 2.6220138244456134e+30,
+      "share": 0.26,
+      "last_tx": null
+    },
+    {
+      "address": "0xde740580bf3491370d62e6e9bf58b182df267617",
+      "symbol": "SHIB",
+      "rank": 54,
+      "balance": 2.5519249542409896e+30,
+      "share": 0.26,
+      "last_tx": null
+    },
+    {
+      "address": "0xf197c6f2ac14d25ee2789a73e4847732c7f16bc9",
+      "symbol": "SHIB",
+      "rank": 55,
+      "balance": 2.385588948087821e+30,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x43684d03d81d3a4c70da68febdd61029d426f042",
+      "symbol": "SHIB",
+      "rank": 56,
+      "balance": 2.37126193075124e+30,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0xb57a394787e167e436311da9c5fe859ae975e8d5",
+      "symbol": "SHIB",
+      "rank": 57,
+      "balance": 2.2639475549158673e+30,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x32285535d5d3786efff3bbeedf46f4d2527490cd",
+      "symbol": "SHIB",
+      "rank": 58,
+      "balance": 2.204312787879501e+30,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xd6bc559a59b24a58a82f274555d152d67f15a7a6",
+      "symbol": "SHIB",
+      "rank": 59,
+      "balance": 2.0000000001040112e+30,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x5b71d5fd6bb118665582dd87922bf3b9de6c75f9",
+      "symbol": "SHIB",
+      "rank": 60,
+      "balance": 1.6593945366472148e+30,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xc3681709ee476308b45812eabe0eb22f3b816880",
+      "symbol": "SHIB",
+      "rank": 61,
+      "balance": 1.65401767733425e+30,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x9d9f823f010ec9d4fe8378413bc51912701eb2d6",
+      "symbol": "SHIB",
+      "rank": 62,
+      "balance": 1.61598211710524e+30,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+      "symbol": "SHIB",
+      "rank": 63,
+      "balance": 1.537322465197647e+30,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x8c7efd5b04331efc618e8006f19019a3dc88973e",
+      "symbol": "SHIB",
+      "rank": 64,
+      "balance": 1.53658432079344e+30,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x87aee16c380a921ffca6dfbe29b53420638a4457",
+      "symbol": "SHIB",
+      "rank": 65,
+      "balance": 1.3638883321141114e+30,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x0b925b1dc9b9b9709092bbccbfb32f14db81981d",
+      "symbol": "SHIB",
+      "rank": 66,
+      "balance": 1.22000000010324e+30,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xf41abdd7c0f1e844ad8f2785b8bea488965eac25",
+      "symbol": "SHIB",
+      "rank": 67,
+      "balance": 1.17082009501024e+30,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x356affa02e681d06086b808c85a1bcc9691d3840",
+      "symbol": "SHIB",
+      "rank": 68,
+      "balance": 1.1396619739591442e+30,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x377b8ce04761754e8ac153b47805a9cf6b190873",
+      "symbol": "SHIB",
+      "rank": 69,
+      "balance": 1.125027733464405e+30,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x9b0c45d46d386cedd98873168c36efd0dcba8d46",
+      "symbol": "SHIB",
+      "rank": 70,
+      "balance": 1.0868718082436257e+30,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x10a9309c40a4dcd792b1a3c76f9fd4ccf3ac33fe",
+      "symbol": "SHIB",
+      "rank": 71,
+      "balance": 1.0779409334465584e+30,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x18709e89bd403f470088abdacebe86cc60dda12e",
+      "symbol": "SHIB",
+      "rank": 72,
+      "balance": 1.062607667634534e+30,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x1e615ad14822b150b309be81b0e2de689655acd7",
+      "symbol": "SHIB",
+      "rank": 73,
+      "balance": 1.0049868185659181e+30,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x12da64f9c7b4e9a73f9e177cd18c40cf307306f4",
+      "symbol": "SHIB",
+      "rank": 74,
+      "balance": 1.00240490010324e+30,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xafcd96e580138cfa2332c632e66308eacd45c5da",
+      "symbol": "SHIB",
+      "rank": 75,
+      "balance": 1.00000000010324e+30,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x176066996850702a18158b4230f2b224dea2ca39",
+      "symbol": "SHIB",
+      "rank": 76,
+      "balance": 9.989903751980134e+29,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xd367e507282cd1b461891bd86051f4cb6d10069b",
+      "symbol": "SHIB",
+      "rank": 77,
+      "balance": 9.860261553695965e+29,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x835678a611b28684005a5e2233695fb6cbbb0007",
+      "symbol": "SHIB",
+      "rank": 78,
+      "balance": 9.776311974977e+29,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x2cc8e4721a001f1921298bc9d894aca13630b0c6",
+      "symbol": "SHIB",
+      "rank": 79,
+      "balance": 9.763755885574433e+29,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xa74e8ae2f83d2564af25420ad4d6a7fe224b053f",
+      "symbol": "SHIB",
+      "rank": 80,
+      "balance": 9.668353867793e+29,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x71956a1cd5a4233177f7bf9a2d5778851e201934",
+      "symbol": "SHIB",
+      "rank": 81,
+      "balance": 9.52727616426374e+29,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xf4e6deea1b4da85c2d68db8d771d37ec1148b853",
+      "symbol": "SHIB",
+      "rank": 82,
+      "balance": 9.438852453340467e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x783f4c21e7d7f7beaeaa872ea8923792584ceb18",
+      "symbol": "SHIB",
+      "rank": 83,
+      "balance": 9.432491451924375e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x50cb1557365e11f733c030e68f8b4767a675cbcc",
+      "symbol": "SHIB",
+      "rank": 84,
+      "balance": 9.2525296374562e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "SHIB",
+      "rank": 85,
+      "balance": 9.195004832550564e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x0bc89a089105801c4948cb6177cef31f069283c6",
+      "symbol": "SHIB",
+      "rank": 86,
+      "balance": 8.9023641912465e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xb7ca997875e13674c19e7d67a72b997cb2d4fa56",
+      "symbol": "SHIB",
+      "rank": 87,
+      "balance": 8.9023641912465e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x2759d3b0a02d0ea3164c08e8a7ad3699ef291c4e",
+      "symbol": "SHIB",
+      "rank": 88,
+      "balance": 8.9023641912465e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x85dcd76d4fbd3aa0c85c27b9441222c19a14134b",
+      "symbol": "SHIB",
+      "rank": 89,
+      "balance": 8.863076438268002e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x0a5bca3fcc14abae42c3e46e7b4670ff3b9b2684",
+      "symbol": "SHIB",
+      "rank": 90,
+      "balance": 8.584994546653517e+29,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xbbc575e650d2a86e490b1fab4b11a10c9a8bc9db",
+      "symbol": "SHIB",
+      "rank": 91,
+      "balance": 8.452713820504925e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x442689f3f26cbccc2e288daea986b9d67346149a",
+      "symbol": "SHIB",
+      "rank": 92,
+      "balance": 8.228311577909224e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
+      "symbol": "SHIB",
+      "rank": 93,
+      "balance": 8.011589930394201e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x2b198cd5b14d1a983714dde54438dff3a3cf73fe",
+      "symbol": "SHIB",
+      "rank": 94,
+      "balance": 7.877799700430954e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x548054687ef6c56c6d82e8269e5fd93d8b88fcb2",
+      "symbol": "SHIB",
+      "rank": 95,
+      "balance": 7.869412671499252e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x1c0c0fe7976cb2a0b740f890a41cf0a68227859c",
+      "symbol": "SHIB",
+      "rank": 96,
+      "balance": 7.5800099917725e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xcb3e07d189bc29304af7e17f72e2b006093575a5",
+      "symbol": "SHIB",
+      "rank": 97,
+      "balance": 7.53244405624928e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "symbol": "SHIB",
+      "rank": 98,
+      "balance": 7.521855070478145e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x6262998ced04146fa42253a5c0af90ca02dfd2a3",
+      "symbol": "SHIB",
+      "rank": 99,
+      "balance": 7.504086950903746e+29,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x0fa5b9b2805e2d0f25dee42730cf4e30c9e7e0b1",
+      "symbol": "SHIB",
+      "rank": 100,
+      "balance": 7.230781704044594e+29,
+      "share": 0.07,
+      "last_tx": null
+    }
+  ]
 }

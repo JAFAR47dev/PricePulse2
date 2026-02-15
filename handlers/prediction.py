@@ -27,7 +27,7 @@ def safe(value):
         
 
 # Load CoinGecko IDs mapping (top 200 coins)
-COINGECKO_IDS_PATH = os.path.join("services", "coingecko_ids.json")
+COINGECKO_IDS_PATH = os.path.join("services", "top200_coingecko_ids.json")
 with open(COINGECKO_IDS_PATH, "r") as f:
     COINGECKO_ID_MAP = json.load(f)
 

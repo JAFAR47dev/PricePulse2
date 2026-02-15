@@ -1,7 +1,7 @@
 {
   "token": "OKB",
   "contract": "0x75231f58b43240c9718dd58b4967c5114342a86c",
-  "updated_at": "2025-11-23T08:41:56.021384",
+  "updated_at": "2026-02-03T23:21:14.931151",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -10,799 +10,799 @@
       "symbol": "OKB",
       "rank": 1,
       "balance": 1.00000866e+23,
-      "share": 17.88,
-      "last_tx": null
-    },
-    {
-      "address": "0x9e76f730050f9de91e3be03b964ddb444b680fd2",
-      "symbol": "OKB",
-      "rank": 2,
-      "balance": 1e+23,
-      "share": 17.88,
+      "share": 21.78,
       "last_tx": null
     },
     {
       "address": "0x91d40e4818f4d4c57b4578d9eca6afc92ac8debe",
       "symbol": "OKB",
-      "rank": 3,
-      "balance": 9.37689901506297e+22,
-      "share": 16.76,
+      "rank": 2,
+      "balance": 9.74817998254709e+22,
+      "share": 21.23,
       "last_tx": null
     },
     {
       "address": "0xc0bfd9d655300b198936d8ffbe036c4322c49c9e",
       "symbol": "OKB",
-      "rank": 4,
+      "rank": 3,
       "balance": 2.84868958e+22,
-      "share": 5.09,
+      "share": 6.21,
       "last_tx": null
     },
     {
       "address": "0x80c473c8a473fd9cc8fb1ee442af0411fd7bdb97",
       "symbol": "OKB",
-      "rank": 5,
-      "balance": 2.606681932435e+22,
-      "share": 4.66,
+      "rank": 4,
+      "balance": 2.563681932435e+22,
+      "share": 5.58,
       "last_tx": null
     },
     {
       "address": "0x6cc5f688a315f3dc28a7781717a9a798a59fda7b",
       "symbol": "OKB",
-      "rank": 6,
+      "rank": 5,
       "balance": 1.130230630300259e+22,
-      "share": 2.02,
+      "share": 2.46,
       "last_tx": null
     },
     {
       "address": "0x130bcb6419d0183ef8d16779a21e20174d577121",
       "symbol": "OKB",
-      "rank": 7,
+      "rank": 6,
       "balance": 8.611e+21,
-      "share": 1.54,
+      "share": 1.88,
       "last_tx": null
     },
     {
       "address": "0x296213cae53a3530ce954897c6e1f445db40f057",
       "symbol": "OKB",
-      "rank": 8,
+      "rank": 7,
       "balance": 8.34298e+21,
-      "share": 1.49,
+      "share": 1.82,
       "last_tx": null
     },
     {
       "address": "0xe7da4a4d14381bc2e59d3d43c30fd698861db715",
       "symbol": "OKB",
-      "rank": 9,
+      "rank": 8,
       "balance": 8.00007370434e+21,
-      "share": 1.43,
+      "share": 1.74,
       "last_tx": null
     },
     {
       "address": "0x0e747eb2ff0f26fb77c3a1ea67ee07fac2dbb783",
       "symbol": "OKB",
-      "rank": 10,
+      "rank": 9,
       "balance": 7.964115158952009e+21,
-      "share": 1.42,
+      "share": 1.73,
       "last_tx": null
     },
     {
       "address": "0x4a4aaa0155237881fbd5c34bfae16e985a7b068d",
       "symbol": "OKB",
-      "rank": 11,
-      "balance": 5.7418691317455e+21,
-      "share": 1.03,
+      "rank": 10,
+      "balance": 7.6731578226955e+21,
+      "share": 1.67,
       "last_tx": null
     },
     {
       "address": "0xd33d0d462177e06849bbcc4b82bb6d292fef6752",
       "symbol": "OKB",
-      "rank": 12,
+      "rank": 11,
       "balance": 5.4e+21,
-      "share": 0.97,
+      "share": 1.18,
       "last_tx": null
     },
     {
       "address": "0xb110df51e4d6c9d0990c9a3871ffd84c6340a60e",
       "symbol": "OKB",
-      "rank": 13,
+      "rank": 12,
       "balance": 5.158572e+21,
-      "share": 0.92,
+      "share": 1.12,
       "last_tx": null
     },
     {
       "address": "0x442689f3f26cbccc2e288daea986b9d67346149a",
       "symbol": "OKB",
-      "rank": 14,
+      "rank": 13,
       "balance": 5.140472674657056e+21,
-      "share": 0.92,
+      "share": 1.12,
       "last_tx": null
     },
     {
       "address": "0x8828ed47245c97473a612b98790dc4693fcf884d",
       "symbol": "OKB",
-      "rank": 15,
+      "rank": 14,
       "balance": 5.02016640491e+21,
-      "share": 0.9,
+      "share": 1.09,
       "last_tx": null
     },
     {
       "address": "0x2519e1234303189baaff2a7718ee8ab547f07ca3",
       "symbol": "OKB",
-      "rank": 16,
+      "rank": 15,
       "balance": 5.001e+21,
-      "share": 0.89,
+      "share": 1.09,
       "last_tx": null
     },
     {
       "address": "0x876eabf441b2ee5b5b0554fd502a8e0600950cfa",
       "symbol": "OKB",
-      "rank": 17,
+      "rank": 16,
       "balance": 4.63772478708e+21,
-      "share": 0.83,
+      "share": 1.01,
       "last_tx": null
     },
     {
       "address": "0xe45e12b44fca87e42dbc63a67bf5aa8ab800f459",
       "symbol": "OKB",
-      "rank": 18,
+      "rank": 17,
       "balance": 4.142e+21,
-      "share": 0.74,
+      "share": 0.9,
       "last_tx": null
     },
     {
       "address": "0x903e70d1b5a0d42c055a626bba9c36976808059f",
       "symbol": "OKB",
-      "rank": 19,
+      "rank": 18,
       "balance": 4.085e+21,
-      "share": 0.73,
+      "share": 0.89,
       "last_tx": null
     },
     {
       "address": "0xf9b38d98350e15c4879da69df7154034a1b51226",
       "symbol": "OKB",
-      "rank": 20,
+      "rank": 19,
       "balance": 3.8685864964e+21,
-      "share": 0.69,
+      "share": 0.84,
       "last_tx": null
     },
     {
       "address": "0x3a6b51cce4b4262f602120a9263285bdd2d424e0",
       "symbol": "OKB",
-      "rank": 21,
+      "rank": 20,
       "balance": 3.5e+21,
-      "share": 0.63,
+      "share": 0.76,
       "last_tx": null
     },
     {
       "address": "0x7439818d773ca1671f23dbbded340d42361a4546",
       "symbol": "OKB",
-      "rank": 22,
+      "rank": 21,
       "balance": 3.4752574574e+21,
-      "share": 0.62,
+      "share": 0.76,
       "last_tx": null
     },
     {
       "address": "0xa8ab579d4053326a8d341c878c6e295a82a7ff17",
       "symbol": "OKB",
-      "rank": 23,
+      "rank": 22,
       "balance": 3.135457687e+21,
-      "share": 0.56,
+      "share": 0.68,
       "last_tx": null
     },
     {
       "address": "0x18e3048b6c8ba9beba8f031f62cef3040ffacab6",
       "symbol": "OKB",
-      "rank": 24,
+      "rank": 23,
       "balance": 2.8e+21,
-      "share": 0.5,
+      "share": 0.61,
       "last_tx": null
     },
     {
       "address": "0x21ed0849acd4f6258f72c5cdf265f694246b116b",
       "symbol": "OKB",
-      "rank": 25,
+      "rank": 24,
       "balance": 2.710372e+21,
-      "share": 0.48,
+      "share": 0.59,
       "last_tx": null
     },
     {
       "address": "0xfa46559d40310b9ea691b29bef7b2fc1202e97ed",
       "symbol": "OKB",
-      "rank": 26,
+      "rank": 25,
       "balance": 2.46139249085e+21,
-      "share": 0.44,
+      "share": 0.54,
       "last_tx": null
     },
     {
       "address": "0x983873529f95132bd1812a3b52c98fb271d2f679",
       "symbol": "OKB",
-      "rank": 27,
+      "rank": 26,
       "balance": 2.409817229533953e+21,
-      "share": 0.43,
+      "share": 0.52,
       "last_tx": null
     },
     {
       "address": "0x0529ea5885702715e83923c59746ae8734c553b7",
       "symbol": "OKB",
-      "rank": 28,
+      "rank": 27,
       "balance": 2.27920848124e+21,
-      "share": 0.41,
-      "last_tx": null
-    },
-    {
-      "address": "0x1fcf1f5c801febc1009fcc8ed9c8349c367d23ac",
-      "symbol": "OKB",
-      "rank": 29,
-      "balance": 2.21636473279e+21,
-      "share": 0.4,
+      "share": 0.5,
       "last_tx": null
     },
     {
       "address": "0xad6eaa735d9df3d7696fd03984379dae02ed8862",
       "symbol": "OKB",
-      "rank": 30,
+      "rank": 28,
       "balance": 2.098096e+21,
-      "share": 0.38,
+      "share": 0.46,
       "last_tx": null
     },
     {
       "address": "0xc903069a3ea59200f9232f70ffeec6e5256fd747",
       "symbol": "OKB",
-      "rank": 31,
+      "rank": 29,
       "balance": 1.75930047731e+21,
-      "share": 0.31,
+      "share": 0.38,
       "last_tx": null
     },
     {
       "address": "0x298d8061c2638a5ae2bf6666015d4bff51688530",
       "symbol": "OKB",
-      "rank": 32,
+      "rank": 30,
       "balance": 1.69899e+21,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0x10ef756a9a3e796650f4fb411cb5345c99a94574",
-      "symbol": "OKB",
-      "rank": 33,
-      "balance": 1.65069886974e+21,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0xf5c868da193a60ccdcfead27b45b16f97efd7149",
-      "symbol": "OKB",
-      "rank": 34,
-      "balance": 1.6477756798e+21,
-      "share": 0.29,
+      "share": 0.37,
       "last_tx": null
     },
     {
       "address": "0x91dca37856240e5e1906222ec79278b16420dc92",
       "symbol": "OKB",
-      "rank": 35,
-      "balance": 1.637274961739084e+21,
-      "share": 0.29,
+      "rank": 31,
+      "balance": 1.6806064078523993e+21,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0x10ef756a9a3e796650f4fb411cb5345c99a94574",
+      "symbol": "OKB",
+      "rank": 32,
+      "balance": 1.66555886974e+21,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0xf5c868da193a60ccdcfead27b45b16f97efd7149",
+      "symbol": "OKB",
+      "rank": 33,
+      "balance": 1.6412756798e+21,
+      "share": 0.36,
       "last_tx": null
     },
     {
       "address": "0x5665de5520fd5b2c3a881382ef22ac8d52f7332d",
       "symbol": "OKB",
-      "rank": 36,
+      "rank": 34,
       "balance": 1.549366e+21,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0x0af6b0b2f1e8b1a259fffc70f2c19e177e4638c4",
-      "symbol": "OKB",
-      "rank": 37,
-      "balance": 1.549301357e+21,
-      "share": 0.28,
+      "share": 0.34,
       "last_tx": null
     },
     {
       "address": "0xf178f99e1843254c41229cc28ee2b16fec598807",
       "symbol": "OKB",
-      "rank": 38,
+      "rank": 35,
       "balance": 1.471534e+21,
-      "share": 0.26,
+      "share": 0.32,
       "last_tx": null
     },
     {
       "address": "0x8f4afe45b096e80bcd83ade18bcb8c977263f0eb",
       "symbol": "OKB",
-      "rank": 39,
+      "rank": 36,
       "balance": 1.3561504178316638e+21,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0x1467bab3230e5dc57bc8c92e69978994ce5b8eab",
-      "symbol": "OKB",
-      "rank": 40,
-      "balance": 1.32688699242e+21,
-      "share": 0.24,
+      "share": 0.3,
       "last_tx": null
     },
     {
       "address": "0xffd204e0a3f0eee67a5fad00b3e001b8d723d854",
       "symbol": "OKB",
-      "rank": 41,
+      "rank": 37,
       "balance": 1.32e+21,
-      "share": 0.24,
+      "share": 0.29,
       "last_tx": null
     },
     {
       "address": "0x85285e30e8e90761ffd736f507c94a4919a7d3af",
       "symbol": "OKB",
-      "rank": 42,
+      "rank": 38,
       "balance": 1.31061e+21,
-      "share": 0.23,
+      "share": 0.29,
       "last_tx": null
     },
     {
       "address": "0x8e0f3fce177312370e87559dbcf06583153562a8",
       "symbol": "OKB",
-      "rank": 43,
+      "rank": 39,
       "balance": 1.301599e+21,
-      "share": 0.23,
+      "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0x76647c5a02f8383bf39b172cf317a4d0547d7199",
       "symbol": "OKB",
-      "rank": 44,
+      "rank": 40,
       "balance": 1.099723791e+21,
-      "share": 0.2,
+      "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0x724e7a8119a31bc968a546726d7b7e87dc20f722",
       "symbol": "OKB",
-      "rank": 45,
+      "rank": 41,
       "balance": 1.08048e+21,
-      "share": 0.19,
+      "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0xa7d752f43d31a13a3c208e3529b8eb1f46f73561",
       "symbol": "OKB",
-      "rank": 46,
+      "rank": 42,
       "balance": 1.031161e+21,
-      "share": 0.18,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x0af6b0b2f1e8b1a259fffc70f2c19e177e4638c4",
+      "symbol": "OKB",
+      "rank": 43,
+      "balance": 1.03042652e+21,
+      "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0x919123f833ebbb7a91477d32818239536b095bc8",
       "symbol": "OKB",
-      "rank": 47,
+      "rank": 44,
       "balance": 1.00004855005e+21,
-      "share": 0.18,
+      "share": 0.22,
       "last_tx": null
     },
     {
-      "address": "0x556052af8b4f001b659066e061836b174e39c539",
+      "address": "0xa0ba601c986493416713b5423d30b2a390e55d73",
       "symbol": "OKB",
-      "rank": 48,
+      "rank": 45,
       "balance": 9.99997e+20,
-      "share": 0.18,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x1467bab3230e5dc57bc8c92e69978994ce5b8eab",
+      "symbol": "OKB",
+      "rank": 46,
+      "balance": 9.6958699242e+20,
+      "share": 0.21,
       "last_tx": null
     },
     {
       "address": "0x010e5ef9cb3d0fe098d06945e77a213336acde30",
       "symbol": "OKB",
-      "rank": 49,
+      "rank": 47,
       "balance": 9.11379e+20,
-      "share": 0.16,
+      "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0x67b66ec473a2442a936b7e9ef3805c2438cd44e1",
       "symbol": "OKB",
-      "rank": 50,
+      "rank": 48,
       "balance": 8.52325e+20,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x6368172f9df8ff70ac7e2fc6b30cb964158d0090",
-      "symbol": "OKB",
-      "rank": 51,
-      "balance": 8.459121309918396e+20,
-      "share": 0.15,
+      "share": 0.19,
       "last_tx": null
     },
     {
       "address": "0x8e9494b8b9a8fb885e7f5dcefbebf552054ccdd8",
       "symbol": "OKB",
-      "rank": 52,
+      "rank": 49,
       "balance": 8.35800743e+20,
-      "share": 0.15,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x2299e24d282a4aa40cbe927234bed1f2c1bdd884",
       "symbol": "OKB",
-      "rank": 53,
+      "rank": 50,
       "balance": 8.2224716992e+20,
-      "share": 0.15,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0xbbbc9887d3c46fcbc4dc7dc57d972cff2140a38d",
       "symbol": "OKB",
-      "rank": 54,
+      "rank": 51,
       "balance": 8.1881829645e+20,
-      "share": 0.15,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x28ac5fe7f2cec0c6d3fb6c9085703f0071377201",
       "symbol": "OKB",
-      "rank": 55,
+      "rank": 52,
       "balance": 8.18665361e+20,
-      "share": 0.15,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0xd4077be5d95774d5906cc8251c3a058eafae167a",
       "symbol": "OKB",
-      "rank": 56,
+      "rank": 53,
       "balance": 8.1074e+20,
-      "share": 0.14,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0xaef556ceea922fcf1506cf59e209d10ae01dace8",
       "symbol": "OKB",
-      "rank": 57,
+      "rank": 54,
       "balance": 7.92094e+20,
-      "share": 0.14,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0xb42c840ef43b0efd7aef72f935a32c58421285ff",
       "symbol": "OKB",
-      "rank": 58,
+      "rank": 55,
       "balance": 7.54557e+20,
-      "share": 0.13,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xbf569c643205f4cb07cfe3a1e28051f8813c8d15",
       "symbol": "OKB",
-      "rank": 59,
+      "rank": 56,
       "balance": 7.223002e+20,
-      "share": 0.13,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xbb41aa5ef1495c018d6724f9d7924280807047d9",
       "symbol": "OKB",
-      "rank": 60,
+      "rank": 57,
       "balance": 7.162431e+20,
-      "share": 0.13,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xdc05943edbf9a44db459b6aaf3a462496046a0b4",
       "symbol": "OKB",
-      "rank": 61,
+      "rank": 58,
       "balance": 7.0607e+20,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x3c9284407ec2563dbb87c2f95a213329be994e6e",
-      "symbol": "OKB",
-      "rank": 62,
-      "balance": 6.985275e+20,
-      "share": 0.12,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x7f25e19e044f45ee7ecd36f961be9db5f59bf7ce",
       "symbol": "OKB",
-      "rank": 63,
+      "rank": 59,
       "balance": 6e+20,
-      "share": 0.11,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x94c10f108f2f400a0fada4849f1bb608286d50f7",
       "symbol": "OKB",
-      "rank": 64,
+      "rank": 60,
       "balance": 5.8000349188e+20,
-      "share": 0.1,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x7010c4edfcafbc95e5845268ff3c49833725e081",
       "symbol": "OKB",
-      "rank": 65,
+      "rank": 61,
       "balance": 5.5512e+20,
-      "share": 0.1,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x5900dc0352200d8d2276c9525dbf1a7eed610096",
       "symbol": "OKB",
-      "rank": 66,
+      "rank": 62,
       "balance": 5.5195725447e+20,
-      "share": 0.1,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0xfb4d26bad9ec4139c3b0594db491df502232ed1f",
       "symbol": "OKB",
-      "rank": 67,
+      "rank": 63,
       "balance": 5.505944e+20,
-      "share": 0.1,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x65f11894219d318d8528c7ebe6f3432bd836192f",
       "symbol": "OKB",
-      "rank": 68,
+      "rank": 64,
       "balance": 5.49153e+20,
-      "share": 0.1,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x0596243601edccb07364502d0185b63bd559c3c9",
       "symbol": "OKB",
-      "rank": 69,
+      "rank": 65,
       "balance": 5.2854e+20,
-      "share": 0.09,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0xb41d19ae55c681bc3f930c02d32b2a46c405171f",
       "symbol": "OKB",
-      "rank": 70,
+      "rank": 66,
       "balance": 5.078804526962299e+20,
-      "share": 0.09,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x4b3f5b3862d5367e1de6d9a42cf11c6b35eb08dd",
       "symbol": "OKB",
-      "rank": 71,
+      "rank": 67,
       "balance": 5.062e+20,
-      "share": 0.09,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x1c74d7de3a218d2e41113b643c54bc221acff398",
       "symbol": "OKB",
-      "rank": 72,
+      "rank": 68,
       "balance": 5.02e+20,
-      "share": 0.09,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x29d1ffac936ca8a820054065fe1a9847d969065f",
       "symbol": "OKB",
-      "rank": 73,
+      "rank": 69,
       "balance": 5.011227710737679e+20,
-      "share": 0.09,
-      "last_tx": null
-    },
-    {
-      "address": "0xe2a0a79bdc6e61e51a3eae8ed288065fcccf867b",
-      "symbol": "OKB",
-      "rank": 74,
-      "balance": 5e+20,
-      "share": 0.09,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xe5f1871da23766083afe5e12489eae9af34016ce",
       "symbol": "OKB",
-      "rank": 75,
+      "rank": 70,
       "balance": 4.982e+20,
-      "share": 0.09,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xc5646137d6e11fb5a0a783e4ab15d319074507a3",
       "symbol": "OKB",
-      "rank": 76,
+      "rank": 71,
       "balance": 4.817e+20,
-      "share": 0.09,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xf2563df2b97f6c5e049c12f489ce326792b65c1b",
       "symbol": "OKB",
-      "rank": 77,
+      "rank": 72,
       "balance": 4.7742e+20,
-      "share": 0.09,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x814767e155df9d1d5464a9e153160584fe7e83dc",
       "symbol": "OKB",
-      "rank": 78,
+      "rank": 73,
       "balance": 4.764363491136073e+20,
-      "share": 0.09,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x9a01dcd676699018e994dc93d4334643edcfec73",
       "symbol": "OKB",
-      "rank": 79,
+      "rank": 74,
       "balance": 4.751004e+20,
-      "share": 0.08,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xe1c18ec0c546ef89cf6d239a9f19ff9947e06ac3",
       "symbol": "OKB",
-      "rank": 80,
+      "rank": 75,
       "balance": 4.66e+20,
-      "share": 0.08,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xb5e33c46956b842ff54c4fbfb8db312209013532",
       "symbol": "OKB",
-      "rank": 81,
+      "rank": 76,
       "balance": 4.6e+20,
-      "share": 0.08,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xa961f7008ca2060eaea72d7b594dd8fda39db92d",
       "symbol": "OKB",
-      "rank": 82,
+      "rank": 77,
       "balance": 4.535186717e+20,
-      "share": 0.08,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xe3277c1f4366063338bed6de0c76116b5586f047",
       "symbol": "OKB",
-      "rank": 83,
+      "rank": 78,
       "balance": 4.42105e+20,
-      "share": 0.08,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xf786792b565a3ddf50e6f435595936070cd62755",
       "symbol": "OKB",
-      "rank": 84,
+      "rank": 79,
       "balance": 4.277503057074068e+20,
-      "share": 0.08,
+      "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0xffd8a92e2c083f6bc0021e2049992a345b2d1542",
+      "address": "0x9784c0df5f735db69aa223f91991124b9bceecfe",
       "symbol": "OKB",
-      "rank": 85,
+      "rank": 80,
       "balance": 4.0378855974806205e+20,
-      "share": 0.07,
+      "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x1157a2076b9bb22a85cc2c162f20fab3898f4101",
       "symbol": "OKB",
-      "rank": 86,
+      "rank": 81,
       "balance": 3.886378e+20,
-      "share": 0.07,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x6368172f9df8ff70ac7e2fc6b30cb964158d0090",
+      "symbol": "OKB",
+      "rank": 82,
+      "balance": 3.853466691452957e+20,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xc958573ae3952c27db8012b8eaa5880d013d04cd",
+      "symbol": "OKB",
+      "rank": 83,
+      "balance": 3.745275e+20,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "symbol": "OKB",
+      "rank": 84,
+      "balance": 3.703268510136639e+20,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x2982bb64bcd07ac3315c32cb2bb7e5e8a2de7d67",
+      "symbol": "OKB",
+      "rank": 85,
+      "balance": 3.64329062454448e+20,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xa5995359b9941e060e366b4ee3ebb6a9f47649be",
       "symbol": "OKB",
-      "rank": 87,
+      "rank": 86,
       "balance": 3.64006457e+20,
-      "share": 0.07,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x1d45338dcef9838ba6841c9c5f97375e0ec1af25",
       "symbol": "OKB",
-      "rank": 88,
+      "rank": 87,
       "balance": 3.4991700029e+20,
-      "share": 0.06,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xfe008720950f2d5a7c870d9f3ff8d4d02f22a47b",
       "symbol": "OKB",
-      "rank": 89,
+      "rank": 88,
       "balance": 3.489724377e+20,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0xbc4afa99a86cec67ff901b61c02145513397bd75",
-      "symbol": "OKB",
-      "rank": 90,
-      "balance": 3.397128018970117e+20,
-      "share": 0.06,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x11b119b6bb6991bfecb04449e0eeb55b07deec7a",
       "symbol": "OKB",
-      "rank": 91,
+      "rank": 89,
       "balance": 3.3563559092e+20,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x9a6520e2352a22784f4c474b43a6a7e717561f5b",
-      "symbol": "OKB",
-      "rank": 92,
-      "balance": 3.3513847608033857e+20,
-      "share": 0.06,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xb8cecc39ab572bfa73d6da0ced4212494eeaf1b5",
       "symbol": "OKB",
-      "rank": 93,
+      "rank": 90,
       "balance": 3.22119e+20,
-      "share": 0.06,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x72faffac060d6327ed097c87110c09c418687f0f",
       "symbol": "OKB",
-      "rank": 94,
+      "rank": 91,
       "balance": 3.1054971574e+20,
-      "share": 0.06,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x43e2c246007b7d1a12cc528a6efabb3aee248a31",
       "symbol": "OKB",
-      "rank": 95,
+      "rank": 92,
       "balance": 3.10347e+20,
-      "share": 0.06,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x158206ad0b86aff0a5187857fd20c6ca4d7c91ab",
       "symbol": "OKB",
-      "rank": 96,
+      "rank": 93,
       "balance": 3.01203e+20,
-      "share": 0.05,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x9a6520e2352a22784f4c474b43a6a7e717561f5b",
+      "symbol": "OKB",
+      "rank": 94,
+      "balance": 3.0013847608033857e+20,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x5674ab5c31ba208e7553126ff0b748c1bead5b6f",
       "symbol": "OKB",
-      "rank": 97,
+      "rank": 95,
       "balance": 3.0003e+20,
-      "share": 0.05,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xe2a0a79bdc6e61e51a3eae8ed288065fcccf867b",
+      "symbol": "OKB",
+      "rank": 96,
+      "balance": 3e+20,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xa578b29cd10f4bf67cf9157f21a52cd45fcdebc1",
       "symbol": "OKB",
-      "rank": 98,
+      "rank": 97,
       "balance": 3e+20,
-      "share": 0.05,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x834a438966079f04f414dd3984e2709883c4e508",
       "symbol": "OKB",
-      "rank": 99,
+      "rank": 98,
       "balance": 2.890379e+20,
-      "share": 0.05,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x072f7ebc2afcca75e272725a6c32067e26d70556",
       "symbol": "OKB",
-      "rank": 100,
+      "rank": 99,
       "balance": 2.8792293165e+20,
-      "share": 0.05,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x1f25722b27fcbc55e144f3c790ba134f17eff93f",
+      "symbol": "OKB",
+      "rank": 100,
+      "balance": 2.6205614201e+20,
+      "share": 0.06,
       "last_tx": null
     }
   ]

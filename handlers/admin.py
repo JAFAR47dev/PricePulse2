@@ -1,52 +1,201 @@
+# ============================================================================
+# admin.py - FIXED /setplan COMMAND
+# ============================================================================
+
 from telegram import Update
 from telegram.ext import ContextTypes
 from datetime import datetime, timedelta
 from models.user import set_user_plan
 from config import ADMIN_ID
-
-VALID_PLANS = ["free", "pro_monthly", "pro_yearly", "pro_lifetime"]
+from .upgrade import calculate_new_expiry  
+from models.db import get_connection
 
 async def set_plan(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
-
-    if user_id != ADMIN_ID:
-        await update.message.reply_text("🚫 You are not authorized to use this command.")
-        return
-
-    args = context.args
-    if len(args) != 2:
-        await update.message.reply_text("❌ Usage: /setplan <user_id> <free|pro_monthly|pro_yearly|pro_lifetime>")
-        return
-
-    try:
-        target_user = int(args[0])
-        plan = args[1].lower()
-        if plan not in VALID_PLANS:
-            raise ValueError
-    except ValueError:
-        await update.message.reply_text("❌ Invalid plan. Try: `free`, `pro_monthly`, `pro_yearly`, or `pro_lifetime`", parse_mode="Markdown")
-        return
-
-    # Calculate expiry if needed
-    expires_at = None
-    if plan == "pro_monthly":
-        expires_at = datetime.utcnow() + timedelta(days=30)
-    elif plan == "pro_yearly":
-        expires_at = datetime.utcnow() + timedelta(days=365)
-
-    set_user_plan(target_user, plan, expires_at)
-
-    expiry_str = f"\n🕒 Expires: {expires_at.strftime('%Y-%m-%d')}" if expires_at else ""
-    await update.message.reply_text(
-        f"✅ User {target_user} has been set to *{plan.upper()}* plan.{expiry_str}",
-        parse_mode="Markdown"
-    )
+    """
+    Admin command to manually set user plan
     
+    ✅ NEW BEHAVIOR:
+    - Preserves remaining days when upgrading (29 days monthly + 365 yearly = 394 days)
+    - Prevents duplicate additions (yearly + yearly = same yearly, not 2 years)
+    - Smart detection of plan changes vs duplicates
+    """
+    user_id = update.effective_user.id
+    
+    if user_id != ADMIN_ID:
+        await update.message.reply_text("🚫 Admin only.")
+        return
+    
+    if len(context.args) < 2:
+        await update.message.reply_text(
+            "❌ <b>Usage:</b> <code>/setplan &lt;user_id&gt; &lt;plan&gt;</code>\n\n"
+            "<b>Plans:</b>\n"
+            "• <code>pro_monthly</code> — 30 days\n"
+            "• <code>pro_yearly</code> — 365 days\n"
+            "• <code>pro_lifetime</code> — Forever\n"
+            "• <code>free</code> — Remove Pro access\n\n"
+            "<b>Examples:</b>\n"
+            "• <code>/setplan 123456 pro_yearly</code>\n"
+            "• <code>/setplan 123456 free</code>",
+            parse_mode="HTML"
+        )
+        return
+    
+    try:
+        target_user_id = int(context.args[0])
+    except ValueError:
+        await update.message.reply_text("❌ Invalid user ID. Must be a number.")
+        return
+    
+    plan_type = context.args[1].lower()
+    
+    # Validate plan
+    valid_plans = ["pro_monthly", "pro_yearly", "pro_lifetime", "free"]
+    if plan_type not in valid_plans:
+        await update.message.reply_text(
+            f"❌ Invalid plan.\n\n"
+            f"<b>Valid options:</b>\n" + "\n".join([f"• <code>{p}</code>" for p in valid_plans]),
+            parse_mode="HTML"
+        )
+        return
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # GET CURRENT PLAN INFO (to check for duplicates)
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    conn = get_connection()
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+        SELECT plan, expiry_date 
+        FROM users 
+        WHERE user_id = ?
+    """, (target_user_id,))
+    
+    row = cursor.fetchone()
+    current_plan = row[0].lower() if row and row[0] else "free"
+    current_expiry = row[1] if row and row[1] else None
+    
+    # Parse current expiry
+    current_expiry_dt = None
+    remaining_days = 0
+    if current_expiry:
+        try:
+            if isinstance(current_expiry, str):
+                current_expiry_dt = datetime.fromisoformat(current_expiry)
+            elif isinstance(current_expiry, datetime):
+                current_expiry_dt = current_expiry
+            
+            if current_expiry_dt and current_expiry_dt > datetime.utcnow():
+                remaining_days = (current_expiry_dt - datetime.utcnow()).days
+        except Exception as e:
+            print(f"⚠️ Error parsing expiry: {e}")
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # DUPLICATE DETECTION
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    # Check if trying to add the SAME plan they already have
+    if current_plan == plan_type and remaining_days > 0:
+        await update.message.reply_text(
+            f"⚠️ <b>User already has {plan_type}</b>\n\n"
+            f"📅 Current expiry: <code>{current_expiry_dt.strftime('%Y-%m-%d')}</code> ({remaining_days} days left)\n\n"
+            f"❌ <b>Not adding duplicate plan</b>\n\n"
+            f"💡 <b>Options:</b>\n"
+            f"• To extend: Wait until plan expires, then add new plan\n"
+            f"• To change: Use different plan type (e.g., upgrade monthly → yearly)\n"
+            f"• To reset: Set to <code>free</code> first, then add new plan",
+            parse_mode="HTML"
+        )
+        conn.close()
+        return
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # CALCULATE NEW EXPIRY (WITH SMART STACKING)
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    # Extract base plan (monthly, yearly, lifetime)
+    base_plan = plan_type.replace("pro_", "") if plan_type != "free" else "free"
+    
+    # ✅ STACK = TRUE for admin upgrades (preserve remaining days)
+    # Example: 29 days monthly + 365 yearly = 394 days yearly
+    if base_plan in ["monthly", "yearly", "lifetime"]:
+        new_expiry = calculate_new_expiry(target_user_id, base_plan, stack=True)  # ✅ CHANGED
+    else:
+        new_expiry = None  # Free plan has no expiry
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # UPDATE DATABASE
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    if new_expiry:
+        cursor.execute("""
+            INSERT INTO users (user_id, plan, expiry_date)
+            VALUES (?, ?, ?)
+            ON CONFLICT(user_id) DO UPDATE SET
+                plan = excluded.plan,
+                expiry_date = excluded.expiry_date
+        """, (target_user_id, plan_type, new_expiry.isoformat()))
+    else:
+        cursor.execute("""
+            INSERT INTO users (user_id, plan, expiry_date)
+            VALUES (?, ?, NULL)
+            ON CONFLICT(user_id) DO UPDATE SET
+                plan = excluded.plan,
+                expiry_date = NULL
+        """, (target_user_id, plan_type))
+    
+    conn.commit()
+    conn.close()
+    
+    # ═══════════════════════════════════════════════════════════════════════
+    # FORMAT RESPONSE (SHOW WHAT HAPPENED)
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    if new_expiry:
+        expiry_str = new_expiry.strftime("%Y-%m-%d")
+        total_days = (new_expiry - datetime.utcnow()).days
+        
+        # Build upgrade message
+        upgrade_msg = f"✅ <b>User {target_user_id} upgraded to {plan_type}</b>\n\n"
+        
+        # Show what changed
+        if current_plan != "free" and remaining_days > 0:
+            upgrade_msg += (
+                f"<b>Previous plan:</b> {current_plan} ({remaining_days} days left)\n"
+                f"<b>New plan:</b> {plan_type} ({total_days} days total)\n\n"
+                f"✨ <b>Preserved {remaining_days} remaining days!</b>\n"
+                f"📅 New expiry: <code>{expiry_str}</code>"
+            )
+        else:
+            upgrade_msg += (
+                f"📅 Expires: <code>{expiry_str}</code> ({total_days} days)\n"
+                f"🆕 Started fresh (no previous plan)"
+            )
+        
+        await update.message.reply_text(upgrade_msg, parse_mode="HTML")
+    else:
+        # Lifetime or Free
+        if plan_type == "pro_lifetime":
+            await update.message.reply_text(
+                f"✅ <b>User {target_user_id} set to Lifetime Pro</b>\n\n"
+                f"♾️ Never expires\n"
+                f"👑 Full access forever",
+                parse_mode="HTML"
+            )
+        else:
+            await update.message.reply_text(
+                f"✅ <b>User {target_user_id} set to Free</b>\n\n"
+                f"❌ Pro access removed",
+                parse_mode="HTML"
+            )
+        
+        
 from telegram import Update
 from telegram.ext import ContextTypes
 from models.db import get_connection
-import os
+import asyncio
 
+PROLIST_TIMEOUT = 120  # seconds (2 minutes)
 
 async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
@@ -66,16 +215,23 @@ async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn.close()
 
     if not rows:
-        await update.message.reply_text("📭 No Pro users found.")
+        response = await update.message.reply_text("📭 No Pro users found.")
+        # Delete response message after timeout
+        asyncio.create_task(delete_message_after_delay(context, update.message.chat_id, response.message_id, PROLIST_TIMEOUT))
         return
 
-    # --- Initialize counters ---
     monthly_count = yearly_count = lifetime_count = 0
-
     msg = "*📋 Current Pro Users:*\n\n"
+
     for uid, username, plan, expiry in rows:
-        name_display = f"@{username}" if username else f"`{uid}`"
+        name = f"@{username}" if username else f"`{uid}`"
         plan_name = plan.replace("pro_", "").capitalize()
+        expiry_display = expiry if expiry else "♾️ Lifetime"
+
+        msg += f"• {name} — *{plan_name}* — {expiry_display}\n"
+
+        if uid == ADMIN_ID:
+            continue
 
         if "month" in plan.lower():
             monthly_count += 1
@@ -84,22 +240,24 @@ async def pro_user_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
         elif "life" in plan.lower():
             lifetime_count += 1
 
-        expiry_display = expiry if expiry else "♾️ Lifetime"
-        msg += f"• {name_display} — *{plan_name}* — {expiry_display}\n"
-
-    # --- Calculate expected revenue ---
-    monthly_revenue = monthly_count * 10
-    yearly_revenue = yearly_count * 99
-    lifetime_revenue = lifetime_count * 249
-    total_revenue = monthly_revenue + yearly_revenue + lifetime_revenue
-
-    msg += (
-        "\n\n💰 *Expected Revenue Summary:*\n"
-        f"🗓️ Monthly ({monthly_count} users): ${monthly_revenue}\n"
-        f"📅 Yearly ({yearly_count} users): ${yearly_revenue}\n"
-        f"♾️ Lifetime ({lifetime_count} users): ${lifetime_revenue}\n"
+    revenue = (
+        f"\n\n💰 *Expected Revenue Summary (Auto-expires):*\n"
+        f"🗓️ Monthly ({monthly_count}): ${monthly_count * 7.99}\n"
+        f"📅 Yearly ({yearly_count}): ${yearly_count * 59}\n"
+        f"♾️ Lifetime ({lifetime_count}): ${lifetime_count * 149}\n"
         f"━━━━━━━━━━━━━━\n"
-        f"💵 *Total Expected Revenue:* ${total_revenue}"
+        f"💵 *Total:* ${(monthly_count*7.99)+(yearly_count*59)+(lifetime_count*149)}"
     )
 
-    await update.message.reply_text(msg, parse_mode="Markdown")
+    sent = await update.message.reply_text(msg + revenue, parse_mode="Markdown")
+    
+    # Delete the results after 2 minutes
+    asyncio.create_task(delete_message_after_delay(context, update.message.chat_id, sent.message_id, PROLIST_TIMEOUT))
+    
+    
+async def delete_message_after_delay(context, chat_id, message_id, delay=PROLIST_TIMEOUT):
+    await asyncio.sleep(delay)
+    try:
+        await context.bot.delete_message(chat_id, message_id)
+    except:
+        pass

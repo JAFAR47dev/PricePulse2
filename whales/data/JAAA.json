@@ -1,0 +1,65 @@
+{
+  "token": "JAAA",
+  "contract": "0x5a0f93d040de44e78f251b03c43be9cf317dcf64",
+  "updated_at": "2026-01-31T06:57:20.265029",
+  "version": "1.0.0",
+  "whale_count": 7,
+  "whales": [
+    {
+      "address": "0x491edfb0b8b608044e227225c715981a30f3a44e",
+      "symbol": "JAAA",
+      "rank": 1,
+      "balance": 443352954181178.0,
+      "share": 96.48,
+      "last_tx": null
+    },
+    {
+      "address": "0x227942bd9c3e4eca1b76e8199e407e6c52fdacd6",
+      "symbol": "JAAA",
+      "rank": 2,
+      "balance": 11242253681006.0,
+      "share": 2.45,
+      "last_tx": null
+    },
+    {
+      "address": "0xb0ec6c4482ac1ef77be239c0ac833cf37a27c876",
+      "symbol": "JAAA",
+      "rank": 3,
+      "balance": 2482955641840.0,
+      "share": 0.54,
+      "last_tx": null
+    },
+    {
+      "address": "0xb3dacc732509ba6b7f25ad149e56ca44fe901ab9",
+      "symbol": "JAAA",
+      "rank": 4,
+      "balance": 990343574002.0,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xcf5c83a12e0bd55a8c02fc7802203bc23e3efb30",
+      "symbol": "JAAA",
+      "rank": 5,
+      "balance": 963865136886.0,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xb5e93b4434e63b86a2e16e3c37732e24a6af68d6",
+      "symbol": "JAAA",
+      "rank": 6,
+      "balance": 496677758094.0,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x0000000005f458fd6ba9eeb5f365d83b7da913dd",
+      "symbol": "JAAA",
+      "rank": 7,
+      "balance": 278519.0,
+      "share": 0,
+      "last_tx": null
+    }
+  ]
+}
