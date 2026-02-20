@@ -1,88 +1,88 @@
 {
   "token": "WETH",
   "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-  "updated_at": "2025-11-24T17:02:06.677803",
+  "updated_at": "2026-02-03T23:18:51.560599",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
     {
-      "address": "0x4d5f47fa6a74757f35c14fd3a6ef8e3c9bc514e8",
+      "address": "0xf04a5cc80b1e94c69b48f5ee68a08cd2f09a7c3e",
       "symbol": "WETH",
       "rank": 1,
-      "balance": 8.472691157480184e+23,
-      "share": 32.27,
+      "balance": 3.907490960177975e+23,
+      "share": 17.53,
       "last_tx": null
     },
     {
-      "address": "0xf04a5cc80b1e94c69b48f5ee68a08cd2f09a7c3e",
+      "address": "0x4d5f47fa6a74757f35c14fd3a6ef8e3c9bc514e8",
       "symbol": "WETH",
       "rank": 2,
-      "balance": 3.491617892235053e+23,
-      "share": 13.3,
+      "balance": 3.7060952258695813e+23,
+      "share": 16.63,
       "last_tx": null
     },
     {
       "address": "0x2f0b23f53734252bda2277357e97e1517d6b042a",
       "symbol": "WETH",
       "rank": 3,
-      "balance": 2.5516227835539398e+23,
-      "share": 9.72,
-      "last_tx": null
-    },
-    {
-      "address": "0x59cd1c87501baa753d0b5b5ab5d8416a45cd71db",
-      "symbol": "WETH",
-      "rank": 4,
-      "balance": 8.755874890137044e+22,
-      "share": 3.34,
+      "balance": 2.4693980229420832e+23,
+      "share": 11.08,
       "last_tx": null
     },
     {
       "address": "0x3ee18b2214aff97000d974cf647e7c347e8fa585",
       "symbol": "WETH",
+      "rank": 4,
+      "balance": 6.882611685242e+22,
+      "share": 3.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x59cd1c87501baa753d0b5b5ab5d8416a45cd71db",
+      "symbol": "WETH",
       "rank": 5,
-      "balance": 7.212816054384e+22,
-      "share": 2.75,
+      "balance": 5.407252291837666e+22,
+      "share": 2.43,
       "last_tx": null
     },
     {
       "address": "0xc3d688b66703497daa19211eedff47f25384cdc3",
       "symbol": "WETH",
       "rank": 6,
-      "balance": 4.371468733980346e+22,
-      "share": 1.67,
+      "balance": 4.298789578105654e+22,
+      "share": 1.93,
       "last_tx": null
     },
     {
-      "address": "0x8eb8a3b98659cce290402893d0123abb75e3ab28",
+      "address": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
       "symbol": "WETH",
       "rank": 7,
-      "balance": 3.009011827702123e+22,
-      "share": 1.15,
+      "balance": 3.460792307055098e+22,
+      "share": 1.55,
       "last_tx": null
     },
     {
       "address": "0x21b8065d10f73ee2e260e5b47d3344d3ced7596e",
       "symbol": "WETH",
       "rank": 8,
-      "balance": 2.896942559751262e+22,
-      "share": 1.1,
+      "balance": 2.82946894242596e+22,
+      "share": 1.27,
       "last_tx": null
     },
     {
-      "address": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
+      "address": "0x4553e3bc6327006a63c5aa4cdac887f66b6a433e",
       "symbol": "WETH",
       "rank": 9,
-      "balance": 2.0219019778170366e+22,
-      "share": 0.77,
+      "balance": 2.4564313084807426e+22,
+      "share": 1.1,
       "last_tx": null
     },
     {
       "address": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
       "symbol": "WETH",
       "rank": 10,
-      "balance": 2.0055491156308797e+22,
-      "share": 0.76,
+      "balance": 2.415812646814169e+22,
+      "share": 1.08,
       "last_tx": null
     },
     {
@@ -90,719 +90,719 @@
       "symbol": "WETH",
       "rank": 11,
       "balance": 1.9820730839598147e+22,
-      "share": 0.76,
+      "share": 0.89,
+      "last_tx": null
+    },
+    {
+      "address": "0x8eb8a3b98659cce290402893d0123abb75e3ab28",
+      "symbol": "WETH",
+      "rank": 12,
+      "balance": 1.9672613037693674e+22,
+      "share": 0.88,
+      "last_tx": null
+    },
+    {
+      "address": "0x003ca23fd5f0ca87d01f6ec6cd14a8ae60c2b97d",
+      "symbol": "WETH",
+      "rank": 13,
+      "balance": 1.9485544204932127e+22,
+      "share": 0.87,
       "last_tx": null
     },
     {
       "address": "0x011ef1fe26d20077a59f38e9ad155b166ad87d40",
       "symbol": "WETH",
-      "rank": 12,
-      "balance": 1.962660523413457e+22,
-      "share": 0.75,
-      "last_tx": null
-    },
-    {
-      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
-      "symbol": "WETH",
-      "rank": 13,
-      "balance": 1.9053006148353707e+22,
-      "share": 0.73,
+      "rank": 14,
+      "balance": 1.8675707295671437e+22,
+      "share": 0.84,
       "last_tx": null
     },
     {
       "address": "0xfa7093cdd9ee6932b4eb2c9e1cde7ce00b1fa4b9",
       "symbol": "WETH",
-      "rank": 14,
-      "balance": 1.6687500012643364e+22,
-      "share": 0.64,
-      "last_tx": null
-    },
-    {
-      "address": "0x312e67b47a2a29ae200184949093d92369f80b53",
-      "symbol": "WETH",
       "rank": 15,
-      "balance": 1.4929001734961187e+22,
-      "share": 0.57,
+      "balance": 1.7382041124152623e+22,
+      "share": 0.78,
       "last_tx": null
     },
     {
       "address": "0x3afdc9bca9213a35503b077a6072f3d0d5ab0840",
       "symbol": "WETH",
       "rank": 16,
-      "balance": 1.4710289925253024e+22,
-      "share": 0.56,
+      "balance": 1.6858267895844357e+22,
+      "share": 0.76,
+      "last_tx": null
+    },
+    {
+      "address": "0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8",
+      "symbol": "WETH",
+      "rank": 17,
+      "balance": 1.5449347185144553e+22,
+      "share": 0.69,
+      "last_tx": null
+    },
+    {
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "symbol": "WETH",
+      "rank": 18,
+      "balance": 1.424545605600492e+22,
+      "share": 0.64,
       "last_tx": null
     },
     {
       "address": "0xbda109309f9fafa6dd6a9cb9f1df4085b27ee8ef",
       "symbol": "WETH",
-      "rank": 17,
-      "balance": 1.4111548133820233e+22,
-      "share": 0.54,
-      "last_tx": null
-    },
-    {
-      "address": "0x6b44ba0a126a2a1a8aa6cd1adeed002e141bcd44",
-      "symbol": "WETH",
-      "rank": 18,
-      "balance": 1.2077409492122376e+22,
-      "share": 0.46,
-      "last_tx": null
-    },
-    {
-      "address": "0x030ba81f1c18d280636f32af80b9aad02cf0854e",
-      "symbol": "WETH",
       "rank": 19,
-      "balance": 1.0730492810312827e+22,
-      "share": 0.41,
+      "balance": 1.410658495944348e+22,
+      "share": 0.63,
       "last_tx": null
     },
     {
-      "address": "0xd347e2b7f19563b825f982bc831a1fbd6c8e08a2",
+      "address": "0x312e67b47a2a29ae200184949093d92369f80b53",
       "symbol": "WETH",
       "rank": 20,
-      "balance": 9.001908829310167e+21,
-      "share": 0.34,
+      "balance": 1.3832176131527003e+22,
+      "share": 0.62,
       "last_tx": null
     },
     {
       "address": "0xa17581a9e3356d9a858b789d68b4d866e593ae94",
       "symbol": "WETH",
       "rank": 21,
-      "balance": 8.566566520485558e+21,
-      "share": 0.33,
+      "balance": 1.364562779500277e+22,
+      "share": 0.61,
       "last_tx": null
     },
     {
-      "address": "0xc5c134a1f112efa96003f8559dba6fac0ba77692",
+      "address": "0x6e5492f8ea2370844ee098a56dd88e1717e4a9c2",
       "symbol": "WETH",
       "rank": 22,
-      "balance": 8.434414386876342e+21,
-      "share": 0.32,
+      "balance": 1.3112941161027901e+22,
+      "share": 0.59,
       "last_tx": null
     },
     {
-      "address": "0xfa1fdbbd71b0aa16162d76914d69cd8cb3ef92da",
+      "address": "0x6b44ba0a126a2a1a8aa6cd1adeed002e141bcd44",
       "symbol": "WETH",
       "rank": 23,
-      "balance": 8.287096594070023e+21,
-      "share": 0.32,
+      "balance": 1.2077409492122376e+22,
+      "share": 0.54,
       "last_tx": null
     },
     {
-      "address": "0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8",
+      "address": "0xfeb016d0d14ac0fa6d69199608b0776d007203b2",
       "symbol": "WETH",
       "rank": 24,
-      "balance": 7.979722261450944e+21,
-      "share": 0.3,
+      "balance": 1.1837921379741495e+22,
+      "share": 0.53,
       "last_tx": null
     },
     {
-      "address": "0x202a6012894ae5c288ea824cbc8a9bfb26a49b93",
+      "address": "0x9fc3dc011b461664c835f2527fffb1169b3c213e",
       "symbol": "WETH",
       "rank": 25,
-      "balance": 7.410324208009252e+21,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0x448a5065aebb8e423f0896e6c5d525c040f59af3",
-      "symbol": "WETH",
-      "rank": 26,
-      "balance": 7.245793261131494e+21,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0xeb5a8c825582965f1d84606e078620a84ab16afe",
-      "symbol": "WETH",
-      "rank": 27,
-      "balance": 7.148305798365187e+21,
-      "share": 0.27,
-      "last_tx": null
-    },
-    {
-      "address": "0x88ad09518695c6c3712ac10a214be5109a655671",
-      "symbol": "WETH",
-      "rank": 28,
-      "balance": 7.138041406087647e+21,
-      "share": 0.27,
+      "balance": 1.00000000001e+22,
+      "share": 0.45,
       "last_tx": null
     },
     {
       "address": "0x08638ef1a205be6762a8b935f5da9b700cf7322c",
       "symbol": "WETH",
+      "rank": 26,
+      "balance": 9.995124112342068e+21,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0x4585fe77225b41b697c938b018e2ac67ac5a20c0",
+      "symbol": "WETH",
+      "rank": 27,
+      "balance": 8.730801852701351e+21,
+      "share": 0.39,
+      "last_tx": null
+    },
+    {
+      "address": "0xa6cc3c2531fdaa6ae1a3ca84c2855806728693e8",
+      "symbol": "WETH",
+      "rank": 28,
+      "balance": 8.448285771876627e+21,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0xc5c134a1f112efa96003f8559dba6fac0ba77692",
+      "symbol": "WETH",
       "rank": 29,
-      "balance": 6.699792679026749e+21,
+      "balance": 8.42535103813137e+21,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+      "symbol": "WETH",
+      "rank": 30,
+      "balance": 8.212270790702625e+21,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0x556790e948b9920a8868bcafcc87d25e82e8a075",
+      "symbol": "WETH",
+      "rank": 31,
+      "balance": 8.14654277186e+21,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0x030ba81f1c18d280636f32af80b9aad02cf0854e",
+      "symbol": "WETH",
+      "rank": 32,
+      "balance": 7.513707965462616e+21,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0x88ad09518695c6c3712ac10a214be5109a655671",
+      "symbol": "WETH",
+      "rank": 33,
+      "balance": 7.303977324121422e+21,
+      "share": 0.33,
+      "last_tx": null
+    },
+    {
+      "address": "0xcc7d5785ad5755b6164e21495e07adb0ff11c2a8",
+      "symbol": "WETH",
+      "rank": 34,
+      "balance": 6.83173931922662e+21,
+      "share": 0.31,
+      "last_tx": null
+    },
+    {
+      "address": "0x448a5065aebb8e423f0896e6c5d525c040f59af3",
+      "symbol": "WETH",
+      "rank": 35,
+      "balance": 6.605307070931507e+21,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xeb5a8c825582965f1d84606e078620a84ab16afe",
+      "symbol": "WETH",
+      "rank": 36,
+      "balance": 6.229565436487451e+21,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1c33b391c2569b737ec387e731e88589e8ec148",
+      "symbol": "WETH",
+      "rank": 37,
+      "balance": 6.180493699445042e+21,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
+      "symbol": "WETH",
+      "rank": 38,
+      "balance": 6.174234454662005e+21,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x1715a3e4a142d8b698131108995174f37aeba10d",
+      "symbol": "WETH",
+      "rank": 39,
+      "balance": 5.802098734998786e+21,
       "share": 0.26,
       "last_tx": null
     },
     {
       "address": "0xa1e2481a9cd0cb0447eeb1cbc26f1b3fff3bec20",
       "symbol": "WETH",
-      "rank": 30,
-      "balance": 6.693399828617689e+21,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
-      "address": "0x4585fe77225b41b697c938b018e2ac67ac5a20c0",
-      "symbol": "WETH",
-      "rank": 31,
-      "balance": 6.295698184527267e+21,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0x1681195c176239ac5e72d9aebacf5b2492e0c4ee",
-      "symbol": "WETH",
-      "rank": 32,
-      "balance": 6.279042406762724e+21,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0x1715a3e4a142d8b698131108995174f37aeba10d",
-      "symbol": "WETH",
-      "rank": 33,
-      "balance": 6.22599542653416e+21,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0xb1c33b391c2569b737ec387e731e88589e8ec148",
-      "symbol": "WETH",
-      "rank": 34,
-      "balance": 6.180493699445042e+21,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-      "symbol": "WETH",
-      "rank": 35,
-      "balance": 6.021074162701508e+21,
+      "rank": 40,
+      "balance": 5.126222613227912e+21,
       "share": 0.23,
       "last_tx": null
     },
     {
-      "address": "0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
+      "address": "0xacce2d0b77bcb844a1b95c64696b071ab8c7ada3",
       "symbol": "WETH",
-      "rank": 36,
-      "balance": 5.510694059833077e+21,
-      "share": 0.21,
-      "last_tx": null
-    },
-    {
-      "address": "0xcc7d5785ad5755b6164e21495e07adb0ff11c2a8",
-      "symbol": "WETH",
-      "rank": 37,
-      "balance": 5.219555689503133e+21,
-      "share": 0.2,
-      "last_tx": null
-    },
-    {
-      "address": "0x27f23c710dd3d878fe9393d93465fed1302f2ebd",
-      "symbol": "WETH",
-      "rank": 38,
-      "balance": 5.15049767773231e+21,
-      "share": 0.2,
+      "rank": 41,
+      "balance": 5.008039235233607e+21,
+      "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0x40e629a26d96baa6d81fae5f97205c2ab2c1ff29",
       "symbol": "WETH",
-      "rank": 39,
+      "rank": 42,
       "balance": 5.001067738436441e+21,
-      "share": 0.19,
+      "share": 0.22,
       "last_tx": null
     },
     {
-      "address": "0xceff51756c56ceffca006cd410b03ffc46dd3a58",
+      "address": "0x917cee801a67f933f2e6b33fc0cd1ed2d5909d88",
       "symbol": "WETH",
-      "rank": 40,
-      "balance": 4.850031211378432e+21,
-      "share": 0.18,
+      "rank": 43,
+      "balance": 4.529097070097389e+21,
+      "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0x1393ad734ea3c52865b4b541cf049dafd25c23a5",
       "symbol": "WETH",
-      "rank": 41,
-      "balance": 4.4538363407468457e+21,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0xda0002859b2d05f66a753d8241fcde8623f26f4f",
-      "symbol": "WETH",
-      "rank": 42,
-      "balance": 4.049275642729556e+21,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
-      "symbol": "WETH",
-      "rank": 43,
-      "balance": 3.983063981193016e+21,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x5ab53ee1d50eef2c1dd3d5402789cd27bb52c1bb",
-      "symbol": "WETH",
       "rank": 44,
-      "balance": 3.972441633072174e+21,
-      "share": 0.15,
+      "balance": 4.4553829665245794e+21,
+      "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc",
       "symbol": "WETH",
       "rank": 45,
-      "balance": 3.744927371770524e+21,
-      "share": 0.14,
+      "balance": 4.2702042264460056e+21,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xda0002859b2d05f66a753d8241fcde8623f26f4f",
+      "symbol": "WETH",
+      "rank": 46,
+      "balance": 3.7649972457433675e+21,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xc7bbec68d12a0d1830360f8ec58fa599ba1b0e9b",
+      "symbol": "WETH",
+      "rank": 47,
+      "balance": 3.751532968742745e+21,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
+      "symbol": "WETH",
+      "rank": 48,
+      "balance": 3.7089395943486243e+21,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x4dceb440657f21083db8add07665f8ddbe1dcfc0",
       "symbol": "WETH",
-      "rank": 46,
-      "balance": 3.6e+21,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
-      "address": "0x4a18a50a8328b42773268b4b436254056b7d70ce",
-      "symbol": "WETH",
-      "rank": 47,
-      "balance": 3.5e+21,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0xfbd4cdb413e45a52e2c8312f670e9ce67e794c37",
-      "symbol": "WETH",
-      "rank": 48,
-      "balance": 3.46408180230342e+21,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0xa6cc3c2531fdaa6ae1a3ca84c2855806728693e8",
-      "symbol": "WETH",
       "rank": 49,
-      "balance": 3.368294773266523e+21,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x1ac296547248ba59a39878b2f8087bd75762df5d",
-      "symbol": "WETH",
-      "rank": 50,
-      "balance": 3.3029627046884525e+21,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0xf3dbf5be1021b47df9d907c03bf29d11ed87a099",
-      "symbol": "WETH",
-      "rank": 51,
-      "balance": 3.2539144799095053e+21,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
-      "symbol": "WETH",
-      "rank": 52,
-      "balance": 3.229423399219574e+21,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852",
-      "symbol": "WETH",
-      "rank": 53,
-      "balance": 3.0649917021669666e+21,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xbcd7254a1d759efa08ec7c3291b2e85c5dcc12ce",
-      "symbol": "WETH",
-      "rank": 54,
-      "balance": 2.9832370533324444e+21,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x4f4495243837681061c4743b74b3eedf548d56a5",
-      "symbol": "WETH",
-      "rank": 55,
-      "balance": 2.976471316505704e+21,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x7d8b8344f2acc6c1edba0da1b5313af1e30c3369",
-      "symbol": "WETH",
-      "rank": 56,
-      "balance": 2.9247046690173847e+21,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x274d9e726844ab52e351e8f1272e7fc3f58b7e5f",
-      "symbol": "WETH",
-      "rank": 57,
-      "balance": 2.8592707211007864e+21,
-      "share": 0.11,
+      "balance": 3.6e+21,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0x9c4fe5ffd9a9fc5678cfbd93aa2d4fd684b67c4c",
       "symbol": "WETH",
-      "rank": 58,
-      "balance": 2.852958344572455e+21,
-      "share": 0.11,
+      "rank": 50,
+      "balance": 3.5233780453978024e+21,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x4a18a50a8328b42773268b4b436254056b7d70ce",
+      "symbol": "WETH",
+      "rank": 51,
+      "balance": 3.5e+21,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852",
+      "symbol": "WETH",
+      "rank": 52,
+      "balance": 3.4145279687715853e+21,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xf3dbf5be1021b47df9d907c03bf29d11ed87a099",
+      "symbol": "WETH",
+      "rank": 53,
+      "balance": 3.2539144799095053e+21,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x9c4955b92f34148dbcfdcd82e9c9ece5cf2badfe",
       "symbol": "WETH",
-      "rank": 59,
-      "balance": 2.8499205353097213e+21,
-      "share": 0.11,
+      "rank": 54,
+      "balance": 3.209629412953869e+21,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xbcd7254a1d759efa08ec7c3291b2e85c5dcc12ce",
+      "symbol": "WETH",
+      "rank": 55,
+      "balance": 2.9565385835824467e+21,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
       "symbol": "WETH",
-      "rank": 60,
-      "balance": 2.787675266789285e+21,
-      "share": 0.11,
+      "rank": 56,
+      "balance": 2.8862732383358005e+21,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x7a415b19932c0105c82fdb6b720bb01b0cc2cae3",
       "symbol": "WETH",
+      "rank": 57,
+      "balance": 2.8713041301266665e+21,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x274d9e726844ab52e351e8f1272e7fc3f58b7e5f",
+      "symbol": "WETH",
+      "rank": 58,
+      "balance": 2.8592707211007864e+21,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xa250cc729bb3323e7933022a67b52200fe354767",
+      "symbol": "WETH",
+      "rank": 59,
+      "balance": 2.751087638322022e+21,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x1681195c176239ac5e72d9aebacf5b2492e0c4ee",
+      "symbol": "WETH",
+      "rank": 60,
+      "balance": 2.734935437473972e+21,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xceff51756c56ceffca006cd410b03ffc46dd3a58",
+      "symbol": "WETH",
       "rank": 61,
-      "balance": 2.707970119800026e+21,
-      "share": 0.1,
+      "balance": 2.620191961240787e+21,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x4f4495243837681061c4743b74b3eedf548d56a5",
+      "symbol": "WETH",
+      "rank": 62,
+      "balance": 2.5770845612462766e+21,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0xce0adbb76a8ce7224bec6b586e18743aeb03250a",
       "symbol": "WETH",
-      "rank": 62,
+      "rank": 63,
       "balance": 2.5500000001e+21,
-      "share": 0.1,
+      "share": 0.11,
       "last_tx": null
     },
     {
-      "address": "0x4028daac072e492d34a3afdbef0ba7e35d8b55c4",
+      "address": "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
       "symbol": "WETH",
-      "rank": 63,
-      "balance": 2.543198004694933e+21,
-      "share": 0.1,
+      "rank": 64,
+      "balance": 2.5403046553531554e+21,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x00738c1d1ea10b2524e2e974c5f72e8ea06e3a3d",
       "symbol": "WETH",
-      "rank": 64,
-      "balance": 2.536940943043816e+21,
-      "share": 0.1,
+      "rank": 65,
+      "balance": 2.5363409430438163e+21,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x5ab53ee1d50eef2c1dd3d5402789cd27bb52c1bb",
+      "symbol": "WETH",
+      "rank": 66,
+      "balance": 2.502255459440494e+21,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x821a96fbd4465d02726edbaa936a0d6d1032de46",
       "symbol": "WETH",
-      "rank": 65,
+      "rank": 67,
       "balance": 2.4721183253707825e+21,
-      "share": 0.09,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x4b7feceffe3b14ffd522e72b711b087f08bd98ab",
       "symbol": "WETH",
-      "rank": 66,
+      "rank": 68,
       "balance": 2.4590000001e+21,
-      "share": 0.09,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11",
+      "symbol": "WETH",
+      "rank": 69,
+      "balance": 2.416761739089186e+21,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x04708077eca6bb527a5bbbd6358ffb043a9c1c14",
+      "symbol": "WETH",
+      "rank": 70,
+      "balance": 2.405448874287473e+21,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xc186fa914353c44b2e33ebe05f21846f1048beda",
       "symbol": "WETH",
-      "rank": 67,
-      "balance": 2.452929959028159e+21,
+      "rank": 71,
+      "balance": 2.3368686545153064e+21,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+      "symbol": "WETH",
+      "rank": 72,
+      "balance": 2.3306047218139728e+21,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xfbd4cdb413e45a52e2c8312f670e9ce67e794c37",
+      "symbol": "WETH",
+      "rank": 73,
+      "balance": 2.3177615298786726e+21,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x2e40ddcb231672285a5312ad230185ab2f14ed2b",
+      "symbol": "WETH",
+      "rank": 74,
+      "balance": 2.2844221016675503e+21,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xa4c567c662349bec3d0fb94c4e7f85ba95e208e4",
+      "symbol": "WETH",
+      "rank": 75,
+      "balance": 2.1818206000974736e+21,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x4dccc982aa583f5ebe804d8c5d4c77487a880078",
+      "symbol": "WETH",
+      "rank": 76,
+      "balance": 2.1448444515497906e+21,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x308000d0169ebe674b7640f0c415f44c6987d04d",
+      "symbol": "WETH",
+      "rank": 77,
+      "balance": 2.1254652642098052e+21,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ba0cf1588e1dfa905ec948f7fe5104dd40eda31",
+      "symbol": "WETH",
+      "rank": 78,
+      "balance": 2.0667457897808658e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x894d55be079e7e19fe526ac22b0786b7afe18e7e",
+      "symbol": "WETH",
+      "rank": 79,
+      "balance": 2.0557671630871134e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x07ae8551be970cb1cca11dd7a11f47ae82e70e67",
+      "symbol": "WETH",
+      "rank": 80,
+      "balance": 2.049105025742757e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x6f3f68525e5edad6f06f8b0eae0dd7b9f695af13",
+      "symbol": "WETH",
+      "rank": 81,
+      "balance": 2.0320000001e+21,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x52c77b0cb827afbad022e6d6caf2c44452edbc39",
       "symbol": "WETH",
-      "rank": 68,
-      "balance": 2.3070676923098464e+21,
+      "rank": 82,
+      "balance": 2.0270100981358102e+21,
       "share": 0.09,
-      "last_tx": null
-    },
-    {
-      "address": "0x2e40ddcb231672285a5312ad230185ab2f14ed2b",
-      "symbol": "WETH",
-      "rank": 69,
-      "balance": 2.2844221016675503e+21,
-      "share": 0.09,
-      "last_tx": null
-    },
-    {
-      "address": "0xbc5a4a09450b4106be9a4df3d85da3f4617e819f",
-      "symbol": "WETH",
-      "rank": 70,
-      "balance": 2.219405264248893e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x04708077eca6bb527a5bbbd6358ffb043a9c1c14",
-      "symbol": "WETH",
-      "rank": 71,
-      "balance": 2.196511181664815e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0xbb2b8038a1640196fbe3e38816f3e67cba72d940",
-      "symbol": "WETH",
-      "rank": 72,
-      "balance": 2.1831659322964808e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x4dccc982aa583f5ebe804d8c5d4c77487a880078",
-      "symbol": "WETH",
-      "rank": 73,
-      "balance": 2.1448444515497906e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x308000d0169ebe674b7640f0c415f44c6987d04d",
-      "symbol": "WETH",
-      "rank": 74,
-      "balance": 2.125465264109805e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11",
-      "symbol": "WETH",
-      "rank": 75,
-      "balance": 2.1229333150193484e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x894d55be079e7e19fe526ac22b0786b7afe18e7e",
-      "symbol": "WETH",
-      "rank": 76,
-      "balance": 2.0557671630871134e+21,
-      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xec34231dfdf6144a539a4914dc14481914afad1c",
       "symbol": "WETH",
-      "rank": 77,
+      "rank": 83,
       "balance": 2.013e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xbb2b8038a1640196fbe3e38816f3e67cba72d940",
+      "symbol": "WETH",
+      "rank": 84,
+      "balance": 2.001691297620782e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xc3d03e4f041fd4cd388c549ee2a29a9e5075882f",
+      "symbol": "WETH",
+      "rank": 85,
+      "balance": 1.991167623620061e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x6555e1cc97d3cba6eaddebbcd7ca51d75771e0b8",
+      "symbol": "WETH",
+      "rank": 86,
+      "balance": 1.9664938361e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x582e3da39948c6339433008703211ad2c13eb2ac",
+      "symbol": "WETH",
+      "rank": 87,
+      "balance": 1.9387157235577871e+21,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xca7c2771d248dcbe09eabe0ce57a62e18da178c0",
+      "symbol": "WETH",
+      "rank": 88,
+      "balance": 1.8486036694744876e+21,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0xa250cc729bb3323e7933022a67b52200fe354767",
+      "address": "0xabfc6710d3dfd07f0f9fc110015963f6b8f1743a",
       "symbol": "WETH",
-      "rank": 78,
-      "balance": 2.0041845910285462e+21,
+      "rank": 89,
+      "balance": 1.8253487825901e+21,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x1f2f10d1c40777ae1da742455c65828ff36df387",
       "symbol": "WETH",
-      "rank": 79,
-      "balance": 1.973055634260477e+21,
+      "rank": 90,
+      "balance": 1.8192599115164845e+21,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x6555e1cc97d3cba6eaddebbcd7ca51d75771e0b8",
+      "address": "0xd6dc7b9f6352a8bdbc4aaf30de4721c0531188a2",
       "symbol": "WETH",
-      "rank": 80,
-      "balance": 1.9664938361e+21,
-      "share": 0.07,
+      "rank": 91,
+      "balance": 1.7891485296158344e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x582e3da39948c6339433008703211ad2c13eb2ac",
+      "address": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
       "symbol": "WETH",
-      "rank": 81,
-      "balance": 1.9387157235577871e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x9359ecf077186d4543bd53bc3528da4a80938c79",
-      "symbol": "WETH",
-      "rank": 82,
-      "balance": 1.93352623281e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xe3d41d19564922c9952f692c5dd0563030f5f2ef",
-      "symbol": "WETH",
-      "rank": 83,
-      "balance": 1.919103138590305e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xca7c2771d248dcbe09eabe0ce57a62e18da178c0",
-      "symbol": "WETH",
-      "rank": 84,
-      "balance": 1.8807150795789532e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x41c84c0e2ee0b740cf0d31f63f3b6f627dc6b393",
-      "symbol": "WETH",
-      "rank": 85,
-      "balance": 1.833165864699083e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xabfc6710d3dfd07f0f9fc110015963f6b8f1743a",
-      "symbol": "WETH",
-      "rank": 86,
-      "balance": 1.8253487825901e+21,
-      "share": 0.07,
+      "rank": 92,
+      "balance": 1.7883791141787612e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x25431341a5800759268a6ac1d3cd91c029d7d9ca",
       "symbol": "WETH",
-      "rank": 87,
+      "rank": 93,
       "balance": 1.7630056354654257e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x07ae8551be970cb1cca11dd7a11f47ae82e70e67",
-      "symbol": "WETH",
-      "rank": 88,
-      "balance": 1.7496683511953707e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x1e0447b19bb6ecfdae1e4ae1694b0c3659614e4e",
-      "symbol": "WETH",
-      "rank": 89,
-      "balance": 1.7416735133572528e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xc3d03e4f041fd4cd388c549ee2a29a9e5075882f",
-      "symbol": "WETH",
-      "rank": 90,
-      "balance": 1.7384059975516692e+21,
-      "share": 0.07,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xeab22409f17079f8675adc56441f849692bf6d0d",
       "symbol": "WETH",
-      "rank": 91,
-      "balance": 1.734592989853034e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x0447d0ad7fd6a3409b48ecbb9ddb075c1e11d735",
-      "symbol": "WETH",
-      "rank": 92,
-      "balance": 1.6912323838810986e+21,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x49c23f9e8c08f630881da8ddfe689d62b3dede31",
-      "symbol": "WETH",
-      "rank": 93,
-      "balance": 1.6722008285934e+21,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0xe08a8b19e5722a201eaf20a6bc595ef655397bd5",
-      "symbol": "WETH",
       "rank": 94,
-      "balance": 1.6626056566120013e+21,
-      "share": 0.06,
+      "balance": 1.734592989853034e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0xe042678e6c6871fa279e037c11e390f31334ba0b",
+      "address": "0x1e0447b19bb6ecfdae1e4ae1694b0c3659614e4e",
       "symbol": "WETH",
       "rank": 95,
-      "balance": 1.5946305098309847e+21,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0xf576e1f09e2eb4992d5ffdf68bec4ea489fa417d",
-      "symbol": "WETH",
-      "rank": 96,
-      "balance": 1.578854964831685e+21,
-      "share": 0.06,
+      "balance": 1.7171142177062052e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xd51a44d3fae010294c616388b506acda1bfaae46",
       "symbol": "WETH",
-      "rank": 97,
-      "balance": 1.5097465512530079e+21,
-      "share": 0.06,
+      "rank": 96,
+      "balance": 1.7081196986426867e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0xc2eab7d33d3cb97692ecb231a5d0e4a649cb539d",
+      "address": "0x49c23f9e8c08f630881da8ddfe689d62b3dede31",
+      "symbol": "WETH",
+      "rank": 97,
+      "balance": 1.6722008285934e+21,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xe08a8b19e5722a201eaf20a6bc595ef655397bd5",
       "symbol": "WETH",
       "rank": 98,
-      "balance": 1.4883991098027698e+21,
-      "share": 0.06,
+      "balance": 1.6626056566120013e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0xfe6eb3b609a7c8352a241f7f3a21cea4e9209b8f",
+      "address": "0xd567006082e89cc07f65d4ff6699dd5f2c55c687",
       "symbol": "WETH",
       "rank": 99,
-      "balance": 1.4805633823580136e+21,
-      "share": 0.06,
+      "balance": 1.5744515823987644e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0x62dd9dc5f8c3dd01bd14d8b5de1973de46c4aeb4",
+      "address": "0xa5c629e04e563355c30885b62928fd6e03558548",
       "symbol": "WETH",
       "rank": 100,
-      "balance": 1.4682122421389e+21,
-      "share": 0.06,
+      "balance": 1.514914307797767e+21,
+      "share": 0.07,
       "last_tx": null
     }
   ]

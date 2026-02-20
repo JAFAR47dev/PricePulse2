@@ -1,0 +1,6 @@
+{
+  "symbol": "XDC",
+  "unsupported": true,
+  "reason": "Non-ERC20 token or missing Ethereum contract",
+  "timestamp": "2026-01-31 06:57:26 UTC"
+}

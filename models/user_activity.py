@@ -56,3 +56,50 @@ async def update_last_active(user_id: int, command_name: str = None):
         finally:
             if analytics_conn:
                 analytics_conn.close()
+                
+
+import sqlite3
+from datetime import datetime, timedelta
+
+async def cleanup_old_analytics(context):
+    """
+    Delete analytics records older than 31 days.
+    This runs as a background job via Telegram's job queue.
+    
+    Args:
+        context: Required by telegram.ext JobQueue (even if unused)
+    """
+    analytics_conn = None
+    try:
+        analytics_conn = get_analytics_connection()
+        analytics_cursor = analytics_conn.cursor()
+        
+        # Calculate cutoff date (31 days ago)
+        cutoff_date = (datetime.utcnow() - timedelta(days=31)).isoformat()
+        
+        # Delete old records
+        analytics_cursor.execute(
+            "DELETE FROM command_usage WHERE used_at < ?",
+            (cutoff_date,)
+        )
+        
+        deleted = analytics_cursor.rowcount
+        analytics_conn.commit()
+        
+        if deleted > 0:
+            print(f"🧹 Analytics cleanup: Deleted {deleted} records older than 31 days")
+        else:
+            print("✓ Analytics cleanup: No old records to delete")
+        
+        return deleted
+    
+    except sqlite3.OperationalError as e:
+        print(f"⚠️ SQLite error during analytics cleanup: {e}")
+        return 0
+    except Exception as e:
+        print(f"⚠️ Unexpected error during analytics cleanup: {e}")
+        return 0
+    finally:
+        if analytics_conn:
+            analytics_conn.close()
+                            

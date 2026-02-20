@@ -11,7 +11,7 @@ load_dotenv()
 ETHPLORER_API_KEY = os.getenv("ETHPLORER_API_KEY", "freekey")
 ETHPLORER_BASE = "https://api.ethplorer.io"
 
-TOP_TOKENS_FILE = "data/top_tokens.json"
+TOP_TOKENS_FILE = "services/top100_coingecko_ids.json"
 WHALE_DATA_DIR = "whales/data"
 os.makedirs(WHALE_DATA_DIR, exist_ok=True)
 
@@ -41,6 +41,29 @@ def save_cache_and_progress():
         json.dump(CONTRACT_CACHE, f, indent=2)
     with open(PROGRESS_FILE, "w") as f:
         json.dump(LAST_PROGRESS, f, indent=2)
+
+
+# ✅ Helper: Normalize the JSON file into a list of dicts
+# This handles both formats safely:
+#   Format A (dict):  {"BTC": "bitcoin", "ETH": "ethereum"}
+#   Format B (list):  [{"symbol": "BTC", "id": "bitcoin"}, ...]
+def load_tokens_as_list(filepath: str) -> list:
+    """
+    Load top tokens file and always return a consistent list format:
+    [{"symbol": "BTC", "id": "bitcoin"}, {"symbol": "ETH", "id": "ethereum"}, ...]
+    """
+    with open(filepath, "r") as f:
+        data = json.load(f)
+
+    # Already a list of dicts — use directly
+    if isinstance(data, list):
+        return data
+
+    # It's a flat dict like {"BTC": "bitcoin", ...} — convert it
+    if isinstance(data, dict):
+        return [{"symbol": symbol, "id": cg_id} for symbol, cg_id in data.items()]
+
+    raise ValueError(f"Unexpected format in {filepath}: expected dict or list, got {type(data)}")
 
 
 # ✅ Helper: Fetch ERC20 contract address from CoinGecko (with cache)
@@ -127,13 +150,13 @@ def save_fallback(symbol: str, reason: str):
 
 
 # ✅ Main whale refresh logic (with resume and version tracking)
-async def refresh_all_whales(context:None):
+async def refresh_all_whales(context=None):
     if not os.path.exists(TOP_TOKENS_FILE):
-        print("❌ top_tokens.json not found! Run refresh_top_tokens() first.")
+        print("❌ top100_coingecko_ids.json not found! Run refresh_top_tokens() first.")
         return False
 
-    with open(TOP_TOKENS_FILE, "r") as f:
-        tokens = json.load(f)
+    # ✅ FIX: Use the normalizer so it works regardless of JSON format
+    tokens = load_tokens_as_list(TOP_TOKENS_FILE)
 
     total_tokens = len(tokens)
     print(f"🐋 Refreshing whales for {total_tokens} top tokens...")
@@ -142,6 +165,7 @@ async def refresh_all_whales(context:None):
     start_index = 0
     if LAST_PROGRESS["last_completed"]:
         last_symbol = LAST_PROGRESS["last_completed"]
+        # ✅ FIX: Now tokens is always a list of dicts, so .get() works correctly
         for i, t in enumerate(tokens):
             if t.get("symbol", "").upper() == last_symbol:
                 start_index = i + 1
@@ -149,8 +173,13 @@ async def refresh_all_whales(context:None):
         print(f"🔄 Resuming from {last_symbol} (index {start_index})...")
 
     for t in tokens[start_index:]:
+        # ✅ FIX: Now these always work because tokens is normalized
         token_id = t.get("id")
         symbol = t.get("symbol", "").upper()
+
+        if not token_id or not symbol:
+            print(f"⚠️ Skipping malformed token entry: {t}")
+            continue
 
         # 🔍 Get cached or fresh contract
         contract_address = await get_contract_address(token_id, symbol)

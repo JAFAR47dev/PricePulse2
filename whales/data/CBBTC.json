@@ -1,7 +1,7 @@
 {
   "token": "CBBTC",
   "contract": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
-  "updated_at": "2025-11-23T08:38:29.581128",
+  "updated_at": "2026-02-03T23:18:41.315498",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,256 +9,256 @@
       "address": "0x5c647ce0ae10658ec44fa4e11a51c96e94efd1dd",
       "symbol": "CBBTC",
       "rank": 1,
-      "balance": 1557394820220.0,
-      "share": 34.26,
+      "balance": 2248553470943.0,
+      "share": 49.23,
       "last_tx": null
     },
     {
       "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
       "symbol": "CBBTC",
       "rank": 2,
-      "balance": 1014363739295.0,
-      "share": 22.31,
+      "balance": 1042002889632.0,
+      "share": 22.81,
+      "last_tx": null
+    },
+    {
+      "address": "0x83f24023d15d835a213df24fd309c47dab5beb32",
+      "symbol": "CBBTC",
+      "rank": 3,
+      "balance": 183038891927.0,
+      "share": 4.01,
       "last_tx": null
     },
     {
       "address": "0xb3973d459df38ae57797811f2a1fd061da1bc123",
       "symbol": "CBBTC",
-      "rank": 3,
-      "balance": 561624281824.0,
-      "share": 12.35,
-      "last_tx": null
-    },
-    {
-      "address": "0xdb802c7c6b7cc1c0e8474bb7eb80bbc569763de5",
-      "symbol": "CBBTC",
       "rank": 4,
-      "balance": 292686097500.0,
-      "share": 6.44,
+      "balance": 153968188251.0,
+      "share": 3.37,
       "last_tx": null
     },
     {
       "address": "0xb561b1e79e448bc3a7ac4dc377eeecbc99505f60",
       "symbol": "CBBTC",
       "rank": 5,
-      "balance": 100000000000.0,
-      "share": 2.2,
+      "balance": 106999999240.0,
+      "share": 2.34,
+      "last_tx": null
+    },
+    {
+      "address": "0xd48573cda0fed7144f2455c5270ffa16be389d04",
+      "symbol": "CBBTC",
+      "rank": 6,
+      "balance": 84900787784.0,
+      "share": 1.86,
       "last_tx": null
     },
     {
       "address": "0x15abb66ba754f05cbc0165a64a11cded1543de48",
       "symbol": "CBBTC",
-      "rank": 6,
-      "balance": 94114957476.0,
-      "share": 2.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x8af700ba841f30e0a3fcb0ee4c4a9d223e1efa05",
-      "symbol": "CBBTC",
       "rank": 7,
-      "balance": 66899694791.0,
-      "share": 1.47,
+      "balance": 74114957484.0,
+      "share": 1.62,
       "last_tx": null
     },
     {
-      "address": "0x698c1f4c8db11629fdc913f54a6dc44a9166f187",
+      "address": "0xe43434b8eaf97160f4b911ea4afe72c06db29871",
       "symbol": "CBBTC",
       "rank": 8,
-      "balance": 63571873026.0,
-      "share": 1.4,
+      "balance": 45657287938.0,
+      "share": 1,
       "last_tx": null
     },
     {
-      "address": "0x83f24023d15d835a213df24fd309c47dab5beb32",
+      "address": "0x8fa4ee1776032b612206e754ec2382b534d4ac6f",
       "symbol": "CBBTC",
       "rank": 9,
-      "balance": 63153493829.0,
-      "share": 1.39,
-      "last_tx": null
-    },
-    {
-      "address": "0x6af7c5fdff5af09eb9c0f27d723070c272acf831",
-      "symbol": "CBBTC",
-      "rank": 10,
-      "balance": 49999998352.0,
-      "share": 1.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x517ce9b6d1fcffd29805c3e19b295247fcd94aef",
-      "symbol": "CBBTC",
-      "rank": 11,
-      "balance": 44800169950.0,
-      "share": 0.99,
-      "last_tx": null
-    },
-    {
-      "address": "0xb99a2c4c1c4f1fc27150681b740396f6ce1cbcf5",
-      "symbol": "CBBTC",
-      "rank": 12,
-      "balance": 39999999000.0,
-      "share": 0.88,
-      "last_tx": null
-    },
-    {
-      "address": "0x1157a2076b9bb22a85cc2c162f20fab3898f4101",
-      "symbol": "CBBTC",
-      "rank": 13,
-      "balance": 33588210463.0,
-      "share": 0.74,
+      "balance": 34826935329.0,
+      "share": 0.76,
       "last_tx": null
     },
     {
       "address": "0xc3d688b66703497daa19211eedff47f25384cdc3",
       "symbol": "CBBTC",
+      "rank": 10,
+      "balance": 34125022493.0,
+      "share": 0.75,
+      "last_tx": null
+    },
+    {
+      "address": "0x6af7c5fdff5af09eb9c0f27d723070c272acf831",
+      "symbol": "CBBTC",
+      "rank": 11,
+      "balance": 30414835296.0,
+      "share": 0.67,
+      "last_tx": null
+    },
+    {
+      "address": "0x8af700ba841f30e0a3fcb0ee4c4a9d223e1efa05",
+      "symbol": "CBBTC",
+      "rank": 12,
+      "balance": 28896555917.0,
+      "share": 0.63,
+      "last_tx": null
+    },
+    {
+      "address": "0xe8f7c89c5efa061e340f2d2f206ec78fd8f7e124",
+      "symbol": "CBBTC",
+      "rank": 13,
+      "balance": 18171637588.0,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0x14d4b33a9e9c6d11625b10ccfdc6fa6e96949c88",
+      "symbol": "CBBTC",
       "rank": 14,
-      "balance": 33097199987.0,
-      "share": 0.73,
+      "balance": 17747660535.0,
+      "share": 0.39,
       "last_tx": null
     },
     {
       "address": "0x834bd54eae7edd442637375b9be9ba2a9ad28389",
       "symbol": "CBBTC",
       "rank": 15,
-      "balance": 30916136828.0,
-      "share": 0.68,
-      "last_tx": null
-    },
-    {
-      "address": "0xed0c6079229e2d407672a117c22b62064f4a4312",
-      "symbol": "CBBTC",
-      "rank": 16,
-      "balance": 30000022452.0,
-      "share": 0.66,
-      "last_tx": null
-    },
-    {
-      "address": "0xd1edf7fc3d913c94e6c649985ce36bbc2e871d0e",
-      "symbol": "CBBTC",
-      "rank": 17,
-      "balance": 29182429454.0,
-      "share": 0.64,
+      "balance": 16816136829.0,
+      "share": 0.37,
       "last_tx": null
     },
     {
       "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
       "symbol": "CBBTC",
+      "rank": 16,
+      "balance": 16603412822.0,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0xad713bd85e8bff9ce85ca03a8a930e4a38f6893d",
+      "symbol": "CBBTC",
+      "rank": 17,
+      "balance": 14623843536.0,
+      "share": 0.32,
+      "last_tx": null
+    },
+    {
+      "address": "0xd1abe5db14d073883f2084c2af105652102bdefc",
+      "symbol": "CBBTC",
       "rank": 18,
-      "balance": 28151543279.0,
-      "share": 0.62,
-      "last_tx": null
-    },
-    {
-      "address": "0xe8f7c89c5efa061e340f2d2f206ec78fd8f7e124",
-      "symbol": "CBBTC",
-      "rank": 19,
-      "balance": 17951951205.0,
-      "share": 0.39,
-      "last_tx": null
-    },
-    {
-      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
-      "symbol": "CBBTC",
-      "rank": 20,
-      "balance": 17558852909.0,
-      "share": 0.39,
-      "last_tx": null
-    },
-    {
-      "address": "0xdbf1703e5d29afefbf1bd958ce7a6023c67f3e5d",
-      "symbol": "CBBTC",
-      "rank": 21,
-      "balance": 15689425250.0,
-      "share": 0.35,
-      "last_tx": null
-    },
-    {
-      "address": "0x46f34c24a7ba7a2ac6dd76c3f09b32d41c144d08",
-      "symbol": "CBBTC",
-      "rank": 22,
-      "balance": 12300000000.0,
-      "share": 0.27,
+      "balance": 14147738681.0,
+      "share": 0.31,
       "last_tx": null
     },
     {
       "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
       "symbol": "CBBTC",
-      "rank": 23,
-      "balance": 11729287297.0,
-      "share": 0.26,
+      "rank": 19,
+      "balance": 13974027956.0,
+      "share": 0.31,
       "last_tx": null
     },
     {
-      "address": "0x918c4faf6946acf7dc633e0cab32c0e528483615",
+      "address": "0xdc189ac81bec4db551a0478334691d71109d9382",
       "symbol": "CBBTC",
-      "rank": 24,
-      "balance": 10957060885.0,
-      "share": 0.24,
+      "rank": 20,
+      "balance": 12500000000.0,
+      "share": 0.27,
       "last_tx": null
     },
     {
-      "address": "0xd48573cda0fed7144f2455c5270ffa16be389d04",
+      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "symbol": "CBBTC",
-      "rank": 25,
-      "balance": 10000120000.0,
-      "share": 0.22,
-      "last_tx": null
-    },
-    {
-      "address": "0xf525da0b267550e9912968732dccec188dc81b90",
-      "symbol": "CBBTC",
-      "rank": 26,
-      "balance": 9999980641.0,
-      "share": 0.22,
+      "rank": 21,
+      "balance": 12185237507.0,
+      "share": 0.27,
       "last_tx": null
     },
     {
       "address": "0x79851bb0db6b03f348fa9c98ef5d23ad3b03b014",
       "symbol": "CBBTC",
-      "rank": 27,
-      "balance": 7944564300.0,
-      "share": 0.17,
+      "rank": 22,
+      "balance": 11732651327.0,
+      "share": 0.26,
       "last_tx": null
     },
     {
-      "address": "0x8427a3b8f2888ba8433d283d62c6f8325e49801e",
+      "address": "0x933adedd85824da75ec8a334a7907e69e7c02833",
+      "symbol": "CBBTC",
+      "rank": 23,
+      "balance": 9977999342.0,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x33cf8a44a07c2ab4db203efb039b1235f02b7377",
+      "symbol": "CBBTC",
+      "rank": 24,
+      "balance": 9967955995.0,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x1157a2076b9bb22a85cc2c162f20fab3898f4101",
+      "symbol": "CBBTC",
+      "rank": 25,
+      "balance": 9273243499.0,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0xdbf1703e5d29afefbf1bd958ce7a6023c67f3e5d",
+      "symbol": "CBBTC",
+      "rank": 26,
+      "balance": 8483812034.0,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xf525da0b267550e9912968732dccec188dc81b90",
+      "symbol": "CBBTC",
+      "rank": 27,
+      "balance": 7999980641.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xc6625129c9df3314a4dd604845488f4ba62f9db8",
       "symbol": "CBBTC",
       "rank": 28,
-      "balance": 7000360847.0,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0xde6b2a06407575b98724818445178c1f5fd53361",
-      "symbol": "CBBTC",
-      "rank": 29,
-      "balance": 5107817783.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xcf36a28d7fee8437bed31d52c551d417e6d707e4",
-      "symbol": "CBBTC",
-      "rank": 30,
-      "balance": 4906854488.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
-      "symbol": "CBBTC",
-      "rank": 31,
-      "balance": 4526237626.0,
-      "share": 0.1,
+      "balance": 5653660000.0,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x3afdc9bca9213a35503b077a6072f3d0d5ab0840",
       "symbol": "CBBTC",
-      "rank": 32,
-      "balance": 4510338933.0,
+      "rank": 29,
+      "balance": 4693989202.0,
       "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xfbd4cdb413e45a52e2c8312f670e9ce67e794c37",
+      "symbol": "CBBTC",
+      "rank": 30,
+      "balance": 4663012718.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x699d09f862e0d3d093b522562c42e9efbcee207f",
+      "symbol": "CBBTC",
+      "rank": 31,
+      "balance": 4605649476.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xd6f4c413639f46c9564efe0c8790ce0b957de427",
+      "symbol": "CBBTC",
+      "rank": 32,
+      "balance": 4077359839.0,
+      "share": 0.09,
       "last_tx": null
     },
     {
@@ -278,122 +278,122 @@
       "last_tx": null
     },
     {
-      "address": "0x3d10ed16c911cd22d100cbc00165c918a2df66bc",
+      "address": "0x8427a3b8f2888ba8433d283d62c6f8325e49801e",
       "symbol": "CBBTC",
       "rank": 35,
-      "balance": 3635370798.0,
+      "balance": 3500360847.0,
       "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0xae6ee608b297305abf3eb609b81febbb8f6a0bb3",
-      "symbol": "CBBTC",
-      "rank": 36,
-      "balance": 3416275518.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x2676b2fb25ee10c2cc2514ab4705add24a1f33c3",
-      "symbol": "CBBTC",
-      "rank": 37,
-      "balance": 3267158873.0,
-      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x5d409e56d886231adaf00c8775665ad0f9897b56",
       "symbol": "CBBTC",
-      "rank": 38,
-      "balance": 3182851813.0,
+      "rank": 36,
+      "balance": 3379380531.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
+      "symbol": "CBBTC",
+      "rank": 37,
+      "balance": 3254404278.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x617949d197187811cded926a20437d20e6320be9",
       "symbol": "CBBTC",
+      "rank": 38,
+      "balance": 3144881122.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x17156ad656a9bf1ce4c917b702ae366d48c37428",
+      "symbol": "CBBTC",
       "rank": 39,
-      "balance": 3130679860.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x7fa72ac7d2fbc64baedc855dc928e017089cbe89",
-      "symbol": "CBBTC",
-      "rank": 40,
-      "balance": 3107134942.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x3bb3892ce3f41a783c8def2ef3b022794a2306bf",
-      "symbol": "CBBTC",
-      "rank": 41,
-      "balance": 3000000000.0,
+      "balance": 3023840194.0,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x8429eaa03f90bd6dfccc64863d02a9c34ae81187",
       "symbol": "CBBTC",
-      "rank": 42,
+      "rank": 40,
       "balance": 2996791766.0,
       "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0x4317d259fcce32ebbb508c27b12f4afaca074ae3",
+      "address": "0x66039342c66760874047c36943b1e2d8300363bb",
+      "symbol": "CBBTC",
+      "rank": 41,
+      "balance": 2831247497.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x597af717fbd29e6311b596419044bec1fbf2cef1",
+      "symbol": "CBBTC",
+      "rank": 42,
+      "balance": 2750000000.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x93d2f4f3a0445aa808c99cbd6ba05236a895379f",
       "symbol": "CBBTC",
       "rank": 43,
+      "balance": 2739643480.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xd713e50e8482393ce8f51c963aeefc081f83d465",
+      "symbol": "CBBTC",
+      "rank": 44,
+      "balance": 2685382595.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x4317d259fcce32ebbb508c27b12f4afaca074ae3",
+      "symbol": "CBBTC",
+      "rank": 45,
       "balance": 2634500954.0,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x0ce05da7f4cb60c9c6ddaf718a7ab103d0c65444",
-      "symbol": "CBBTC",
-      "rank": 44,
-      "balance": 2480087813.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x8fa4ee1776032b612206e754ec2382b534d4ac6f",
-      "symbol": "CBBTC",
-      "rank": 45,
-      "balance": 2341875000.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x8a25d8c9fa8c7a726137f2d618d85cbc2c083f78",
+      "address": "0xf6680ea3b480ca2b72d96ea13ccaf2cfd8e6908c",
       "symbol": "CBBTC",
       "rank": 46,
-      "balance": 2328493942.0,
+      "balance": 2587869165.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x3d10ed16c911cd22d100cbc00165c918a2df66bc",
+      "symbol": "CBBTC",
+      "rank": 47,
+      "balance": 2543624295.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xb6e62aa178a5421d0a51d17e720a05de78d3137a",
+      "symbol": "CBBTC",
+      "rank": 48,
+      "balance": 2490504116.0,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0xd412a3a7cd92289526ca7dd129d666a651f7be0b",
       "symbol": "CBBTC",
-      "rank": 47,
-      "balance": 2310773729.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x3d62b7a42228c767e561f746ba399cac58ddc7c1",
-      "symbol": "CBBTC",
-      "rank": 48,
-      "balance": 2298142703.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x42f2a41a0d0e65a440813190880c8a65124895fa",
-      "symbol": "CBBTC",
       "rank": 49,
-      "balance": 2266022065.0,
+      "balance": 2310773729.0,
       "share": 0.05,
       "last_tx": null
     },
@@ -406,10 +406,10 @@
       "last_tx": null
     },
     {
-      "address": "0xb6e62aa178a5421d0a51d17e720a05de78d3137a",
+      "address": "0xd53842dd135d6757812eca5feab7e87d1fcbaccb",
       "symbol": "CBBTC",
       "rank": 51,
-      "balance": 2140182631.0,
+      "balance": 2197493428.0,
       "share": 0.05,
       "last_tx": null
     },
@@ -430,23 +430,23 @@
       "last_tx": null
     },
     {
-      "address": "0x59ea2825d8ad7d60cc6aa77ffbdd0e89c0fbf539",
-      "symbol": "CBBTC",
-      "rank": 54,
-      "balance": 2060016859.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
       "address": "0x1f08863f246fe456f94579d1a2009108b574f509",
       "symbol": "CBBTC",
-      "rank": 55,
+      "rank": 54,
       "balance": 2035053506.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0xebf42f23f5dc1370838c0faea6c7bc0721755ec8",
+      "address": "0x83cf1d92c6ff894ca06acfe9b40d9a636f03b133",
+      "symbol": "CBBTC",
+      "rank": 55,
+      "balance": 2000006910.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x90bb846133da113d9ffd42f4eeb01be668bf781b",
       "symbol": "CBBTC",
       "rank": 56,
       "balance": 2000000000.0,
@@ -454,41 +454,49 @@
       "last_tx": null
     },
     {
-      "address": "0x5423adcf00d1454ccb7379b68024c0d9e0e501c9",
+      "address": "0xae6ee608b297305abf3eb609b81febbb8f6a0bb3",
       "symbol": "CBBTC",
       "rank": 57,
+      "balance": 1943380963.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x5423adcf00d1454ccb7379b68024c0d9e0e501c9",
+      "symbol": "CBBTC",
+      "rank": 58,
       "balance": 1914527431.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0xfbd4cdb413e45a52e2c8312f670e9ce67e794c37",
-      "symbol": "CBBTC",
-      "rank": 58,
-      "balance": 1825890542.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xad713bd85e8bff9ce85ca03a8a930e4a38f6893d",
+      "address": "0x698c1f4c8db11629fdc913f54a6dc44a9166f187",
       "symbol": "CBBTC",
       "rank": 59,
-      "balance": 1814241920.0,
+      "balance": 1900079584.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x1ee69225a391ffb285ba7fec08b03e8a4e09c47c",
+      "address": "0x1a6f6b9313a6314d071e502c65a2eba14e58f3b1",
       "symbol": "CBBTC",
       "rank": 60,
-      "balance": 1785165085.0,
+      "balance": 1800000000.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x839d6bdedff886404a6d7a788ef241e4e28f4802",
+      "symbol": "CBBTC",
+      "rank": 61,
+      "balance": 1780271935.0,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0xc98d092b61d23aa2dfe7990726dc62e0dda78ede",
       "symbol": "CBBTC",
-      "rank": 61,
+      "rank": 62,
       "balance": 1775071077.0,
       "share": 0.04,
       "last_tx": null
@@ -496,15 +504,23 @@
     {
       "address": "0x7ed7f89d01dca1b60bf8bc5882f7603b8ae900d9",
       "symbol": "CBBTC",
-      "rank": 62,
+      "rank": 63,
       "balance": 1766018613.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xc77cf8439efe102148e5c6381b8a7199e78e5c76",
+      "symbol": "CBBTC",
+      "rank": 64,
+      "balance": 1643999712.0,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0xa2b6296ed37f702437d2d571ead7e25ae8cbcdfb",
       "symbol": "CBBTC",
-      "rank": 63,
+      "rank": 65,
       "balance": 1612806352.0,
       "share": 0.04,
       "last_tx": null
@@ -512,39 +528,55 @@
     {
       "address": "0x66f32161e97042839fd0060d4df76c78208f1f45",
       "symbol": "CBBTC",
-      "rank": 64,
+      "rank": 66,
       "balance": 1611531540.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x0fcc4f38a9578a0fb0e58c954c2e6d485f23ed06",
+      "address": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
       "symbol": "CBBTC",
-      "rank": 65,
-      "balance": 1587666524.0,
+      "rank": 67,
+      "balance": 1591490307.0,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0x45b6f7acf369825ac5adade43437790834791e72",
+      "address": "0x7bd343514332522ca00b2e6d64a86a427fe2ec5b",
       "symbol": "CBBTC",
-      "rank": 66,
-      "balance": 1564555154.0,
+      "rank": 68,
+      "balance": 1561736337.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x6dbde1a1e0f199b0252e593a422b9340af03075a",
       "symbol": "CBBTC",
-      "rank": 67,
-      "balance": 1539080815.0,
+      "rank": 69,
+      "balance": 1561252522.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x5401b8620e5fb570064ca9114fd1e135fd77d57c",
+      "symbol": "CBBTC",
+      "rank": 70,
+      "balance": 1526988381.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x1be8b8bd3126f919245e3664887b762db7546d2a",
+      "symbol": "CBBTC",
+      "rank": 71,
+      "balance": 1500809267.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x391382b0edfbbfaa6059defd9b8eeed25736b42f",
       "symbol": "CBBTC",
-      "rank": 68,
+      "rank": 72,
       "balance": 1500000000.0,
       "share": 0.03,
       "last_tx": null
@@ -552,63 +584,55 @@
     {
       "address": "0x66feabe62013d26297598c828faa2db89a1de20c",
       "symbol": "CBBTC",
-      "rank": 69,
+      "rank": 73,
       "balance": 1500000000.0,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0x839d6bdedff886404a6d7a788ef241e4e28f4802",
+      "address": "0x8a25d8c9fa8c7a726137f2d618d85cbc2c083f78",
       "symbol": "CBBTC",
-      "rank": 70,
-      "balance": 1490906237.0,
+      "rank": 74,
+      "balance": 1401772632.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xaa1b4d350e82e9a192e630654c43155a5671aab3",
+      "symbol": "CBBTC",
+      "rank": 75,
+      "balance": 1400000026.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x7e26a72fc2c8673e5466b651817425b5b360e186",
+      "symbol": "CBBTC",
+      "rank": 76,
+      "balance": 1383068737.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x1e1662d04dbfabd4458d2e9019dbe55a8245e261",
       "symbol": "CBBTC",
-      "rank": 71,
+      "rank": 77,
       "balance": 1376040916.0,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0x6f652411609aca8370faf57b98b5b3a7c171723d",
+      "address": "0xa331ebda776e9eab1b18251414da56a54fbfa5d1",
       "symbol": "CBBTC",
-      "rank": 72,
-      "balance": 1359985587.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xe65dd5d5631c354ab2cfe2a47c79655e68d6bf27",
-      "symbol": "CBBTC",
-      "rank": 73,
-      "balance": 1352989245.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
-      "symbol": "CBBTC",
-      "rank": 74,
-      "balance": 1327021306.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xc95c0894adbab0e0db403b8f5db843742f3fef37",
-      "symbol": "CBBTC",
-      "rank": 75,
-      "balance": 1324294579.0,
+      "rank": 78,
+      "balance": 1300000011.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0xed89055fedb28a2bc05478564b8206fff8ff6f06",
       "symbol": "CBBTC",
-      "rank": 76,
+      "rank": 79,
       "balance": 1289398160.0,
       "share": 0.03,
       "last_tx": null
@@ -616,7 +640,7 @@
     {
       "address": "0xb0d93dc578d50fd6e1a8ad532c0b1549f9ab93bc",
       "symbol": "CBBTC",
-      "rank": 77,
+      "rank": 80,
       "balance": 1269775773.0,
       "share": 0.03,
       "last_tx": null
@@ -624,71 +648,55 @@
     {
       "address": "0x537037c5ae805b9d4cecab5ee07f12a8e59a15b2",
       "symbol": "CBBTC",
-      "rank": 78,
+      "rank": 81,
       "balance": 1238862627.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x8a4f252812dff2a8636e4f7eb249d8fc2e3bd77f",
+      "symbol": "CBBTC",
+      "rank": 82,
+      "balance": 1226158654.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x5988e42443d8bb5a8ad4155589f886e8fea755d5",
+      "symbol": "CBBTC",
+      "rank": 83,
+      "balance": 1209117950.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xbd504c319dba6256052ab4cfe3ef0fba3a088222",
+      "symbol": "CBBTC",
+      "rank": 84,
+      "balance": 1193080310.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0xd3d11d778970e562bbe5105e5e7eff9fdd60bce3",
       "symbol": "CBBTC",
-      "rank": 79,
+      "rank": 85,
       "balance": 1186625951.0,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0x62e65900c592a77d41d141a094e1f0ab45a6138b",
+      "address": "0x44797167ba97772a6ca8227e669e70cc2abd2674",
       "symbol": "CBBTC",
-      "rank": 80,
-      "balance": 1153378467.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xa3b69fd03a59945b88fed1fe350b33c3e6d48480",
-      "symbol": "CBBTC",
-      "rank": 81,
-      "balance": 1107563439.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x411830c1bca6ce6e41a925fbf4c90789f72d66aa",
-      "symbol": "CBBTC",
-      "rank": 82,
-      "balance": 1105453521.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
-      "symbol": "CBBTC",
-      "rank": 83,
-      "balance": 1101634943.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x84a6a7c0674a3aa03e09c026600cb46181821f07",
-      "symbol": "CBBTC",
-      "rank": 84,
-      "balance": 1098669856.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x45ebb1c54f223c5905a7683164656b63527bc11b",
-      "symbol": "CBBTC",
-      "rank": 85,
-      "balance": 1048634680.0,
+      "rank": 86,
+      "balance": 1060000000.0,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x123d8e021ae05a1a2c6ac935c5678f2d2a0973c1",
       "symbol": "CBBTC",
-      "rank": 86,
+      "rank": 87,
       "balance": 1034696006.0,
       "share": 0.02,
       "last_tx": null
@@ -696,7 +704,7 @@
     {
       "address": "0x072b4b3008eb2177cce628123d24e75a8e34b9b0",
       "symbol": "CBBTC",
-      "rank": 87,
+      "rank": 88,
       "balance": 1029070934.0,
       "share": 0.02,
       "last_tx": null
@@ -704,29 +712,21 @@
     {
       "address": "0xe560646ef7a69400974d85e818bc0e054bde65c1",
       "symbol": "CBBTC",
-      "rank": 88,
+      "rank": 89,
       "balance": 1011940121.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x90bb846133da113d9ffd42f4eeb01be668bf781b",
+      "address": "0x9c5ff82c2272cdd44ec11b0e51617a5c3f3fa329",
       "symbol": "CBBTC",
-      "rank": 89,
-      "balance": 1000000000.0,
+      "rank": 90,
+      "balance": 1007359303.0,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0xa4d668ae66351f56784455f20ea9d139893ecd72",
-      "symbol": "CBBTC",
-      "rank": 90,
-      "balance": 1000000000.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x44797167ba97772a6ca8227e669e70cc2abd2674",
       "symbol": "CBBTC",
       "rank": 91,
       "balance": 1000000000.0,
@@ -750,9 +750,17 @@
       "last_tx": null
     },
     {
-      "address": "0xf35a711fea733c23f409c6f8e72b8ecd640758ea",
+      "address": "0x0e90d8f85fc3107df47d20444244feaa824d1082",
       "symbol": "CBBTC",
       "rank": 94,
+      "balance": 1000000000.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xf35a711fea733c23f409c6f8e72b8ecd640758ea",
+      "symbol": "CBBTC",
+      "rank": 95,
       "balance": 999450748.0,
       "share": 0.02,
       "last_tx": null
@@ -760,48 +768,40 @@
     {
       "address": "0xd7e0273a974cca2442d29ba942b8dbeb6d88cb28",
       "symbol": "CBBTC",
-      "rank": 95,
+      "rank": 96,
       "balance": 995629422.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x8a4f252812dff2a8636e4f7eb249d8fc2e3bd77f",
-      "symbol": "CBBTC",
-      "rank": 96,
-      "balance": 974600212.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x112d13ffd97faec56db4416ed13767ca64c9c5e4",
+      "address": "0xe3d41d19564922c9952f692c5dd0563030f5f2ef",
       "symbol": "CBBTC",
       "rank": 97,
-      "balance": 958899322.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x3dcbbf0b7d185bf3554db5de687174b79276f4bc",
-      "symbol": "CBBTC",
-      "rank": 98,
-      "balance": 950000000.0,
+      "balance": 989624589.0,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x7421c1ed16b400e4868ce696452c3c985f8cd04d",
       "symbol": "CBBTC",
-      "rank": 99,
-      "balance": 937196239.0,
+      "rank": 98,
+      "balance": 959832870.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x65b409bf29c21866e1a50c9554fc434a8a51ee37",
+      "address": "0x112d13ffd97faec56db4416ed13767ca64c9c5e4",
+      "symbol": "CBBTC",
+      "rank": 99,
+      "balance": 958899322.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x2b7d2b1138103e5c5ff3705d26282a151e18b9a2",
       "symbol": "CBBTC",
       "rank": 100,
-      "balance": 929377176.0,
+      "balance": 951833741.0,
       "share": 0.02,
       "last_tx": null
     }

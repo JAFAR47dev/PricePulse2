@@ -121,10 +121,62 @@ def create_referrals_table():
     conn.close()
 
 
+def init_task_progress_with_conn(user_id: int, conn):
+    """
+    Initialize task progress for a new user using an existing connection.
+    Creates a row with default values if it doesn't exist.
+    
+    ⚠️ IMPORTANT: This function does NOT commit or close the connection.
+    The caller is responsible for committing and closing.
+    
+    Args:
+        user_id: The user's Telegram ID
+        conn: Existing database connection to use
+    """
+    cursor = conn.cursor()
+
+    # ✅ Get all existing columns dynamically
+    cursor.execute("PRAGMA table_info(task_progress)")
+    columns = [col[1] for col in cursor.fetchall()]
+    
+    # ✅ Build dynamic INSERT with only existing columns
+    column_defaults = {
+        'user_id': user_id,
+        'daily_streak': 0,
+        'last_active_date': None,
+        'streak_reward_claimed': 0,
+        'pro_expiry_date': None,
+        'referral_count': 0,
+        'claimed_referral_rewards': '[]',
+        'referral_rewards_claimed': '',
+        'social_tg': 0,
+        'social_tw': 0,
+        'social_story': 0
+    }
+    
+    # ✅ Only use columns that actually exist in the table
+    insert_columns = [col for col in column_defaults.keys() if col in columns]
+    insert_values = [column_defaults[col] for col in insert_columns]
+    
+    # ✅ Build the SQL dynamically
+    columns_str = ', '.join(insert_columns)
+    placeholders = ', '.join(['?' for _ in insert_columns])
+    
+    cursor.execute(f"""
+        INSERT OR IGNORE INTO task_progress ({columns_str})
+        VALUES ({placeholders})
+    """, insert_values)
+
+    print(f"✅ Task progress initialized for user {user_id}")
+
+
 def init_task_progress(user_id: int):
     """
-    Initialize task progress for a new user.
+    Initialize task progress for a new user (standalone version).
     Creates a row with default values if it doesn't exist.
+    
+    ⚠️ NOTE: If you already have a database connection open in your calling code,
+    use init_task_progress_with_conn() instead to avoid nested connections.
     
     Args:
         user_id: The user's Telegram ID
@@ -133,43 +185,13 @@ def init_task_progress(user_id: int):
     cursor = conn.cursor()
 
     try:
-        # ✅ Get all existing columns dynamically
-        cursor.execute("PRAGMA table_info(task_progress)")
-        columns = [col[1] for col in cursor.fetchall()]
-        
-        # ✅ Build dynamic INSERT with only existing columns
-        column_defaults = {
-            'user_id': user_id,
-            'daily_streak': 0,
-            'last_active_date': None,
-            'streak_reward_claimed': 0,
-            'pro_expiry_date': None,
-            'referral_count': 0,
-            'claimed_referral_rewards': '[]',
-            'referral_rewards_claimed': '',
-            'social_tg': 0,
-            'social_tw': 0,
-            'social_story': 0
-        }
-        
-        # ✅ Only use columns that actually exist in the table
-        insert_columns = [col for col in column_defaults.keys() if col in columns]
-        insert_values = [column_defaults[col] for col in insert_columns]
-        
-        # ✅ Build the SQL dynamically
-        columns_str = ', '.join(insert_columns)
-        placeholders = ', '.join(['?' for _ in insert_columns])
-        
-        cursor.execute(f"""
-            INSERT OR IGNORE INTO task_progress ({columns_str})
-            VALUES ({placeholders})
-        """, insert_values)
-
+        # Use the shared logic
+        init_task_progress_with_conn(user_id, conn)
         conn.commit()
-        print(f"✅ Task progress initialized for user {user_id}")
     except Exception as e:
         print(f"❌ Error initializing task progress for user {user_id}: {e}")
         conn.rollback()
+        raise  # Re-raise so caller knows it failed
     finally:
         conn.close()
         

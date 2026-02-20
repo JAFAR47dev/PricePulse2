@@ -1,7 +1,7 @@
 {
   "token": "STETH",
   "contract": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
-  "updated_at": "2025-12-07T08:40:44.160033",
+  "updated_at": "2026-02-03T23:17:06.092343",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,800 +9,800 @@
       "address": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
       "symbol": "STETH",
       "rank": 1,
-      "balance": 4.0555344783322643e+24,
-      "share": 46.78,
+      "balance": 4.396692954366329e+24,
+      "share": 45.88,
       "last_tx": null
     },
     {
       "address": "0x93c4b944d05dfe6df7645a86cd2206016c51564d",
       "symbol": "STETH",
       "rank": 2,
-      "balance": 7.706767388059029e+23,
-      "share": 8.89,
+      "balance": 1.1798458036112809e+24,
+      "share": 12.31,
       "last_tx": null
     },
     {
       "address": "0x176f3dab24a159341c0509bb36b833e7fdd0a132",
       "symbol": "STETH",
       "rank": 3,
-      "balance": 1.5549922329294503e+23,
-      "share": 1.79,
+      "balance": 1.561316103439556e+23,
+      "share": 1.63,
       "last_tx": null
     },
     {
       "address": "0xa92c80b3962f10e063ad5463f996fe414f0e1f66",
       "symbol": "STETH",
       "rank": 4,
-      "balance": 9.27774868752113e+22,
-      "share": 1.07,
+      "balance": 9.31547960352362e+22,
+      "share": 0.97,
       "last_tx": null
     },
     {
       "address": "0x2be0f2886f01afef02809a541a08cc850646d43c",
       "symbol": "STETH",
       "rank": 5,
-      "balance": 8.113086921298095e+22,
-      "share": 0.94,
+      "balance": 8.146081369785382e+22,
+      "share": 0.85,
+      "last_tx": null
+    },
+    {
+      "address": "0x1b7a4c3797236a1c37f8741c0be35c2c72736fff",
+      "symbol": "STETH",
+      "rank": 6,
+      "balance": 7.835083059374955e+22,
+      "share": 0.82,
       "last_tx": null
     },
     {
       "address": "0x18709e89bd403f470088abdacebe86cc60dda12e",
       "symbol": "STETH",
-      "rank": 6,
-      "balance": 7.114623112226974e+22,
-      "share": 0.82,
-      "last_tx": null
-    },
-    {
-      "address": "0xfe08d40eee53d64936d3128838867c867602665c",
-      "symbol": "STETH",
       "rank": 7,
-      "balance": 5.123164549280705e+22,
-      "share": 0.59,
+      "balance": 7.143556990054239e+22,
+      "share": 0.75,
       "last_tx": null
     },
     {
       "address": "0xe53fff67f9f384d20ebea36f43b93dc49ed22753",
       "symbol": "STETH",
       "rank": 8,
-      "balance": 4.546850870303469e+22,
-      "share": 0.52,
+      "balance": 4.5653420855800824e+22,
+      "share": 0.48,
       "last_tx": null
     },
     {
-      "address": "0x97bd75506c31530a1fdc994b53434461ed1d6653",
+      "address": "0xfe08d40eee53d64936d3128838867c867602665c",
       "symbol": "STETH",
       "rank": 9,
-      "balance": 3.419297622725047e+22,
-      "share": 0.39,
+      "balance": 3.9133713011868636e+22,
+      "share": 0.41,
       "last_tx": null
     },
     {
       "address": "0x3e40d73eb977dc6a537af587d48316fee66e9c8c",
       "symbol": "STETH",
       "rank": 10,
-      "balance": 3.2870617550500907e+22,
-      "share": 0.38,
-      "last_tx": null
-    },
-    {
-      "address": "0xd4584bf988c9e8994688b56484e2f74ceaeefb20",
-      "symbol": "STETH",
-      "rank": 11,
-      "balance": 2.999342632807346e+22,
-      "share": 0.35,
+      "balance": 3.495198605643081e+22,
+      "share": 0.36,
       "last_tx": null
     },
     {
       "address": "0xacce2d0b77bcb844a1b95c64696b071ab8c7ada3",
       "symbol": "STETH",
-      "rank": 12,
-      "balance": 2.992215132523598e+22,
-      "share": 0.35,
-      "last_tx": null
-    },
-    {
-      "address": "0x1b7a4c3797236a1c37f8741c0be35c2c72736fff",
-      "symbol": "STETH",
-      "rank": 13,
-      "balance": 2.986157281840708e+22,
-      "share": 0.34,
-      "last_tx": null
-    },
-    {
-      "address": "0x6663613fbd927ce78abbf7f5ca7e2c3fe0d96d18",
-      "symbol": "STETH",
-      "rank": 14,
-      "balance": 2.8699992486760946e+22,
-      "share": 0.33,
-      "last_tx": null
-    },
-    {
-      "address": "0x5fad9e2ee7aebffac0a909264f85b1eeb216e3dd",
-      "symbol": "STETH",
-      "rank": 15,
-      "balance": 2.7786600777684928e+22,
-      "share": 0.32,
-      "last_tx": null
-    },
-    {
-      "address": "0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
-      "symbol": "STETH",
-      "rank": 16,
-      "balance": 2.3387136184201425e+22,
-      "share": 0.27,
-      "last_tx": null
-    },
-    {
-      "address": "0x98078db053902644191f93988341e31289e1c8fe",
-      "symbol": "STETH",
-      "rank": 17,
-      "balance": 2.3193055933013212e+22,
-      "share": 0.27,
-      "last_tx": null
-    },
-    {
-      "address": "0xc13abcdeed78efcade757371beabbbdfebe0b932",
-      "symbol": "STETH",
-      "rank": 18,
-      "balance": 2.098122151466726e+22,
-      "share": 0.24,
+      "rank": 11,
+      "balance": 3.0043839270910215e+22,
+      "share": 0.31,
       "last_tx": null
     },
     {
       "address": "0xa0d3707c569ff8c87fa923d3823ec5d81c98be78",
       "symbol": "STETH",
-      "rank": 19,
-      "balance": 2.068181421668695e+22,
-      "share": 0.24,
+      "rank": 12,
+      "balance": 2.9180360635091784e+22,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x6663613fbd927ce78abbf7f5ca7e2c3fe0d96d18",
+      "symbol": "STETH",
+      "rank": 13,
+      "balance": 2.881671013478763e+22,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x5fad9e2ee7aebffac0a909264f85b1eeb216e3dd",
+      "symbol": "STETH",
+      "rank": 14,
+      "balance": 2.789960382780502e+22,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+      "symbol": "STETH",
+      "rank": 15,
+      "balance": 2.7419523119510593e+22,
+      "share": 0.29,
       "last_tx": null
     },
     {
       "address": "0x4d72bff1beac69925f8bd12526a39baab069e5da",
       "symbol": "STETH",
+      "rank": 16,
+      "balance": 2.6960920578503777e+22,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x714352a845400a6ff9b9719b3c6622a6797f6d22",
+      "symbol": "STETH",
+      "rank": 17,
+      "balance": 2.527107628978961e+22,
+      "share": 0.26,
+      "last_tx": null
+    },
+    {
+      "address": "0x98078db053902644191f93988341e31289e1c8fe",
+      "symbol": "STETH",
+      "rank": 18,
+      "balance": 2.1408018310247395e+22,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xc13abcdeed78efcade757371beabbbdfebe0b932",
+      "symbol": "STETH",
+      "rank": 19,
+      "balance": 2.106654832543379e+22,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x1fa6d78bc5c5336164563f7e9d3f5ccabea4f5a9",
+      "symbol": "STETH",
       "rank": 20,
-      "balance": 1.8006737829976812e+22,
+      "balance": 2.0320598700060146e+22,
       "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+      "symbol": "STETH",
+      "rank": 21,
+      "balance": 1.9218709767141682e+22,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x5efc9d10e42fb517456f4ac41eb5e2ebe42c8918",
+      "symbol": "STETH",
+      "rank": 22,
+      "balance": 1.8648610434726788e+22,
+      "share": 0.19,
       "last_tx": null
     },
     {
       "address": "0x77a8283206e4b8d4cafcf6ad14f876bc5a6361b6",
       "symbol": "STETH",
-      "rank": 21,
-      "balance": 1.683964943342314e+22,
+      "rank": 23,
+      "balance": 1.8453847051736634e+22,
       "share": 0.19,
       "last_tx": null
     },
     {
       "address": "0xac72ed3390cfb7bf0f101262648a6afc2bef99c1",
       "symbol": "STETH",
-      "rank": 22,
-      "balance": 1.6096299738325387e+22,
-      "share": 0.19,
+      "rank": 24,
+      "balance": 1.616176046094601e+22,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x2e20ddbf39b813693cae0ec78ae393dc060460e2",
       "symbol": "STETH",
-      "rank": 23,
-      "balance": 1.571519617764873e+22,
-      "share": 0.18,
+      "rank": 25,
+      "balance": 1.5779107021422615e+22,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xee5b5b923ffce93a870b3104b7ca09c3db80047a",
       "symbol": "STETH",
-      "rank": 24,
-      "balance": 1.5516736755418045e+22,
-      "share": 0.18,
+      "rank": 26,
+      "balance": 1.557984050082763e+22,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0x246b23f4be21c5c43016a07c5a230dadf1e65bba",
       "symbol": "STETH",
-      "rank": 25,
-      "balance": 1.5502529066096105e+22,
-      "share": 0.18,
+      "rank": 27,
+      "balance": 1.5565575031418035e+22,
+      "share": 0.16,
       "last_tx": null
     },
     {
-      "address": "0x866c9a77d8ab71d2874703e80cb7ad809b301e8e",
+      "address": "0xb5700e7b179df1b1f4ef8b740b634875306668a8",
       "symbol": "STETH",
-      "rank": 26,
-      "balance": 1.5454398215770985e+22,
-      "share": 0.18,
+      "rank": 28,
+      "balance": 1.5385980760595737e+22,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xf013ab0a24390447d0bab4c850def030ee549c4b",
       "symbol": "STETH",
-      "rank": 27,
-      "balance": 1.525708667607066e+22,
-      "share": 0.18,
+      "rank": 29,
+      "balance": 1.5319134471845925e+22,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xafcac4e2dd30fd39a6055a7a068e62d76644763a",
       "symbol": "STETH",
-      "rank": 28,
-      "balance": 1.4466984403232444e+22,
-      "share": 0.17,
+      "rank": 30,
+      "balance": 1.4525818996808135e+22,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x866c9a77d8ab71d2874703e80cb7ad809b301e8e",
+      "symbol": "STETH",
+      "rank": 31,
+      "balance": 1.451388707125515e+22,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x9d94ef33e7f8087117f85b3ff7b1d8f27e4053d5",
       "symbol": "STETH",
-      "rank": 29,
-      "balance": 1.4056243835931023e+22,
-      "share": 0.16,
+      "rank": 32,
+      "balance": 1.4134455703143673e+22,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0xcab3f132a11e5b723fc20ddab8bb1b858d00a8e8",
       "symbol": "STETH",
-      "rank": 30,
-      "balance": 1.3771859239120008e+22,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0xe84a061897afc2e7ff5fb7e3686717c528617487",
-      "symbol": "STETH",
-      "rank": 31,
-      "balance": 1.3391756080417243e+22,
-      "share": 0.15,
+      "rank": 33,
+      "balance": 1.3827866885118038e+22,
+      "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0x05bc11f64c6515bb384b05bfd3e0d0424fa65aa4",
       "symbol": "STETH",
-      "rank": 32,
-      "balance": 1.2878049301100449e+22,
-      "share": 0.15,
+      "rank": 34,
+      "balance": 1.2930421984692246e+22,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x444419d805adb0507123d35a7b61d01d8233efd2",
       "symbol": "STETH",
-      "rank": 33,
-      "balance": 1.2114554221504028e+22,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
-      "address": "0x120fa5738751b275aed7f7b46b98beb38679e093",
-      "symbol": "STETH",
-      "rank": 34,
-      "balance": 1.2052085058324985e+22,
-      "share": 0.14,
+      "rank": 35,
+      "balance": 1.2783004993076828e+22,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0xcafea91714e55756c125b509274ede9bc91697cb",
       "symbol": "STETH",
-      "rank": 35,
-      "balance": 1.1623057107080956e+22,
-      "share": 0.13,
+      "rank": 36,
+      "balance": 1.16703259657416e+22,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x3c0aea3576b0d70e581ff613248a74d56cde0853",
       "symbol": "STETH",
-      "rank": 36,
-      "balance": 1.1556992538083194e+22,
-      "share": 0.13,
+      "rank": 37,
+      "balance": 1.1603992724160914e+22,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x48d62ed012e327faacb9c8d2a56330e215da0575",
       "symbol": "STETH",
-      "rank": 37,
-      "balance": 1.1492798606865343e+22,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x41c59bf14d1407311aaa1b91eee6d2d441a3ec52",
-      "symbol": "STETH",
       "rank": 38,
-      "balance": 1.111805506645398e+22,
-      "share": 0.13,
+      "balance": 1.1539537727903664e+22,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x070aae112e45bccacce47586bddefc8b240f9eff",
       "symbol": "STETH",
       "rank": 39,
-      "balance": 1.1004617070971116e+22,
-      "share": 0.13,
+      "balance": 1.1049370846518288e+22,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x36ed8dda673bec4f95babe8f122e6f88cf72d0fb",
       "symbol": "STETH",
       "rank": 40,
-      "balance": 1.0968847450422425e+22,
-      "share": 0.13,
+      "balance": 1.1013455757430424e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x7f3f54201a60a3b221e6ed486caf9f0e9b73adb4",
       "symbol": "STETH",
       "rank": 41,
-      "balance": 1.0921951313731344e+22,
-      "share": 0.13,
+      "balance": 1.0966368902683281e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x8b9f7fcf8338b1dc9d0bc8be1558dbef6e0c481d",
       "symbol": "STETH",
       "rank": 42,
-      "balance": 1.08655683220746e+22,
-      "share": 0.13,
+      "balance": 1.090975661165728e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xeb9c1ce881f0bdb25eac4d74fccbacf4dd81020a",
       "symbol": "STETH",
       "rank": 43,
-      "balance": 1.0613416800821384e+22,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xd347e2b7f19563b825f982bc831a1fbd6c8e08a2",
-      "symbol": "STETH",
-      "rank": 44,
-      "balance": 1.0573402328409389e+22,
-      "share": 0.12,
+      "balance": 1.0656579636041292e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xc7c732d64fd14887cf924cb5d72409924c58bb24",
       "symbol": "STETH",
-      "rank": 45,
-      "balance": 1.0533327863554467e+22,
-      "share": 0.12,
+      "rank": 44,
+      "balance": 1.057616499163717e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x50411ecf77f9a222fab5887018e3048741859027",
       "symbol": "STETH",
-      "rank": 46,
-      "balance": 1.0532801244557e+22,
-      "share": 0.12,
+      "rank": 45,
+      "balance": 1.0575636230976047e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xe7cf0c9165099a76a988e0dd72db110fa2abc43b",
       "symbol": "STETH",
-      "rank": 47,
-      "balance": 1.0532695920757506e+22,
-      "share": 0.12,
+      "rank": 46,
+      "balance": 1.0575530478843822e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xb95aea8c12c20d40683d3a4bac4f9597890d6849",
       "symbol": "STETH",
-      "rank": 48,
-      "balance": 1.0532169301760038e+22,
-      "share": 0.12,
+      "rank": 47,
+      "balance": 1.05750017181827e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x777d392672a8576302ef8bde93b5f3c4608a61f8",
       "symbol": "STETH",
-      "rank": 49,
-      "balance": 1.0528155488383157e+22,
-      "share": 0.12,
+      "rank": 48,
+      "balance": 1.0570971581357052e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xa4dcca03a8f25b825f72ac9c6d199acb8ebbb0c5",
       "symbol": "STETH",
-      "rank": 50,
-      "balance": 1.052805021630276e+22,
-      "share": 0.12,
+      "rank": 49,
+      "balance": 1.0570865881154257e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xb63a16e0d38c123509f8a23db7a134c415d10951",
       "symbol": "STETH",
-      "rank": 51,
-      "balance": 1.0527313311739985e+22,
-      "share": 0.12,
+      "rank": 50,
+      "balance": 1.057012597973469e+22,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x3c22ec75ea5d745c78fc84762f7f1e6d82a2c5bf",
       "symbol": "STETH",
+      "rank": 51,
+      "balance": 1.0334687515457171e+22,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xc66830e2667bc740c0bed9a71f18b14b8c8184ba",
+      "symbol": "STETH",
       "rank": 52,
-      "balance": 1.0292828454709625e+22,
-      "share": 0.12,
+      "balance": 9.611319066032725e+21,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xf36dfdbd503ccd43338f644261b22e97353c59e0",
       "symbol": "STETH",
       "rank": 53,
-      "balance": 9.438615464544138e+21,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
-      "symbol": "STETH",
-      "rank": 54,
-      "balance": 9.265896464690789e+21,
-      "share": 0.11,
+      "balance": 9.477000596462135e+21,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x4fc9571b4cb6b9edf212de5357efca9ca2d6e98a",
       "symbol": "STETH",
-      "rank": 55,
-      "balance": 8.915210920076457e+21,
-      "share": 0.1,
+      "rank": 54,
+      "balance": 8.951467460935592e+21,
+      "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x0632dcc37b1fabf2cad20538a5390d23c830962e",
       "symbol": "STETH",
-      "rank": 56,
-      "balance": 8.826603361474994e+21,
-      "share": 0.1,
+      "rank": 55,
+      "balance": 8.862499551513753e+21,
+      "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0xdf1ac1ac255d91f5f4b1e3b4aef57c5350f64c7a",
+      "address": "0x21e27a5e5513d6e65c4f830167390997aa84843a",
       "symbol": "STETH",
-      "rank": 57,
-      "balance": 8.668283196734175e+21,
-      "share": 0.1,
+      "rank": 56,
+      "balance": 8.47812970479068e+21,
+      "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x78e99ed484605ba66ca9804b0b6fe700242c85bc",
       "symbol": "STETH",
-      "rank": 58,
-      "balance": 8.199870982134143e+21,
+      "rank": 57,
+      "balance": 8.206159891924484e+21,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0xec06df88987cdd59bffb64b0af7bfe1944cc20e2",
       "symbol": "STETH",
+      "rank": 58,
+      "balance": 8.074659046584792e+21,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0xf2a5a0ca41f3e5438dae55d18ceec33bf6c90c99",
+      "symbol": "STETH",
       "rank": 59,
-      "balance": 8.041953883222059e+21,
-      "share": 0.09,
+      "balance": 7.995981181989585e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x26d613dfe2d2915670906be1edba52b6906ac39d",
       "symbol": "STETH",
       "rank": 60,
-      "balance": 7.783917987056056e+21,
-      "share": 0.09,
+      "balance": 7.815573765373798e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x7785ddcece9e3c7d86279cd5e79e4e155f8eb816",
       "symbol": "STETH",
       "rank": 61,
-      "balance": 7.433117554243577e+21,
-      "share": 0.09,
-      "last_tx": null
-    },
-    {
-      "address": "0x720d8790666bd40b9ca289cbe73cb1334f0ae7e3",
-      "symbol": "STETH",
-      "rank": 62,
-      "balance": 7.394309889053253e+21,
-      "share": 0.09,
+      "balance": 7.463346691022527e+21,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x04f6fe1e64a63ffc6f8b2c7f199fcfe18c41e893",
       "symbol": "STETH",
-      "rank": 63,
-      "balance": 7.304249267905338e+21,
+      "rank": 62,
+      "balance": 7.333954320808881e+21,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xeed42ee7e775f0b0865976c3b2491d4e077dece1",
       "symbol": "STETH",
-      "rank": 64,
-      "balance": 7.273116201276624e+21,
+      "rank": 63,
+      "balance": 7.302694641662256e+21,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xcb9173670ccbc288982cae1f2e51c887ccfc3bdf",
       "symbol": "STETH",
-      "rank": 65,
-      "balance": 7.173841939448739e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x1ce8aafb51e79f6bdc0ef2ebd6fd34b00620f6db",
-      "symbol": "STETH",
-      "rank": 66,
-      "balance": 6.959283387078418e+21,
+      "rank": 64,
+      "balance": 7.208227763831659e+21,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x2574278054127235779c19a148c5c0be6b396023",
       "symbol": "STETH",
-      "rank": 67,
-      "balance": 6.953836158594702e+21,
-      "share": 0.08,
+      "rank": 65,
+      "balance": 6.982116145133669e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xed0eebb4d520a6b0eccc4df8e5214e7a6697c111",
       "symbol": "STETH",
-      "rank": 68,
-      "balance": 6.852191975285577e+21,
-      "share": 0.08,
+      "rank": 66,
+      "balance": 6.880058593423249e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0x21e27a5e5513d6e65c4f830167390997aa84843a",
+      "address": "0xa5c629e04e563355c30885b62928fd6e03558548",
       "symbol": "STETH",
-      "rank": 69,
-      "balance": 6.718930139368328e+21,
-      "share": 0.08,
+      "rank": 67,
+      "balance": 6.840318857936617e+21,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xd347e2b7f19563b825f982bc831a1fbd6c8e08a2",
+      "symbol": "STETH",
+      "rank": 68,
+      "balance": 6.833206455007185e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x8b3f33234abd88493c0cd28de33d583b70bede35",
       "symbol": "STETH",
-      "rank": 70,
-      "balance": 6.660678399732458e+21,
-      "share": 0.08,
+      "rank": 69,
+      "balance": 6.687766167000602e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x61feb91701f1dcf14737a58d28ced4f43ad78aa8",
       "symbol": "STETH",
-      "rank": 71,
-      "balance": 6.65368596615723e+21,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x1fa6d78bc5c5336164563f7e9d3f5ccabea4f5a9",
-      "symbol": "STETH",
-      "rank": 72,
-      "balance": 6.610029619520817e+21,
-      "share": 0.08,
+      "rank": 70,
+      "balance": 6.680745296470163e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x5490689fd12b18a761c0337f2937e1e168746c4c",
       "symbol": "STETH",
-      "rank": 73,
-      "balance": 6.518293899964653e+21,
-      "share": 0.08,
+      "rank": 71,
+      "balance": 6.54480261537639e+21,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x1ce8aafb51e79f6bdc0ef2ebd6fd34b00620f6db",
+      "symbol": "STETH",
+      "rank": 72,
+      "balance": 6.542468160973784e+21,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x3bd9ffa84516f7a381b4d4212e2b09866cbeb40f",
       "symbol": "STETH",
-      "rank": 74,
-      "balance": 6.390138893772205e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xc66830e2667bc740c0bed9a71f18b14b8c8184ba",
-      "symbol": "STETH",
-      "rank": 75,
-      "balance": 6.343593378858247e+21,
+      "rank": 73,
+      "balance": 6.41612642608912e+21,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x16bca40b467200ea9b74d23f2c24057f4952fb31",
       "symbol": "STETH",
-      "rank": 76,
-      "balance": 6.319322645815921e+21,
+      "rank": 74,
+      "balance": 6.345022181336065e+21,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xe2cbefe7055dc48fa7ae537a2b16107b68ad0a8e",
       "symbol": "STETH",
-      "rank": 77,
-      "balance": 6.268627238396996e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xab917dabdf1f598e88f80e39942ae4fe00658e43",
-      "symbol": "STETH",
-      "rank": 78,
-      "balance": 6.221929327104652e+21,
+      "rank": 75,
+      "balance": 6.29412060491823e+21,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x043f8524f87efb25990b65ff4918f9128acf742e",
       "symbol": "STETH",
-      "rank": 79,
-      "balance": 6.119458793148015e+21,
+      "rank": 76,
+      "balance": 6.254572412665713e+21,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xab917dabdf1f598e88f80e39942ae4fe00658e43",
+      "symbol": "STETH",
+      "rank": 77,
+      "balance": 6.247232781716456e+21,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x543a0ac38ad4b72aebfcab9e655e372ebf8dcdd8",
       "symbol": "STETH",
-      "rank": 80,
-      "balance": 6.031760493158716e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x011a34f6052953d18bf2f13df0e88c05681fee33",
-      "symbol": "STETH",
-      "rank": 81,
-      "balance": 6.006911536450718e+21,
-      "share": 0.07,
+      "rank": 78,
+      "balance": 6.056290565720459e+21,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x3fa9cbf709c5946d66e0e77bdbc8a1ecccf21d54",
       "symbol": "STETH",
-      "rank": 82,
-      "balance": 5.968063422523584e+21,
-      "share": 0.07,
+      "rank": 79,
+      "balance": 5.992334450687524e+21,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xda4963f60052f100ab14886ffcae1b7587def2ae",
       "symbol": "STETH",
-      "rank": 83,
-      "balance": 5.899961998552859e+21,
-      "share": 0.07,
+      "rank": 80,
+      "balance": 5.923956070615265e+21,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x0b739e2ad0219d22c5b3a4a2fd11c2c9f965c92c",
       "symbol": "STETH",
+      "rank": 81,
+      "balance": 5.804513907344049e+21,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x2cbfe40ba0b715097f0392cea55b28be3eca3812",
+      "symbol": "STETH",
+      "rank": 82,
+      "balance": 5.790276510378045e+21,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xdf1ac1ac255d91f5f4b1e3b4aef57c5350f64c7a",
+      "symbol": "STETH",
+      "rank": 83,
+      "balance": 5.782863299490188e+21,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x4f90271e0d8a34c2b8e0827729d0fd7782062e06",
+      "symbol": "STETH",
       "rank": 84,
-      "balance": 5.781003617375679e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x0b0bb483845955a9bde25c5b4a29370a4503e1ed",
-      "symbol": "STETH",
-      "rank": 85,
-      "balance": 5.766823886794217e+21,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x56d26c41cbe8858a7892d14d5cdc1cce6c226733",
-      "symbol": "STETH",
-      "rank": 86,
-      "balance": 5.609843783300058e+21,
+      "balance": 5.725682745833851e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x6b66293e33c28712660544b3fef3c9c10595773f",
       "symbol": "STETH",
-      "rank": 87,
-      "balance": 5.605398552748144e+21,
+      "rank": 85,
+      "balance": 5.628194688866671e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x74de5afa21985ae302b7fe1aef11cc205a38a2a4",
       "symbol": "STETH",
-      "rank": 88,
-      "balance": 5.545552233631246e+21,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
-      "symbol": "STETH",
-      "rank": 89,
-      "balance": 5.543625650562767e+21,
+      "rank": 86,
+      "balance": 5.568104985657822e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xff72243c5d7373f8ac9ccf4ccd226301dc213a70",
       "symbol": "STETH",
-      "rank": 90,
-      "balance": 5.480917745716349e+21,
+      "rank": 87,
+      "balance": 5.50320764103959e+21,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x011a34f6052953d18bf2f13df0e88c05681fee33",
+      "symbol": "STETH",
+      "rank": 88,
+      "balance": 5.501691653451292e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xa0f70b0fccf0945f6adc4955c83d54ddf0ed3eaf",
       "symbol": "STETH",
-      "rank": 91,
-      "balance": 5.406890494274494e+21,
+      "rank": 89,
+      "balance": 5.428879334233969e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x6decd32f5a2ab9b43bc6ad8923eb6d2395de145b",
       "symbol": "STETH",
-      "rank": 92,
-      "balance": 5.38252489400985e+21,
+      "rank": 90,
+      "balance": 5.404414643505906e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x4005000d00d06992e475df00dd6e9b91f6aade2e",
       "symbol": "STETH",
-      "rank": 93,
-      "balance": 5.362991223483696e+21,
+      "rank": 91,
+      "balance": 5.384801533095501e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x839f654749f493f5407bde26556e5052376f144e",
       "symbol": "STETH",
-      "rank": 94,
-      "balance": 5.355599968653213e+21,
+      "rank": 92,
+      "balance": 5.377380219376321e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xd1eeb369f312d0de3dd4812cfaabe052327d6b54",
       "symbol": "STETH",
-      "rank": 95,
-      "balance": 5.269730764001111e+21,
+      "rank": 93,
+      "balance": 5.291161800291164e+21,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x7e97f06c4123c201111e5d4ef25733d1ea3d79d0",
       "symbol": "STETH",
-      "rank": 96,
-      "balance": 5.204236405774894e+21,
-      "share": 0.06,
+      "rank": 94,
+      "balance": 5.225401088425493e+21,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x740e59f165706f5c94cd52683c62ad8ad0124a97",
+      "symbol": "STETH",
+      "rank": 95,
+      "balance": 5.215033300639668e+21,
+      "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x278f97579f5ea3e29c9c62921fab28b298d4f482",
       "symbol": "STETH",
-      "rank": 97,
-      "balance": 5.19018519522407e+21,
-      "share": 0.06,
+      "rank": 96,
+      "balance": 5.211292734157709e+21,
+      "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x8ff263c1eef8e150af5c3469a97ef339cd89d7b9",
       "symbol": "STETH",
+      "rank": 97,
+      "balance": 5.206984079742378e+21,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+      "symbol": "STETH",
       "rank": 98,
-      "balance": 5.185893992350125e+21,
-      "share": 0.06,
+      "balance": 5.195732010187329e+21,
+      "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x10d34b5dec4025b96c3b2d4773f2c0984d987d95",
       "symbol": "STETH",
       "rank": 99,
-      "balance": 5.15131251299471e+21,
-      "share": 0.06,
+      "balance": 5.172261963801866e+21,
+      "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0x1982b2f5814301d4e9a8b0201555376e62f82428",
+      "address": "0xe34bb624055b171d777eccbbfc3baaeeffbe432c",
       "symbol": "STETH",
       "rank": 100,
-      "balance": 5.137667986765448e+21,
-      "share": 0.06,
+      "balance": 5.160392155643093e+21,
+      "share": 0.05,
       "last_tx": null
     }
   ]
