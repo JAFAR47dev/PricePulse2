@@ -23,7 +23,9 @@ async def start_set_alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     plan = get_user_plan(user_id)
     pro = is_pro_plan(plan)
-
+    
+    
+    
     context.user_data["alert_flow"] = {"step": "select_type"}
 
     # ------------------------------------
@@ -380,31 +382,40 @@ async def set_alert_message_router(update, context):
 
 from handlers.fav.fav_handler import fav_text_handler
 from handlers.broadcast import broadcast_message_handler
+from notifications.handlers.delivery_handler import catch_group_forward
 
 async def global_text_router(update, context):
     ud = context.user_data
     print("DEBUG global router:", ud)
 
-    # Priority 1: /broadcast flow (admin only)
-    if ud.get("broadcast_mode"):
+    # Priority 1: /broadcast flow
+    if ud.get("broadcast_mode") is True:
         return await broadcast_message_handler(update, context)
 
     # Priority 2: /set flow
-    if ud.get("alert_flow"):
+    if ud.get("alert_flow") :
         return await set_alert_message_router(update, context)
 
     # Priority 3: /fav flow
-    if ud.get("fav_mode"):
+    if ud.get("fav_mode") :
         return await fav_text_handler(update, context)
-
-    # Not in any mode → ignore
-    return
     
+    # Priority 4: Group delivery setup
+    if ud.get("awaiting_group_forward") is True:
+        return await catch_group_forward(update, context)
+
+    return
+
            
     # Ignore unrelated messages
 def register_set_handlers(app):
-    # /set command
-    app.add_handler(CommandHandler("set", start_set_alert))
+    """
+    Register all handlers for the /set alert system
+    """
+    # ✅ FIX: Use set_alert (with argument detection) instead of start_set_alert
+    from handlers.set_alert.set_alert import set_alert  # Import the main handler
+    
+    app.add_handler(CommandHandler("set", set_alert))  # Changed from start_set_alert
 
     app.add_handler(CallbackQueryHandler(handle_upgrade_required, pattern="^upgrade_required$"))
     
@@ -423,4 +434,3 @@ def register_set_handlers(app):
     )  
   
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, global_text_router))
-    

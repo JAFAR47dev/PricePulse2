@@ -1,5 +1,6 @@
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
+from telegram.constants import ParseMode
 from stats.models import get_stats
 import os
 from dotenv import load_dotenv
@@ -26,51 +27,48 @@ async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     stats = get_stats()
 
-    # Format message
+    # Format message with HTML
     msg = (
-        "*📊 PricePulseBot Statistics*\n\n"
+        "📊 <b>PricePulseBot Statistics</b>\n\n"
 
-        "👥 *Users Summary*\n"
-        f"• Total Users: `{stats['total_users']}`\n"
-        f"• Pro Users: `{stats['pro_users']}`\n"
-        f"• Free Users: `{stats['free_users']}`\n\n"
+        "👥 <b>Users Summary</b>\n"
+        f"• Total Users: <code>{stats['total_users']}</code>\n"
+        f"• Pro Users: <code>{stats['pro_users']}</code>\n"
+        f"• Free Users: <code>{stats['free_users']}</code>\n\n"
 
-        "📈 *Active Users*\n"
-        f"• Last 24h: `{stats.get('active_24h', 0)}`\n"
-        f"• Last 7d: `{stats.get('active_7d', 0)}`\n"
-        f"• Last 30d: `{stats.get('active_30d', 0)}`\n\n"
+        "📈 <b>Active Users</b>\n"
+        f"• Last 24h: <code>{stats.get('active_24h', 0)}</code>\n"
+        f"• Last 7d: <code>{stats.get('active_7d', 0)}</code>\n"
+        f"• Last 30d: <code>{stats.get('active_30d', 0)}</code>\n\n"
 
-        "🔔 *Alerts by Type*\n"
-        f"• Price: `{stats['alerts']}`\n"
-        f"• Percent: `{stats['percent_alerts']}`\n"
-        f"• Volume: `{stats['volume_alerts']}`\n"
-        f"• Risk: `{stats['risk_alerts']}`\n"
-        f"• Indicator: `{stats['indicator_alerts']}`\n"
-        f"• Portfolio: `{stats['portfolio_alerts']}`\n"
-        f"• Watchlist: `{stats['watchlist']}`\n\n"
+        "🔔 <b>Alerts by Type</b>\n"
+        f"• Price: <code>{stats['alerts']}</code>\n"
+        f"• Percent: <code>{stats['percent_alerts']}</code>\n"
+        f"• Volume: <code>{stats['volume_alerts']}</code>\n"
+        f"• Risk: <code>{stats['risk_alerts']}</code>\n"
+        f"• Indicator: <code>{stats['indicator_alerts']}</code>\n"
+        f"• Portfolio: <code>{stats['portfolio_alerts']}</code>\n"
+        f"• Watchlist: <code>{stats['watchlist']}</code>\n\n"
         
-         "⌨️ *Command Usage — Last 24h*\n"
+        "⌨️ <b>Command Usage — Last 24h</b>\n"
         f"• Top: {format_command_list(stats.get('top_commands_24h'))}\n"
         f"• Least: {format_command_list(stats.get('least_commands_24h'))}\n\n"
 
-        "⌨️ *Command Usage — Last 7 days*\n"
+        "⌨️ <b>Command Usage — Last 7 days</b>\n"
         f"• Top: {format_command_list(stats.get('top_commands_7d'))}\n"
         f"• Least: {format_command_list(stats.get('least_commands_7d'))}\n\n"
 
-        "⌨️ *Command Usage — Last 30 days*\n"
+        "⌨️ <b>Command Usage — Last 30 days</b>\n"
         f"• Top: {format_command_list(stats.get('top_commands_30d'))}\n"
         f"• Least: {format_command_list(stats.get('least_commands_30d'))}\n\n"
     
-        "🎯 *Engagement Stats*\n"
-        f"• Total Referrals: `{stats['total_referrals']}`\n"
-        f"• Top Referrer: `{stats['top_referrer'] or 'N/A'}` "
+        "🎯 <b>Engagement Stats</b>\n"
+        f"• Total Referrals: <code>{stats['total_referrals']}</code>\n"
+        f"• Top Referrer: <code>{stats['top_referrer'] or 'N/A'}</code> "
         f"({stats['top_referral_count']} referrals)\n\n"
-
-       
     )
-        
 
-    await update.message.reply_text(msg, parse_mode="Markdown")
+    await update.message.reply_text(msg, parse_mode=ParseMode.HTML)
 
 
 def register_stats_handler(app):

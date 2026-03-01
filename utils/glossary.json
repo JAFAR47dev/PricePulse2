@@ -1,7 +1,7 @@
 [
   {
     "term": "Bitcoin",
-    "description": "Bitcoin is the first cryptocurrency, created in 2009 by Satoshi Nakamoto. It’s a decentralized currency not controlled by any government."
+    "description": "Bitcoin is the first cryptocurrency, created in 2009 by Satoshi Nakamoto. It's a decentralized currency not controlled by any government."
   },
   {
     "term": "Ethereum",
@@ -125,10 +125,342 @@
   },
   {
     "term": "MACD",
-    "description": "Moving Average Convergence Divergence — a trend-following indicator showing the relationship between two moving averages of a coin’s price, often used to spot buy/sell momentum shifts."
+    "description": "Moving Average Convergence Divergence — a trend-following indicator showing the relationship between two moving averages of a coin's price, often used to spot buy/sell momentum shifts."
   },
   {
     "term": "SMA",
     "description": "Simple Moving Average — a basic moving average calculated by adding recent closing prices and dividing by the number of periods, giving equal weight to all data points."
+  },
+  {
+    "term": "Market Cap",
+    "description": "Market Capitalization — the total value of a cryptocurrency calculated by multiplying the current price by the circulating supply."
+  },
+  {
+    "term": "ATH",
+    "description": "All-Time High — the highest price a cryptocurrency has ever reached in its history."
+  },
+  {
+    "term": "ATL",
+    "description": "All-Time Low — the lowest price a cryptocurrency has ever reached in its history."
+  },
+  {
+    "term": "Proof of Work",
+    "description": "A consensus mechanism where miners solve complex mathematical problems to validate transactions and secure the network, used by Bitcoin."
+  },
+  {
+    "term": "Proof of Stake",
+    "description": "A consensus mechanism where validators are chosen to create new blocks based on the amount of crypto they hold and stake, used by Ethereum 2.0."
+  },
+  {
+    "term": "Layer 2",
+    "description": "Scaling solutions built on top of existing blockchains to increase transaction speed and reduce fees, like Polygon and Arbitrum."
+  },
+  {
+    "term": "Fork",
+    "description": "A split in the blockchain resulting in two separate versions, either planned (hard fork) or unplanned (soft fork)."
+  },
+  {
+    "term": "Hash Rate",
+    "description": "The computational power used to mine and process transactions on a blockchain, measured in hashes per second."
+  },
+  {
+    "term": "Cold Wallet",
+    "description": "An offline cryptocurrency wallet that stores private keys without internet connection, providing maximum security against hacks."
+  },
+  {
+    "term": "Hot Wallet",
+    "description": "An online cryptocurrency wallet connected to the internet for easy access and transactions, but more vulnerable to attacks."
+  },
+  {
+    "term": "Halving",
+    "description": "An event where the reward for mining new blocks is cut in half, occurring approximately every four years in Bitcoin to control supply."
+  },
+  {
+    "term": "P2P",
+    "description": "Peer-to-Peer — direct transactions between users without intermediaries, the core principle of cryptocurrency networks."
+  },
+  {
+    "term": "Node",
+    "description": "A computer connected to a blockchain network that maintains a copy of the ledger and helps validate transactions."
+  },
+  {
+    "term": "Mempool",
+    "description": "Memory Pool — a waiting area for unconfirmed transactions before they are added to a block on the blockchain."
+  },
+  {
+    "term": "Flash Loan",
+    "description": "An uncollateralized loan in DeFi that must be borrowed and repaid within the same transaction block, often used for arbitrage."
+  },
+  {
+    "term": "Slippage",
+    "description": "The difference between the expected price of a trade and the actual executed price, common in low-liquidity markets."
+  },
+  {
+    "term": "Impermanent Loss",
+    "description": "The temporary loss of funds experienced when providing liquidity to DeFi pools due to price volatility between paired assets."
+  },
+  {
+    "term": "Rugpull",
+    "description": "A scam where developers abandon a project and run away with investors' funds, common in new DeFi projects."
+  },
+  {
+    "term": "CEX",
+    "description": "Centralized Exchange — a trading platform controlled by a company that acts as an intermediary, like Binance or Coinbase."
+  },
+  {
+    "term": "DEX",
+    "description": "Decentralized Exchange — a trading platform that operates without a central authority, allowing direct peer-to-peer trading."
+  },
+  {
+    "term": "Wrapped Token",
+    "description": "A tokenized version of a cryptocurrency that allows it to be used on a different blockchain, like WBTC (Wrapped Bitcoin) on Ethereum."
+  },
+  {
+    "term": "Oracle",
+    "description": "A service that provides external real-world data to smart contracts on the blockchain, like Chainlink."
+  },
+  {
+    "term": "Volume",
+    "description": "The total amount of a cryptocurrency traded within a specific time period, indicating market activity and liquidity."
+  },
+  {
+    "term": "Candlestick",
+    "description": "A charting method that displays the open, high, low, and close prices for a specific period, used in technical analysis."
+  },
+  {
+    "term": "Support Level",
+    "description": "A price level where buying pressure is strong enough to prevent the price from falling further."
+  },
+  {
+    "term": "Resistance Level",
+    "description": "A price level where selling pressure is strong enough to prevent the price from rising further."
+  },
+  {
+    "term": "Bollinger Bands",
+    "description": "A volatility indicator consisting of three lines: a middle moving average and upper/lower bands that expand and contract based on price volatility."
+  },
+  {
+    "term": "Fibonacci Retracement",
+    "description": "A technical analysis tool using horizontal lines to indicate areas of potential support or resistance at key Fibonacci levels."
+  },
+  {
+    "term": "Order Book",
+    "description": "A real-time list of buy and sell orders for a specific cryptocurrency on an exchange, showing market depth and liquidity."
+  },
+  {
+    "term": "Limit Order",
+    "description": "An order to buy or sell cryptocurrency at a specific price or better, only executing when the market reaches that price."
+  },
+  {
+    "term": "Market Order",
+    "description": "An order to buy or sell cryptocurrency immediately at the best available current market price."
+  },
+  {
+    "term": "Stop Loss",
+    "description": "An automatic order that sells your cryptocurrency when it reaches a certain price to limit potential losses."
+  },
+  {
+    "term": "Take Profit",
+    "description": "An automatic order that sells your cryptocurrency when it reaches a certain price to lock in gains."
+  },
+  {
+    "term": "Arbitrage",
+    "description": "The practice of buying cryptocurrency on one exchange where the price is lower and selling it on another where the price is higher for profit."
+  },
+  {
+    "term": "Pump and Dump",
+    "description": "A manipulative scheme where a group artificially inflates a coin's price (pump) then sells at the peak, leaving late buyers with losses (dump)."
+  },
+  {
+    "term": "FOMO",
+    "description": "Fear Of Missing Out — the anxiety that drives investors to buy during price rallies, often leading to poor investment decisions."
+  },
+  {
+    "term": "FUD",
+    "description": "Fear, Uncertainty, and Doubt — negative information spread to influence perception and drive down cryptocurrency prices."
+  },
+  {
+    "term": "KYC",
+    "description": "Know Your Customer — identity verification required by exchanges and platforms to comply with regulations and prevent fraud."
+  },
+  {
+    "term": "AML",
+    "description": "Anti-Money Laundering — regulations and procedures that crypto platforms use to prevent illegal financial activities."
+  },
+  {
+    "term": "ATR",
+    "description": "Average True Range — a volatility indicator that measures the average range between high and low prices over a specific period."
+  },
+  {
+    "term": "Stochastic",
+    "description": "A momentum indicator that compares a cryptocurrency's closing price to its price range over a specific period, identifying overbought or oversold conditions."
+  },
+  {
+    "term": "CCI",
+    "description": "Commodity Channel Index — a momentum indicator that measures the current price level relative to an average price level over time."
+  },
+  {
+    "term": "MFI",
+    "description": "Money Flow Index — a volume-weighted momentum indicator that uses both price and volume to identify overbought or oversold conditions."
+  },
+  {
+    "term": "ADX",
+    "description": "Average Directional Index — a trend strength indicator that measures how strong a trend is, regardless of direction."
+  },
+  {
+    "term": "VWAP",
+    "description": "Volume Weighted Average Price — a trading benchmark that calculates the average price weighted by volume, showing the true average price."
+  },
+  {
+    "term": "Williams %R",
+    "description": "A momentum indicator that measures overbought and oversold levels by comparing the closing price to the high-low range over a specific period."
+  },
+  {
+    "term": "ROC",
+    "description": "Rate of Change — a momentum indicator that measures the percentage change in price between the current price and the price a certain number of periods ago."
+  },
+  {
+    "term": "OBV",
+    "description": "On-Balance Volume — a cumulative volume-based indicator that shows buying and selling pressure by adding volume on up days and subtracting on down days."
+  },
+  {
+    "term": "Shitcoin",
+    "description": "A cryptocurrency with little to no value, utility, or credible development team, often created as a joke or scam."
+  },
+  {
+    "term": "Memecoin",
+    "description": "A cryptocurrency based on internet memes or jokes, like Dogecoin or Shiba Inu, often driven by community hype rather than utility."
+  },
+  {
+    "term": "Altseason",
+    "description": "A period when altcoins outperform Bitcoin, typically characterized by significant price rallies across alternative cryptocurrencies."
+  },
+  {
+    "term": "DYOR",
+    "description": "Do Your Own Research — a reminder to independently verify information before making investment decisions rather than blindly following others."
+  },
+  {
+    "term": "Bagholder",
+    "description": "An investor holding a cryptocurrency that has significantly decreased in value, often waiting for a price recovery that may never come."
+  },
+  {
+    "term": "Moonshot",
+    "description": "A high-risk cryptocurrency investment with potential for massive returns, often referring to low-cap coins that could 'moon' or skyrocket in price."
+  },
+  {
+    "term": "Satoshi",
+    "description": "The smallest unit of Bitcoin, equal to 0.00000001 BTC, named after Bitcoin's creator Satoshi Nakamoto."
+  },
+  {
+    "term": "Wei",
+    "description": "The smallest unit of Ether (ETH), equal to 0.000000000000000001 ETH, used for gas fee calculations."
+  },
+  {
+    "term": "Gwei",
+    "description": "A denomination of Ether equal to 1 billion wei, commonly used to measure Ethereum gas prices."
+  },
+  {
+    "term": "Consensus",
+    "description": "The process by which all nodes in a blockchain network agree on the current state of the ledger and validate new transactions."
+  },
+  {
+    "term": "Merkle Tree",
+    "description": "A data structure used in blockchains to efficiently and securely verify the integrity of large sets of data through cryptographic hashing."
+  },
+  {
+    "term": "Nonce",
+    "description": "A 'number only used once' in cryptographic mining that miners change repeatedly to find a valid hash meeting the difficulty requirement."
+  },
+  {
+    "term": "Difficulty",
+    "description": "A measure of how hard it is to mine a new block on a blockchain, automatically adjusted to maintain consistent block creation times."
+  },
+  {
+    "term": "Timestamp",
+    "description": "The exact date and time when a block was mined and added to the blockchain, creating an immutable chronological record."
+  },
+  {
+    "term": "Distributed Ledger",
+    "description": "A database that is consensually shared and synchronized across multiple locations without a central administrator."
+  },
+  {
+    "term": "Immutable",
+    "description": "A blockchain property meaning that once data is recorded, it cannot be altered or deleted, ensuring permanent record-keeping."
+  },
+  {
+    "term": "Cryptography",
+    "description": "The practice of secure communication through mathematical algorithms, fundamental to blockchain security and cryptocurrency transactions."
+  },
+  {
+    "term": "Hash",
+    "description": "A cryptographic function that converts input data into a fixed-size string of characters, used to secure blockchain data."
+  },
+  {
+    "term": "SHA-256",
+    "description": "Secure Hash Algorithm 256-bit — the cryptographic hash function used by Bitcoin to secure transactions and mining."
+  },
+  {
+    "term": "ERC-20",
+    "description": "Ethereum Request for Comment 20 — the technical standard for fungible tokens created on the Ethereum blockchain."
+  },
+  {
+    "term": "ERC-721",
+    "description": "The technical standard for non-fungible tokens (NFTs) on the Ethereum blockchain, ensuring each token is unique."
+  },
+  {
+    "term": "Gas Limit",
+    "description": "The maximum amount of gas units you're willing to spend on an Ethereum transaction, preventing runaway costs."
+  },
+  {
+    "term": "Gas Price",
+    "description": "The amount you're willing to pay per unit of gas for an Ethereum transaction, measured in gwei."
+  },
+  {
+    "term": "Burning",
+    "description": "The permanent removal of cryptocurrency from circulation by sending it to an unusable wallet address, often to reduce supply."
+  },
+  {
+    "term": "Minting",
+    "description": "The process of creating new cryptocurrency tokens or NFTs and adding them to the circulating supply."
+  },
+  {
+    "term": "Validator",
+    "description": "A participant in a Proof of Stake network who validates transactions and creates new blocks in exchange for staking rewards."
+  },
+  {
+    "term": "Epoch",
+    "description": "A fixed time period in a blockchain network during which validators perform their duties, commonly used in Proof of Stake systems."
+  },
+  {
+    "term": "Rollup",
+    "description": "A Layer 2 scaling solution that processes transactions off-chain and posts summarized data to the main blockchain, reducing fees and increasing speed."
+  },
+  {
+    "term": "Sidechain",
+    "description": "A separate blockchain that runs parallel to the main chain, allowing assets to move between chains while maintaining independence."
+  },
+  {
+    "term": "Bridge",
+    "description": "A protocol that connects two blockchains, allowing users to transfer assets and data between different networks."
+  },
+  {
+    "term": "Cross-chain",
+    "description": "Technology that enables interaction and asset transfers between different blockchain networks."
+  },
+  {
+    "term": "Interoperability",
+    "description": "The ability of different blockchain networks to communicate, share data, and work together seamlessly."
+  },
+  {
+    "term": "Mainnet",
+    "description": "The primary, fully functional blockchain network where real transactions occur with actual value, as opposed to test networks."
+  },
+  {
+    "term": "Testnet",
+    "description": "A separate blockchain network used by developers to test features and applications without risking real funds."
+  },
+  {
+    "term": "Genesis Block",
+    "description": "The very first block in a blockchain, hardcoded into the protocol and serving as the foundation for all subsequent blocks."
   }
 ]

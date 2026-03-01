@@ -10,7 +10,6 @@ import asyncio
 from datetime import datetime
 from telegram.ext import ContextTypes
 from telegram import Bot
-from services.ai_strategy_checker import check_ai_strategies
 import traceback
 from services.alert_checkers import (
     check_price_alerts,
@@ -149,6 +148,3 @@ def start_alert_checker(job_queue):
     from telegram.ext import ContextTypes
     job_queue.run_repeating(check_alerts, interval=20, first=10)
     
-
-async def run_ai_strategy_checker(context: ContextTypes.DEFAULT_TYPE):
-    await check_ai_strategies(context.bot)

@@ -3,16 +3,23 @@ import datetime
 import os
 import json
 from dotenv import load_dotenv
+from telegram import Update
+from telegram.ext import ContextTypes
+from telegram.constants import ParseMode
 from tasks.handlers import handle_streak
 from models.user_activity import update_last_active
 
 load_dotenv()
 COINGECKO_API_KEY = os.getenv("COINGECKO_API_KEY")
 
-# --- Helper to select today's coin ---
+
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
+
 def get_daily_symbol():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    ids_path = os.path.join(base_dir, "../utils/coingecko_ids.json")
+    ids_path = os.path.join(base_dir, "../services/top200_coingecko_ids.json")
 
     with open(ids_path) as f:
         symbol_to_id = json.load(f)
@@ -23,7 +30,8 @@ def get_daily_symbol():
     coin_id = symbol_to_id[symbol]
 
     return symbol, coin_id
-    
+
+
 def safe_fetch_coin(coin_id, headers):
     try:
         url = f"https://api.coingecko.com/api/v3/coins/{coin_id}"
@@ -34,6 +42,48 @@ def safe_fetch_coin(coin_id, headers):
         print(f"[Coin of the Day] Error fetching {coin_id}:", e)
         return None
 
+
+# ============================================================================
+# DATA FUNCTION (for notifications)
+# ============================================================================
+
+def get_coin_of_the_day_data() -> dict:
+    """
+    Fetch Coin of the Day and return raw data as dict.
+    
+    Returns:
+        dict: {'coin': str, 'reason': str} or empty dict on error
+    """
+    try:
+        symbol, coin_id = get_daily_symbol()
+
+        headers = {"accept": "application/json"}
+        if COINGECKO_API_KEY:
+            headers["x-cg-demo-api-key"] = COINGECKO_API_KEY
+
+        data = safe_fetch_coin(coin_id, headers)
+        if not data:
+            return {}
+
+        coin_name = data.get("name", "Unknown")
+        desc = data.get("description", {}).get("en", "")
+        
+        # Extract first sentence as reason
+        reason = desc.split(".")[0][:100] if desc else "Trending today"
+
+        return {
+            "coin": f"{coin_name} ({symbol.upper()})",
+            "reason": reason
+        }
+
+    except Exception as e:
+        print("[Coin of the Day] Error:", e)
+        return {}
+
+
+# ============================================================================
+# MESSAGE FUNCTION (for Telegram commands)
+# ============================================================================
 
 def get_coin_of_the_day() -> str:
     """Fetch Coin of the Day info and return a formatted string."""
@@ -60,20 +110,17 @@ def get_coin_of_the_day() -> str:
             f"📊 24h Change: {change:+.2f}%\n"
             f"📈 Market Cap: ${market_cap / 1e9:.2f}B\n"
             f"🔍 Use Case: {desc}\n\n"
-            f"✨ Want full charts, portfolio tracking & alerts?\n"
-            f"👉 /upgrade"
         )
         return text
 
     except Exception as e:
         print("[Coin of the Day] Error:", e)
         return "⚠️ Couldn't fetch Coin of the Day. Try again later."
-        
 
-# --- Keep original Telegram command ---
-from telegram import Update
-from telegram.ext import ContextTypes
-from telegram.constants import ParseMode
+
+# ============================================================================
+# TELEGRAM COMMAND HANDLER
+# ============================================================================
 
 async def coin_of_the_day(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id

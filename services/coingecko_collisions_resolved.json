@@ -1,0 +1,30 @@
+{
+  "btc": {
+    "coin_id": "bitcoin",
+    "name": "Bitcoin",
+    "market_cap": 1564121371983,
+    "timestamp": 1770123291.8062427,
+    "total_candidates": 11
+  },
+  "xrp": {
+    "coin_id": "ripple",
+    "name": "XRP",
+    "market_cap": 96053411991,
+    "timestamp": 1770160475.5768218,
+    "total_candidates": 5
+  },
+  "shib": {
+    "coin_id": "shiba-inu",
+    "name": "Shiba Inu",
+    "market_cap": 3960036085,
+    "timestamp": 1770160824.6647303,
+    "total_candidates": 8
+  },
+  "paxg": {
+    "coin_id": "pax-gold",
+    "name": "PAX Gold",
+    "market_cap": 2222425832,
+    "timestamp": 1770160877.7552505,
+    "total_candidates": 2
+  }
+}

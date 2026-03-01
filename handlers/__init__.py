@@ -3,7 +3,7 @@ from telegram.ext import (
     ApplicationBuilder, CommandHandler, CallbackQueryHandler,
     ConversationHandler, MessageHandler, ContextTypes, filters
 )
-
+from config import ADMIN_ID
 from handlers.broadcast import register_broadcast_handlers
 from handlers.set_alert.flow_manager import register_set_handlers
 from .alert_handlers import register_alert_handlers
@@ -26,7 +26,6 @@ from .upgrade import (
     show_payment_instructions, confirm_payment
 )
 from .best_gainers import best_gainers, best_callback_handler
-from .calendar import calendar_command
 from .coin_alias_handler import (
     handle_chart_button, handle_add_alert_button,
     coin_alias_handler, coin_command_router 
@@ -48,21 +47,22 @@ send_learn_page
 from .links import links_command
 from .markets import markets_command
 from .news import crypto_news
-from .prediction import predict_command
 from .referral import referral_command
 from .start import (
-    start_command, 
-    handle_upgrade_menu,
-    handle_how_it_helps, 
-    handle_alerts,
-    handle_markets,
-    handle_trade,
-    handle_portfolio,
-    handle_ai,
-    handle_learn,
-    handle_account,
-    handle_back_to_start
-)
+       start_command,
+       handle_start_hold,
+       handle_start_strategy,
+       handle_start_levels,
+       handle_start_alerts,
+       handle_start_movers,
+       handle_start_movers_refresh,
+       handle_start_movers_24h,
+       handle_start_analysis,
+       handle_start_pro,
+       handle_start_commands,
+       handle_start_account,
+       handle_start_back,
+   )
 from .menu import (
     menu_command,
     support_command,
@@ -70,9 +70,9 @@ from .menu import (
     handle_menu_markets,
     handle_menu_trade,
     handle_menu_portfolio,
-    handle_menu_ai,
+    handle_menu_popular_commands,
     handle_menu_learn,
-    handle_menu_how_it_helps,
+    handle_menu_pro_features,
     handle_menu_upgrade,
     handle_menu_account,
     handle_back_to_menu
@@ -89,13 +89,12 @@ from .strategy_builder import (
     cancel_strategy_callback,
     AWAITING_STRATEGY_INPUT
 )
-from .backtest import backtest_command
+from .backtest import backtest_command, backtest_callback_handler
 from .aiscan import aiscan_command
 from .screener import (
     screener_command, 
     screener_callback
 )
-from .prediction import predict_command
 from whales.handlers.track import register_track_handler
 from whales.handlers.mywhales import register_mywhales_handler
 from whales.handlers.untrack import register_untrack_handler
@@ -108,14 +107,29 @@ from notifications.handlers.notify_menu import register_notify_handlers
 from .add_to_group import add_to_group
 from .myplan import myplan
 from .signals import signals_command
+from .regime import (
+	regime_command,
+	regime_callback_handler
+	)
+from .today import today_command
+from .levels import levels_command
+from .analysis import analysis_command
+from .macro import macro_command
+from .fundamentals import register_fundamentals_handlers
+from .privacy import register_privacy_handler
+from .hold import register_hold_handler
+from .setup import register_setup_handlers
+from .risk import risk_command
+from .movers import register_movers_handlers
+
 
 
 def register_all_handlers(app):
         
        register_alert_handlers(app)
-       register_track_handler(app)
-       register_mywhales_handler(app)
-       register_untrack_handler(app)
+       #register_track_handler(app)
+       #register_mywhales_handler(app)
+       #register_untrack_handler(app)
        register_global_handler(app) 
        register_feedback_handler(app)
        register_stats_handler(app)
@@ -123,26 +137,35 @@ def register_all_handlers(app):
        register_notify_handlers(app) 
        register_set_handlers(app)
        register_broadcast_handlers(app)
-       
+       #register_fundamentals_handlers(app)
+       register_privacy_handler(app)
+       register_hold_handler(app)
+       register_setup_handlers(app)
+       register_movers_handlers(app)
+    
+
+
        app.add_handler(CommandHandler("start", start_command))
-       app.add_handler(CallbackQueryHandler(handle_upgrade_menu, pattern="^upgrade_menu$"))
-       app.add_handler(CallbackQueryHandler(handle_how_it_helps, pattern="^how_it_helps$"))
-       app.add_handler(CallbackQueryHandler(handle_alerts, pattern="^alerts$"))
-       app.add_handler(CallbackQueryHandler(handle_markets, pattern="^markets$"))
-       app.add_handler(CallbackQueryHandler(handle_trade, pattern="^trade$"))
-       app.add_handler(CallbackQueryHandler(handle_portfolio, pattern="^portfolio$"))
-       app.add_handler(CallbackQueryHandler(handle_ai, pattern="^ai$"))
-       app.add_handler(CallbackQueryHandler(handle_learn, pattern="^learn$"))
-       app.add_handler(CallbackQueryHandler(handle_account, pattern="^account$"))
-       app.add_handler(CallbackQueryHandler(handle_back_to_start, pattern="^back_to_start$"))
+       app.add_handler(CallbackQueryHandler(handle_start_hold,     pattern="^start_hold$"))
+       app.add_handler(CallbackQueryHandler(handle_start_strategy, pattern="^start_strategy$"))
+       app.add_handler(CallbackQueryHandler(handle_start_levels,   pattern="^start_levels$"))
+       app.add_handler(CallbackQueryHandler(handle_start_alerts,   pattern="^start_alerts$"))
+       app.add_handler(CallbackQueryHandler(handle_start_movers,   pattern="^start_movers$"))
+       app.add_handler(CallbackQueryHandler(handle_start_movers_refresh, pattern="^start_movers_refresh$"))
+       app.add_handler(CallbackQueryHandler(handle_start_movers_24h,     pattern="^start_movers_24h$"))
+       app.add_handler(CallbackQueryHandler(handle_start_analysis, pattern="^start_analysis$"))
+       app.add_handler(CallbackQueryHandler(handle_start_pro,      pattern="^start_pro$"))
+       app.add_handler(CallbackQueryHandler(handle_start_commands, pattern="^start_commands$"))
+       app.add_handler(CallbackQueryHandler(handle_start_account,  pattern="^start_account$"))
+       app.add_handler(CallbackQueryHandler(handle_start_back,     pattern="^start_back$"))
        app.add_handler(CommandHandler("menu", menu_command))
        app.add_handler(CallbackQueryHandler(handle_menu_alerts, pattern="^menu_alerts$"))
        app.add_handler(CallbackQueryHandler(handle_menu_markets, pattern="^menu_markets$"))
        app.add_handler(CallbackQueryHandler(handle_menu_trade, pattern="^menu_trade$"))
        app.add_handler(CallbackQueryHandler(handle_menu_portfolio, pattern="^menu_portfolio$"))
-       app.add_handler(CallbackQueryHandler(handle_menu_ai, pattern="^menu_ai$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_pro_features, pattern="^menu_pro_features$"))
        app.add_handler(CallbackQueryHandler(handle_menu_learn, pattern="^menu_learn$"))
-       app.add_handler(CallbackQueryHandler(handle_menu_how_it_helps, pattern="^menu_how_it_helps$"))
+       app.add_handler(CallbackQueryHandler(handle_menu_popular_commands, pattern="^menu_popular_commands$"))
        app.add_handler(CallbackQueryHandler(handle_menu_upgrade, pattern="^menu_upgrade$"))
        app.add_handler(CallbackQueryHandler(handle_menu_account, pattern="^menu_account$"))
        app.add_handler(CallbackQueryHandler(handle_back_to_menu, pattern="^back_to_menu$"))
@@ -151,6 +174,13 @@ def register_all_handlers(app):
        app.add_handler(CallbackQueryHandler(handle_help_pagination, pattern=r"^help_"))
        app.add_handler(CommandHandler("referral", referral_command))
        app.add_handler(CommandHandler("prolist", pro_user_list))
+       app.add_handler(CommandHandler("regime", regime_command))
+       app.add_handler(CallbackQueryHandler(regime_callback_handler, pattern="^regime_"))
+       app.add_handler(CommandHandler("today", today_command))
+       app.add_handler(CommandHandler("levels", levels_command))
+       #app.add_handler(CommandHandler("macro", macro_command))
+       app.add_handler(CommandHandler("analysis", analysis_command))
+       app.add_handler(CommandHandler("risk", risk_command))
        app.add_handler(CommandHandler("myplan", myplan))
        app.add_handler(CommandHandler("upgrade", upgrade_menu))              
        app.add_handler(CallbackQueryHandler(upgrade_menu, pattern="^upgrade_menuu$"))
@@ -182,7 +212,6 @@ def register_all_handlers(app):
        ))
        app.add_handler(CommandHandler("setplan", set_plan))
        app.add_handler(CommandHandler("cod", coin_of_the_day))
-       app.add_handler(CommandHandler("cal", calendar_command))
        app.add_handler(CommandHandler("hmap", heatmap_command))
        app.add_handler(CommandHandler("conv", convert_command))
        app.add_handler(CommandHandler("calc", calc_command))
@@ -223,12 +252,12 @@ def register_all_handlers(app):
 #       app.add_handler(CallbackQueryHandler(confirm_strategy_callback, pattern="^confirm_strategy$"))
 #       app.add_handler(CallbackQueryHandler(cancel_strategy_callback, pattern="^cancel_strategy$"))
        app.add_handler(CommandHandler("bt", backtest_command))
+       app.add_handler(CallbackQueryHandler(backtest_callback_handler, pattern="^bt_"))
        app.add_handler(CommandHandler("aiscan", aiscan_command))
        app.add_handler(CommandHandler("screen", screener_command))
-       app.add_handler(CommandHandler("prediction", predict_command)) 
        app.add_handler(CallbackQueryHandler(screener_callback, pattern=r"^screener_"))               
        app.add_handler(MessageHandler(
-        filters.TEXT & filters.Regex(r"^/[a-zA-Z]{2,10}$"), 
+        filters.TEXT & filters.Regex(r"^/[a-zA-Z]{1,10}$"), 
         coin_command_router
     ))
        app.add_handler(CallbackQueryHandler(handle_chart_button, pattern=r"^chart_"))

@@ -18,7 +18,7 @@ HEADERS = {"x-cg-demo-api-key": COINGECKO_API_KEY} if COINGECKO_API_KEY else {}
 
 # Load CoinGecko symbol-to-ID mapping
 base_dir = os.path.dirname(os.path.abspath(__file__))
-ids_path = os.path.join(base_dir, "../utils/coingecko_ids.json")
+ids_path = os.path.join(base_dir, "../services/top200_coingecko_ids.json")
 
 try:
     with open(ids_path, "r") as f:

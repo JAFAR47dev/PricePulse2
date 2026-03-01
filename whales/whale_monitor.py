@@ -1,142 +1,117 @@
-import os
-import json
 import asyncio
 import httpx
-import aiofiles
-from datetime import datetime, timedelta
-from dotenv import load_dotenv
-from telegram import Bot
-from telegram.error import TelegramError, RetryAfter, TimedOut
-from typing import Dict, List, Optional, Any
+import json
+import os
 import time
+from datetime import datetime
+from typing import List, Dict, Optional, Set
+from pathlib import Path
 
-# === Load environment variables ===
-load_dotenv()
-ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY")
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-
-if not ETHERSCAN_API_KEY or not TELEGRAM_BOT_TOKEN:
-    raise ValueError("Missing required environment variables: ETHERSCAN_API_KEY or TELEGRAM_BOT_TOKEN")
-
-bot = Bot(token=TELEGRAM_BOT_TOKEN)
-
-# === Directories ===
-WHALE_DATA_DIR = "whales/data"
-USER_TRACK_FILE = "whales/user_tracking.json"
-STATE_FILE = "whales/last_seen.json"
-os.makedirs(WHALE_DATA_DIR, exist_ok=True)
+# ============================================================================
+# CONFIGURATION
+# ============================================================================
 
 ETHERSCAN_BASE = "https://api.etherscan.io/api"
-
-# === Configuration ===
+ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY", "YOUR_API_KEY_HERE")
 MAX_RETRIES = 3
-RETRY_DELAY = 2  # seconds
-REQUEST_TIMEOUT = 15.0
-RATE_LIMIT_DELAY = 0.2  # 200ms between API calls (5 req/sec)
-STATE_CLEANUP_DAYS = 30  # Remove entries older than 30 days
-MAX_STATE_ENTRIES = 10000  # Prevent unbounded growth
+REQUEST_TIMEOUT = 30.0
+RETRY_DELAY = 2
+STATE_CLEANUP_DAYS = 7
 
+# File paths
+STATE_FILE = "whales/last_seen.json"
+USER_TRACK_FILE = "whales/user_tracking.json"
+WHALE_DATA_DIR = "whales/data"
 
-# === Rate limiter ===
+# Monitoring settings
+WHALE_CHECK_INTERVAL = 300  # 5 minutes
+MAX_CONCURRENT_REQUESTS = 10  # Limit concurrent API calls
+ALERT_DELAY = 0.3  # Delay between sending alerts
+
+# ============================================================================
+# RATE LIMITER
+# ============================================================================
+
 class RateLimiter:
-    """Simple rate limiter for API calls"""
-    def __init__(self, min_interval: float):
-        self.min_interval = min_interval
+    """Simple rate limiter to avoid overwhelming APIs"""
+    def __init__(self, delay=0.2):
+        self.delay = delay
         self.last_call = 0
+        self.lock = asyncio.Lock()
     
     async def wait(self):
-        """Wait if necessary to respect rate limit"""
-        now = time.time()
-        time_since_last = now - self.last_call
-        if time_since_last < self.min_interval:
-            await asyncio.sleep(self.min_interval - time_since_last)
-        self.last_call = time.time()
+        async with self.lock:
+            now = asyncio.get_event_loop().time()
+            time_since_last = now - self.last_call
+            if time_since_last < self.delay:
+                await asyncio.sleep(self.delay - time_since_last)
+            self.last_call = asyncio.get_event_loop().time()
 
+rate_limiter = RateLimiter()
 
-rate_limiter = RateLimiter(RATE_LIMIT_DELAY)
+# ============================================================================
+# FILE I/O HELPERS
+# ============================================================================
 
-
-# === Helper: Load/save user tracking with async file I/O ===
-async def load_json_async(path: str, default: Any = None) -> Dict:
+async def load_json_async(filepath: str, default=None):
     """Load JSON file asynchronously"""
-    if not os.path.exists(path):
-        return default or {}
-    
     try:
-        async with aiofiles.open(path, "r") as f:
-            content = await f.read()
-            if not content.strip():
-                return default or {}
-            return json.loads(content)
-    except json.JSONDecodeError as e:
-        print(f"⚠️ Error parsing JSON from {path}: {e}")
-        return default or {}
-    except Exception as e:
-        print(f"⚠️ Error loading {path}: {e}")
-        return default or {}
-
-
-async def save_json_async(path: str, data: Dict) -> bool:
-    """Save JSON file asynchronously with atomic write"""
-    try:
-        # Write to temporary file first
-        temp_path = f"{path}.tmp"
-        async with aiofiles.open(temp_path, "w") as f:
-            await f.write(json.dumps(data, indent=2))
+        path = Path(filepath)
+        if not path.exists():
+            return default if default is not None else {}
         
-        # Atomic rename
-        os.replace(temp_path, path)
+        # Use asyncio to avoid blocking
+        loop = asyncio.get_event_loop()
+        content = await loop.run_in_executor(None, path.read_text)
+        return json.loads(content)
+    except Exception as e:
+        print(f"⚠️ Error loading {filepath}: {e}")
+        return default if default is not None else {}
+
+async def save_json_async(filepath: str, data):
+    """Save JSON file asynchronously"""
+    try:
+        path = Path(filepath)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        
+        # Use asyncio to avoid blocking
+        loop = asyncio.get_event_loop()
+        content = json.dumps(data, indent=2)
+        await loop.run_in_executor(None, path.write_text, content)
         return True
     except Exception as e:
-        print(f"⚠️ Error saving {path}: {e}")
+        print(f"⚠️ Error saving {filepath}: {e}")
         return False
 
-
-def load_json_sync(path: str, default: Any = None) -> Dict:
-    """Synchronous JSON loader (for backwards compatibility)"""
-    if not os.path.exists(path):
-        return default or {}
+def cleanup_old_state(state: Dict, max_age_days: int = STATE_CLEANUP_DAYS) -> Dict:
+    """Remove state entries older than max_age_days"""
+    if not isinstance(state, dict):
+        return {}
     
-    try:
-        with open(path, "r") as f:
-            content = f.read()
-            if not content.strip():
-                return default or {}
-            return json.loads(content)
-    except Exception as e:
-        print(f"⚠️ Error loading {path}: {e}")
-        return default or {}
-
-
-def save_json_sync(path: str, data: Dict) -> bool:
-    """Synchronous JSON saver (for backwards compatibility)"""
-    try:
-        with open(path, "w") as f:
-            json.dump(data, f, indent=2)
-        return True
-    except Exception as e:
-        print(f"⚠️ Error saving {path}: {e}")
-        return False
-
-
-# === Cleanup old state entries ===
-def cleanup_old_state(last_seen: Dict, max_age_days: int = STATE_CLEANUP_DAYS) -> Dict:
-    """Remove old entries to prevent unbounded growth"""
-    if len(last_seen) <= MAX_STATE_ENTRIES:
-        return last_seen
+    cutoff_time = time.time() - (max_age_days * 86400)
+    cleaned = {}
+    removed_count = 0
     
-    # Remove oldest entries if too many
-    sorted_items = sorted(last_seen.items(), key=lambda x: x[1].get("timestamp", 0), reverse=True)
-    cleaned = dict(sorted_items[:MAX_STATE_ENTRIES])
+    for key, value in state.items():
+        if isinstance(value, dict):
+            timestamp = value.get("timestamp", 0)
+            if timestamp > cutoff_time:
+                cleaned[key] = value
+            else:
+                removed_count += 1
+        else:
+            # Keep old format entries for now (migration)
+            cleaned[key] = value
     
-    removed = len(last_seen) - len(cleaned)
-    if removed > 0:
-        print(f"🧹 Cleaned up {removed} old state entries")
+    if removed_count > 0:
+        print(f"🧹 Cleaned up {removed_count} old state entries")
     
     return cleaned
 
+# ============================================================================
+# ETHERSCAN API
+# ============================================================================
 
-# === Fetch latest transactions from Etherscan with retry ===
 async def fetch_whale_transactions(
     address: str,
     contract: str,
@@ -169,8 +144,9 @@ async def fetch_whale_transactions(
                     
                     # Check for API errors
                     if data.get("status") == "0" and "rate limit" in data.get("message", "").lower():
-                        print(f"⚠️ Etherscan rate limit hit, waiting...")
-                        await asyncio.sleep(RETRY_DELAY * (attempt + 1))
+                        wait_time = RETRY_DELAY * (attempt + 1)
+                        print(f"⚠️ Etherscan rate limit hit, waiting {wait_time}s...")
+                        await asyncio.sleep(wait_time)
                         continue
                     
                     if data.get("status") == "1" and data.get("result"):
@@ -201,84 +177,201 @@ async def fetch_whale_transactions(
     
     return []
 
+# ============================================================================
+# ALERT SENDING (Mock - Replace with your implementation)
+# ============================================================================
 
-# === Detect large movements ===
-def is_large_transaction(tx: Dict) -> bool:
-    """
-    Simple heuristic — treat as 'large' if > 500k tokens.
-    You can refine this logic later using live price data.
-    """
+async def send_whale_alert(user_id: str, message: str) -> bool:
+    """Send alert to user via Telegram"""
     try:
-        value = float(tx.get("value", 0)) / (10 ** int(tx.get("tokenDecimal", 18)))
-        return value > 500_000  # placeholder threshold
-    except (ValueError, TypeError, ZeroDivisionError):
+        # Get bot token from environment
+        bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
+        if not bot_token:
+            print("⚠️ TELEGRAM_BOT_TOKEN not set in environment")
+            return False
+        
+        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+        
+        payload = {
+            "chat_id": user_id,
+            "text": message,
+            "parse_mode": "Markdown",
+            "disable_web_page_preview": True
+        }
+        
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            response = await client.post(url, json=payload)
+            
+            if response.status_code == 200:
+                return True
+            else:
+                error_data = response.json()
+                print(f"⚠️ Telegram API error for user {user_id}: {error_data}")
+                return False
+    
+    except httpx.TimeoutException:
+        print(f"⚠️ Timeout sending alert to {user_id}")
+        return False
+    except Exception as e:
+        print(f"⚠️ Error sending alert to {user_id}: {e}")
         return False
 
+# ============================================================================
+# WHALE PROCESSING
+# ============================================================================
 
-# === Send alert with retry ===
-async def send_whale_alert(user_id: str, alert_msg: str) -> bool:
-    """Send Telegram alert with retry logic"""
-    for attempt in range(MAX_RETRIES):
-        try:
-            await bot.send_message(
-                chat_id=user_id,
-                text=alert_msg,
-                parse_mode="Markdown",
-                disable_web_page_preview=True
-            )
-            return True
-        
-        except RetryAfter as e:
-            # Telegram rate limit
-            wait_time = e.retry_after + 1
-            print(f"⚠️ Telegram rate limit, waiting {wait_time}s...")
-            await asyncio.sleep(wait_time)
-        
-        except TimedOut:
-            print(f"⚠️ Telegram timeout (attempt {attempt + 1}/{MAX_RETRIES})")
-            if attempt < MAX_RETRIES - 1:
-                await asyncio.sleep(RETRY_DELAY)
-        
-        except TelegramError as e:
-            print(f"⚠️ Telegram error sending to {user_id}: {e}")
-            if "bot was blocked" in str(e).lower() or "user is deactivated" in str(e).lower():
-                # User blocked bot or deactivated - don't retry
-                return False
-            if attempt < MAX_RETRIES - 1:
-                await asyncio.sleep(RETRY_DELAY)
-        
-        except Exception as e:
-            print(f"⚠️ Unexpected error sending to {user_id}: {e}")
-            return False
+async def process_whale(
+    whale: Dict,
+    symbol: str,
+    contract: str,
+    user_id: str,
+    last_seen: Dict,
+    rank: int
+) -> Optional[Dict]:
+    """
+    Process a single whale and return alert data if there's new activity.
+    Returns: Dict with alert info or None if no alert needed
+    """
+    if not isinstance(whale, dict):
+        return None
     
-    return False
+    address = whale.get("address")
+    if not address:
+        return None
+    
+    try:
+        # Fetch transactions
+        txs = await fetch_whale_transactions(address, contract, symbol)
+        
+        if not txs:
+            return None
+        
+        latest_tx = txs[0]
+        tx_hash = latest_tx.get("hash")
+        
+        if not tx_hash:
+            return None
+        
+        # Check if already seen
+        last_key = f"{symbol}:{address}"
+        
+        # Get last known hash
+        if isinstance(last_seen.get(last_key), dict):
+            last_hash = last_seen[last_key].get("hash")
+        else:
+            last_hash = last_seen.get(last_key)
+        
+        if last_hash == tx_hash:
+            return None  # No new movement
+        
+        # Format transaction details
+        value = float(latest_tx.get("value", 0)) / (10 ** int(latest_tx.get("tokenDecimal", 18)))
+        from_addr = latest_tx.get("from", "").lower()
+        to_addr = latest_tx.get("to", "").lower()
+        
+        direction = "OUTFLOW" if from_addr == address.lower() else "INFLOW"
+        formatted_value = f"{value:,.0f}"
+        
+        alert_msg = (
+            f"🐳 *Whale Alert!*\n\n"
+            f"Token: *{symbol}*\n"
+            f"Whale Rank: #{rank}\n"
+            f"Movement: *{direction}*\n"
+            f"Amount: `{formatted_value} {symbol}`\n"
+            f"Tx: [{tx_hash[:10]}...](https://etherscan.io/tx/{tx_hash})\n"
+            f"⏰ {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC"
+        )
+        
+        return {
+            "user_id": user_id,
+            "message": alert_msg,
+            "state_key": last_key,
+            "tx_hash": tx_hash,
+            "symbol": symbol,
+            "address": address
+        }
+    
+    except (ValueError, TypeError, KeyError) as e:
+        print(f"⚠️ Error processing whale {address[:8]} for {symbol}: {e}")
+        return None
 
+async def process_token_whales(
+    symbol: str,
+    contract: str,
+    whales: List[Dict],
+    user_id: str,
+    last_seen: Dict,
+    limit: int
+) -> List[Dict]:
+    """
+    Process all whales for a token concurrently with controlled concurrency.
+    Returns: List of alert data for new whale movements
+    """
+    semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
+    
+    async def process_with_semaphore(whale, rank):
+        async with semaphore:
+            return await process_whale(whale, symbol, contract, user_id, last_seen, rank)
+    
+    # Create tasks for all whales
+    tasks = []
+    for idx, whale in enumerate(whales[:limit]):
+        rank = whale.get("rank", idx + 1)
+        task = process_with_semaphore(whale, rank)
+        tasks.append(task)
+    
+    # Process concurrently
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+    
+    # Filter out None and exceptions
+    alerts = []
+    for result in results:
+        if isinstance(result, Exception):
+            print(f"⚠️ Task failed with exception: {result}")
+        elif result is not None:
+            alerts.append(result)
+    
+    return alerts
 
-# === Monitor task ===
+# ============================================================================
+# MAIN MONITORING LOOP
+# ============================================================================
+
 async def monitor_whales():
-    """Main monitoring loop"""
-    print(f"🐋 Starting whale monitor at {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
+    """Main monitoring loop with improved error handling and concurrency"""
+    start_time = time.time()
+    print(f"\n{'='*60}")
+    print(f"🐋 Whale Monitor Cycle Started")
+    print(f"   Time: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
+    print(f"{'='*60}\n")
     
     # Load state
     last_seen = await load_json_async(STATE_FILE, {})
     user_tracking = await load_json_async(USER_TRACK_FILE, {})
     
-    if not user_tracking:
+    # Validate user tracking data
+    if not user_tracking or not isinstance(user_tracking, dict):
         print("⚠️ No users are tracking whales yet.")
+        print("   Waiting for next cycle...\n")
         return
     
-    if not isinstance(user_tracking, dict):
-        print("⚠️ Invalid user tracking data format")
-        return
+    # Metrics
+    stats = {
+        "users_checked": 0,
+        "tokens_checked": 0,
+        "whales_monitored": 0,
+        "alerts_sent": 0,
+        "errors": 0
+    }
     
-    alerts_sent = 0
-    errors_count = 0
-    
+    # Process each user's tracked tokens
     for user_id, data in user_tracking.items():
         if not isinstance(data, dict):
             continue
         
+        stats["users_checked"] += 1
         tracked = data.get("tracked", [])
+        
         if not isinstance(tracked, list):
             continue
         
@@ -292,15 +385,15 @@ async def monitor_whales():
             if not symbol or not isinstance(limit, int):
                 continue
             
-            # Validate limit
-            limit = max(1, min(limit, 50))
-            
-            whale_file = os.path.join(WHALE_DATA_DIR, f"{symbol}.json")
-            if not os.path.exists(whale_file):
-                continue
+            # Validate and clamp limit
+            limit = max(1, min(limit, 100))
             
             # Load whale data
-            whale_data = load_json_sync(whale_file)
+            whale_file = Path(WHALE_DATA_DIR) / f"{symbol}.json"
+            if not whale_file.exists():
+                continue
+            
+            whale_data = await load_json_async(str(whale_file))
             
             if not isinstance(whale_data, dict):
                 continue
@@ -314,83 +407,40 @@ async def monitor_whales():
             if not contract or not isinstance(whales, list):
                 continue
             
-            whales = whales[:limit]
+            stats["tokens_checked"] += 1
+            stats["whales_monitored"] += min(len(whales), limit)
             
-            for whale in whales:
-                if not isinstance(whale, dict):
-                    continue
-                
-                address = whale.get("address")
-                rank = whale.get("rank")
-                
-                if not address:
-                    continue
-                
-                # Fetch transactions
-                txs = await fetch_whale_transactions(address, contract, symbol)
-                
-                if not txs:
-                    continue
-                
-                latest_tx = txs[0]
-                tx_hash = latest_tx.get("hash")
-                
-                if not tx_hash:
-                    continue
-                
-                # Check if already seen
-                last_key = f"{symbol}:{address}"
-                
-                # Store with timestamp for cleanup
-                if isinstance(last_seen.get(last_key), dict):
-                    last_hash = last_seen[last_key].get("hash")
-                else:
-                    last_hash = last_seen.get(last_key)
-                
-                if last_hash == tx_hash:
-                    continue  # No new movement
-                
-                # Update state with timestamp
-                last_seen[last_key] = {
-                    "hash": tx_hash,
-                    "timestamp": time.time()
-                }
-                
-                # Format transaction details
+            print(f"📊 Checking {symbol} ({len(whales[:limit])} whales) for user {user_id}")
+            
+            # Process whales concurrently
+            alerts = await process_token_whales(
+                symbol, contract, whales, user_id, last_seen, limit
+            )
+            
+            # Send alerts and update state
+            for alert in alerts:
                 try:
-                    value = float(latest_tx.get("value", 0)) / (10 ** int(latest_tx.get("tokenDecimal", 18)))
-                    from_addr = latest_tx.get("from", "").lower()
-                    to_addr = latest_tx.get("to", "").lower()
-                    
-                    direction = "OUTFLOW" if from_addr == address.lower() else "INFLOW"
-                    formatted_value = f"{value:,.0f}"
-                    
-                    alert_msg = (
-                        f"🐳 *Whale Alert!*\n\n"
-                        f"Token: *{symbol}*\n"
-                        f"Whale Rank: #{rank}\n"
-                        f"Movement: *{direction}*\n"
-                        f"Amount: `{formatted_value} {symbol}`\n"
-                        f"Tx: [{tx_hash[:10]}...](https://etherscan.io/tx/{tx_hash})\n"
-                        f"⏰ {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC"
-                    )
-                    
-                    # Send alert
-                    success = await send_whale_alert(user_id, alert_msg)
+                    success = await send_whale_alert(alert["user_id"], alert["message"])
                     
                     if success:
-                        alerts_sent += 1
-                        print(f"📩 Sent whale alert to user {user_id} for {symbol}")
+                        stats["alerts_sent"] += 1
+                        
+                        # Update state
+                        last_seen[alert["state_key"]] = {
+                            "hash": alert["tx_hash"],
+                            "timestamp": time.time()
+                        }
+                        
+                        print(f"   ✅ Sent alert for {alert['symbol']} whale {alert['address'][:8]}...")
                     else:
-                        errors_count += 1
+                        stats["errors"] += 1
                     
-                    # Small delay between alerts
-                    await asyncio.sleep(0.3)
+                    # Delay between alerts to avoid spam
+                    await asyncio.sleep(ALERT_DELAY)
                 
-                except (ValueError, TypeError, KeyError) as e:
-                    print(f"⚠️ Error formatting alert for {symbol}: {e}")
-                    errors_count += 1
-                    continue
+                except Exception as e:
+                    print(f"   ⚠️ Error sending alert: {e}")
+                    stats["errors"] += 1
     
     # Cleanup old state entries
     last_seen = cleanup_old_state(last_seen)
@@ -398,19 +448,45 @@ async def monitor_whales():
     # Save state
     await save_json_async(STATE_FILE, last_seen)
     
-    print(f"✅ Whale monitor completed: {alerts_sent} alerts sent, {errors_count} errors")
+    # Calculate duration
+    duration = time.time() - start_time
+    
+    # Print summary
+    print(f"\n{'='*60}")
+    print(f"✅ Whale Monitor Cycle Completed")
+    print(f"   Duration: {duration:.2f}s")
+    print(f"   Users checked: {stats['users_checked']}")
+    print(f"   Tokens checked: {stats['tokens_checked']}")
+    print(f"   Whales monitored: {stats['whales_monitored']}")
+    print(f"   Alerts sent: {stats['alerts_sent']}")
+    print(f"   Errors: {stats['errors']}")
+    print(f"{'='*60}\n")
 
+# ============================================================================
+# CONTINUOUS MONITORING
+# ============================================================================
 
 async def start_monitor(context):
-    """Runs once every scheduled interval (handled by JobQueue)"""
+    """Run the monitor continuously with error recovery"""
+    print("🚀 Starting continuous whale monitoring...")
+    print(f"   Check interval: {WHALE_CHECK_INTERVAL}s")
+    print(f"   Max concurrent requests: {MAX_CONCURRENT_REQUESTS}")
+    print(f"   State cleanup: {STATE_CLEANUP_DAYS} days\n")
+    
     try:
         await monitor_whales()
     except Exception as e:
-        print(f"[WhaleMonitor] Critical error in start_monitor: {e}")
-        import traceback
-        traceback.print_exc()
+        print(f"❌ Critical error in monitor cycle: {e}")
+        print(f"   Will retry on next scheduled run...\n")
+        
+# ============================================================================
+# ENTRY POINT
+# ============================================================================
 
-
-# === Manual test entry point ===
 if __name__ == "__main__":
-    asyncio.run(monitor_whales())
+    try:
+        asyncio.run(start_monitor(context))
+    except KeyboardInterrupt:
+        print("\n\n🛑 Monitor stopped by user")
+    except Exception as e:
+        print(f"\n\n❌ Fatal error: {e}")

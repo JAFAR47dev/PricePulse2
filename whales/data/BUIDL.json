@@ -1,6 +1,457 @@
 {
-  "symbol": "BUIDL",
-  "unsupported": true,
-  "reason": "Non-ERC20 token or missing Ethereum contract",
-  "timestamp": "2025-11-23 08:41:50 UTC"
+  "token": "BUIDL",
+  "contract": "0x7712c34205737192402172409a8f7ccef8aa2aec",
+  "updated_at": "2026-02-03T23:21:26.328642",
+  "version": "1.0.0",
+  "whale_count": 56,
+  "whales": [
+    {
+      "address": "0xed71aa0da4fdba512ffa398fcff9db8c49a5cf72",
+      "symbol": "BUIDL",
+      "rank": 1,
+      "balance": 53721986650000.0,
+      "share": 31.26,
+      "last_tx": null
+    },
+    {
+      "address": "0x713742701e5aec2e31c272705d85aa8c3a51a258",
+      "symbol": "BUIDL",
+      "rank": 2,
+      "balance": 25270434490000.0,
+      "share": 14.71,
+      "last_tx": null
+    },
+    {
+      "address": "0xe827abf9f462ac4f147753d86bc5f91e186e4e9c",
+      "symbol": "BUIDL",
+      "rank": 3,
+      "balance": 15503334570000.0,
+      "share": 9.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xb48cfe40ab635f6875b570d391dff805cf3acc32",
+      "symbol": "BUIDL",
+      "rank": 4,
+      "balance": 9048725640000.0,
+      "share": 5.27,
+      "last_tx": null
+    },
+    {
+      "address": "0xf19a4fcc98c96a063ab06f3f5781e34a845a49e8",
+      "symbol": "BUIDL",
+      "rank": 5,
+      "balance": 8776058570000.0,
+      "share": 5.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xf2f489b17effb79b3f389df66728c0efe73d510f",
+      "symbol": "BUIDL",
+      "rank": 6,
+      "balance": 8211999670000.0,
+      "share": 4.78,
+      "last_tx": null
+    },
+    {
+      "address": "0xe6a8cc634da37d85b5f048bfd65d1e5eff6613b8",
+      "symbol": "BUIDL",
+      "rank": 7,
+      "balance": 5717353100000.0,
+      "share": 3.33,
+      "last_tx": null
+    },
+    {
+      "address": "0xc0d9ed97ccdfca762b1bbeb40c9c7679a7290e43",
+      "symbol": "BUIDL",
+      "rank": 8,
+      "balance": 5394878390000.0,
+      "share": 3.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xe3b11b7a5845727406935e0951ba77901dc4a48b",
+      "symbol": "BUIDL",
+      "rank": 9,
+      "balance": 5253045610000.0,
+      "share": 3.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xf76d5dfba4544eb96e8d60d3cf817a34df019e8e",
+      "symbol": "BUIDL",
+      "rank": 10,
+      "balance": 5152831760000.0,
+      "share": 3,
+      "last_tx": null
+    },
+    {
+      "address": "0x225c19beb8f6ad683b1d3a091dca0fcfc603ecde",
+      "symbol": "BUIDL",
+      "rank": 11,
+      "balance": 4712914286325.0,
+      "share": 2.74,
+      "last_tx": null
+    },
+    {
+      "address": "0x9283c5125f4a0886b9e63e0b0fe7037382215800",
+      "symbol": "BUIDL",
+      "rank": 12,
+      "balance": 4305167940000.0,
+      "share": 2.51,
+      "last_tx": null
+    },
+    {
+      "address": "0x12c0de58d3b720024324d5b216ddfe8b29adb0b4",
+      "symbol": "BUIDL",
+      "rank": 13,
+      "balance": 4152329280000.0,
+      "share": 2.42,
+      "last_tx": null
+    },
+    {
+      "address": "0x71b39fdc5369db226d00abe703c56f405c1901c9",
+      "symbol": "BUIDL",
+      "rank": 14,
+      "balance": 3657823950000.0,
+      "share": 2.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xce90bf97f11efe8967febe4159fc636f0d09ada6",
+      "symbol": "BUIDL",
+      "rank": 15,
+      "balance": 3009517930000.0,
+      "share": 1.75,
+      "last_tx": null
+    },
+    {
+      "address": "0x0cb4a346edd1b0c1f7b3ee8b1879630a1cc0b78b",
+      "symbol": "BUIDL",
+      "rank": 16,
+      "balance": 3004599460000.0,
+      "share": 1.75,
+      "last_tx": null
+    },
+    {
+      "address": "0x866c9a77d8ab71d2874703e80cb7ad809b301e8e",
+      "symbol": "BUIDL",
+      "rank": 17,
+      "balance": 2480244377000.0,
+      "share": 1.44,
+      "last_tx": null
+    },
+    {
+      "address": "0x7c97bac74c384b21f24de9e59d1bce4ffad8f2b6",
+      "symbol": "BUIDL",
+      "rank": 18,
+      "balance": 1500100000000.0,
+      "share": 0.87,
+      "last_tx": null
+    },
+    {
+      "address": "0x1e695a689cf29c8fe0af6848a957e3f84b61fe69",
+      "symbol": "BUIDL",
+      "rank": 19,
+      "balance": 1058437630000.0,
+      "share": 0.62,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c2541356b947e2605c8551f00141a623a22c003",
+      "symbol": "BUIDL",
+      "rank": 20,
+      "balance": 513616174079.0,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x939962ff324d6dfd0fe2266d98f35e596c4a2648",
+      "symbol": "BUIDL",
+      "rank": 21,
+      "balance": 374974920000.0,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xf8191d98ae98d2f7abdfb63a9b0b812b93c873aa",
+      "symbol": "BUIDL",
+      "rank": 22,
+      "balance": 306796198318.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x612f64f33eb4f62b623d829d31bf3c07e708d2c7",
+      "symbol": "BUIDL",
+      "rank": 23,
+      "balance": 261285760000.0,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x77021d475e36b3ab1921a0e3a8380f069d3263de",
+      "symbol": "BUIDL",
+      "rank": 24,
+      "balance": 111629330000.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a80ad7d51721d6e617df559a4ed030fc9575a1e",
+      "symbol": "BUIDL",
+      "rank": 25,
+      "balance": 102125670000.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xa2af0b03aaf167cfc9624c6ef587581b6fcced92",
+      "symbol": "BUIDL",
+      "rank": 26,
+      "balance": 102098011651.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x58ff00529ca1df1eb145016fe178a70189851e98",
+      "symbol": "BUIDL",
+      "rank": 27,
+      "balance": 51511170000.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xa8020ecbc321e0c8cea26b3507f207482d0100c2",
+      "symbol": "BUIDL",
+      "rank": 28,
+      "balance": 49969068567.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x0898498a1f5e17fd7cb079c4ff2f71d85e3b7a13",
+      "symbol": "BUIDL",
+      "rank": 29,
+      "balance": 12368570000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x4838273660118842441261996093c9507d3390a4",
+      "symbol": "BUIDL",
+      "rank": 30,
+      "balance": 10511070000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1748c79709f4ba2dd82834b8c82d4a505003f27",
+      "symbol": "BUIDL",
+      "rank": 31,
+      "balance": 10000000000.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x198e577e6abb7b4fc475e03d0d3332f5363eab6f",
+      "symbol": "BUIDL",
+      "rank": 32,
+      "balance": 1488267103.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xdbefb887662ca19cd485381f3386fe5f8537b910",
+      "symbol": "BUIDL",
+      "rank": 33,
+      "balance": 1304910000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x713f842954acda74a2a67a405f359ad21b7aecba",
+      "symbol": "BUIDL",
+      "rank": 34,
+      "balance": 670460000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x8613c69abfbb7b619e9fae24cf8c739508d88ef1",
+      "symbol": "BUIDL",
+      "rank": 35,
+      "balance": 427910000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
+      "symbol": "BUIDL",
+      "rank": 36,
+      "balance": 314920000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xce79b081c0c924cb67848723ed3057234d10fc6b",
+      "symbol": "BUIDL",
+      "rank": 37,
+      "balance": 304269826.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xef9a3ce48678d7e42296166865736899c3638b0e",
+      "symbol": "BUIDL",
+      "rank": 38,
+      "balance": 198000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
+      "symbol": "BUIDL",
+      "rank": 39,
+      "balance": 190000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2004f7f7b600d962170d7f28114cc123c5e98451",
+      "symbol": "BUIDL",
+      "rank": 40,
+      "balance": 49720000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x3c9df24f248ff949161a5a43bbf6dd69378d7799",
+      "symbol": "BUIDL",
+      "rank": 41,
+      "balance": 46390000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4e67722883ad992182e83b79bf06a93972963cac",
+      "symbol": "BUIDL",
+      "rank": 42,
+      "balance": 44884800.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x8e2dbe8cfc821e36be5d95b7eb5a08f4d909ef45",
+      "symbol": "BUIDL",
+      "rank": 43,
+      "balance": 25692704.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xb224228b0fe71cebf95ee25339166cd626759b52",
+      "symbol": "BUIDL",
+      "rank": 44,
+      "balance": 16020000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xeb51bbc4ab2e2cdfd1e6fe063fa9e539ea3a95a5",
+      "symbol": "BUIDL",
+      "rank": 45,
+      "balance": 10000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x549d835356d92983abb76e4cae639f7857963425",
+      "symbol": "BUIDL",
+      "rank": 46,
+      "balance": 9680000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x54d0d64f7326b128959bf37ed7b5f2510656a471",
+      "symbol": "BUIDL",
+      "rank": 47,
+      "balance": 5000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x41d7d4d3352b2c7f2d65244320cb9bdbaa41deb4",
+      "symbol": "BUIDL",
+      "rank": 48,
+      "balance": 5000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2b5ab59163a6e93b4486f6055d33ca4a115dd4d5",
+      "symbol": "BUIDL",
+      "rank": 49,
+      "balance": 1500000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x31aed92cd40570dec34b06168064d3299394a3f4",
+      "symbol": "BUIDL",
+      "rank": 50,
+      "balance": 1170000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xc704beced0c5ac8844ca0c42738a5efb932e16bb",
+      "symbol": "BUIDL",
+      "rank": 51,
+      "balance": 1000000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x54d0a1447e1431db925e871ae799f23f408631a1",
+      "symbol": "BUIDL",
+      "rank": 52,
+      "balance": 439931.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x63aceec040a5f193f64910d26cef02c34bedd947",
+      "symbol": "BUIDL",
+      "rank": 53,
+      "balance": 80000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xd15a8a4e008629c2149d8d69c80d4eddd2e90797",
+      "symbol": "BUIDL",
+      "rank": 54,
+      "balance": 50000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x8b5f3a121f1a90d0009ece69e4a680f77374227b",
+      "symbol": "BUIDL",
+      "rank": 55,
+      "balance": 40000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x9f205e1ac7698f59edbaa0a28c4a4c4ed605b722",
+      "symbol": "BUIDL",
+      "rank": 56,
+      "balance": 45.0,
+      "share": 0,
+      "last_tx": null
+    }
+  ]
 }

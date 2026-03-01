@@ -1,0 +1,809 @@
+{
+  "token": "NEXO",
+  "contract": "0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206",
+  "updated_at": "2026-01-31T07:18:34.318983",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0x9bdb521a97e95177bf252c253e256a60c3e14447",
+      "symbol": "NEXO",
+      "rank": 1,
+      "balance": 2.132319911942661e+26,
+      "share": 21.32,
+      "last_tx": null
+    },
+    {
+      "address": "0x1111111111111111111111111111111111111111",
+      "symbol": "NEXO",
+      "rank": 2,
+      "balance": 2.0833333242531524e+26,
+      "share": 20.83,
+      "last_tx": null
+    },
+    {
+      "address": "0x1c433cbf4777e1f0dce0374d79aaa8ecdc76b497",
+      "symbol": "NEXO",
+      "rank": 3,
+      "balance": 1.1480095026558512e+26,
+      "share": 11.48,
+      "last_tx": null
+    },
+    {
+      "address": "0x9099ffbbe0f127741d58760fbaf644def3cccd07",
+      "symbol": "NEXO",
+      "rank": 4,
+      "balance": 1e+26,
+      "share": 10,
+      "last_tx": null
+    },
+    {
+      "address": "0x2222222222222222222222222222222222222222",
+      "symbol": "NEXO",
+      "rank": 5,
+      "balance": 9.84375e+25,
+      "share": 9.84,
+      "last_tx": null
+    },
+    {
+      "address": "0x57793e249825492212de2aa4306379017301e1da",
+      "symbol": "NEXO",
+      "rank": 6,
+      "balance": 8.6145831e+25,
+      "share": 8.61,
+      "last_tx": null
+    },
+    {
+      "address": "0x7ab6c736baf1dac266aab43884d82974a9adcccf",
+      "symbol": "NEXO",
+      "rank": 7,
+      "balance": 5.262335076355933e+25,
+      "share": 5.26,
+      "last_tx": null
+    },
+    {
+      "address": "0x3333333333333333333333333333333333333333",
+      "symbol": "NEXO",
+      "rank": 8,
+      "balance": 3.3333332e+25,
+      "share": 3.33,
+      "last_tx": null
+    },
+    {
+      "address": "0xb60c61dbb7456f024f9338c739b02be68e3f545c",
+      "symbol": "NEXO",
+      "rank": 9,
+      "balance": 2.275363830991737e+25,
+      "share": 2.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x4444444444444444444444444444444444444444",
+      "symbol": "NEXO",
+      "rank": 10,
+      "balance": 1.3749996e+25,
+      "share": 1.38,
+      "last_tx": null
+    },
+    {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "symbol": "NEXO",
+      "rank": 11,
+      "balance": 4.801051938e+24,
+      "share": 0.48,
+      "last_tx": null
+    },
+    {
+      "address": "0x842f83cd3ea83f6f6968d43c6ff90733869cc7c7",
+      "symbol": "NEXO",
+      "rank": 12,
+      "balance": 4e+24,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0xf42aac93ab142090db9fdc0bc86aab73cb36f173",
+      "symbol": "NEXO",
+      "rank": 13,
+      "balance": 1.8421871724636872e+24,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x101944475a83c413c52896da36c76628be2321c7",
+      "symbol": "NEXO",
+      "rank": 14,
+      "balance": 1.8259873288520882e+24,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x95cc4b13b95bfa6b40d14831b15b8ff40a7bc85e",
+      "symbol": "NEXO",
+      "rank": 15,
+      "balance": 1.6824080660533315e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x2a0c0dbecc7e4d658f48e01e3fa353f44050c208",
+      "symbol": "NEXO",
+      "rank": 16,
+      "balance": 1.4387490588188528e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "NEXO",
+      "rank": 17,
+      "balance": 1.3406708314264016e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xf8a8425ea0d66b4dec5c9c6f6d79d0e213145530",
+      "symbol": "NEXO",
+      "rank": 18,
+      "balance": 9.375202997e+23,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1c65c93f35e10e8a9dfbd37298590f50f7a464d",
+      "symbol": "NEXO",
+      "rank": 19,
+      "balance": 8.916145509974889e+23,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x1b7d080963a372e7db24b0be51b08e4551fad53c",
+      "symbol": "NEXO",
+      "rank": 20,
+      "balance": 8.909251606567723e+23,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x18709e89bd403f470088abdacebe86cc60dda12e",
+      "symbol": "NEXO",
+      "rank": 21,
+      "balance": 8.486659277945116e+23,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x4c54ff7f1c424ff5487a32aad0b48b19cbaf087f",
+      "symbol": "NEXO",
+      "rank": 22,
+      "balance": 7.856768355308963e+23,
+      "share": 0.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x2558a954377e37a122535af3ab1c1c997cc93a32",
+      "symbol": "NEXO",
+      "rank": 23,
+      "balance": 7.45602626696387e+23,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xa6184c065d3427af27cb16f8571fb0d8cb0d0132",
+      "symbol": "NEXO",
+      "rank": 24,
+      "balance": 6.1348655936931e+23,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xd285282596c15647d2f23549b3f25b3756ae296d",
+      "symbol": "NEXO",
+      "rank": 25,
+      "balance": 5.2651827072e+23,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xa5ebfb49c6fac4863762b3aa04e3ec54ca9e9833",
+      "symbol": "NEXO",
+      "rank": 26,
+      "balance": 4.6157186770603e+23,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
+      "symbol": "NEXO",
+      "rank": 27,
+      "balance": 4.1886700940427856e+23,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x4737dd4d5f42bb1a8f2f9be327a7d30c8d08b2c3",
+      "symbol": "NEXO",
+      "rank": 28,
+      "balance": 3.9773246063561e+23,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xa39c758e7faa5a63446e9103990d8c8160eee92f",
+      "symbol": "NEXO",
+      "rank": 29,
+      "balance": 3.599892740512195e+23,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xe3995e8e9f3c1f3a5004783210faf1b9e962dc1e",
+      "symbol": "NEXO",
+      "rank": 30,
+      "balance": 3.47824e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x71cc55c2edeb275a43b7e62581ee2c0af9211883",
+      "symbol": "NEXO",
+      "rank": 31,
+      "balance": 3.41555292886295e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xdecb20956037e9cbdadf3e8a225fcfafa465715c",
+      "symbol": "NEXO",
+      "rank": 32,
+      "balance": 3.2475022083352e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x7ea2bfbadd5bc500166482f7949e4d7f44f9d4ef",
+      "symbol": "NEXO",
+      "rank": 33,
+      "balance": 3.1739372638005e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x8bcd728cbcdf9ee6912aeeb0a5eeb2bea66e4980",
+      "symbol": "NEXO",
+      "rank": 34,
+      "balance": 2.930223375627381e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x29b548ada9c36d1eeaa335476448ece1d3852fea",
+      "symbol": "NEXO",
+      "rank": 35,
+      "balance": 2.606746065058324e+23,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x7ac1b9ed12e3b6b092c782fc9148aa3000038192",
+      "symbol": "NEXO",
+      "rank": 36,
+      "balance": 2.4171108429016e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x66b806ea3e45569560639e5fe7578f3165244c75",
+      "symbol": "NEXO",
+      "rank": 37,
+      "balance": 2.4048345180597e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206",
+      "symbol": "NEXO",
+      "rank": 38,
+      "balance": 2.2328052188320733e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x0e0ae2a76fdb5fd6c321e3db98ba8e1274fc822b",
+      "symbol": "NEXO",
+      "rank": 39,
+      "balance": 2.1931414413562e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x5086390a191a3ad07b2efc2424590f6e81633012",
+      "symbol": "NEXO",
+      "rank": 40,
+      "balance": 2.176691615100624e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x5bdf85216ec1e38d6458c870992a69e38e03f7ef",
+      "symbol": "NEXO",
+      "rank": 41,
+      "balance": 2.1264102431582615e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xa3a7b6f88361f48403514059f1f16c8e78d60eec",
+      "symbol": "NEXO",
+      "rank": 42,
+      "balance": 2.0870517952797632e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xe74b28c2eae8679e3ccc3a94d5d0de83ccb84705",
+      "symbol": "NEXO",
+      "rank": 43,
+      "balance": 2.035739972988773e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x4fb312915b779b1339388e14b6d079741ca83128",
+      "symbol": "NEXO",
+      "rank": 44,
+      "balance": 1.95e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      "symbol": "NEXO",
+      "rank": 45,
+      "balance": 1.837902288696e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x77134cbc06cb00b66f4c7e623d5fdbf6777635ec",
+      "symbol": "NEXO",
+      "rank": 46,
+      "balance": 1.829510754944254e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xd3476faf7dfbf061bafc98c9ec1032da0ef966a4",
+      "symbol": "NEXO",
+      "rank": 47,
+      "balance": 1.828748993592143e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a1fc9a4551832248afa88b66eb72d686ce8fbce",
+      "symbol": "NEXO",
+      "rank": 48,
+      "balance": 1.7982735675701e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x8d12a197cb00d4747a1fe03395095ce2a5cc6819",
+      "symbol": "NEXO",
+      "rank": 49,
+      "balance": 1.774908497800412e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "symbol": "NEXO",
+      "rank": 50,
+      "balance": 1.7319885657459e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x80787af194c33b74a811f5e5c549316269d7ee1a",
+      "symbol": "NEXO",
+      "rank": 51,
+      "balance": 1.548836042562918e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x0874d25e0f841f7ed9e38768cc3c70f2a13190b4",
+      "symbol": "NEXO",
+      "rank": 52,
+      "balance": 1.54743e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xf41fc32929799561679ee8192fd2e3e7f5de4d9d",
+      "symbol": "NEXO",
+      "rank": 53,
+      "balance": 1.5e+23,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x48adbb3045da75e04826058b5ebdc42ad38b7a7b",
+      "symbol": "NEXO",
+      "rank": 54,
+      "balance": 1.4605031407191e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+      "symbol": "NEXO",
+      "rank": 55,
+      "balance": 1.428946515682127e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xdda4260741da3b248db93d47c825e1680878fbf9",
+      "symbol": "NEXO",
+      "rank": 56,
+      "balance": 1.4008064e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x7ce1be96948d8a7bf2995fc91d0c91ff63f6d262",
+      "symbol": "NEXO",
+      "rank": 57,
+      "balance": 1.3691660078966938e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x6071163dce924cbd7221f8fe69fabbdb3e15126f",
+      "symbol": "NEXO",
+      "rank": 58,
+      "balance": 1.360812981995e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x52427b753ba354b8614d40a7d7496e97d56fd1a2",
+      "symbol": "NEXO",
+      "rank": 59,
+      "balance": 1.354855218038928e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa1b209bf1639aa3e41863bfc97492a4c403c1b5e",
+      "symbol": "NEXO",
+      "rank": 60,
+      "balance": 1.3473056788097e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xdfdf58373165796d6ba0b622936a77af2b1ea49b",
+      "symbol": "NEXO",
+      "rank": 61,
+      "balance": 1.3201098516669e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xcfde41b317364c130fc1c1f1043602696acd5a00",
+      "symbol": "NEXO",
+      "rank": 62,
+      "balance": 1.2660634541459e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xe73a687cd25c6894018c3271ba2a4fa883f918ba",
+      "symbol": "NEXO",
+      "rank": 63,
+      "balance": 1.2182298926559e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x7c28d98259928bb084558155a05fbfa8cf5b72c1",
+      "symbol": "NEXO",
+      "rank": 64,
+      "balance": 1.1878404261441e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x39d5991c4dbdc93fd0bab21aa30ccd663938fb02",
+      "symbol": "NEXO",
+      "rank": 65,
+      "balance": 1.162e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x561c7b46f365143712b942002be716c95471397e",
+      "symbol": "NEXO",
+      "rank": 66,
+      "balance": 1.1587775848826201e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xd222639933fdba3d6cdd11303b9dd92033fd2fe6",
+      "symbol": "NEXO",
+      "rank": 67,
+      "balance": 1.1357301615908398e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xf3ed7c3cdbd4de812e09b5f43d820b5dd63d61c1",
+      "symbol": "NEXO",
+      "rank": 68,
+      "balance": 1.115376091292319e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x01f1cf6e94f51b904ae8061fdbcaad841f661c56",
+      "symbol": "NEXO",
+      "rank": 69,
+      "balance": 1.1054183576148e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x4413018ad64e9524e44c3a5e93bd1ec7f560b6ec",
+      "symbol": "NEXO",
+      "rank": 70,
+      "balance": 1.1004247059494532e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x196b837a02b63a83ae56d1bd6c9cc79778cb3cf4",
+      "symbol": "NEXO",
+      "rank": 71,
+      "balance": 1.031033750264e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc381344e965403fb39c2d39ffc6e1eaa19195874",
+      "symbol": "NEXO",
+      "rank": 72,
+      "balance": 1.0211277523751257e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x85a0b0b84f034e53612e22a2c1474f265563d75a",
+      "symbol": "NEXO",
+      "rank": 73,
+      "balance": 1.002e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x8f5fa991cfed861c073c8a49158f347cf817bb73",
+      "symbol": "NEXO",
+      "rank": 74,
+      "balance": 1.0000082514255e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x742d35cc6634c0532925a3b844bc454e4438f44e",
+      "symbol": "NEXO",
+      "rank": 75,
+      "balance": 1e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc98d9ddca166ed05d4df551b14243d807f31e49b",
+      "symbol": "NEXO",
+      "rank": 76,
+      "balance": 1e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc9cca5d20bd25aee251aaba11b6e9e3c89a4d122",
+      "symbol": "NEXO",
+      "rank": 77,
+      "balance": 9.999400001493561e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xba4def74068ff4fb7de681d1d576ef6d3cc5670b",
+      "symbol": "NEXO",
+      "rank": 78,
+      "balance": 9.6695e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa852471b0a5f7da9bc931c3781a8b5291ff41842",
+      "symbol": "NEXO",
+      "rank": 79,
+      "balance": 9.3e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xa89a1278ac85367f38bdf6746658ce2b9875526e",
+      "symbol": "NEXO",
+      "rank": 80,
+      "balance": 9.164409340299566e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0cde8b5e07f85ae61981df1e21c8f39f1539c028",
+      "symbol": "NEXO",
+      "rank": 81,
+      "balance": 8.999708907621671e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xe391afd182fcb2f83b366d0b7c5826a55725ef43",
+      "symbol": "NEXO",
+      "rank": 82,
+      "balance": 8.863223634802372e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc6cfce449be6c2b97140e6c0f68c45e3aa66b554",
+      "symbol": "NEXO",
+      "rank": 83,
+      "balance": 8.472933790279104e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc83adc98d6f2f109ba9799bcae1bdafdac4ee9b8",
+      "symbol": "NEXO",
+      "rank": 84,
+      "balance": 8.144289443045779e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x98c37a563696a434564f6f241857021f9bdee6e1",
+      "symbol": "NEXO",
+      "rank": 85,
+      "balance": 8.138149e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x8cecc244a8906e3f180cdbb3d4805c0fba8c7cde",
+      "symbol": "NEXO",
+      "rank": 86,
+      "balance": 8.06e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x1b2ba50de555f8059750df4c49992114917f0659",
+      "symbol": "NEXO",
+      "rank": 87,
+      "balance": 8.00868539415416e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+      "symbol": "NEXO",
+      "rank": 88,
+      "balance": 7.811790582353629e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x4c3da60ac2fa1123d068d47d06f50fd86e280542",
+      "symbol": "NEXO",
+      "rank": 89,
+      "balance": 7.662748299842885e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x5d0d786431fa4068b736b6c13b1f273f1eb64016",
+      "symbol": "NEXO",
+      "rank": 90,
+      "balance": 7.6148e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x2c1d21b79583b06c1447f0bca9cd50b3ea4cb8ee",
+      "symbol": "NEXO",
+      "rank": 91,
+      "balance": 7.56204857e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xc084b5d9a6e4805bb2e239f3e00ea7c1b41f6fe4",
+      "symbol": "NEXO",
+      "rank": 92,
+      "balance": 7.289344325874047e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xd0c905dfc54c68364e09aa7289e960507e03291a",
+      "symbol": "NEXO",
+      "rank": 93,
+      "balance": 7.225502406934e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xdcf070381aeb6414d62836ef0e5db656f6bc290f",
+      "symbol": "NEXO",
+      "rank": 94,
+      "balance": 7.004183999999999e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x25d201233c8433f5ef2b02a7dcca15d48d341195",
+      "symbol": "NEXO",
+      "rank": 95,
+      "balance": 6.777630947697e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0ce389d630197d4c1820959b5dda88bbcdde2f77",
+      "symbol": "NEXO",
+      "rank": 96,
+      "balance": 6.6457516051125666e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x3c092645d4beeacb8fceb76ef866401194cd4a01",
+      "symbol": "NEXO",
+      "rank": 97,
+      "balance": 6.620164989108422e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x4836be8c132d02dae41f3c609b109272f5ec1aa8",
+      "symbol": "NEXO",
+      "rank": 98,
+      "balance": 6.600922604096e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x485c5d9a7fb277e36b583be33867dad6084b7a00",
+      "symbol": "NEXO",
+      "rank": 99,
+      "balance": 6.304835436301e+22,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x92e4ec4071db4c6056ff4de8b860012e6cc02b9b",
+      "symbol": "NEXO",
+      "rank": 100,
+      "balance": 6.24222e+22,
+      "share": 0.01,
+      "last_tx": null
+    }
+  ]
+}

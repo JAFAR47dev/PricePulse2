@@ -1,7 +1,7 @@
 {
   "token": "QNT",
   "contract": "0x4a220e6096b25eadb88358cb44068a3248254675",
-  "updated_at": "2025-11-14T06:13:14.273716",
+  "updated_at": "2026-01-03T07:41:15.502103",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,14 +9,22 @@
       "address": "0x4a220e6096b25eadb88358cb44068a3248254675",
       "symbol": "QNT",
       "rank": 1,
-      "balance": 9.550617233619492e+24,
+      "balance": 9.550618059940872e+24,
       "share": 21.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "symbol": "QNT",
+      "rank": 2,
+      "balance": 6.40745492e+23,
+      "share": 1.41,
       "last_tx": null
     },
     {
       "address": "0x48e9af81fb93d144ad4683fcf219974c8304a170",
       "symbol": "QNT",
-      "rank": 2,
+      "rank": 3,
       "balance": 6.2577600001e+23,
       "share": 1.38,
       "last_tx": null
@@ -24,39 +32,63 @@
     {
       "address": "0x826678ad6b1aaa5e1f20e079333d9b66ab22d78b",
       "symbol": "QNT",
-      "rank": 3,
+      "rank": 4,
       "balance": 6.2280700001e+23,
       "share": 1.37,
       "last_tx": null
     },
     {
-      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "address": "0x7513ae7e87290094b17b35e26cdb537170634c57",
       "symbol": "QNT",
-      "rank": 4,
-      "balance": 6.21255491e+23,
-      "share": 1.37,
+      "rank": 5,
+      "balance": 5.544973004e+23,
+      "share": 1.22,
       "last_tx": null
     },
     {
-      "address": "0x7e8bada55b156a03378ad1bab48039e4f88e594c",
+      "address": "0xf3516fb9d0c114a38033e1252851447dc669e930",
       "symbol": "QNT",
-      "rank": 5,
-      "balance": 3.8667000001e+23,
-      "share": 0.85,
+      "rank": 6,
+      "balance": 2.8127793655180048e+23,
+      "share": 0.62,
+      "last_tx": null
+    },
+    {
+      "address": "0x33d13254497f486867608c9bec8fd97c2836ffdd",
+      "symbol": "QNT",
+      "rank": 7,
+      "balance": 2.8079796156437027e+23,
+      "share": 0.62,
+      "last_tx": null
+    },
+    {
+      "address": "0xaf99cc3b1786736a7acab781fa771e7c9c43f4e1",
+      "symbol": "QNT",
+      "rank": 8,
+      "balance": 2.804012064634034e+23,
+      "share": 0.62,
       "last_tx": null
     },
     {
       "address": "0x9e86b2299a73208ab7196be3148f77a88825efdd",
       "symbol": "QNT",
-      "rank": 6,
-      "balance": 2.9000048917234868e+23,
-      "share": 0.64,
+      "rank": 9,
+      "balance": 2.7000048917234865e+23,
+      "share": 0.59,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ed7f474cf149ba8b8c86ab3c2b8d533211494fe",
+      "symbol": "QNT",
+      "rank": 10,
+      "balance": 2.650891525986718e+23,
+      "share": 0.58,
       "last_tx": null
     },
     {
       "address": "0x94e11ec19e399df87e701b4ce095a06f63823e38",
       "symbol": "QNT",
-      "rank": 7,
+      "rank": 11,
       "balance": 2.556752355276042e+23,
       "share": 0.56,
       "last_tx": null
@@ -64,7 +96,7 @@
     {
       "address": "0xf197c6f2ac14d25ee2789a73e4847732c7f16bc9",
       "symbol": "QNT",
-      "rank": 8,
+      "rank": 12,
       "balance": 2.0897438104012e+23,
       "share": 0.46,
       "last_tx": null
@@ -72,39 +104,47 @@
     {
       "address": "0x9fa2dd9fab3a7698bb51615b14039f4bc4d61187",
       "symbol": "QNT",
-      "rank": 9,
-      "balance": 1.9800077606651764e+23,
-      "share": 0.44,
-      "last_tx": null
-    },
-    {
-      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
-      "symbol": "QNT",
-      "rank": 10,
-      "balance": 1.8753366371138258e+23,
-      "share": 0.41,
-      "last_tx": null
-    },
-    {
-      "address": "0x8514bc22947d58e11e7c84e9e4bff5964b58f021",
-      "symbol": "QNT",
-      "rank": 11,
-      "balance": 1.7675369959923597e+23,
-      "share": 0.39,
+      "rank": 13,
+      "balance": 1.9750077606651767e+23,
+      "share": 0.43,
       "last_tx": null
     },
     {
       "address": "0x377b8ce04761754e8ac153b47805a9cf6b190873",
       "symbol": "QNT",
-      "rank": 12,
-      "balance": 1.730698918925805e+23,
-      "share": 0.38,
+      "rank": 14,
+      "balance": 1.8470241684302974e+23,
+      "share": 0.41,
+      "last_tx": null
+    },
+    {
+      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
+      "symbol": "QNT",
+      "rank": 15,
+      "balance": 1.8462340157554028e+23,
+      "share": 0.41,
+      "last_tx": null
+    },
+    {
+      "address": "0x8a6ec57731e00b9feedea91ccf2404eb2672a516",
+      "symbol": "QNT",
+      "rank": 16,
+      "balance": 1.679828608330379e+23,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0x8514bc22947d58e11e7c84e9e4bff5964b58f021",
+      "symbol": "QNT",
+      "rank": 17,
+      "balance": 1.673664191456883e+23,
+      "share": 0.37,
       "last_tx": null
     },
     {
       "address": "0x5575425b4c1c6cbd772fc34a8f6d2005a0daba65",
       "symbol": "QNT",
-      "rank": 13,
+      "rank": 18,
       "balance": 1.66749630511043e+23,
       "share": 0.37,
       "last_tx": null
@@ -112,31 +152,23 @@
     {
       "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
       "symbol": "QNT",
-      "rank": 14,
-      "balance": 1.4558149346082e+23,
-      "share": 0.32,
+      "rank": 19,
+      "balance": 1.4280731899314e+23,
+      "share": 0.31,
       "last_tx": null
     },
     {
       "address": "0x2a0c0dbecc7e4d658f48e01e3fa353f44050c208",
       "symbol": "QNT",
-      "rank": 15,
+      "rank": 20,
       "balance": 1.3833923932560862e+23,
       "share": 0.3,
       "last_tx": null
     },
     {
-      "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
-      "symbol": "QNT",
-      "rank": 16,
-      "balance": 1.276093276531847e+23,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
       "address": "0x19184ab45c40c2920b0e0e31413b9434abd243ed",
       "symbol": "QNT",
-      "rank": 17,
+      "rank": 21,
       "balance": 1.2759376601e+23,
       "share": 0.28,
       "last_tx": null
@@ -144,47 +176,55 @@
     {
       "address": "0x5b38ce70adeb5a767bb8de79797bf25b96e31a1d",
       "symbol": "QNT",
-      "rank": 18,
-      "balance": 1.219253234404e+23,
+      "rank": 22,
+      "balance": 1.242743034404e+23,
       "share": 0.27,
       "last_tx": null
     },
     {
       "address": "0x9b0c45d46d386cedd98873168c36efd0dcba8d46",
       "symbol": "QNT",
-      "rank": 19,
-      "balance": 1.1296111025057e+23,
-      "share": 0.25,
+      "rank": 23,
+      "balance": 1.2409478861057e+23,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
+      "symbol": "QNT",
+      "rank": 24,
+      "balance": 1.1723799484085559e+23,
+      "share": 0.26,
       "last_tx": null
     },
     {
       "address": "0x77fb357f55bef5a70d30663955f8c9f35794df0e",
       "symbol": "QNT",
-      "rank": 20,
-      "balance": 1.0269190784971194e+23,
+      "rank": 25,
+      "balance": 1.0413986098394023e+23,
       "share": 0.23,
       "last_tx": null
     },
     {
       "address": "0x88d5c89f6356c8c9c39ed325165793cb41dd1e72",
       "symbol": "QNT",
-      "rank": 21,
-      "balance": 9.927220080534223e+22,
+      "rank": 26,
+      "balance": 1.0145340880384585e+23,
       "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
       "symbol": "QNT",
-      "rank": 22,
-      "balance": 8.789856319488e+22,
-      "share": 0.19,
+      "rank": 27,
+      "balance": 9.379780040994e+22,
+      "share": 0.21,
       "last_tx": null
     },
     {
       "address": "0x0fa5b9b2805e2d0f25dee42730cf4e30c9e7e0b1",
       "symbol": "QNT",
-      "rank": 23,
+      "rank": 28,
       "balance": 8.453613869171517e+22,
       "share": 0.19,
       "last_tx": null
@@ -192,15 +232,15 @@
     {
       "address": "0x7ba6b8565cf31c802fa9eaa67d7eb5276d5a70d1",
       "symbol": "QNT",
-      "rank": 24,
-      "balance": 6.320036115584941e+22,
+      "rank": 29,
+      "balance": 6.2700361155849405e+22,
       "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0xdf3b5a5b7af53ac8dda95b55fb7822152da98eb6",
       "symbol": "QNT",
-      "rank": 25,
+      "rank": 30,
       "balance": 6.14051366769e+22,
       "share": 0.14,
       "last_tx": null
@@ -208,57 +248,17 @@
     {
       "address": "0x837ef38ee568e90f3824924c05336399904c5b40",
       "symbol": "QNT",
-      "rank": 26,
+      "rank": 31,
       "balance": 6.039915186e+22,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x5be327d4e195c25fa4a276dec4c170912afc188c",
-      "symbol": "QNT",
-      "rank": 27,
-      "balance": 6.00536905441738e+22,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0xa4d3dc40c557aa4b802efb6b1a4e87498ec9b269",
-      "symbol": "QNT",
-      "rank": 28,
-      "balance": 6.00536905441738e+22,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0xe03f163aebfe9c92ee7fe2e2c3de42fc3458a713",
-      "symbol": "QNT",
-      "rank": 29,
-      "balance": 6.00536905441738e+22,
       "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x3728177d7ef0a6f4e1d20709903eb313088a2433",
       "symbol": "QNT",
-      "rank": 30,
+      "rank": 32,
       "balance": 5.542190820938569e+22,
       "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xd6216fc19db775df9774a6e33526131da7d19a2c",
-      "symbol": "QNT",
-      "rank": 31,
-      "balance": 5.169816038288045e+22,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xc44d4161d1e7162f6f4454ad90c793bad589a731",
-      "symbol": "QNT",
-      "rank": 32,
-      "balance": 5.128375919962022e+22,
-      "share": 0.11,
       "last_tx": null
     },
     {
@@ -270,26 +270,26 @@
       "last_tx": null
     },
     {
-      "address": "0x38326aefcde212d4bc5fd791fe548f97a50c8a92",
-      "symbol": "QNT",
-      "rank": 34,
-      "balance": 5.0837636589391956e+22,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
       "address": "0x639f7adb19547fa02cb9776baa8bd24fbedec822",
       "symbol": "QNT",
-      "rank": 35,
+      "rank": 34,
       "balance": 5.046000001e+22,
       "share": 0.11,
       "last_tx": null
     },
     {
-      "address": "0xa6f231b2a733f565758856474212572841774ac5",
+      "address": "0xf35a6bd6e0459a4b53a27862c51a2a7292b383d1",
+      "symbol": "QNT",
+      "rank": 35,
+      "balance": 4.965659501e+22,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x26dc9ce211ce5db699d3ab60f61dd3752a243823",
       "symbol": "QNT",
       "rank": 36,
-      "balance": 4.944983490360871e+22,
+      "balance": 4.930248967643004e+22,
       "share": 0.11,
       "last_tx": null
     },
@@ -297,110 +297,14 @@
       "address": "0x71956a1cd5a4233177f7bf9a2d5778851e201934",
       "symbol": "QNT",
       "rank": 37,
-      "balance": 4.870463074007228e+22,
+      "balance": 4.92031552571777e+22,
       "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xf8f925fab59791ca170b6c30536e592979b5cbe6",
-      "symbol": "QNT",
-      "rank": 38,
-      "balance": 4.7706191166791225e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0xf35a6bd6e0459a4b53a27862c51a2a7292b383d1",
-      "symbol": "QNT",
-      "rank": 39,
-      "balance": 4.765659501e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x35e83f7ff3c87cdc4649fd77dcfe15142d24940b",
-      "symbol": "QNT",
-      "rank": 40,
-      "balance": 4.754772748100188e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x80f79db6a5d37c4ac85b0a0c9639d2158e653d64",
-      "symbol": "QNT",
-      "rank": 41,
-      "balance": 4.73912666184271e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0xd433046d4bd7fe4f0cc6c548983918a14dfa19c0",
-      "symbol": "QNT",
-      "rank": 42,
-      "balance": 4.73912666184271e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x014c7aed8b0dcc41fa164f61f3ecaa5958310d02",
-      "symbol": "QNT",
-      "rank": 43,
-      "balance": 4.73912666184271e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0xd76a29868f2e3bbbbdab07b8a1fe6a134aceaf0f",
-      "symbol": "QNT",
-      "rank": 44,
-      "balance": 4.73912666184271e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x89f4882f5747491a9520717bfa5a882cc38d24af",
-      "symbol": "QNT",
-      "rank": 45,
-      "balance": 4.600784103440602e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x629af5771e2b64ef2c83382249f8884b58d79ca6",
-      "symbol": "QNT",
-      "rank": 46,
-      "balance": 4.600784103440602e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x2579872ef3b9d3f10db1cdf337a8d07530f22bb1",
-      "symbol": "QNT",
-      "rank": 47,
-      "balance": 4.600784103440602e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x8509bf1ff3b13a4884402398f2ff571290d69830",
-      "symbol": "QNT",
-      "rank": 48,
-      "balance": 4.600784103440602e+22,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x6522b7f9d481eceb96557f44753a4b893f837e90",
-      "symbol": "QNT",
-      "rank": 49,
-      "balance": 4.419779232485129e+22,
-      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xafcd96e580138cfa2332c632e66308eacd45c5da",
       "symbol": "QNT",
-      "rank": 50,
+      "rank": 38,
       "balance": 4.300000001e+22,
       "share": 0.09,
       "last_tx": null
@@ -408,63 +312,55 @@
     {
       "address": "0xd13d3c5f29579b17a0a9d1c88c6a4ebf6ac61a1d",
       "symbol": "QNT",
-      "rank": 51,
+      "rank": 39,
       "balance": 4.2378e+22,
       "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0xae880b2eea0d4e89d5a4724289c683d8499b1938",
+      "address": "0x6522b7f9d481eceb96557f44753a4b893f837e90",
       "symbol": "QNT",
-      "rank": 52,
-      "balance": 4.091970337435217e+22,
+      "rank": 40,
+      "balance": 4.177298611769487e+22,
       "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x30701834bec7f362ff52b22199e6a7469ba8ad9f",
       "symbol": "QNT",
-      "rank": 53,
+      "rank": 41,
       "balance": 3.974200001e+22,
       "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0x0dd4ded40e95328165f66126893bc4b0a7af291e",
+      "address": "0x175ce6204bfda2a509c7e9c786b74407f569c9cc",
       "symbol": "QNT",
-      "rank": 54,
-      "balance": 3.914452064988399e+22,
-      "share": 0.09,
+      "rank": 42,
+      "balance": 3.8e+22,
+      "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0x50e11ee6ecd5dc8f5cbd06951fca04c536e8fb24",
       "symbol": "QNT",
-      "rank": 55,
+      "rank": 43,
       "balance": 3.785052596385592e+22,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x827400858a50f8959a9c73c8bb25043321708a7b",
+      "address": "0x6d6cc65e2060d0a280fcd47b6c22ec5636797fec",
       "symbol": "QNT",
-      "rank": 56,
-      "balance": 3.4770547414114616e+22,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x51f06f823208e721fb3b3ced604b2750d2dd194a",
-      "symbol": "QNT",
-      "rank": 57,
-      "balance": 3.469312611150185e+22,
+      "rank": 44,
+      "balance": 3.7e+22,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xd6334e41270fc6db62d1048faf0eb1ad6fce6b26",
       "symbol": "QNT",
-      "rank": 58,
+      "rank": 45,
       "balance": 3.420095501e+22,
       "share": 0.08,
       "last_tx": null
@@ -472,151 +368,175 @@
     {
       "address": "0x0ccfaac13324f34d59d63a7578fe3ac3c5734726",
       "symbol": "QNT",
-      "rank": 59,
-      "balance": 3.3350133577046745e+22,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x556052af8b4f001b659066e061836b174e39c539",
-      "symbol": "QNT",
-      "rank": 60,
-      "balance": 3.290087011167264e+22,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xedc6bacdc1e29d7c5fa6f6eca6fdd447b9c487c9",
-      "symbol": "QNT",
-      "rank": 61,
-      "balance": 3.0514741547694765e+22,
+      "rank": 46,
+      "balance": 3.3170133577046742e+22,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xdbb4c5c1771bf702ef7bf5fd290ce0c6265c57ad",
       "symbol": "QNT",
-      "rank": 62,
+      "rank": 47,
       "balance": 3.0291165531142007e+22,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x5b71d5fd6bb118665582dd87922bf3b9de6c75f9",
-      "symbol": "QNT",
-      "rank": 63,
-      "balance": 3.026736000389953e+22,
       "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0xd08a4a69056fb0f75f6d38f976c2ba4825140abe",
       "symbol": "QNT",
-      "rank": 64,
+      "rank": 48,
       "balance": 3.000000001e+22,
       "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0xad660eb0583620c1a7bdb3ebc6cde90cb1def9a5",
+      "address": "0x5b71d5fd6bb118665582dd87922bf3b9de6c75f9",
       "symbol": "QNT",
-      "rank": 65,
-      "balance": 2.995021767901e+22,
-      "share": 0.07,
+      "rank": 49,
+      "balance": 2.9523251684741866e+22,
+      "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x744903c4e1b331a39848528e91c31234a6a33944",
       "symbol": "QNT",
-      "rank": 66,
+      "rank": 50,
       "balance": 2.8968538689930548e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0xe1425565f21900b35a61e3efa437ea6ee7499477",
+      "address": "0xad660eb0583620c1a7bdb3ebc6cde90cb1def9a5",
       "symbol": "QNT",
-      "rank": 67,
-      "balance": 2.8743895821476086e+22,
+      "rank": 51,
+      "balance": 2.895021767901e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x57d0f992d224adca9829ba1996d07c72cdd29bf8",
+      "symbol": "QNT",
+      "rank": 52,
+      "balance": 2.879917115759623e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x1fc91a0cc8c2ed081ab091313e11a3c9b0a791e2",
       "symbol": "QNT",
-      "rank": 68,
+      "rank": 53,
       "balance": 2.8577735892019e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0xd367e507282cd1b461891bd86051f4cb6d10069b",
+      "address": "0x0d04261dd372f6ecdadb004eb249ad0de23a75cf",
       "symbol": "QNT",
-      "rank": 69,
-      "balance": 2.80277764708e+22,
+      "rank": 54,
+      "balance": 2.856188899986631e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x7a08047082fb47fc1e518e1eb5b96c34b68a1768",
+      "address": "0xedc6bacdc1e29d7c5fa6f6eca6fdd447b9c487c9",
       "symbol": "QNT",
-      "rank": 70,
-      "balance": 2.7627848681441385e+22,
+      "rank": 55,
+      "balance": 2.8314741547694767e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xad339e4f59412373ec6274af9456e9bdf62bad7e",
+      "symbol": "QNT",
+      "rank": 56,
+      "balance": 2.7390980545017905e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c0994c5733dc761ed9ffaf962fb93f499b89cf9",
+      "symbol": "QNT",
+      "rank": 57,
+      "balance": 2.7390980545017905e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x4a6dab69f563139f6fca8aaea2ed20f90227a479",
+      "symbol": "QNT",
+      "rank": 58,
+      "balance": 2.7390980545017905e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x5756f048666a3277b75e0e980b62402bd736ba04",
+      "symbol": "QNT",
+      "rank": 59,
+      "balance": 2.7390980545017905e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ec9123a0c798e4177720bba8d25bff5871fd83f",
+      "symbol": "QNT",
+      "rank": 60,
+      "balance": 2.7390980545017905e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x5a0d8748ae179841f22aa65c0a44ce83f921fc37",
+      "symbol": "QNT",
+      "rank": 61,
+      "balance": 2.7390980545017905e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c6e7ab3e7f090c9d215a994a6af25c1f1bbe98a",
+      "symbol": "QNT",
+      "rank": 62,
+      "balance": 2.7390980545017905e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x556052af8b4f001b659066e061836b174e39c539",
+      "symbol": "QNT",
+      "rank": 63,
+      "balance": 2.737784163451453e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x20483cb7c239c71934f3535d00e5b9bddf68da4b",
+      "symbol": "QNT",
+      "rank": 64,
+      "balance": 2.7354153466465203e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0xe280d66529e180496303e80e202d01c94f981631",
       "symbol": "QNT",
-      "rank": 71,
+      "rank": 65,
       "balance": 2.72006032108e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x188b657683d489853b4ee5e85f393151ee29c7bd",
+      "address": "0xd367e507282cd1b461891bd86051f4cb6d10069b",
       "symbol": "QNT",
-      "rank": 72,
-      "balance": 2.7194424407493886e+22,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x8f3489a1aef33b9ee4ea62be4e2e32a2346ee456",
-      "symbol": "QNT",
-      "rank": 73,
-      "balance": 2.7194424407493886e+22,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x19d57fd97e167bbed358c64f46604bb80009525d",
-      "symbol": "QNT",
-      "rank": 74,
-      "balance": 2.7194424407493886e+22,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x54d1d8a6b8a1bff01795f08225471016570ffd85",
-      "symbol": "QNT",
-      "rank": 75,
-      "balance": 2.7194424407493886e+22,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x0c501d43206b97fa4300f1b0962742b4f938f70e",
-      "symbol": "QNT",
-      "rank": 76,
-      "balance": 2.623498861525842e+22,
+      "rank": 66,
+      "balance": 2.6375186765e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x066c1305f5cbcfde7cc83d66168dd70c1a6b3706",
       "symbol": "QNT",
-      "rank": 77,
+      "rank": 67,
       "balance": 2.6211471526679464e+22,
       "share": 0.06,
       "last_tx": null
@@ -624,15 +544,31 @@
     {
       "address": "0xc5aef1adf58e895cd7cdc0fa50786f45ac14b420",
       "symbol": "QNT",
-      "rank": 78,
+      "rank": 68,
       "balance": 2.5938835918826e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x0c501d43206b97fa4300f1b0962742b4f938f70e",
+      "symbol": "QNT",
+      "rank": 69,
+      "balance": 2.560284540999533e+22,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
+      "symbol": "QNT",
+      "rank": 70,
+      "balance": 2.5021769908262743e+22,
       "share": 0.06,
       "last_tx": null
     },
     {
       "address": "0x831f8d8f83c31f6ca5cbce0f1aa45be7bf2b90dd",
       "symbol": "QNT",
-      "rank": 79,
+      "rank": 71,
       "balance": 2.500000001e+22,
       "share": 0.05,
       "last_tx": null
@@ -640,47 +576,31 @@
     {
       "address": "0x6262998ced04146fa42253a5c0af90ca02dfd2a3",
       "symbol": "QNT",
-      "rank": 80,
+      "rank": 72,
       "balance": 2.4805872645583487e+22,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
-      "symbol": "QNT",
-      "rank": 81,
-      "balance": 2.477194441875274e+22,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0xe99aa41497710d3d5b636be03a23cc721201e93f",
-      "symbol": "QNT",
-      "rank": 82,
-      "balance": 2.342713717544732e+22,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x2933782b5a8d72f2754103d1489614f29bfa4625",
-      "symbol": "QNT",
-      "rank": 83,
-      "balance": 2.326991745280727e+22,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0xd038bbf06c15e324e13b33622b36865c7f630097",
       "symbol": "QNT",
-      "rank": 84,
+      "rank": 73,
       "balance": 2.265313768178103e+22,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x5ee84d30c7ee57f63f71c92247ff31f95e26916b",
+      "symbol": "QNT",
+      "rank": 74,
+      "balance": 2.261784597722e+22,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0xeb3bd22b09197dff326a245a91ae0d9c8320be6f",
       "symbol": "QNT",
-      "rank": 85,
+      "rank": 75,
       "balance": 2.222200001e+22,
       "share": 0.05,
       "last_tx": null
@@ -688,7 +608,7 @@
     {
       "address": "0xb3137b8bf61aceb6525e4e1d06d5de775d2a0b8a",
       "symbol": "QNT",
-      "rank": 86,
+      "rank": 76,
       "balance": 2.200099636871836e+22,
       "share": 0.05,
       "last_tx": null
@@ -696,7 +616,7 @@
     {
       "address": "0x3dfc7fa7a5b9af3f98df87fbef42648458b6bc8f",
       "symbol": "QNT",
-      "rank": 87,
+      "rank": 77,
       "balance": 2.181408626963e+22,
       "share": 0.05,
       "last_tx": null
@@ -704,7 +624,7 @@
     {
       "address": "0xb082186992be6fe47193425cb52afb000b8c0b82",
       "symbol": "QNT",
-      "rank": 88,
+      "rank": 78,
       "balance": 2.147829269e+22,
       "share": 0.05,
       "last_tx": null
@@ -712,15 +632,23 @@
     {
       "address": "0xd633e282c3358c8a115ae61d0648ebd987f18c01",
       "symbol": "QNT",
-      "rank": 89,
+      "rank": 79,
       "balance": 2.119400001e+22,
       "share": 0.05,
       "last_tx": null
     },
     {
+      "address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
+      "symbol": "QNT",
+      "rank": 80,
+      "balance": 2.026549828113206e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
       "address": "0xd09d9eb9e23836cf9015aaadc0398cf6518e1cc2",
       "symbol": "QNT",
-      "rank": 90,
+      "rank": 81,
       "balance": 2.000046153771507e+22,
       "share": 0.04,
       "last_tx": null
@@ -728,63 +656,63 @@
     {
       "address": "0x5fcd07f036e4a1e152085f61adc3a8a9d8e8224a",
       "symbol": "QNT",
-      "rank": 91,
+      "rank": 82,
       "balance": 2.0000038432043314e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xe99aa41497710d3d5b636be03a23cc721201e93f",
+      "symbol": "QNT",
+      "rank": 83,
+      "balance": 1.950128293518732e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x0d5bed5913cb8d843cc069846d6c3294e711f662",
+      "symbol": "QNT",
+      "rank": 84,
+      "balance": 1.917947795241e+22,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x85e84b0e5733c3f57ec22ea1442bb338bd010a69",
       "symbol": "QNT",
-      "rank": 92,
-      "balance": 2.0000034823709835e+22,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x59ccd7e6eca63b40a936ecd90087ad3c9b5f4337",
-      "symbol": "QNT",
-      "rank": 93,
-      "balance": 1.991637081242392e+22,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x5ee84d30c7ee57f63f71c92247ff31f95e26916b",
-      "symbol": "QNT",
-      "rank": 94,
-      "balance": 1.961782597722e+22,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
-      "symbol": "QNT",
-      "rank": 95,
-      "balance": 1.927416254431811e+22,
+      "rank": 85,
+      "balance": 1.9000034823709837e+22,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x5d5c063049d9a678b5e233210f1bcbad6b9dd2eb",
       "symbol": "QNT",
-      "rank": 96,
-      "balance": 1.895313975956446e+22,
+      "rank": 86,
+      "balance": 1.8592079592080884e+22,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x1256ddf98fa2c3e70b1c443df9c44a53bb1ef716",
       "symbol": "QNT",
-      "rank": 97,
+      "rank": 87,
       "balance": 1.820700001e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
+      "symbol": "QNT",
+      "rank": 88,
+      "balance": 1.809546027761938e+22,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x446b86a33e2a438f569b15855189e3da28d027ba",
       "symbol": "QNT",
-      "rank": 98,
+      "rank": 89,
       "balance": 1.793986001e+22,
       "share": 0.04,
       "last_tx": null
@@ -792,17 +720,89 @@
     {
       "address": "0x7cd14310e4a3cf1d0a4f593566dcde831855316b",
       "symbol": "QNT",
-      "rank": 99,
+      "rank": 90,
       "balance": 1.7758190360560174e+22,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x0d5bed5913cb8d843cc069846d6c3294e711f662",
+      "address": "0x487e93a443365ea7abbd1f1e5c40503027830fc6",
+      "symbol": "QNT",
+      "rank": 91,
+      "balance": 1.729145001e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x6db27c5fa07ac9ec0cb193d0cd9e6a9f10bc2476",
+      "symbol": "QNT",
+      "rank": 92,
+      "balance": 1.71094610511e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x6fa7a3ed645250ee0be3320e49e564b3127861d0",
+      "symbol": "QNT",
+      "rank": 93,
+      "balance": 1.7043389313810478e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x1bd519d2a78e652c1eb73fa3e474ac032760e8c3",
+      "symbol": "QNT",
+      "rank": 94,
+      "balance": 1.690000290156549e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x3121c1c15f623e9f9f501adebae21d03faf40f28",
+      "symbol": "QNT",
+      "rank": 95,
+      "balance": 1.6500688455802756e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x41a7f817bc60298073bb84af7cbd999c94cf402a",
+      "symbol": "QNT",
+      "rank": 96,
+      "balance": 1.633009616909266e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x129d68015f596839fd2c6159939a1152e31ae604",
+      "symbol": "QNT",
+      "rank": 97,
+      "balance": 1.6041941196931011e+22,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x4008012399170036c73d88f746640218703c70d3",
+      "symbol": "QNT",
+      "rank": 98,
+      "balance": 1.5900001698096297e+22,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xf2e2bc788c2fce0f2f98982f6986302af13377b3",
+      "symbol": "QNT",
+      "rank": 99,
+      "balance": 1.569900241e+22,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x5b3181148065cb1130ca89fd9409b2035d95abb1",
       "symbol": "QNT",
       "rank": 100,
-      "balance": 1.756647795241e+22,
-      "share": 0.04,
+      "balance": 1.542347777022154e+22,
+      "share": 0.03,
       "last_tx": null
     }
   ]

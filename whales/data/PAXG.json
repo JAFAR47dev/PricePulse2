@@ -1,7 +1,7 @@
 {
   "token": "PAXG",
   "contract": "0x45804880de22913dafe09f4980848ece6ecbaf78",
-  "updated_at": "2025-11-24T17:03:16.199702",
+  "updated_at": "2026-02-03T23:20:55.540819",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,384 +9,384 @@
       "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
       "symbol": "PAXG",
       "rank": 1,
-      "balance": 5.3884103e+22,
-      "share": 16.14,
+      "balance": 9.1055433e+22,
+      "share": 20.26,
       "last_tx": null
     },
     {
       "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
       "symbol": "PAXG",
       "rank": 2,
-      "balance": 1.153940550753e+22,
-      "share": 3.46,
+      "balance": 1.4263820993818905e+22,
+      "share": 3.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "PAXG",
+      "rank": 3,
+      "balance": 1.2899557920956972e+22,
+      "share": 2.87,
       "last_tx": null
     },
     {
       "address": "0x7d766b06e7164be4196ee62e6036c9fcff68107d",
       "symbol": "PAXG",
-      "rank": 3,
-      "balance": 1.11841828201753e+22,
-      "share": 3.35,
-      "last_tx": null
-    },
-    {
-      "address": "0x264bd8291fae1d75db2c5f573b07faa6715997b5",
-      "symbol": "PAXG",
       "rank": 4,
-      "balance": 4.99822507132e+21,
-      "share": 1.5,
-      "last_tx": null
-    },
-    {
-      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
-      "symbol": "PAXG",
-      "rank": 5,
-      "balance": 4.84706494664e+21,
-      "share": 1.45,
-      "last_tx": null
-    },
-    {
-      "address": "0x43684d03d81d3a4c70da68febdd61029d426f042",
-      "symbol": "PAXG",
-      "rank": 6,
-      "balance": 3.80085039808e+21,
-      "share": 1.14,
+      "balance": 1.11841828201753e+22,
+      "share": 2.49,
       "last_tx": null
     },
     {
       "address": "0x3eba306b6fc21d8d0fb1442c8d5fd08af051bf23",
       "symbol": "PAXG",
+      "rank": 5,
+      "balance": 9.059517791512727e+21,
+      "share": 2.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "PAXG",
+      "rank": 6,
+      "balance": 7.22984436883e+21,
+      "share": 1.61,
+      "last_tx": null
+    },
+    {
+      "address": "0xa1b4bfcaf52b6cefdfd01c40491c96a1c6b20eab",
+      "symbol": "PAXG",
       "rank": 7,
-      "balance": 3.6092556242819985e+21,
-      "share": 1.08,
+      "balance": 5.953373490432009e+21,
+      "share": 1.32,
+      "last_tx": null
+    },
+    {
+      "address": "0x6bb0aa2a89f84dea0c80d8e2cbba665c46371402",
+      "symbol": "PAXG",
+      "rank": 8,
+      "balance": 5.949311065757366e+21,
+      "share": 1.32,
+      "last_tx": null
+    },
+    {
+      "address": "0x5b59f901f9eff61b63f0b5960ca8b9635ac53a3f",
+      "symbol": "PAXG",
+      "rank": 9,
+      "balance": 4.774511927941933e+21,
+      "share": 1.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x264bd8291fae1d75db2c5f573b07faa6715997b5",
+      "symbol": "PAXG",
+      "rank": 10,
+      "balance": 4.2014452541930367e+21,
+      "share": 0.93,
+      "last_tx": null
+    },
+    {
+      "address": "0x43684d03d81d3a4c70da68febdd61029d426f042",
+      "symbol": "PAXG",
+      "rank": 11,
+      "balance": 3.80085039808e+21,
+      "share": 0.85,
       "last_tx": null
     },
     {
       "address": "0xafcd96e580138cfa2332c632e66308eacd45c5da",
       "symbol": "PAXG",
-      "rank": 8,
-      "balance": 2.800015280943998e+21,
-      "share": 0.84,
+      "rank": 12,
+      "balance": 2.79998e+21,
+      "share": 0.62,
       "last_tx": null
     },
     {
       "address": "0xd8f633aa9378dbe5154aed901b294228eb5b306c",
       "symbol": "PAXG",
-      "rank": 9,
-      "balance": 2.78167802930476e+21,
-      "share": 0.83,
-      "last_tx": null
-    },
-    {
-      "address": "0x7f506e4ae258813fb8cc50db041c58cccad696ba",
-      "symbol": "PAXG",
-      "rank": 10,
-      "balance": 2.75770183505e+21,
-      "share": 0.83,
-      "last_tx": null
-    },
-    {
-      "address": "0x2fb074fa59c9294c71246825c1c9a0c7782d41a4",
-      "symbol": "PAXG",
-      "rank": 11,
-      "balance": 2.7555026527730365e+21,
-      "share": 0.83,
-      "last_tx": null
-    },
-    {
-      "address": "0xde6b2a06407575b98724818445178c1f5fd53361",
-      "symbol": "PAXG",
-      "rank": 12,
-      "balance": 2.502938498476979e+21,
-      "share": 0.75,
-      "last_tx": null
-    },
-    {
-      "address": "0xcc282e2004428939ee5149a9e7872f0b4d5d5ec7",
-      "symbol": "PAXG",
       "rank": 13,
-      "balance": 2.15716778999e+21,
-      "share": 0.65,
+      "balance": 2.78167802930476e+21,
+      "share": 0.62,
       "last_tx": null
     },
     {
-      "address": "0xd0ed97501a194e9fa3eefc25e12ea0c7692b099d",
+      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
       "symbol": "PAXG",
       "rank": 14,
-      "balance": 2.0000000894302321e+21,
-      "share": 0.6,
-      "last_tx": null
-    },
-    {
-      "address": "0x9c4fe5ffd9a9fc5678cfbd93aa2d4fd684b67c4c",
-      "symbol": "PAXG",
-      "rank": 15,
-      "balance": 1.994265529660488e+21,
+      "balance": 2.68284e+21,
       "share": 0.6,
       "last_tx": null
     },
     {
       "address": "0x76ec5a0d3632b2133d9f1980903305b62678fbd3",
       "symbol": "PAXG",
-      "rank": 16,
-      "balance": 1.9838149744221933e+21,
-      "share": 0.59,
-      "last_tx": null
-    },
-    {
-      "address": "0x936298ad30a08196c2691d0bdd082f4d4dc4e9ec",
-      "symbol": "PAXG",
-      "rank": 17,
-      "balance": 1.973630816891036e+21,
-      "share": 0.59,
-      "last_tx": null
-    },
-    {
-      "address": "0x452c0eecbb7fef0b58778d5d31be17bd0c903f30",
-      "symbol": "PAXG",
-      "rank": 18,
-      "balance": 1.7527002397553234e+21,
-      "share": 0.53,
-      "last_tx": null
-    },
-    {
-      "address": "0x5f5a565b7cd76e76ebdeb99c92a5cf5e2218ab2a",
-      "symbol": "PAXG",
-      "rank": 19,
-      "balance": 1.73770473e+21,
-      "share": 0.52,
-      "last_tx": null
-    },
-    {
-      "address": "0x4ee0a3a213cc0ea88924bc08b3679a411cf0b790",
-      "symbol": "PAXG",
-      "rank": 20,
-      "balance": 1.6870284955313475e+21,
-      "share": 0.51,
+      "rank": 15,
+      "balance": 2.4674814698960847e+21,
+      "share": 0.55,
       "last_tx": null
     },
     {
       "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
       "symbol": "PAXG",
-      "rank": 21,
-      "balance": 1.661663578217744e+21,
-      "share": 0.5,
+      "rank": 16,
+      "balance": 2.346580999107744e+21,
+      "share": 0.52,
       "last_tx": null
     },
     {
-      "address": "0xccc40e325ffeaa7553ca6224e4b19800ddc49cc1",
+      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
+      "symbol": "PAXG",
+      "rank": 17,
+      "balance": 2.318624073990528e+21,
+      "share": 0.52,
+      "last_tx": null
+    },
+    {
+      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
+      "symbol": "PAXG",
+      "rank": 18,
+      "balance": 2.0090659435436465e+21,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
+      "symbol": "PAXG",
+      "rank": 19,
+      "balance": 2.001693275002239e+21,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0xd0ed97501a194e9fa3eefc25e12ea0c7692b099d",
+      "symbol": "PAXG",
+      "rank": 20,
+      "balance": 2.0000000894302321e+21,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0x936298ad30a08196c2691d0bdd082f4d4dc4e9ec",
+      "symbol": "PAXG",
+      "rank": 21,
+      "balance": 1.973630816891036e+21,
+      "share": 0.44,
+      "last_tx": null
+    },
+    {
+      "address": "0x1aa938d44418a502e96990393936a570cf3de42d",
       "symbol": "PAXG",
       "rank": 22,
-      "balance": 1.52151299524516e+21,
-      "share": 0.46,
+      "balance": 1.8854333694e+21,
+      "share": 0.42,
       "last_tx": null
     },
     {
       "address": "0x718a6ddc76acfd802adcdc45daae242d9094b7b6",
       "symbol": "PAXG",
       "rank": 23,
-      "balance": 1.51852000622e+21,
-      "share": 0.45,
-      "last_tx": null
-    },
-    {
-      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
-      "symbol": "PAXG",
-      "rank": 24,
-      "balance": 1.508214631860528e+21,
-      "share": 0.45,
-      "last_tx": null
-    },
-    {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
-      "symbol": "PAXG",
-      "rank": 25,
-      "balance": 1.4845367159033378e+21,
-      "share": 0.44,
-      "last_tx": null
-    },
-    {
-      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
-      "symbol": "PAXG",
-      "rank": 26,
-      "balance": 1.3849928473344e+21,
+      "balance": 1.8610524983e+21,
       "share": 0.41,
       "last_tx": null
     },
     {
-      "address": "0xe3ecd65cf2ad2eba2aa2be1d0894753b2172abd1",
+      "address": "0x452c0eecbb7fef0b58778d5d31be17bd0c903f30",
       "symbol": "PAXG",
-      "rank": 27,
-      "balance": 1.3283479728843873e+21,
-      "share": 0.4,
+      "rank": 24,
+      "balance": 1.7527002397553234e+21,
+      "share": 0.39,
+      "last_tx": null
+    },
+    {
+      "address": "0x5f5a565b7cd76e76ebdeb99c92a5cf5e2218ab2a",
+      "symbol": "PAXG",
+      "rank": 25,
+      "balance": 1.73770473e+21,
+      "share": 0.39,
       "last_tx": null
     },
     {
       "address": "0x5514cd81b7fbc2591bd9c5a6508ec17d4345b794",
       "symbol": "PAXG",
-      "rank": 28,
-      "balance": 1.274797559022294e+21,
+      "rank": 26,
+      "balance": 1.700797559022294e+21,
       "share": 0.38,
       "last_tx": null
     },
     {
-      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
+      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
       "symbol": "PAXG",
-      "rank": 29,
-      "balance": 1.22725e+21,
+      "rank": 27,
+      "balance": 1.6579475752944e+21,
       "share": 0.37,
       "last_tx": null
     },
     {
-      "address": "0x9e5417ce365ca5e59b6ee14cd52d793c8c56f8e4",
+      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
+      "symbol": "PAXG",
+      "rank": 28,
+      "balance": 1.6350058909504978e+21,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "symbol": "PAXG",
+      "rank": 29,
+      "balance": 1.6250293213437008e+21,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c4fe5ffd9a9fc5678cfbd93aa2d4fd684b67c4c",
       "symbol": "PAXG",
       "rank": 30,
-      "balance": 1.0754834935695462e+21,
-      "share": 0.32,
+      "balance": 1.590074544090787e+21,
+      "share": 0.35,
       "last_tx": null
     },
     {
-      "address": "0x082228d87e69eeb9bf3168beb38be51df61f81b4",
+      "address": "0x77fca5414a55a26fbd715d5ca476d790386926c7",
       "symbol": "PAXG",
       "rank": 31,
-      "balance": 1.064142664248353e+21,
+      "balance": 1.53545335825e+21,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0xccc40e325ffeaa7553ca6224e4b19800ddc49cc1",
+      "symbol": "PAXG",
+      "rank": 32,
+      "balance": 1.52151299524516e+21,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0xcc282e2004428939ee5149a9e7872f0b4d5d5ec7",
+      "symbol": "PAXG",
+      "rank": 33,
+      "balance": 1.41683347332e+21,
       "share": 0.32,
       "last_tx": null
     },
     {
-      "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
-      "symbol": "PAXG",
-      "rank": 32,
-      "balance": 1.0432717354126e+21,
-      "share": 0.31,
-      "last_tx": null
-    },
-    {
-      "address": "0xbe88f8d9c26299f56c02c6e358f19ee8fa4cb33f",
-      "symbol": "PAXG",
-      "rank": 33,
-      "balance": 1.0348705463091948e+21,
-      "share": 0.31,
-      "last_tx": null
-    },
-    {
-      "address": "0x31fa2748cfd0faea1715191d276657b74c49129e",
+      "address": "0xe3ecd65cf2ad2eba2aa2be1d0894753b2172abd1",
       "symbol": "PAXG",
       "rank": 34,
-      "balance": 1.0348705463091948e+21,
+      "balance": 1.4122479753759574e+21,
       "share": 0.31,
       "last_tx": null
     },
     {
-      "address": "0xa8099dee6bf88503c8b31906f856a90ea6e8433f",
+      "address": "0x6afa09f237a8ed7206416eb378aa72c83a015cdf",
       "symbol": "PAXG",
       "rank": 35,
-      "balance": 1.0347479060832985e+21,
-      "share": 0.31,
+      "balance": 1.3432286215421873e+21,
+      "share": 0.3,
       "last_tx": null
     },
     {
-      "address": "0xab1efdae8bddc3ca825be89c8752e2f44e883e4a",
+      "address": "0x201eec84a2992685b689849844b3bcfba3e56e85",
       "symbol": "PAXG",
       "rank": 36,
-      "balance": 1.0347479060832985e+21,
-      "share": 0.31,
+      "balance": 1.1506439665832531e+21,
+      "share": 0.26,
       "last_tx": null
     },
     {
-      "address": "0xb693b46cf174f60b2241d3c89ab763a8da687ecd",
+      "address": "0x7f506e4ae258813fb8cc50db041c58cccad696ba",
       "symbol": "PAXG",
       "rank": 37,
-      "balance": 1.0347479060832985e+21,
-      "share": 0.31,
-      "last_tx": null
-    },
-    {
-      "address": "0x88972d39983b1f8030b37431fe3027ba689a659e",
-      "symbol": "PAXG",
-      "rank": 38,
-      "balance": 1.0260328567449717e+21,
-      "share": 0.31,
-      "last_tx": null
-    },
-    {
-      "address": "0x4a8aba6a6e6e3c7c5f7dc639274da7900f0d8795",
-      "symbol": "PAXG",
-      "rank": 39,
-      "balance": 1.0013274594555282e+21,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0xc22d03be628dfb5a5115a37da3a452932740f641",
-      "symbol": "PAXG",
-      "rank": 40,
-      "balance": 1.0005796572e+21,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0x5c2de03ad7c5c927e580a70dd1d44d3e27146780",
-      "symbol": "PAXG",
-      "rank": 41,
-      "balance": 1e+21,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
-      "symbol": "PAXG",
-      "rank": 42,
-      "balance": 9.985003596867657e+20,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0x5f65f7b609678448494de4c87521cdf6cef1e932",
-      "symbol": "PAXG",
-      "rank": 43,
-      "balance": 9.982328240837062e+20,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0x5ae13baaef0620fdae1d355495dc51a17adb4082",
-      "symbol": "PAXG",
-      "rank": 44,
-      "balance": 9.970156161378499e+20,
-      "share": 0.3,
-      "last_tx": null
-    },
-    {
-      "address": "0x8c3031e1c18c60c0e8a98a4dfe26dfc7851c13d5",
-      "symbol": "PAXG",
-      "rank": 45,
-      "balance": 9.616934234738659e+20,
-      "share": 0.29,
-      "last_tx": null
-    },
-    {
-      "address": "0xbe222697bd6bae1b1ae6467e440a1f2450282033",
-      "symbol": "PAXG",
-      "rank": 46,
-      "balance": 9.578961136781437e+20,
-      "share": 0.29,
-      "last_tx": null
-    },
-    {
-      "address": "0x3b26ba843783d034597e47d7199430e6dbcccfb8",
-      "symbol": "PAXG",
-      "rank": 47,
-      "balance": 9.244914661673084e+20,
-      "share": 0.28,
+      "balance": 1.13070184405e+21,
+      "share": 0.25,
       "last_tx": null
     },
     {
       "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
       "symbol": "PAXG",
+      "rank": 38,
+      "balance": 1.1176278013763518e+21,
+      "share": 0.25,
+      "last_tx": null
+    },
+    {
+      "address": "0xf3169e3bb50705b0b614eb7657fbc09e03cc36c7",
+      "symbol": "PAXG",
+      "rank": 39,
+      "balance": 1.0879390031e+21,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0xa023f08c70a23abc7edfc5b6b5e171d78dfc947e",
+      "symbol": "PAXG",
+      "rank": 40,
+      "balance": 1.0775060670587782e+21,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x6834e0a9105ef7fdac15ea3a497ed533d740b9fc",
+      "symbol": "PAXG",
+      "rank": 41,
+      "balance": 1.0542156689013637e+21,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0xf185e969aaf9d1f0748734926b50e65afb613127",
+      "symbol": "PAXG",
+      "rank": 42,
+      "balance": 1.025041705e+21,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0xde6b2a06407575b98724818445178c1f5fd53361",
+      "symbol": "PAXG",
+      "rank": 43,
+      "balance": 1.000938498476979e+21,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xc22d03be628dfb5a5115a37da3a452932740f641",
+      "symbol": "PAXG",
+      "rank": 44,
+      "balance": 1.0005796572e+21,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c2de03ad7c5c927e580a70dd1d44d3e27146780",
+      "symbol": "PAXG",
+      "rank": 45,
+      "balance": 1e+21,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x8288618eb9e16bf1d08266085ad1a59f24a59d8b",
+      "symbol": "PAXG",
+      "rank": 46,
+      "balance": 9.942079994846473e+20,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x34c189c2422cab6743624cc6cb4873aec1347337",
+      "symbol": "PAXG",
+      "rank": 47,
+      "balance": 9.296337001619692e+20,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x3da1f058f69ca6fe9df3720842fd19085b633d0b",
+      "symbol": "PAXG",
       "rank": 48,
-      "balance": 9.116341717433627e+20,
-      "share": 0.27,
+      "balance": 9.042039880239128e+20,
+      "share": 0.2,
       "last_tx": null
     },
     {
@@ -394,7 +394,7 @@
       "symbol": "PAXG",
       "rank": 49,
       "balance": 8.63597611186948e+20,
-      "share": 0.26,
+      "share": 0.19,
       "last_tx": null
     },
     {
@@ -402,31 +402,31 @@
       "symbol": "PAXG",
       "rank": 50,
       "balance": 8.3963803795e+20,
-      "share": 0.25,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x88972d39983b1f8030b37431fe3027ba689a659e",
+      "symbol": "PAXG",
+      "rank": 51,
+      "balance": 8.173127781303802e+20,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x4d7d520df533e32a4678f8ef86eee59cfe3721d6",
       "symbol": "PAXG",
-      "rank": 51,
+      "rank": 52,
       "balance": 8.06103e+20,
-      "share": 0.24,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x0d780928a063e3cd3fce9be0f0b0139d386069e5",
       "symbol": "PAXG",
-      "rank": 52,
-      "balance": 7.8414464e+20,
-      "share": 0.23,
-      "last_tx": null
-    },
-    {
-      "address": "0xd08c9aa53e85c7098470ca259caddb0eada3a245",
-      "symbol": "PAXG",
       "rank": 53,
-      "balance": 7.765859534526119e+20,
-      "share": 0.23,
+      "balance": 7.8414464e+20,
+      "share": 0.17,
       "last_tx": null
     },
     {
@@ -434,143 +434,143 @@
       "symbol": "PAXG",
       "rank": 54,
       "balance": 7.6880089498e+20,
-      "share": 0.23,
+      "share": 0.17,
       "last_tx": null
     },
     {
-      "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
+      "address": "0x9ec957e436db93bead8c4b28ae1e791192155443",
       "symbol": "PAXG",
       "rank": 55,
-      "balance": 7.595504598769604e+20,
-      "share": 0.23,
-      "last_tx": null
-    },
-    {
-      "address": "0xf185e969aaf9d1f0748734926b50e65afb613127",
-      "symbol": "PAXG",
-      "rank": 56,
-      "balance": 7.5735106e+20,
-      "share": 0.23,
-      "last_tx": null
-    },
-    {
-      "address": "0x9bca1f45e6747037de778be9b0d11c7f3534686b",
-      "symbol": "PAXG",
-      "rank": 57,
-      "balance": 7.21854673254986e+20,
-      "share": 0.22,
-      "last_tx": null
-    },
-    {
-      "address": "0x6834e0a9105ef7fdac15ea3a497ed533d740b9fc",
-      "symbol": "PAXG",
-      "rank": 58,
-      "balance": 7.206277387944882e+20,
-      "share": 0.22,
+      "balance": 7.622964838e+20,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0xc30cf75619a9bda5f30041bb16f4356732073f08",
       "symbol": "PAXG",
-      "rank": 59,
+      "rank": 56,
       "balance": 7.197854300293661e+20,
-      "share": 0.22,
+      "share": 0.16,
       "last_tx": null
     },
     {
-      "address": "0xdea369cdc28472f841fad7318d069016a8a51a87",
+      "address": "0x49dd258339fc8eb34c394a7c11f3f8182b7ea9a3",
+      "symbol": "PAXG",
+      "rank": 57,
+      "balance": 6.7999907403e+20,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xad7ec7bf12a2f00d219d36a25398f22b748e3642",
+      "symbol": "PAXG",
+      "rank": 58,
+      "balance": 6.581801898835e+20,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xac4ad830816cf319b7af2e5071bbab3a979704b7",
+      "symbol": "PAXG",
+      "rank": 59,
+      "balance": 6.5e+20,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x538aa2ae212406030357474de36f8249743775bd",
       "symbol": "PAXG",
       "rank": 60,
-      "balance": 7.089783452861369e+20,
-      "share": 0.21,
+      "balance": 6.4999958e+20,
+      "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0x5f397b62502e255f68382791947d54c4b2d37f09",
+      "address": "0x44d10ad975c3b6b921badf9882e4c281a45c4ed3",
       "symbol": "PAXG",
       "rank": 61,
-      "balance": 6.84985463458e+20,
-      "share": 0.21,
+      "balance": 6.423076681102746e+20,
+      "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0x3c5e15541edca90158a66368cce3fffb23795289",
+      "address": "0x1cb5b5c2d32f384da2de2c7c8216868bf23136d9",
       "symbol": "PAXG",
       "rank": 62,
-      "balance": 6.7900720405e+20,
-      "share": 0.2,
+      "balance": 6.3890120816e+20,
+      "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0x4598bc7d886968c0dd3432b442aa49135ea02558",
+      "address": "0xa923b13270f8622b5d5960634200dc4302b7611e",
       "symbol": "PAXG",
       "rank": 63,
-      "balance": 6.753344965330268e+20,
-      "share": 0.2,
+      "balance": 6.333230096970069e+20,
+      "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0xe6053bb1464a7c9cc20b3cd985e119cc2a9ff2fe",
       "symbol": "PAXG",
       "rank": 64,
-      "balance": 6.7388352666e+20,
-      "share": 0.2,
+      "balance": 6.1500425386e+20,
+      "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0x99b95c60b2d68db15dffb11a71076a31ccaf1487",
+      "address": "0x1b7df80b0124872b302aa5f6e970c3e3050ebf28",
       "symbol": "PAXG",
       "rank": 65,
-      "balance": 6.572387791092034e+20,
-      "share": 0.2,
-      "last_tx": null
-    },
-    {
-      "address": "0xd803472c47a87d7b63e888de53f03b4191b846a8",
-      "symbol": "PAXG",
-      "rank": 66,
-      "balance": 6.3893894853208e+20,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0xad7ec7bf12a2f00d219d36a25398f22b748e3642",
-      "symbol": "PAXG",
-      "rank": 67,
-      "balance": 6.257114669835e+20,
-      "share": 0.19,
+      "balance": 6.0599596e+20,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x175ce6204bfda2a509c7e9c786b74407f569c9cc",
       "symbol": "PAXG",
-      "rank": 68,
+      "rank": 66,
       "balance": 6e+20,
-      "share": 0.18,
+      "share": 0.13,
       "last_tx": null
     },
     {
-      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
+      "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+      "symbol": "PAXG",
+      "rank": 67,
+      "balance": 5.94746784968e+20,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x548054687ef6c56c6d82e8269e5fd93d8b88fcb2",
+      "symbol": "PAXG",
+      "rank": 68,
+      "balance": 5.930916938396917e+20,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xdda4260741da3b248db93d47c825e1680878fbf9",
       "symbol": "PAXG",
       "rank": 69,
-      "balance": 5.992887535744926e+20,
-      "share": 0.18,
+      "balance": 5.91149963408e+20,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x18e226459ccf0eec276514a4fd3b226d8961e4d1",
+      "symbol": "PAXG",
+      "rank": 70,
+      "balance": 5.8540410059962633e+20,
+      "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x4ece718fbe64f7a50929d0f05cf5bf8f67bec3d5",
       "symbol": "PAXG",
-      "rank": 70,
-      "balance": 5.828233290613193e+20,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0x8ebcb51967b595cd474d4572faeb4ac8b5d6912b",
-      "symbol": "PAXG",
       "rank": 71,
-      "balance": 5.7116312652e+20,
-      "share": 0.17,
+      "balance": 5.828233290613193e+20,
+      "share": 0.13,
       "last_tx": null
     },
     {
@@ -578,7 +578,7 @@
       "symbol": "PAXG",
       "rank": 72,
       "balance": 5.597438896472748e+20,
-      "share": 0.17,
+      "share": 0.12,
       "last_tx": null
     },
     {
@@ -586,223 +586,223 @@
       "symbol": "PAXG",
       "rank": 73,
       "balance": 5.451871112852621e+20,
-      "share": 0.16,
+      "share": 0.12,
       "last_tx": null
     },
     {
-      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "address": "0x841ed663f2636863d40be4ee76243377dff13a34",
       "symbol": "PAXG",
       "rank": 74,
-      "balance": 5.3762605408989525e+20,
-      "share": 0.16,
+      "balance": 5.41544453e+20,
+      "share": 0.12,
       "last_tx": null
     },
     {
-      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "address": "0xe8c15aad9d4cd3f59c9dfa18828b91a8b2c49596",
       "symbol": "PAXG",
       "rank": 75,
-      "balance": 5.2204336885754436e+20,
-      "share": 0.16,
+      "balance": 5.2832e+20,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x91dca37856240e5e1906222ec79278b16420dc92",
+      "symbol": "PAXG",
+      "rank": 76,
+      "balance": 5.2096070851580225e+20,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xe00a56c6eedf324c91b88e5676c736cd5855e638",
+      "symbol": "PAXG",
+      "rank": 77,
+      "balance": 5.131614612181889e+20,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x5671cffa9a7ea0ab914a2cb47a0b6109b3923d65",
       "symbol": "PAXG",
-      "rank": 76,
+      "rank": 78,
       "balance": 5.1047765932221025e+20,
-      "share": 0.15,
+      "share": 0.11,
       "last_tx": null
     },
     {
-      "address": "0x89af5c1d87b83650f30d06e7d8d18804f76ebb91",
+      "address": "0x2b455ccf10da2cd3281e2ce2ea0e8bc873cbe707",
       "symbol": "PAXG",
-      "rank": 77,
-      "balance": 5.0722048557e+20,
-      "share": 0.15,
+      "rank": 79,
+      "balance": 5.000093440072e+20,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x9bca1f45e6747037de778be9b0d11c7f3534686b",
+      "symbol": "PAXG",
+      "rank": 80,
+      "balance": 5e+20,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xb9fc507de15291fa70c0d37fe58f1429b964dfc4",
       "symbol": "PAXG",
-      "rank": 78,
+      "rank": 81,
       "balance": 5e+20,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x26de4b5211b568264a4018682595718e02aae7c2",
-      "symbol": "PAXG",
-      "rank": 79,
-      "balance": 4.985979065767494e+20,
-      "share": 0.15,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x8bbd9c7ad31a13c3c87e2b26dcd182c3611d4f4f",
       "symbol": "PAXG",
-      "rank": 80,
-      "balance": 4.9498808e+20,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
-      "symbol": "PAXG",
-      "rank": 81,
-      "balance": 4.8525500284393875e+20,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x87688071fe186562f3d56382620c3e6641ca9373",
-      "symbol": "PAXG",
       "rank": 82,
-      "balance": 4.82362386180688e+20,
-      "share": 0.14,
+      "balance": 4.9498808e+20,
+      "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0x3cd68dce3249085ce58506b1ef7312d6dee272fe",
+      "symbol": "PAXG",
+      "rank": 83,
+      "balance": 4.922283318050421e+20,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x28f95fa1eb2605af2300b7e89ce5215cad15a691",
       "symbol": "PAXG",
-      "rank": 83,
+      "rank": 84,
       "balance": 4.81669348195102e+20,
-      "share": 0.14,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x69be413d648ae00f0fbd9856f1355e22b36ee5e0",
       "symbol": "PAXG",
-      "rank": 84,
+      "rank": 85,
       "balance": 4.8e+20,
-      "share": 0.14,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x9ce67f961eb03ea91312809f7f83e87947d18472",
       "symbol": "PAXG",
-      "rank": 85,
+      "rank": 86,
       "balance": 4.7252733959e+20,
-      "share": 0.14,
+      "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0xc842220a90208f7e456447a254dd84f2f8da4da0",
       "symbol": "PAXG",
-      "rank": 86,
+      "rank": 87,
       "balance": 4.689312886457775e+20,
-      "share": 0.14,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c85c7e240f233f5a14e4bd308876909e4810ce8",
+      "symbol": "PAXG",
+      "rank": 88,
+      "balance": 4.6076797847198885e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x8b49846dc625784c6ba43ccf297788b52aa96d65",
+      "symbol": "PAXG",
+      "rank": 89,
+      "balance": 4.5734104213e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xc02b01c9ad827f463aa042547c90742fccf94e78",
+      "symbol": "PAXG",
+      "rank": 90,
+      "balance": 4.5526064041966974e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xf8191d98ae98d2f7abdfb63a9b0b812b93c873aa",
+      "symbol": "PAXG",
+      "rank": 91,
+      "balance": 4.5454275099895e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ce7e601cb89ba541eaf84c3daf151a16e38715f",
+      "symbol": "PAXG",
+      "rank": 92,
+      "balance": 4.5279864776964276e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xed7ef9a9a05a48858a507c080def0405ad1eaa3e",
+      "symbol": "PAXG",
+      "rank": 93,
+      "balance": 4.513044640534558e+20,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0x1e7d1bc85539461f54aeb80ef724f1d94ec9575e",
       "symbol": "PAXG",
-      "rank": 87,
-      "balance": 4.49830004e+20,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x90e41650cce2c25ce1e270f1a6e1b7998accbe54",
-      "symbol": "PAXG",
-      "rank": 88,
-      "balance": 4.44e+20,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x7f62ae13e9f11590f62f4400cdc9d55b610724fe",
-      "symbol": "PAXG",
-      "rank": 89,
-      "balance": 4.3781444e+20,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0xe7020d50727e65c9508ab289d6d2f8ddc34a5f82",
-      "symbol": "PAXG",
-      "rank": 90,
-      "balance": 4.2999999999623745e+20,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x48fac17b7dec78263efcae4df3be7f526d36a4d1",
-      "symbol": "PAXG",
-      "rank": 91,
-      "balance": 4.1312203793642553e+20,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x9f54b1620e8832de7ac71eba9c3e8c05b80f912a",
-      "symbol": "PAXG",
-      "rank": 92,
-      "balance": 4.1049579376493e+20,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xf6ba9801b5e37c2ced4ba72607a05f4650077baa",
-      "symbol": "PAXG",
-      "rank": 93,
-      "balance": 4.041001005996312e+20,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x733a27817c86977038eadc1b9d5bb6c8d99684f6",
-      "symbol": "PAXG",
       "rank": 94,
-      "balance": 4.026492863e+20,
-      "share": 0.12,
+      "balance": 4.49830004e+20,
+      "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0xbb2caf75240770e6bcff0bcdbf0347f63cb9b19d",
+      "address": "0x6dffd1a05654d2a1f66c153d5d1ee21ad20553fe",
       "symbol": "PAXG",
       "rank": 95,
-      "balance": 4.0060722055636464e+20,
-      "share": 0.12,
+      "balance": 4.440364283745916e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xbc3048b4d97ab061b1f4dfadfaa7709ddced9402",
+      "symbol": "PAXG",
+      "rank": 96,
+      "balance": 4.4378293527019684e+20,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x1cad054a00a439875094cb86f41faaf31a810b23",
+      "symbol": "PAXG",
+      "rank": 97,
+      "balance": 4.4092241022991394e+20,
+      "share": 0.1,
       "last_tx": null
     },
     {
       "address": "0xb8ba36e591facee901ffd3d5d82df491551ad7ef",
       "symbol": "PAXG",
-      "rank": 96,
-      "balance": 4.00073740210342e+20,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xd2da9a0254868bd586484f9f2462f5c9fe91051b",
-      "symbol": "PAXG",
-      "rank": 97,
-      "balance": 4.0000591969e+20,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0xe15e8dd950a217ced5d9ef7185aa3fccf87ce569",
-      "symbol": "PAXG",
       "rank": 98,
-      "balance": 4e+20,
-      "share": 0.12,
+      "balance": 4.38443803800342e+20,
+      "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0x67ed0260844a216683fd5e39c9c78d1f2a64586a",
+      "address": "0x369f8406a13729c168526018697f0da667656cde",
       "symbol": "PAXG",
       "rank": 99,
-      "balance": 3.999070026e+20,
-      "share": 0.12,
+      "balance": 4.2e+20,
+      "share": 0.09,
       "last_tx": null
     },
     {
-      "address": "0xa47445f9170c17b64dee893463563fd3ee2b7fa9",
+      "address": "0x5e0e752bd177f25c5f72e466828e908512ede559",
       "symbol": "PAXG",
       "rank": 100,
-      "balance": 3.981850776742e+20,
-      "share": 0.12,
+      "balance": 4.192616059200322e+20,
+      "share": 0.09,
       "last_tx": null
     }
   ]

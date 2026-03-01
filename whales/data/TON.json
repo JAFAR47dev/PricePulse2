@@ -1,7 +1,7 @@
 {
   "token": "TON",
   "contract": "0x582d872a1b094fc48f5de31d3b73f2d9be47def1",
-  "updated_at": "2025-11-23T08:40:49.543196",
+  "updated_at": "2026-02-03T23:20:33.167098",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -10,31 +10,31 @@
       "symbol": "TON",
       "rank": 1,
       "balance": 1359167362280610.0,
-      "share": 11.57,
+      "share": 11.78,
       "last_tx": null
     },
     {
       "address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
       "symbol": "TON",
       "rank": 2,
-      "balance": 1065861543207798.0,
-      "share": 9.07,
-      "last_tx": null
-    },
-    {
-      "address": "0x4b62fa30fea125e43780dc425c2be5acb4ba743b",
-      "symbol": "TON",
-      "rank": 3,
-      "balance": 480548130554942.0,
-      "share": 4.09,
+      "balance": 627530608335294.0,
+      "share": 5.44,
       "last_tx": null
     },
     {
       "address": "0xeda440497c1c846aade75fb012915a6aeaf5a494",
       "symbol": "TON",
-      "rank": 4,
+      "rank": 3,
       "balance": 383177573570512.0,
-      "share": 3.26,
+      "share": 3.32,
+      "last_tx": null
+    },
+    {
+      "address": "0x4b62fa30fea125e43780dc425c2be5acb4ba743b",
+      "symbol": "TON",
+      "rank": 4,
+      "balance": 367051774299009.0,
+      "share": 3.18,
       "last_tx": null
     },
     {
@@ -42,118 +42,118 @@
       "symbol": "TON",
       "rank": 5,
       "balance": 322830831377905.0,
-      "share": 2.75,
+      "share": 2.8,
+      "last_tx": null
+    },
+    {
+      "address": "0x82425040c79008b40cf205f1fcb5c31a8852b16e",
+      "symbol": "TON",
+      "rank": 6,
+      "balance": 250453172039609.0,
+      "share": 2.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x5897045cffb2d1253e8a78a85dfecee95437421c",
+      "symbol": "TON",
+      "rank": 7,
+      "balance": 200342444742567.0,
+      "share": 1.74,
       "last_tx": null
     },
     {
       "address": "0xf90f431375d55a2673addbef69fd86c277f7ff64",
       "symbol": "TON",
-      "rank": 6,
+      "rank": 8,
       "balance": 188250000000000.0,
+      "share": 1.63,
+      "last_tx": null
+    },
+    {
+      "address": "0xecc93feb017e907ef8ef06e4a65377165237bd24",
+      "symbol": "TON",
+      "rank": 9,
+      "balance": 185078778830445.0,
       "share": 1.6,
       "last_tx": null
     },
     {
       "address": "0xb2dbf8bd5d66154eb92f94d9e2cacad9166af1e7",
       "symbol": "TON",
-      "rank": 7,
+      "rank": 10,
       "balance": 179317639496129.0,
-      "share": 1.53,
+      "share": 1.55,
       "last_tx": null
     },
     {
       "address": "0x5fb8fd2c0588edd6c06e14d113675155f9681387",
       "symbol": "TON",
-      "rank": 8,
+      "rank": 11,
       "balance": 178983074462885.0,
-      "share": 1.52,
+      "share": 1.55,
       "last_tx": null
     },
     {
       "address": "0x44ec52dc8d6ddce5229a4e6c5ebba70b5487e78f",
       "symbol": "TON",
-      "rank": 9,
+      "rank": 12,
       "balance": 149321108386237.0,
-      "share": 1.27,
+      "share": 1.29,
       "last_tx": null
     },
     {
       "address": "0xc1b7b69db46e208a29282b267336e6e6924479fd",
       "symbol": "TON",
-      "rank": 10,
+      "rank": 13,
       "balance": 145581720970926.0,
-      "share": 1.24,
-      "last_tx": null
-    },
-    {
-      "address": "0xfe5d8f5c36d6bf7d4ec107d3546b19fc65ac896a",
-      "symbol": "TON",
-      "rank": 11,
-      "balance": 139290699256904.0,
-      "share": 1.19,
+      "share": 1.26,
       "last_tx": null
     },
     {
       "address": "0x90a865879ff7c4cb82a1564049e28374c74b8ef9",
       "symbol": "TON",
-      "rank": 12,
+      "rank": 14,
       "balance": 129862498987248.0,
-      "share": 1.11,
+      "share": 1.13,
       "last_tx": null
     },
     {
       "address": "0x63108a65cd0d205e39ee5091300b9b07a7a77196",
       "symbol": "TON",
-      "rank": 13,
+      "rank": 15,
       "balance": 127056692760361.0,
-      "share": 1.08,
+      "share": 1.1,
       "last_tx": null
     },
     {
       "address": "0x8bae6c9ea994d18e6b05ce33ae3e54fa6f7fce82",
       "symbol": "TON",
-      "rank": 14,
+      "rank": 16,
       "balance": 125000414937616.0,
-      "share": 1.06,
-      "last_tx": null
-    },
-    {
-      "address": "0xa96cf3fb7cf42a83e86ad5547a50d7e36c2d3e40",
-      "symbol": "TON",
-      "rank": 15,
-      "balance": 124072589416618.0,
-      "share": 1.06,
+      "share": 1.08,
       "last_tx": null
     },
     {
       "address": "0xb41117ffac4f2fcba72cfc20c782eab78e36daa5",
       "symbol": "TON",
-      "rank": 16,
+      "rank": 17,
       "balance": 118093974747894.0,
-      "share": 1.01,
+      "share": 1.02,
       "last_tx": null
     },
     {
       "address": "0xbf6e5d76713bd4993e8d43619ceecbfe9593664d",
       "symbol": "TON",
-      "rank": 17,
+      "rank": 18,
       "balance": 110465327071915.0,
-      "share": 0.94,
+      "share": 0.96,
       "last_tx": null
     },
     {
       "address": "0xb8ba36e591facee901ffd3d5d82df491551ad7ef",
       "symbol": "TON",
-      "rank": 18,
-      "balance": 100529524536800.0,
-      "share": 0.86,
-      "last_tx": null
-    },
-    {
-      "address": "0x3ee18b2214aff97000d974cf647e7c347e8fa585",
-      "symbol": "TON",
       "rank": 19,
-      "balance": 100194086330780.0,
+      "balance": 97869697060690.0,
       "share": 0.85,
       "last_tx": null
     },
@@ -162,23 +162,23 @@
       "symbol": "TON",
       "rank": 20,
       "balance": 91535699028779.0,
-      "share": 0.78,
-      "last_tx": null
-    },
-    {
-      "address": "0x6611fe71c233e4e7510b2795c242c9a57790b376",
-      "symbol": "TON",
-      "rank": 21,
-      "balance": 82597934158318.0,
-      "share": 0.7,
+      "share": 0.79,
       "last_tx": null
     },
     {
       "address": "0xcc529ebfee1257eaa43a1d19d5cdc7bf57a30193",
       "symbol": "TON",
+      "rank": 21,
+      "balance": 88614016917189.0,
+      "share": 0.77,
+      "last_tx": null
+    },
+    {
+      "address": "0x3ee18b2214aff97000d974cf647e7c347e8fa585",
+      "symbol": "TON",
       "rank": 22,
-      "balance": 71101655290392.0,
-      "share": 0.61,
+      "balance": 74883298262380.0,
+      "share": 0.65,
       "last_tx": null
     },
     {
@@ -186,7 +186,7 @@
       "symbol": "TON",
       "rank": 23,
       "balance": 69655449673838.0,
-      "share": 0.59,
+      "share": 0.6,
       "last_tx": null
     },
     {
@@ -194,47 +194,47 @@
       "symbol": "TON",
       "rank": 24,
       "balance": 67591328342729.0,
-      "share": 0.58,
-      "last_tx": null
-    },
-    {
-      "address": "0xd7bd2c275d9c6d8f3bf9a4d8b5895704350ccdba",
-      "symbol": "TON",
-      "rank": 25,
-      "balance": 67375230241893.0,
-      "share": 0.57,
-      "last_tx": null
-    },
-    {
-      "address": "0x84d9c246f68202af1f78317a46ad154f9ddaa4b0",
-      "symbol": "TON",
-      "rank": 26,
-      "balance": 67043572277419.0,
-      "share": 0.57,
+      "share": 0.59,
       "last_tx": null
     },
     {
       "address": "0x49015c2ef65039eacaab8500d54fe9521f3807f2",
       "symbol": "TON",
-      "rank": 27,
+      "rank": 25,
       "balance": 59484391332076.0,
-      "share": 0.51,
+      "share": 0.52,
       "last_tx": null
     },
     {
       "address": "0xb94f5da74210ec71b35878a5ab36c617644cf6cd",
       "symbol": "TON",
-      "rank": 28,
+      "rank": 26,
       "balance": 58081320473633.0,
-      "share": 0.49,
+      "share": 0.5,
       "last_tx": null
     },
     {
       "address": "0xb394c2822fbddfcd8b1cb5851c033bbfc348dad1",
       "symbol": "TON",
-      "rank": 29,
+      "rank": 27,
       "balance": 57552905624522.0,
-      "share": 0.49,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0xa4c193be307302480ba712fed0ce454fc2b28069",
+      "symbol": "TON",
+      "rank": 28,
+      "balance": 53704285144511.0,
+      "share": 0.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "symbol": "TON",
+      "rank": 29,
+      "balance": 52365735461595.0,
+      "share": 0.45,
       "last_tx": null
     },
     {
@@ -242,37 +242,45 @@
       "symbol": "TON",
       "rank": 30,
       "balance": 48112094032344.0,
-      "share": 0.41,
+      "share": 0.42,
+      "last_tx": null
+    },
+    {
+      "address": "0xfe5d8f5c36d6bf7d4ec107d3546b19fc65ac896a",
+      "symbol": "TON",
+      "rank": 31,
+      "balance": 45851959411642.0,
+      "share": 0.4,
       "last_tx": null
     },
     {
       "address": "0x8c85548e9c6d30fbcf8182f055e9019c4422334a",
       "symbol": "TON",
-      "rank": 31,
+      "rank": 32,
       "balance": 44856497426917.0,
-      "share": 0.38,
+      "share": 0.39,
       "last_tx": null
     },
     {
       "address": "0x455106c63d3f4129b2b63947187d5bf903a87024",
       "symbol": "TON",
-      "rank": 32,
+      "rank": 33,
       "balance": 43667439078776.0,
-      "share": 0.37,
+      "share": 0.38,
       "last_tx": null
     },
     {
       "address": "0xc4cc95844a699a4bac94f24dba3750259805d2fb",
       "symbol": "TON",
-      "rank": 33,
+      "rank": 34,
       "balance": 43468645832780.0,
-      "share": 0.37,
+      "share": 0.38,
       "last_tx": null
     },
     {
       "address": "0x7546966122e636a601a3ea4497d3509f160771d8",
       "symbol": "TON",
-      "rank": 34,
+      "rank": 35,
       "balance": 43219628574860.0,
       "share": 0.37,
       "last_tx": null
@@ -280,15 +288,15 @@
     {
       "address": "0x202869cc52285e05b279796c6f379e79d50cdc21",
       "symbol": "TON",
-      "rank": 35,
+      "rank": 36,
       "balance": 42695830000000.0,
-      "share": 0.36,
+      "share": 0.37,
       "last_tx": null
     },
     {
       "address": "0x76e4661e7683aa9d3640de0a76b556741c81a185",
       "symbol": "TON",
-      "rank": 36,
+      "rank": 37,
       "balance": 42118493683087.0,
       "share": 0.36,
       "last_tx": null
@@ -296,47 +304,47 @@
     {
       "address": "0x3c8c2b59ac3d3e03ccf33cd63969f51fdcc41326",
       "symbol": "TON",
-      "rank": 37,
+      "rank": 38,
       "balance": 41096532282154.0,
-      "share": 0.35,
+      "share": 0.36,
       "last_tx": null
     },
     {
       "address": "0xd4755a84419525f1702087f06cb6c6d5387b07e2",
       "symbol": "TON",
-      "rank": 38,
-      "balance": 40136883663387.0,
-      "share": 0.34,
-      "last_tx": null
-    },
-    {
-      "address": "0x6a9c4fc2b35ee398e7a0e75d982872466ba93cb8",
-      "symbol": "TON",
       "rank": 39,
-      "balance": 39572506597113.0,
-      "share": 0.34,
+      "balance": 40136883663387.0,
+      "share": 0.35,
       "last_tx": null
     },
     {
-      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "address": "0xa2f583fd61cb90dc24d8e47d3d9addd2cc361149",
       "symbol": "TON",
       "rank": 40,
-      "balance": 36896120243903.0,
-      "share": 0.31,
+      "balance": 39605435081659.0,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0x6611fe71c233e4e7510b2795c242c9a57790b376",
+      "symbol": "TON",
+      "rank": 41,
+      "balance": 38961337964055.0,
+      "share": 0.34,
       "last_tx": null
     },
     {
       "address": "0xbaeb92889696217a3a6be2175e5a95dc4cffc9f7",
       "symbol": "TON",
-      "rank": 41,
+      "rank": 42,
       "balance": 36748820128435.0,
-      "share": 0.31,
+      "share": 0.32,
       "last_tx": null
     },
     {
       "address": "0x453a16ef0f23ce72a38c6d2d9864ad5cb905fd93",
       "symbol": "TON",
-      "rank": 42,
+      "rank": 43,
       "balance": 35172660282171.0,
       "share": 0.3,
       "last_tx": null
@@ -344,39 +352,47 @@
     {
       "address": "0x078332713a3ca07139d6dfad4a1111486a5f7812",
       "symbol": "TON",
-      "rank": 43,
+      "rank": 44,
       "balance": 33781077007321.0,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0xf4b9d3fe3fd673f472670a7d3f637875d37478fc",
+      "symbol": "TON",
+      "rank": 45,
+      "balance": 33536368600249.0,
       "share": 0.29,
       "last_tx": null
     },
     {
       "address": "0x14baea50b8c38851f7e7dadbb923e9f490f6a431",
       "symbol": "TON",
-      "rank": 44,
-      "balance": 31794200443714.0,
-      "share": 0.27,
-      "last_tx": null
-    },
-    {
-      "address": "0x67b578694d4d6640f883c1814745bdabe797132c",
-      "symbol": "TON",
-      "rank": 45,
-      "balance": 31672596958142.0,
-      "share": 0.27,
-      "last_tx": null
-    },
-    {
-      "address": "0x952e8cdfd5211c4e54c833201a0e36b9bf0b7b96",
-      "symbol": "TON",
       "rank": 46,
-      "balance": 30905568285664.0,
+      "balance": 31794200443714.0,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0xecabf044061d54dc53f752751944c2db5b7a1567",
+      "symbol": "TON",
+      "rank": 47,
+      "balance": 31397512716797.0,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x1c727a55ea3c11b0ab7d3a361fe0f3c47ce6de5d",
+      "symbol": "TON",
+      "rank": 48,
+      "balance": 30384855948064.0,
       "share": 0.26,
       "last_tx": null
     },
     {
       "address": "0xe17c1fa8a02b3e987c3b8ddc6a1ff42b07515f3e",
       "symbol": "TON",
-      "rank": 47,
+      "rank": 49,
       "balance": 30174541574801.0,
       "share": 0.26,
       "last_tx": null
@@ -384,23 +400,15 @@
     {
       "address": "0x89638209d697505f9b9f8a3971a7d0c8b093483d",
       "symbol": "TON",
-      "rank": 48,
+      "rank": 50,
       "balance": 29960817446255.0,
       "share": 0.26,
       "last_tx": null
     },
     {
-      "address": "0x1c727a55ea3c11b0ab7d3a361fe0f3c47ce6de5d",
-      "symbol": "TON",
-      "rank": 49,
-      "balance": 29570837037679.0,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
       "address": "0xafd8465cd5a219238eacb70d18d4d3fd4ca5e289",
       "symbol": "TON",
-      "rank": 50,
+      "rank": 51,
       "balance": 28183207422195.0,
       "share": 0.24,
       "last_tx": null
@@ -408,15 +416,15 @@
     {
       "address": "0xa8e9cfa07f60a953f5ffff50c1cc46d5fa565005",
       "symbol": "TON",
-      "rank": 51,
+      "rank": 52,
       "balance": 27333579945633.0,
-      "share": 0.23,
+      "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0x6d25032485ebb6a028c0a26c52ac53a50d15c97f",
       "symbol": "TON",
-      "rank": 52,
+      "rank": 53,
       "balance": 27044748311443.0,
       "share": 0.23,
       "last_tx": null
@@ -424,7 +432,7 @@
     {
       "address": "0xaf81e930620eb55a9a6927c4b2afcb4d61040c32",
       "symbol": "TON",
-      "rank": 53,
+      "rank": 54,
       "balance": 26856016007162.0,
       "share": 0.23,
       "last_tx": null
@@ -432,7 +440,7 @@
     {
       "address": "0x81fad5fd5f9d0d5ec3fc736aed1c67525703e200",
       "symbol": "TON",
-      "rank": 54,
+      "rank": 55,
       "balance": 25637025643181.0,
       "share": 0.22,
       "last_tx": null
@@ -440,15 +448,31 @@
     {
       "address": "0xe1feab1ead046a6fcc377bccb8bd665ae9bf33c6",
       "symbol": "TON",
-      "rank": 55,
+      "rank": 56,
       "balance": 25358751622077.0,
       "share": 0.22,
       "last_tx": null
     },
     {
+      "address": "0x388364512b2603eb2588ea12eda201423d5f7ffe",
+      "symbol": "TON",
+      "rank": 57,
+      "balance": 25194081479943.0,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xf10a4bce920d7fbc0c3964a22ac65ce42209722a",
+      "symbol": "TON",
+      "rank": 58,
+      "balance": 24636805091377.0,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
       "address": "0x0a146f2270b13d456a211426f7468b70e9dac133",
       "symbol": "TON",
-      "rank": 56,
+      "rank": 59,
       "balance": 24468810000000.0,
       "share": 0.21,
       "last_tx": null
@@ -456,31 +480,47 @@
     {
       "address": "0x99a972e47165949d748ebb9cc525c9e255ad67a6",
       "symbol": "TON",
-      "rank": 57,
+      "rank": 60,
       "balance": 23811076148345.0,
-      "share": 0.2,
+      "share": 0.21,
       "last_tx": null
     },
     {
       "address": "0x7befc0010516d2742fddce70e4e4e6336c5ce422",
       "symbol": "TON",
-      "rank": 58,
+      "rank": 61,
       "balance": 23786401524148.0,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x7f511c7adbead697e1b896289624dc80487af620",
+      "symbol": "TON",
+      "rank": 62,
+      "balance": 23298361253768.0,
       "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0x3136ed252d6ec340c7d2fb1285c15add1fd4e0fa",
       "symbol": "TON",
-      "rank": 59,
+      "rank": 63,
       "balance": 23214582237491.0,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x3b41fb5e6d59754143163b485b0485868d773f08",
+      "symbol": "TON",
+      "rank": 64,
+      "balance": 22996528435206.0,
       "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0x3e4c4c883bc4a55f5c3d04992d8fd48c439f40f2",
       "symbol": "TON",
-      "rank": 60,
+      "rank": 65,
       "balance": 22500957194254.0,
       "share": 0.19,
       "last_tx": null
@@ -488,7 +528,7 @@
     {
       "address": "0xee93982b4a68a3b65f9f5b70b3bc742153034443",
       "symbol": "TON",
-      "rank": 61,
+      "rank": 66,
       "balance": 22224052991876.0,
       "share": 0.19,
       "last_tx": null
@@ -496,23 +536,15 @@
     {
       "address": "0x59db443c6f99df01d44350222bcf6187dd83068b",
       "symbol": "TON",
-      "rank": 62,
+      "rank": 67,
       "balance": 22132951257337.0,
       "share": 0.19,
       "last_tx": null
     },
     {
-      "address": "0x1467bab3230e5dc57bc8c92e69978994ce5b8eab",
-      "symbol": "TON",
-      "rank": 63,
-      "balance": 21318836510110.0,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
       "address": "0x81d658ebb5afdc8659dbf38daa964d17d3ae5f11",
       "symbol": "TON",
-      "rank": 64,
+      "rank": 68,
       "balance": 20807081480999.0,
       "share": 0.18,
       "last_tx": null
@@ -520,7 +552,7 @@
     {
       "address": "0x30a9a18cebdceb52fe2d3ca172ce22f391006197",
       "symbol": "TON",
-      "rank": 65,
+      "rank": 69,
       "balance": 20055288867978.0,
       "share": 0.17,
       "last_tx": null
@@ -528,15 +560,15 @@
     {
       "address": "0x2bf908e74d142dc0d904e8440b32ca208e7351b0",
       "symbol": "TON",
-      "rank": 66,
+      "rank": 70,
       "balance": 20008430336913.0,
       "share": 0.17,
       "last_tx": null
     },
     {
-      "address": "0xab5f7552bd98667eccc5f5d0d9266e202aebed10",
+      "address": "0xe5c00bc331761408d24afeb6516f8195a3235522",
       "symbol": "TON",
-      "rank": 67,
+      "rank": 71,
       "balance": 20000000000000.0,
       "share": 0.17,
       "last_tx": null
@@ -544,15 +576,23 @@
     {
       "address": "0x56e64d7f491620f547c9dd1afd679710a2baae99",
       "symbol": "TON",
-      "rank": 68,
+      "rank": 72,
       "balance": 19945012500000.0,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x1467bab3230e5dc57bc8c92e69978994ce5b8eab",
+      "symbol": "TON",
+      "rank": 73,
+      "balance": 19931536510110.0,
       "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x17a36d621beaa162a2256167f4920a49e1fa0ea7",
       "symbol": "TON",
-      "rank": 69,
+      "rank": 74,
       "balance": 19000129687214.0,
       "share": 0.16,
       "last_tx": null
@@ -560,7 +600,7 @@
     {
       "address": "0x363db544ad04f3e10835981600338a9b31dedc5e",
       "symbol": "TON",
-      "rank": 70,
+      "rank": 75,
       "balance": 18989726779795.0,
       "share": 0.16,
       "last_tx": null
@@ -568,7 +608,7 @@
     {
       "address": "0xa8b45c6def2d3c0cded05bc00036e4f9e951eb70",
       "symbol": "TON",
-      "rank": 71,
+      "rank": 76,
       "balance": 18496249466192.0,
       "share": 0.16,
       "last_tx": null
@@ -576,7 +616,7 @@
     {
       "address": "0x0d239f28c6b5d279e618023b67d64ef449e9a863",
       "symbol": "TON",
-      "rank": 72,
+      "rank": 77,
       "balance": 18463545919680.0,
       "share": 0.16,
       "last_tx": null
@@ -584,15 +624,23 @@
     {
       "address": "0x8eac240f9813b96e860fd9aac0e4e7d02fcbe65f",
       "symbol": "TON",
-      "rank": 73,
+      "rank": 78,
       "balance": 17982470650428.0,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x14405431b46bc57da194216391cf0dc39616828d",
+      "symbol": "TON",
+      "rank": 79,
+      "balance": 17742442470949.0,
       "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0xe839ca444c63983d7b8fffb399c4a4d8954ec23d",
       "symbol": "TON",
-      "rank": 74,
+      "rank": 80,
       "balance": 17562886268644.0,
       "share": 0.15,
       "last_tx": null
@@ -600,7 +648,7 @@
     {
       "address": "0x8af00b442d8b7c8f807e8b8ab915a86101b46883",
       "symbol": "TON",
-      "rank": 75,
+      "rank": 81,
       "balance": 17107559757338.0,
       "share": 0.15,
       "last_tx": null
@@ -608,7 +656,7 @@
     {
       "address": "0xca9a7d57239d04b3b43edaad246c00507b7cdbd5",
       "symbol": "TON",
-      "rank": 76,
+      "rank": 82,
       "balance": 17086798607637.0,
       "share": 0.15,
       "last_tx": null
@@ -616,39 +664,47 @@
     {
       "address": "0xf7d7668292fa434ab278f80c187cf67c44dd2b1e",
       "symbol": "TON",
-      "rank": 77,
+      "rank": 83,
       "balance": 16777178427068.0,
-      "share": 0.14,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x3ab2b63d7edc734da546d2c60434494dadcd8d96",
       "symbol": "TON",
-      "rank": 78,
+      "rank": 84,
       "balance": 16775229619027.0,
-      "share": 0.14,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x55db837b298b1e4b00e6b2feb56bb8c60daaec31",
       "symbol": "TON",
-      "rank": 79,
+      "rank": 85,
       "balance": 16720012500000.0,
       "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0x1d425d5c3fe77f5f91f5582f2a98d4a94cb0549b",
+      "address": "0x4924e98371a036a983885a9d7ae494a7530b2a03",
       "symbol": "TON",
-      "rank": 80,
-      "balance": 16495977121728.0,
+      "rank": 86,
+      "balance": 16678078684079.0,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a9c4fc2b35ee398e7a0e75d982872466ba93cb8",
+      "symbol": "TON",
+      "rank": 87,
+      "balance": 16575978161911.0,
       "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0xdf79e89fecce4a9bb49ee583ad46ebfbcc60ff3f",
       "symbol": "TON",
-      "rank": 81,
+      "rank": 88,
       "balance": 15538975756486.0,
       "share": 0.13,
       "last_tx": null
@@ -656,7 +712,7 @@
     {
       "address": "0xcf5f833ff945a02afb0dbd84a49434b2d8796231",
       "symbol": "TON",
-      "rank": 82,
+      "rank": 89,
       "balance": 15147666648930.0,
       "share": 0.13,
       "last_tx": null
@@ -664,7 +720,7 @@
     {
       "address": "0xace6f2826190879fc186197687fc15a544f389ed",
       "symbol": "TON",
-      "rank": 83,
+      "rank": 90,
       "balance": 15000000000000.0,
       "share": 0.13,
       "last_tx": null
@@ -672,31 +728,15 @@
     {
       "address": "0x433f226bb1af3776b56e6e3c4e50a67c2f36b6dd",
       "symbol": "TON",
-      "rank": 84,
+      "rank": 91,
       "balance": 14810459721532.0,
       "share": 0.13,
       "last_tx": null
     },
     {
-      "address": "0x14405431b46bc57da194216391cf0dc39616828d",
-      "symbol": "TON",
-      "rank": 85,
-      "balance": 14513478802885.0,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x4924e98371a036a983885a9d7ae494a7530b2a03",
-      "symbol": "TON",
-      "rank": 86,
-      "balance": 14340194991739.0,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
       "address": "0x6056833cb43a1173b40229642440a12aeaf4799c",
       "symbol": "TON",
-      "rank": 87,
+      "rank": 92,
       "balance": 14210374046224.0,
       "share": 0.12,
       "last_tx": null
@@ -704,31 +744,39 @@
     {
       "address": "0x277a17c8b7112d4652ec036739b930022b495882",
       "symbol": "TON",
-      "rank": 88,
+      "rank": 93,
       "balance": 14029458382981.0,
       "share": 0.12,
       "last_tx": null
     },
     {
-      "address": "0x25b766587267681e33dc43bf9d97afd5670c2c71",
+      "address": "0x1d425d5c3fe77f5f91f5582f2a98d4a94cb0549b",
       "symbol": "TON",
-      "rank": 89,
-      "balance": 13836322500000.0,
+      "rank": 94,
+      "balance": 14001579286970.0,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x9892f3c34db40bb23c5aa1a56f8b27d8e30e8340",
+      "symbol": "TON",
+      "rank": 95,
+      "balance": 13986773917172.0,
       "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x72a49c8eb95956a31fb0e113a161cdbc9ef47baf",
       "symbol": "TON",
-      "rank": 90,
+      "rank": 96,
       "balance": 13312548323083.0,
-      "share": 0.11,
+      "share": 0.12,
       "last_tx": null
     },
     {
       "address": "0x34b407d00f95ca7f84e063c3bfb514a9c7076d7d",
       "symbol": "TON",
-      "rank": 91,
+      "rank": 97,
       "balance": 13165486374403.0,
       "share": 0.11,
       "last_tx": null
@@ -736,7 +784,7 @@
     {
       "address": "0x505fbc5e01ccb999d7804a1d08ddd97301c03d2d",
       "symbol": "TON",
-      "rank": 92,
+      "rank": 98,
       "balance": 13039360179320.0,
       "share": 0.11,
       "last_tx": null
@@ -744,7 +792,7 @@
     {
       "address": "0xb67336b32f6055ed0b492130af18f24d9564813f",
       "symbol": "TON",
-      "rank": 93,
+      "rank": 99,
       "balance": 13007011378899.0,
       "share": 0.11,
       "last_tx": null
@@ -752,57 +800,9 @@
     {
       "address": "0x793bc7416016e6925fe911693a98de757e5c4e49",
       "symbol": "TON",
-      "rank": 94,
+      "rank": 100,
       "balance": 12946373913034.0,
       "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x644f7935734aaea45959399f0fd1c45f0c0d64aa",
-      "symbol": "TON",
-      "rank": 95,
-      "balance": 12569400315650.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0xc7cd1489c56dcc120ec7e9bff3737886b5a39968",
-      "symbol": "TON",
-      "rank": 96,
-      "balance": 12510437383209.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x637da1f8f863a9c73d8a0c14d4f076130d98dd86",
-      "symbol": "TON",
-      "rank": 97,
-      "balance": 12352648355016.0,
-      "share": 0.11,
-      "last_tx": null
-    },
-    {
-      "address": "0x1c3a8934d4ac825001d15accaf507ee46af5008a",
-      "symbol": "TON",
-      "rank": 98,
-      "balance": 12328221896485.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x9dcdd61363cce970d80f233beb84ce8cb471db36",
-      "symbol": "TON",
-      "rank": 99,
-      "balance": 12223036673440.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0x6fc301e33227bbd70990b5a6289b789bddde2d23",
-      "symbol": "TON",
-      "rank": 100,
-      "balance": 12052935802010.0,
-      "share": 0.1,
       "last_tx": null
     }
   ]

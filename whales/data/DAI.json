@@ -1,6 +1,809 @@
 {
-  "symbol": "DAI",
-  "unsupported": true,
-  "reason": "Non-ERC20 token or missing Ethereum contract",
-  "timestamp": "2025-11-23 08:39:01 UTC"
+  "token": "DAI",
+  "contract": "0x6b175474e89094c44da98b954eedeac495271d0f",
+  "updated_at": "2026-02-03T23:19:57.975120",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
+      "symbol": "DAI",
+      "rank": 1,
+      "balance": 6.357207402635455e+26,
+      "share": 14.76,
+      "last_tx": null
+    },
+    {
+      "address": "0xf6e72db5454dd049d0788e411b06cfaf16853042",
+      "symbol": "DAI",
+      "rank": 2,
+      "balance": 4.009884406330538e+26,
+      "share": 9.31,
+      "last_tx": null
+    },
+    {
+      "address": "0x4dedf26112b3ec8ec46e7e31ea5e123490b05b8b",
+      "symbol": "DAI",
+      "rank": 3,
+      "balance": 8.560842165096441e+25,
+      "share": 1.99,
+      "last_tx": null
+    },
+    {
+      "address": "0x018008bfb33d285247a21d44e50697654f754e63",
+      "symbol": "DAI",
+      "rank": 4,
+      "balance": 5.11694399888877e+25,
+      "share": 1.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
+      "symbol": "DAI",
+      "rank": 5,
+      "balance": 4.099997201e+25,
+      "share": 0.95,
+      "last_tx": null
+    },
+    {
+      "address": "0x73781209f3b0f195d0d3fa9d6b95bb61c54c1ca6",
+      "symbol": "DAI",
+      "rank": 6,
+      "balance": 3.900000000000014e+25,
+      "share": 0.91,
+      "last_tx": null
+    },
+    {
+      "address": "0x837c20d568dfcd35e74e5cc0b8030f9cebe10a28",
+      "symbol": "DAI",
+      "rank": 7,
+      "balance": 3.431572119813731e+25,
+      "share": 0.8,
+      "last_tx": null
+    },
+    {
+      "address": "0xf84213cda40246be080bfa1744301b9e37ee4852",
+      "symbol": "DAI",
+      "rank": 8,
+      "balance": 3.199252782e+25,
+      "share": 0.74,
+      "last_tx": null
+    },
+    {
+      "address": "0x0c903235c380a717d970bbf91f4dd5780fd68ceb",
+      "symbol": "DAI",
+      "rank": 9,
+      "balance": 3.02749958623791e+25,
+      "share": 0.7,
+      "last_tx": null
+    },
+    {
+      "address": "0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+      "symbol": "DAI",
+      "rank": 10,
+      "balance": 2.620857949203403e+25,
+      "share": 0.61,
+      "last_tx": null
+    },
+    {
+      "address": "0x3b5fb9d9da3546e9ce6e5aa3cceca14c8d20041e",
+      "symbol": "DAI",
+      "rank": 11,
+      "balance": 2.354967669482034e+25,
+      "share": 0.55,
+      "last_tx": null
+    },
+    {
+      "address": "0x467194771dae2967aef3ecbedd3bf9a310c76c65",
+      "symbol": "DAI",
+      "rank": 12,
+      "balance": 2.1984770987696735e+25,
+      "share": 0.51,
+      "last_tx": null
+    },
+    {
+      "address": "0xc08a8a9f809107c5a7be6d90e315e4012c99f39a",
+      "symbol": "DAI",
+      "rank": 13,
+      "balance": 2.175824529611123e+25,
+      "share": 0.51,
+      "last_tx": null
+    },
+    {
+      "address": "0xa10c7ce4b876998858b1a9e12b10092229539400",
+      "symbol": "DAI",
+      "rank": 14,
+      "balance": 2.1686096329414034e+25,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
+      "address": "0xfd546293a729fe1a05d249ad4f2ca984082f889e",
+      "symbol": "DAI",
+      "rank": 15,
+      "balance": 2.1132658752921304e+25,
+      "share": 0.49,
+      "last_tx": null
+    },
+    {
+      "address": "0x4131c718d9fd40cd952fd458749281ef8e544233",
+      "symbol": "DAI",
+      "rank": 16,
+      "balance": 2.005870152121729e+25,
+      "share": 0.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x3a80ceaf052c2d08f70c8a1c0f2e7f43a82dd0b9",
+      "symbol": "DAI",
+      "rank": 17,
+      "balance": 2.00000502869938e+25,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0xd1668fb5f690c59ab4b0cabad0f8c1617895052b",
+      "symbol": "DAI",
+      "rank": 18,
+      "balance": 2.000000002e+25,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0xf884b1bc1d91cdf824e7f35d61edfdb042c28c83",
+      "symbol": "DAI",
+      "rank": 19,
+      "balance": 1.9964564745622832e+25,
+      "share": 0.46,
+      "last_tx": null
+    },
+    {
+      "address": "0x322171039da1c0071d07b3260d6ca1fec02a1d56",
+      "symbol": "DAI",
+      "rank": 20,
+      "balance": 1.9239097114829351e+25,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0x604981db0c06ea1b37495265eda4619c8eb95a3d",
+      "symbol": "DAI",
+      "rank": 21,
+      "balance": 1.7284249435020629e+25,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0xa13c083fba3c76f68b26952211a6aadcc6d77628",
+      "symbol": "DAI",
+      "rank": 22,
+      "balance": 1.6294108791907797e+25,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0x1715a3e4a142d8b698131108995174f37aeba10d",
+      "symbol": "DAI",
+      "rank": 23,
+      "balance": 1.5010541650270565e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x45b7d492839e310f4ee0504ec0b4e8c65959b833",
+      "symbol": "DAI",
+      "rank": 24,
+      "balance": 1.500010270958338e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0xaf9e8195901c5641de9cdb88f8c49ba95e3e35ed",
+      "symbol": "DAI",
+      "rank": 25,
+      "balance": 1.5000050162107e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x672061a6d27252bbbe95bc77d639b5d6cbaf1b56",
+      "symbol": "DAI",
+      "rank": 26,
+      "balance": 1.500001016059899e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x79ac3536c4b21c10ecb5298cdfde93e7be3ce954",
+      "symbol": "DAI",
+      "rank": 27,
+      "balance": 1.5000010160398e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0xe8a71cc23d24c22a65c3445d4c8cd13911628e84",
+      "symbol": "DAI",
+      "rank": 28,
+      "balance": 1.5000010159999e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x6850dcf0764fb8feb3ad31935cd47f17328818db",
+      "symbol": "DAI",
+      "rank": 29,
+      "balance": 1.5000010151998e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0xabc02dba93ebcf5dcb961c8584354cb1dc51cf86",
+      "symbol": "DAI",
+      "rank": 30,
+      "balance": 1.49999601575895e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x5d3a536e4d6dbd6114cc1ead35777bab948e3643",
+      "symbol": "DAI",
+      "rank": 31,
+      "balance": 1.49109639073332e+25,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x762d46904b93a1eedbff2fd50445cb8ffa41f9fb",
+      "symbol": "DAI",
+      "rank": 32,
+      "balance": 1.3318593955518365e+25,
+      "share": 0.31,
+      "last_tx": null
+    },
+    {
+      "address": "0xb9f332ab5342edd6c94697acf37d8b4e845d83a7",
+      "symbol": "DAI",
+      "rank": 33,
+      "balance": 1.3278010873704163e+25,
+      "share": 0.31,
+      "last_tx": null
+    },
+    {
+      "address": "0xccbdf8adc81b5a0e3b07f7ec43f9e9c66698a0de",
+      "symbol": "DAI",
+      "rank": 34,
+      "balance": 1.2987102521104705e+25,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x028171bca77440897b824ca71d1c56cac55b68a3",
+      "symbol": "DAI",
+      "rank": 35,
+      "balance": 1.2482830193061254e+25,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x28bfd713962f86f2ab23c59b3b6e1193c54aa097",
+      "symbol": "DAI",
+      "rank": 36,
+      "balance": 1.202008002e+25,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x0e53f37df5f713d8ea4919722529e48e65b9c00c",
+      "symbol": "DAI",
+      "rank": 37,
+      "balance": 1.2000000153530714e+25,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x8eb8a3b98659cce290402893d0123abb75e3ab28",
+      "symbol": "DAI",
+      "rank": 38,
+      "balance": 1.191273962749352e+25,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x48ec5717a5a5655201e9fd75882b6f03463b2ae4",
+      "symbol": "DAI",
+      "rank": 39,
+      "balance": 1.172199011000001e+25,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x5cbc6299fab3320e7758ac97fd4ca45e5b722059",
+      "symbol": "DAI",
+      "rank": 40,
+      "balance": 1.100000002e+25,
+      "share": 0.26,
+      "last_tx": null
+    },
+    {
+      "address": "0x3dafc6a860334d4feb0467a3d58c3687e9e921b6",
+      "symbol": "DAI",
+      "rank": 41,
+      "balance": 1.00838480987072e+25,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x2a5a1d256744bc09a2469d4cc558bbd84a35cefa",
+      "symbol": "DAI",
+      "rank": 42,
+      "balance": 1.000393734718286e+25,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x9a71caf37d2375691c8eb1ae8244d0cecde62f5a",
+      "symbol": "DAI",
+      "rank": 43,
+      "balance": 1.0001165e+25,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x3a886a63c768665a9830886e608d6f9dc6b4f730",
+      "symbol": "DAI",
+      "rank": 44,
+      "balance": 1.00000013227759e+25,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c2f1ed3d9758881558d9f037f843ff876a8baeb",
+      "symbol": "DAI",
+      "rank": 45,
+      "balance": 1e+25,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x8898f22922faa4b0c16c2a236faeb6c2c4a8944d",
+      "symbol": "DAI",
+      "rank": 46,
+      "balance": 9.9643100292738e+24,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x8a610c1c93da88c59f51a6264a4c70927814b320",
+      "symbol": "DAI",
+      "rank": 47,
+      "balance": 9.5045500005e+24,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xe9be525b40578fa33ab723d458f6af9fda530662",
+      "symbol": "DAI",
+      "rank": 48,
+      "balance": 9.372075441963297e+24,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x5a16552f59ea34e44ec81e58b3817833e9fd5436",
+      "symbol": "DAI",
+      "rank": 49,
+      "balance": 9.359483089995447e+24,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x1c497ecdddcc7478d925bd22988683e51d7a88c8",
+      "symbol": "DAI",
+      "rank": 50,
+      "balance": 9.00000052246616e+24,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0x4c35234291cb25676e5363cff6f73f1ef545684b",
+      "symbol": "DAI",
+      "rank": 51,
+      "balance": 8.578729932304e+24,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0xfa7093cdd9ee6932b4eb2c9e1cde7ce00b1fa4b9",
+      "symbol": "DAI",
+      "rank": 52,
+      "balance": 8.515526266049003e+24,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x7923ef1b53eb2cbbf8643f835aadd32f9f1dd240",
+      "symbol": "DAI",
+      "rank": 53,
+      "balance": 8.215123537826499e+24,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x39378fdf1540c8d8f1245185f027bdce4936f76e",
+      "symbol": "DAI",
+      "rank": 54,
+      "balance": 8.000865035742483e+24,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x8ce71ef87582b28de89d14970d00b2377f93f32b",
+      "symbol": "DAI",
+      "rank": 55,
+      "balance": 8e+24,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xa24b84ee685501bb1d269e9efd5ee81806e63b5e",
+      "symbol": "DAI",
+      "rank": 56,
+      "balance": 7.457235850142319e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
+      "symbol": "DAI",
+      "rank": 57,
+      "balance": 7.389711986045272e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x18b44c68ea2cd6b1e59731af8e49e62e90e92e66",
+      "symbol": "DAI",
+      "rank": 58,
+      "balance": 7.378259061308544e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xd9b78d8346fa9b8235a5b1df0f08f66358d557bc",
+      "symbol": "DAI",
+      "rank": 59,
+      "balance": 7.174438721066697e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x649614d3f7a7d68b3cf3c00264a07eeae4326fdc",
+      "symbol": "DAI",
+      "rank": 60,
+      "balance": 7.123204228108725e+24,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xac77b44a5f3acc54e3844a609fffd64f182ef931",
+      "symbol": "DAI",
+      "rank": 61,
+      "balance": 7.054704028599294e+24,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x223034edbe95823c1160c16f26e3000315171ca9",
+      "symbol": "DAI",
+      "rank": 62,
+      "balance": 7.015533902592022e+24,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x415d8d075cacb5a61ae854a8e5ea53df3a76f688",
+      "symbol": "DAI",
+      "rank": 63,
+      "balance": 6.91347236693e+24,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x64ab9377a2b3bbb61dd79f8997e7f8c1cc1a4de8",
+      "symbol": "DAI",
+      "rank": 64,
+      "balance": 6.89672952230986e+24,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x23773e65ed146a459791799d01336db287f25334",
+      "symbol": "DAI",
+      "rank": 65,
+      "balance": 6.600000007626458e+24,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xd26937cde0d2a15e89d8aaf811ae9beb423ced1a",
+      "symbol": "DAI",
+      "rank": 66,
+      "balance": 6.53728762394e+24,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x53b5517f8607c54b78064d406202c1a9822fe671",
+      "symbol": "DAI",
+      "rank": 67,
+      "balance": 6.209985e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x6c1692ffa729316a5e74b94ebc213f610b35c55e",
+      "symbol": "DAI",
+      "rank": 68,
+      "balance": 6.18425677e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x86d4025d91554a2843bac35ca83816fb9370dfd6",
+      "symbol": "DAI",
+      "rank": 69,
+      "balance": 6.0588100201125e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x2433307714d68402e23938b48cbbaa92d7c44a9d",
+      "symbol": "DAI",
+      "rank": 70,
+      "balance": 6.000000022e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x787571c7e0b2fc0bcf64c75bc98bf842eef8107d",
+      "symbol": "DAI",
+      "rank": 71,
+      "balance": 5.973417025028384e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xa4b9569bf942c3aad23c0c2d322fe4aff8e1bf30",
+      "symbol": "DAI",
+      "rank": 72,
+      "balance": 5.773108093898003e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x9abec4726263641d7f1326ed5769ff36909c7d0d",
+      "symbol": "DAI",
+      "rank": 73,
+      "balance": 5.700000022e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xc06001604dc327b0105ebf20180dad8281c32ce7",
+      "symbol": "DAI",
+      "rank": 74,
+      "balance": 5.50010002e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xe2eafb4c2b852079d6fb8e16e764ed251837587c",
+      "symbol": "DAI",
+      "rank": 75,
+      "balance": 5.4999990271e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xaa67a665c7d343ca65ae86608714741d3825711d",
+      "symbol": "DAI",
+      "rank": 76,
+      "balance": 5.484742692177426e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11",
+      "symbol": "DAI",
+      "rank": 77,
+      "balance": 5.38743224090677e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x6fa9720ff6c36d2810edde291882720b4c8fa8c5",
+      "symbol": "DAI",
+      "rank": 78,
+      "balance": 5.364110706859143e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xb32f1f64a2a13e39fba99fa99c909ed92ff482cb",
+      "symbol": "DAI",
+      "rank": 79,
+      "balance": 5.33000001e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xc142624a26245787257835102bf13bab6b140668",
+      "symbol": "DAI",
+      "rank": 80,
+      "balance": 5.324075038316042e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x0606cf247f94ee0a64ff3566f66a9192aed1d751",
+      "symbol": "DAI",
+      "rank": 81,
+      "balance": 5.29000002e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x445815810a13b48743e8df3bd875773c1b08a10e",
+      "symbol": "DAI",
+      "rank": 82,
+      "balance": 5.285968957230069e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xa5badcd518cf6c0c39a562c81bd562db24168b4d",
+      "symbol": "DAI",
+      "rank": 83,
+      "balance": 5.259900964937045e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x0a5d9f195e2809c52533b596a5d896c5df68680b",
+      "symbol": "DAI",
+      "rank": 84,
+      "balance": 5.25847542598696e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x91b0c4c5e01412aad7c705c363de6625b95423ee",
+      "symbol": "DAI",
+      "rank": 85,
+      "balance": 5.25000002e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x28820d071e2a18eac1f943af304dac411f3db1b9",
+      "symbol": "DAI",
+      "rank": 86,
+      "balance": 5.21000001e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x59e3dd50893622e24936287d8f24d0986a1e3ba0",
+      "symbol": "DAI",
+      "rank": 87,
+      "balance": 5.201994858689097e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x397948426af4dad28b9661e31637838b86cdb05e",
+      "symbol": "DAI",
+      "rank": 88,
+      "balance": 5.20000002e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xa0ad4f3cd49cbdf4ed18375e11d35a27cbc5ca1a",
+      "symbol": "DAI",
+      "rank": 89,
+      "balance": 5.10000002e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x1d71a018aceaab49b1024842b279d21ebfccc758",
+      "symbol": "DAI",
+      "rank": 90,
+      "balance": 5.00666602e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x258924a7b69e445f7228de823267de1be2fbe63e",
+      "symbol": "DAI",
+      "rank": 91,
+      "balance": 5.00000003e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x86ae9f8376f16b6818313bb23ca04682a8ced71f",
+      "symbol": "DAI",
+      "rank": 92,
+      "balance": 5.00000002e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xaa117f1be77ffefaac83b54b7fa24a5ef7285a86",
+      "symbol": "DAI",
+      "rank": 93,
+      "balance": 5.00000001e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xf15b6d94d02c06155fee8a75dc0a487a488016d6",
+      "symbol": "DAI",
+      "rank": 94,
+      "balance": 4.9999900599989e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x817bb1761b715a08a9142f99fa7d0ccf73f4c0ef",
+      "symbol": "DAI",
+      "rank": 95,
+      "balance": 4.999236e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x157a409c2bfff38209a32e55d3eac1bfc93dd664",
+      "symbol": "DAI",
+      "rank": 96,
+      "balance": 4.999121e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x91f797943822a84487e7f53d23dc8a1d0e7d1522",
+      "symbol": "DAI",
+      "rank": 97,
+      "balance": 4.997919676474919e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x32333db5c4b26a8129b24bdd44999962000bd071",
+      "symbol": "DAI",
+      "rank": 98,
+      "balance": 4.9979010144e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x04ecafbc588968d697f31b6530068319b9bab2a7",
+      "symbol": "DAI",
+      "rank": 99,
+      "balance": 4.993611606818981e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c8fb47f8546a7ce639ed4dfb2ad2c6369e2f816",
+      "symbol": "DAI",
+      "rank": 100,
+      "balance": 4.991300343456448e+24,
+      "share": 0.12,
+      "last_tx": null
+    }
+  ]
 }

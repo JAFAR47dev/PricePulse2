@@ -15,97 +15,77 @@ async def test_callback_handler(update: Update, context: ContextTypes.DEFAULT_TY
     query = update.callback_query
     user_id = query.from_user.id
 
+    # ✅ Answer callback IMMEDIATELY
+    await query.answer("📤 Sending test notification...", show_alert=False)
+
     # --- Fetch user settings ---
     settings = get_user_notification_settings(user_id)
+
+    # ✅ FIX: Ensure delivery defaults to "private" if group_id is None
+    delivery = settings.get("delivery", "private")
+    group_id = settings.get("group_id")
+    
+    # If delivery is "group" but no group_id exists, fallback to private
+    if delivery == "group" and not group_id:
+        print(f"[TestNotification] User {user_id} has delivery='group' but no group_id, using private instead")
+        delivery = "private"
+    
+    user = {
+        "user_id": user_id,
+        "delivery": delivery,
+        "group_id": group_id,
+        **settings  # Include all other settings
+    }
 
     # --- Fetch notification data (cached for speed) ---
     try:
         notif_data = await get_notification_data(ttl=60)
     except Exception as e:
         print(f"[TestNotification] Failed to fetch data: {e}")
-        await query.answer("⚠️ Failed to fetch data. Try again later.", show_alert=True)
+        await context.bot.send_message(
+            chat_id=user_id,
+            text="⚠️ Failed to fetch notification data. Please try again later."
+        )
         return
 
-    parts = ["📢 *Test Notification Preview*\n"]
-
-    # --- 🌍 Global Market Section ---
-    if settings.get("include_global") and notif_data.get("global"):
-        g = notif_data["global"]
-        if isinstance(g, dict):
-            parts.append(
-                "\n🌍 *Global Market Overview*\n"
-                f"💰 *Market Cap:* {g.get('market_cap', 'N/A')}\n"
-                f"📊 *24h Volume:* {g.get('volume', 'N/A')}\n"
-                f"📈 *Change:* {g.get('change', 'N/A')}\n"
-                f"🏆 *BTC Dom:* {g.get('btc_dominance', 'N/A')} | "
-                f"💎 *ETH Dom:* {g.get('eth_dominance', 'N/A')}"
-            )
-        else:
-            parts.append(f"🌍 {g}")
-
-    # --- 🚀 Top Gainers ---
-    if settings.get("include_gainers") and notif_data.get("gainers"):
-        gainers_data = notif_data["gainers"]
-        if isinstance(gainers_data, list) and len(gainers_data) > 0:
-            formatted = "\n".join(
-                [f"• {c[0]} — 📈 *{c[1]}*" for c in gainers_data[:3]]
-            )
-            parts.append(f"\n🚀 *Top Gainers (24h)*\n{formatted}")
-        else:
-            parts.append(f"🚀 *Top Gainers:* {gainers_data}")
-
-    # --- 📉 Top Losers ---
-    if settings.get("include_losers") and notif_data.get("losers"):
-        losers_data = notif_data["losers"]
-        if isinstance(losers_data, list) and len(losers_data) > 0:
-            formatted = "\n".join(
-                [f"• {c[0]} — 🔻 *{c[1]}*" for c in losers_data[:3]]
-            )
-            parts.append(f"\n📉 *Top Losers (24h)*\n{formatted}")
-        else:
-            parts.append(f"📉 *Top Losers:* {losers_data}")
-
-    # --- 📰 News Section ---
-    if settings.get("include_news") and notif_data.get("news"):
-        news_data = notif_data["news"]
-        if isinstance(news_data, list) and len(news_data) > 0:
-            formatted = "\n".join(
-                [f"• [{n.split('](')[0].replace('[', '').strip()}]({n.split('](')[1][:-1]})"
-                 if '](' in n else f"• {n}" for n in news_data[:3]]
-            )
-            parts.append(f"\n📰 *Latest News*\n{formatted}")
-        else:
-            parts.append(f"📰 *Crypto:* {news_data}")
-
-    # --- ⛽ Gas Fees ---
-    if settings.get("include_gas") and notif_data.get("gas"):
-        gas_data = notif_data["gas"]
-        if isinstance(gas_data, str):
-            parts.append(f"\n⛽ *Gas Fees*\n{gas_data}")
-        elif isinstance(gas_data, dict):
-            parts.append(
-                "\n⛽ *Gas Fees (ETH)*\n"
-                f"• Low: {gas_data.get('low', 'N/A')}\n"
-                f"• Standard: {gas_data.get('standard', 'N/A')}\n"
-                f"• High: {gas_data.get('high', 'N/A')}"
-            )
-
-    # --- 💡 Coin of the Day ---
-    if settings.get("include_cod") and notif_data.get("cod"):
-        cod_data = notif_data["cod"]
-        if isinstance(cod_data, dict):
-            parts.append(
-                f"\n💡 *Coin of the Day*\n"
-                f"• *{cod_data.get('coin', 'N/A')}* — {cod_data.get('reason', 'No reason provided.')}"
-            )
-        else:
-            parts.append(f"\n💡 *Coin:* {cod_data}")
-
-    # --- Combine all sections ---
-    message = "\n".join(parts)
+    # ✅ Build message using scheduler's build_message function
+    from notifications.scheduler import build_message
+    
+    try:
+        message = await build_message(user, notif_data)
+    except Exception as e:
+        print(f"[TestNotification] Failed to build message: {e}")
+        await context.bot.send_message(
+            chat_id=user_id,
+            text="⚠️ Failed to format notification. Please try again."
+        )
+        return
 
     # --- Send the message using the user's preferred method ---
-    await send_notification_with_retry(context.bot, settings, message)
-
-    # --- Confirm to user ---
-    await query.answer("✅ Test notification sent!")
+    try:
+        success, error = await send_notification_with_retry(
+            context.bot,
+            user,
+            message
+        )
+        
+        if success:
+            print(f"[TestNotification] Successfully sent to user {user_id}")
+            # Optionally send confirmation to user
+            await context.bot.send_message(
+                chat_id=user_id,
+                text="✅ Test notification sent successfully! Check your configured delivery location."
+            )
+        else:
+            print(f"[TestNotification] Failed to send to user {user_id}: {error}")
+            await context.bot.send_message(
+                chat_id=user_id,
+                text=f"⚠️ Failed to send test notification.\n\n*Reason:* {error}\n\nPlease check your notification settings with /notifications",
+                parse_mode="Markdown"
+            )
+    except Exception as e:
+        print(f"[TestNotification] Exception sending to user {user_id}: {e}")
+        await context.bot.send_message(
+            chat_id=user_id,
+            text="⚠️ An error occurred. Please try again later."
+        )

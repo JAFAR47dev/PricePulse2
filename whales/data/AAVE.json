@@ -1,7 +1,7 @@
 {
   "token": "AAVE",
   "contract": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
-  "updated_at": "2025-11-23T08:41:05.231964",
+  "updated_at": "2026-02-03T23:21:07.049025",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,24 +9,24 @@
       "address": "0x4da27a545c0c5b758a6ba100e3a049001de870f5",
       "symbol": "AAVE",
       "rank": 1,
-      "balance": 2.675222092886086e+24,
-      "share": 16.72,
-      "last_tx": null
-    },
-    {
-      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
-      "symbol": "AAVE",
-      "rank": 2,
-      "balance": 1.20680666e+24,
-      "share": 7.54,
+      "balance": 2.517788624115933e+24,
+      "share": 15.74,
       "last_tx": null
     },
     {
       "address": "0xa700b4eb416be35b2911fd5dee80678ff64ff6c9",
       "symbol": "AAVE",
+      "rank": 2,
+      "balance": 1.2011330039422963e+24,
+      "share": 7.51,
+      "last_tx": null
+    },
+    {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "symbol": "AAVE",
       "rank": 3,
-      "balance": 1.1228919574022913e+24,
-      "share": 7.02,
+      "balance": 8.8928096e+23,
+      "share": 5.56,
       "last_tx": null
     },
     {
@@ -38,43 +38,43 @@
       "last_tx": null
     },
     {
-      "address": "0x25f2226b597e8f9514b3f68f00f494cf4f286491",
+      "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
       "symbol": "AAVE",
       "rank": 5,
-      "balance": 4.2479144574900216e+23,
-      "share": 2.65,
+      "balance": 4e+23,
+      "share": 2.5,
       "last_tx": null
     },
     {
-      "address": "0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503",
+      "address": "0x25f2226b597e8f9514b3f68f00f494cf4f286491",
       "symbol": "AAVE",
       "rank": 6,
-      "balance": 4e+23,
-      "share": 2.5,
+      "balance": 3.733686697750845e+23,
+      "share": 2.33,
       "last_tx": null
     },
     {
       "address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
       "symbol": "AAVE",
       "rank": 7,
-      "balance": 3.473461611572023e+23,
-      "share": 2.17,
+      "balance": 3.619650295743834e+23,
+      "share": 2.26,
+      "last_tx": null
+    },
+    {
+      "address": "0x7915f9373ae32d1fcaf0cdf17a532a3d8046d759",
+      "symbol": "AAVE",
+      "rank": 8,
+      "balance": 3.3800524843139e+23,
+      "share": 2.11,
       "last_tx": null
     },
     {
       "address": "0x317625234562b1526ea2fac4030ea499c5291de4",
       "symbol": "AAVE",
-      "rank": 8,
-      "balance": 3.042973939132626e+23,
-      "share": 1.9,
-      "last_tx": null
-    },
-    {
-      "address": "0x5a801a9418d036fd453078c3adcb761fdc5ae695",
-      "symbol": "AAVE",
       "rank": 9,
-      "balance": 2.2746839725955785e+23,
-      "share": 1.42,
+      "balance": 3.035526531939529e+23,
+      "share": 1.9,
       "last_tx": null
     },
     {
@@ -94,97 +94,169 @@
       "last_tx": null
     },
     {
-      "address": "0x7915f9373ae32d1fcaf0cdf17a532a3d8046d759",
+      "address": "0x5a801a9418d036fd453078c3adcb761fdc5ae695",
       "symbol": "AAVE",
       "rank": 12,
-      "balance": 2.1002351843139e+23,
-      "share": 1.31,
+      "balance": 2.1456758412354948e+23,
+      "share": 1.34,
       "last_tx": null
     },
     {
       "address": "0x73af3bcf944a6559933396c1577b257e2054d935",
       "symbol": "AAVE",
       "rank": 13,
-      "balance": 2.0199232261990832e+23,
+      "balance": 2.0099206563090833e+23,
       "share": 1.26,
       "last_tx": null
     },
     {
-      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+      "address": "0x6e9ddc0143cf07d21ea51b6406755e2da9be0f58",
       "symbol": "AAVE",
       "rank": 14,
-      "balance": 1.4428853714062e+23,
-      "share": 0.9,
+      "balance": 1.7313697599992618e+23,
+      "share": 1.08,
       "last_tx": null
     },
     {
-      "address": "0x0e240e9a7b40ad11fdd69f952ba3bbd29a238bbd",
+      "address": "0x0b8fe2a0dbf47038da4bb6c6dd5af1aef1ebb1f4",
       "symbol": "AAVE",
       "rank": 15,
-      "balance": 1.4250020005e+23,
-      "share": 0.89,
+      "balance": 1.4537008735145302e+23,
+      "share": 0.91,
       "last_tx": null
     },
     {
-      "address": "0xad85405cbb1476825b78a021fa9e543bf7937549",
+      "address": "0x46e946468f747d0e563527bd069d4ded731f33a4",
       "symbol": "AAVE",
       "rank": 16,
-      "balance": 1.3420410121911774e+23,
-      "share": 0.84,
-      "last_tx": null
-    },
-    {
-      "address": "0x2079c29be9c8095042edb95f293b5b510203d6ce",
-      "symbol": "AAVE",
-      "rank": 17,
-      "balance": 1.133022680166355e+23,
-      "share": 0.71,
-      "last_tx": null
-    },
-    {
-      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
-      "symbol": "AAVE",
-      "rank": 18,
-      "balance": 1.132146e+23,
-      "share": 0.71,
+      "balance": 1.4462038659421399e+23,
+      "share": 0.9,
       "last_tx": null
     },
     {
       "address": "0x22740deba78d5a0c24c58c740e3715ec29de1bfa",
       "symbol": "AAVE",
-      "rank": 19,
-      "balance": 1.1102838478446198e+23,
-      "share": 0.69,
+      "rank": 17,
+      "balance": 1.351601733119512e+23,
+      "share": 0.84,
       "last_tx": null
     },
     {
-      "address": "0x144f2822bca1d5e51d4c00e5b9cb7bbab0717512",
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "AAVE",
+      "rank": 18,
+      "balance": 1.3496288598614907e+23,
+      "share": 0.84,
+      "last_tx": null
+    },
+    {
+      "address": "0x0277331db7d134b205c5c920395e510da0dad2a5",
+      "symbol": "AAVE",
+      "rank": 19,
+      "balance": 1.334430937615024e+23,
+      "share": 0.83,
+      "last_tx": null
+    },
+    {
+      "address": "0x118bc4c55700db03ea29a0d920d22221dc1a9620",
       "symbol": "AAVE",
       "rank": 20,
-      "balance": 1.0724398459054136e+23,
-      "share": 0.67,
+      "balance": 1.3262974151724251e+23,
+      "share": 0.83,
+      "last_tx": null
+    },
+    {
+      "address": "0x8a6d3630928802e157595ee18d6d10a4cd4fab0d",
+      "symbol": "AAVE",
+      "rank": 21,
+      "balance": 1.3245031350444706e+23,
+      "share": 0.83,
+      "last_tx": null
+    },
+    {
+      "address": "0xf21f6a09e488a7177c59e8e2d362adec661e7689",
+      "symbol": "AAVE",
+      "rank": 22,
+      "balance": 1.3222840927114805e+23,
+      "share": 0.83,
+      "last_tx": null
+    },
+    {
+      "address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+      "symbol": "AAVE",
+      "rank": 23,
+      "balance": 1.3125779999002339e+23,
+      "share": 0.82,
+      "last_tx": null
+    },
+    {
+      "address": "0x2079c29be9c8095042edb95f293b5b510203d6ce",
+      "symbol": "AAVE",
+      "rank": 24,
+      "balance": 1.2358162819573883e+23,
+      "share": 0.77,
+      "last_tx": null
+    },
+    {
+      "address": "0xad85405cbb1476825b78a021fa9e543bf7937549",
+      "symbol": "AAVE",
+      "rank": 25,
+      "balance": 1.1767319314455481e+23,
+      "share": 0.74,
       "last_tx": null
     },
     {
       "address": "0xf8dafa064d7bb863121305449577d4e56dc854f2",
       "symbol": "AAVE",
-      "rank": 21,
-      "balance": 1.0300347889557945e+23,
-      "share": 0.64,
+      "rank": 26,
+      "balance": 1.125528943502351e+23,
+      "share": 0.7,
+      "last_tx": null
+    },
+    {
+      "address": "0x144f2822bca1d5e51d4c00e5b9cb7bbab0717512",
+      "symbol": "AAVE",
+      "rank": 27,
+      "balance": 1.0724398459054136e+23,
+      "share": 0.67,
+      "last_tx": null
+    },
+    {
+      "address": "0x073f564419b625a45d8aea3bb0de4d5647113ad7",
+      "symbol": "AAVE",
+      "rank": 28,
+      "balance": 1.0372296001061075e+23,
+      "share": 0.65,
+      "last_tx": null
+    },
+    {
+      "address": "0x5ee84d30c7ee57f63f71c92247ff31f95e26916b",
+      "symbol": "AAVE",
+      "rank": 29,
+      "balance": 9.805706789076962e+22,
+      "share": 0.61,
       "last_tx": null
     },
     {
       "address": "0x40ec5b33f54e0e8a33a975908c5ba1c14e5bbbdf",
       "symbol": "AAVE",
-      "rank": 22,
-      "balance": 9.621813479651022e+22,
-      "share": 0.6,
+      "rank": 30,
+      "balance": 9.153607175589615e+22,
+      "share": 0.57,
+      "last_tx": null
+    },
+    {
+      "address": "0x47ca539b3f546078d97bd851130741c6bf370100",
+      "symbol": "AAVE",
+      "rank": 31,
+      "balance": 8.403294725614057e+22,
+      "share": 0.53,
       "last_tx": null
     },
     {
       "address": "0x37b5f7e191fe080865ff45a68708031ec45ad893",
       "symbol": "AAVE",
-      "rank": 23,
+      "rank": 32,
       "balance": 8.33335377304624e+22,
       "share": 0.52,
       "last_tx": null
@@ -192,7 +264,7 @@
     {
       "address": "0x4f728e3a8664cd5cf0982c74a107e6081f2c71c7",
       "symbol": "AAVE",
-      "rank": 24,
+      "rank": 33,
       "balance": 8.3011e+22,
       "share": 0.52,
       "last_tx": null
@@ -200,79 +272,63 @@
     {
       "address": "0xa9cf4aa55c675badb68519e3cfa8f4be942e6d11",
       "symbol": "AAVE",
-      "rank": 25,
+      "rank": 34,
       "balance": 8.3002e+22,
       "share": 0.52,
       "last_tx": null
     },
     {
+      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
+      "symbol": "AAVE",
+      "rank": 35,
+      "balance": 7.955962098324998e+22,
+      "share": 0.5,
+      "last_tx": null
+    },
+    {
       "address": "0xaae602be176922cd6544e3c6795c9878ba775125",
       "symbol": "AAVE",
-      "rank": 26,
+      "rank": 36,
       "balance": 7.93391933009e+22,
       "share": 0.5,
       "last_tx": null
     },
     {
-      "address": "0xa3a7b6f88361f48403514059f1f16c8e78d60eec",
-      "symbol": "AAVE",
-      "rank": 27,
-      "balance": 7.782239935521781e+22,
-      "share": 0.49,
-      "last_tx": null
-    },
-    {
       "address": "0xbd585c60d925c577c667468a0fd3edb832d967c5",
       "symbol": "AAVE",
-      "rank": 28,
+      "rank": 37,
       "balance": 7.7351e+22,
       "share": 0.48,
       "last_tx": null
     },
     {
-      "address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83",
-      "symbol": "AAVE",
-      "rank": 29,
-      "balance": 7.725035652571e+22,
-      "share": 0.48,
-      "last_tx": null
-    },
-    {
-      "address": "0x6e9ddc0143cf07d21ea51b6406755e2da9be0f58",
-      "symbol": "AAVE",
-      "rank": 30,
-      "balance": 7.478881120226526e+22,
-      "share": 0.47,
-      "last_tx": null
-    },
-    {
       "address": "0xe705b1d26b85c9f9f91a3690079d336295f14f08",
       "symbol": "AAVE",
-      "rank": 31,
+      "rank": 38,
       "balance": 7.4012771946887905e+22,
-      "share": 0.46,
-      "last_tx": null
-    },
-    {
-      "address": "0x5ee84d30c7ee57f63f71c92247ff31f95e26916b",
-      "symbol": "AAVE",
-      "rank": 32,
-      "balance": 7.365625568838627e+22,
       "share": 0.46,
       "last_tx": null
     },
     {
       "address": "0xdf3288f9e54809c97edabdeb8f0c3c26ce0f5192",
       "symbol": "AAVE",
-      "rank": 33,
-      "balance": 7.241087446600792e+22,
+      "rank": 39,
+      "balance": 7.184026862587084e+22,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0xa3a7b6f88361f48403514059f1f16c8e78d60eec",
+      "symbol": "AAVE",
+      "rank": 40,
+      "balance": 7.170616797580032e+22,
       "share": 0.45,
       "last_tx": null
     },
     {
       "address": "0xafcd96e580138cfa2332c632e66308eacd45c5da",
       "symbol": "AAVE",
-      "rank": 34,
+      "rank": 41,
       "balance": 7.157e+22,
       "share": 0.45,
       "last_tx": null
@@ -280,127 +336,95 @@
     {
       "address": "0x7d94077f58593f8b97c5cab56c8924e13b49946e",
       "symbol": "AAVE",
-      "rank": 35,
-      "balance": 6.729439036087144e+22,
-      "share": 0.42,
+      "rank": 42,
+      "balance": 6.880145920172736e+22,
+      "share": 0.43,
       "last_tx": null
     },
     {
-      "address": "0x28cc933fecf280e720299b1258e8680355d8841f",
+      "address": "0x1a353a852ba8ec5ac634695e0d65f2729223471d",
       "symbol": "AAVE",
-      "rank": 36,
-      "balance": 5.815718912094905e+22,
-      "share": 0.36,
+      "rank": 43,
+      "balance": 6.721724174118353e+22,
+      "share": 0.42,
       "last_tx": null
     },
     {
       "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
       "symbol": "AAVE",
-      "rank": 37,
-      "balance": 5.625057951454e+22,
-      "share": 0.35,
+      "rank": 44,
+      "balance": 6.15184447695991e+22,
+      "share": 0.38,
       "last_tx": null
     },
     {
-      "address": "0x4fd01341d7ad9592e0627ed20952466ad9bb831f",
+      "address": "0x28cc933fecf280e720299b1258e8680355d8841f",
       "symbol": "AAVE",
-      "rank": 38,
-      "balance": 5.470504932268511e+22,
+      "rank": 45,
+      "balance": 5.394927577903679e+22,
       "share": 0.34,
       "last_tx": null
     },
     {
-      "address": "0xd3cb110f85aa369309a7b855f8ed3730e8168a28",
+      "address": "0xd85a69ec2c7a0d42e599519c574b15571f3c60ca",
       "symbol": "AAVE",
-      "rank": 39,
-      "balance": 5.3327699008394264e+22,
-      "share": 0.33,
-      "last_tx": null
-    },
-    {
-      "address": "0x51c81471d65f98aa74e8f7ead948856dc23205af",
-      "symbol": "AAVE",
-      "rank": 40,
-      "balance": 5.092608755225616e+22,
-      "share": 0.32,
-      "last_tx": null
-    },
-    {
-      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
-      "symbol": "AAVE",
-      "rank": 41,
-      "balance": 5.026861606739767e+22,
+      "rank": 46,
+      "balance": 5.0294218397484105e+22,
       "share": 0.31,
-      "last_tx": null
-    },
-    {
-      "address": "0x5ab53ee1d50eef2c1dd3d5402789cd27bb52c1bb",
-      "symbol": "AAVE",
-      "rank": 42,
-      "balance": 4.989105726797885e+22,
-      "share": 0.31,
-      "last_tx": null
-    },
-    {
-      "address": "0xa6eddab9926ed411298cf86eec5e4d9f2372c489",
-      "symbol": "AAVE",
-      "rank": 43,
-      "balance": 4.700705799027e+22,
-      "share": 0.29,
       "last_tx": null
     },
     {
       "address": "0x7344bc430113271c36ae2bfd48780b7b16d600be",
       "symbol": "AAVE",
-      "rank": 44,
-      "balance": 4.61709309126729e+22,
+      "rank": 47,
+      "balance": 4.842968725193168e+22,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
+      "symbol": "AAVE",
+      "rank": 48,
+      "balance": 4.733521011339767e+22,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xa6eddab9926ed411298cf86eec5e4d9f2372c489",
+      "symbol": "AAVE",
+      "rank": 49,
+      "balance": 4.700705799027e+22,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0xe792b339818ae6fc4c43c8bef57352d28e7f7afb",
+      "symbol": "AAVE",
+      "rank": 50,
+      "balance": 4.58735801e+22,
       "share": 0.29,
       "last_tx": null
     },
     {
       "address": "0xbcda26b7c6fe36b4f97c21a57807817b06e15c77",
       "symbol": "AAVE",
-      "rank": 45,
+      "rank": 51,
       "balance": 4.439259242430811e+22,
       "share": 0.28,
       "last_tx": null
     },
     {
-      "address": "0x1c1b71f80f6e0bc0b070f6e2d6c9e2b5cf65f501",
-      "symbol": "AAVE",
-      "rank": 46,
-      "balance": 4.43270125788327e+22,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0xe466d6cf6e2c3f3f8345d39633d4a968ec879bd5",
-      "symbol": "AAVE",
-      "rank": 47,
-      "balance": 4.363754482273603e+22,
-      "share": 0.27,
-      "last_tx": null
-    },
-    {
       "address": "0x373704e394ef150241aee836115d78aba3fc5c76",
       "symbol": "AAVE",
-      "rank": 48,
+      "rank": 52,
       "balance": 4.266399696871371e+22,
       "share": 0.27,
       "last_tx": null
     },
     {
-      "address": "0xbe61ed1ac2d7e74251a7945f26fee861d750b6b8",
-      "symbol": "AAVE",
-      "rank": 49,
-      "balance": 4.197613417499871e+22,
-      "share": 0.26,
-      "last_tx": null
-    },
-    {
       "address": "0x3fbf02b90828c643fa23abc6020069da6f45b9ff",
       "symbol": "AAVE",
-      "rank": 50,
+      "rank": 53,
       "balance": 4.012069599e+22,
       "share": 0.25,
       "last_tx": null
@@ -408,7 +432,15 @@
     {
       "address": "0xd9a910ac062896d2c29cf7c11486895e84f58392",
       "symbol": "AAVE",
-      "rank": 51,
+      "rank": 54,
+      "balance": 4e+22,
+      "share": 0.25,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a4d361b7d0dadf8146dcfe6258a8699ea35eb81",
+      "symbol": "AAVE",
+      "rank": 55,
       "balance": 4e+22,
       "share": 0.25,
       "last_tx": null
@@ -416,72 +448,40 @@
     {
       "address": "0xcfbd46f1536edc3d19c15af362f7f7694bbaaf42",
       "symbol": "AAVE",
-      "rank": 52,
-      "balance": 3.98302102e+22,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
-      "address": "0xee95d2d3c9fdf32f226e07cbfe75a9b72121a364",
-      "symbol": "AAVE",
-      "rank": 53,
-      "balance": 3.88333167544299e+22,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
-      "symbol": "AAVE",
-      "rank": 54,
-      "balance": 3.8401666888111395e+22,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0xf40195a715a0ed7fe737c5b844703a9c67e53be8",
-      "symbol": "AAVE",
-      "rank": 55,
-      "balance": 3.835576154315065e+22,
-      "share": 0.24,
-      "last_tx": null
-    },
-    {
-      "address": "0xb0a27099582833c0cb8c7a0565759ff145113d64",
-      "symbol": "AAVE",
       "rank": 56,
-      "balance": 3.7584552953e+22,
-      "share": 0.23,
-      "last_tx": null
-    },
-    {
-      "address": "0x89e28571337d75df3f850ee838290a2d994bbd83",
-      "symbol": "AAVE",
-      "rank": 57,
-      "balance": 3.717018843472174e+22,
-      "share": 0.23,
-      "last_tx": null
-    },
-    {
-      "address": "0x77fc8f7c40965f17999417756b878478be635bd2",
-      "symbol": "AAVE",
-      "rank": 58,
-      "balance": 3.705413143834908e+22,
-      "share": 0.23,
+      "balance": 3.983018061734e+22,
+      "share": 0.25,
       "last_tx": null
     },
     {
       "address": "0x841ed663f2636863d40be4ee76243377dff13a34",
       "symbol": "AAVE",
-      "rank": 59,
-      "balance": 3.6922086351743467e+22,
-      "share": 0.23,
+      "rank": 57,
+      "balance": 3.977288372859713e+22,
+      "share": 0.25,
       "last_tx": null
     },
     {
-      "address": "0x0fa5b9b2805e2d0f25dee42730cf4e30c9e7e0b1",
+      "address": "0xf61ebfac2aa5d3fe5b65fbd5a612f44319e177a1",
+      "symbol": "AAVE",
+      "rank": 58,
+      "balance": 3.9035675221585845e+22,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x6a6f987882e0d19aaa1155e96beab1e4a9ed474c",
+      "symbol": "AAVE",
+      "rank": 59,
+      "balance": 3.56784201e+22,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x0820ae9d895078ac2255d61328cbd21856ff677d",
       "symbol": "AAVE",
       "rank": 60,
-      "balance": 3.54322372228562e+22,
+      "balance": 3.4986544822736038e+22,
       "share": 0.22,
       "last_tx": null
     },
@@ -494,315 +494,315 @@
       "last_tx": null
     },
     {
-      "address": "0xcaefcfcb4960c5473024b74da2db4de8d854e804",
+      "address": "0x0fa5b9b2805e2d0f25dee42730cf4e30c9e7e0b1",
       "symbol": "AAVE",
       "rank": 62,
+      "balance": 3.368457860774241e+22,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
+      "symbol": "AAVE",
+      "rank": 63,
+      "balance": 3.3413248162606623e+22,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xcaefcfcb4960c5473024b74da2db4de8d854e804",
+      "symbol": "AAVE",
+      "rank": 64,
       "balance": 3.33352e+22,
       "share": 0.21,
       "last_tx": null
     },
     {
-      "address": "0x7e325318da6756150c2b2ef7eedfb6a400e408c0",
+      "address": "0x525869ad2488101b5cf47e0d898a59f029b32b03",
       "symbol": "AAVE",
-      "rank": 63,
-      "balance": 3.3333086635681464e+22,
+      "rank": 65,
+      "balance": 3.2906881387988605e+22,
       "share": 0.21,
       "last_tx": null
     },
     {
       "address": "0x3bb587c8c3f138a09167d807e984b7623a9bd4c2",
       "symbol": "AAVE",
-      "rank": 64,
+      "rank": 66,
       "balance": 3.270833e+22,
       "share": 0.2,
       "last_tx": null
     },
     {
-      "address": "0xcffad3200574698b78f32232aa9d63eabd290703",
-      "symbol": "AAVE",
-      "rank": 65,
-      "balance": 3.2462944777802464e+22,
-      "share": 0.2,
-      "last_tx": null
-    },
-    {
-      "address": "0xab04d5afaa95c05932d5743c29b45d2630687e79",
-      "symbol": "AAVE",
-      "rank": 66,
-      "balance": 3.1271453752458083e+22,
-      "share": 0.2,
-      "last_tx": null
-    },
-    {
-      "address": "0xc6f289e50857f1340143e88ffa6acd0acaeacb69",
+      "address": "0x5ab53ee1d50eef2c1dd3d5402789cd27bb52c1bb",
       "symbol": "AAVE",
       "rank": 67,
-      "balance": 3.1271453752458083e+22,
-      "share": 0.2,
-      "last_tx": null
-    },
-    {
-      "address": "0x22bc7ccf53da9b9624e5f7004ed7e89449928230",
-      "symbol": "AAVE",
-      "rank": 68,
-      "balance": 3.1271453752458083e+22,
+      "balance": 3.169683662577264e+22,
       "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0x76ec5a0d3632b2133d9f1980903305b62678fbd3",
       "symbol": "AAVE",
-      "rank": 69,
-      "balance": 3.0040721395504053e+22,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0xd211a02a0adde56bb7f9700f49d4ba832adc7ddf",
-      "symbol": "AAVE",
-      "rank": 70,
-      "balance": 2.971154352746693e+22,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0x091d1c972cb1648537a2ba78eaba371b1ce18336",
-      "symbol": "AAVE",
-      "rank": 71,
-      "balance": 2.882014522298e+22,
+      "rank": 68,
+      "balance": 2.8639559224480055e+22,
       "share": 0.18,
       "last_tx": null
     },
     {
-      "address": "0xfc98a9bcbb3d8a3f1a53be905b1a48e7898f27af",
+      "address": "0x761c5f630e130bbbe52b83045322abf848b461e6",
       "symbol": "AAVE",
-      "rank": 72,
-      "balance": 2.7417792990427765e+22,
-      "share": 0.17,
+      "rank": 69,
+      "balance": 2.8488e+22,
+      "share": 0.18,
       "last_tx": null
     },
     {
-      "address": "0xc882b111a75c0c657fc507c04fbfcd2cc984f071",
+      "address": "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
       "symbol": "AAVE",
-      "rank": 73,
-      "balance": 2.691893989603247e+22,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0xd2d314606cab9fa389661ef4af2062e66ec13a6a",
-      "symbol": "AAVE",
-      "rank": 74,
-      "balance": 2.68145063043e+22,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0xd784927ff2f95ba542bfc824c8a8a98f3495f6b5",
-      "symbol": "AAVE",
-      "rank": 75,
-      "balance": 2.677501123109889e+22,
+      "rank": 70,
+      "balance": 2.681677398862118e+22,
       "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x77fb357f55bef5a70d30663955f8c9f35794df0e",
       "symbol": "AAVE",
-      "rank": 76,
-      "balance": 2.6414143746528594e+22,
+      "rank": 71,
+      "balance": 2.6493677642888795e+22,
       "share": 0.17,
       "last_tx": null
     },
     {
-      "address": "0x633e1f42703ce218b4cdbdf96bac531e256ed8c2",
+      "address": "0xd784927ff2f95ba542bfc824c8a8a98f3495f6b5",
       "symbol": "AAVE",
-      "rank": 77,
-      "balance": 2.555331475845213e+22,
+      "rank": 72,
+      "balance": 2.609634367981565e+22,
       "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0xbb9e8da143bcb7fa75d9d82a54da26831d6d8861",
-      "symbol": "AAVE",
-      "rank": 78,
-      "balance": 2.520016448674649e+22,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0xe40c7b7ee219a5285cfb8f6ff23776bd31af80d6",
-      "symbol": "AAVE",
-      "rank": 79,
-      "balance": 2.520016448674649e+22,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0x2be2ef2be0cde6ddd4bd3d4e4f6ffb632acb93ad",
-      "symbol": "AAVE",
-      "rank": 80,
-      "balance": 2.5186900640688993e+22,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0x3a05267d139cf04465467c6ef131d48399c25206",
-      "symbol": "AAVE",
-      "rank": 81,
-      "balance": 2.5186900640688993e+22,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0x4c0c481fd8998ae19bd4b2cad3c01d87d0d7ca01",
-      "symbol": "AAVE",
-      "rank": 82,
-      "balance": 2.504343867680998e+22,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0x20898f7c0af82d0e3755507c29733af3b011d869",
-      "symbol": "AAVE",
-      "rank": 83,
-      "balance": 2.4879397677737854e+22,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0x05bd7c121b0538a3506e177b5642838079db6f3c",
-      "symbol": "AAVE",
-      "rank": 84,
-      "balance": 2.477143677810185e+22,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x3d947fc9e416f682f40b7c6fa6208d066d3784da",
-      "symbol": "AAVE",
-      "rank": 85,
-      "balance": 2.472345803629925e+22,
-      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0xfad234cb2877eb7488572555cb6d8becd4c8e0f2",
       "symbol": "AAVE",
-      "rank": 86,
+      "rank": 73,
       "balance": 2.470136733256e+22,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x3154cf16ccdb4c6d922629664174b904d80f2c35",
+      "symbol": "AAVE",
+      "rank": 74,
+      "balance": 2.4589829226360503e+22,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xb0a27099582833c0cb8c7a0565759ff145113d64",
+      "symbol": "AAVE",
+      "rank": 75,
+      "balance": 2.335085597538445e+22,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xba1333333333a1ba1108e8412f11850a5c319ba9",
+      "symbol": "AAVE",
+      "rank": 76,
+      "balance": 2.3350279643981916e+22,
       "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x0f11640bf66e2d9352d9c41434a5c6e597c5e4c8",
       "symbol": "AAVE",
-      "rank": 87,
-      "balance": 2.46733173414794e+22,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x4b46cb0c202814570889e0fb220ee6d1c18c9c70",
-      "symbol": "AAVE",
-      "rank": 88,
-      "balance": 2.4222149004199723e+22,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0xa5946a2c7a6c4232224b89a696ae51879bf5aed1",
-      "symbol": "AAVE",
-      "rank": 89,
-      "balance": 2.3353214718e+22,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x9b0c45d46d386cedd98873168c36efd0dcba8d46",
-      "symbol": "AAVE",
-      "rank": 90,
-      "balance": 2.272021606136e+22,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
-      "address": "0x9b3bd826339083f3969b1fc080999cdfd2ea0c25",
-      "symbol": "AAVE",
-      "rank": 91,
-      "balance": 2.271574211069637e+22,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
-      "address": "0x3154cf16ccdb4c6d922629664174b904d80f2c35",
-      "symbol": "AAVE",
-      "rank": 92,
-      "balance": 2.266345423733155e+22,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
-      "address": "0x108f6a9e2869ad30d611668b35a290dcf62be9c4",
-      "symbol": "AAVE",
-      "rank": 93,
-      "balance": 2.265940197247572e+22,
-      "share": 0.14,
-      "last_tx": null
-    },
-    {
-      "address": "0x9968c1541f04fd7aa4ca2d495f9b79a88a9fcd1b",
-      "symbol": "AAVE",
-      "rank": 94,
-      "balance": 2.2592773767826644e+22,
+      "rank": 77,
+      "balance": 2.24715101004994e+22,
       "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0xb812d0944f8f581dfaa3a93dda0d22ecef51a9cf",
       "symbol": "AAVE",
-      "rank": 95,
-      "balance": 2.1898560000000036e+22,
+      "rank": 78,
+      "balance": 2.2411631460408275e+22,
       "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0x8d112f60a83f3733580b7d71e75169a8c9a089ab",
+      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
       "symbol": "AAVE",
-      "rank": 96,
-      "balance": 2.188623650677767e+22,
+      "rank": 79,
+      "balance": 2.167812623682354e+22,
       "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0x4f6a8b8365214e15f5fa6a1ed98c7b238bed2deb",
       "symbol": "AAVE",
-      "rank": 97,
+      "rank": 80,
       "balance": 2.162110274546729e+22,
       "share": 0.14,
       "last_tx": null
     },
     {
-      "address": "0x08bafb072cc5e7f2849d45cf216370aa9d14cbe5",
+      "address": "0x458e433ae998f687d5ec323077521fc2721c5e20",
       "symbol": "AAVE",
-      "rank": 98,
-      "balance": 2.147981335860464e+22,
-      "share": 0.13,
-      "last_tx": null
-    },
-    {
-      "address": "0x2b8a53e86c148f53a7894620de5b75d390ab6d79",
-      "symbol": "AAVE",
-      "rank": 99,
-      "balance": 2.147358791516199e+22,
+      "rank": 81,
+      "balance": 2.157351341171e+22,
       "share": 0.13,
       "last_tx": null
     },
     {
       "address": "0x385efc208876f6195ddebf5783136e6e32ff4dde",
       "symbol": "AAVE",
-      "rank": 100,
+      "rank": 82,
       "balance": 2.1339867042210044e+22,
       "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x1157a2076b9bb22a85cc2c162f20fab3898f4101",
+      "symbol": "AAVE",
+      "rank": 83,
+      "balance": 2.102819796931035e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x45de4916ac390b7a605e5ff11ec79228ec6a7df0",
+      "symbol": "AAVE",
+      "rank": 84,
+      "balance": 2.0461697322311454e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x17bb0319d2c6a1d3323c13d6dd936419467c4e5f",
+      "symbol": "AAVE",
+      "rank": 85,
+      "balance": 2.0461697322311454e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xb830ba599cd75823a6ebd84dbed2f3cf6d953c64",
+      "symbol": "AAVE",
+      "rank": 86,
+      "balance": 2.0461697322311454e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x7d2206607b590e23886a4d28cbe5ceb34fbbea2b",
+      "symbol": "AAVE",
+      "rank": 87,
+      "balance": 2.0461697322311454e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x34035b55817a6ecae446fde347dc597362eb6308",
+      "symbol": "AAVE",
+      "rank": 88,
+      "balance": 2.0461697322311454e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x9fcf2a542f2a2ab0e6843a2dc1678f39751101ff",
+      "symbol": "AAVE",
+      "rank": 89,
+      "balance": 2.0461697322311454e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xd15236bba13165788244c58425a60b0e484ca763",
+      "symbol": "AAVE",
+      "rank": 90,
+      "balance": 2.0050072692442322e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xdd45542ccf17a16f5c515c20db7f7c7d8bb74cc5",
+      "symbol": "AAVE",
+      "rank": 91,
+      "balance": 2e+22,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xa5946a2c7a6c4232224b89a696ae51879bf5aed1",
+      "symbol": "AAVE",
+      "rank": 92,
+      "balance": 1.9911693196e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x40b5a4ccfc57f43ad6b8fd77c590b7f4174872b3",
+      "symbol": "AAVE",
+      "rank": 93,
+      "balance": 1.99e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x8cedeaf885e4dad642727ba5d7ebf918d0f8f3dc",
+      "symbol": "AAVE",
+      "rank": 94,
+      "balance": 1.98570570024353e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x9b0c45d46d386cedd98873168c36efd0dcba8d46",
+      "symbol": "AAVE",
+      "rank": 95,
+      "balance": 1.969130760346e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xb0d93dc578d50fd6e1a8ad532c0b1549f9ab93bc",
+      "symbol": "AAVE",
+      "rank": 96,
+      "balance": 1.923257857499e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0xcadafac556ab5cf88c67d48125ed720d36be2ff9",
+      "symbol": "AAVE",
+      "rank": 97,
+      "balance": 1.915957810584766e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x71956a1cd5a4233177f7bf9a2d5778851e201934",
+      "symbol": "AAVE",
+      "rank": 98,
+      "balance": 1.884466893077697e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x4cc61daed7824ff8b5081f204e16bea330c2eeab",
+      "symbol": "AAVE",
+      "rank": 99,
+      "balance": 1.8695e+22,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x2d615795a8bdb804541c69798f13331126ba0c09",
+      "symbol": "AAVE",
+      "rank": 100,
+      "balance": 1.8428366929795748e+22,
+      "share": 0.12,
       "last_tx": null
     }
   ]

@@ -1,13 +1,3 @@
-"""
-Tasks and Rewards System Handlers
-
-This module handles:
-- Daily streak tracking and rewards
-- Referral system and rewards
-- Task progress display
-- Reward claiming
-"""
-
 from datetime import datetime, timedelta, timezone
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import ContextTypes
@@ -138,18 +128,47 @@ def _build_tasks_menu_text(
 ) -> str:
     """Build the formatted text for tasks menu"""
     
+    # Different streak section based on progress
+    if streak_days >= 14 and streak_reward_claimed:
+        # User already completed and claimed the 14-day streak
+        streak_section = (
+            "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "*🔥 DAILY STREAK CHALLENGE*\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            f"🏆 *Streak Mastery: {streak_days} days!*\n\n"
+            "✅ 14-Day Challenge Completed!\n"
+            "✅ Reward Claimed: 3 Days PRO\n\n"
+            f"📊 Current Streak: *{streak_days} days*\n"
+            "_Keep your streak alive! Daily usage keeps you sharp._\n\n"
+        )
+    elif streak_days >= 14 and not streak_reward_claimed:
+        # User reached 14 days but hasn't claimed yet
+        streak_section = (
+            "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "*🔥 DAILY STREAK CHALLENGE*\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "🎉 *Challenge Complete!*\n\n"
+            f"📅 Current Streak: *{streak_days}/14 days*\n"
+            "🎁 Reward: *3 Days PRO Access* (Ready to claim!)\n"
+            f"📊 Progress: `{create_progress_bar(14, 14, 10)}` 100%\n\n"
+        )
+    else:
+        # User still working toward 14 days
+        streak_section = (
+            "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "*🔥 DAILY STREAK CHALLENGE*\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "Use the bot daily for 14 consecutive days to earn 3 days Pro access\n\n"
+            f"📅 Current Streak: *{streak_days}/14 days*\n"
+            "⏳ Keep going!\n"
+            f"📊 Progress: `{create_progress_bar(streak_days, 14, 10)}` {int(streak_days/14*100)}%\n\n"
+        )
+    
     return (
         "*🎁 REWARD CENTER*\n"
         "_Complete tasks and earn FREE Pro access!_\n\n"
         
-        "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "*🔥 DAILY STREAK CHALLENGE*\n"
-        "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "Use the bot daily for 14 consecutive days\n\n"
-        f"📅 Current Streak: *{streak_days}/14 days*\n"
-        f"{'🎁 Reward: *3 Days PRO Access*' if streak_days >= 14 else '⏳ Keep going!'}\n"
-        f"🎯 Status: {format_check_mark(streak_reward_claimed)}\n"
-        f"📊 Progress: `{create_progress_bar(streak_days, 14, 10)}` {int(streak_days/14*100)}%\n\n"
+        f"{streak_section}"
         
         "━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         "*👥 REFERRAL REWARDS*\n"
@@ -176,7 +195,7 @@ def _build_tasks_menu_buttons(
     
     keyboard = []
     
-    # Daily streak reward button
+    # Daily streak reward button (only show if 14+ days AND not claimed)
     if streak_days >= 14 and not streak_reward_claimed:
         keyboard.append([
             InlineKeyboardButton(
@@ -195,13 +214,9 @@ def _build_tasks_menu_buttons(
                 )
             ])
     
-    # Refresh button
-    keyboard.append([
-        InlineKeyboardButton("🔄 Refresh", callback_data="refresh_tasks_menu")
-    ])
+    # Refresh button can be added here if needed
     
     return keyboard
-
 
 # ============================================================================
 # DAILY STREAK HANDLER
@@ -309,11 +324,68 @@ async def _send_reward_ready_message(update: Update):
 # ============================================================================
 # REWARD CLAIMING
 # ============================================================================
+from datetime import datetime, timezone, timedelta
+from models.user import get_user_plan, set_user_plan
+from models.db import get_connection
+
+# Valid Pro plan types
+VALID_PRO_PLANS = ["pro_monthly", "pro_yearly", "pro_lifetime"]
+
+def calculate_new_expiry(user_id: int, bonus_days: int) -> str:
+    """Calculate new expiry date based on current plan status."""
+    current_plan = get_user_plan(user_id)
+    
+    if current_plan == "pro_lifetime":
+        return "lifetime"
+    
+    conn = get_connection()
+    cursor = conn.cursor()
+    
+    try:
+        cursor.execute("""
+            SELECT plan_expiry_date
+            FROM users
+            WHERE user_id = ?
+        """, (user_id,))
+        
+        row = cursor.fetchone()
+        current_expiry_str = row[0] if row else None
+        
+        if current_plan in VALID_PRO_PLANS and current_expiry_str:
+            try:
+                if current_expiry_str.lower() == "lifetime":
+                    return "lifetime"
+                
+                # FIX: Ensure timezone-aware datetime
+                current_expiry = datetime.fromisoformat(current_expiry_str.replace('Z', '+00:00'))
+                
+                # FIX: Use timezone-aware now()
+                now = datetime.now(timezone.utc)
+                
+                if current_expiry > now:  # Both are now timezone-aware ✅
+                    new_expiry = current_expiry + timedelta(days=bonus_days)
+                else:
+                    new_expiry = now + timedelta(days=bonus_days)
+                
+                return new_expiry.isoformat()
+            
+            except (ValueError, AttributeError) as e:
+                print(f"Error parsing expiry date: {e}")
+                pass
+        
+        # For free users, start from now (timezone-aware)
+        new_expiry = datetime.now(timezone.utc) + timedelta(days=bonus_days)
+        return new_expiry.isoformat()
+    
+    finally:
+        conn.close()
+
 
 async def claim_streak_reward(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
     Handle streak reward claim callback.
     Grants 3-day Pro access to user who completed 14-day streak.
+    Extends existing Pro if user already has it.
     """
     query = update.callback_query
     await query.answer()
@@ -363,9 +435,10 @@ async def claim_streak_reward(update: Update, context: ContextTypes.DEFAULT_TYPE
             )
             return
         
-        # Calculate Pro expiry (3 days from now)
-        expiry_date = datetime.now(timezone.utc) + timedelta(days=3)
-        expiry_str = expiry_date.isoformat()
+        # Calculate new expiry (3 days bonus)
+        BONUS_DAYS = 3
+        current_plan = get_user_plan(user_id)
+        expiry_str = calculate_new_expiry(user_id, BONUS_DAYS)
         
         # Update task_progress table
         cursor.execute("""
@@ -377,21 +450,36 @@ async def claim_streak_reward(update: Update, context: ContextTypes.DEFAULT_TYPE
         
         conn.commit()
         
-        # Upgrade user's plan in main users table
-        set_user_plan(user_id, "pro", expiry_str)
+        # Set plan based on current status
+        if current_plan == "pro_lifetime":
+            plan_to_set = "pro_lifetime"
+        elif current_plan in VALID_PRO_PLANS:
+            plan_to_set = current_plan  # Keep existing Pro plan type
+        else:
+            plan_to_set = "pro_monthly"  # Default for free users
+        
+        set_user_plan(user_id, plan_to_set, expiry_str)
         
         # Format success message
-        expiry_formatted = expiry_date.strftime("%B %d, %Y at %H:%M UTC")
+        if expiry_str == "lifetime":
+            expiry_message = "Your *Lifetime Pro* status remains active! 🌟"
+        else:
+            expiry_date = datetime.fromisoformat(expiry_str.replace('Z', '+00:00'))
+            expiry_formatted = expiry_date.strftime("%B %d, %Y at %H:%M UTC")
+            
+            if current_plan in VALID_PRO_PLANS:
+                expiry_message = f"Your Pro access extended by *{BONUS_DAYS} days*!\n📅 New expiry: *{expiry_formatted}*"
+            else:
+                expiry_message = f"Your *{BONUS_DAYS}-day Pro access* activated!\n📅 Valid until: *{expiry_formatted}*"
         
         await query.edit_message_text(
             "🎉 *Congratulations!*\n\n"
-            "Your *3-day Pro access* has been activated!\n\n"
+            f"{expiry_message}\n\n"
             "✨ *Benefits unlocked:*\n"
             "• Unlimited AI interactions\n"
             "• Priority support\n"
             "• Advanced features\n"
             "• Ad-free experience\n\n"
-            f"📅 Valid until: *{expiry_formatted}*\n\n"
             "Enjoy your Pro access! 🚀",
             parse_mode="Markdown"
         )
@@ -410,10 +498,12 @@ async def claim_streak_reward(update: Update, context: ContextTypes.DEFAULT_TYPE
             conn.close()
 
 
+
 async def claim_referral_reward(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
     Handle referral tier reward claim callback.
     Grants Pro access based on referral tier achieved.
+    Extends existing Pro if user already has it.
     """
     query = update.callback_query
     await query.answer()
@@ -457,8 +547,8 @@ async def claim_referral_reward(update: Update, context: ContextTypes.DEFAULT_TY
         
         # Calculate Pro days for this tier
         pro_days = REFERRAL_TIERS[tier]
-        expiry_date = datetime.now(timezone.utc) + timedelta(days=pro_days)
-        expiry_str = expiry_date.isoformat()
+        current_plan = get_user_plan(user_id)
+        expiry_str = calculate_new_expiry(user_id, pro_days)
         
         # Update database
         conn = get_connection()
@@ -474,16 +564,31 @@ async def claim_referral_reward(update: Update, context: ContextTypes.DEFAULT_TY
         
         conn.commit()
         
-        # Grant Pro access
-        set_user_plan(user_id, "pro", expiry_str)
+        # Set plan based on current status
+        if current_plan == "pro_lifetime":
+            plan_to_set = "pro_lifetime"
+        elif current_plan in VALID_PRO_PLANS:
+            plan_to_set = current_plan  # Keep existing Pro plan type
+        else:
+            plan_to_set = "pro_monthly"  # Default for free users
         
-        # Success message
-        expiry_formatted = expiry_date.strftime("%B %d, %Y at %H:%M UTC")
+        set_user_plan(user_id, plan_to_set, expiry_str)
+        
+        # Format success message
+        if expiry_str == "lifetime":
+            expiry_message = "Your *Lifetime Pro* status remains active! 🌟"
+        else:
+            expiry_date = datetime.fromisoformat(expiry_str.replace('Z', '+00:00'))
+            expiry_formatted = expiry_date.strftime("%B %d, %Y at %H:%M UTC")
+            
+            if current_plan in VALID_PRO_PLANS:
+                expiry_message = f"Your Pro access extended by *{pro_days} days*!\n📅 New expiry: *{expiry_formatted}*"
+            else:
+                expiry_message = f"*{pro_days} days of Pro access* activated!\n📅 Valid until: *{expiry_formatted}*"
         
         await query.edit_message_text(
             f"🎉 *Tier {tier} Reward Claimed!*\n\n"
-            f"You've unlocked *{pro_days} days of Pro access!*\n\n"
-            f"📅 Valid until: *{expiry_formatted}*\n\n"
+            f"{expiry_message}\n\n"
             "Thank you for sharing! Keep inviting friends for more rewards! 🚀",
             parse_mode="Markdown"
         )
@@ -499,7 +604,6 @@ async def claim_referral_reward(update: Update, context: ContextTypes.DEFAULT_TY
     finally:
         if conn:
             conn.close()
-
 
 async def refresh_tasks_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle refresh button callback to reload tasks menu"""

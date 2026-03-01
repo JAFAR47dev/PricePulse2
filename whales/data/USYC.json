@@ -1,0 +1,265 @@
+{
+  "token": "USYC",
+  "contract": "0x136471a34f6ef19fe571effc1ca711fdb8e49f2b",
+  "updated_at": "2026-02-03T23:21:28.390670",
+  "version": "1.0.0",
+  "whale_count": 32,
+  "whales": [
+    {
+      "address": "0xdd82875f0840aad58a455a70b88eed9f59cec7c7",
+      "symbol": "USYC",
+      "rank": 1,
+      "balance": 44368266828100.0,
+      "share": 42.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x60fc831d4b7086c3cd52a9e91db5eb77e80cf967",
+      "symbol": "USYC",
+      "rank": 2,
+      "balance": 35513512246229.0,
+      "share": 33.78,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1a6ac52a21435c744b5b4129b07e6c44bcd629b",
+      "symbol": "USYC",
+      "rank": 3,
+      "balance": 13846970460298.0,
+      "share": 13.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x866c9a77d8ab71d2874703e80cb7ad809b301e8e",
+      "symbol": "USYC",
+      "rank": 4,
+      "balance": 6848488031407.0,
+      "share": 6.51,
+      "last_tx": null
+    },
+    {
+      "address": "0x53106deebe67455c0da039a30cb9a99193ba6924",
+      "symbol": "USYC",
+      "rank": 5,
+      "balance": 1350999896600.0,
+      "share": 1.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x74f0b107c3a2b3059b930535f60b2722bce08b09",
+      "symbol": "USYC",
+      "rank": 6,
+      "balance": 1251221738651.0,
+      "share": 1.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x77021d475e36b3ab1921a0e3a8380f069d3263de",
+      "symbol": "USYC",
+      "rank": 7,
+      "balance": 900000000000.0,
+      "share": 0.86,
+      "last_tx": null
+    },
+    {
+      "address": "0xb3525a7d5bac0a2fe946b4fa9da0a3f951b64a58",
+      "symbol": "USYC",
+      "rank": 8,
+      "balance": 382089464403.0,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0xd15a8a4e008629c2149d8d69c80d4eddd2e90797",
+      "symbol": "USYC",
+      "rank": 9,
+      "balance": 274202420940.0,
+      "share": 0.26,
+      "last_tx": null
+    },
+    {
+      "address": "0xabde2f02fe84e083e1920471b54c3612456365ef",
+      "symbol": "USYC",
+      "rank": 10,
+      "balance": 90975747184.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x13d4df27ff5ef7288ee12788674fe2bb9c6faa00",
+      "symbol": "USYC",
+      "rank": 11,
+      "balance": 90975747184.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0xa06ca52ef39083caab03c166567f0aa63bcd9b58",
+      "symbol": "USYC",
+      "rank": 12,
+      "balance": 90949285492.0,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x8dca85a985f392c54c9da7aab7138bf5e9516a1d",
+      "symbol": "USYC",
+      "rank": 13,
+      "balance": 50000000000.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xc45224eb37730fde22ba371c0e368452db5305e7",
+      "symbol": "USYC",
+      "rank": 14,
+      "balance": 30046994777.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x3cebf73cc81f9b5a3963d23d8dc2070f8e6c0eec",
+      "symbol": "USYC",
+      "rank": 15,
+      "balance": 26680681061.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xed96e247655361031aee6514cd1b89c7141b59d5",
+      "symbol": "USYC",
+      "rank": 16,
+      "balance": 14619233709.0,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xf6c3583b1b68c47ceb981be651b8fcbb1a11fd25",
+      "symbol": "USYC",
+      "rank": 17,
+      "balance": 197904310.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x10dbd626082e154880e0da56d2704ab71ef2191d",
+      "symbol": "USYC",
+      "rank": 18,
+      "balance": 144833936.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x1348954937fed5169de2c7c52e9c91d77a24b6b3",
+      "symbol": "USYC",
+      "rank": 19,
+      "balance": 81886693.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2df1e1378bee3ff4404a602f5de07017837be985",
+      "symbol": "USYC",
+      "rank": 20,
+      "balance": 45121100.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x9aa02e63d601c4ca75cda36acf62c97121a1cb73",
+      "symbol": "USYC",
+      "rank": 21,
+      "balance": 7710351.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2d4d60192c271d896c89294bd40ac6dda82c7cb4",
+      "symbol": "USYC",
+      "rank": 22,
+      "balance": 5920495.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf651032419e3a19a3f8b1a350427b94356c86bf4",
+      "symbol": "USYC",
+      "rank": 23,
+      "balance": 1145483.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x35139b5a567f19de1b0ae70a30318b1ad5874de5",
+      "symbol": "USYC",
+      "rank": 24,
+      "balance": 926962.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x1ed2584074b802929c7d94ca43459ac9b074141d",
+      "symbol": "USYC",
+      "rank": 25,
+      "balance": 562001.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x9fc1b076f747ab61b3bfe414c0af93281917cb90",
+      "symbol": "USYC",
+      "rank": 26,
+      "balance": 398817.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x341c281d11677795f1192bf1f7438666909841c8",
+      "symbol": "USYC",
+      "rank": 27,
+      "balance": 83777.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x8603ed3e4643539c7d4007a04d503020336c81b0",
+      "symbol": "USYC",
+      "rank": 28,
+      "balance": 65180.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x9c742aef14cc875c49f52bbd4473b35bebad26ae",
+      "symbol": "USYC",
+      "rank": 29,
+      "balance": 10206.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c73e1cfdd85b7f1d608f7f7736fc8c653513b7a",
+      "symbol": "USYC",
+      "rank": 30,
+      "balance": 10000.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x000001ac4e512d670c34fedf6c71ce2f49fb160a",
+      "symbol": "USYC",
+      "rank": 31,
+      "balance": 4.0,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x2cf8d5089d3cc289b369bff29646d4070459c66b",
+      "symbol": "USYC",
+      "rank": 32,
+      "balance": 1.0,
+      "share": 0,
+      "last_tx": null
+    }
+  ]
+}

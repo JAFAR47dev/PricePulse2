@@ -5,14 +5,8 @@ from telegram.ext import ContextTypes, CommandHandler
 
 # ✅ List of private-only commands
 PRIVATE_ONLY_COMMANDS = [
-    "set", "alerts", "remove", "removeall",
-    "watch", "watchlist", "removewatch",
-    "portfolio", "addasset", "removeasset",
-    "clearportfolio", "portfoliolimit",
-    "portfoliotarget", "prediction", "aistrat",
-    "aiscan", "bt", "screen", "track", "untrack",
-    "mywhales", "tasks", "referral", "upgrade", "myplan",
-    "fav"
+    "set", "alerts", "remove", "removeall", "tasks", "referral", "upgrade", "myplan",
+    "fav", "notifications"
 ]
 
 # ✅ Guard function: blocks private-only commands in groups

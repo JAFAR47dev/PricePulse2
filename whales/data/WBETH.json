@@ -1,7 +1,7 @@
 {
   "token": "WBETH",
   "contract": "0xa2e3356610840701bdf5611a53974510ae27e2e1",
-  "updated_at": "2025-12-07T08:40:57.100196",
+  "updated_at": "2026-02-03T23:18:20.492954",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,94 +9,126 @@
       "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
       "symbol": "WBETH",
       "rank": 1,
-      "balance": 1.861624552e+24,
-      "share": 60.56,
+      "balance": 1.9629883970001e+24,
+      "share": 61.84,
       "last_tx": null
     },
     {
       "address": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
       "symbol": "WBETH",
       "rank": 2,
-      "balance": 1.099305856e+24,
-      "share": 35.76,
+      "balance": 1.066805856e+24,
+      "share": 33.61,
       "last_tx": null
     },
     {
       "address": "0xd3a22590f8243f8e83ac230d1842c9af0404c4a1",
       "symbol": "WBETH",
       "rank": 3,
-      "balance": 8.579712488236e+22,
-      "share": 2.79,
+      "balance": 9.181901788236e+22,
+      "share": 2.89,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "WBETH",
+      "rank": 4,
+      "balance": 1.569180043545735e+22,
+      "share": 0.49,
       "last_tx": null
     },
     {
       "address": "0x7ca911e83dabf90c90dd3de5411a10f1a6112184",
       "symbol": "WBETH",
-      "rank": 4,
-      "balance": 1.141298032169633e+22,
-      "share": 0.37,
+      "rank": 5,
+      "balance": 1.090185951660783e+22,
+      "share": 0.34,
       "last_tx": null
     },
     {
       "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
       "symbol": "WBETH",
-      "rank": 5,
+      "rank": 6,
       "balance": 6.6963188458e+21,
-      "share": 0.22,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      "symbol": "WBETH",
+      "rank": 7,
+      "balance": 4.99547631235e+21,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "symbol": "WBETH",
+      "rank": 8,
+      "balance": 4.8329140814e+21,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x422f5accc812c396600010f224b320a743695f85",
       "symbol": "WBETH",
-      "rank": 6,
-      "balance": 1.6500528976903162e+21,
+      "rank": 9,
+      "balance": 1.5145595309814123e+21,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x3a3c006053a9b40286b9951a11be4c5808c11dc8",
       "symbol": "WBETH",
-      "rank": 7,
-      "balance": 1.2842076281e+21,
+      "rank": 10,
+      "balance": 1.2000006832e+21,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0xc26084e22bfc1aa908aee1471313bf55e843f551",
       "symbol": "WBETH",
-      "rank": 8,
+      "rank": 11,
       "balance": 9.7027315131e+20,
       "share": 0.03,
       "last_tx": null
     },
     {
+      "address": "0x3889d23a02303500f9a65b17f94d4897b878029d",
+      "symbol": "WBETH",
+      "rank": 12,
+      "balance": 5.5241584e+20,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x333bb3e68a3bf5913b50ce1325d2fb145ee853f6",
+      "symbol": "WBETH",
+      "rank": 13,
+      "balance": 4.0090457807e+20,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
       "address": "0x81bb35c4152b605574babd320f8eabe2871ce8c6",
       "symbol": "WBETH",
-      "rank": 9,
-      "balance": 4.144464633724589e+20,
+      "rank": 14,
+      "balance": 3.9391739208703305e+20,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x9026cd39017ad4e67d1b5ce1f0ac6b18d74db5de",
       "symbol": "WBETH",
-      "rank": 10,
+      "rank": 15,
       "balance": 3.725528899536937e+20,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
-      "symbol": "WBETH",
-      "rank": 11,
-      "balance": 3.505631207111272e+20,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xd088bce23e512e05cbd192bbb855490c21aed61a",
       "symbol": "WBETH",
-      "rank": 12,
+      "rank": 16,
       "balance": 2.9136089628e+20,
       "share": 0.01,
       "last_tx": null
@@ -104,31 +136,15 @@
     {
       "address": "0x5c410c3db586a431d74711c9f8ddc5e6c36c97ca",
       "symbol": "WBETH",
-      "rank": 13,
+      "rank": 17,
       "balance": 2.7869610827e+20,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x5732f7c2a4ae4e2b7e7d437785cda40fc446fad2",
-      "symbol": "WBETH",
-      "rank": 14,
-      "balance": 2.649402e+20,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0xad8062df46ceac3639d0fb7ba03543fda7ed06bd",
-      "symbol": "WBETH",
-      "rank": 15,
-      "balance": 2.50001197e+20,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x396cda9729fa2af6446d14aec910830c5aa2f5c4",
       "symbol": "WBETH",
-      "rank": 16,
+      "rank": 18,
       "balance": 2.055991e+20,
       "share": 0.01,
       "last_tx": null
@@ -136,15 +152,31 @@
     {
       "address": "0xbf077eab47221155e16a0af1fe967acac4de1ffd",
       "symbol": "WBETH",
-      "rank": 17,
+      "rank": 19,
       "balance": 1.9623491304e+20,
       "share": 0.01,
       "last_tx": null
     },
     {
+      "address": "0xf2f0b0afb2379a13cbd8749937e8ed048ae51efb",
+      "symbol": "WBETH",
+      "rank": 20,
+      "balance": 1.8096896339e+20,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xad8062df46ceac3639d0fb7ba03543fda7ed06bd",
+      "symbol": "WBETH",
+      "rank": 21,
+      "balance": 1.50001197e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
       "address": "0x651e85b2ab596be2f065b6a28ce200907a0c993f",
       "symbol": "WBETH",
-      "rank": 18,
+      "rank": 22,
       "balance": 1.299474e+20,
       "share": 0,
       "last_tx": null
@@ -152,55 +184,55 @@
     {
       "address": "0x38560e6ec80c1d8f702a1587ebbd8019b2e44013",
       "symbol": "WBETH",
-      "rank": 19,
+      "rank": 23,
       "balance": 1.1362874389e+20,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xe8538b850763d8d1f3d91da23d2838d1a7f866fe",
-      "symbol": "WBETH",
-      "rank": 20,
-      "balance": 1.0881497521e+20,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xe58323fdfd01dcfe010c54dcdf1cddf253956e0e",
       "symbol": "WBETH",
-      "rank": 21,
+      "rank": 24,
       "balance": 1.0399944e+20,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      "address": "0xe8538b850763d8d1f3d91da23d2838d1a7f866fe",
       "symbol": "WBETH",
-      "rank": 22,
-      "balance": 9.173494305e+19,
+      "rank": 25,
+      "balance": 1.038820959e+20,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf5e5addab271f2c1108565ae6dac998c377d532b",
+      "symbol": "WBETH",
+      "rank": 26,
+      "balance": 9.725881e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf39e88084287e7b0bd88ce3fe8691d059b70c468",
+      "symbol": "WBETH",
+      "rank": 27,
+      "balance": 9.33973673e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xa761ed19d909440f9799e2d3ebebd633915c9200",
       "symbol": "WBETH",
-      "rank": 23,
+      "rank": 28,
       "balance": 8.826997929952156e+19,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x23f79143f1987b5e1cd809e4536ac1db865be0ae",
-      "symbol": "WBETH",
-      "rank": 24,
-      "balance": 8.745921393e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x26ffeaa68c4ef8cbc0ea13545f1dff534a69198a",
       "symbol": "WBETH",
-      "rank": 25,
+      "rank": 29,
       "balance": 8.50187931e+19,
       "share": 0,
       "last_tx": null
@@ -208,71 +240,87 @@
     {
       "address": "0x7acd07537dd882c5420af811a9bb66ea6b870c02",
       "symbol": "WBETH",
-      "rank": 26,
+      "rank": 30,
       "balance": 8.295717193e+19,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "address": "0x9291314e0fecdb56436ab7c6ea5f654434c2bd3d",
       "symbol": "WBETH",
-      "rank": 27,
-      "balance": 7.257259924e+19,
+      "rank": 31,
+      "balance": 7.4e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x18e226459ccf0eec276514a4fd3b226d8961e4d1",
       "symbol": "WBETH",
-      "rank": 28,
-      "balance": 5.62085257e+19,
+      "rank": 32,
+      "balance": 5.98654553e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x23f79143f1987b5e1cd809e4536ac1db865be0ae",
+      "symbol": "WBETH",
+      "rank": 33,
+      "balance": 5.680284699e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xd12a183a6cf22d67a9ae0fbcc0ee10889aab3b30",
       "symbol": "WBETH",
-      "rank": 29,
+      "rank": 34,
       "balance": 4.71452908e+19,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x4ed6cf63bd9c009d247ee51224fc1c7041f517f1",
-      "symbol": "WBETH",
-      "rank": 30,
-      "balance": 4.707461094e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x4aef52ff082fefbe36cd2ed8f184601023095b3d",
       "symbol": "WBETH",
-      "rank": 31,
-      "balance": 4.655843317955661e+19,
+      "rank": 35,
+      "balance": 4.658229734867657e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x17a22015fe05d17ea9d0a2458bfb9e378e6b699a",
       "symbol": "WBETH",
-      "rank": 32,
+      "rank": 36,
       "balance": 4.6244039359005884e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x95632ace9c4b9263bd1b19b445ee4cc107fa70fa",
+      "symbol": "WBETH",
+      "rank": 37,
+      "balance": 4.427910836e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x809fd615a59c94c3a7f75e361e0db4d847d80306",
       "symbol": "WBETH",
-      "rank": 33,
+      "rank": 38,
       "balance": 4.213210882e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4ed6cf63bd9c009d247ee51224fc1c7041f517f1",
+      "symbol": "WBETH",
+      "rank": 39,
+      "balance": 4.11919974e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x88d822efae95fd2a6dc716ee04d04f102e813210",
       "symbol": "WBETH",
-      "rank": 34,
+      "rank": 40,
       "balance": 4.047618907e+19,
       "share": 0,
       "last_tx": null
@@ -280,7 +328,7 @@
     {
       "address": "0x33a5cbf1d383709bcd29cc7d49b58de303366228",
       "symbol": "WBETH",
-      "rank": 35,
+      "rank": 41,
       "balance": 4e+19,
       "share": 0,
       "last_tx": null
@@ -288,15 +336,23 @@
     {
       "address": "0x94fd40bba2e18658f29b4bf197180e03bc82b3b1",
       "symbol": "WBETH",
-      "rank": 36,
+      "rank": 42,
       "balance": 3.841835487e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xe78bc3d9e36650f72f1bbaa013b96383aa548efd",
+      "symbol": "WBETH",
+      "rank": 43,
+      "balance": 3.434415298e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x00ae5239959290d52abf7053248f463ddb723b56",
       "symbol": "WBETH",
-      "rank": 37,
+      "rank": 44,
       "balance": 3.054382475e+19,
       "share": 0,
       "last_tx": null
@@ -304,7 +360,7 @@
     {
       "address": "0xa70a9cb989ceadb9b6235a8abe481c8562b9a3a2",
       "symbol": "WBETH",
-      "rank": 38,
+      "rank": 45,
       "balance": 3.008521596e+19,
       "share": 0,
       "last_tx": null
@@ -312,15 +368,23 @@
     {
       "address": "0x00002b503a75998c97508916a74fdb41934fa030",
       "symbol": "WBETH",
-      "rank": 39,
+      "rank": 46,
       "balance": 3e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xd5aa3c5fe47eda35b40c00280af7457729bf883c",
+      "symbol": "WBETH",
+      "rank": 47,
+      "balance": 2.94353624e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x8ab94b023eb98c52ecac9a5005da26c00ee0513c",
       "symbol": "WBETH",
-      "rank": 40,
+      "rank": 48,
       "balance": 2.883449401e+19,
       "share": 0,
       "last_tx": null
@@ -328,23 +392,23 @@
     {
       "address": "0x04bb50329a1b7d943e7fd2368288b674c8180d5e",
       "symbol": "WBETH",
-      "rank": 41,
-      "balance": 2.847755579215276e+19,
+      "rank": 49,
+      "balance": 2.846582761226147e+19,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x95632ace9c4b9263bd1b19b445ee4cc107fa70fa",
+      "address": "0x1a09ca21591ff6dd958a34c96180254b11d69b88",
       "symbol": "WBETH",
-      "rank": 42,
-      "balance": 2.713003445e+19,
+      "rank": 50,
+      "balance": 2.596714779e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x7b66e7cd14a94300aae703040fb8888888888888",
       "symbol": "WBETH",
-      "rank": 43,
+      "rank": 51,
       "balance": 2.567158562e+19,
       "share": 0,
       "last_tx": null
@@ -352,7 +416,7 @@
     {
       "address": "0x816b1b6cfe3e6c6b1961f3f17ceca35a342a3526",
       "symbol": "WBETH",
-      "rank": 44,
+      "rank": 52,
       "balance": 2.527375047e+19,
       "share": 0,
       "last_tx": null
@@ -360,7 +424,7 @@
     {
       "address": "0x08542545f5776e2ff32cf7998b3f4b73fbbb4f52",
       "symbol": "WBETH",
-      "rank": 45,
+      "rank": 53,
       "balance": 2.3156208547992515e+19,
       "share": 0,
       "last_tx": null
@@ -368,23 +432,23 @@
     {
       "address": "0x802c95e386d228ca730acf41d900a8c516f8be11",
       "symbol": "WBETH",
-      "rank": 46,
+      "rank": 54,
       "balance": 2.240124195e+19,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x1a09ca21591ff6dd958a34c96180254b11d69b88",
+      "address": "0x59486c8372f98d8c19579757c46b497981c1ebd5",
       "symbol": "WBETH",
-      "rank": 47,
-      "balance": 2.21825152e+19,
+      "rank": 55,
+      "balance": 2.238989707657806e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xf4e1840dd33af28ec099739d6f5c1dc965fcf708",
       "symbol": "WBETH",
-      "rank": 48,
+      "rank": 56,
       "balance": 2.113178921e+19,
       "share": 0,
       "last_tx": null
@@ -392,7 +456,7 @@
     {
       "address": "0xf756e35038f130d01d9f2f42f685faadc431c03b",
       "symbol": "WBETH",
-      "rank": 49,
+      "rank": 57,
       "balance": 2.105262389e+19,
       "share": 0,
       "last_tx": null
@@ -400,15 +464,23 @@
     {
       "address": "0x7687310f6d6968832bb1cbb9e22ec8f3aa055506",
       "symbol": "WBETH",
-      "rank": 50,
+      "rank": 58,
       "balance": 2.043570735272618e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x28e955b5d8708ae5fda83fd2f85e3c6af926955e",
+      "symbol": "WBETH",
+      "rank": 59,
+      "balance": 1.964940641e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x67d92227fda5e5d8b07260199b8a13b2adbd4bc2",
       "symbol": "WBETH",
-      "rank": 51,
+      "rank": 60,
       "balance": 1.952749343e+19,
       "share": 0,
       "last_tx": null
@@ -416,31 +488,31 @@
     {
       "address": "0x254d8ed292037c292d6bf396d1d3fb349adee359",
       "symbol": "WBETH",
-      "rank": 52,
+      "rank": 61,
       "balance": 1.931155304925718e+19,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x42e7b7aacf213ed9964161f38a3aaafb68fceb77",
+      "address": "0xfc7bfadf88608e9de9dedbc586e50b8a03d874d0",
       "symbol": "WBETH",
-      "rank": 53,
-      "balance": 1.871506424e+19,
+      "rank": 62,
+      "balance": 1.884547867e+19,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0xa777f0f5e663ba28c39c8d5db4f9deb25ea36a42",
+      "address": "0xa5b87da8124bbd6fdbf9405df737a91870f9da80",
       "symbol": "WBETH",
-      "rank": 54,
-      "balance": 1.711660037e+19,
+      "rank": 63,
+      "balance": 1.79036614e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xf49df908037551ce32e0faaa32b3aeec2efc97fe",
       "symbol": "WBETH",
-      "rank": 55,
+      "rank": 64,
       "balance": 1.663194541e+19,
       "share": 0,
       "last_tx": null
@@ -448,15 +520,23 @@
     {
       "address": "0x847f68c21e90a25a27040e35811d2742ec9b83bf",
       "symbol": "WBETH",
-      "rank": 56,
+      "rank": 65,
       "balance": 1.633546731e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x553a95ec71f03a07ec7bcd373cbefba5b188db4b",
+      "symbol": "WBETH",
+      "rank": 66,
+      "balance": 1.515100160283079e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x10e617a5c205012a4cee1ef3cc5bc62335b22de3",
       "symbol": "WBETH",
-      "rank": 57,
+      "rank": 67,
       "balance": 1.4492367516505917e+19,
       "share": 0,
       "last_tx": null
@@ -464,23 +544,47 @@
     {
       "address": "0xa8266ec35690ffc853028d3fec1f4b46982d5edb",
       "symbol": "WBETH",
-      "rank": 58,
+      "rank": 68,
       "balance": 1.4467812298370191e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xc27f6054e036cf3ee40df8676991a215c90b60a7",
+      "symbol": "WBETH",
+      "rank": 69,
+      "balance": 1.262102268e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xa777f0f5e663ba28c39c8d5db4f9deb25ea36a42",
+      "symbol": "WBETH",
+      "rank": 70,
+      "balance": 1.201660037e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xafcfaa2ebc158c1ce409c07802cf2d91195bb9e2",
       "symbol": "WBETH",
-      "rank": 59,
+      "rank": 71,
       "balance": 1.13870185e+19,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x752896c02948bcff1dccd32a1f283ff5318494fa",
+      "symbol": "WBETH",
+      "rank": 72,
+      "balance": 1.131106113e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xfe26d286d1cbb646b98ca3ae5f3b63f0d07b7cb0",
       "symbol": "WBETH",
-      "rank": 60,
+      "rank": 73,
       "balance": 1.116629131e+19,
       "share": 0,
       "last_tx": null
@@ -488,23 +592,15 @@
     {
       "address": "0x45d62bd79d88829dea5c0e0514ecd461cd0d8310",
       "symbol": "WBETH",
-      "rank": 61,
-      "balance": 1.1073992765160362e+19,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x9b3d44ce639220dd5f199e12cf795823acb604b5",
-      "symbol": "WBETH",
-      "rank": 62,
-      "balance": 1.098916e+19,
+      "rank": 74,
+      "balance": 1.1000000005160362e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xb2d0003769b030bba8284fe6b311de0f5c37da83",
       "symbol": "WBETH",
-      "rank": 63,
+      "rank": 75,
       "balance": 1.080340498e+19,
       "share": 0,
       "last_tx": null
@@ -512,23 +608,23 @@
     {
       "address": "0x72b8f99d57d638ea34da152c5d8a70d02f706cb0",
       "symbol": "WBETH",
-      "rank": 64,
+      "rank": 76,
       "balance": 1.067588751e+19,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x0c7d768e102f2b9c6ef18f8017fe389d17835fd2",
+      "address": "0xd4366b876ce876a98d914593dbbc18aba7db29e5",
       "symbol": "WBETH",
-      "rank": 65,
-      "balance": 1.058405926e+19,
+      "rank": 77,
+      "balance": 1.0576012609970008e+19,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x95afe1b4aa92d5ff38eb30a0a60693adb86d9e0a",
       "symbol": "WBETH",
-      "rank": 66,
+      "rank": 78,
       "balance": 1.033333006e+19,
       "share": 0,
       "last_tx": null
@@ -536,7 +632,7 @@
     {
       "address": "0x58d3f4743850e2b7a723c968c37c189afeb1890b",
       "symbol": "WBETH",
-      "rank": 67,
+      "rank": 79,
       "balance": 1.0196830324759914e+19,
       "share": 0,
       "last_tx": null
@@ -544,7 +640,7 @@
     {
       "address": "0xb533524a12b5abed0ee7a9b35c5c5c07385462a3",
       "symbol": "WBETH",
-      "rank": 68,
+      "rank": 80,
       "balance": 1e+19,
       "share": 0,
       "last_tx": null
@@ -552,7 +648,7 @@
     {
       "address": "0x5a1513db88b1bb9c09e97c822a412710654456ec",
       "symbol": "WBETH",
-      "rank": 69,
+      "rank": 81,
       "balance": 9.73862029e+18,
       "share": 0,
       "last_tx": null
@@ -560,7 +656,7 @@
     {
       "address": "0x280c042afd69b6abdef518687beb1197a81c1513",
       "symbol": "WBETH",
-      "rank": 70,
+      "rank": 82,
       "balance": 9.7307163e+18,
       "share": 0,
       "last_tx": null
@@ -568,7 +664,7 @@
     {
       "address": "0xae39d04193b70b1d9abae96d466bc8fdc2a37ebf",
       "symbol": "WBETH",
-      "rank": 71,
+      "rank": 83,
       "balance": 9.29020805e+18,
       "share": 0,
       "last_tx": null
@@ -576,55 +672,55 @@
     {
       "address": "0x117cc8d4dcbc47e2080db2b77f18d4a82969fffc",
       "symbol": "WBETH",
-      "rank": 72,
+      "rank": 84,
       "balance": 9.2572838197141e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x664e961144732c815343782764b7a1b755f14a28",
-      "symbol": "WBETH",
-      "rank": 73,
-      "balance": 9.0987877e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x018a75e5f786692922db5d7106ae0169db649d06",
-      "symbol": "WBETH",
-      "rank": 74,
-      "balance": 8.00007826e+18,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x7a6722d711ad6c22b5b8bda1c290be81974278ab",
       "symbol": "WBETH",
-      "rank": 75,
+      "rank": 85,
       "balance": 8.000000009277401e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x6dfa81a67b6e46cb39e44938543e76c234913761",
+      "symbol": "WBETH",
+      "rank": 86,
+      "balance": 7.826834619447612e+18,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xc216d39cceb3d86a72e06da26a97d1adbae97685",
       "symbol": "WBETH",
-      "rank": 76,
+      "rank": 87,
       "balance": 7.754939477785514e+18,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x30029ef7e6a796c6a0088cfd045f5041aa4a431d",
+      "address": "0xde0458fa991afae9329b90298148e4c83e185bf4",
       "symbol": "WBETH",
-      "rank": 77,
-      "balance": 7.624040190262508e+18,
+      "rank": 88,
+      "balance": 7.4213853e+18,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xc1af77e1420a7832b9b602549597971437c631a8",
+      "symbol": "WBETH",
+      "rank": 89,
+      "balance": 7.11e+18,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x5545991cffc438368f668114eb0954d436d212d2",
       "symbol": "WBETH",
-      "rank": 78,
+      "rank": 90,
       "balance": 7.10491486e+18,
       "share": 0,
       "last_tx": null
@@ -632,23 +728,23 @@
     {
       "address": "0x4331ec84e159fae5509fbeb1317bdef1f43442e3",
       "symbol": "WBETH",
-      "rank": 79,
+      "rank": 91,
       "balance": 7.09769403e+18,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0xde0458fa991afae9329b90298148e4c83e185bf4",
+      "address": "0xaf0ab368a56961cc7e0d5b7f903b3a849fbef758",
       "symbol": "WBETH",
-      "rank": 80,
-      "balance": 6.25761204e+18,
+      "rank": 92,
+      "balance": 7.06317573e+18,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0xfc1745abf5f47531147ed5bc303c549ab723d4d4",
       "symbol": "WBETH",
-      "rank": 81,
+      "rank": 93,
       "balance": 6.123408e+18,
       "share": 0,
       "last_tx": null
@@ -656,7 +752,7 @@
     {
       "address": "0x5950899940556130b032c25ab855e5c799933949",
       "symbol": "WBETH",
-      "rank": 82,
+      "rank": 94,
       "balance": 5.839319551805455e+18,
       "share": 0,
       "last_tx": null
@@ -664,7 +760,7 @@
     {
       "address": "0x26ccf5220626374c857461b81f192e837568b593",
       "symbol": "WBETH",
-      "rank": 83,
+      "rank": 95,
       "balance": 5.75467072e+18,
       "share": 0,
       "last_tx": null
@@ -672,7 +768,7 @@
     {
       "address": "0x0fc92bcd85d98e73c95c0c93bc4b035e39aa2b05",
       "symbol": "WBETH",
-      "rank": 84,
+      "rank": 96,
       "balance": 5.54783184e+18,
       "share": 0,
       "last_tx": null
@@ -680,7 +776,7 @@
     {
       "address": "0x06170d54f00b223b171e8cef042cceafea604d02",
       "symbol": "WBETH",
-      "rank": 85,
+      "rank": 97,
       "balance": 5.37746592e+18,
       "share": 0,
       "last_tx": null
@@ -688,7 +784,7 @@
     {
       "address": "0x6a53b0042063a7560a5dc319bc6429c457a34668",
       "symbol": "WBETH",
-      "rank": 86,
+      "rank": 98,
       "balance": 5.31060957e+18,
       "share": 0,
       "last_tx": null
@@ -696,7 +792,7 @@
     {
       "address": "0x16f42af0f83208248aa147e18ee81fdc59a9c015",
       "symbol": "WBETH",
-      "rank": 87,
+      "rank": 99,
       "balance": 5.30929007e+18,
       "share": 0,
       "last_tx": null
@@ -704,104 +800,8 @@
     {
       "address": "0x40b5f4426c037162cada295ed422aec5296f3498",
       "symbol": "WBETH",
-      "rank": 88,
-      "balance": 5.186605178898062e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x4bbc454072590750548e596d29aaf8f7b89649d1",
-      "symbol": "WBETH",
-      "rank": 89,
-      "balance": 5e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xc904fff496ffb4e2b54e6e1376e163779838d51a",
-      "symbol": "WBETH",
-      "rank": 90,
-      "balance": 4.99953e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xfb9fffd2a03a7bbbe8ff24d9fa96f62be92b9699",
-      "symbol": "WBETH",
-      "rank": 91,
-      "balance": 4.89107308e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xea964369e71c3272b327d7c55b61deee620da122",
-      "symbol": "WBETH",
-      "rank": 92,
-      "balance": 4.88767399e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xa031755ef85215fe3dc0440445d6f9975c0b9204",
-      "symbol": "WBETH",
-      "rank": 93,
-      "balance": 4.82723477e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x19aa1424f24e67c3ab61fda05491c6060af014bb",
-      "symbol": "WBETH",
-      "rank": 94,
-      "balance": 4.695111929674062e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xf3f6b364e2abf181a1692c3717e9110d21445344",
-      "symbol": "WBETH",
-      "rank": 95,
-      "balance": 4.51006227e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xc585491f9d1c229dfa9954bc9ccd28c98b597b04",
-      "symbol": "WBETH",
-      "rank": 96,
-      "balance": 4.35079293e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x0ebe2541b1bd960b3b261da95cdc31b52a55e3fc",
-      "symbol": "WBETH",
-      "rank": 97,
-      "balance": 4.23995281e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x53c6915422efd60c8b74a2739ddb3d01ae0e74fa",
-      "symbol": "WBETH",
-      "rank": 98,
-      "balance": 4.03789596e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x06a9a3583ef6b91f6ab5cd2538fd119332a77e36",
-      "symbol": "WBETH",
-      "rank": 99,
-      "balance": 4.00413636e+18,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x9c92fc9dca3d467a14b629ff6b7beab78864c2ec",
-      "symbol": "WBETH",
       "rank": 100,
-      "balance": 3.932282361376895e+18,
+      "balance": 5.186605178898062e+18,
       "share": 0,
       "last_tx": null
     }

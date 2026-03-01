@@ -1,7 +1,7 @@
 {
   "token": "ICP",
   "contract": "0x00f3c42833c3170159af4e92dbb451fb3f708917",
-  "updated_at": "2025-11-23T08:41:51.445566",
+  "updated_at": "2026-02-03T23:21:59.020793",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,799 +9,799 @@
       "address": "0x4068038ab5490063a3ead93b3712ed082e62bd59",
       "symbol": "ICP",
       "rank": 1,
-      "balance": 5194087888304.0,
-      "share": 18.98,
+      "balance": 7444565722987.0,
+      "share": 20.88,
       "last_tx": null
     },
     {
       "address": "0x0d565ffa0267c0b70a2916683d196292674e4c11",
       "symbol": "ICP",
       "rank": 2,
-      "balance": 1997881961141.0,
-      "share": 7.3,
-      "last_tx": null
-    },
-    {
-      "address": "0x1d425d5c3fe77f5f91f5582f2a98d4a94cb0549b",
-      "symbol": "ICP",
-      "rank": 3,
-      "balance": 1429113090403.0,
-      "share": 5.22,
+      "balance": 1747080000679.0,
+      "share": 4.9,
       "last_tx": null
     },
     {
       "address": "0x6159af7a56d35da5efa508e0d90a435cbb59cbb1",
       "symbol": "ICP",
+      "rank": 3,
+      "balance": 1369506178883.0,
+      "share": 3.84,
+      "last_tx": null
+    },
+    {
+      "address": "0x836219ebfafd339d1bbb41cef918ca19f1b58869",
+      "symbol": "ICP",
       "rank": 4,
-      "balance": 835044022901.0,
-      "share": 3.05,
+      "balance": 1056227061980.0,
+      "share": 2.96,
+      "last_tx": null
+    },
+    {
+      "address": "0xba318eec4a5558c04808436ec7d93af0616b24e0",
+      "symbol": "ICP",
+      "rank": 5,
+      "balance": 998501137560.0,
+      "share": 2.8,
       "last_tx": null
     },
     {
       "address": "0x8939605e631aaf1e48a979a8fd4070c17108f43a",
       "symbol": "ICP",
-      "rank": 5,
+      "rank": 6,
       "balance": 744881573849.0,
-      "share": 2.72,
+      "share": 2.09,
       "last_tx": null
     },
     {
       "address": "0x69af9e710b871a98330d6ad9d41ccf0379ea52ed",
       "symbol": "ICP",
-      "rank": 6,
+      "rank": 7,
       "balance": 618915642560.0,
-      "share": 2.26,
+      "share": 1.74,
       "last_tx": null
     },
     {
       "address": "0xdabf4a27627e68a5823054deea5f7ff08b5dbfe4",
       "symbol": "ICP",
-      "rank": 7,
+      "rank": 8,
       "balance": 575923705068.0,
-      "share": 2.1,
+      "share": 1.62,
       "last_tx": null
     },
     {
-      "address": "0x210c78254cbada2b4eb205e699751d67be4da492",
+      "address": "0x1c0f042ae8dffbac8113e3036d770339ab491a85",
       "symbol": "ICP",
-      "rank": 8,
-      "balance": 491976445494.0,
-      "share": 1.8,
+      "rank": 9,
+      "balance": 471410269150.0,
+      "share": 1.32,
       "last_tx": null
     },
     {
       "address": "0xe87ffc34b7a5a4f4a003c3e77479d45cf8375cb1",
       "symbol": "ICP",
-      "rank": 9,
-      "balance": 454775924416.0,
-      "share": 1.66,
-      "last_tx": null
-    },
-    {
-      "address": "0xe19cdd901dc655ed938777464d71b8d4e5efa248",
-      "symbol": "ICP",
       "rank": 10,
-      "balance": 320000000087.0,
-      "share": 1.17,
+      "balance": 454775924416.0,
+      "share": 1.28,
       "last_tx": null
     },
     {
-      "address": "0xc486bb07d926c1aa0ca08abd2eac0c7ddaf11c77",
+      "address": "0x149b4311c36af5e2ec89f2fa1404fe262ba5351b",
       "symbol": "ICP",
       "rank": 11,
-      "balance": 317161840061.0,
-      "share": 1.16,
+      "balance": 423390099991.0,
+      "share": 1.19,
       "last_tx": null
     },
     {
-      "address": "0x8a7c6b171dd5c2ac08162b7970fc2aa73035c963",
+      "address": "0x056485d1416b0a92daf7e97a6dc390d7ccb0ad76",
       "symbol": "ICP",
       "rank": 12,
-      "balance": 283310435449.0,
-      "share": 1.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xc3ad78caa7984ecabb06c6bd4934c3d8e9efd593",
-      "symbol": "ICP",
-      "rank": 13,
-      "balance": 280393057947.0,
-      "share": 1.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x8e5a96c25c278a9122317e62c2e0defe2331be34",
-      "symbol": "ICP",
-      "rank": 14,
-      "balance": 274623929536.0,
-      "share": 1,
-      "last_tx": null
-    },
-    {
-      "address": "0x67dbc6d14d6820a0996eb20d126a61abf02f8f7a",
-      "symbol": "ICP",
-      "rank": 15,
-      "balance": 270442068828.0,
+      "balance": 352213768320.0,
       "share": 0.99,
       "last_tx": null
     },
     {
-      "address": "0x8a9a11da1732b5c80e15b29ef78bd3937d64377f",
+      "address": "0x6e12c919d303777e613384edb60e03ecd2fef9eb",
       "symbol": "ICP",
-      "rank": 16,
-      "balance": 243508348350.0,
+      "rank": 13,
+      "balance": 344398930372.0,
+      "share": 0.97,
+      "last_tx": null
+    },
+    {
+      "address": "0xb8624db3f21faf5361381348230102296dba145b",
+      "symbol": "ICP",
+      "rank": 14,
+      "balance": 318046345627.0,
       "share": 0.89,
-      "last_tx": null
-    },
-    {
-      "address": "0x47400540146c3cdcf9aa78aa98ca3a4e7129ee69",
-      "symbol": "ICP",
-      "rank": 17,
-      "balance": 227040292432.0,
-      "share": 0.83,
-      "last_tx": null
-    },
-    {
-      "address": "0xa1cc4d8a51088b01f60feee198d33cba4fb7f7a9",
-      "symbol": "ICP",
-      "rank": 18,
-      "balance": 211712936803.0,
-      "share": 0.77,
-      "last_tx": null
-    },
-    {
-      "address": "0xc904ff8e829ef9b68b3ac3547b40191a865c7a08",
-      "symbol": "ICP",
-      "rank": 19,
-      "balance": 210172371818.0,
-      "share": 0.77,
-      "last_tx": null
-    },
-    {
-      "address": "0xb186ad115d415ba0c47b79c2efc0d8dd6adb11fb",
-      "symbol": "ICP",
-      "rank": 20,
-      "balance": 200469232186.0,
-      "share": 0.73,
-      "last_tx": null
-    },
-    {
-      "address": "0x2072567741aa2d1330d96ff5cd959983ced9324c",
-      "symbol": "ICP",
-      "rank": 21,
-      "balance": 200092122484.0,
-      "share": 0.73,
-      "last_tx": null
-    },
-    {
-      "address": "0xdffc608090264c78e6bd1a43c7ea46f8e4f029d0",
-      "symbol": "ICP",
-      "rank": 22,
-      "balance": 187099788756.0,
-      "share": 0.68,
-      "last_tx": null
-    },
-    {
-      "address": "0x351f2ea892c07d57c56cb62232ca9ad011438607",
-      "symbol": "ICP",
-      "rank": 23,
-      "balance": 185984317285.0,
-      "share": 0.68,
-      "last_tx": null
-    },
-    {
-      "address": "0x32a572c72f5f638d459e00860639184cfde4928b",
-      "symbol": "ICP",
-      "rank": 24,
-      "balance": 179208063968.0,
-      "share": 0.65,
-      "last_tx": null
-    },
-    {
-      "address": "0x3a228d58208e1deda75dcf1b30d34e63d7a71d82",
-      "symbol": "ICP",
-      "rank": 25,
-      "balance": 172197089902.0,
-      "share": 0.63,
       "last_tx": null
     },
     {
       "address": "0xc0dd1f55e35e8272d09f17fedf4db21f3aaccdb6",
       "symbol": "ICP",
-      "rank": 26,
-      "balance": 169154474508.0,
-      "share": 0.62,
+      "rank": 15,
+      "balance": 317889939940.0,
+      "share": 0.89,
       "last_tx": null
     },
     {
-      "address": "0x4620bce17941a06abe476aee02397e122cf516fe",
+      "address": "0xc486bb07d926c1aa0ca08abd2eac0c7ddaf11c77",
       "symbol": "ICP",
-      "rank": 27,
-      "balance": 168857782237.0,
-      "share": 0.62,
+      "rank": 16,
+      "balance": 317161840061.0,
+      "share": 0.89,
       "last_tx": null
     },
     {
-      "address": "0x7ebb11827db887bf261d5b59e82d4a28e7aae0b2",
+      "address": "0x10bdc491ee6e4fecd2dd69d7a083b193b7251369",
       "symbol": "ICP",
-      "rank": 28,
-      "balance": 168422363780.0,
-      "share": 0.62,
+      "rank": 17,
+      "balance": 315842708167.0,
+      "share": 0.89,
       "last_tx": null
     },
     {
-      "address": "0x17ad71b0f6e583ed2f800e7e881e0cf551e358c9",
+      "address": "0xa01473891e321bee3c630255d626758d6400e30f",
       "symbol": "ICP",
-      "rank": 29,
-      "balance": 168140756319.0,
-      "share": 0.61,
+      "rank": 18,
+      "balance": 303481148942.0,
+      "share": 0.85,
       "last_tx": null
     },
     {
-      "address": "0x7103d7a00ae4c61d7f1366ce3816a1182cd0629b",
+      "address": "0xc3ad78caa7984ecabb06c6bd4934c3d8e9efd593",
       "symbol": "ICP",
-      "rank": 30,
-      "balance": 159379079618.0,
-      "share": 0.58,
+      "rank": 19,
+      "balance": 280393057947.0,
+      "share": 0.79,
       "last_tx": null
     },
     {
-      "address": "0xb0ae272f18ad528d5238294dc763595759492b4b",
+      "address": "0x296a627631982d055261cda73055b849fdff7bef",
       "symbol": "ICP",
-      "rank": 31,
-      "balance": 157235283215.0,
-      "share": 0.57,
-      "last_tx": null
-    },
-    {
-      "address": "0xaec036d87d27b9e5ebe698d0e2d7c750b774ad05",
-      "symbol": "ICP",
-      "rank": 32,
-      "balance": 144368344109.0,
-      "share": 0.53,
-      "last_tx": null
-    },
-    {
-      "address": "0x468e524b977ced86677ae36853e35cf7f2178140",
-      "symbol": "ICP",
-      "rank": 33,
-      "balance": 143283561747.0,
-      "share": 0.52,
+      "rank": 20,
+      "balance": 276337378582.0,
+      "share": 0.78,
       "last_tx": null
     },
     {
       "address": "0x0877f9ab0e81ccc918d0c216af76a435e98b5370",
       "symbol": "ICP",
+      "rank": 21,
+      "balance": 275001810348.0,
+      "share": 0.77,
+      "last_tx": null
+    },
+    {
+      "address": "0x8e5a96c25c278a9122317e62c2e0defe2331be34",
+      "symbol": "ICP",
+      "rank": 22,
+      "balance": 274623929536.0,
+      "share": 0.77,
+      "last_tx": null
+    },
+    {
+      "address": "0x67dbc6d14d6820a0996eb20d126a61abf02f8f7a",
+      "symbol": "ICP",
+      "rank": 23,
+      "balance": 270442068828.0,
+      "share": 0.76,
+      "last_tx": null
+    },
+    {
+      "address": "0x051bffd9d688ce13e58433fecf2dd34c704d4242",
+      "symbol": "ICP",
+      "rank": 24,
+      "balance": 259663792033.0,
+      "share": 0.73,
+      "last_tx": null
+    },
+    {
+      "address": "0x2a0806dd15beee4d3efc3eebb0b3643a4a25972b",
+      "symbol": "ICP",
+      "rank": 25,
+      "balance": 239680498765.0,
+      "share": 0.67,
+      "last_tx": null
+    },
+    {
+      "address": "0xe8f2635f0417ce1b879db83ba1cd9d35044c5e74",
+      "symbol": "ICP",
+      "rank": 26,
+      "balance": 233740968570.0,
+      "share": 0.66,
+      "last_tx": null
+    },
+    {
+      "address": "0x47400540146c3cdcf9aa78aa98ca3a4e7129ee69",
+      "symbol": "ICP",
+      "rank": 27,
+      "balance": 227040292432.0,
+      "share": 0.64,
+      "last_tx": null
+    },
+    {
+      "address": "0x2072567741aa2d1330d96ff5cd959983ced9324c",
+      "symbol": "ICP",
+      "rank": 28,
+      "balance": 225850003272.0,
+      "share": 0.63,
+      "last_tx": null
+    },
+    {
+      "address": "0xa1cc4d8a51088b01f60feee198d33cba4fb7f7a9",
+      "symbol": "ICP",
+      "rank": 29,
+      "balance": 211712936803.0,
+      "share": 0.59,
+      "last_tx": null
+    },
+    {
+      "address": "0x1d425d5c3fe77f5f91f5582f2a98d4a94cb0549b",
+      "symbol": "ICP",
+      "rank": 30,
+      "balance": 204893823535.0,
+      "share": 0.57,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1c818b29e7602d2dcb366bd2f2603a07930f702",
+      "symbol": "ICP",
+      "rank": 31,
+      "balance": 199214789252.0,
+      "share": 0.56,
+      "last_tx": null
+    },
+    {
+      "address": "0x49e04b31f92d9486bd8e4e1dc3daff7bd0e5aa3d",
+      "symbol": "ICP",
+      "rank": 32,
+      "balance": 193281369267.0,
+      "share": 0.54,
+      "last_tx": null
+    },
+    {
+      "address": "0x24ec7a8a141a629b828922c4da661ee8684889b7",
+      "symbol": "ICP",
+      "rank": 33,
+      "balance": 189844225952.0,
+      "share": 0.53,
+      "last_tx": null
+    },
+    {
+      "address": "0xf207a05862f2b9741e9b3cda31b60bee07bd8026",
+      "symbol": "ICP",
       "rank": 34,
-      "balance": 137215422555.0,
+      "balance": 177260378967.0,
       "share": 0.5,
       "last_tx": null
     },
     {
-      "address": "0xc80ddb752bfa3ad01cec05e402a425b1612644b8",
+      "address": "0xc41d623983104ab635fe55934e899bb33dc8178c",
       "symbol": "ICP",
       "rank": 35,
-      "balance": 129104599933.0,
+      "balance": 175479004511.0,
+      "share": 0.49,
+      "last_tx": null
+    },
+    {
+      "address": "0x4620bce17941a06abe476aee02397e122cf516fe",
+      "symbol": "ICP",
+      "rank": 36,
+      "balance": 168857782237.0,
       "share": 0.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x7ebb11827db887bf261d5b59e82d4a28e7aae0b2",
+      "symbol": "ICP",
+      "rank": 37,
+      "balance": 168422363780.0,
+      "share": 0.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x17ad71b0f6e583ed2f800e7e881e0cf551e358c9",
+      "symbol": "ICP",
+      "rank": 38,
+      "balance": 168140756319.0,
+      "share": 0.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x4bd6e6846c77a84240b973ab6007130cf34949bc",
+      "symbol": "ICP",
+      "rank": 39,
+      "balance": 167912021973.0,
+      "share": 0.47,
+      "last_tx": null
+    },
+    {
+      "address": "0x7103d7a00ae4c61d7f1366ce3816a1182cd0629b",
+      "symbol": "ICP",
+      "rank": 40,
+      "balance": 159379079618.0,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0xd35669532cb2d34312cef21e98a6e50feda2e0a2",
+      "symbol": "ICP",
+      "rank": 41,
+      "balance": 152790109705.0,
+      "share": 0.43,
+      "last_tx": null
+    },
+    {
+      "address": "0x468e524b977ced86677ae36853e35cf7f2178140",
+      "symbol": "ICP",
+      "rank": 42,
+      "balance": 143283561747.0,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0xb819f164446bd4c5854faa653792b2991499ff97",
+      "symbol": "ICP",
+      "rank": 43,
+      "balance": 142428164649.0,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0x9b080186febd4b378955425a60169c9482de4a23",
+      "symbol": "ICP",
+      "rank": 44,
+      "balance": 135234680345.0,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0x120bf48b62edc48bab54ed306c3549facb450cec",
+      "symbol": "ICP",
+      "rank": 45,
+      "balance": 125700791619.0,
+      "share": 0.35,
       "last_tx": null
     },
     {
       "address": "0xb968688bc9c5cea90999d0003154de8b328a0d34",
       "symbol": "ICP",
-      "rank": 36,
+      "rank": 46,
       "balance": 124232894022.0,
-      "share": 0.45,
+      "share": 0.35,
       "last_tx": null
     },
     {
       "address": "0xe93e46cc5d90d1e529aa33ecb323efc21daa2909",
       "symbol": "ICP",
-      "rank": 37,
+      "rank": 47,
       "balance": 113580276145.0,
-      "share": 0.42,
+      "share": 0.32,
       "last_tx": null
     },
     {
-      "address": "0x7f94e6cf4e3108f8958ce10b054d354a9f26b828",
+      "address": "0x5b25372834025f73efb7bc6ba0ee5d69e0085146",
       "symbol": "ICP",
-      "rank": 38,
-      "balance": 111786038384.0,
-      "share": 0.41,
+      "rank": 48,
+      "balance": 112095239125.0,
+      "share": 0.31,
+      "last_tx": null
+    },
+    {
+      "address": "0x3bdead6cd0bf30d7571c00e46a1cc63dcf4e7615",
+      "symbol": "ICP",
+      "rank": 49,
+      "balance": 112068336785.0,
+      "share": 0.31,
       "last_tx": null
     },
     {
       "address": "0x933e2d37b365bd93f1899be40d1b62a777b1a5d1",
       "symbol": "ICP",
-      "rank": 39,
+      "rank": 50,
       "balance": 108437663292.0,
-      "share": 0.4,
-      "last_tx": null
-    },
-    {
-      "address": "0x9895ba3d17e3bcf1098a6ef24538481eb393a5d0",
-      "symbol": "ICP",
-      "rank": 40,
-      "balance": 107849049810.0,
-      "share": 0.39,
-      "last_tx": null
-    },
-    {
-      "address": "0x07028bc1782e4f672cb829b856816c96fbf21f9a",
-      "symbol": "ICP",
-      "rank": 41,
-      "balance": 107420270011.0,
-      "share": 0.39,
-      "last_tx": null
-    },
-    {
-      "address": "0x5c06719f87e140b2dde807b47ef7c3a6047a8e5a",
-      "symbol": "ICP",
-      "rank": 42,
-      "balance": 107363211600.0,
-      "share": 0.39,
+      "share": 0.3,
       "last_tx": null
     },
     {
       "address": "0x6fe1311a1c10033fcfb7e741b310832a0d88600e",
       "symbol": "ICP",
-      "rank": 43,
+      "rank": 51,
       "balance": 105547574199.0,
-      "share": 0.39,
+      "share": 0.3,
       "last_tx": null
     },
     {
       "address": "0x884cc629b722325644567b3fba2325675f834482",
       "symbol": "ICP",
-      "rank": 44,
+      "rank": 52,
       "balance": 104959862032.0,
-      "share": 0.38,
+      "share": 0.29,
       "last_tx": null
     },
     {
       "address": "0x9c5b5f705306593d17d668fc004f46384f7b6fc0",
       "symbol": "ICP",
-      "rank": 45,
+      "rank": 53,
       "balance": 104143376916.0,
-      "share": 0.38,
+      "share": 0.29,
       "last_tx": null
     },
     {
-      "address": "0x4845635180a3e5553d3eeeafc65e24af623f9ddb",
+      "address": "0x67061adcb6166cbfd3f06db2091ab56c1fa1a67a",
       "symbol": "ICP",
-      "rank": 46,
-      "balance": 102625062260.0,
-      "share": 0.38,
+      "rank": 54,
+      "balance": 103786986278.0,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x924cb94cb45d9ddabea7ebb88c2c12422ab1bea8",
+      "symbol": "ICP",
+      "rank": 55,
+      "balance": 101535968741.0,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x520b0429d1b49fd217665e77b8fdb55499bacaf1",
+      "symbol": "ICP",
+      "rank": 56,
+      "balance": 101314715084.0,
+      "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0xaa090cc52872316985b484cbdfda6c68c3258a7e",
       "symbol": "ICP",
-      "rank": 47,
+      "rank": 57,
       "balance": 100997119125.0,
-      "share": 0.37,
+      "share": 0.28,
+      "last_tx": null
+    },
+    {
+      "address": "0x07836084bfcc80ff65cd408701c2c874110c38a2",
+      "symbol": "ICP",
+      "rank": 58,
+      "balance": 100366227100.0,
+      "share": 0.28,
       "last_tx": null
     },
     {
       "address": "0x6c198533df56292da4241d64ae72d8d5712b8b26",
       "symbol": "ICP",
-      "rank": 48,
+      "rank": 59,
       "balance": 100079148417.0,
-      "share": 0.37,
+      "share": 0.28,
       "last_tx": null
     },
     {
-      "address": "0x16c0476f5a350c3cae0d974c9ba633e3391969e0",
+      "address": "0xd6c56360abfb2b462482c9076860dff1015e770e",
       "symbol": "ICP",
-      "rank": 49,
-      "balance": 100033556783.0,
-      "share": 0.37,
+      "rank": 60,
+      "balance": 93396798485.0,
+      "share": 0.26,
       "last_tx": null
     },
     {
-      "address": "0x115f452a6aa1d8bb4299146d9572c0ab5d1f3425",
+      "address": "0x51462ddc3a190f5dbc3987fcaf3a1dcad2ca7df7",
       "symbol": "ICP",
-      "rank": 50,
-      "balance": 99427717646.0,
-      "share": 0.36,
+      "rank": 61,
+      "balance": 88100000000.0,
+      "share": 0.25,
       "last_tx": null
     },
     {
-      "address": "0x6a5fefd7b8ec3a3531c41c3421ee3651f95ca100",
+      "address": "0x6336373840913d2aa6e58e70c51110caff37077b",
       "symbol": "ICP",
-      "rank": 51,
-      "balance": 89476070910.0,
-      "share": 0.33,
-      "last_tx": null
-    },
-    {
-      "address": "0x1e27edb12cf15f43d7715da47ede9d8bfbbd64be",
-      "symbol": "ICP",
-      "rank": 52,
-      "balance": 86185011364.0,
-      "share": 0.32,
+      "rank": 62,
+      "balance": 85600000000.0,
+      "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0x9ae90bf099ff9a315cbf484ced4f8c2aa1bbbf48",
       "symbol": "ICP",
-      "rank": 53,
+      "rank": 63,
       "balance": 85353483197.0,
-      "share": 0.31,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0x0d0d4cc8272ce6267c848f352fcc604497c2a1f5",
+      "symbol": "ICP",
+      "rank": 64,
+      "balance": 82678713082.0,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0xc2e306301b0770105c83a17062f1e17cd8f99448",
+      "symbol": "ICP",
+      "rank": 65,
+      "balance": 82195255551.0,
+      "share": 0.23,
       "last_tx": null
     },
     {
       "address": "0xb2a5ca07e6d0a9a260d45743f2e0a135664f00f3",
       "symbol": "ICP",
-      "rank": 54,
+      "rank": 66,
       "balance": 82024291767.0,
-      "share": 0.3,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0x8c31d36e71c31282dcd8eebf6e0e5e818c3bc9be",
+      "symbol": "ICP",
+      "rank": 67,
+      "balance": 81167433970.0,
+      "share": 0.23,
       "last_tx": null
     },
     {
       "address": "0x4da11f2987ed5e7a4f4e4f736fbd5b673be2040c",
       "symbol": "ICP",
-      "rank": 55,
+      "rank": 68,
       "balance": 79201725895.0,
-      "share": 0.29,
+      "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0x1449d92082a73a877c26d26ee1c1b00ce505c643",
       "symbol": "ICP",
-      "rank": 56,
+      "rank": 69,
       "balance": 79174873976.0,
-      "share": 0.29,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x9246415de39f58dfba3100de3250dae7ee67a7b2",
+      "symbol": "ICP",
+      "rank": 70,
+      "balance": 78570493816.0,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x4845635180a3e5553d3eeeafc65e24af623f9ddb",
+      "symbol": "ICP",
+      "rank": 71,
+      "balance": 77993606013.0,
+      "share": 0.22,
       "last_tx": null
     },
     {
       "address": "0xdad30659258275eb2449532aa03b92d25bf33664",
       "symbol": "ICP",
-      "rank": 57,
+      "rank": 72,
       "balance": 74750324125.0,
-      "share": 0.27,
+      "share": 0.21,
       "last_tx": null
     },
     {
-      "address": "0x7f0c78d9304cbb96ef1d197e9c1eaa5ca84bb7e2",
+      "address": "0x0f0c63486d18b0c133de5c03be06cf24441b51eb",
       "symbol": "ICP",
-      "rank": 58,
-      "balance": 69620491017.0,
-      "share": 0.25,
+      "rank": 73,
+      "balance": 74388794043.0,
+      "share": 0.21,
       "last_tx": null
     },
     {
-      "address": "0x6fef01ae919e965899917aa0e07b0a9c497f57cc",
+      "address": "0xfe61eb0449fa251ebe58c381fdde2b69a112ad1b",
       "symbol": "ICP",
-      "rank": 59,
-      "balance": 69512473938.0,
-      "share": 0.25,
-      "last_tx": null
-    },
-    {
-      "address": "0x4cea9842e73219397f5c73b8054e15b144dfee6f",
-      "symbol": "ICP",
-      "rank": 60,
-      "balance": 68276593346.0,
-      "share": 0.25,
+      "rank": 74,
+      "balance": 72991655449.0,
+      "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0x1fa16e43c0ce4d5dc75467878507985000777ff6",
       "symbol": "ICP",
-      "rank": 61,
+      "rank": 75,
       "balance": 68182377173.0,
-      "share": 0.25,
+      "share": 0.19,
       "last_tx": null
     },
     {
-      "address": "0x2f2f1d809116905d645056d3c4bf2ba501365db1",
+      "address": "0xd5872653ed9ad55efc82609e9b1f450c946a0023",
       "symbol": "ICP",
-      "rank": 62,
-      "balance": 67643000000.0,
-      "share": 0.25,
+      "rank": 76,
+      "balance": 67240005530.0,
+      "share": 0.19,
       "last_tx": null
     },
     {
       "address": "0x507b25f31525e75a27bb645425476e1d6657ac3d",
       "symbol": "ICP",
-      "rank": 63,
+      "rank": 77,
       "balance": 67223891028.0,
-      "share": 0.25,
+      "share": 0.19,
       "last_tx": null
     },
     {
-      "address": "0x79ef5c02d497d92d59fb8b3e982c0d8d85151890",
+      "address": "0x6571efb6e88c6ba5a48c8f110edc0460dc93d548",
       "symbol": "ICP",
-      "rank": 64,
-      "balance": 67128552284.0,
-      "share": 0.25,
+      "rank": 78,
+      "balance": 66178599504.0,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0x4e7d6096eaf4b7c784377afd2ca0cda6dfd8a8ff",
+      "symbol": "ICP",
+      "rank": 79,
+      "balance": 65149270008.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xbadcd0ce7b9a8bad07265e620731105d0dc7504d",
+      "symbol": "ICP",
+      "rank": 80,
+      "balance": 65000000000.0,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0xb6fe1ff3b15a0044cbfa6a419fa3c0fad24c2bb0",
       "symbol": "ICP",
-      "rank": 65,
+      "rank": 81,
       "balance": 64773164151.0,
-      "share": 0.24,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0xd9d0a13bea73b36ef8bab6c0820fa3fb8cb0152f",
       "symbol": "ICP",
-      "rank": 66,
+      "rank": 82,
       "balance": 64161826237.0,
-      "share": 0.23,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0xb61fd022d1dcb1a6d72134f354c897d4d1354a3c",
       "symbol": "ICP",
-      "rank": 67,
+      "rank": 83,
       "balance": 63746457527.0,
-      "share": 0.23,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x3fdd3e98c09ea0790c65636a7449f48a68f72fdc",
+      "symbol": "ICP",
+      "rank": 84,
+      "balance": 63734448881.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x0de40ade56d36a2b2d65a93a7d1d9c15f2f232e4",
+      "symbol": "ICP",
+      "rank": 85,
+      "balance": 63299793831.0,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xe8c0a26da6fecfbff3feb719a15948a36027d827",
+      "symbol": "ICP",
+      "rank": 86,
+      "balance": 62870410520.0,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x3b5fbe1050a96fb266578d64ead637b5937d3aea",
       "symbol": "ICP",
-      "rank": 68,
+      "rank": 87,
       "balance": 61168227081.0,
-      "share": 0.22,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xe830651ba47ab30346cb1e740e896f2b263f2b06",
+      "symbol": "ICP",
+      "rank": 88,
+      "balance": 61140022129.0,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x254367990bf20e287b32f0d7eacc28af4b318377",
+      "symbol": "ICP",
+      "rank": 89,
+      "balance": 60199446004.0,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x768321d04b58a405c576c502715d8b022abc3867",
       "symbol": "ICP",
-      "rank": 69,
+      "rank": 90,
       "balance": 60067360081.0,
-      "share": 0.22,
+      "share": 0.17,
       "last_tx": null
     },
     {
-      "address": "0xf3a780ebba6e342d5134b4fcea4035733c5c4701",
+      "address": "0x1490ea6d844a85e0750cf35449fa6fc96b2fd074",
       "symbol": "ICP",
-      "rank": 70,
-      "balance": 59615025691.0,
-      "share": 0.22,
+      "rank": 91,
+      "balance": 57458192299.0,
+      "share": 0.16,
       "last_tx": null
     },
     {
-      "address": "0x26696e3707cc7c03447a9377271e754f7b2d970e",
+      "address": "0xbf1ccb3707e8e1b8daa543bf74142083e1b5ddf2",
       "symbol": "ICP",
-      "rank": 71,
-      "balance": 59425267282.0,
-      "share": 0.22,
+      "rank": 92,
+      "balance": 56330499756.0,
+      "share": 0.16,
       "last_tx": null
     },
     {
-      "address": "0x454acbc402f5e7ea5b4d3f4d25d7c83480d9cd3a",
+      "address": "0x322857cfde32a3d65b79d48361698695c6fdd180",
       "symbol": "ICP",
-      "rank": 72,
-      "balance": 56961735091.0,
-      "share": 0.21,
+      "rank": 93,
+      "balance": 55500000000.0,
+      "share": 0.16,
       "last_tx": null
     },
     {
       "address": "0xf35a0d1d006625ceb5e6051b23638879d256461d",
       "symbol": "ICP",
-      "rank": 73,
+      "rank": 94,
       "balance": 55003876023.0,
-      "share": 0.2,
+      "share": 0.15,
       "last_tx": null
     },
     {
-      "address": "0x6559c722c4e0b562d36ba7c804e7ab23ad71e2f0",
+      "address": "0x38230c412876cc9a4c089aa7a0e42cc6ca87c25c",
       "symbol": "ICP",
-      "rank": 74,
-      "balance": 54968376586.0,
-      "share": 0.2,
+      "rank": 95,
+      "balance": 54675310449.0,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x2586b0e36872b2d1a1ea69817696e583550a3e9d",
       "symbol": "ICP",
-      "rank": 75,
+      "rank": 96,
       "balance": 54063603961.0,
-      "share": 0.2,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x8ede0e19edd0483e74b06ac5617bb41ea5819bb4",
       "symbol": "ICP",
-      "rank": 76,
+      "rank": 97,
       "balance": 53945310958.0,
-      "share": 0.2,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x84ca8e1700e719e7c918881a2e57cbcdb3ccded2",
       "symbol": "ICP",
-      "rank": 77,
+      "rank": 98,
       "balance": 53572553014.0,
-      "share": 0.2,
+      "share": 0.15,
       "last_tx": null
     },
     {
-      "address": "0x39b472d763f23d2dd689e798ee3bb1df86600b40",
+      "address": "0x55bbb6488f92a2c71ce3519ee2afd43996812fb9",
       "symbol": "ICP",
-      "rank": 78,
-      "balance": 52925864845.0,
-      "share": 0.19,
+      "rank": 99,
+      "balance": 52650299493.0,
+      "share": 0.15,
       "last_tx": null
     },
     {
       "address": "0x3883ab3f24c7b34a5238ae7977a807e653b1a3fd",
       "symbol": "ICP",
-      "rank": 79,
-      "balance": 52546764472.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0x194289b58652e753c387085822694abb220904a6",
-      "symbol": "ICP",
-      "rank": 80,
-      "balance": 52530859618.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0xa84be93a3bf04a1a297def703a03b960d0dd9a5a",
-      "symbol": "ICP",
-      "rank": 81,
-      "balance": 52196022778.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0xf32d9ced4f86431971e3554e4ef8480ae1a6032d",
-      "symbol": "ICP",
-      "rank": 82,
-      "balance": 51540537764.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0xe9fa62aa2cebfe5488ef29191c9b0304389fe077",
-      "symbol": "ICP",
-      "rank": 83,
-      "balance": 51075707937.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0x2db8ec24c754e67ca1e4e41e6542085fd84ec66a",
-      "symbol": "ICP",
-      "rank": 84,
-      "balance": 51066746271.0,
-      "share": 0.19,
-      "last_tx": null
-    },
-    {
-      "address": "0x02e4cffe32fa8c6f0d458ecd137a31af5bd256a2",
-      "symbol": "ICP",
-      "rank": 85,
-      "balance": 50422372599.0,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0xdea4a5b8f78d39b044e0b0d7d498e418acc9c1fd",
-      "symbol": "ICP",
-      "rank": 86,
-      "balance": 50000000000.0,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0xc93666197f0d67e2c22212bc47bec1086bdc78ac",
-      "symbol": "ICP",
-      "rank": 87,
-      "balance": 49949362387.0,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0xe5ea5251c03420f508dfdaf518cb29605be9a718",
-      "symbol": "ICP",
-      "rank": 88,
-      "balance": 49626695479.0,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0x1f6f45cf102fcc35821efb0b60fbb6a81b1b6dfa",
-      "symbol": "ICP",
-      "rank": 89,
-      "balance": 49014827967.0,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0x55378ba0159b174c016139efcdedb12f755c90c1",
-      "symbol": "ICP",
-      "rank": 90,
-      "balance": 47318033300.0,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0xbdd8a9ac8987e9b4aac7c078bfe638b4ce9721d0",
-      "symbol": "ICP",
-      "rank": 91,
-      "balance": 47217463721.0,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0xb2e6846137daa21d9e285813d415cf43aa73bd26",
-      "symbol": "ICP",
-      "rank": 92,
-      "balance": 46763318928.0,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0x672bda15798909c738a5aa1cdd6e1470bb0b122c",
-      "symbol": "ICP",
-      "rank": 93,
-      "balance": 46349841606.0,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0x3f23f432c45d567410b84d2ceba431645ac20aa0",
-      "symbol": "ICP",
-      "rank": 94,
-      "balance": 45454248737.0,
-      "share": 0.17,
-      "last_tx": null
-    },
-    {
-      "address": "0x236eab5c12da45d7a5212f3d31501a15a6ad2632",
-      "symbol": "ICP",
-      "rank": 95,
-      "balance": 44522988490.0,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0xe85a95185728c236965a0967d202ba711e97e369",
-      "symbol": "ICP",
-      "rank": 96,
-      "balance": 44386752227.0,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0xe521a60e00c4890ceaa79b6904f2dc72555bbe85",
-      "symbol": "ICP",
-      "rank": 97,
-      "balance": 44202397205.0,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0xd13b6756b2074c4207547622f1113c5f44201558",
-      "symbol": "ICP",
-      "rank": 98,
-      "balance": 43061380667.0,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0x7a566c83265ce501aa803bc289c82c2ea46ae405",
-      "symbol": "ICP",
-      "rank": 99,
-      "balance": 42672527356.0,
-      "share": 0.16,
-      "last_tx": null
-    },
-    {
-      "address": "0x0399597352fd21c55462e4ea7fffc0e1c7c6e93e",
-      "symbol": "ICP",
       "rank": 100,
-      "balance": 41594182391.0,
+      "balance": 52546764472.0,
       "share": 0.15,
       "last_tx": null
     }

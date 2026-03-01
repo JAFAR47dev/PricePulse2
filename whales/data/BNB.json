@@ -1,7 +1,7 @@
 {
   "token": "BNB",
   "contract": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
-  "updated_at": "2025-12-05T15:51:21.098617",
+  "updated_at": "2026-02-03T23:16:54.124420",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,7 +9,7 @@
       "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
       "symbol": "BNB",
       "rank": 1,
-      "balance": 9.0399185e+22,
+      "balance": 9.039923933015e+22,
       "share": 23.01,
       "last_tx": null
     },
@@ -33,7 +33,7 @@
       "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
       "symbol": "BNB",
       "rank": 4,
-      "balance": 2.3543214056428465e+22,
+      "balance": 2.3543237300533043e+22,
       "share": 5.99,
       "last_tx": null
     },
@@ -49,8 +49,8 @@
       "address": "0xf60c2ea62edbfe808163751dd0d8693dcb30019c",
       "symbol": "BNB",
       "rank": 6,
-      "balance": 9.209575954294015e+21,
-      "share": 2.34,
+      "balance": 9.220495839884221e+21,
+      "share": 2.35,
       "last_tx": null
     },
     {
@@ -70,25 +70,17 @@
       "last_tx": null
     },
     {
-      "address": "0x543e991e712bb51804d7dc86924b6d4e9819542a",
-      "symbol": "BNB",
-      "rank": 9,
-      "balance": 7.8267481e+21,
-      "share": 1.99,
-      "last_tx": null
-    },
-    {
       "address": "0x8d12a197cb00d4747a1fe03395095ce2a5cc6819",
       "symbol": "BNB",
-      "rank": 10,
-      "balance": 7.609542435533468e+21,
+      "rank": 9,
+      "balance": 7.60954132157285e+21,
       "share": 1.94,
       "last_tx": null
     },
     {
       "address": "0x0f75e2f8b264be979d06ea08fae4b736b2837ab7",
       "symbol": "BNB",
-      "rank": 11,
+      "rank": 10,
       "balance": 4.5395e+21,
       "share": 1.16,
       "last_tx": null
@@ -96,7 +88,7 @@
     {
       "address": "0x17df49518d73b129f0da36b1c9b40cb66420fdc7",
       "symbol": "BNB",
-      "rank": 12,
+      "rank": 11,
       "balance": 4.1049455e+21,
       "share": 1.04,
       "last_tx": null
@@ -104,7 +96,7 @@
     {
       "address": "0xbb5391a822d32117de70a407945e23d65d8c2cbf",
       "symbol": "BNB",
-      "rank": 13,
+      "rank": 12,
       "balance": 4.08569321177e+21,
       "share": 1.04,
       "last_tx": null
@@ -112,15 +104,31 @@
     {
       "address": "0xb7ebb37d1b3d0cf456a6f0e2bd3c1489d6c3f507",
       "symbol": "BNB",
-      "rank": 14,
+      "rank": 13,
       "balance": 3.999e+21,
       "share": 1.02,
       "last_tx": null
     },
     {
-      "address": "0x9a34bbbdd6eb8c775e494692c5f661a9c5e574da",
+      "address": "0x0faf70925b2ed6330b1aa9ceca4b08ffadd42397",
+      "symbol": "BNB",
+      "rank": 14,
+      "balance": 3.930116475040377e+21,
+      "share": 1,
+      "last_tx": null
+    },
+    {
+      "address": "0x543e991e712bb51804d7dc86924b6d4e9819542a",
       "symbol": "BNB",
       "rank": 15,
+      "balance": 3.8966316261243733e+21,
+      "share": 0.99,
+      "last_tx": null
+    },
+    {
+      "address": "0x9a34bbbdd6eb8c775e494692c5f661a9c5e574da",
+      "symbol": "BNB",
+      "rank": 16,
       "balance": 3.463e+21,
       "share": 0.88,
       "last_tx": null
@@ -128,7 +136,7 @@
     {
       "address": "0x2fb5b9fe0e291ae1b38a26229ff6274b88bcb959",
       "symbol": "BNB",
-      "rank": 16,
+      "rank": 17,
       "balance": 3.37725e+21,
       "share": 0.86,
       "last_tx": null
@@ -136,7 +144,7 @@
     {
       "address": "0x31ce3bf27af01296f2174f3115d428ca40b9b5b9",
       "symbol": "BNB",
-      "rank": 17,
+      "rank": 18,
       "balance": 3.01953e+21,
       "share": 0.77,
       "last_tx": null
@@ -144,7 +152,7 @@
     {
       "address": "0xc0cb5b9f3f96a491323485cc848efb5d7047231e",
       "symbol": "BNB",
-      "rank": 18,
+      "rank": 19,
       "balance": 2.25e+21,
       "share": 0.57,
       "last_tx": null
@@ -152,7 +160,7 @@
     {
       "address": "0xa32eeab263c7542958258bbeb52f8d4039b76511",
       "symbol": "BNB",
-      "rank": 19,
+      "rank": 20,
       "balance": 2.25e+21,
       "share": 0.57,
       "last_tx": null
@@ -160,7 +168,7 @@
     {
       "address": "0x321ae9cd9f1626f4e78b8d97a4e1c2c456a60c76",
       "symbol": "BNB",
-      "rank": 20,
+      "rank": 21,
       "balance": 1.87097699499e+21,
       "share": 0.48,
       "last_tx": null
@@ -168,7 +176,7 @@
     {
       "address": "0x44f58b8c6ca2dceba72d61a4d59b0098d48f915e",
       "symbol": "BNB",
-      "rank": 21,
+      "rank": 22,
       "balance": 1.47153525713651e+21,
       "share": 0.37,
       "last_tx": null
@@ -176,15 +184,23 @@
     {
       "address": "0x9ce02f96a5a2edf5cfb9231317dcce81d16ee864",
       "symbol": "BNB",
-      "rank": 22,
+      "rank": 23,
       "balance": 1.46797298053e+21,
       "share": 0.37,
       "last_tx": null
     },
     {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "symbol": "BNB",
+      "rank": 24,
+      "balance": 1.323023211812238e+21,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
       "address": "0xd66eb1dec42fff5d7e40279beb0a94cf1b8a564d",
       "symbol": "BNB",
-      "rank": 23,
+      "rank": 25,
       "balance": 1.27466e+21,
       "share": 0.32,
       "last_tx": null
@@ -192,7 +208,7 @@
     {
       "address": "0x8e89fe3cd76979aa7ed01b3c9b0a78e93bc2ad28",
       "symbol": "BNB",
-      "rank": 24,
+      "rank": 26,
       "balance": 1.156e+21,
       "share": 0.29,
       "last_tx": null
@@ -200,7 +216,7 @@
     {
       "address": "0xfd3e92f8ebf45d355d3654b4dd61148677596424",
       "symbol": "BNB",
-      "rank": 25,
+      "rank": 27,
       "balance": 1.00750710057e+21,
       "share": 0.26,
       "last_tx": null
@@ -208,7 +224,7 @@
     {
       "address": "0x11f01afbb6314629a53a2db9fd357a228030a73e",
       "symbol": "BNB",
-      "rank": 26,
+      "rank": 28,
       "balance": 1.00144e+21,
       "share": 0.25,
       "last_tx": null
@@ -216,7 +232,7 @@
     {
       "address": "0xd26e169b8f9aeb8762fd48ec51a681ce228f6a2e",
       "symbol": "BNB",
-      "rank": 27,
+      "rank": 29,
       "balance": 9.9987e+20,
       "share": 0.25,
       "last_tx": null
@@ -224,7 +240,7 @@
     {
       "address": "0x8503fa99f2e7410e904f050849f8234091e1d108",
       "symbol": "BNB",
-      "rank": 28,
+      "rank": 30,
       "balance": 9.99e+20,
       "share": 0.25,
       "last_tx": null
@@ -232,7 +248,7 @@
     {
       "address": "0x9dcfdd7e6416674681c1759f723773e7ab30169d",
       "symbol": "BNB",
-      "rank": 29,
+      "rank": 31,
       "balance": 9.9275177192e+20,
       "share": 0.25,
       "last_tx": null
@@ -240,7 +256,7 @@
     {
       "address": "0x916e7922be7b149df49cd0f972cf7e599da6aa9b",
       "symbol": "BNB",
-      "rank": 30,
+      "rank": 32,
       "balance": 8.955515e+20,
       "share": 0.23,
       "last_tx": null
@@ -248,7 +264,7 @@
     {
       "address": "0x7001f26ebc3e70609736a82ac3f2c8208ffa75ca",
       "symbol": "BNB",
-      "rank": 31,
+      "rank": 33,
       "balance": 8.95e+20,
       "share": 0.23,
       "last_tx": null
@@ -256,7 +272,7 @@
     {
       "address": "0x7af95fdba886eaf50b06ee5daf25ef0cafdc37f4",
       "symbol": "BNB",
-      "rank": 32,
+      "rank": 34,
       "balance": 8.567092376831651e+20,
       "share": 0.22,
       "last_tx": null
@@ -264,7 +280,7 @@
     {
       "address": "0x8635831fd0dd43078ebc3af9eca4232c2ca49b73",
       "symbol": "BNB",
-      "rank": 33,
+      "rank": 35,
       "balance": 8.4779103979e+20,
       "share": 0.22,
       "last_tx": null
@@ -272,23 +288,15 @@
     {
       "address": "0xa375b695564e45db8b44bbb93d30291239e72e77",
       "symbol": "BNB",
-      "rank": 34,
+      "rank": 36,
       "balance": 8e+20,
-      "share": 0.2,
-      "last_tx": null
-    },
-    {
-      "address": "0x3d5c2b398f514dfe452d7fa9a39c7094594d013d",
-      "symbol": "BNB",
-      "rank": 35,
-      "balance": 7.841350652741515e+20,
       "share": 0.2,
       "last_tx": null
     },
     {
       "address": "0xe105c872d766209f5228f085af7a418c8352047b",
       "symbol": "BNB",
-      "rank": 36,
+      "rank": 37,
       "balance": 7.4635407885e+20,
       "share": 0.19,
       "last_tx": null
@@ -296,7 +304,7 @@
     {
       "address": "0x781b62036d1b9eb00f1d9d1ed70b02a8c8b2b686",
       "symbol": "BNB",
-      "rank": 37,
+      "rank": 38,
       "balance": 7.42988e+20,
       "share": 0.19,
       "last_tx": null
@@ -304,7 +312,7 @@
     {
       "address": "0xe0bb30e4da109b065b5f002905ae517acfe3c461",
       "symbol": "BNB",
-      "rank": 38,
+      "rank": 39,
       "balance": 7.412238965e+20,
       "share": 0.19,
       "last_tx": null
@@ -312,7 +320,7 @@
     {
       "address": "0x6a9c371db67992444ca55d32ea4219dd264b8dd3",
       "symbol": "BNB",
-      "rank": 39,
+      "rank": 40,
       "balance": 7.41e+20,
       "share": 0.19,
       "last_tx": null
@@ -320,15 +328,15 @@
     {
       "address": "0x285a22aea25df0f33da1ef69d172a8f216641860",
       "symbol": "BNB",
-      "rank": 40,
-      "balance": 7.232585907112896e+20,
-      "share": 0.18,
+      "rank": 41,
+      "balance": 6.484631156954217e+20,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0x176dbb5e78ee84c61e1b418fc8b9b708038b8a76",
       "symbol": "BNB",
-      "rank": 41,
+      "rank": 42,
       "balance": 6.2947386825e+20,
       "share": 0.16,
       "last_tx": null
@@ -336,7 +344,7 @@
     {
       "address": "0x002a35f09f462595b1905015a43c18b1e02fe24a",
       "symbol": "BNB",
-      "rank": 42,
+      "rank": 43,
       "balance": 6.27e+20,
       "share": 0.16,
       "last_tx": null
@@ -344,7 +352,7 @@
     {
       "address": "0x4566520f1f0cd06e0ff2f8c684483da4f2c2d9be",
       "symbol": "BNB",
-      "rank": 43,
+      "rank": 44,
       "balance": 6e+20,
       "share": 0.15,
       "last_tx": null
@@ -352,7 +360,7 @@
     {
       "address": "0x8d738b3ddf8425e155f52caaaedc65ab28234f31",
       "symbol": "BNB",
-      "rank": 44,
+      "rank": 45,
       "balance": 5.831455942910878e+20,
       "share": 0.15,
       "last_tx": null
@@ -360,7 +368,7 @@
     {
       "address": "0x46b34053855a7fb79cc3401325848bcd28b4ba8d",
       "symbol": "BNB",
-      "rank": 45,
+      "rank": 46,
       "balance": 5.52723e+20,
       "share": 0.14,
       "last_tx": null
@@ -368,7 +376,7 @@
     {
       "address": "0xf0f9367d2ff2a05b258f2d1503811b06726a64ed",
       "symbol": "BNB",
-      "rank": 46,
+      "rank": 47,
       "balance": 5.5184603976e+20,
       "share": 0.14,
       "last_tx": null
@@ -376,7 +384,7 @@
     {
       "address": "0x7eb2e1a3f7faaac93da015da16918d5051eae97f",
       "symbol": "BNB",
-      "rank": 47,
+      "rank": 48,
       "balance": 5.49e+20,
       "share": 0.14,
       "last_tx": null
@@ -384,7 +392,7 @@
     {
       "address": "0xcff4643093adefa450498ac6d94dabfbfc989573",
       "symbol": "BNB",
-      "rank": 48,
+      "rank": 49,
       "balance": 5.48725e+20,
       "share": 0.14,
       "last_tx": null
@@ -392,7 +400,7 @@
     {
       "address": "0xc6a29705f86e837fc975c36f949d0f666cbbd1c6",
       "symbol": "BNB",
-      "rank": 49,
+      "rank": 50,
       "balance": 5.4752575467e+20,
       "share": 0.14,
       "last_tx": null
@@ -400,7 +408,7 @@
     {
       "address": "0xa4dbd1d6897c103460f54dda3b9a9d25ccddb929",
       "symbol": "BNB",
-      "rank": 50,
+      "rank": 51,
       "balance": 5.3872063783e+20,
       "share": 0.14,
       "last_tx": null
@@ -408,7 +416,7 @@
     {
       "address": "0x433c19ce63356d081783bc6267f909806be23a2b",
       "symbol": "BNB",
-      "rank": 51,
+      "rank": 52,
       "balance": 5.3821552677e+20,
       "share": 0.14,
       "last_tx": null
@@ -416,7 +424,7 @@
     {
       "address": "0x248f4988bf7f072b88cf03b15a81ad730e4beac3",
       "symbol": "BNB",
-      "rank": 52,
+      "rank": 53,
       "balance": 5.217385e+20,
       "share": 0.13,
       "last_tx": null
@@ -424,7 +432,7 @@
     {
       "address": "0x198670956ac3dd32273ca3e54a2b890d01e00c89",
       "symbol": "BNB",
-      "rank": 53,
+      "rank": 54,
       "balance": 5.2089055e+20,
       "share": 0.13,
       "last_tx": null
@@ -432,7 +440,7 @@
     {
       "address": "0x23aa4332b168f6e93a2aa1494aef21d607350631",
       "symbol": "BNB",
-      "rank": 54,
+      "rank": 55,
       "balance": 5.204089413453589e+20,
       "share": 0.13,
       "last_tx": null
@@ -440,7 +448,7 @@
     {
       "address": "0xdf6b2613b9c7dce2fc7e702fe35a3c8eb398ca0b",
       "symbol": "BNB",
-      "rank": 55,
+      "rank": 56,
       "balance": 5.0485422751e+20,
       "share": 0.13,
       "last_tx": null
@@ -448,7 +456,7 @@
     {
       "address": "0x3eb25ed4f231d89f0bc47e91ba4f6c986a85c07e",
       "symbol": "BNB",
-      "rank": 56,
+      "rank": 57,
       "balance": 4.99025e+20,
       "share": 0.13,
       "last_tx": null
@@ -456,7 +464,7 @@
     {
       "address": "0x8ea0624e06852ed9e88c45323383be751c5e62d9",
       "symbol": "BNB",
-      "rank": 57,
+      "rank": 58,
       "balance": 4.9795322794e+20,
       "share": 0.13,
       "last_tx": null
@@ -464,16 +472,8 @@
     {
       "address": "0x48c7470b34d340e8d10931c949ff8f1608dd6f36",
       "symbol": "BNB",
-      "rank": 58,
-      "balance": 4.8775263646e+20,
-      "share": 0.12,
-      "last_tx": null
-    },
-    {
-      "address": "0x341c940ff250674e8fbebee09b5e4f873b6613b9",
-      "symbol": "BNB",
       "rank": 59,
-      "balance": 4.7772501615e+20,
+      "balance": 4.8775263646e+20,
       "share": 0.12,
       "last_tx": null
     },
@@ -614,17 +614,9 @@
       "last_tx": null
     },
     {
-      "address": "0x33566c9d8be6cf0b23795e0d380e112be9d75836",
-      "symbol": "BNB",
-      "rank": 77,
-      "balance": 3.574e+20,
-      "share": 0.09,
-      "last_tx": null
-    },
-    {
       "address": "0x0900c1bb0acab2f197b5b92f0b3a8d61d73cc92c",
       "symbol": "BNB",
-      "rank": 78,
+      "rank": 77,
       "balance": 3.49813e+20,
       "share": 0.09,
       "last_tx": null
@@ -632,7 +624,7 @@
     {
       "address": "0x582eab1246c955c7c1f092308cfa5e7dcfbe9df9",
       "symbol": "BNB",
-      "rank": 79,
+      "rank": 78,
       "balance": 3.4977e+20,
       "share": 0.09,
       "last_tx": null
@@ -640,7 +632,7 @@
     {
       "address": "0xee190591848e28349999e8d44ae28f00a276ce7f",
       "symbol": "BNB",
-      "rank": 80,
+      "rank": 79,
       "balance": 3.472813796036822e+20,
       "share": 0.09,
       "last_tx": null
@@ -648,7 +640,7 @@
     {
       "address": "0xdd427d8f19355f1decf473f2b223bb3815696d1e",
       "symbol": "BNB",
-      "rank": 81,
+      "rank": 80,
       "balance": 3.4701665906e+20,
       "share": 0.09,
       "last_tx": null
@@ -656,7 +648,7 @@
     {
       "address": "0xb23d3bbe29e5cf47c4305ffdee27d6df23cd0eee",
       "symbol": "BNB",
-      "rank": 82,
+      "rank": 81,
       "balance": 3.3465591164e+20,
       "share": 0.09,
       "last_tx": null
@@ -664,7 +656,7 @@
     {
       "address": "0xcaeed379dcfeef5c6bb7b0b2545af96230f82223",
       "symbol": "BNB",
-      "rank": 83,
+      "rank": 82,
       "balance": 3.256709978e+20,
       "share": 0.08,
       "last_tx": null
@@ -672,7 +664,7 @@
     {
       "address": "0x11bcc5d5cefdf6f28934a03b7b2575aed9218b42",
       "symbol": "BNB",
-      "rank": 84,
+      "rank": 83,
       "balance": 3.2368314578e+20,
       "share": 0.08,
       "last_tx": null
@@ -680,7 +672,7 @@
     {
       "address": "0xbc3c2fb2d33e32be9094a0d9baee7bcb72788db2",
       "symbol": "BNB",
-      "rank": 85,
+      "rank": 84,
       "balance": 3.1773952621e+20,
       "share": 0.08,
       "last_tx": null
@@ -688,7 +680,7 @@
     {
       "address": "0xbc0f2c9a432e09326d934dc439f5b780feb1c297",
       "symbol": "BNB",
-      "rank": 86,
+      "rank": 85,
       "balance": 3.11e+20,
       "share": 0.08,
       "last_tx": null
@@ -696,23 +688,15 @@
     {
       "address": "0x4aa72e68e13aaa862ada0f1253d3744122edcb33",
       "symbol": "BNB",
-      "rank": 87,
+      "rank": 86,
       "balance": 3.06846e+20,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x525ef0e62ad7b78fbe84e7491519a1e11f071eb1",
-      "symbol": "BNB",
-      "rank": 88,
-      "balance": 3.02498e+20,
       "share": 0.08,
       "last_tx": null
     },
     {
       "address": "0xf7550ef4294c0f0804f848765115dae736dde563",
       "symbol": "BNB",
-      "rank": 89,
+      "rank": 87,
       "balance": 3.00779e+20,
       "share": 0.08,
       "last_tx": null
@@ -720,7 +704,7 @@
     {
       "address": "0xc2ce71a4f6b082333f0a0e57da330f90a734b577",
       "symbol": "BNB",
-      "rank": 90,
+      "rank": 88,
       "balance": 3e+20,
       "share": 0.08,
       "last_tx": null
@@ -728,7 +712,7 @@
     {
       "address": "0x1f2796ef0cbe0760a5391670366e6de3c8dfeb1b",
       "symbol": "BNB",
-      "rank": 91,
+      "rank": 89,
       "balance": 2.9995e+20,
       "share": 0.08,
       "last_tx": null
@@ -736,7 +720,7 @@
     {
       "address": "0xf223cf27db14d320ac8be8cdad00d3a9af0f19d5",
       "symbol": "BNB",
-      "rank": 92,
+      "rank": 90,
       "balance": 2.9919318112e+20,
       "share": 0.08,
       "last_tx": null
@@ -744,7 +728,7 @@
     {
       "address": "0xb09fbdb544c9582f35cbefbe3c7d4d0e68b45aaa",
       "symbol": "BNB",
-      "rank": 93,
+      "rank": 91,
       "balance": 2.989682051254967e+20,
       "share": 0.08,
       "last_tx": null
@@ -752,7 +736,7 @@
     {
       "address": "0x4d7a11f6aa84d6e082f2ca990a5e32d617604527",
       "symbol": "BNB",
-      "rank": 94,
+      "rank": 92,
       "balance": 2.9085e+20,
       "share": 0.07,
       "last_tx": null
@@ -760,7 +744,7 @@
     {
       "address": "0xd892271518f25d56f7b936d52fb4873ed98346ad",
       "symbol": "BNB",
-      "rank": 95,
+      "rank": 93,
       "balance": 2.764578656123897e+20,
       "share": 0.07,
       "last_tx": null
@@ -768,7 +752,7 @@
     {
       "address": "0x0ac6dae125d3016737febb77ef80c8688c3e8d70",
       "symbol": "BNB",
-      "rank": 96,
+      "rank": 94,
       "balance": 2.758615e+20,
       "share": 0.07,
       "last_tx": null
@@ -776,7 +760,7 @@
     {
       "address": "0xad140352faef6e8ae1dcd860f948618e2b4d34b6",
       "symbol": "BNB",
-      "rank": 97,
+      "rank": 95,
       "balance": 2.7239149676e+20,
       "share": 0.07,
       "last_tx": null
@@ -784,7 +768,7 @@
     {
       "address": "0xc3591db7df0dd5023b568a891236c1c5afede41b",
       "symbol": "BNB",
-      "rank": 98,
+      "rank": 96,
       "balance": 2.7053547489e+20,
       "share": 0.07,
       "last_tx": null
@@ -792,7 +776,7 @@
     {
       "address": "0x85eafe846faaa6c36156372f84898d7e7f180a90",
       "symbol": "BNB",
-      "rank": 99,
+      "rank": 97,
       "balance": 2.6843000504e+20,
       "share": 0.07,
       "last_tx": null
@@ -800,9 +784,25 @@
     {
       "address": "0x30fc7f24504bddb1e19418925faebde487a8c330",
       "symbol": "BNB",
-      "rank": 100,
+      "rank": 98,
       "balance": 2.639e+20,
       "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0x4bc2f8f0303c4bf6ce3a0fcb5ebaa06b8bf2581f",
+      "symbol": "BNB",
+      "rank": 99,
+      "balance": 2.54435556e+20,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xbabbfbd96291ce07afdee9e22459f1dd6e84de4c",
+      "symbol": "BNB",
+      "rank": 100,
+      "balance": 2.5335784798e+20,
+      "share": 0.06,
       "last_tx": null
     }
   ]

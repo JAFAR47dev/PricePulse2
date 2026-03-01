@@ -1,6 +1,809 @@
 {
-  "symbol": "NEAR",
-  "unsupported": true,
-  "reason": "Non-ERC20 token or missing Ethereum contract",
-  "timestamp": "2025-11-23 08:41:37 UTC"
+  "token": "NEAR",
+  "contract": "0x85f17cf997934a597031b2e18a9ab6ebd4b9f6a4",
+  "updated_at": "2026-02-03T23:21:42.078279",
+  "version": "1.0.0",
+  "whale_count": 100,
+  "whales": [
+    {
+      "address": "0xfa7093cdd9ee6932b4eb2c9e1cde7ce00b1fa4b9",
+      "symbol": "NEAR",
+      "rank": 1,
+      "balance": 8.328775824937343e+29,
+      "share": 23,
+      "last_tx": null
+    },
+    {
+      "address": "0x199fe9826a45dbea191498f23f791c18c67b94e3",
+      "symbol": "NEAR",
+      "rank": 2,
+      "balance": 2.09350701490693e+29,
+      "share": 5.78,
+      "last_tx": null
+    },
+    {
+      "address": "0xee8aaa362a75fbf8e0a38a50ddc27f38551e16ea",
+      "symbol": "NEAR",
+      "rank": 3,
+      "balance": 1.1975036855490567e+29,
+      "share": 3.31,
+      "last_tx": null
+    },
+    {
+      "address": "0x3fae97a7acf22bb25c7f838798986ea4c27e4d5a",
+      "symbol": "NEAR",
+      "rank": 4,
+      "balance": 3.900574923814784e+28,
+      "share": 1.08,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ba3f47fe7f5a12562ba0a4a5645d8bf9ea1dd8e",
+      "symbol": "NEAR",
+      "rank": 5,
+      "balance": 3.3825664030367936e+28,
+      "share": 0.93,
+      "last_tx": null
+    },
+    {
+      "address": "0x5bc5de187c940d533f08b6f9e2e59dd8d9d25977",
+      "symbol": "NEAR",
+      "rank": 6,
+      "balance": 3.228711935165177e+28,
+      "share": 0.89,
+      "last_tx": null
+    },
+    {
+      "address": "0x7f91238fbf17057ebdeb841b0f37b23dea842682",
+      "symbol": "NEAR",
+      "rank": 7,
+      "balance": 2.9882432601504716e+28,
+      "share": 0.83,
+      "last_tx": null
+    },
+    {
+      "address": "0x8e97a2be1f1cee87e3c50fe1420168e176b1b068",
+      "symbol": "NEAR",
+      "rank": 8,
+      "balance": 2.5685307201895797e+28,
+      "share": 0.71,
+      "last_tx": null
+    },
+    {
+      "address": "0x6f186c3d45e7699bdd1886a9398dc17c2da8cdae",
+      "symbol": "NEAR",
+      "rank": 9,
+      "balance": 2.5144017229772653e+28,
+      "share": 0.69,
+      "last_tx": null
+    },
+    {
+      "address": "0x20188b46a5b57a5e0d967df685df3925143bcb7d",
+      "symbol": "NEAR",
+      "rank": 10,
+      "balance": 2.253013495411599e+28,
+      "share": 0.62,
+      "last_tx": null
+    },
+    {
+      "address": "0xff81cac4412206c0c2b93764ad274a6831c8dcda",
+      "symbol": "NEAR",
+      "rank": 11,
+      "balance": 2.154693147387449e+28,
+      "share": 0.59,
+      "last_tx": null
+    },
+    {
+      "address": "0x388364512b2603eb2588ea12eda201423d5f7ffe",
+      "symbol": "NEAR",
+      "rank": 12,
+      "balance": 2.133272925183093e+28,
+      "share": 0.59,
+      "last_tx": null
+    },
+    {
+      "address": "0x32355273711f7a7798a85757c927f54c1c6d4ff2",
+      "symbol": "NEAR",
+      "rank": 13,
+      "balance": 2.1023167865735877e+28,
+      "share": 0.58,
+      "last_tx": null
+    },
+    {
+      "address": "0x559c960372a9bc330640a0e07e66823079e0f80d",
+      "symbol": "NEAR",
+      "rank": 14,
+      "balance": 2.078775694411788e+28,
+      "share": 0.57,
+      "last_tx": null
+    },
+    {
+      "address": "0x5afbdefe302d958304373c5157cc2a3b3acb001d",
+      "symbol": "NEAR",
+      "rank": 15,
+      "balance": 2.0235e+28,
+      "share": 0.56,
+      "last_tx": null
+    },
+    {
+      "address": "0xfbd4cdb413e45a52e2c8312f670e9ce67e794c37",
+      "symbol": "NEAR",
+      "rank": 16,
+      "balance": 2.0122755099828785e+28,
+      "share": 0.56,
+      "last_tx": null
+    },
+    {
+      "address": "0xf795a22cacfe719bbc917dec0b8fd23270007561",
+      "symbol": "NEAR",
+      "rank": 17,
+      "balance": 1.9997855583884226e+28,
+      "share": 0.55,
+      "last_tx": null
+    },
+    {
+      "address": "0x2cc808648b96ff3657d6c1611042339c6f35b36c",
+      "symbol": "NEAR",
+      "rank": 18,
+      "balance": 1.8682604807063087e+28,
+      "share": 0.52,
+      "last_tx": null
+    },
+    {
+      "address": "0xfbf30fc4ee985920fd6aa90f6dfe8db3c0e44763",
+      "symbol": "NEAR",
+      "rank": 19,
+      "balance": 1.7205339205038666e+28,
+      "share": 0.48,
+      "last_tx": null
+    },
+    {
+      "address": "0x6469b34a2a4723163c4902dbbdea728d20693c12",
+      "symbol": "NEAR",
+      "rank": 20,
+      "balance": 1.6214764235598445e+28,
+      "share": 0.45,
+      "last_tx": null
+    },
+    {
+      "address": "0xf2c4f1e5ac481f7411ca5921a8c81617300cf0c9",
+      "symbol": "NEAR",
+      "rank": 21,
+      "balance": 1.559673497423992e+28,
+      "share": 0.43,
+      "last_tx": null
+    },
+    {
+      "address": "0xa5d10e9f63e7c82d97c4e4a0219640f709d6cd71",
+      "symbol": "NEAR",
+      "rank": 22,
+      "balance": 1.526e+28,
+      "share": 0.42,
+      "last_tx": null
+    },
+    {
+      "address": "0xdd78c5f0886ef4b32f4f53d44d0574ded031a6b6",
+      "symbol": "NEAR",
+      "rank": 23,
+      "balance": 1.457656342261187e+28,
+      "share": 0.4,
+      "last_tx": null
+    },
+    {
+      "address": "0xc60b7c7c395e7dd9e61e5d0597139b055ec24098",
+      "symbol": "NEAR",
+      "rank": 24,
+      "balance": 1.4093133562413606e+28,
+      "share": 0.39,
+      "last_tx": null
+    },
+    {
+      "address": "0xd0f2577ea6d87a20cc4c13282b65d2328383b70e",
+      "symbol": "NEAR",
+      "rank": 25,
+      "balance": 1.3483701349609341e+28,
+      "share": 0.37,
+      "last_tx": null
+    },
+    {
+      "address": "0x887a6d356e117c148e98278bb5c9cbf1691979fb",
+      "symbol": "NEAR",
+      "rank": 26,
+      "balance": 1.3083922349949596e+28,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0xc988233c8b5bdecf69a5e37e0fc670769bf226ac",
+      "symbol": "NEAR",
+      "rank": 27,
+      "balance": 1.270544701110447e+28,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x01601a10732bb6527537187550fbf994fe9e0d90",
+      "symbol": "NEAR",
+      "rank": 28,
+      "balance": 1.269505677078226e+28,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x1955bdf6744430d8d74e83a7a823a9a3007923bb",
+      "symbol": "NEAR",
+      "rank": 29,
+      "balance": 1.2688683945740768e+28,
+      "share": 0.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x0529fb0d7493e8c76babf80c0b51c87e4e5c852e",
+      "symbol": "NEAR",
+      "rank": 30,
+      "balance": 1.224164388984773e+28,
+      "share": 0.34,
+      "last_tx": null
+    },
+    {
+      "address": "0x4118c9794372ca95343e2a3ea44f0fe1ac2abc06",
+      "symbol": "NEAR",
+      "rank": 31,
+      "balance": 1.136599425663104e+28,
+      "share": 0.31,
+      "last_tx": null
+    },
+    {
+      "address": "0xab4a82db95a48e072b1fb260b1e2634c6c8110c3",
+      "symbol": "NEAR",
+      "rank": 32,
+      "balance": 1.0915944329610921e+28,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x9d9e57c01845149cb669f933fb479ad861c3d39f",
+      "symbol": "NEAR",
+      "rank": 33,
+      "balance": 1.0858469638198015e+28,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0xd25c299d3604c1f3356c4a1c415b84ac5bee7804",
+      "symbol": "NEAR",
+      "rank": 34,
+      "balance": 1.051903074726261e+28,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x869a26f5d6f2f329d4fbdaf32ca4cd44f8d3ba87",
+      "symbol": "NEAR",
+      "rank": 35,
+      "balance": 9.861826207343951e+27,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x81ff0a5d8e7f880a85af3f55864d9e7da62d39a2",
+      "symbol": "NEAR",
+      "rank": 36,
+      "balance": 9.735144248793996e+27,
+      "share": 0.27,
+      "last_tx": null
+    },
+    {
+      "address": "0x5c8e47cfb9aa29e57607a767b1ecfa3456de2983",
+      "symbol": "NEAR",
+      "rank": 37,
+      "balance": 9.091981773101502e+27,
+      "share": 0.25,
+      "last_tx": null
+    },
+    {
+      "address": "0x6f384ce623e9c7a4e06e75e20a2be891e79dd91f",
+      "symbol": "NEAR",
+      "rank": 38,
+      "balance": 8.98322923911255e+27,
+      "share": 0.25,
+      "last_tx": null
+    },
+    {
+      "address": "0xa1d894fe805303c60a5dbc484d0214bc28acce32",
+      "symbol": "NEAR",
+      "rank": 39,
+      "balance": 8.699746240188289e+27,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0xb94596863ba640a24d8fb43ffb0c758ed26a84ad",
+      "symbol": "NEAR",
+      "rank": 40,
+      "balance": 8.579574040592628e+27,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0xba79dff6b1950f31101bb4ecc7dd37a35c608ac6",
+      "symbol": "NEAR",
+      "rank": 41,
+      "balance": 8.557184219235281e+27,
+      "share": 0.24,
+      "last_tx": null
+    },
+    {
+      "address": "0xfb7c6bb406092ad172a87b2f4e7379e406f44a6d",
+      "symbol": "NEAR",
+      "rank": 42,
+      "balance": 8.336528657552742e+27,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0xe4d61944d666bd617fcf711482107a3a2ace7766",
+      "symbol": "NEAR",
+      "rank": 43,
+      "balance": 8.169963167342669e+27,
+      "share": 0.23,
+      "last_tx": null
+    },
+    {
+      "address": "0xdb215ae4c8a51c16df279de931febcdcbe72343f",
+      "symbol": "NEAR",
+      "rank": 44,
+      "balance": 8.138455780697237e+27,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x9374ffc21ba9a7483f8bbd99e69922d47403e18c",
+      "symbol": "NEAR",
+      "rank": 45,
+      "balance": 8.112830787163453e+27,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x80019b8705673314ff0d6c1612fb43abd08e8c88",
+      "symbol": "NEAR",
+      "rank": 46,
+      "balance": 8.035782295350396e+27,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x108fbe42c57f7f64587507ac5188e741d9397bf2",
+      "symbol": "NEAR",
+      "rank": 47,
+      "balance": 7.850425874348803e+27,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0xce48d3cd0d229f04c929dbc041592a27edecdd8c",
+      "symbol": "NEAR",
+      "rank": 48,
+      "balance": 7.834815888435872e+27,
+      "share": 0.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x778649c65ceee206505a516b8c0fc102fc936910",
+      "symbol": "NEAR",
+      "rank": 49,
+      "balance": 7.63379905e+27,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xdf5816446ad3392615993b6743e2e8d1e648db2e",
+      "symbol": "NEAR",
+      "rank": 50,
+      "balance": 7.484581622e+27,
+      "share": 0.21,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1946d79ce0e1a97fc2030f5598163d4e7135c37",
+      "symbol": "NEAR",
+      "rank": 51,
+      "balance": 7.280714595155685e+27,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x3786f4c943c65e30973f5d418a3f43a18671530e",
+      "symbol": "NEAR",
+      "rank": 52,
+      "balance": 7.277262032581144e+27,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0xb061950e37a165630cddf98cbb4f7c129d763187",
+      "symbol": "NEAR",
+      "rank": 53,
+      "balance": 7.117414617308323e+27,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x356903a6966b64446908a9bd6816e04e87e5dd96",
+      "symbol": "NEAR",
+      "rank": 54,
+      "balance": 7.088111025596556e+27,
+      "share": 0.2,
+      "last_tx": null
+    },
+    {
+      "address": "0x57470c88b803ebfc14fdeab120e9305d8046c4b9",
+      "symbol": "NEAR",
+      "rank": 55,
+      "balance": 6.851181477399276e+27,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xa5daabfd4690cdc967239dd3804717833357399a",
+      "symbol": "NEAR",
+      "rank": 56,
+      "balance": 6.754000635030918e+27,
+      "share": 0.19,
+      "last_tx": null
+    },
+    {
+      "address": "0xcf803763abe6cbc2bc4742bd4fd8b7a49cca661c",
+      "symbol": "NEAR",
+      "rank": 57,
+      "balance": 6.639920333717123e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xf41cee11d7bdd49311a32fe860f73ccc0c813a77",
+      "symbol": "NEAR",
+      "rank": 58,
+      "balance": 6.596489729909584e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x42375a74abb6333c8b30426808756795cf2926bf",
+      "symbol": "NEAR",
+      "rank": 59,
+      "balance": 6.501243228195914e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xa31ffe8d0a150acba1c708eb42a3b830da140971",
+      "symbol": "NEAR",
+      "rank": 60,
+      "balance": 6.46979053923022e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x727a667d7633a64243354a879077b17d42c19418",
+      "symbol": "NEAR",
+      "rank": 61,
+      "balance": 6.371634204110893e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x912d956984da69c53c778d58bad72fc3ccfb1ed2",
+      "symbol": "NEAR",
+      "rank": 62,
+      "balance": 6.358339350597781e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x571e9aefff646cdfa80da4745293dab94a7ba4a2",
+      "symbol": "NEAR",
+      "rank": 63,
+      "balance": 6.349678903295441e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x949122772b8e0bf6dc6966fc5d483e05085888d7",
+      "symbol": "NEAR",
+      "rank": 64,
+      "balance": 6.341282721966461e+27,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0xb7f7d996a86c788d03ab20dcdabeb929809e8364",
+      "symbol": "NEAR",
+      "rank": 65,
+      "balance": 6.2369e+27,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x5d028cad340a36779e7bf28fd8834224e0574326",
+      "symbol": "NEAR",
+      "rank": 66,
+      "balance": 6.141263719951371e+27,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x54a6c26d954d4ea45ceb80a436c7db055f70f1e1",
+      "symbol": "NEAR",
+      "rank": 67,
+      "balance": 6.108005427854454e+27,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x94dd7ce551994c7685dad5b90b15dddcf0e56f05",
+      "symbol": "NEAR",
+      "rank": 68,
+      "balance": 6.095060183876295e+27,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0x5017f9bdf2b94144687bda1d843a7d37e51da981",
+      "symbol": "NEAR",
+      "rank": 69,
+      "balance": 5.982175891245014e+27,
+      "share": 0.17,
+      "last_tx": null
+    },
+    {
+      "address": "0xb83f3a3fcb73223502e01fa7754ac0f69bc72121",
+      "symbol": "NEAR",
+      "rank": 70,
+      "balance": 5.804628302543706e+27,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x25af08cd4f0ee3544629a7d9e33246f65c6072b1",
+      "symbol": "NEAR",
+      "rank": 71,
+      "balance": 5.721036468996835e+27,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x1f9d8a2a241696824878101d3470c2507d248af4",
+      "symbol": "NEAR",
+      "rank": 72,
+      "balance": 5.672852428115944e+27,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0x96825fbc0b70d63204c8c84dd753bffec85212df",
+      "symbol": "NEAR",
+      "rank": 73,
+      "balance": 5.581462298824148e+27,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x5886c3339beb8ca15e28a69380d4df6566a3e6ea",
+      "symbol": "NEAR",
+      "rank": 74,
+      "balance": 5.381710414994851e+27,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "symbol": "NEAR",
+      "rank": 75,
+      "balance": 5.337461066816534e+27,
+      "share": 0.15,
+      "last_tx": null
+    },
+    {
+      "address": "0xf960e225f48e89e2754319f803c3103cc76865be",
+      "symbol": "NEAR",
+      "rank": 76,
+      "balance": 5.249232172637421e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x5d0125d9903396eecface42357c834323d6e0705",
+      "symbol": "NEAR",
+      "rank": 77,
+      "balance": 5.218488632995634e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x8372c11a9e454b79243dc91faf38c299b98586e0",
+      "symbol": "NEAR",
+      "rank": 78,
+      "balance": 5.2105397387e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x814cd23a178ea0ff05053450ef92141fe8f24ca8",
+      "symbol": "NEAR",
+      "rank": 79,
+      "balance": 5.20426173811085e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x58adca5fe5582a718e1fe875929e59dac35f48c4",
+      "symbol": "NEAR",
+      "rank": 80,
+      "balance": 5.118824643030349e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x444fe2075be3cb9463b8932bf8ec87233829fcc8",
+      "symbol": "NEAR",
+      "rank": 81,
+      "balance": 5.028249839427525e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x72b2a07ea578cc92f9024be2501c7f295f227ec2",
+      "symbol": "NEAR",
+      "rank": 82,
+      "balance": 5.000054123122803e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xacbe840e3bf6a891488e5c7e45dc22c7c9d6853a",
+      "symbol": "NEAR",
+      "rank": 83,
+      "balance": 5.000000000000001e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x68393924a5ca7b232ccd8af4e17e7a4e0a84cdd8",
+      "symbol": "NEAR",
+      "rank": 84,
+      "balance": 4.9486686472714955e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0xc7543a26c317b57ed3de4b07d29d570aafeec5ba",
+      "symbol": "NEAR",
+      "rank": 85,
+      "balance": 4.924773446507247e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x162b5bab06153fb09879965f66426c103b36ef9a",
+      "symbol": "NEAR",
+      "rank": 86,
+      "balance": 4.9034457648647656e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x9ee91427e34cdc2a13b8adf07f53a2eaf9e63ee8",
+      "symbol": "NEAR",
+      "rank": 87,
+      "balance": 4.89710690618411e+27,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x46b522f9fa1960217c3224259b3758292763d5d1",
+      "symbol": "NEAR",
+      "rank": 88,
+      "balance": 4.888535206332948e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xfa0d1800d5490d69454f929a03e1808de5ec2885",
+      "symbol": "NEAR",
+      "rank": 89,
+      "balance": 4.871841712031259e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x532e37e2c67fcf2d8dc00e3c26ad6ec909461ed5",
+      "symbol": "NEAR",
+      "rank": 90,
+      "balance": 4.8119237080361173e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xd38da9f8751e92b183b534d8c835d25f94154dea",
+      "symbol": "NEAR",
+      "rank": 91,
+      "balance": 4.77100004341423e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x614a908e61e636b8c6bf229e22edf42630fe50f6",
+      "symbol": "NEAR",
+      "rank": 92,
+      "balance": 4.721005107133953e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xd3d5280c3cf25c5d5c267288d068fb8fa865520d",
+      "symbol": "NEAR",
+      "rank": 93,
+      "balance": 4.703179750192277e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x621e82e095dc00ec5f9981e67ab71c69796a2b28",
+      "symbol": "NEAR",
+      "rank": 94,
+      "balance": 4.6724704927914606e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xa9a78971c44c55e9280c075aa84dfc7d747c5a2a",
+      "symbol": "NEAR",
+      "rank": 95,
+      "balance": 4.669315027341819e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xcd0f3266af30515d6d383971732a3e14af537a5a",
+      "symbol": "NEAR",
+      "rank": 96,
+      "balance": 4.621079307550061e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xcbafc08270b286ae03febff69c6bb5f7a05875c7",
+      "symbol": "NEAR",
+      "rank": 97,
+      "balance": 4.6158325353622684e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x1ae77bf7a43ac7f2ab4b89a29129390ecc69e8cd",
+      "symbol": "NEAR",
+      "rank": 98,
+      "balance": 4.6099203731118587e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x712fc25eb88ec1bb1e33e6642df77a7deba141fd",
+      "symbol": "NEAR",
+      "rank": 99,
+      "balance": 4.6009102554225866e+27,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x83d55122ac2787a1ebfac22e4620dfbddf73ca6e",
+      "symbol": "NEAR",
+      "rank": 100,
+      "balance": 4.555487734153333e+27,
+      "share": 0.13,
+      "last_tx": null
+    }
+  ]
 }
