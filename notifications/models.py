@@ -16,7 +16,7 @@ def create_notifications_table():
         include_global INTEGER DEFAULT 0,       -- OFF by default
         include_gainers INTEGER DEFAULT 1,      -- /best ON
         include_losers INTEGER DEFAULT 1,       -- /worst ON
-        include_news INTEGER DEFAULT 1,         -- /news ON
+        include_news INTEGER DEFAULT 0,         -- /news ON
         include_gas INTEGER DEFAULT 0,          -- OFF
         include_cod INTEGER DEFAULT 0,          -- OFF
         timezone TEXT DEFAULT 'UTC'  
@@ -54,7 +54,7 @@ def get_user_notification_settings(user_id):
             include_news,
             include_gas,
             include_cod
-        ) VALUES (?, 'once', 'private', '08:00', '20:00', 1, 1, 1, 1, 1, 1)
+        ) VALUES (?, 'once', 'private', '08:00', '20:00', 1, 0, 0, 0, 0, 0)
     """, (user_id,))
 
     conn.commit()

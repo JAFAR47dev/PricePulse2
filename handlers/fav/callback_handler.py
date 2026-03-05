@@ -1,4 +1,3 @@
-# handlers/fav/callback_handler.py
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import ContextTypes
 from handlers.fav.utils.db_favorites import add_favorite, remove_favorite, get_favorites
@@ -30,8 +29,8 @@ async def safe_edit(query, text=None, reply_markup=None, parse_mode="Markdown"):
 
     except Exception as e:
         print("safe_edit error:", e)
-        
-            
+
+
 async def fav_callback_handler(update, context):
     query = update.callback_query
     await query.answer()
@@ -39,10 +38,9 @@ async def fav_callback_handler(update, context):
     data = query.data
     user_id = query.from_user.id
 
-    
-        
     # Step 1 — User chose "Add Favorite"
     if data == "fav_add":
+        context.user_data["fav_mode"] = "add"
         user_id = update.effective_user.id
         plan = get_user_plan(user_id)
 
@@ -66,13 +64,11 @@ async def fav_callback_handler(update, context):
             "Send the coin symbol to *add* (e.g., BTC):",
             parse_mode="Markdown"
         )
-        context.user_data["fav_mode"] = "add"
         return
-    
-    
+
     if data == "fav_remove":
-        await query.message.reply_text("Send the coin symbol to *remove* (e.g., ETH):", parse_mode="Markdown")
         context.user_data["fav_mode"] = "remove"
+        await query.message.reply_text("Send the coin symbol to *remove* (e.g., ETH):", parse_mode="Markdown")
         return
 
     if data == "fav_list":
@@ -99,6 +95,7 @@ async def fav_callback_handler(update, context):
         # --- Step 1: Fetch full market data for ALL favorites ---
         full_results = await get_fav_prices(favs)
 
+        # --- Step 2: Sort by rank (LOWEST rank first = highest ranking) ---
         sorted_favs = sorted(
             favs,
             key=lambda sym: full_results.get(sym, {}).get("rank", 999999)
@@ -141,7 +138,6 @@ async def fav_callback_handler(update, context):
                 f"• Trend: {trend}\n"
                 f"• Rank: #{rank}\n\n"
             )
-        
 
         # Pagination buttons
         buttons = []
@@ -159,8 +155,7 @@ async def fav_callback_handler(update, context):
             parse_mode="Markdown",
             reply_markup=keyboard
         )
-
-
+        return
 
     # =============================
     # PAGINATION HANDLER
@@ -171,17 +166,23 @@ async def fav_callback_handler(update, context):
         per_page = 3
 
         favs = get_favorites(user_id)
-        total = len(favs)
 
-        if total == 0:
+        if not favs:
             await safe_edit(query, "❌ No favorites saved.")
             return
 
+        # --- CRITICAL FIX: Fetch and sort ALL favorites first ---
+        full_results = await get_fav_prices(favs)
+
+        sorted_favs = sorted(
+            favs,
+            key=lambda sym: full_results.get(sym, {}).get("rank", 999999)
+        )
+
+        total = len(sorted_favs)
         start = page * per_page
         end = start + per_page
-        page_items = favs[start:end]
-
-        results = await get_fav_prices(page_items)
+        page_items = sorted_favs[start:end]
 
         max_page = (total - 1) // per_page
 
@@ -191,7 +192,7 @@ async def fav_callback_handler(update, context):
         )
 
         for sym in page_items:
-            coin = results.get(sym)
+            coin = full_results.get(sym)
 
             if not coin:
                 msg += f"*{sym.upper()}*\n• ❌ Error fetching data\n\n"
@@ -210,7 +211,6 @@ async def fav_callback_handler(update, context):
                 f"• 24h: {emoji} {percent}%\n"
                 f"• Trend: {trend}\n"
                 f"• Rank: #{rank}\n\n"
-         
             )
 
         # Pagination buttons
@@ -226,9 +226,10 @@ async def fav_callback_handler(update, context):
 
         keyboard = InlineKeyboardMarkup([buttons]) if buttons else None
 
-       
+        # Use query.edit_message_text for pagination (keeps same message)
         await query.edit_message_text(
             text=msg,
             parse_mode="Markdown",
             reply_markup=keyboard
         )
+        return

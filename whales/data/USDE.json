@@ -1,7 +1,7 @@
 {
   "token": "USDE",
   "contract": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
-  "updated_at": "2025-11-23T07:14:23.533410",
+  "updated_at": "2026-02-03T23:18:39.128536",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
@@ -9,143 +9,143 @@
       "address": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
       "symbol": "USDE",
       "rank": 1,
-      "balance": 4.34790787340682e+27,
-      "share": 58.63,
+      "balance": 3.752960528899162e+27,
+      "share": 57.35,
       "last_tx": null
     },
     {
       "address": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
       "symbol": "USDE",
       "rank": 2,
-      "balance": 1.0042480926035186e+27,
-      "share": 13.54,
-      "last_tx": null
-    },
-    {
-      "address": "0x925a15bd6a1582fa7c0ebbfc3dbd29c34f58340e",
-      "symbol": "USDE",
-      "rank": 3,
-      "balance": 4.067299541103582e+26,
-      "share": 5.48,
-      "last_tx": null
-    },
-    {
-      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
-      "symbol": "USDE",
-      "rank": 4,
-      "balance": 3e+26,
-      "share": 4.05,
+      "balance": 1.1007189964475087e+27,
+      "share": 16.82,
       "last_tx": null
     },
     {
       "address": "0x4f5923fc5fd4a93352581b38b7cd26943012decf",
       "symbol": "USDE",
+      "rank": 3,
+      "balance": 5.738348308653249e+26,
+      "share": 8.77,
+      "last_tx": null
+    },
+    {
+      "address": "0x63bee4a7e4aa5d76dc6ab9b9d1852aabb9a40936",
+      "symbol": "USDE",
+      "rank": 4,
+      "balance": 1.540000002e+26,
+      "share": 2.35,
+      "last_tx": null
+    },
+    {
+      "address": "0x925a15bd6a1582fa7c0ebbfc3dbd29c34f58340e",
+      "symbol": "USDE",
       "rank": 5,
-      "balance": 2.967333231169802e+26,
-      "share": 4,
-      "last_tx": null
-    },
-    {
-      "address": "0x7fc7c91d556b400afa565013e3f32055a0713425",
-      "symbol": "USDE",
-      "rank": 6,
-      "balance": 1.9723909577895385e+26,
-      "share": 2.66,
-      "last_tx": null
-    },
-    {
-      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
-      "symbol": "USDE",
-      "rank": 7,
-      "balance": 1.647054455860698e+26,
+      "balance": 1.4521302361078772e+26,
       "share": 2.22,
       "last_tx": null
     },
     {
       "address": "0x4865d4bcf4ab92e1c9ba5011560e7d4c36f54106",
       "symbol": "USDE",
-      "rank": 8,
-      "balance": 8.961905879723993e+25,
-      "share": 1.21,
+      "rank": 6,
+      "balance": 1.3052335261726655e+26,
+      "share": 1.99,
       "last_tx": null
     },
     {
-      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "address": "0x7fc7c91d556b400afa565013e3f32055a0713425",
+      "symbol": "USDE",
+      "rank": 7,
+      "balance": 8.619005705100672e+25,
+      "share": 1.32,
+      "last_tx": null
+    },
+    {
+      "address": "0xf977814e90da44bfa03b6295a0616a897441acec",
+      "symbol": "USDE",
+      "rank": 8,
+      "balance": 8e+25,
+      "share": 1.22,
+      "last_tx": null
+    },
+    {
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
       "symbol": "USDE",
       "rank": 9,
-      "balance": 7.88961411663938e+25,
-      "share": 1.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x90d2af7d622ca3141efa4d8f1f24d86e5974cc8f",
-      "symbol": "USDE",
-      "rank": 10,
-      "balance": 7.173424823790708e+25,
-      "share": 0.97,
-      "last_tx": null
-    },
-    {
-      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
-      "symbol": "USDE",
-      "rank": 11,
-      "balance": 6.5940959e+25,
-      "share": 0.89,
-      "last_tx": null
-    },
-    {
-      "address": "0x33ae83071432116ae892693b45466949a38ac74c",
-      "symbol": "USDE",
-      "rank": 12,
-      "balance": 5.3e+25,
-      "share": 0.71,
-      "last_tx": null
-    },
-    {
-      "address": "0xbce9aecd3985d4cbb9d273453159a26301fa02ef",
-      "symbol": "USDE",
-      "rank": 13,
-      "balance": 5.3e+25,
-      "share": 0.71,
-      "last_tx": null
-    },
-    {
-      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
-      "symbol": "USDE",
-      "rank": 14,
-      "balance": 4.589077107264357e+25,
-      "share": 0.62,
+      "balance": 7.750754672297564e+25,
+      "share": 1.18,
       "last_tx": null
     },
     {
       "address": "0x3cc936b795a188f0e246cbb2d74c5bd190aecf18",
       "symbol": "USDE",
-      "rank": 15,
-      "balance": 3.831377177886523e+25,
-      "share": 0.52,
+      "rank": 10,
+      "balance": 5.592874224356578e+25,
+      "share": 0.85,
+      "last_tx": null
+    },
+    {
+      "address": "0x33ae83071432116ae892693b45466949a38ac74c",
+      "symbol": "USDE",
+      "rank": 11,
+      "balance": 5.3e+25,
+      "share": 0.81,
+      "last_tx": null
+    },
+    {
+      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
+      "symbol": "USDE",
+      "rank": 12,
+      "balance": 2.4661628063947225e+25,
+      "share": 0.38,
+      "last_tx": null
+    },
+    {
+      "address": "0xeaaa92e85f61f0ccc7e7af393b72a58f5672cad5",
+      "symbol": "USDE",
+      "rank": 13,
+      "balance": 2.1927907525917996e+25,
+      "share": 0.34,
       "last_tx": null
     },
     {
       "address": "0x5dc1bf6f1e983c0b21efb003c105133736fa0743",
       "symbol": "USDE",
+      "rank": 14,
+      "balance": 1.91049167763256e+25,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      "symbol": "USDE",
+      "rank": 15,
+      "balance": 1.891310792758994e+25,
+      "share": 0.29,
+      "last_tx": null
+    },
+    {
+      "address": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      "symbol": "USDE",
       "rank": 16,
-      "balance": 2.060149383621739e+25,
+      "balance": 1.84724976914515e+25,
       "share": 0.28,
       "last_tx": null
     },
     {
-      "address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+      "address": "0x236f968b3e9cc45d6d86bc95386a27c8051ab1ce",
       "symbol": "USDE",
       "rank": 17,
-      "balance": 2.01480980216331e+25,
-      "share": 0.27,
+      "balance": 1.5823480708980282e+25,
+      "share": 0.24,
       "last_tx": null
     },
     {
-      "address": "0x3a3c006053a9b40286b9951a11be4c5808c11dc8",
+      "address": "0xab59403c721eaa64a850474e63919573c0f0b767",
       "symbol": "USDE",
       "rank": 18,
-      "balance": 1.6472595430159655e+25,
+      "balance": 1.448794940268801e+25,
       "share": 0.22,
       "last_tx": null
     },
@@ -153,318 +153,454 @@
       "address": "0x8707f238936c12c309bfc2b9959c35828acfc512",
       "symbol": "USDE",
       "rank": 19,
-      "balance": 1.6264608685016683e+25,
-      "share": 0.22,
+      "balance": 1.1789420555328022e+25,
+      "share": 0.18,
+      "last_tx": null
+    },
+    {
+      "address": "0x774388454c92fe33e781ab535a5e9d186a4562e7",
+      "symbol": "USDE",
+      "rank": 20,
+      "balance": 1.1623675648259596e+25,
+      "share": 0.18,
       "last_tx": null
     },
     {
       "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "symbol": "USDE",
-      "rank": 20,
-      "balance": 1.367132612229508e+25,
-      "share": 0.18,
-      "last_tx": null
-    },
-    {
-      "address": "0x007d76eec0ba411ce873a8819df50dd443d967a0",
-      "symbol": "USDE",
       "rank": 21,
-      "balance": 8.009709062913639e+24,
-      "share": 0.11,
+      "balance": 1.1179474245136384e+25,
+      "share": 0.17,
       "last_tx": null
     },
     {
-      "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
+      "address": "0x3a3c006053a9b40286b9951a11be4c5808c11dc8",
       "symbol": "USDE",
       "rank": 22,
-      "balance": 8.006780841946e+24,
+      "balance": 1.0560217662486657e+25,
+      "share": 0.16,
+      "last_tx": null
+    },
+    {
+      "address": "0xbd02c51150a4ab6ce97b9de2025644594f3e75b8",
+      "symbol": "USDE",
+      "rank": 23,
+      "balance": 8.883959746428461e+24,
+      "share": 0.14,
+      "last_tx": null
+    },
+    {
+      "address": "0x8fc2b6c5b8b4a4884f6f0bcb91181c1cc3f735da",
+      "symbol": "USDE",
+      "rank": 24,
+      "balance": 8.180189994432777e+24,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xa205fd7344656c72fdc645b72faf5a3de0b3e825",
+      "symbol": "USDE",
+      "rank": 25,
+      "balance": 8.087821289112242e+24,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x90d2af7d622ca3141efa4d8f1f24d86e5974cc8f",
+      "symbol": "USDE",
+      "rank": 26,
+      "balance": 7.290396593130981e+24,
       "share": 0.11,
       "last_tx": null
     },
     {
       "address": "0x8f5f8ada4d19bf4ffbe580e4ce92af424e60c720",
       "symbol": "USDE",
-      "rank": 23,
-      "balance": 6e+24,
-      "share": 0.08,
+      "rank": 27,
+      "balance": 7e+24,
+      "share": 0.11,
       "last_tx": null
     },
     {
-      "address": "0xca0c01253be2b6d7dd22f2fe5da1869fc77ab7eb",
+      "address": "0x98adef6f2ac8572ec48965509d69a8dd5e8bba9d",
       "symbol": "USDE",
-      "rank": 24,
-      "balance": 5.763422964843334e+24,
-      "share": 0.08,
+      "rank": 28,
+      "balance": 6.623953391601857e+24,
+      "share": 0.1,
       "last_tx": null
     },
     {
-      "address": "0xf3dbde762e5b67fad09d88da3dfd38a83f753ffe",
+      "address": "0xf440139a62b2b939699c5b3e09f88e40464ab9bc",
       "symbol": "USDE",
-      "rank": 25,
-      "balance": 4.740008906919402e+24,
+      "rank": 29,
+      "balance": 5.949303331610474e+24,
+      "share": 0.09,
+      "last_tx": null
+    },
+    {
+      "address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+      "symbol": "USDE",
+      "rank": 30,
+      "balance": 4.825444830365254e+24,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xbce9aecd3985d4cbb9d273453159a26301fa02ef",
+      "symbol": "USDE",
+      "rank": 31,
+      "balance": 4e+24,
       "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x63bee4a7e4aa5d76dc6ab9b9d1852aabb9a40936",
+      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
       "symbol": "USDE",
-      "rank": 26,
-      "balance": 4.0000002e+24,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x5954a0add33b70c6def737a33770bc9ce8c9d956",
-      "symbol": "USDE",
-      "rank": 27,
-      "balance": 4e+24,
+      "rank": 32,
+      "balance": 3.568150026680227e+24,
       "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x42a5a9bad4014e89dc72cfbaceed2ec4103b3503",
       "symbol": "USDE",
-      "rank": 28,
+      "rank": 33,
       "balance": 3.557575363879447e+24,
       "share": 0.05,
       "last_tx": null
     },
     {
-      "address": "0x3881238c22e161fa8e00590c76d549640ba7a0ba",
+      "address": "0xc88dbe6b553510d352c0a34150ec0b29666e539c",
       "symbol": "USDE",
-      "rank": 29,
-      "balance": 3.002076991953294e+24,
+      "rank": 34,
+      "balance": 3.089016979222689e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x57c4be64e879a287191d22df4ebdf9ce66ddc691",
+      "symbol": "USDE",
+      "rank": 35,
+      "balance": 3.08890134765539e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x8745cea9d1ebd7b84e63065bf4e72f38e70c4de6",
+      "symbol": "USDE",
+      "rank": 36,
+      "balance": 3.08488067876164e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xb1648c528a46f953a64fe4de9a1f83159d1254ff",
+      "symbol": "USDE",
+      "rank": 37,
+      "balance": 2.9478459231099263e+24,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x5e32f5f03bb4bbc8b99963456a14a2858afff6f4",
+      "symbol": "USDE",
+      "rank": 38,
+      "balance": 2.891644005783288e+24,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x48cb7d2087540f3aecf7e38f2f3fbde1d58a58bf",
+      "address": "0x1d111883505ac9c67d30c60fc96afd4acf795bde",
       "symbol": "USDE",
-      "rank": 30,
-      "balance": 2.891544005783288e+24,
+      "rank": 39,
+      "balance": 2.767232368635147e+24,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0xf2fa332bd83149c66b09b45670bce64746c6b439",
+      "address": "0xd4374008c88321eb2e59abd311156c44b25831e9",
       "symbol": "USDE",
-      "rank": 31,
-      "balance": 2.8459647466666666e+24,
+      "rank": 40,
+      "balance": 2.468974615163177e+24,
       "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xd49417f37ced33aba35ddabf208d5bfcd87b4ebe",
-      "symbol": "USDE",
-      "rank": 32,
-      "balance": 2.4833434579422687e+24,
-      "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x28399cd15292dc7e2ed47a8b122b1da9231c3b40",
       "symbol": "USDE",
-      "rank": 33,
+      "rank": 41,
       "balance": 2.441674740355814e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xf0bacd9c3d94fc924dbcaaf644208c4e3f4d3bb4",
+      "symbol": "USDE",
+      "rank": 42,
+      "balance": 2.3903264911903764e+24,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xe6d7ebb9f1a9519dc06d557e03c522d53520e76a",
+      "symbol": "USDE",
+      "rank": 43,
+      "balance": 2.0277870864341962e+24,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0xeaaa92e85f61f0ccc7e7af393b72a58f5672cad5",
+      "address": "0x6fcd73e0d59a046c4a6c7374e47999d5ff1a0334",
       "symbol": "USDE",
-      "rank": 34,
-      "balance": 2.2323260279530243e+24,
+      "rank": 44,
+      "balance": 2.0007244710008216e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xf3dbde762e5b67fad09d88da3dfd38a83f753ffe",
+      "symbol": "USDE",
+      "rank": 45,
+      "balance": 1.8994780409749872e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x65310abbb93b7f59a1cb628738358607f89bb869",
+      "symbol": "USDE",
+      "rank": 46,
+      "balance": 1.876399527297e+24,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x4e67722883ad992182e83b79bf06a93972963cac",
+      "symbol": "USDE",
+      "rank": 47,
+      "balance": 1.746954517681952e+24,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x5167503b73a8695dd191c6c3916dccb1b3dd3dec",
       "symbol": "USDE",
-      "rank": 35,
-      "balance": 2.2111537509769873e+24,
+      "rank": 48,
+      "balance": 1.730244022539018e+24,
       "share": 0.03,
       "last_tx": null
     },
     {
-      "address": "0xb8b97d83be657bab391496fc172c5d635ffde202",
+      "address": "0xce4bbe02710ef5d93eb4444859a9ca5bf5ca3da9",
       "symbol": "USDE",
-      "rank": 36,
-      "balance": 2.0103282980582884e+24,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x5f397b62502e255f68382791947d54c4b2d37f09",
-      "symbol": "USDE",
-      "rank": 37,
-      "balance": 1.731399489787213e+24,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xe8ac89b010cfcfe4e3ffa203b8114e9fae127e6e",
-      "symbol": "USDE",
-      "rank": 38,
-      "balance": 1.7297218876398848e+24,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x02950460e2b9529d0e00284a5fa2d7bdf3fa4d72",
-      "symbol": "USDE",
-      "rank": 39,
-      "balance": 1.6750198240286888e+24,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x7fa9a18f72955a15f1e2d94ddf0a6d0485b1debb",
-      "symbol": "USDE",
-      "rank": 40,
-      "balance": 1.57675959e+24,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xb86dad6ceedd625cb860e6762516f9647f2ef2f3",
-      "symbol": "USDE",
-      "rank": 41,
-      "balance": 1.5743167853194264e+24,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xe6d7ebb9f1a9519dc06d557e03c522d53520e76a",
-      "symbol": "USDE",
-      "rank": 42,
-      "balance": 1.5685035050866082e+24,
+      "rank": 49,
+      "balance": 1.4027940766447753e+24,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x63484bce483d0180820766326f235ab782bf4efd",
       "symbol": "USDE",
-      "rank": 43,
+      "rank": 50,
       "balance": 1.319961734773e+24,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x77021d475e36b3ab1921a0e3a8380f069d3263de",
+      "address": "0xe4f79f0daf5a6a3830d60aef9daf8c6b7a2fe5d4",
       "symbol": "USDE",
-      "rank": 44,
-      "balance": 1.0113075384000002e+24,
-      "share": 0.01,
+      "rank": 51,
+      "balance": 1.0110915689244937e+24,
+      "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x735e3e739717f2f745833ee52bf930af534eed54",
       "symbol": "USDE",
-      "rank": 45,
+      "rank": 52,
       "balance": 1.000796e+24,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0xd49417f37ced33aba35ddabf208d5bfcd87b4ebe",
+      "symbol": "USDE",
+      "rank": 53,
+      "balance": 9.812792522820577e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x1b72a59e2db5b653abb50d343100116eec659439",
       "symbol": "USDE",
-      "rank": 46,
+      "rank": 54,
       "balance": 9.31088751651e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xbbcb91440523216e2b87052a99f69c604a7b6e00",
+      "address": "0xf2fa332bd83149c66b09b45670bce64746c6b439",
       "symbol": "USDE",
-      "rank": 47,
-      "balance": 7.4585207442584e+23,
+      "rank": 55,
+      "balance": 9.176009542857142e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xcf7841fd47bf33004b07ede874e7afc714616231",
+      "address": "0x054a35052b5e4d3b6e581cf3119ce3d36b52fd07",
       "symbol": "USDE",
-      "rank": 48,
-      "balance": 7.4088847183637e+23,
+      "rank": 56,
+      "balance": 8.732882192027163e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0x4245995f5a5740e1a1279273eb508403f5ec3fd6",
+      "address": "0x02950460e2b9529d0e00284a5fa2d7bdf3fa4d72",
       "symbol": "USDE",
-      "rank": 49,
-      "balance": 6.863955190698194e+23,
+      "rank": 57,
+      "balance": 8.493717238615022e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xd3165b1310f9edd553f50639ec4a02949ad07735",
+      "address": "0xa83d737dec6f4eb23b17217746a553ba3373f1ab",
       "symbol": "USDE",
-      "rank": 50,
-      "balance": 6.736836994663957e+23,
+      "rank": 58,
+      "balance": 7.274498526422789e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "address": "0x77021d475e36b3ab1921a0e3a8380f069d3263de",
       "symbol": "USDE",
-      "rank": 51,
-      "balance": 6.130232621260668e+23,
+      "rank": 59,
+      "balance": 7.03586072758449e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0x42862f48eade25661558afe0a630b132038553d0",
+      "address": "0xba0511fa1ade6d10e42548ba960fac0df4809d08",
       "symbol": "USDE",
-      "rank": 52,
-      "balance": 5.927001146258177e+23,
+      "rank": 60,
+      "balance": 7.019297999449457e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xaf64555ddd61fcf7d094824dd9b4ebea165afc5b",
+      "address": "0xabf2a7d999d7ebf2a0e29f267e6bc93198818a96",
       "symbol": "USDE",
-      "rank": 53,
-      "balance": 5.731230489437641e+23,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x9aac67deef711d438ad711ae495b8cb43a6ee1a8",
-      "symbol": "USDE",
-      "rank": 54,
-      "balance": 5.524971019006873e+23,
+      "rank": 61,
+      "balance": 6.975597500073223e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xfe99644d35926a7955f88eccfa52a13012fa984e",
       "symbol": "USDE",
-      "rank": 55,
-      "balance": 5.2368069925199e+23,
+      "rank": 62,
+      "balance": 6.5221251432499e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0x0349923ae2b35ff4f0099869aeea99d1f3fd12a9",
+      "address": "0x5be28cf3fb3f034858b34c5557564a9077c2ddd0",
       "symbol": "USDE",
-      "rank": 56,
-      "balance": 5.0058946191316006e+23,
+      "rank": 63,
+      "balance": 6.500009868900205e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x42862f48eade25661558afe0a630b132038553d0",
+      "symbol": "USDE",
+      "rank": 64,
+      "balance": 5.923920679846281e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+      "symbol": "USDE",
+      "rank": 65,
+      "balance": 5.8728796985108385e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x7fa9a18f72955a15f1e2d94ddf0a6d0485b1debb",
+      "symbol": "USDE",
+      "rank": 66,
+      "balance": 5.767595943e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "symbol": "USDE",
+      "rank": 67,
+      "balance": 5.7416725454235535e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0xaf64555ddd61fcf7d094824dd9b4ebea165afc5b",
+      "symbol": "USDE",
+      "rank": 68,
+      "balance": 5.731230489437641e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x2daca71cb58285212dc05d65cfd4f59a82bc4cf6",
+      "symbol": "USDE",
+      "rank": 69,
+      "balance": 5.605058092611329e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x03e77bc11a911a97c2a928d31609791baa400270",
+      "symbol": "USDE",
+      "rank": 70,
+      "balance": 5.340462626919059e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x7669ea2a0c0edbcdd505246a991c3afdbbdfface",
+      "symbol": "USDE",
+      "rank": 71,
+      "balance": 5.012720636930495e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x92f5942fe6832ad5d578cdbe99d2c5028363eec5",
       "symbol": "USDE",
-      "rank": 57,
+      "rank": 72,
       "balance": 5.00348e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x7035c168cfc9566eac030b426a1116136fad4ad9",
+      "symbol": "USDE",
+      "rank": 73,
+      "balance": 5e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x4fb312915b779b1339388e14b6d079741ca83128",
+      "symbol": "USDE",
+      "rank": 74,
+      "balance": 4.97e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x7f17dd9ebf00e7ac4d1e752ae4f3abc5112411e1",
       "symbol": "USDE",
-      "rank": 58,
+      "rank": 75,
       "balance": 4.88554620301419e+23,
       "share": 0.01,
       "last_tx": null
@@ -472,31 +608,39 @@
     {
       "address": "0x670a72e6d22b0956c0d2573288f82dcc5d6e3a61",
       "symbol": "USDE",
-      "rank": 59,
-      "balance": 4.839458457661572e+23,
+      "rank": 76,
+      "balance": 4.783667570759224e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xb19656e0e9f0cae20067e56c920e27455bd65141",
+      "address": "0x4f6f977acdd1177dcd81ab83074855ecb9c2d49e",
       "symbol": "USDE",
-      "rank": 60,
-      "balance": 4.80591e+23,
+      "rank": 77,
+      "balance": 4.76076641570373e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xe3d41d19564922c9952f692c5dd0563030f5f2ef",
+      "address": "0xd96a8e8c4b0ba3b600e9f84a902ac1f84b1c516f",
       "symbol": "USDE",
-      "rank": 61,
-      "balance": 4.661600022763355e+23,
+      "rank": 78,
+      "balance": 4.7336226904e+23,
+      "share": 0.01,
+      "last_tx": null
+    },
+    {
+      "address": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      "symbol": "USDE",
+      "rank": 79,
+      "balance": 4.7302913745506705e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xff762fa809eb3acc6dd3e25bccb8aaa80f8947e0",
       "symbol": "USDE",
-      "rank": 62,
+      "rank": 80,
       "balance": 4.5e+23,
       "share": 0.01,
       "last_tx": null
@@ -504,304 +648,160 @@
     {
       "address": "0xc1142f02da903fa0dfebebccf05e1be4ab318aa1",
       "symbol": "USDE",
-      "rank": 63,
+      "rank": 81,
       "balance": 4.460092728308087e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xbee3211ab312a8d065c4fef0247448e17a8da000",
+      "address": "0x26cf1dc84694e04277f2fe4c13e43597c6010c2a",
       "symbol": "USDE",
-      "rank": 64,
-      "balance": 4.3401483267757055e+23,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x8c35b0b65fc680dac8719b79d01b4c46590d4d8b",
-      "symbol": "USDE",
-      "rank": 65,
-      "balance": 4.32731672765e+23,
-      "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
-      "symbol": "USDE",
-      "rank": 66,
-      "balance": 4.093266816697288e+23,
+      "rank": 82,
+      "balance": 4.3773406937158585e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0xf047ab4c75cebf0eb9ed34ae2c186f3611aeafa6",
       "symbol": "USDE",
-      "rank": 67,
-      "balance": 4.068820265102676e+23,
+      "rank": 83,
+      "balance": 4.0235237286890985e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xd96a8e8c4b0ba3b600e9f84a902ac1f84b1c516f",
+      "address": "0x0349923ae2b35ff4f0099869aeea99d1f3fd12a9",
       "symbol": "USDE",
-      "rank": 68,
-      "balance": 4.00681068923e+23,
+      "rank": 84,
+      "balance": 4.0058946191316003e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x6aadf6ea81d149f4409f904d4b23ea0b9c397668",
       "symbol": "USDE",
-      "rank": 69,
+      "rank": 85,
       "balance": 4.000000000000026e+23,
       "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0xf55b0f6f2da5ffddb104b58a60f2862745960442",
+      "address": "0xf69dcf2f1345c38b3bd4615e5974fc92ff2a20e4",
       "symbol": "USDE",
-      "rank": 70,
-      "balance": 3.8311892838797726e+23,
+      "rank": 86,
+      "balance": 3.7407324e+23,
       "share": 0.01,
-      "last_tx": null
-    },
-    {
-      "address": "0x4db99b79361f98865230f5702de024c69f629fec",
-      "symbol": "USDE",
-      "rank": 71,
-      "balance": 3.6771535765174034e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xffa8db7b38579e6a2d14f9b347a9ace4d044cd54",
-      "symbol": "USDE",
-      "rank": 72,
-      "balance": 3.639658178912369e+23,
-      "share": 0,
       "last_tx": null
     },
     {
       "address": "0x271d37ada69018cdd17728f6e7cd48c2e4dc148c",
       "symbol": "USDE",
-      "rank": 73,
+      "rank": 87,
       "balance": 3.628334232038174e+23,
-      "share": 0,
+      "share": 0.01,
       "last_tx": null
     },
     {
-      "address": "0x26cf1dc84694e04277f2fe4c13e43597c6010c2a",
+      "address": "0x8f05c1b9b4fa0958c149650bd42ce42597273e76",
       "symbol": "USDE",
-      "rank": 74,
-      "balance": 3.516697240329446e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x28ac5fe7f2cec0c6d3fb6c9085703f0071377201",
-      "symbol": "USDE",
-      "rank": 75,
-      "balance": 3.5e+23,
-      "share": 0,
+      "rank": 88,
+      "balance": 3.503274207562384e+23,
+      "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x80cd58ccedd3fcc6d8acf8d591aea552e9d73880",
       "symbol": "USDE",
-      "rank": 76,
+      "rank": 89,
       "balance": 3.2753417172426e+23,
-      "share": 0,
+      "share": 0.01,
       "last_tx": null
     },
     {
       "address": "0x1c00881a4b935d58e769e7c85f5924b8175d1526",
       "symbol": "USDE",
-      "rank": 77,
-      "balance": 3.22579949701e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xbe3ca34d0e877a1fc889bd5231d65477779aff4e",
-      "symbol": "USDE",
-      "rank": 78,
-      "balance": 3.184008700766508e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x4199559fbffc5265e96d8ef191a0a676d6af0549",
-      "symbol": "USDE",
-      "rank": 79,
-      "balance": 3e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xe87531e34e042262c03bcbbefcb36ccc45bfe34f",
-      "symbol": "USDE",
-      "rank": 80,
-      "balance": 2.94009e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xf955c57f9ea9dc8781965feae0b6a2ace2bad6f3",
-      "symbol": "USDE",
-      "rank": 81,
-      "balance": 2.845184528734718e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x64d2e77b2db80dd81edbc527ad27e44a2a809b82",
-      "symbol": "USDE",
-      "rank": 82,
-      "balance": 2.7939475567247652e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x7b10a79ca8e28ac412617c5a382fecd37a9c7684",
-      "symbol": "USDE",
-      "rank": 83,
-      "balance": 2.7778386340847144e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x37779e2e80e527a2e660c34a88953075c20f9ced",
-      "symbol": "USDE",
-      "rank": 84,
-      "balance": 2.6253048308854093e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x1bae874af9f81b8f93315b27f080260da4702d3a",
-      "symbol": "USDE",
-      "rank": 85,
-      "balance": 2.52607598974e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x130f1c5bf7abc79af3fb829fe6b70f84010c89e1",
-      "symbol": "USDE",
-      "rank": 86,
-      "balance": 2.4803327172523692e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x167a9333bf582556f35bd4d16a7e80e191aa6476",
-      "symbol": "USDE",
-      "rank": 87,
-      "balance": 2.3764186563158433e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x3a493b1f61cba12455416bc445028eba6b7b53ac",
-      "symbol": "USDE",
-      "rank": 88,
-      "balance": 2.3331558694397284e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xfe8a62410921346f4b795226d9d1e8b1b9846abb",
-      "symbol": "USDE",
-      "rank": 89,
-      "balance": 2.3190054549837793e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x0147cee0abff80a2750abdc69e4159d80c8b842d",
-      "symbol": "USDE",
       "rank": 90,
-      "balance": 2.10939e+23,
+      "balance": 3.24754944984e+23,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0x6b084218f801d040c90323113f97df93007bedee",
+      "address": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
       "symbol": "USDE",
       "rank": 91,
-      "balance": 2.0319567110111302e+23,
+      "balance": 3.11366556762748e+23,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0xe54343edf32109d1ef90054d34995d83beaac3f6",
+      "address": "0xada6f5eb760709cc1d195ab45e1128b69cd5b7c1",
       "symbol": "USDE",
       "rank": 92,
-      "balance": 2.024699697343131e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xcd2d8fffb6bbf03a45e014b769fc3711c83aa714",
-      "symbol": "USDE",
-      "rank": 93,
-      "balance": 2.0134137e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x3d99935c992cb9fb9d86acf9082aacf1bd5bcae4",
-      "symbol": "USDE",
-      "rank": 94,
-      "balance": 1.9564030817658868e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xfc89c020774524c9d03bd5de48fec149b10bdec3",
-      "symbol": "USDE",
-      "rank": 95,
-      "balance": 1.908215001499898e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xbcec9e81ad08291ede8a19473c12318105c3a3b4",
-      "symbol": "USDE",
-      "rank": 96,
-      "balance": 1.8868251e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0x03e77bc11a911a97c2a928d31609791baa400270",
-      "symbol": "USDE",
-      "rank": 97,
-      "balance": 1.7746858652086824e+23,
-      "share": 0,
-      "last_tx": null
-    },
-    {
-      "address": "0xae317afa99c5d85afc79ca5c54556d146b8be7bb",
-      "symbol": "USDE",
-      "rank": 98,
-      "balance": 1.7553772469672202e+23,
+      "balance": 3.1026885357361926e+23,
       "share": 0,
       "last_tx": null
     },
     {
       "address": "0x5b03cccab7ba3010fa5cad23746cbf0794938e96",
       "symbol": "USDE",
-      "rank": 99,
-      "balance": 1.7360477001609732e+23,
+      "rank": 93,
+      "balance": 3.0895852596124663e+23,
       "share": 0,
       "last_tx": null
     },
     {
-      "address": "0xbeec0a93fbf6c812dee49c2922905f6106224de5",
+      "address": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
+      "symbol": "USDE",
+      "rank": 94,
+      "balance": 3.023405839046296e+23,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf681efdcba35c69dc0fe56b7fdb56324f5abd385",
+      "symbol": "USDE",
+      "rank": 95,
+      "balance": 3.0126522815450653e+23,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x1fef895896a80e75615e65c157e49f091480eeb6",
+      "symbol": "USDE",
+      "rank": 96,
+      "balance": 3.008376614987632e+23,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xf3173cadaf5274a03ba2d3baa5366166fa1ce32e",
+      "symbol": "USDE",
+      "rank": 97,
+      "balance": 2.99315318e+23,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xe3d41d19564922c9952f692c5dd0563030f5f2ef",
+      "symbol": "USDE",
+      "rank": 98,
+      "balance": 2.7903661827688977e+23,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0x4db99b79361f98865230f5702de024c69f629fec",
+      "symbol": "USDE",
+      "rank": 99,
+      "balance": 2.7870385401701667e+23,
+      "share": 0,
+      "last_tx": null
+    },
+    {
+      "address": "0xda3d20278ec5d01a420c0ba9a5a7a0a963099660",
       "symbol": "USDE",
       "rank": 100,
-      "balance": 1.7327095512e+23,
+      "balance": 2.688745715902098e+23,
       "share": 0,
       "last_tx": null
     }

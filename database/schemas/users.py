@@ -17,7 +17,8 @@ def init_users_table():
             auto_delete_minutes INTEGER DEFAULT 0,
             joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             expiry_date DATETIME,
-            last_active DATETIME DEFAULT CURRENT_TIMESTAMP
+            last_active DATETIME DEFAULT CURRENT_TIMESTAMP,
+            trial_started_at DATETIME
         )
     """)
 
@@ -52,6 +53,8 @@ def init_users_table():
         "DATETIME",
         "UPDATE users SET last_active = datetime('now') WHERE last_active IS NULL"
     )
+
+    add_column_if_missing("trial_started_at", "DATETIME")
 
     # -------------------------
     # Indexes

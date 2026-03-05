@@ -11,29 +11,22 @@ from telegram.ext import (
     filters,
 )
 
-# --- Logging config: keep libraries quiet, show only relevant bot info ---
-# Default to WARNING for noisy libraries
+# --- Logging config ---
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.WARNING
 )
-
-# Create a small logger for your bot that we allow to print INFO
 logger = logging.getLogger("bot")
 logger.setLevel(logging.INFO)
 
-# Suppress specific warning messages that python-telegram-bot prints and APScheduler tentative job info.
-# We match by message substring so other warnings still appear.
 warnings.filterwarnings("ignore", message="If 'per_message=False'")
 warnings.filterwarnings("ignore", message="Adding job tentatively")
-# (Optional) suppress PTBUserWarning if available as a class:
 try:
-    from telegram import PTBUserWarning  # may not exist in all PTB builds
+    from telegram import PTBUserWarning
     warnings.filterwarnings("ignore", category=PTBUserWarning)
 except Exception:
     pass
 
-# === Ensure import path ===
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # === Local imports ===
@@ -42,62 +35,95 @@ from tasks.check_expiry import check_expired_pro_users
 from tasks.models import create_referrals_table, create_task_progress_table
 from database.migrations import init_db
 from models.analytics_table import init_analytics_tables
-from services.alert_service import start_alert_checker, run_ai_strategy_checker
+from services.alert_service import start_alert_checker
 from services.refresh_tokens import refresh_top_tokens
 from services.refresh_whales import refresh_all_whales
 from whales.whale_monitor import start_monitor
-from services.refresh_coingecko_ids import refresh_coingecko_ids
-from models.user_activity import update_last_active
+from services.refresh_top200_coins import refresh_top200_coingecko_ids
+from services.refresh_top100_coins import refresh_top100_coingecko_ids
+from models.user_activity import update_last_active, cleanup_old_analytics
 from utils.private_guard_manager import apply_private_command_restrictions
 from notifications.models import create_notifications_table
 from notifications.scheduler import start_scheduler, stop_scheduler
 from handlers.fav.utils.db_favorites import init_favorites_table
-
-# === Load environment ===
+from services.screener_job import setup_screener_jobs, force_precompute_priority_timeframes
+from services.signals_job import setup_indicator_jobs
+from services.movers_service import MoversService
+from services.performance_tracker import PerformanceTracker
+from models.user import get_users_expiring_in, trial_expiry_warning_job, trial_expiry_notification_job
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 if not TOKEN:
     raise ValueError("❌ TELEGRAM_BOT_TOKEN missing in .env file")
 
+# ============================================================================
+# SINGLETON SERVICES
+# ============================================================================
+movers_service      = MoversService()
+performance_tracker = PerformanceTracker()   # single instance reused everywhere
+logger.info("✅ Movers service initialized")
+logger.info("✅ Performance tracker initialized")
+
+
+# ============================================================================
+# BACKGROUND TASK — outcome resolution
+# ============================================================================
+
+async def _outcome_resolution_job(context):
+    """
+    PTB job-queue wrapper around resolve_pending_outcomes.
+    Runs every 30 minutes via job_queue.run_repeating so it shares the
+    application's event loop and is cancelled cleanly on shutdown.
+    """
+    try:
+        resolved = await performance_tracker.resolve_pending_outcomes()
+        if resolved:
+            logger.info(f"✅ Outcome resolution: {resolved} setup(s) resolved")
+    except Exception as e:
+        logger.warning(f"⚠️  outcome_resolution_job error: {e}")
+
+
+# ============================================================================
+# LIFECYCLE HOOKS
+# ============================================================================
 
 async def post_init(application):
-    """
-    Called after the application is initialized.
-    Perfect place to start the notification scheduler.
-    """
     try:
         logger.info("🔧 Initializing post-startup tasks...")
         start_scheduler(application)
-        logger.info("✅ Notification scheduler started successfully")
+        logger.info("✅ Notification scheduler started")
     except Exception as e:
         logger.error(f"❌ Failed to start notification scheduler: {e}")
 
 
 async def post_shutdown(application):
-    """
-    Called before the application shuts down.
-    Ensures graceful shutdown of the notification scheduler.
-    """
     try:
-        logger.info("🛑 Shutting down notification scheduler...")
+        logger.info("🛑 Shutting down services...")
         stop_scheduler()
-        logger.info("✅ Notification scheduler stopped successfully")
+        logger.info("✅ Notification scheduler stopped")
+        await movers_service.close()
+        logger.info("✅ Movers service closed")
     except Exception as e:
-        logger.error(f"❌ Error stopping notification scheduler: {e}")
+        logger.error(f"❌ Error during shutdown: {e}")
 
+
+# ============================================================================
+# MAIN
+# ============================================================================
 
 def main():
-    # Initialize database tables
+    # ── Database bootstrap ────────────────────────────────────────────
     init_db()
-    init_analytics_tables() 
+    init_analytics_tables()
     init_favorites_table()
     create_referrals_table()
     create_task_progress_table()
     create_notifications_table()
-    
+    # PerformanceTracker._ensure_schema() is called in __init__ above,
+    # so trade_setups table already exists by this point.
     logger.info("✅ Database tables initialized")
 
-    # Build application with lifecycle hooks
+    # ── Build application ─────────────────────────────────────────────
     app = (
         ApplicationBuilder()
         .token(TOKEN)
@@ -105,14 +131,14 @@ def main():
         .post_shutdown(post_shutdown)
         .build()
     )
-    logger.info("✅ Application created with lifecycle hooks")
+    logger.info("✅ Application created")
 
-    # Register all command handlers
+    # ── Handlers ──────────────────────────────────────────────────────
     register_all_handlers(app)
     apply_private_command_restrictions(app)
     logger.info("✅ Handlers registered")
 
-    # Track user activity
+    # ── User activity tracking ────────────────────────────────────────
     async def track_user_activity(update, context):
         user = update.effective_user
         if user:
@@ -121,28 +147,38 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, track_user_activity))
     app.add_handler(CallbackQueryHandler(track_user_activity))
 
-    # === JOB QUEUE - BACKGROUND TASKS ===
-    app.job_queue.run_repeating(check_expired_pro_users, interval=43200, first=10)
-    app.job_queue.run_repeating(run_ai_strategy_checker, interval=300, first=600)
-    app.job_queue.run_repeating(refresh_top_tokens, interval=604800, first=200)
-    app.job_queue.run_repeating(refresh_all_whales, interval=604800, first=300)
-    app.job_queue.run_repeating(start_monitor, interval=300, first=400)
-    app.job_queue.run_repeating(refresh_coingecko_ids, interval=259200, first=150)
-    
-    # Start alert checker
-    start_alert_checker(app.job_queue)
+    # ── Job queue ─────────────────────────────────────────────────────
+    jq = app.job_queue
+
+    # Existing jobs (unchanged)
+    jq.run_repeating(check_expired_pro_users,       interval=3600,   first=10)
+    jq.run_repeating(refresh_top_tokens,            interval=604800, first=1800)
+    jq.run_repeating(refresh_all_whales,            interval=604800, first=1500)
+    jq.run_repeating(start_monitor,                 interval=300,    first=1200)
+    jq.run_repeating(refresh_top200_coingecko_ids,  interval=259200, first=900)
+    jq.run_repeating(refresh_top100_coingecko_ids,  interval=259200, first=600)
+    jq.run_repeating(cleanup_old_analytics,         interval=86400,  first=15)
+    jq.run_repeating(trial_expiry_warning_job,   interval=3600, first=60)
+    jq.run_repeating(trial_expiry_notification_job, interval=3600, first=90)
+
+    # Performance tracker — resolve setup outcomes every 30 minutes.
+    # first=120 gives the bot 2 minutes to fully start before the first run.
+    jq.run_repeating(_outcome_resolution_job, interval=1800, first=120)
+    logger.info("✅ Performance tracker outcome-resolution job scheduled (every 30 min)")
+
+    # Alert checker and screener
+    start_alert_checker(jq)
+    #setup_screener_jobs(app, use_parallel=False)
     logger.info("✅ Job queue tasks scheduled")
 
     logger.info("🤖 Bot is now running...")
 
-    # ✅ FIX FOR PYTHON 3.12/3.13 THREAD LOOP BUG
     try:
         asyncio.get_event_loop()
     except RuntimeError:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
 
-    # Start the bot with polling
     app.run_polling(drop_pending_updates=True)
 
 

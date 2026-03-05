@@ -1,11 +1,11 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from typing import Optional, Dict, List
-
-from services.signal_data import fetch_top_200_indicator_data
+from models.user_activity import update_last_active
+from services.signal_data import fetch_top_100_indicator_data
 from services.pre_score_engine import rank_top_setups
 from services.ai_postprocess import post_process_and_rank
-
+from tasks.handlers import handle_streak
 # Signal display configuration
 SIGNAL_EMOJI = {
     "BUY": "🟢",
@@ -227,7 +227,9 @@ async def signals_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
     user_id = user.id
-    
+    await update_last_active(user_id, command_name="/signals")
+    await handle_streak(update, context)
+   
     # Get user tier
     user_tier = get_user_tier(user_id)
     tier_config = TIER_CONFIG.get(user_tier, TIER_CONFIG["free"])

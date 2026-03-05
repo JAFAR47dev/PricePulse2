@@ -35,9 +35,11 @@ async def fav_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def fav_text_handler(update, context):
     try:
-                
+        
+        
         fav_mode = context.user_data.get("fav_mode")
     
+        # Early return if not in fav mode or if alert flow is active
         if context.user_data.get("alert_flow") or fav_mode is None:
             return
         
@@ -67,7 +69,10 @@ async def fav_text_handler(update, context):
                         f"⚠️ *{symbol}* is already in your favorites.",
                         parse_mode="Markdown"
                     )
-
+            
+            # ✅ ADDED: Clear fav_mode after processing
+            context.user_data.pop("fav_mode", None)
+        
         # -------------------------
         # REMOVE FAVORITE
         # -------------------------
@@ -83,27 +88,35 @@ async def fav_text_handler(update, context):
             else:
                 if success:
                     await update.message.reply_text(
-                        f"❌ Removed *{symbol}* from favorites.",
+                        f"✅ Removed *{symbol}* from favorites!",
                         parse_mode="Markdown"
                     )
                 else:
                     await update.message.reply_text(
-                        f"⚠️ *{symbol}* was not in your favorites.",
+                        f"⚠️ *{symbol}* is not in your favorites.",
                         parse_mode="Markdown"
                     )
+            
+            # ✅ ADDED: Clear fav_mode after processing
+            context.user_data.pop("fav_mode", None)
+            context.user_data.pop("fav_mode_since", None)
 
-        # Clear after processing
-        context.user_data.pop("fav_mode", None)
-        context.user_data.pop("fav_mode_since", None)
-
+        # -------------------------
+        # UNKNOWN MODE (SAFETY)
+        # -------------------------
+        else:
+            # Clear invalid mode
+            context.user_data.pop("fav_mode", None)
+            await update.message.reply_text(
+                "❌ Invalid favorite mode. Please use /fav to start over."
+            )
+    
     except Exception as e:
-        print("Unexpected error in fav_text_handler:", e)
+        print("ERROR in fav_text_handler:", e)
         traceback.print_exc()
-        try:
-            await update.message.reply_text("❌ Unexpected error. Try again later.")
-        except Exception:
-            pass
-
-        # Always clear mode on exception also
+        # Clear mode on unexpected errors
         context.user_data.pop("fav_mode", None)
         context.user_data.pop("fav_mode_since", None)
+        await update.message.reply_text(
+            "❌ An unexpected error occurred. Please try again with /fav"
+        )
