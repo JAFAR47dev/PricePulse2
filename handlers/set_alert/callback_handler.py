@@ -92,51 +92,7 @@ async def details_input_handler(update: Update, context: ContextTypes.DEFAULT_TY
             alert_flow["stop_loss"] = stop_loss
             alert_flow["take_profit"] = take_profit
        
-       # elif alert_type == "indicator":
-#            user_text = user_input.strip()
-#            tokens = user_text.split()
-#    
-#            if len(tokens) < 3:
-#                await update.message.reply_text(
-#                    "❌ Invalid format.\n\n"
-#                    "**Correct format:**\n"
-#                    "`indicator operator value [timeframe]`\n\n"
-#                    "**Examples:**\n"
-#                    "`rsi < 30 1h`\n"
-#                    "`ema20 > 50000 4h`\n"
-#                    "`macd < 0 15m`\n",
-#                    parse_mode="Markdown"
-#                )
-#                return
-
-#            indicator_raw = tokens[0].lower()
-#            operator_raw = tokens[1]
-#            value_raw = tokens[2]
-#            timeframe_raw = tokens[3].lower() if len(tokens) > 3 else "1h"
-
-#            # Only numeric values allowed for indicator alerts
-#            try:
-#                numeric_value = float(value_raw)
-#            except:
-#                return await update.message.reply_text(
-#                    f"❌ `{value_raw}` is not a valid number.\n"
-#                    "Example: `rsi < 30 1h`",
-#                    parse_mode="Markdown"
-#                )
-
-#            # Build parsed structure for later validation/DB saving
-#            condition_data = {
-#                "indicator": indicator_raw,
-#                "operator": operator_raw,
-#                "value": numeric_value,
-#                "timeframe": timeframe_raw
-#            }
-
-#            # Store parsed data into alert_flow for next step
-#            alert_flow["condition"] = condition_data
-#            alert_flow["indicator_block"] = user_text  
-#    
-
+    
         elif alert_type == "indicator":
             user_text = user_input.strip()
             tokens = user_text.split()
@@ -236,7 +192,7 @@ async def persistence_callback_handler(update: Update, context: ContextTypes.DEF
     "✅ Now confirm your alert."
     )
 
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.3)
     await msg.delete()
 
     # Display final summary

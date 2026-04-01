@@ -76,67 +76,7 @@ def create_indicator_alert(user_id, symbol, indicator, operator, value, timefram
     conn.close()
     
     
-    
-#def count_user_price_alerts(user_id):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-#    cursor.execute("SELECT COUNT(*) FROM alerts WHERE user_id = ?", (user_id,))
-#    count = cursor.fetchone()[0]
-#    conn.close()
-#    return count
-#    
-# 
-#def update_price_alert(alert_id, condition, new_price):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-#    cursor.execute(
-#        "UPDATE alerts SET condition = ?, target_price = ? WHERE id = ?",
-#        (condition, new_price, alert_id)
-#    )
-#    conn.commit()
-#    conn.close()
-#    
-#def update_percent_alert(alert_id, new_percent):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-#    cursor.execute(
-#        "UPDATE percent_alerts SET threshold_percent = ? WHERE id = ?",
-#        (new_percent, alert_id)
-#    )
-#    conn.commit()
-#    conn.close()
-#    
-#def update_risk_alert(alert_id, stop_price, take_price):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-#    cursor.execute(
-#        "UPDATE risk_alerts SET stop_price = ?, take_price = ? WHERE id = ?",
-#        (stop_price, take_price, alert_id)
-#    )
-#    conn.commit()
-#    conn.close()
-#    
-#def update_volume_alert(alert_id, multiplier):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-#    cursor.execute(
-#        "UPDATE volume_alerts SET multiplier = ? WHERE id = ?",
-#        (multiplier, alert_id)
-#    )
-#    conn.commit()
-#    conn.close()
-#    
-#def update_custom_alert(alert_id, price_cond, price_val, indicator_cond, indicator_val):
-#    conn = get_connection()
-#    cursor = conn.cursor()
-#    cursor.execute("""
-#        UPDATE custom_alerts
-#        SET price_condition = ?, price_value = ?, rsi_condition = ?, rsi_value = ?
-#        WHERE id = ?
-#    """, (price_cond, price_val, indicator_cond, indicator_val, alert_id))
-#    conn.commit()
-#    conn.close()
-#    
+   
 def get_price_alerts(user_id):
     conn = get_connection()
     cursor = conn.cursor()

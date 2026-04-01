@@ -8,6 +8,7 @@ from utils.portfolio_prices import get_portfolio_crypto_prices
 import os
 import requests
 from models.user_activity import update_last_active
+from tasks.handlers import handle_streak
 
 ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
 
@@ -40,6 +41,8 @@ def get_fiat_to_usd(symbol):
 async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/addasset")
+    await handle_streak(update, context)
+    
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
@@ -98,16 +101,45 @@ async def add_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/portfolio")
+    await handle_streak(update, context)
+    
     plan = get_user_plan(user_id)
 
-    # --- PRO CHECK ---
+    # ═══════════════════════════════════════════════════════════════
+    # PRO-ONLY FEATURE CHECK
+    # ═══════════════════════════════════════════════════════════════
     if not is_pro_plan(plan):
-        await update.message.reply_text(
-            "🔒 This feature is for *Pro users only*. Use /upgrade to unlock full portfolio tools.",
-            parse_mode="Markdown"
+        message = (
+            "🔒 <b>Portfolio Tracking — Pro Feature</b>\n\n"
+            
+            "<b>What Pro users get:</b>\n"
+            "✅ Track unlimited coins in one dashboard\n"
+            "✅ Real-time portfolio value updates\n"
+            "✅ Set profit alerts (<code>/pftarget</code>)\n"
+            "✅ Set stop-loss alerts (<code>/pflimit</code>)\n"
+            "✅ See % gains/losses per coin\n"
+            "✅ Monitor total portfolio 24/7\n\n"
+            
+            "━━━━━━━━━━━━━━━━━━━━━━\n\n"
+            
+            
+            "💡 <b>Why Pro users love this:</b>\n"
+            "• Track all holdings in one place\n"
+            "• Never miss profit-taking opportunities\n"
+            "• Protect against major losses\n"
+            "• Peace of mind with automated alerts\n\n"
+            
+            
+            "━━━━━━━━━━━━━━━━━━━━━━\n\n"
+            
+            "🎯 <b>Your Current Plan:</b> Free\n"
+            "👉 <b>Unlock Portfolio:</b> /upgrade\n\n"
+            
+            "<i>💎 Bonus: Also unlock /today, /regime, /analysis, and other Pro features</i>"
         )
+        
+        await update.message.reply_text(message, parse_mode="HTML")
         return
-
     # --- LOAD PORTFOLIO SAFELY ---
     try:
         conn = get_connection()
@@ -240,6 +272,8 @@ async def view_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/removeasset")
+    await handle_streak(update, context)
+    
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
@@ -309,6 +343,8 @@ async def remove_asset(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def clear_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/clearportfolio")
+    await handle_streak(update, context)
+    
     plan = get_user_plan(user_id)
 
     if not is_pro_plan(plan):
@@ -338,6 +374,8 @@ async def clear_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/portfoliolimit")
+    await handle_streak(update, context)
+    
     plan = get_user_plan(user_id)
 
     # --- PRO CHECK ---
@@ -350,7 +388,7 @@ async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT
 
     if len(context.args) == 0:
         await update.message.reply_text(
-            "❌ Usage: `/pflimit [amount] [repeat]`\n"
+            "❌ Usage: `/pflimit [amount] [repeat(optional)]`\n"
             "Example: `/pflimit 15000 repeat`",
             parse_mode="Markdown"
         )
@@ -401,6 +439,8 @@ async def set_portfolio_loss_limit(update: Update, context: ContextTypes.DEFAULT
 async def set_portfolio_profit_target(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     await update_last_active(user_id, command_name="/portfoliotarget")
+    await handle_streak(update, context)
+    
     plan = get_user_plan(user_id)
 
     # --- PRO CHECK ---
@@ -414,7 +454,7 @@ async def set_portfolio_profit_target(update: Update, context: ContextTypes.DEFA
     # --- ARG CHECK ---
     if len(context.args) == 0:
         await update.message.reply_text(
-            "❌ Usage: `/pftarget [amount] [repeat]`\n"
+            "❌ Usage: `/pftarget [amount] [repeat(optional)]`\n"
             "Example: `/pftarget 30000 repeat`",
             parse_mode="Markdown"
         )

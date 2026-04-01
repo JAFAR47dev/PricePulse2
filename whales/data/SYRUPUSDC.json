@@ -1,120 +1,120 @@
 {
   "token": "SYRUPUSDC",
   "contract": "0x80ac24aa929eaf5013f6436cda2a7ba190f5cc0b",
-  "updated_at": "2025-11-24T17:03:23.204753",
+  "updated_at": "2026-02-03T23:21:37.772508",
   "version": "1.0.0",
   "whale_count": 100,
   "whales": [
     {
-      "address": "0x1601843c5e9bc251a3272907010afa41fa18347e",
-      "symbol": "SYRUPUSDC",
-      "rank": 1,
-      "balance": 553471009979171.0,
-      "share": 48.39,
-      "last_tx": null
-    },
-    {
       "address": "0x20b79d39bd44deee4f89b1e9d0e3b945fde06491",
       "symbol": "SYRUPUSDC",
-      "rank": 2,
-      "balance": 311891579824895.0,
-      "share": 27.27,
+      "rank": 1,
+      "balance": 546699586984661.0,
+      "share": 39.78,
       "last_tx": null
     },
     {
       "address": "0xb6dd7ae22c9922afee0642f9ac13e58633f715a2",
       "symbol": "SYRUPUSDC",
-      "rank": 3,
-      "balance": 96708852270937.0,
-      "share": 8.45,
+      "rank": 2,
+      "balance": 525698254197051.0,
+      "share": 38.25,
       "last_tx": null
     },
     {
-      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
+      "address": "0x1601843c5e9bc251a3272907010afa41fa18347e",
       "symbol": "SYRUPUSDC",
-      "rank": 4,
-      "balance": 46632216843205.0,
-      "share": 4.08,
+      "rank": 3,
+      "balance": 86956975427698.0,
+      "share": 6.33,
       "last_tx": null
     },
     {
       "address": "0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
       "symbol": "SYRUPUSDC",
-      "rank": 5,
-      "balance": 19303266055212.0,
-      "share": 1.69,
+      "rank": 4,
+      "balance": 22260938341457.0,
+      "share": 1.62,
       "last_tx": null
     },
     {
-      "address": "0xc9e9c85b33e87fde85c44dbf72b4b842a071551d",
+      "address": "0x725d92e2231e0487215614f80e3317d89b06062d",
+      "symbol": "SYRUPUSDC",
+      "rank": 5,
+      "balance": 21979724153970.0,
+      "share": 1.6,
+      "last_tx": null
+    },
+    {
+      "address": "0x33cd35738c06e946df81acb3cedac6dc53cb4f37",
       "symbol": "SYRUPUSDC",
       "rank": 6,
-      "balance": 11446926602948.0,
-      "share": 1,
+      "balance": 18633040962075.0,
+      "share": 1.36,
+      "last_tx": null
+    },
+    {
+      "address": "0x52aa899454998be5b000ad077a46bbe360f4e497",
+      "symbol": "SYRUPUSDC",
+      "rank": 7,
+      "balance": 14967413058030.0,
+      "share": 1.09,
       "last_tx": null
     },
     {
       "address": "0xdf998bec7943aa893ba8542ee57ea47b78f29007",
       "symbol": "SYRUPUSDC",
-      "rank": 7,
-      "balance": 7321245254668.0,
-      "share": 0.64,
+      "rank": 8,
+      "balance": 7365111647726.0,
+      "share": 0.54,
+      "last_tx": null
+    },
+    {
+      "address": "0x3f9e195a8ee39ed7b4a14a919f4a165c872976e5",
+      "symbol": "SYRUPUSDC",
+      "rank": 9,
+      "balance": 5015342075422.0,
+      "share": 0.36,
+      "last_tx": null
+    },
+    {
+      "address": "0x73d38d824fb2a24d1d888da0e582a850cb34343b",
+      "symbol": "SYRUPUSDC",
+      "rank": 10,
+      "balance": 4459026025725.0,
+      "share": 0.32,
       "last_tx": null
     },
     {
       "address": "0xb7848eeaad5d44c50d0b7bf8e7d0f8afb892fb44",
       "symbol": "SYRUPUSDC",
-      "rank": 8,
-      "balance": 5599205186308.0,
-      "share": 0.49,
-      "last_tx": null
-    },
-    {
-      "address": "0x913d5e835b3e515d00da7594c5454b1d9b929a9e",
-      "symbol": "SYRUPUSDC",
-      "rank": 9,
-      "balance": 5075012874102.0,
-      "share": 0.44,
-      "last_tx": null
-    },
-    {
-      "address": "0xee944c7dd107617550ec11afcf652e14e7670a37",
-      "symbol": "SYRUPUSDC",
-      "rank": 10,
-      "balance": 4683383073353.0,
-      "share": 0.41,
-      "last_tx": null
-    },
-    {
-      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
-      "symbol": "SYRUPUSDC",
       "rank": 11,
-      "balance": 3583975960111.0,
-      "share": 0.31,
+      "balance": 4099205186308.0,
+      "share": 0.3,
+      "last_tx": null
+    },
+    {
+      "address": "0x616de58c011f8736fa20c7ae5352f7f6fb9f0669",
+      "symbol": "SYRUPUSDC",
+      "rank": 12,
+      "balance": 3488044416555.0,
+      "share": 0.25,
       "last_tx": null
     },
     {
       "address": "0x1bf7ef7ed5ac8285dfe6e538b92364ad095dd1a3",
       "symbol": "SYRUPUSDC",
-      "rank": 12,
+      "rank": 13,
       "balance": 3324153362881.0,
-      "share": 0.29,
+      "share": 0.24,
       "last_tx": null
     },
     {
       "address": "0x7adba674344bda7d0528c8ac8316cb5a07f1fcfc",
       "symbol": "SYRUPUSDC",
-      "rank": 13,
-      "balance": 3194228744731.0,
-      "share": 0.28,
-      "last_tx": null
-    },
-    {
-      "address": "0x2570faf7c8a0da87d3f123b35cc722ec3fcc3e08",
-      "symbol": "SYRUPUSDC",
       "rank": 14,
-      "balance": 3189327873240.0,
-      "share": 0.28,
+      "balance": 3194228744731.0,
+      "share": 0.23,
       "last_tx": null
     },
     {
@@ -122,15 +122,15 @@
       "symbol": "SYRUPUSDC",
       "rank": 15,
       "balance": 3184180738686.0,
-      "share": 0.28,
+      "share": 0.23,
       "last_tx": null
     },
     {
-      "address": "0x8c21e8034a67ec06d874db5e845569fb3f6d3355",
+      "address": "0x121df6cf9d35c240aa191dc045e24b4f4ef4fa5b",
       "symbol": "SYRUPUSDC",
       "rank": 16,
-      "balance": 2742550894631.0,
-      "share": 0.24,
+      "balance": 2789219592970.0,
+      "share": 0.2,
       "last_tx": null
     },
     {
@@ -138,381 +138,541 @@
       "symbol": "SYRUPUSDC",
       "rank": 17,
       "balance": 2701156074506.0,
-      "share": 0.24,
+      "share": 0.2,
       "last_tx": null
     },
     {
-      "address": "0xac376cd0ef088e33268a2e90b031ff45a27a4b92",
+      "address": "0x11f87318b7dba75a74d7ef5cd78b04fa81d7d0e4",
       "symbol": "SYRUPUSDC",
       "rank": 18,
-      "balance": 1886889381408.0,
-      "share": 0.16,
+      "balance": 2470556106837.0,
+      "share": 0.18,
       "last_tx": null
     },
     {
-      "address": "0xc847273d66496c2a4550306f98c7f94f164965c1",
+      "address": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "symbol": "SYRUPUSDC",
       "rank": 19,
-      "balance": 1769847280982.0,
-      "share": 0.15,
-      "last_tx": null
-    },
-    {
-      "address": "0x4e6b27f5c46a655dccbfd23d879355685b9a8899",
-      "symbol": "SYRUPUSDC",
-      "rank": 20,
-      "balance": 1408100144204.0,
-      "share": 0.12,
+      "balance": 2370623751283.0,
+      "share": 0.17,
       "last_tx": null
     },
     {
       "address": "0xa52090c48e88afeac9af137f6fb50c62f1a5a575",
       "symbol": "SYRUPUSDC",
-      "rank": 21,
-      "balance": 1352584065583.0,
-      "share": 0.12,
+      "rank": 20,
+      "balance": 2295309516594.0,
+      "share": 0.17,
       "last_tx": null
     },
     {
-      "address": "0x22e18efd8435a2524e5ff6c85711f56055e1c7dd",
+      "address": "0xac376cd0ef088e33268a2e90b031ff45a27a4b92",
       "symbol": "SYRUPUSDC",
-      "rank": 22,
-      "balance": 1300627498855.0,
-      "share": 0.11,
+      "rank": 21,
+      "balance": 1886889381408.0,
+      "share": 0.14,
       "last_tx": null
     },
     {
       "address": "0x64a7bf5c6ae2107c825c26da369f519db7cecafe",
       "symbol": "SYRUPUSDC",
+      "rank": 22,
+      "balance": 1819513865090.0,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x842abc7c67ea08af53d79b41dd32f00cbc96a921",
+      "symbol": "SYRUPUSDC",
       "rank": 23,
-      "balance": 1284529903024.0,
+      "balance": 1794342501872.0,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0xc847273d66496c2a4550306f98c7f94f164965c1",
+      "symbol": "SYRUPUSDC",
+      "rank": 24,
+      "balance": 1769847280982.0,
+      "share": 0.13,
+      "last_tx": null
+    },
+    {
+      "address": "0x98bf1e573de69954a65bfd373f8a151bfb2b1177",
+      "symbol": "SYRUPUSDC",
+      "rank": 25,
+      "balance": 1673631576782.0,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x8180cdf3b3c18aad65c43511a0f0bb18f21e1b5a",
+      "symbol": "SYRUPUSDC",
+      "rank": 26,
+      "balance": 1596783616856.0,
+      "share": 0.12,
+      "last_tx": null
+    },
+    {
+      "address": "0x9890ef41c8780b569b09e64dc4415cc01f58bfe3",
+      "symbol": "SYRUPUSDC",
+      "rank": 27,
+      "balance": 1474966679213.0,
       "share": 0.11,
+      "last_tx": null
+    },
+    {
+      "address": "0xb0f8c20b849886cad270d705acc39739c0683f64",
+      "symbol": "SYRUPUSDC",
+      "rank": 28,
+      "balance": 1440636721873.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x09a3a1eedbddbabdc9d5e89a8dfbaea2956d6238",
+      "symbol": "SYRUPUSDC",
+      "rank": 29,
+      "balance": 1430193435412.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x3bc85299da4319a36daeb1aca9ebb8edd81b6797",
+      "symbol": "SYRUPUSDC",
+      "rank": 30,
+      "balance": 1420055677562.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x20a37c7cf1733f40d9b1811ea75b3976c394658d",
+      "symbol": "SYRUPUSDC",
+      "rank": 31,
+      "balance": 1416443870299.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0x22e18efd8435a2524e5ff6c85711f56055e1c7dd",
+      "symbol": "SYRUPUSDC",
+      "rank": 32,
+      "balance": 1329142549642.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xa7bffaede70c5544a59592e6c41e23b8dfd3d3e3",
+      "symbol": "SYRUPUSDC",
+      "rank": 33,
+      "balance": 1316578731313.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xe8d4ad695df1c1d16a6809c44e4f1f426951e374",
+      "symbol": "SYRUPUSDC",
+      "rank": 34,
+      "balance": 1314540805734.0,
+      "share": 0.1,
+      "last_tx": null
+    },
+    {
+      "address": "0xc9e9c85b33e87fde85c44dbf72b4b842a071551d",
+      "symbol": "SYRUPUSDC",
+      "rank": 35,
+      "balance": 1258104490479.0,
+      "share": 0.09,
       "last_tx": null
     },
     {
       "address": "0x87e91ef1479d77a2fdd5826341266c5f6f88137f",
       "symbol": "SYRUPUSDC",
-      "rank": 24,
+      "rank": 36,
       "balance": 1164089110496.0,
-      "share": 0.1,
-      "last_tx": null
-    },
-    {
-      "address": "0xda973a9e08dde843e324eed76dbe262eb3f2da65",
-      "symbol": "SYRUPUSDC",
-      "rank": 25,
-      "balance": 980135938372.0,
-      "share": 0.09,
-      "last_tx": null
-    },
-    {
-      "address": "0x7b2116745365e161744576ca3d454ee340745940",
-      "symbol": "SYRUPUSDC",
-      "rank": 26,
-      "balance": 931992570404.0,
       "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x27c9b9ef3def596549ee620a5646311b2df83221",
+      "address": "0xe526a18396d49c6f872b2436a216b8ec0fe676ad",
       "symbol": "SYRUPUSDC",
-      "rank": 27,
-      "balance": 896168890226.0,
+      "rank": 37,
+      "balance": 1130093137449.0,
       "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0xec0d6af584c9816db3938de9a3f882aee601ae08",
-      "symbol": "SYRUPUSDC",
-      "rank": 28,
-      "balance": 884920002534.0,
-      "share": 0.08,
-      "last_tx": null
-    },
-    {
-      "address": "0x14f89686eb5f522f73b6de2d07bb31f43aca5daa",
-      "symbol": "SYRUPUSDC",
-      "rank": 29,
-      "balance": 825276913449.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xca47472014bc5b6270a8017537d3323f951d0906",
-      "symbol": "SYRUPUSDC",
-      "rank": 30,
-      "balance": 803145766773.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xdf9c04615881ac9df6a51d6bbc125b4f204df3dd",
-      "symbol": "SYRUPUSDC",
-      "rank": 31,
-      "balance": 759580840434.0,
-      "share": 0.07,
-      "last_tx": null
-    },
-    {
-      "address": "0xe4f5e2355aa5177d2e37d3099708354b0b4870dc",
-      "symbol": "SYRUPUSDC",
-      "rank": 32,
-      "balance": 658927844008.0,
-      "share": 0.06,
-      "last_tx": null
-    },
-    {
-      "address": "0x228b846a06e2bbd078aa465bb0e1af23a5c6ade0",
-      "symbol": "SYRUPUSDC",
-      "rank": 33,
-      "balance": 621868538826.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x1288dcd338be53c4c29a3604b4a7faf6db26ad44",
-      "symbol": "SYRUPUSDC",
-      "rank": 34,
-      "balance": 593386912482.0,
-      "share": 0.05,
       "last_tx": null
     },
     {
       "address": "0x9b4933af6292f03255c0dfd09b12731942510499",
       "symbol": "SYRUPUSDC",
-      "rank": 35,
-      "balance": 582251152046.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x5292c449d1e5722fe1b336e989869f886c4ee81e",
-      "symbol": "SYRUPUSDC",
-      "rank": 36,
-      "balance": 555060651087.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0x7a9581a3e86cff9137ea7001cc47be5afa4e963b",
-      "symbol": "SYRUPUSDC",
-      "rank": 37,
-      "balance": 533800797450.0,
-      "share": 0.05,
-      "last_tx": null
-    },
-    {
-      "address": "0xdea9f5d650e533e1315acf9b27f53663f931c14e",
-      "symbol": "SYRUPUSDC",
       "rank": 38,
-      "balance": 528715718875.0,
-      "share": 0.05,
+      "balance": 1101944537383.0,
+      "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x195b780982b2aadf04dd4f63f6c94b82f4e6f619",
+      "address": "0xc4d60f8e621b8cd3d3b2e9bae970f44d37d53f3a",
       "symbol": "SYRUPUSDC",
       "rank": 39,
-      "balance": 519296648026.0,
-      "share": 0.05,
+      "balance": 1053681338317.0,
+      "share": 0.08,
       "last_tx": null
     },
     {
-      "address": "0x17dd76aa665a52085e0201678c2890ce74f72412",
+      "address": "0xe7e25d4f0f0076b08459e343529c446fef04f958",
       "symbol": "SYRUPUSDC",
       "rank": 40,
-      "balance": 505322648027.0,
-      "share": 0.04,
+      "balance": 1000003690556.0,
+      "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0x41e8ea179627b8a57639c212e566cae4bf6fc37e",
+      "address": "0xbfcc3272ea9bd1daaa604c5c366020577bbe247b",
       "symbol": "SYRUPUSDC",
       "rank": 41,
-      "balance": 502703393562.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x40d739cd73fb4bbe90998321fa408e85e99c7868",
-      "symbol": "SYRUPUSDC",
-      "rank": 42,
-      "balance": 500000000000.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xd5f0165af63ace80b943e84eb812cd2be92033f2",
-      "symbol": "SYRUPUSDC",
-      "rank": 43,
-      "balance": 494872890177.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xf078969e55cabf9ae3f26afeb5ec627b4430f19e",
-      "symbol": "SYRUPUSDC",
-      "rank": 44,
-      "balance": 488383881643.0,
-      "share": 0.04,
+      "balance": 997690800005.0,
+      "share": 0.07,
       "last_tx": null
     },
     {
       "address": "0x58a48b6cfa8b813757ad8627265741c679bb4445",
       "symbol": "SYRUPUSDC",
-      "rank": 45,
-      "balance": 486850815214.0,
-      "share": 0.04,
+      "rank": 42,
+      "balance": 969897446375.0,
+      "share": 0.07,
       "last_tx": null
     },
     {
-      "address": "0x89c1ee8a24d4d14509c318579223062e0719dbb2",
+      "address": "0x27c9b9ef3def596549ee620a5646311b2df83221",
+      "symbol": "SYRUPUSDC",
+      "rank": 43,
+      "balance": 896168890226.0,
+      "share": 0.07,
+      "last_tx": null
+    },
+    {
+      "address": "0xcf6f4c82227096a46195c732e9d972c2833da761",
+      "symbol": "SYRUPUSDC",
+      "rank": 44,
+      "balance": 876598915772.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0x75aa30f2107666d241f727cc6e0e52135b07763c",
+      "symbol": "SYRUPUSDC",
+      "rank": 45,
+      "balance": 870984401927.0,
+      "share": 0.06,
+      "last_tx": null
+    },
+    {
+      "address": "0xe9619ec206927ecd46798c107bcf3df695f24893",
       "symbol": "SYRUPUSDC",
       "rank": 46,
-      "balance": 458629479470.0,
-      "share": 0.04,
+      "balance": 836628588911.0,
+      "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0xe52e1694432f63656bf1bbc643d92cc1d614ced6",
+      "address": "0x14f89686eb5f522f73b6de2d07bb31f43aca5daa",
       "symbol": "SYRUPUSDC",
       "rank": 47,
-      "balance": 453913314104.0,
-      "share": 0.04,
+      "balance": 825276913449.0,
+      "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x2a18df130a5b2d5836c08ce09c199d009c374c77",
+      "address": "0xca47472014bc5b6270a8017537d3323f951d0906",
       "symbol": "SYRUPUSDC",
       "rank": 48,
-      "balance": 452606773118.0,
-      "share": 0.04,
+      "balance": 803145766773.0,
+      "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x6995dee9596553c18f3e85870108dbca13f6e3a6",
+      "address": "0xac0812bffcd8768a605947b0005d083245cfbe54",
       "symbol": "SYRUPUSDC",
       "rank": 49,
-      "balance": 452249246435.0,
-      "share": 0.04,
+      "balance": 782840263707.0,
+      "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x353f009029f35d743d4d14d390d66813d28fe4e6",
+      "address": "0xdf9c04615881ac9df6a51d6bbc125b4f204df3dd",
       "symbol": "SYRUPUSDC",
       "rank": 50,
-      "balance": 448514194573.0,
-      "share": 0.04,
+      "balance": 759580840434.0,
+      "share": 0.06,
       "last_tx": null
     },
     {
-      "address": "0x38147116ebafc8472b0f12ddfcc3391e0b41967b",
+      "address": "0x0d94593ed9cb2bda64fe88523f3e5f56a6e51a7e",
       "symbol": "SYRUPUSDC",
       "rank": 51,
-      "balance": 448438303261.0,
+      "balance": 748190770248.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x72a5196b6e0f4529c980f4bced5bbde899a88d66",
+      "symbol": "SYRUPUSDC",
+      "rank": 52,
+      "balance": 700324929739.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0xbf5b9111e0ad8581b64288ce17cec9cbf3f47974",
+      "symbol": "SYRUPUSDC",
+      "rank": 53,
+      "balance": 625102801245.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x228b846a06e2bbd078aa465bb0e1af23a5c6ade0",
+      "symbol": "SYRUPUSDC",
+      "rank": 54,
+      "balance": 621868538826.0,
+      "share": 0.05,
+      "last_tx": null
+    },
+    {
+      "address": "0x318e35c9e12bd59f0a3188846b49548ece65756f",
+      "symbol": "SYRUPUSDC",
+      "rank": 55,
+      "balance": 560794745601.0,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x8ccba38fd2c424b979bf2ca5d9ec2eca7c7e2728",
       "symbol": "SYRUPUSDC",
-      "rank": 52,
-      "balance": 444984631847.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x8eb1f0ff39a6c92a46b47613d460dedec3909981",
-      "symbol": "SYRUPUSDC",
-      "rank": 53,
-      "balance": 440510958930.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xb2b29a9e0d789b58e39528e8bda9e7755b08b977",
-      "symbol": "SYRUPUSDC",
-      "rank": 54,
-      "balance": 440182993557.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x75aa30f2107666d241f727cc6e0e52135b07763c",
-      "symbol": "SYRUPUSDC",
-      "rank": 55,
-      "balance": 440125180343.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x90ec167a965baea53ec81d44efd70a0665a4ba81",
-      "symbol": "SYRUPUSDC",
       "rank": 56,
-      "balance": 440111341895.0,
+      "balance": 559157435557.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x05aebe90bed94eb0b07fe7e101d707f1292dbfc7",
+      "address": "0x5292c449d1e5722fe1b336e989869f886c4ee81e",
       "symbol": "SYRUPUSDC",
       "rank": 57,
-      "balance": 421349323547.0,
+      "balance": 555060651087.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x9ff8d344ec9e2086a6c2087cf61d3c99cb08b8d8",
+      "address": "0x2da1b9355aa35e10b07dbe52a7f281f6c1d25ff2",
       "symbol": "SYRUPUSDC",
       "rank": 58,
-      "balance": 411242920280.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0x7fde637d685a5486ccb1b0a8ef658ad1a08e8337",
-      "symbol": "SYRUPUSDC",
-      "rank": 59,
-      "balance": 407452080600.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xbc14949a39cdfa0746f31d7223a5b7cac9ec02a4",
-      "symbol": "SYRUPUSDC",
-      "rank": 60,
-      "balance": 406698333490.0,
-      "share": 0.04,
-      "last_tx": null
-    },
-    {
-      "address": "0xe77884cddf148dd5f0e9191b33d8dbaddb16dfb5",
-      "symbol": "SYRUPUSDC",
-      "rank": 61,
-      "balance": 402934680702.0,
+      "balance": 549571222021.0,
       "share": 0.04,
       "last_tx": null
     },
     {
       "address": "0x6740ea389bac7dc42d0d8547b8861f5088838fa6",
       "symbol": "SYRUPUSDC",
-      "rank": 62,
-      "balance": 402695396160.0,
+      "rank": 59,
+      "balance": 548485398924.0,
       "share": 0.04,
       "last_tx": null
     },
     {
-      "address": "0x7d210e9a9374c32cbe29af900c1c25568e3f4ef1",
+      "address": "0x7a9581a3e86cff9137ea7001cc47be5afa4e963b",
+      "symbol": "SYRUPUSDC",
+      "rank": 60,
+      "balance": 533800797450.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x2e3c3cfb8175b87e62c70f93ec2f84f8cae30335",
+      "symbol": "SYRUPUSDC",
+      "rank": 61,
+      "balance": 524044292431.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x17dd76aa665a52085e0201678c2890ce74f72412",
+      "symbol": "SYRUPUSDC",
+      "rank": 62,
+      "balance": 505322648027.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x44c3b2750a5b81ac75c933664fd8ec9538c91d56",
       "symbol": "SYRUPUSDC",
       "rank": 63,
-      "balance": 401054700613.0,
+      "balance": 498673319632.0,
       "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x1578a50910f1850c046f66191818401d8be45fb5",
+      "symbol": "SYRUPUSDC",
+      "rank": 64,
+      "balance": 493816383099.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0xf078969e55cabf9ae3f26afeb5ec627b4430f19e",
+      "symbol": "SYRUPUSDC",
+      "rank": 65,
+      "balance": 488383881643.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x4249ffddac62b7da3d2eefeb96b3223a6eeb234b",
+      "symbol": "SYRUPUSDC",
+      "rank": 66,
+      "balance": 481584567938.0,
+      "share": 0.04,
+      "last_tx": null
+    },
+    {
+      "address": "0x74b3e58f389d2126480dc4aaf38bbb8605e17a2d",
+      "symbol": "SYRUPUSDC",
+      "rank": 67,
+      "balance": 455689273279.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xe52e1694432f63656bf1bbc643d92cc1d614ced6",
+      "symbol": "SYRUPUSDC",
+      "rank": 68,
+      "balance": 453913314104.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x6995dee9596553c18f3e85870108dbca13f6e3a6",
+      "symbol": "SYRUPUSDC",
+      "rank": 69,
+      "balance": 452249246435.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x89c1ee8a24d4d14509c318579223062e0719dbb2",
+      "symbol": "SYRUPUSDC",
+      "rank": 70,
+      "balance": 448629479470.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x38147116ebafc8472b0f12ddfcc3391e0b41967b",
+      "symbol": "SYRUPUSDC",
+      "rank": 71,
+      "balance": 448438303261.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xb2b29a9e0d789b58e39528e8bda9e7755b08b977",
+      "symbol": "SYRUPUSDC",
+      "rank": 72,
+      "balance": 440182993557.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xc2b14fde015fe4da3a238aa0e6fb7365af32760b",
+      "symbol": "SYRUPUSDC",
+      "rank": 73,
+      "balance": 437843239173.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x17b16ca983cf1f70b50c00837a2ce60be4812e28",
+      "symbol": "SYRUPUSDC",
+      "rank": 74,
+      "balance": 437382271823.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xdc7d6fed0f6de316e6ea2980c4cc4e326b95af5b",
+      "symbol": "SYRUPUSDC",
+      "rank": 75,
+      "balance": 437365567844.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xca092b6a4e85b85137416672ca8edcffbffd9fa3",
+      "symbol": "SYRUPUSDC",
+      "rank": 76,
+      "balance": 436985153192.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x4fc7e4b9584e6ac59883dbf3247999be9a81fc1a",
+      "symbol": "SYRUPUSDC",
+      "rank": 77,
+      "balance": 436580206471.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x081ec17d9700ca25f7b9473d068853f4de2764e6",
+      "symbol": "SYRUPUSDC",
+      "rank": 78,
+      "balance": 435048825515.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x05aebe90bed94eb0b07fe7e101d707f1292dbfc7",
+      "symbol": "SYRUPUSDC",
+      "rank": 79,
+      "balance": 421349323547.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xbc14949a39cdfa0746f31d7223a5b7cac9ec02a4",
+      "symbol": "SYRUPUSDC",
+      "rank": 80,
+      "balance": 406698333490.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xb71439dde3a98a0a22ca8515d50c7c69254d2932",
+      "symbol": "SYRUPUSDC",
+      "rank": 81,
+      "balance": 402884560611.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x42e1f83cf6329acceaf56d60ff5506a55066f0ac",
+      "symbol": "SYRUPUSDC",
+      "rank": 82,
+      "balance": 396132248160.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0x5a0e712373783ff06779e100f388d549e0a1b64f",
+      "symbol": "SYRUPUSDC",
+      "rank": 83,
+      "balance": 380376385772.0,
+      "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x11ce9003aee985c6491cdcc9e0e294cf6dc6e779",
       "symbol": "SYRUPUSDC",
-      "rank": 64,
+      "rank": 84,
       "balance": 378498912675.0,
       "share": 0.03,
       "last_tx": null
@@ -520,7 +680,7 @@
     {
       "address": "0x420ab45e0bd8863569a5efbb9c05d91f40624641",
       "symbol": "SYRUPUSDC",
-      "rank": 65,
+      "rank": 85,
       "balance": 374320202362.0,
       "share": 0.03,
       "last_tx": null
@@ -528,7 +688,7 @@
     {
       "address": "0xacd8bcaa65a4ee7a768f4d376c82643b30ff4656",
       "symbol": "SYRUPUSDC",
-      "rank": 66,
+      "rank": 86,
       "balance": 372445654910.0,
       "share": 0.03,
       "last_tx": null
@@ -536,272 +696,112 @@
     {
       "address": "0x87257c910a19a3fe64affabfe8cf9aaf2ab148bf",
       "symbol": "SYRUPUSDC",
-      "rank": 67,
+      "rank": 87,
       "balance": 355986125241.0,
+      "share": 0.03,
+      "last_tx": null
+    },
+    {
+      "address": "0xcf3ea217074a2f2f63fe17c908d714070af6d6cf",
+      "symbol": "SYRUPUSDC",
+      "rank": 88,
+      "balance": 350868300070.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0xb5e2043fc662092a4d4f1dec83eb487ac9cad09f",
       "symbol": "SYRUPUSDC",
-      "rank": 68,
-      "balance": 350763032889.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x46a83dc1a264bff133db887023d2884167094837",
-      "symbol": "SYRUPUSDC",
-      "rank": 69,
-      "balance": 349059731788.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xb5d2f41620fef9229cd1ec3bc8008206a8cac75d",
-      "symbol": "SYRUPUSDC",
-      "rank": 70,
-      "balance": 342508167462.0,
+      "rank": 89,
+      "balance": 346019212114.0,
       "share": 0.03,
       "last_tx": null
     },
     {
       "address": "0x5a8efc27df3d594d432433b73b1c7000ca26f71d",
       "symbol": "SYRUPUSDC",
-      "rank": 71,
+      "rank": 90,
       "balance": 335763434160.0,
-      "share": 0.03,
+      "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0x7a531b39f1eb5159d751c4d1ec06ca27ae1bc3bd",
       "symbol": "SYRUPUSDC",
-      "rank": 72,
+      "rank": 91,
       "balance": 332094961328.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x50eb759898dc73cdaaec262cfb9a56233afaf919",
-      "symbol": "SYRUPUSDC",
-      "rank": 73,
-      "balance": 327955752665.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xb846bbc28f943227f015e320a3b3fd36a34ba508",
-      "symbol": "SYRUPUSDC",
-      "rank": 74,
-      "balance": 321912791423.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x14fde893fbf52b19c56ca85c769f5f1cc71028cb",
-      "symbol": "SYRUPUSDC",
-      "rank": 75,
-      "balance": 318511612183.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xb24518f7ec8467c70cde6d719e59bd2fb997a999",
-      "symbol": "SYRUPUSDC",
-      "rank": 76,
-      "balance": 307928772807.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xb6834a6f91eb912c6b58dd9978372abbc9aa83e5",
-      "symbol": "SYRUPUSDC",
-      "rank": 77,
-      "balance": 297769956591.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0xe16f7659699ce83a08e42dd5ac226d77cd0f5a18",
-      "symbol": "SYRUPUSDC",
-      "rank": 78,
-      "balance": 286892019592.0,
-      "share": 0.03,
-      "last_tx": null
-    },
-    {
-      "address": "0x28154264650950044640ff93c469dd189778fcc1",
-      "symbol": "SYRUPUSDC",
-      "rank": 79,
-      "balance": 274887704358.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0xb5dd722b87c129dd9e18bd53122c2e1d957cae43",
+      "address": "0xb4e312a9107fdcda030c6a3d05472cca107a18e1",
       "symbol": "SYRUPUSDC",
-      "rank": 80,
-      "balance": 271175825336.0,
+      "rank": 92,
+      "balance": 329666514972.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x780f464b747ed1e92583fe3d62c8ae4ae2bcd2e8",
+      "symbol": "SYRUPUSDC",
+      "rank": 93,
+      "balance": 325391823028.0,
+      "share": 0.02,
+      "last_tx": null
+    },
+    {
+      "address": "0x51f8ef4d21faac49ee9dfd409dfc9235bbf63815",
+      "symbol": "SYRUPUSDC",
+      "rank": 94,
+      "balance": 323847639140.0,
       "share": 0.02,
       "last_tx": null
     },
     {
       "address": "0xe9f5c6a8cb558a697a501f12a9245646d30999bf",
       "symbol": "SYRUPUSDC",
-      "rank": 81,
-      "balance": 267667135105.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x862c6f07a3de7cf16b1a662c9affb6db2fe7eb9e",
-      "symbol": "SYRUPUSDC",
-      "rank": 82,
-      "balance": 265363773066.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x090d869dbb9215bdb18d61ebb1cbda8434e6f4cd",
-      "symbol": "SYRUPUSDC",
-      "rank": 83,
-      "balance": 265264130676.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xc1722c44ae8dd7c51045e7871cfdf711caafe83e",
-      "symbol": "SYRUPUSDC",
-      "rank": 84,
-      "balance": 264159583210.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xddc02f188e7918021ea99e6ca6ecf21b0390873a",
-      "symbol": "SYRUPUSDC",
-      "rank": 85,
-      "balance": 263644124683.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x42e1f83cf6329acceaf56d60ff5506a55066f0ac",
-      "symbol": "SYRUPUSDC",
-      "rank": 86,
-      "balance": 255760901249.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x1dcd92a36d89d949589d996adf82779a6f8698fd",
-      "symbol": "SYRUPUSDC",
-      "rank": 87,
-      "balance": 253753759048.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x8ae6dd4c25edd0614e2c2f09dc2033823524c4e1",
-      "symbol": "SYRUPUSDC",
-      "rank": 88,
-      "balance": 249613990245.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x3194ac05bfce1b64e506784836e48e6f2eb895ef",
-      "symbol": "SYRUPUSDC",
-      "rank": 89,
-      "balance": 236640417093.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x90d4425ccccc6a980a953dafc3576c9f93e662a2",
-      "symbol": "SYRUPUSDC",
-      "rank": 90,
-      "balance": 231170035963.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x073f461e37b7486c9cfde0ba2bfaa1df5df62399",
-      "symbol": "SYRUPUSDC",
-      "rank": 91,
-      "balance": 228491727130.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xa5a7dcd7f107e205ee0006685b0efc59f398ff24",
-      "symbol": "SYRUPUSDC",
-      "rank": 92,
-      "balance": 227462202737.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0xa42ad1fad4095eebd65356696aae43e50f712fb5",
-      "symbol": "SYRUPUSDC",
-      "rank": 93,
-      "balance": 225272320365.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x972ab358df41272e7ccbe0849a5420bea7001afa",
-      "symbol": "SYRUPUSDC",
-      "rank": 94,
-      "balance": 224761190002.0,
-      "share": 0.02,
-      "last_tx": null
-    },
-    {
-      "address": "0x6e62f3114db53ac254aba8da00d2e0d688c48645",
-      "symbol": "SYRUPUSDC",
       "rank": 95,
-      "balance": 224163077665.0,
+      "balance": 320893373779.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0xb25b5b75f0f7f833e6b44ed42af7af63438b5b8e",
+      "address": "0x067e49bef805554307123f9b44890d45a2f5788d",
       "symbol": "SYRUPUSDC",
       "rank": 96,
-      "balance": 222797957610.0,
+      "balance": 308590825836.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x2db8f5521a9aae74a39def45369b3ee6930e3aa3",
+      "address": "0x72ccb3532f0acbe62575399e5829a08f2eecd22a",
       "symbol": "SYRUPUSDC",
       "rank": 97,
-      "balance": 222724431724.0,
+      "balance": 304648901432.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x1578a50910f1850c046f66191818401d8be45fb5",
+      "address": "0x51b85cfada89e785b4a3c3a477cea50f7ee20036",
       "symbol": "SYRUPUSDC",
       "rank": 98,
-      "balance": 217327205095.0,
+      "balance": 298036455257.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0x2e2db7afd33aed011cabd99d42d0d399b19d061e",
+      "address": "0x43d271c17612f8f431c7533b7827993e203e9e83",
       "symbol": "SYRUPUSDC",
       "rank": 99,
-      "balance": 216874896851.0,
+      "balance": 287145865757.0,
       "share": 0.02,
       "last_tx": null
     },
     {
-      "address": "0xe705ae4060965203948ed4d3e6debea08ac3795b",
+      "address": "0xe16f7659699ce83a08e42dd5ac226d77cd0f5a18",
       "symbol": "SYRUPUSDC",
       "rank": 100,
-      "balance": 214521275767.0,
+      "balance": 286892019592.0,
       "share": 0.02,
       "last_tx": null
     }
